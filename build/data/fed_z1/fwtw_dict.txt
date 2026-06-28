@@ -1,0 +1,8 @@
+Instrument Name	Financial Accounts instrument name. See the instrument table descriptions in the Financial Accounts Guide (https://www.federalreserve.gov/apps/fof/FOFTables.aspx) for a description of each instrument.
+Instrument Code	5-digit code associated with each Financial Accounts instrument.
+Holder Name	Holding sector name. See the sector table descriptions in the Financial Accounts Guide (https://www.federalreserve.gov/apps/fof/FOFTables.aspx) for a description of each sector.
+Holder Code	2-digit code associated with the holding sector. See the series structiure in the Financial Accounts Guide (https://www.federalreserve.gov/apps/fof/SeriesStructure.aspx) for the code associated with each sector.
+Issuer Name	Issuing sector name. See the sector table descriptions in the Financial Accounts Guide (https://www.federalreserve.gov/apps/fof/FOFTables.aspx) for a description of each sector.
+Issuer Code	2-digit code associated with the issuing sector. See the series structiure in the Financial Accounts Guide (https://www.federalreserve.gov/apps/fof/SeriesStructure.aspx) for the code associated with each sector.
+Date	Date in YYYYQQ format
+Level	Balance of the FWTW relationship for the given instrument between the holding and issuing sector at the given date, in millions of dollars.

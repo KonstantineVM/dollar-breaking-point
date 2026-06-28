@@ -1,0 +1,543 @@
+{
+ "source": "BIS LBS",
+ "basis": "residency",
+ "reporting": "all reporting banks (5A)",
+ "curr_type": "all (denom fixes currency)",
+ "position_C": "Total claims",
+ "position_L": "Total liabilities",
+ "unit": "USD millions",
+ "rows": [
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "US",
+   "period": "2025-Q4",
+   "value_usd_mn": 8262469.83
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "CN",
+   "period": "2025-Q4",
+   "value_usd_mn": 236443.208
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "JP",
+   "period": "2025-Q4",
+   "value_usd_mn": 659401.768
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "GB",
+   "period": "2025-Q4",
+   "value_usd_mn": 2453204.547
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "DE",
+   "period": "2025-Q4",
+   "value_usd_mn": 348157.766
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "FR",
+   "period": "2025-Q4",
+   "value_usd_mn": 542844.159
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "KY",
+   "period": "2025-Q4",
+   "value_usd_mn": 1594948.828
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "HK",
+   "period": "2025-Q4",
+   "value_usd_mn": 474346.764
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "SG",
+   "period": "2025-Q4",
+   "value_usd_mn": 540103.232
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "CH",
+   "period": "2025-Q4",
+   "value_usd_mn": 285833.462
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "LU",
+   "period": "2025-Q4",
+   "value_usd_mn": 447923.245
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "IE",
+   "period": "2025-Q4",
+   "value_usd_mn": 351528.264
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "NL",
+   "period": "2025-Q4",
+   "value_usd_mn": 141747.411
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "BE",
+   "period": "2025-Q4",
+   "value_usd_mn": 56401.773
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "CA",
+   "period": "2025-Q4",
+   "value_usd_mn": 652218.213
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "KR",
+   "period": "2025-Q4",
+   "value_usd_mn": 175684.286
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "AU",
+   "period": "2025-Q4",
+   "value_usd_mn": 225256.324
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "IN",
+   "period": "2025-Q4",
+   "value_usd_mn": 111043.788
+  },
+  {
+   "denom": "USD",
+   "position": "C",
+   "cp_country": "BR",
+   "period": "2025-Q4",
+   "value_usd_mn": 232335.862
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "US",
+   "period": "2025-Q4",
+   "value_usd_mn": 4194157.155
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "CN",
+   "period": "2025-Q4",
+   "value_usd_mn": 638800.97
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "JP",
+   "period": "2025-Q4",
+   "value_usd_mn": 554934.8
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "GB",
+   "period": "2025-Q4",
+   "value_usd_mn": 2678117.61
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "DE",
+   "period": "2025-Q4",
+   "value_usd_mn": 556727.466
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "FR",
+   "period": "2025-Q4",
+   "value_usd_mn": 585270.096
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "KY",
+   "period": "2025-Q4",
+   "value_usd_mn": 1137476.278
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "HK",
+   "period": "2025-Q4",
+   "value_usd_mn": 796854.524
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "SG",
+   "period": "2025-Q4",
+   "value_usd_mn": 638109.497
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "CH",
+   "period": "2025-Q4",
+   "value_usd_mn": 519823.212
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "LU",
+   "period": "2025-Q4",
+   "value_usd_mn": 447629.335
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "IE",
+   "period": "2025-Q4",
+   "value_usd_mn": 439592.08
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "NL",
+   "period": "2025-Q4",
+   "value_usd_mn": 284300.816
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "BE",
+   "period": "2025-Q4",
+   "value_usd_mn": 89662.323
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "CA",
+   "period": "2025-Q4",
+   "value_usd_mn": 421705.829
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "KR",
+   "period": "2025-Q4",
+   "value_usd_mn": 102982.642
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "AU",
+   "period": "2025-Q4",
+   "value_usd_mn": 183021.51
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "IN",
+   "period": "2025-Q4",
+   "value_usd_mn": 105628.745
+  },
+  {
+   "denom": "USD",
+   "position": "L",
+   "cp_country": "BR",
+   "period": "2025-Q4",
+   "value_usd_mn": 59942.908
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "US",
+   "period": "2025-Q4",
+   "value_usd_mn": 9434975.799
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "CN",
+   "period": "2025-Q4",
+   "value_usd_mn": 840624.562
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "JP",
+   "period": "2025-Q4",
+   "value_usd_mn": 1780691.701
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "GB",
+   "period": "2025-Q4",
+   "value_usd_mn": 6927220.709
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "DE",
+   "period": "2025-Q4",
+   "value_usd_mn": 2441513.402
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "FR",
+   "period": "2025-Q4",
+   "value_usd_mn": 2874511.87
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "KY",
+   "period": "2025-Q4",
+   "value_usd_mn": 2614895.963
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "HK",
+   "period": "2025-Q4",
+   "value_usd_mn": 1092756.469
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "SG",
+   "period": "2025-Q4",
+   "value_usd_mn": 940251.121
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "CH",
+   "period": "2025-Q4",
+   "value_usd_mn": 741950.017
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "LU",
+   "period": "2025-Q4",
+   "value_usd_mn": 1548684.068
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "IE",
+   "period": "2025-Q4",
+   "value_usd_mn": 1082497.176
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "NL",
+   "period": "2025-Q4",
+   "value_usd_mn": 1244574.592
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "BE",
+   "period": "2025-Q4",
+   "value_usd_mn": 508457.905
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "CA",
+   "period": "2025-Q4",
+   "value_usd_mn": 1113830.714
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "KR",
+   "period": "2025-Q4",
+   "value_usd_mn": 346836.902
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "AU",
+   "period": "2025-Q4",
+   "value_usd_mn": 645035.388
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "IN",
+   "period": "2025-Q4",
+   "value_usd_mn": 213961.242
+  },
+  {
+   "denom": "TO1",
+   "position": "C",
+   "cp_country": "BR",
+   "period": "2025-Q4",
+   "value_usd_mn": 329380.017
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "US",
+   "period": "2025-Q4",
+   "value_usd_mn": 5594274.476
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "CN",
+   "period": "2025-Q4",
+   "value_usd_mn": 1216187.876
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "JP",
+   "period": "2025-Q4",
+   "value_usd_mn": 1108057.849
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "GB",
+   "period": "2025-Q4",
+   "value_usd_mn": 6951968.579
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "DE",
+   "period": "2025-Q4",
+   "value_usd_mn": 2789524.574
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "FR",
+   "period": "2025-Q4",
+   "value_usd_mn": 2026990.891
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "KY",
+   "period": "2025-Q4",
+   "value_usd_mn": 1452452.396
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "HK",
+   "period": "2025-Q4",
+   "value_usd_mn": 1818687.816
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "SG",
+   "period": "2025-Q4",
+   "value_usd_mn": 1019739.109
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "CH",
+   "period": "2025-Q4",
+   "value_usd_mn": 981295.305
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "LU",
+   "period": "2025-Q4",
+   "value_usd_mn": 1342633.018
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "IE",
+   "period": "2025-Q4",
+   "value_usd_mn": 1195813.168
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "NL",
+   "period": "2025-Q4",
+   "value_usd_mn": 1194226.114
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "BE",
+   "period": "2025-Q4",
+   "value_usd_mn": 572268.814
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "CA",
+   "period": "2025-Q4",
+   "value_usd_mn": 597244.898
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "KR",
+   "period": "2025-Q4",
+   "value_usd_mn": 172573.87
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "AU",
+   "period": "2025-Q4",
+   "value_usd_mn": 352009.735
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "IN",
+   "period": "2025-Q4",
+   "value_usd_mn": 148263.271
+  },
+  {
+   "denom": "TO1",
+   "position": "L",
+   "cp_country": "BR",
+   "period": "2025-Q4",
+   "value_usd_mn": 70725.699
+  }
+ ]
+}

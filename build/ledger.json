@@ -6,7 +6,14 @@
       "verifier": "build/contracts/_manifest.json",
       "gate": "human",
       "approved_marker": "build/approvals/DP1.approved",
-      "note": "Grounded 12 data-source contracts against publishers (9 tier A, 3 tier B). Includes China: nbs (marginals_only), pboc (marginals_only), safe (mixed - outward portfolio assets bilateral, IIP marginals). Each China contract states bilateral-vs-marginals with fetched-page evidence; absent bilateral series recorded as UNVERIFIED-by-absence. Human gate = PR review (web). DP2 not begun."
+      "note": "13 data-source contracts grounded against publishers (10 tier A, 3 tier B). Original 12 incl. China (nbs/pboc marginals_only, safe mixed) merged to main via PR #2. REOPENED to add bis_cbs (BIS Consolidated Banking Statistics, tier A, bilateral) — the counterparty-nationality basis DP2 found missing. Grounding falsified naive guesses against the publisher (ultimate-risk is published as 'Guarantor basis' CBS_BASIS=U, not 'UR'; key 5A/position-S corrected); integrity critic BLOCKED an ungrounded L_MEASURE=S code in the headline observation, fixed by adding the CL_STOCK_FLOW excerpt (S = Amounts outstanding/Stocks). Determination: CBS-UR NARROWS but does NOT CLOSE the DP2 China HOLE (bank-claims leg only; non-bank securities/Treasury leg and offshore-SPV issuer-nationality remain uncovered)."
+    },
+    {
+      "id": "DP2",
+      "status": "done",
+      "verifier": "build/results/dp2_residual.json",
+      "gate": "none",
+      "note": "Assembled the global SFC FWTW matrix from real pulled data (706 OBSERVED cells: Fed EFA 585, TIC 36 named-country + 1 residual bucket, BIS LBS 76, COFER 9 marginal). RAS/Sinkhorn run, NON-CONVERGENT by structural sparsity (only the TIC US-Treasury column has area-by-area support; row residual L2 ~ $3.96tn) — reported, not smoothed. GCAP China reallocation magnitude recorded as HOLE (counterparty-nationality basis absent from the 12 contracts; direction upward, ~$600bn-class figure neither confirmed nor assumed). Integrity critic BLOCKED a false-provenance label on the TIC residual; fixed by retaining all 36 publisher-named countries (residual now = publisher's true $710.8bn All Other). DP3 not begun."
     }
   ]
 }

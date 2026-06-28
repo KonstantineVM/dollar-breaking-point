@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mes:Structure xmlns:mes="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:str="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure" xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message ../../schemas/SDMXMessage.xsd">
+  <mes:Header>
+    <mes:ID>IDREF8841</mes:ID>
+    <mes:Test>false</mes:Test>
+    <mes:Prepared>2026-06-28T21:13:18.804282919Z</mes:Prepared>
+    <mes:Sender id="unknown"/>
+  </mes:Header>
+  <mes:Structures>
+    <str:Codelists>
+      <str:Codelist urn="urn:sdmx:org.sdmx.infomodel.codelist.Codelist=IMF.STA:CL_PIP_INDICATOR(4.0.0)" agencyID="IMF.STA" id="CL_PIP_INDICATOR" version="4.0.0" isFinal="true" isExternalReference="false" isPartial="false">
+        <com:Annotations>
+          <com:Annotation id="origin"/>
+          <com:Annotation id="isFinal"/>
+          <com:Annotation id="lastUpdatedAt"/>
+        </com:Annotations>
+        <com:Name xml:lang="en">Portfolio Investment Positions by Counterpart Economy (PIP) Indicator</com:Name>
+        <str:Code id="P_TOTINV_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_USD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_USD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in US dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. US dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_USD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_USD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in US dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. US dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_USD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_USD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in US dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. US dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_USD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_USD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in US dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. US dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_USD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_USD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in US dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. US dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_EUR_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_EUR_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Euro, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Euro The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_EUR_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_EUR_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Euro, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Euro The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_EUR_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_EUR_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Euro, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Euro The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_EUR_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_EUR_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Euro, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Euro The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_EUR_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_EUR_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Euro, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Euro The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_GBP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_GBP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Pound sterling, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Pound sterling The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_GBP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_GBP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Pound sterling, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Pound sterling The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_GBP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_GBP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Pound sterling, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Pound sterling The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_GBP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_GBP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Pound sterling, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Pound sterling The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_CAD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_CAD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Canadian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Canadian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_CAD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_CAD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Canadian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Canadian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_CAD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_CAD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Canadian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Canadian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_CAD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_CAD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Canadian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Canadian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_CAD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_CAD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Canadian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Canadian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_CHF_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_CHF_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Swiss franc, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Swiss franc The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_CHF_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_CHF_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Swiss franc, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Swiss franc The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_CHF_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_CHF_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Swiss franc, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Swiss franc The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_CHF_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_CHF_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Swiss franc, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Swiss franc The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_CHF_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_CHF_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Swiss franc, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Swiss franc The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_OTHC_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_OTHC_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Other currencies, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Other currencies The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_OTHC_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_OTHC_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Other currencies, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Other currencies The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_OTHC_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_OTHC_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Other currencies, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Other currencies The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_OTHC_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_OTHC_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Other currencies, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Other currencies The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_OTHC_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_OTHC_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Other currencies, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Other currencies The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_JPY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_JPY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Japanese yen, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Japanese yen The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_JPY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_JPY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Japanese yen, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Japanese yen The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_JPY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_JPY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Japanese yen, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Japanese yen The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_JPY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_JPY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Japanese yen, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Japanese yen The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_JPY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_JPY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Japanese yen, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Japanese yen The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_CNY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_CNY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Chinese yuan renminbi, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Chinese yuan renminbi The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_CNY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_CNY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Chinese yuan renminbi, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Chinese yuan renminbi The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_CNY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_CNY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Chinese yuan renminbi, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Chinese yuan renminbi The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_CNY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_CNY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Chinese yuan renminbi, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Chinese yuan renminbi The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_CNY_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_CNY_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Chinese yuan renminbi, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Chinese yuan renminbi The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_DIC_AUD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_DIC_AUD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Denominated in Australian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Australian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_DIC_AUD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_DIC_AUD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Denominated in Australian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Australian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_DIC_AUD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_DIC_AUD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Denominated in Australian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Australian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_DIC_AUD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_DIC_AUD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Denominated in Australian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Australian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_AUD_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_AUD_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Australian dollar, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Australian dollar The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3SNP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3SNP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities: short or negative positions, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Debt securities positions where the holder has sold securities they do not own, betting on a decline in the price, or positions that result in a liability greater than the value of the securities held. The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F5SNP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F5SNP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity: short or negative positions, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Positions where the holder has sold equity they do not own, betting on a decline in the price, or positions that result in a liability greater than the value of the equity held. The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_TSNP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TSNP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total, short or negative positions, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Total, short or negative positions. The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3SNP_S_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3SNP_S_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities: short or negative positions, Short-term, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Debt securities positions where the holder has sold securities they do not own, betting on a decline in the price, or positions that result in a liability greater than the value of the securities held. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3SNP_L_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3SNP_L_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities: short or negative positions, Long-term, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Debt securities positions where the holder has sold securities they do not own, betting on a decline in the price, or positions that result in a liability greater than the value of the securities held. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_P_SCC_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_P_SCC_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Positions, Derived using counterparty information</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The financial holdings of assets, liabilities, and equity at a specific point in time. Derived using counterparty information.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_L_P_SCC_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_L_P_SCC_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Long-term, Positions, Derived using counterparty information</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in more than one year, or has no stated maturity (referred to as long-term maturity) The financial holdings of assets, liabilities, and equity at a specific point in time. Derived using counterparty information.</com:Description>
+        </str:Code>
+        <str:Code id="P_F51_P_SCC_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F51_P_SCC_USD">
+          <com:Name xml:lang="en">Portfolio investment, Equity, Positions, Derived using counterparty information</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Ownership interest in a company or asset. The financial holdings of assets, liabilities, and equity at a specific point in time. Derived using counterparty information.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_P_SCC_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_P_SCC_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Positions, Derived using counterparty information</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. The financial holdings of assets, liabilities, and equity at a specific point in time. Derived using counterparty information.</com:Description>
+        </str:Code>
+        <str:Code id="P_TOTINV_P_SCC_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_TOTINV_P_SCC_USD">
+          <com:Name xml:lang="en">Portfolio investment, Total investment, Positions, Derived using counterparty information</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  The sum of all investments across different categories. The financial holdings of assets, liabilities, and equity at a specific point in time. Derived using counterparty information.</com:Description>
+        </str:Code>
+        <str:Code id="P_F3_S_DIC_GBP_P_USD" urn="urn:sdmx:org.sdmx.infomodel.codelist.Code=IMF.STA:CL_PIP_INDICATOR(4.0.0).P_F3_S_DIC_GBP_P_USD">
+          <com:Name xml:lang="en">Portfolio investment, Debt securities, Short-term, Denominated in Pound sterling, Positions</com:Name>
+          <com:Description xml:lang="en">Portfolio investment reflects cross-border transactions and positions involving debt or equity securities, other than those included in direct investment or reserve assets.  Tradable financial instruments representing a debt, such as bonds and notes. Original contract stipulates that payment is due in one year or less or payable on demand (referred to as short-term maturity).   The currency in which the underlying economic transaction or asset is valued, even if it is reported in a different currency. Pound sterling The financial holdings of assets, liabilities, and equity at a specific point in time.</com:Description>
+        </str:Code>
+      </str:Codelist>
+    </str:Codelists>
+  </mes:Structures>
+</mes:Structure>

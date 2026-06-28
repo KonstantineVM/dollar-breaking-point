@@ -1,0 +1,202 @@
+{
+ "dp": "DP2",
+ "artifact": "dp2_residual.json",
+ "title": "Reconciliation residual diagnostic for the global SFC FWTW matrix",
+ "generated": "2026-06-28",
+ "matrix_spec": "build/model/matrix_spec.json",
+ "assembled_matrix": "build/model/matrix_assembled.json",
+ "method": "M2_RAS_sinkhorn (biproportional / Sinkhorn iterative proportional fitting), method named in matrix_spec.json before use",
+ "headline_finding": "The assembled cross-border bilateral data is TOO SPARSE for a meaningful dense area-by-area RAS. Genuine area-x-area bilateral support exists for ONE column only (foreign holdings of US Treasuries, TIC). BIS LBS supplies area-level MARGINALS (claims-on / liabilities-to each area vs the global bank system), not area-x-area cells. A full-matrix RAS to those marginals does NOT converge: the row marginal cannot be satisfied by a seed whose only observed mass sits in the US-Treasury column. This is reported, not smoothed over. What WAS balanced is the single column that has real bilateral support.",
+ "balancing_pass_log": {
+  "scope": "area x area USD cross-border claim matrix, 19 areas, seed = the 17 observed bilateral TIC US-Treasury cells whose counterparty country falls inside this 19-area RAS set (a subset of the 36 publisher-named TIC country cells retained in matrix_assembled.json; the other named countries fall outside the 19-area RAS set) + uniform prior on otherwise-empty rows/cols with positive marginals",
+  "n_passes_run": 200,
+  "converged": false,
+  "convergence_tolerance_rel": 1e-06,
+  "first_pass": {
+   "pass": 1,
+   "row_resid_L2": 4131597.8655553362,
+   "col_resid_L2": 3.729721449754307e-09,
+   "row_resid_Linf": 3901038.568212725,
+   "col_resid_Linf": 3.725290298461914e-09
+  },
+  "last_pass": {
+   "pass": 200,
+   "row_resid_L2": 3962793.3519522827,
+   "col_resid_L2": 3.727904178704343e-09,
+   "row_resid_Linf": 3741654.0057547353,
+   "col_resid_Linf": 3.725290298461914e-09
+  },
+  "interpretation": "Column residual drives to ~0 (col L2 = 3.73e-09) because the prior lets columns absorb their marginals, but ROW residual stalls at L2 ~ 3.963e+06 USD mn: rows whose only real support points into the US column cannot simultaneously match their BIS USD-claim row marginals. Non-convergence is structural sparsity, not a numerical failure.",
+  "marginal_imbalance_row_minus_col_USD_mn": -3357154.934000002,
+  "observed_bilateral_cells_in_seed": 17,
+  "observed_bilateral_cells_in_seed_note": "17 = the subset of the 36 retained publisher-named TIC US-Treasury cells whose counterparty country is one of the 19 RAS areas; not a count of all retained TIC cells.",
+  "prior_seeded_cells": 38
+ },
+ "largest_residuals_concentration": {
+  "row_side_top5_area_residual_USD_mn": [
+   [
+    "US",
+    3741654.0057547353
+   ],
+   [
+    "GB",
+    -1012728.3981216457
+   ],
+   [
+    "KY",
+    -430135.9001632164
+   ],
+   [
+    "HK",
+    -301330.0097849349
+   ],
+   [
+    "CN",
+    -241562.16315931454
+   ]
+  ],
+  "col_side_top5_area_residual_USD_mn": [
+   [
+    "US",
+    3.725290298461914e-09
+   ],
+   [
+    "JP",
+    1.1641532182693481e-10
+   ],
+   [
+    "FR",
+    -5.820766091346741e-11
+   ],
+   [
+    "CN",
+    2.9103830456733704e-11
+   ],
+   [
+    "CH",
+    -2.9103830456733704e-11
+   ]
+  ],
+  "where_they_sit": "Row (creditor-side) residuals concentrate in the large USD-claim areas (GB, KY) whose claims have no bilateral debtor support in the seed beyond the US column. The US column itself absorbs the bulk of placeable mass. Residuals concentrate by AREA in offshore/financial-center jurisdictions (Cayman, UK, Hong Kong) and by INSTRUMENT in I1 deposits/loans (BIS) which lack a counterparty-area resolution."
+ },
+ "what_was_actually_balanced": {
+  "block": "us_treasury_by_counterparty (TIC, Dec-2025)",
+  "method": "single-column closure to the published Grand Total marginal",
+  "named_country_cells_retained": 36,
+  "named_country_cells_sum_USD_mn": 8556700.0,
+  "named_country_cells_pct": 92.33,
+  "published_grand_total_USD_mn": 9267200.0,
+  "closure_residual_publisher_All_Other_USD_mn": 710800.0,
+  "closure_residual_pct": 7.67,
+  "closure_check_named_plus_AllOther_USD_mn": 9267500.0,
+  "closure_check_note": "Named + publisher All Other = 9,267,500 vs Grand Total 9,267,200; the $300mn gap is publisher rounding in mfhhis01.txt.",
+  "reading": "All 36 publisher-named counterparty countries in mfhhis01.txt (Dec-2025) are retained as observed cells, accounting for 92.33% ($8.557tn) of foreign US-Treasury holdings. The remaining 7.67% ($710.8bn) is the publisher's OWN true unallocated 'All Other' line (mfhhis01.txt), held in an EXPLICIT ROW_RESIDUAL bucket, not fabricated into per-country cells. This residual is the publisher's All Other, not a build-side drop: no publisher-named country is dropped into it.",
+  "provenance_correction_2026-06-28": "An earlier draft labeled a $2,587,300mn bucket as 'the publisher All Other'. That was false: the publisher's true All Other is $710,800mn and the earlier bucket additionally absorbed ~$1,876,500mn of publisher-NAMED countries (Taiwan 310.6, Norway 208.1, Saudi Arabia 149.5, Korea 140.6, Israel 105.7, Bermuda 101.4, UAE 95.6, El Salvador 93.8, Mexico 85.4, Thailand 82.8, Spain 73.6, Kuwait 66.1, Italy 62.1, Philippines 62.0, Poland 60.5, Sweden 50.1, Peru 45.1, Colombia 44.2, Chile 39.6 USD bn) that were dropped for tractability. Fixed by RETAINING those countries as observed cells; the residual now equals the publisher All Other exactly."
+ },
+ "bis_marginal_asymmetry": {
+  "usd_claims_of_named_areas_USD_mn": 10240580.6,
+  "usd_liabilities_of_named_areas_USD_mn": 9529422.9,
+  "asymmetry_USD_mn": 711157.7,
+  "asymmetry_pct": 7.19,
+  "reading": "Reported USD claims and USD liabilities across the same area set differ by 7.19% ($711bn). This creditor/debtor asymmetry is itself an irreducible reconciliation residual: even before RAS, the marginals from the same source on the same areas do not net to zero. Any 'balanced' matrix sits at least this far from internal consistency."
+ },
+ "gcap_residency_to_nationality": {
+  "method": "M3_gcap_residence_to_nationality (named in matrix_spec.json before use)",
+  "china_channel_inputs_real_USD_mn": {
+   "bis_usd_claims_on_china_residence_mn": 236443.2,
+   "bis_usd_claims_on_cayman_mn": 1594948.8,
+   "bis_usd_claims_on_hongkong_mn": 474346.8,
+   "tic_ustsy_china_direct_mn": 683500.0,
+   "tic_ustsy_offshore_hubs_mn": {
+    "KY": 421200.0,
+    "HK": 267800.0,
+    "BE": 477300.0,
+    "LU": 434200.0,
+    "IE": 340700.0
+   },
+   "offshore_pool_bis_USD_claims_KY_plus_HK_mn": 2069295.6,
+   "offshore_pool_tic_ustsy_hubs_mn": 1941200.0
+  },
+  "offshore_dollar_pool_real": {
+   "bis_usd_claims_Cayman_plus_HongKong_USD_mn": 2069295.6,
+   "tic_ustsy_offshore_hubs_USD_mn": 1941200.0
+  },
+  "china_reallocation_magnitude": "HOLE",
+  "china_reallocation_reason": "The residency->nationality reallocation requires the COUNTERPARTY ISSUER's nationality. BIS LBS carries L_PARENT_CTY for the REPORTING bank only, NOT the counterparty issuer's nationality; TIC is custodial-residence only. The BIS Consolidated Banking Statistics nationality view (DSD BIS_CBS) and a securities-by-nationality source are NOT among the 12 DP1 contracts and were not grounded. Therefore the SHARE of the $2.07tn offshore dollar pool (Cayman+HK, BIS) that is Chinese-by-nationality is NOT obtainable from on-disk data.",
+  "explicit_non_assumption": "The ~$600bn-class China residency understatement is NEITHER confirmed NOR assumed negligible. It is recorded as a HOLE: the offshore pool it would draw from is real and measured ($2.07tn BIS / $1.94tn TIC), but the China-attributed fraction cannot be computed without a counterparty-nationality basis that is absent from the contract set. We do not invent the magnitude.",
+  "effect_on_load_bearing_cells": {
+   "us_treasury_china_direct_USD_mn": 683500.0,
+   "note": "China's DIRECT US-Treasury holding (TIC, residence) is $683.5bn. Under GCAP a portion of the $421.2bn Cayman + $267.8bn Hong Kong custodial-attributed Treasuries could be Chinese-by-nationality, which would RAISE the China cell above $683.5bn -- but by an amount that is a HOLE, not assumed. The DIRECTION of the GCAP correction on the China channel is upward; its MAGNITUDE is unquantified-by-absence-of-nationality-data."
+  }
+ },
+ "cell_census": {
+  "OBSERVED_cells": {
+   "fed_us_issuer_to_holder": 585,
+   "tic_us_treasury_named_countries": 36,
+   "tic_us_treasury_explicit_residual_buckets": 1,
+   "tic_us_treasury_note": "36 publisher-named counterparty-country cells (OBSERVED) + 1 explicit publisher 'All Other' residual bucket ($710.8bn). The residual bucket is NOT counted as an observed country cell.",
+   "bis_usd_bank_positions": 76,
+   "cofer_reserve_currency_marginal": 9,
+   "total_observed": 706
+  },
+  "ESTIMATED_cells": {
+   "ras_prior_seeded": 38,
+   "note": "prior-seeded cells are estimation-by-uniform-prior (method M2), flagged, not observed"
+  },
+  "UNVERIFIED_by_absence_blocks": [
+   "china_bilateral (nbs,pboc: marginals-only, no counterparty dimension)",
+   "non_us_non_ea_advanced_FWTW (oecd: counterpart dataflow empty for JP/GB/CA/CH/KR)",
+   "us_equity_in_FWTW (Fed excludes corporate equities)"
+  ],
+  "HOLE_blocks": [
+   "imf_cpis_portfolio_bilateral (endpoint live, 0 observations returned for all keys/periods tried)",
+   "safe_china_outward_portfolio_by_country (HTML/Excel, not pulled)",
+   "wgc_monetary_gold (login-walled)",
+   "brookings_ewn_iip_marginals (manual Excel)",
+   "china_marginal_values (NBS JPG-only + WAF-403; PBoC netted)",
+   "oecd_advanced_marginals (not pulled within effort cap)"
+  ]
+ },
+ "sources_not_pulled": [
+  {
+   "source": "imf_cpis",
+   "friction": "SDMX PIP v5.0.0 endpoint and DSD/indicator codelist confirmed live, but every data query (P_TOTINV_P_USD, all sector-code and frequency variants, multiple periods) returned an empty 0-observation dataset envelope. Bilateral portfolio cells not obtainable via the verified path with codes resolvable here.",
+   "tag": "HOLE"
+  },
+  {
+   "source": "safe",
+   "friction": "HTML press + Excel only, no machine API (China access-frictioned); effort-capped. Top-5 end-2025 recipients exist in the contract but full counterparty table not obtained.",
+   "tag": "HOLE"
+  },
+  {
+   "source": "nbs",
+   "friction": "Flow-of-funds tables are JPG images; data.stats.gov.cn WAF-403 to this IP. Marginal values would need OCR/hand-key.",
+   "tag": "HOLE"
+  },
+  {
+   "source": "pboc",
+   "friction": "Per-table htm/xls only; foreign exposure netted to a single 'Net Foreign Assets' line. Not pulled.",
+   "tag": "HOLE"
+  },
+  {
+   "source": "wgc_gold",
+   "friction": "Goldhub gold-reserves Excel is login-walled.",
+   "tag": "HOLE"
+  },
+  {
+   "source": "brookings",
+   "friction": "EWN database is a manual Excel download; no API.",
+   "tag": "HOLE"
+  },
+  {
+   "source": "oecd_financial_accounts",
+   "friction": "Counterpart who-to-whom dataflow empty for target non-EA advanced economies (per contract); marginal balance sheets (DF_T720R_A) obtainable but not pulled within the effort cap.",
+   "tag": "UNVERIFIED-by-absence (bilateral) + HOLE (marginals)"
+  },
+  {
+   "source": "ecb_qsa",
+   "friction": "Pulled (306k rows) but heterogeneous units; XDC->USD conversion basis unverified, so euro-area who-to-whom retained as available marginals rather than merged USD cells.",
+   "tag": "PARTIAL"
+  }
+ ]
+}

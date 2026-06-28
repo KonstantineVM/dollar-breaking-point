@@ -2,9 +2,11 @@
   "dp": "DP1",
   "title": "Data contracts for the global SFC from-whom-to-whom matrix",
   "generated": "2026-06-28",
-  "grounding_rule": "Each contract was grounded against its publisher via live fetch; facts the publisher did not confirm are listed per-contract under unverified[]. Nothing filled from memory. For the China sources (nbs, pboc, safe) each contract states whether it yields bilateral (from-whom-to-whom) cells or only marginals/control-totals, with fetched-page evidence.",
-  "contract_count": 12,
+  "reopened_note": "Reopened to add bis_cbs (BIS Consolidated Banking Statistics) — the counterparty-nationality basis DP2 found missing. CBS-UR NARROWS but does not CLOSE the DP2 China residency->nationality HOLE (covers the bank-claims leg only; the non-bank securities/Treasury leg and issuer-nationality of the offshore-SPV pool remain uncovered).",
+  "grounding_rule": "Each contract grounded against its publisher via live fetch; facts not confirmed are listed per-contract under unverified[]. Nothing from memory. China/CBS sources state bilateral-vs-marginals with fetched-page evidence.",
+  "contract_count": 13,
   "bilateral_cell_sources": [
+    "bis_cbs",
     "safe"
   ],
   "marginals_only_sources": [
@@ -12,6 +14,17 @@
     "pboc"
   ],
   "contracts": [
+    {
+      "source_id": "bis_cbs",
+      "file": "build/contracts/bis_cbs.json",
+      "publisher": "Bank for International Settlements (BIS)",
+      "role_in_matrix": "Supplies the counterparty-NATIONALITY basis missing from DP2: claims of national banking systems (consolidated by nationality of the banking group's parent HQ country) on counterparty countries, on both an immediate-counterparty basis and an ultimate-risk/guarantor basis (which reallocates claims to the country of ultimate obligor after risk transfers). Provides reporting-banking-system-nationality x counterparty-country cells for the bank-claims leg of the from-whom-to-whom matrix, enabling the residency->nationality reallocation for China that DP2 recorded as a HOLE.",
+      "bilateral_or_marginals": "bilateral",
+      "date_checked": "2026-06-28",
+      "confidence_tier": "A",
+      "urls_checked_count": 12,
+      "unverified_count": 5
+    },
     {
       "source_id": "bis_lbs",
       "file": "build/contracts/bis_lbs.json",

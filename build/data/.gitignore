@@ -1,0 +1,7 @@
+# Oversized raw data pulls are reproducible from the endpoints documented in
+# build/contracts/*.json and build/results/dp2_residual.json. Excluded to keep the
+# repo within GitHub's file-size limits; the processed extracts committed alongside
+# (fed_z1/fwtw_2026Q1.json, bis_lbs/lbs_compact.json, treasury_tic/*) carry the
+# numbers the DP2 artifacts cite.
+ecb_qsa/qsa_lastobs.csv
+fed_z1/fwtw_data.csv
