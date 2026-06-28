@@ -1,0 +1,45 @@
+{
+  "source_id": "oecd_financial_accounts",
+  "publisher": "OECD (Statistics and Data Directorate, National Accounts — agency OECD.SDD.NAD), served via the OECD SDMX API at sdmx.oecd.org",
+  "dataset_title": "OECD Financial Accounts and Financial Balance Sheets by institutional sector (SDMX data structure DSD_NASEC20, 'National Accounts Sector Accounts and Government Finance 20'); dataflows include Annual/Quarterly Financial Accounts (flows) and Financial Balance Sheets (stocks), consolidated and non-consolidated, with counterpart-information variants",
+  "role_in_matrix": "Supplies non-US / non-euro-area advanced-economy sectoral financial balance sheets (stock marginals by institutional sector x instrument) and, where the counterpart-information dataflows are populated, from-whom-to-whom (counterparty-sector) cells. Primary marginal source confirmed to cover JPN, GBR, CAN, CHE, KOR, NOR, SWE, DNK, ISL, ISR, NZL, AUS-region peers etc. via the non-consolidated balance-sheet dataflow.",
+  "urls_checked": [
+    "https://sdmx.oecd.org/public/rest/dataflow/all/all/latest?detail=allstubs",
+    "https://sdmx.oecd.org/public/rest/dataflow/OECD.SDD.NAD/DSD_NASEC20@DF_T725R_A/1.1?references=datastructure&detail=full",
+    "https://sdmx.oecd.org/public/rest/dataflow/OECD.SDD.NAD/DSD_NASEC20@DF_T720R_A/1.1",
+    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NASEC20@DF_T725R_A,1.1/all?lastNObservations=1&dimensionAtObservation=AllDimensions",
+    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NASEC20@DF_T720R_A,1.1/all?lastNObservations=1&dimensionAtObservation=AllDimensions"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "DSD_NASEC20 ('National Accounts Sector Accounts and Government Finance 20'). Confirmed dimensions on the counterpart balance-sheet dataflow (DF_T725R_A): FREQ, ADJUSTMENT, REF_AREA, COUNTERPART_AREA, SECTOR, COUNTERPART_SECTOR, CONSOLIDATION, ACCOUNTING_ENTRY, TRANSACTION, INSTR_ASSET, MATURITY, UNIT_MEASURE, CURRENCY_DENOM, VALUATION, PRICE_BASE, TRANSFORMATION, TABLE_IDENTIFIER, DEBT_BREAKDOWN. The full NASEC20 family of financial dataflows (all confirmed present in the fetched stub list): DF_T610R_A/_Q (Financial Accounts flows, consolidated), DF_T620R_A/_Q (Financial Accounts flows, non-consolidated), DF_T625R_A/_Q (Financial Accounts flows - counterpart information), DF_T710R_A/_Q (Financial Balance Sheets stocks, consolidated), DF_T720R_A/_Q (Financial Balance Sheets stocks, non-consolidated), DF_T725R_A (Financial Balance Sheets stocks - counterpart information), plus government-specific _T6x0GOV / _T7x0GOV variants.",
+    "sectors": "Institutional-sector breakdown via SECTOR dimension (ESA/SNA S1, S11, S12, S13, S1M etc. — sector dimension confirmed present; the exact codelist members were not individually enumerated from the publisher in this pass, so the specific member list is UNVERIFIED). Residency basis (REF_AREA = reporting economy), consistent with SNA/ESA national accounts; nationality basis not applicable.",
+    "counterparty_sector_available": "yes",
+    "sdmx_dataflow_id": "OECD.SDD.NAD:DSD_NASEC20@DF_T720R_A (1.1) for non-consolidated financial balance-sheet marginals; OECD.SDD.NAD:DSD_NASEC20@DF_T725R_A (1.1) for from-whom-to-whom counterpart balance sheets; OECD.SDD.NAD:DSD_NASEC20@DF_T625R_A (1.1) for from-whom-to-whom financial-account flows; OECD.SDD.NAD:DSD_NASEC20@DF_T620R_A (1.1) for non-consolidated flow marginals"
+  },
+  "access": {
+    "method": "SDMX API (sdmx.oecd.org)",
+    "formats": ["SDMX-CSV (Accept: application/vnd.sdmx.data+csv) - confirmed returns 200 with data", "SDMX-ML structure (XML) - confirmed 200", "SDMX-JSON (Accept: application/vnd.sdmx.data+json) - endpoint reachable; a malformed partial key returned 422 (key error, not a format error)"],
+    "api_base": "https://sdmx.oecd.org/public/rest/ ; structure path: /dataflow/{agency}/{id}/{version}[?references=datastructure&detail=full] ; data path: /data/{agency},{dataflow}@{dsd},{version}/{key}?[lastNObservations=N&dimensionAtObservation=AllDimensions]"
+  },
+  "frequency": "Both annual (A) and quarterly (Q) dataflows published (separate _A and _Q dataflow ids confirmed in stub list). Annual balance-sheet dataflow (DF_T720R_A) used for the matrix.",
+  "reporting_lag": "Annual stocks: latest available TIME_PERIOD as of 2026-06-28 is 2025 for GBR, CAN, CHE, KOR, NOR, SWE (others e.g. JPN at 2024). Implied lag roughly 6-18 months for annual stocks (publisher vintage label/release date not separately read, so the exact lag-in-days is UNVERIFIED).",
+  "coverage": "Non-consolidated financial balance sheets (DF_T720R_A, lastNObservations=1) returned these REF_AREA: AUT BEL BGR BRA CAN CHE CHL COL CZE DEU DNK ESP EST EU27_2020 FIN FRA GBR GRC HRV HUN IND IRL ISL ISR ITA JPN KOR LTU LUX LVA MEX NLD NOR NZL POL PRT ROU RUS SVK SVN SWE TUR USA. The counterpart/from-whom-to-whom balance sheet (DF_T725R_A) is far sparser: REF_AREA present = AUT ESP EST FIN FRA GRC HUN ISR LTU LUX LVA RUS (predominantly euro-area; among the non-US/non-EA advanced target economies only ISR present, and RUS).",
+  "known_frictions": [
+    "www.oecd.org returns Cloudflare bot challenge HTTP 403 (confirmed in preflight on 2026-06-28); sdmx.oecd.org is the working access path (confirmed responding 200).",
+    "From-whom-to-whom (counterpart-sector) coverage is thin for the role this source plays: the counterpart balance-sheet dataflow DF_T725R_A covers mainly euro-area reporters; among required non-US/non-euro-area advanced economies only ISR (and RUS) appear. For JPN/GBR/CAN/CHE/KOR/etc. only the NON-counterpart marginals (DF_T720R_A) are available, so FWTW cells for those economies must be inferred/allocated, not read directly.",
+    "All NASEC20 financial dataflows fetched carry the annotation NonProductionDataflow=true in the stub list; whether this flags them as pre-release/staging vs. simply a metadata artifact was NOT verified against the publisher and is a risk to confirm before relying on vintage.",
+    "Dataflows are organised by SNA table number (T0610/T0620/T0625/T0710/T0720/T0725 -> DF_T6xx/T7xx). Table renumbering or DSD version bumps (currently DSD_NASEC20 v1.1; an older NASEC10 family with DF_TABLE6xx/7xx codes also exists) would break hardcoded ids; pin agency+id+version.",
+    "Sector and instrument codelist members, consolidation/valuation/currency-denomination code values, and CONF_STATUS (confidentiality) of individual series were not enumerated from the publisher in this pass."
+  ],
+  "confidence_tier": "A",
+  "unverified": [
+    "structure.sectors: exact SECTOR codelist member list (S1/S11/S12/S13/... ) not enumerated from publisher",
+    "INSTR_ASSET / instrument codelist members not enumerated",
+    "Exact publisher release calendar / publication-lag-in-days (only latest TIME_PERIOD observed, not the release date)",
+    "Meaning/impact of the NonProductionDataflow=true annotation on the NASEC20 financial dataflows",
+    "Whether any required cells are suppressed for confidentiality (CONF_STATUS not inspected per series)",
+    "SDMX-JSON data payload not successfully retrieved (422 from a malformed partial key); CSV confirmed instead"
+  ],
+  "notes": "Grounded entirely against sdmx.oecd.org on 2026-06-28; www.oecd.org confirmed 403 and not used. sdmx.oecd.org responded 200 for the full dataflow stub list, the DSD/structure query, and CSV data queries. The dataset identity (DSD_NASEC20), the existence of genuine from-whom-to-whom dataflows (COUNTERPART_SECTOR dimension confirmed on DF_T725R_A / DF_T625R_A), the marginal balance-sheet dataflow (DF_T720R_A), country coverage, and latest annual vintage (2024-2025) were all read directly from fetched publisher responses. Key friction for this source's role: broad sectoral-balance-sheet marginals are available for the target non-US/non-EA advanced economies, but direct counterparty-sector (FWTW) cells are essentially absent for them and present mainly for euro-area reporters."
+}

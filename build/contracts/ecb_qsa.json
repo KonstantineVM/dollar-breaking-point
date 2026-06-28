@@ -1,0 +1,47 @@
+{
+  "source_id": "ecb_qsa",
+  "publisher": "European Central Bank (ECB)",
+  "dataset_title": "Quarterly sector accounts (financial accounts (ECB) and non-financial accounts (Eurostat, ESA2010 TP, table 801)) - QSA",
+  "role_in_matrix": "Euro-area and EU member-state sectoral balance sheets (stocks/positions) and transactions, including who-to-whom (counterpart-sector) financial accounts, supplying cells and marginals for the euro-area block of the global from-whom-to-whom matrix on a residency basis (ESA 2010).",
+  "urls_checked": [
+    "https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1&format=csvdata",
+    "https://www.ecb.europa.eu/stats/macroeconomic_and_sectoral/sector_accounts/html/index.en.html",
+    "https://www.ecb.europa.eu/pub/euroareafinancialaccounts/html/ecb.eaqfa202005~d801564128.en.html",
+    "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.AT.W0.S11.S1.N.L.F.F.F._Z._Z.XDC._T.S.V.N._T?lastNObservations=1&format=csvdata"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "Confirmed from a live QSA API CSV pull (data-api.ecb.europa.eu). The dataset is dimensioned by, among others: FREQ, ADJUSTMENT, REF_AREA, COUNTERPART_AREA, REF_SECTOR, COUNTERPART_SECTOR, CONSOLIDATION, ACCOUNTING_ENTRY (A=assets/L=liabilities), STO (stock-type indicator: F=transactions, LE=closing balance sheet/positions/stocks, K=other changes), INSTR_ASSET (financial instrument), MATURITY, VALUATION, PRICES. The presence of paired REF_SECTOR x COUNTERPART_SECTOR with specific (non-total) counterpart sectors in the returned rows confirms who-to-whom (counterpart-sector) data are published. Coverage is per-country (REF_AREA = individual EU member states observed: AT, BE, BG, CY, FR, SK, ...); ESA 2010 framework. Latest observed reference period in the pull: 2025-Q4 (some series 2025-Q3; annual series to 2024/2025).",
+    "sectors": "Confirmed institutional sectors in the live CSV (ESA 2010 codes): S1 total economy; S11 non-financial corporations; S12 financial corporations with sub-sectors S12K MFIs, S125 other financial intermediaries (OFI), S128 insurance corporations, S129 pension funds, S124 non-MMF investment funds, S12O/S12P/S12T other-financial-institution aggregations, S127 captive financial institutions; S13 general government; S1M households and NPISH; plus rest-of-world via COUNTERPART_AREA (W0 = World all areas; W2 = domestic/home). Per the ECB sector_accounts page: households, non-financial corporations, financial corporations and government, plus interactions with the rest of the world.",
+    "who_to_whom_available": "yes",
+    "instruments": "Confirmed financial-instrument codes in the live CSV (ESA 2010): F (total financial assets/liabilities), F1/F11 monetary gold, F2/F29 deposits (incl. other deposits), F3 debt securities (with MATURITY S=short / L=long / T=all), F4 loans (short/long/all), F511 listed shares, F51M unlisted shares and other equity, F52/F521 investment fund / money market fund shares, F63B pension entitlements (defined benefit), F7 financial derivatives. The 2019/2020 quality report states counterpart-sector detail is published for deposits, loans, debt securities, listed shares and investment fund shares (core who-to-whom: deposits and short-/long-term loans; second dataset: securities)."
+  },
+  "access": {
+    "method": "ECB Data Portal (data.ecb.europa.eu) for browsing/interactive download; programmatic access via the ECB Data Portal SDMX 2.1 RESTful API at base host https://data-api.ecb.europa.eu/service/data/<DATAFLOW> . A whole-dataflow request 'https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1&format=csvdata' returned valid CSV data on 2026-06-28, confirming the dataflow id QSA and CSV output.",
+    "formats": ["CSV (format=csvdata, confirmed working)", "SDMX-ML (default; UNVERIFIED that it succeeds at scale)", "JSON (format=jsondata; UNVERIFIED — single-series test was security-blocked)"],
+    "api_or_bulk": "REST API confirmed: GET https://data-api.ecb.europa.eu/service/data/QSA with query params lastNObservations and format. NOTE: the exact full series-key dimension ordering for a single-series request is UNVERIFIED — keyed single-series guesses returned HTTP 400 (portal security block) or 404 (no match); the working call was the whole-dataflow request. Bulk-download availability UNVERIFIED."
+  },
+  "frequency": "Quarterly (FREQ=Q) for the financial accounts; some series annual (FREQ=A) also present in the dataset. Confirmed from live CSV and the ECB sector_accounts page.",
+  "reporting_lag": "Per the 2019/2020 ECB euro area quarterly financial accounts quality report: national data transmissions at t+85 (supplementary) and t+97 (full national) days after quarter-end, with ECB release of national data at t+108 days. Euro-area aggregate publication lag not separately confirmed on a fetched page (the 2019/2020 report figures may not be the current guideline timetable as of 2026 — see unverified).",
+  "coverage": "Confirmed REF_AREA = individual EU member states (observed AT, BE, BG, CY, FR, SK in the pull); ESA 2010; latest reference period observed 2025-Q4. Euro-area aggregate area code and full country list, and full historical start date, not confirmed on a fetched page.",
+  "known_frictions": [
+    "Single-series API requests using a guessed full SDMX series key returned HTTP 400 with an ECB security-block page ('Your access has been blocked due to security concerns') and HTTP 404; the exact dimension order / valid key syntax must be resolved (likely via the QSA datastructure/codelist endpoint) before reliable cell-level extraction.",
+    "ECB Data Portal HTML pages (data.ecb.europa.eu/.../data-information, /methodology/sector-accounts, whom-to-whom concepts) repeatedly returned HTTP 503 to automated fetches on 2026-06-28; structure had to be grounded from the live API CSV instead. The API host data-api.ecb.europa.eu also returns a security-block page (HTTP 400) for some keyed requests.",
+    "Who-to-whom counterpart detail is published only for a subset of instruments (deposits, loans, debt securities, listed shares, investment fund shares per the quality report); other instruments are available only vs total-economy counterpart, so not all matrix cells are directly available from this source.",
+    "Consolidation matters: both consolidated and non-consolidated series exist (CONSOLIDATION dimension; observed rows were N = non-consolidated); the from-whom-to-whom matrix build must pick the correct consolidation basis.",
+    "Reporting-lag figures (t+85/t+97/t+108) are from a 2019/2020 quality report, not from a current (2026) release-calendar page that was successfully fetched; the current timetable is unverified."
+  ],
+  "confidence_tier": "A",
+  "unverified": [
+    "Exact ECB Data Portal data-information page content for QSA (HTTP 503 on 2026-06-28).",
+    "Methodology page (/methodology/sector-accounts) content (HTTP 503).",
+    "Whom-to-whom concepts page content (HTTP 503).",
+    "Current (2026) reporting/publication lag and release-calendar dates — only 2019/2020 quality-report figures (t+85/t+97/t+108) were fetched.",
+    "Euro-area aggregate REF_AREA code (e.g. whether U2/I8/I9) — keyed tests were security-blocked (HTTP 400/404).",
+    "Exact single-series SDMX API key dimension ordering / valid query syntax for QSA.",
+    "JSON (jsondata) and default SDMX-ML output success at scale — only CSV (csvdata) whole-dataflow output was confirmed working.",
+    "Full country coverage list, historical start date, and bulk-download availability.",
+    "Whether non-financial accounts portion is sourced from Eurostat (ESA2010 TP table 801) as the dataset title states — not independently confirmed from a fetched page."
+  ],
+  "notes": "Grounded primarily from a live ECB Data Portal API CSV pull (data-api.ecb.europa.eu/service/data/QSA) on 2026-06-28, which confirmed dataflow identity QSA, who-to-whom (REF_SECTOR x COUNTERPART_SECTOR) availability, the sector and instrument code sets, quarterly frequency, and latest vintage 2025-Q4. ECB Data Portal HTML pages returned HTTP 503 and were not usable; the older euro area financial accounts quality report supplied counterpart-instrument scope and the t+85/t+97/t+108 timeliness, which may be dated. Confidence tier A for dataset identity, who-to-whom availability, sectors, instruments, frequency, and CSV API access path (all read from live publisher responses); fields marked UNVERIFIED above were not confirmable from a successfully fetched publisher page and were NOT filled from memory."
+}

@@ -15,3 +15,84 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo "=== done ===" && git log --oneline -1
 2026-06-28T20:07:43Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -15
 2026-06-28T20:28:08Z	OUTPUT (not established until verifier runs)	git diff .claude/hooks/gate-stop.sh
+2026-06-28T20:28:51Z	OUTPUT (not established until verifier runs)	echo "=== status ===" && git status --short && echo "=== staging ===" && git add .claude/hooks/gate-stop.sh build/gate-stop.log build/ledger.json build/results/missing.json build/run-ledger.log 2>/dev/null; git status --short
+2026-06-28T20:28:59Z	OUTPUT (not established until verifier runs)	git commit -q -m "close stop-gate evidence gap
+
+Make the Stop hook self-evidencing: gate-stop.sh now appends one
+STOP-BLOCK line to build/gate-stop.log before emitting any block
+decision (ISO-8601 UTC timestamp, session_id, CLAUDE_CODE_REMOTE,
+flattened reason). Block decision, stop_hook_active guard, and
+verifier/approval checks are unchanged.
+
+Proven at a real turn-end: armed DP-EVIDENCE with an absent verifier,
+genuinely concluded, the harness Stop hook fired and blocked, and the
+edited hook wrote the STOP-BLOCK line for this session. Verifier
+artifact then created to close.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git log --oneline -2
+2026-06-28T20:29:03Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -6
+2026-06-28T20:36:30Z	OUTPUT (not established until verifier runs)	base="https://api.imf.org/external/sdmx/2.1/data/IMF.STA,COFER"
+# Try getting USD share series, all currencies/total, latest periods. Key: COUNTRY.INDICATOR.FXR_CURRENCY.TYPE_OF_TRANSFORMATION.FREQUENCY
+# World aggregate country code likely _Z or W00 or 1C_ALL. Try lastNObservations.
+for key in \
+  "/........?lastNObservations=1&detail=serieskeysonly" ; do
+  echo "### KEY=$key"
+  curl -sS -A "Mozilla/5.0" "$base$key" -o /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/keys.xml -w "http=%{http_code} size=%{size_download}\n"
+done
+echo "--- distinct INDICATOR/CURRENCY/COUNTRY in series keys ---"
+python3 - <<'PY'
+import re
+d=open('/tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/keys.xml',encoding='utf-8',errors='replace').read()
+print("len",len(d))
+print(d[:600])
+PY
+2026-06-28T20:40:03Z	OUTPUT (not established until verifier runs)	echo "=== euro area aggregate U2, who-to-whom loans (F4), counterpart sector specified ==="; curl -sS -w "\nHTTP:%{http_code}\n" "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.I9.W0.S1M.S12K.N.L.LE.F4.T._Z.XDC._T.S.V.N._T?lastNObservations=1&format=csvdata" 2>&1 | head -5
+echo; echo "=== JSON format support test ==="; curl -sS -o /dev/null -w "json HTTP:%{http_code}\n" "https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1&format=jsondata" 2>&1
+echo "=== SDMX-ML default ==="; curl -sS -o /dev/null -w "sdmx HTTP:%{http_code}\n" "https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1" 2>&1
+echo "=== dataflow / structure endpoint ==="; curl -sS -o /dev/null -w "dataflow HTTP:%{http_code}\n" "https://data-api.ecb.europa.eu/service/dataflow/ECB/QSA" 2>&1
+2026-06-28T20:42:15Z	OUTPUT (not established until verifier runs)	echo "=== default SDMX-ML ==="; curl -sS -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" "https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1" 2>&1
+echo "=== jsondata ==="; curl -sS -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" -H "Accept: application/json" "https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1" 2>&1
+echo "=== csvdata (confirmed working earlier) re-test ==="; curl -sS -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" "https://data-api.ecb.europa.eu/service/data/QSA?lastNObservations=1&format=csvdata" 2>&1
+echo "=== euro area I8 aggregate, find any U2/I8/I9 ref_area present ==="; curl -sS "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.I9.....................?detail=serieskeysonly&lastNObservations=1&format=csvdata" 2>&1 | head -3
+2026-06-28T20:42:45Z	OUTPUT (not established until verifier runs)	echo "=== csvdata ==="; curl -sS --max-time 30 -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.AT.W0.S11.S1.N.L.F.F.F._Z._Z.XDC._T.S.V.N._T?lastNObservations=1&format=csvdata" 2>&1
+echo "=== jsondata on a single series ==="; curl -sS --max-time 30 -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.AT.W0.S11.S1.N.L.F.F.F._Z._Z.XDC._T.S.V.N._T?lastNObservations=1&format=jsondata" 2>&1
+echo "=== default (SDMX-ML) on single series ==="; curl -sS --max-time 30 -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.AT.W0.S11.S1.N.L.F.F.F._Z._Z.XDC._T.S.V.N._T?lastNObservations=1" 2>&1
+echo "=== euro area aggregate ref_area: try I9 serieskeysonly ==="; curl -sS --max-time 40 "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.I9.W0.S1M.S1.N.L.LE.F.F._Z._Z.XDC._T.S.V.N._T?detail=serieskeysonly&lastNObservations=1&format=csvdata" 2>&1 | head -3
+echo "=== try U2 ==="; curl -sS --max-time 40 "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.U2.W0.S1M.S1.N.L.LE.F.F._Z._Z.XDC._T.S.V.N._T?detail=serieskeysonly&lastNObservations=1&format=csvdata" 2>&1 | head -3
+2026-06-28T20:46:02Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/contracts/ build/ledger.json build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short
+git commit -q -m "DP1: data contracts
+
+Grounded 9 external data sources for the global SFC from-whom-to-whom
+matrix against their publishers (one data-source-agent per source):
+fed_financial_accounts, bis_lbs, imf_cpis, imf_cofer, treasury_tic,
+ecb_qsa, oecd_financial_accounts (via sdmx.oecd.org), wgc_gold, brookings.
+
+Each contract cites the exact publisher URL(s) fetched and the check date,
+with a confidence tier (8 tier A, 1 tier B) and an explicit unverified[]
+list for anything the publisher did not confirm. Nothing filled from memory.
+OECD grounded via the SDMX API (www.oecd.org returns a Cloudflare 403);
+IMF/ECB structure grounded via the SDMX/data APIs where the human-facing
+portals returned bot-protection 403/503.
+
+build/contracts/_manifest.json lists all 9 contracts.
+build/ledger.json marks DP1 done, verifier build/contracts/_manifest.json,
+human gate = PR review. DP2 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+2026-06-28T20:46:09Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4
+2026-06-28T20:47:09Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/run-ledger.log
+git commit -q -m "DP1: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+echo "=== final status ===" && git status --short && echo "(clean if empty)"
+2026-06-28T21:02:00Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3

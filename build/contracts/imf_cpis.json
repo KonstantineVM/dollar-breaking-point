@@ -1,0 +1,46 @@
+{
+  "source_id": "imf_cpis",
+  "publisher": "International Monetary Fund (IMF), Statistics Department (STA)",
+  "dataset_title": "Portfolio Investment Positions by Counterpart Economy (formerly Coordinated Portfolio Investment Survey, or CPIS)",
+  "role_in_matrix": "Bilateral portfolio investment positions (equity + debt securities) between economies by counterpart economy and by holder/issuer sector; supplies the portfolio-investment counterparty (from-whom-to-whom) layer of the global SFC matrix.",
+  "urls_checked": [
+    "https://api.imf.org/external/sdmx/2.1/dataflow/IMF.STA/PIP",
+    "https://api.imf.org/external/sdmx/2.1/dataflow/IMF.STA/PIP/latest?references=all",
+    "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/5.0.0?references=children",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_INDICATOR",
+    "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/US.A.P_TOTINV_P_USD....?startPeriod=2024"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "SDMX dataset IMF.STA:PIP version 5.0.0, data structure DSD_PIP v5.0.0. Verified directly from the IMF SDMX 2.1 API. The official dataflow Name is 'Portfolio Investment Positions by Counterpart Economy (formerly CPIS)' and the Description states: an economy provides data on its holdings of portfolio investment securities, separately requested for equity and investment fund shares, long-term debt instruments, and short-term debt instruments. The dataset records reporter holdings (ACCOUNTING_ENTRY='A' = Assets, e.g. SERIES_NAME 'Portfolio investment, Total investment, Assets, Positions'); derived counterparty (liability-side) estimates are provided via 'Derived using counterparty information' (SCC) indicator variants. Embedded dataset metadata (FULL_DESCRIPTION) confirms expanded scope from end-June 2013: institutional sector of nonresident issuer, short/negative positions, and resident-holder sector cross-classified by nonresident-issuer sector.",
+    "dimensions": "7 dimensions, verified from DSD_PIP and confirmed by an API error message ('has more than expected 7 dimension(s)'). Order: COUNTRY (reporter), ACCOUNTING_ENTRY, INDICATOR, SECTOR (holder sector), COUNTERPART_SECTOR (issuer sector), COUNTERPART_COUNTRY (issuer/counterpart economy), FREQUENCY; plus TimeDimension TIME_PERIOD.",
+    "bilateral_counterparty": "yes",
+    "instruments": "Equity and investment fund shares (INDICATOR code component F51); Debt securities (F3) with Short-term (F3_S) and Long-term (F3_L) splits; Total investment (TOTINV). Also currency-of-denomination breakdowns (USD, EUR, GBP, JPY, CNY, CHF, CAD, AUD, OTHC); short-or-negative-position series (F3SNP/F5SNP/TSNP); and counterparty-derived (SCC) variants. All on a residency basis (counterpart economy = residence of issuer). Verified from codelist CL_PIP_INDICATOR."
+  },
+  "access": {
+    "method": "IMF Data portal at data.imf.org (web UI; HTML dataset pages returned HTTP 403 to automated fetch on 2026-06-28 due to publisher bot protection, not verifiable via WebFetch). Programmatic access verified working via the IMF SDMX 2.1 REST API at https://api.imf.org/external/sdmx/2.1/ (dataflow IMF.STA:PIP, structure DSD_PIP, codelists, and data queries all returned 200/valid SDMX-ML).",
+    "formats": ["SDMX-ML 2.1 (structure and StructureSpecificData via api.imf.org)", "UNVERIFIED: CSV/Excel/Excel-Add-in download from the data.imf.org web UI (page not fetchable, 403)"],
+    "api_or_bulk": "IMF SDMX 2.1 REST API confirmed live: base https://api.imf.org/external/sdmx/2.1/ ; agency IMF.STA ; dataflow id PIP version 5.0.0 ; DSD DSD_PIP ; data path /data/IMF.STA,PIP,5.0.0/<7-dim key>. NOTE: the legacy data.imf.org/?sk=... and old JSON-RESTful/CompactData endpoints are superseded by this api.imf.org SDMX endpoint."
+  },
+  "frequency": "Semi-annual. Verified from embedded dataset FULL_DESCRIPTION metadata returned by the API: 'covers end-December holdings from 2001 to date and end-June holdings beginning with data for end-June 2013'; semi-annual collections implemented from end-June 2013. The FREQUENCY dimension is present in the DSD.",
+  "reporting_lag": "Approximately 8-9 months for the semi-annual reference period. Verified: the API dataset attributes report PUBLICATION_DATE=2026-03-11 and UPDATE_DATE=2026-03-11 for the current PIP v5.0.0 vintage; secondary IMF summary indicates this release carries data through the end-June 2025 reference period (end-June 2025 -> published 2026-03-11 ~= 8.5 months). The end-June 2025 reference-period claim is from a secondary IMF news summary and was NOT directly confirmed by reading an observation's TIME_PERIOD from the API.",
+  "coverage": "Voluntary participation, open to all economies; reporter holdings of portfolio investment securities cross-classified by counterpart (issuer) economy and by institutional sector. Time span: end-December holdings from 2001 to date; end-June holdings from end-June 2013. Verified from embedded FULL_DESCRIPTION. Exact count of reporting economies and the full counterpart-economy list NOT enumerated/verified.",
+  "known_frictions": [
+    "Renaming/restructuring: the dataset was renamed from 'Coordinated Portfolio Investment Survey (CPIS)' to 'Portfolio Investment Positions by Counterpart Economy' and migrated to the new data.imf.org portal with SDMX id IMF.STA:PIP v5.0.0 and DSD_PIP. Legacy IMF data endpoints and the old CPIS name/IDs no longer apply; pipeline must target api.imf.org SDMX 2.1.",
+    "data.imf.org HTML pages return HTTP 403 to automated/headless fetch (publisher bot protection); use the api.imf.org SDMX API for machine access rather than scraping the portal.",
+    "Reported data are ASSETS (holder side). Liability-side / mirror exposures are available only as 'Derived using counterparty information' (SCC) indicators; for FWTW balancing these derived series and the residency basis must be handled explicitly (assets reported by holder vs. derived liabilities).",
+    "Residency basis (counterpart = residence of issuer), not nationality; offshore financial-center / custodial-center distortions are a known CPIS limitation for from-whom-to-whom attribution.",
+    "Semi-annual frequency (June/December) — temporal disaggregation needed if the matrix requires higher frequency or calendar alignment with quarterly sources.",
+    "Voluntary survey: incomplete reporter coverage and asymmetries between reported assets and derived liabilities; gaps and confidentiality suppressions possible for some cells (specific suppressed cells NOT enumerated/verified)."
+  ],
+  "confidence_tier": "A",
+  "unverified": [
+    "Exact latest data reference period (end-June 2025) — taken from a secondary IMF news summary; not confirmed by reading a TIME_PERIOD value off an API observation (sample data queries with guessed SECTOR/COUNTERPART codes returned no observations).",
+    "Downloadable file formats from the data.imf.org web UI (CSV/Excel/Excel Add-in) — HTML pages returned 403 and could not be fetched.",
+    "Full enumeration of ACCOUNTING_ENTRY codes and FREQUENCY codes (codelists not inlined in the references=children DSD view; ACCOUNTING_ENTRY='A'=Assets confirmed from a returned data Series attribute).",
+    "Exact number of participating/reporting economies and the complete counterpart-economy code list.",
+    "Specific confidential / suppressed series or cells, if any.",
+    "data.imf.org dataset-page URL content (IMF.STA:PIP page) — returned HTTP 403, could not be verified directly."
+  ],
+  "notes": "Grounded on 2026-06-28 against the IMF SDMX 2.1 REST API at api.imf.org, which is the authoritative publisher endpoint and returned valid SDMX-ML for the dataflow (IMF.STA:PIP v5.0.0), data structure (DSD_PIP v5.0.0, 7 dimensions incl. COUNTRY x COUNTERPART_COUNTRY bilateral), the INDICATOR codelist (equity F51 / debt F3 with ST/LT splits, currency breakdowns, SCC counterparty-derived variants), and a live data query whose dataset-level metadata stamped PUBLICATION_DATE/UPDATE_DATE=2026-03-11 and embedded the official frequency/coverage description. The data.imf.org HTML portal pages were not directly fetchable (HTTP 403 bot protection) — all structural facts here come from the machine API, not from memory or secondary blogs. Tier A: core structure, bilateral counterparty layer, instruments, frequency, access path, and current vintage publication date are confirmed from fetched official IMF API responses. Residual UNVERIFIED items are listed above."
+}

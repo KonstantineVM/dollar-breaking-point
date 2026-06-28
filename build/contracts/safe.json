@@ -1,0 +1,75 @@
+{
+  "source_id": "safe",
+  "publisher": "State Administration of Foreign Exchange (SAFE), People's Republic of China",
+  "dataset_title": "China's Balance of Payments (BOP), International Investment Position (IIP), Gross External Debt Position by Sector, and China's External Portfolio Investment Assets (by Country/Region and by Sector of Resident Holder)",
+  "role_in_matrix": "Supplies the external/cross-border leg of China's accounts for the global SFC FWTW matrix: China-row-of-the-world financial assets and liabilities by functional category/instrument (IIP marginals), the flow counterpart (BOP), gross external debt by sector, and — uniquely — a partial bilateral (counterparty-economy-resolved) breakdown of China's OUTWARD portfolio investment ASSETS.",
+  "bilateral_or_marginals": "mixed",
+  "bilateral_determination_evidence": {
+    "finding": "The headline IIP is published by FUNCTIONAL CATEGORY/instrument ONLY (no counterparty-country dimension). However, SAFE separately publishes a dedicated CPIS-aligned dataset, 'China's External Portfolio Investment Assets by Country/Region and by Sector of Resident Holder,' which IS counterparty-economy-resolved — but for the OUTWARD portfolio investment ASSETS leg only (no inward/liabilities-side by-country breakdown, and not for direct investment, other investment, or reserves). Hence 'mixed': bilateral cells exist for one quadrant of one instrument only; the rest is marginals.",
+    "evidence_excerpt": "China's IIP page: 'In the external financial assets, direct investment assets amounted to USD 3578.7 billion, portfolio investment assets, USD 1987.5 billion, financial derivative assets, USD 26.1 billion, other investment assets, USD 2449.4 billion, and reserves assets, USD 3744.3 billion.' (functional categories only, no country dimension). Portfolio assets page: 'The top 5 recipients of Chinese investments were Hong Kong SAR, the United States, Cayman Islands, the British Virgin Islands and the United Kingdom, with the amounts being USD 978.9 billion, USD 364.0 billion, USD 145.1 billion, USD 65.2 billion and USD 48.5 billion respectively.' (by counterparty economy, assets only).",
+    "source_url": "https://www.safe.gov.cn/en/2026/0327/2405.html ; https://www.safe.gov.cn/en/2026/0529/2419.html"
+  },
+  "urls_checked": [
+    "https://www.safe.gov.cn/en/BalanceofPayments/index.html",
+    "https://www.safe.gov.cn/en/",
+    "https://www.safe.gov.cn/en/DataandStatistics/index.html",
+    "https://www.safe.gov.cn/en/2026/0327/2405.html",
+    "https://www.safe.gov.cn/en/2026/0529/2419.html",
+    "https://www.safe.gov.cn/en/ChinasExternalPortfolioInvestm/index.html"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "SAFE's Data and Statistics section provides three core external-sector time series (BOP, IIP, Gross External Debt by Sector), each by functional category/instrument and sector, plus a separate semiannual CPIS-style table of outward portfolio investment assets resolved by counterparty country/region and by holding-sector.",
+    "claims": [
+      {
+        "claim": "The headline IIP is structured by functional category (direct investment, portfolio investment, financial derivatives, other investment, reserve assets on the asset side; same minus reserves on the liability side), with NO counterparty-country dimension.",
+        "evidence_excerpt": "In the external financial assets, direct investment assets amounted to USD 3578.7 billion, portfolio investment assets, USD 1987.5 billion, financial derivative assets, USD 26.1 billion, other investment assets, USD 2449.4 billion, and reserves assets, USD 3744.3 billion.",
+        "source_url": "https://www.safe.gov.cn/en/2026/0327/2405.html"
+      },
+      {
+        "claim": "SAFE publishes a dedicated bilateral dataset of China's external portfolio investment ASSETS broken down by counterparty country/region AND by sector of resident holder.",
+        "evidence_excerpt": "SAFE Releases Data on China's External Portfolio Investment Assets by Country/Region and by Sector of Resident Holder at the End of 2025 ... The top 5 recipients of Chinese investments were Hong Kong SAR, the United States, Cayman Islands, the British Virgin Islands and the United Kingdom ... By the end of 2025, other financial corporations (non-bank financial institutions), bank and non-financial sector were the main sectors holding external portfolio investment assets ... accounting for 56 percent, 29 percent and 16 percent.",
+        "source_url": "https://www.safe.gov.cn/en/2026/0529/2419.html"
+      },
+      {
+        "claim": "The by-country portfolio dataset is ASSETS (outward) only; there is no inward/liabilities-side by-country breakdown, and the bilateral dimension does not extend to direct investment, other investment, or reserves.",
+        "evidence_excerpt": "The page focuses exclusively on 'External Portfolio Investment Assets' ... There is no mention of an inward (liabilities-side) breakdown by country or region. The title consistently refers to 'External Portfolio Investment Assets'.",
+        "source_url": "https://www.safe.gov.cn/en/ChinasExternalPortfolioInvestm/index.html"
+      },
+      {
+        "claim": "External debt is published as 'China's Gross External Debt Position by Sector' (by sector and maturity), since 2014Q4 — by sector/instrument, not by counterparty country.",
+        "evidence_excerpt": "The time-series data of China's Gross External Debt Position by Sector (since 2014Q4) (2026-06-26)",
+        "source_url": "https://www.safe.gov.cn/en/DataandStatistics/index.html"
+      }
+    ],
+    "accounts": "BOP/IIP/external-debt — BOP (time-series, BPM6), IIP (functional category, with sector and maturity sub-breakdowns since end-2025), Gross External Debt Position by Sector (since 2014Q4); plus a separate semiannual outward-portfolio-assets-by-country/region dataset.",
+    "instruments": "Direct investment, portfolio investment (equity / debt securities — equity USD 1262.8bn, bonds USD 724.7bn at end-2025), financial derivatives, other investment, reserve assets (IIP). Portfolio-by-country dataset splits equity vs bond and by holder sector (bank / other financial corporations / non-financial)."
+  },
+  "access": {
+    "method": "Public web download via SAFE English site Data and Statistics section; HTML data-interpretation press pages plus linked time-series/Excel files. No authentication.",
+    "formats": ["HTML", "Excel (time-series files linked from data pages) — UNVERIFIED exact format/extension not opened"],
+    "api_or_bulk": "UNVERIFIED — no public machine API observed on the fetched pages; data appears to be downloadable files only, not confirmed."
+  },
+  "frequency": "BOP and IIP: quarterly (IIP revised each quarter since 2024). Gross External Debt: quarterly (since 2014Q4). External Portfolio Investment Assets by Country/Region: semiannual (year-end and end-June reference dates, 2018-2025).",
+  "reporting_lag": "IIP end-2025 released 2026-03-27 (~3 months after quarter-end). External Portfolio Investment Assets end-2025 released 2026-05-29 (~5 months). Time-series files refreshed 2026-06-26.",
+  "coverage": "China (mainland) as reporting economy vs rest of world. IIP/BOP whole-economy by functional category/sector. Bilateral portfolio-assets dataset covers counterparty countries/regions (top recipients: Hong Kong SAR, US, Cayman Islands, BVI, UK at end-2025); full country list length UNVERIFIED (not opened). Time span: BOP from 2015 (BPM6 goods/services), external debt since 2014Q4, portfolio-by-country since 2018.",
+  "known_frictions": [
+    "The bilateral (FWTW) dimension exists ONLY for OUTWARD portfolio investment ASSETS — no counterparty-country resolution for the liabilities side, nor for direct investment, other investment, or reserves; the bulk of the IIP is marginals only.",
+    "Portfolio-by-country is semiannual while IIP/BOP are quarterly — temporal mismatch requiring disaggregation/interpolation to align in a quarterly matrix.",
+    "Large 'recipient' shares sit in financial-center/offshore jurisdictions (Hong Kong, Cayman, BVI) reflecting first-counterparty/custodial residency rather than ultimate destination — a known FWTW attribution distortion.",
+    "IIP has been revised each quarter since 2024 (vintage instability); end-2025 added sector and maturity sub-breakdowns, so historical structure is not constant.",
+    "Reserve-asset counterparty/currency composition is not disclosed bilaterally (confidential) — China's reserves cannot be allocated by counterparty from SAFE tables.",
+    "Direct download/Excel paths and any bulk API were not confirmed (UNVERIFIED)."
+  ],
+  "fwtw_cells": "yields bilateral cells for one quadrant only (China outward portfolio-investment ASSETS by counterparty economy and holder sector, semiannual); for all other instruments and the entire liabilities side it provides only marginals — those FWTW cells UNVERIFIED, reason: SAFE publishes the IIP by functional category/instrument with no counterparty-country dimension, and the by-country dataset is assets/portfolio-only.",
+  "confidence_tier": "B",
+  "tier_basis": "Dataset identity, structure, the marginals-vs-bilateral determination, frequency and publication lag were directly grounded on fetched SAFE publisher pages; download/API mechanics, exact file formats, and full counterparty-country list remain unverified.",
+  "unverified": [
+    "access.formats — exact downloadable file format/extension not opened",
+    "access.api_or_bulk — no machine API confirmed",
+    "full counterparty-country list and granularity of the portfolio-by-country table (only top-5 recipients quoted)",
+    "whether the portfolio-by-country dataset further splits country x sector x instrument in a single joinable table (structure inferred from press text, table not opened)",
+    "IIP page did not load at its index URL (404 on /en/InternationalInvestmentPosition/index.html); IIP structure grounded via the end-2025 release page 2405.html instead"
+  ],
+  "notes": "CRITICAL DETERMINATION grounded on SAFE's own pages: the standard IIP is MARGINALS ONLY (functional category x instrument x sector/maturity, no counterparty country), confirmed verbatim from the end-2025 IIP release. The one bilateral exception is the separately published, CPIS-aligned 'External Portfolio Investment Assets by Country/Region and by Sector of Resident Holder' — outward portfolio ASSETS only, semiannual. Therefore the source is 'mixed': it supplies genuine from-whom-to-whom cells for China's outward portfolio-equity/debt holdings, but only marginals for everything else (liabilities, direct investment, other investment, reserves). This mirrors China's known CPIS reporting (assets-side) but the determination above is grounded on SAFE's own published tables, not on the IMF CPIS."
+}

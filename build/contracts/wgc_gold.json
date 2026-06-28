@@ -1,0 +1,39 @@
+{
+  "source_id": "wgc_gold",
+  "publisher": "World Gold Council (Goldhub)",
+  "dataset_title": "Central Banks Gold Reserves by Country (World Official Gold Holdings)",
+  "role_in_matrix": "Official-sector gold holdings by country, providing the non-dollar reserve-asset (monetary gold) dimension of central-bank/official-sector reserves; complements IMF COFER currency-composition reserves in the FWTW matrix.",
+  "urls_checked": [
+    "https://www.gold.org/goldhub/data/gold-reserves-by-country"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "Official gold holdings of central banks and other official institutions, expressed in three formats: tonnes, US$ value, and gold as a percentage share of total foreign reserves. Includes monthly files for top 100 holders, a quarterly time series since 2000, monthly/annual changes in reserves, and CBGA sales data.",
+    "country_breakdown": "Top 100 holders (per-country) with quarterly data since 2000; latest available month-end data for the top 100 holders. Per-country breakdown confirmed on fetched page.",
+    "underlying_source": "Compiled from IMF International Financial Statistics (IFS); page cites 'International Monetary Fund's International Financial Statistics (IFS), December 2025 edition.' WGC supplements IMF data with adjustments 'where the World Gold Council knows of movements that are not reported to the IMF.'"
+  },
+  "access": {
+    "method": "Web dashboard plus downloadable files on Goldhub. Page states: 'Login or register to use the dashboard. When not logged in, only limited features of the dashboard are available.' Registration is described as 'free and unlimited access'.",
+    "formats": ["Excel (.xlsx)"],
+    "api_or_bulk": "No API or programmatic access mentioned on the fetched page; access is file-based (downloadable Excel files: 'World Official Gold Holdings', 'Changes in World Official Gold Reserves', 'Quarterly time series on World Official Gold Reserves since 2000', 'Sales under the Central Bank Gold Agreements (CBGA4)').",
+    "registration_required": "Free registration/login required for full dashboard features; limited features available without login. Exact gating of file downloads vs. dashboard-only features not fully disambiguated on the page (see unverified)."
+  },
+  "frequency": "Mixed: monthly files for top 100 holders; quarterly official gold holdings time series since 2000; annual CBGA sales data.",
+  "reporting_lag": "IFS data are two months in arrears. Per fetched page: 'holdings are as of December 2025 for most countries, September 2025 or earlier for late reporters' (relative to the December 2025 IFS edition); dashboard data noted 'as of 31 March, 2026'. Downloadable files labelled 'as of Jun2026'. So roughly 2 months for most countries, longer for late reporters.",
+  "coverage": "Top 100 official holders per-country; quarterly series back to 2000; monthly/annual changes from January 2002 (per WGC description). Global official-sector monetary gold.",
+  "known_frictions": [
+    "Registration/login required for full access (free account); not an anonymous open download for all features.",
+    "Two-month (or longer for late reporters) publication lag inherited from IMF IFS.",
+    "Coverage limited to top 100 holders for per-country detail; smaller holders may be aggregated or omitted.",
+    "WGC applies manual adjustments for movements not reported to the IMF, so the series is not a pure IFS passthrough and may differ from raw IMF COFER/IFS for some countries.",
+    "Distributed as Excel files only; no API/bulk machine-readable endpoint confirmed, requiring scripted parsing of .xlsx for ingestion.",
+    "Frequency is mixed (monthly/quarterly/annual across different files), requiring reconciliation/alignment for matrix use."
+  ],
+  "confidence_tier": "A",
+  "unverified": [
+    "Whether downloadable Excel files specifically require login, or only the interactive dashboard does (page text gates the 'dashboard' features behind login but does not explicitly state file-download gating).",
+    "Exact total number of countries/holders beyond the stated 'top 100' (e.g. whether a long-tail aggregate is included).",
+    "Presence/absence of any API confirmed only by negative (no API mentioned on the fetched page); not independently disproven."
+  ],
+  "notes": "All facts grounded against the live publisher page https://www.gold.org/goldhub/data/gold-reserves-by-country fetched 2026-06-28. Underlying source confirmed as IMF IFS (December 2025 edition) with WGC adjustments. Tier A: structure, source, frequency, lag, formats, and registration confirmed from the fetched official page. Note that since the publisher itself compiles from IMF IFS, this source partially overlaps with IMF as the primary monetary-gold source; for FWTW use, the WGC value-add is the cleaned, per-country, ready-to-download tonnage/value/share series."
+}

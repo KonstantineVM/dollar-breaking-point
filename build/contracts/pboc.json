@@ -1,0 +1,75 @@
+{
+  "source_id": "pboc",
+  "publisher": "People's Bank of China (PBoC)",
+  "dataset_title": "Money and Banking Statistics; Assets and Liabilities Statistics of Financial Institutions; Sources and Uses of Credit Funds of Financial Institutions; Financial Accounts (Flow of Funds Statement / Financial Assets and Liabilities Statement)",
+  "role_in_matrix": "Supplies domestic-sector marginals/control-totals for China: monetary authority balance sheet, depository corporations survey, other depository corporations balance sheet, money supply, financial institutions' assets/liabilities and credit funds, and an annual sector-by-instrument flow-of-funds / financial accounts (five institutional sectors incl. Rest of the World as a single aggregate). Useful for sector control totals and for the China row/column of a global SFC matrix, not for cross-border counterparty resolution.",
+  "bilateral_or_marginals": "marginals_only",
+  "bilateral_determination_evidence": {
+    "finding": "PBoC monetary/banking statistics resolve assets and liabilities by DOMESTIC SECTOR aggregate (claims on government, on non-financial sectors, on other financial sectors; foreign assets netted into 'Net Foreign Assets'), NOT by counterparty country. The Financial Accounts flow-of-funds table is a sector-by-instrument matrix with the Rest of the World as a SINGLE aggregate sector, so it gives who-to-whom only across five broad institutional sectors and does not disaggregate the external sector into bilateral counterparty countries.",
+    "evidence_excerpt": "Depository Corporations Survey row labels: 'Net Foreign Assets', 'Domestic Credits', 'Claims on Government (net)', 'Claims on Non-financial Sectors', 'Claims on Other Financial Sectors', 'Money & Quasi Money', 'Currency in Circulation', 'Personal Deposits' — i.e. claims broken down by domestic sector, not by counterparty country; all foreign exposure collapsed into a single net line 'Net Foreign Assets'.",
+    "source_url": "http://www.pbc.gov.cn/diaochatongjisi/fileDir/resource/cms/2023/02/2023022414304744099.htm"
+  },
+  "urls_checked": [
+    "http://www.pbc.gov.cn/en/3688229/index.html",
+    "http://www.pbc.gov.cn/en/3688247/3688975/index.html",
+    "http://www.pbc.gov.cn/en/3688247/3688975/3718249/4503799/index.html",
+    "https://www.pbc.gov.cn/en/3688247/3688975/3718252/4503750/index.html",
+    "http://www.pbc.gov.cn/en/3688247/3688975/3984235/4503881/index.html",
+    "https://www.pbc.gov.cn/en/3688247/3688978/3709137/2025122410193371772/index.html",
+    "http://www.pbc.gov.cn/diaochatongjisi/fileDir/resource/cms/2023/02/2023022414304744099.htm"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "PBoC Statistics is organized by year (2006-2025 observed) into categories: Aggregate Financing to the Real Economy; Money and Banking Statistics; Assets and Liabilities Statistics of Financial Institutions; Sources and Uses of Credit Funds of Financial Institutions; Financial Market Statistics; Financial Accounts; plus surveys. Money and Banking Statistics contains the IMF-style standardized tables. Financial Accounts contains the annual/semiannual flow-of-funds matrix.",
+    "claims": [
+      {
+        "claim": "Money and Banking Statistics contains 'Balance Sheet of Monetary Authority', 'Depository Corporations Survey', 'Balance Sheet of Other Depository Corporations', and 'Money Supply' (each in htm/xls/pdf), plus 'Official reserve assets', 'Domestic RMB Financial Assets Held by Overseas Entities', and 'Template on International Reserves and Foreign Currency Liquidity'.",
+        "evidence_excerpt": "Exact Table Titles: 'Official reserve assets', 'Balance Sheet of Monetary Authority', 'Depository Corporations Survey', 'Balance Sheet of Other Depository Corporations', 'Money Supply', 'Exchange Rate', 'Domestic RMB Financial Assets Held by Overseas Entities', 'Template on International Reserves and Foreign Currency Liquidity'.",
+        "source_url": "https://www.pbc.gov.cn/en/3688247/3688975/3718252/4503750/index.html"
+      },
+      {
+        "claim": "The Depository Corporations Survey breaks claims down by domestic sector (government, non-financial sectors, other financial sectors) and collapses all external exposure into a single 'Net Foreign Assets' line — no counterparty-country detail.",
+        "evidence_excerpt": "row labels: 'Net Foreign Assets', 'Domestic Credits', 'Claims on Government (net)', 'Claims on Non-financial Sectors', 'Claims on Other Financial Sectors', 'Money & Quasi Money', 'Currency in Circulation', 'Personal Deposits'; 'This table breaks down claims by domestic sector ... rather than by counterparty country.'",
+        "source_url": "http://www.pbc.gov.cn/diaochatongjisi/fileDir/resource/cms/2023/02/2023022414304744099.htm"
+      },
+      {
+        "claim": "Financial Accounts publishes a flow-of-funds / financial accounts matrix of institutional sectors by transaction items, with five institutional sectors (non-financial corporations, financial institutions, general government, households, rest of the world) where Rest of the World is a single aggregate sector.",
+        "evidence_excerpt": "Financial Accounts tables: 'Flow of Funds Statement(Financial Accounts)(the First Half Year)', 'Flow of Funds Statement(Financial Accounts)(Year)', 'Financial Assets and Liabilities Statement(Financial Accounts)'. Per PBoC flow-of-funds description: '5 groups of institutional sectors ... non-financial corporations, financial institutions, general governments, households, and the rest of the world.'",
+        "source_url": "http://www.pbc.gov.cn/en/3688247/3688975/3984235/4503881/index.html"
+      },
+      {
+        "claim": "Financial Statistics Reports are published monthly with roughly a two-week lag.",
+        "evidence_excerpt": "'Financial Statistics Report (November 2025)' with publication timestamp '2025年12月12日' (December 12, 2025) — ~2 weeks after month-end.",
+        "source_url": "https://www.pbc.gov.cn/en/3688247/3688978/3709137/2025122410193371772/index.html"
+      }
+    ],
+    "sectors": "Money/banking tables: domestic-sector aggregates (government, non-financial sectors, other financial sectors) plus a netted foreign sector. Financial Accounts: five institutional sectors (non-financial corporations, financial institutions, general government, households, rest of the world).",
+    "instruments": "Money/banking: foreign assets (net), domestic credit, currency, deposits (corporate demand/time, personal, other), bonds, paid-in capital, other items (net). Financial Accounts: flow-of-funds transaction items expressed as row headings (forms of distribution / methods of financing) — UNVERIFIED at item-line granularity (not opened the FoF table htm)."
+  },
+  "access": {
+    "method": "Public download from pbc.gov.cn English Statistics section (organized by year), one table per page",
+    "formats": ["htm", "xls", "pdf"],
+    "api_or_bulk": "UNVERIFIED — no machine API or bulk-download endpoint confirmed on the publisher pages checked; access observed is per-table htm/xls/pdf files"
+  },
+  "frequency": "Monthly for Money and Banking Statistics / Financial Statistics Reports; Financial Accounts flow-of-funds is annual plus a first-half-year statement (semiannual)",
+  "reporting_lag": "Approximately 2 weeks for monthly money/banking statistics (Nov 2025 report published 2025-12-12). Financial Accounts annual lag UNVERIFIED.",
+  "coverage": "China (domestic monetary/financial institutions and national institutional sectors). Latest monthly vintage observed: November 2025 (published Dec 2025). Statistics archive spans 2006-2025; Financial Accounts available from ~2017/2018 onward.",
+  "known_frictions": [
+    "English site notes English translation is for reference only; authoritative figures are the Chinese tables.",
+    "Several deep portal URLs return HTTP 404 / change (CMS resource paths and table ids are renumbered year to year); links must be re-resolved per vintage.",
+    "Money/banking tables net out foreign exposure ('Net Foreign Assets'), so even the China marginal toward the external sector is a single net figure, not gross or by counterparty.",
+    "Financial Accounts flow-of-funds is annual/semiannual only — would need temporal disaggregation for a higher-frequency matrix.",
+    "Rest of the World is a single aggregate sector in the flow of funds — no bilateral counterparty-country resolution."
+  ],
+  "fwtw_cells": "only marginals — FWTW cells UNVERIFIED, reason: PBoC monetary/banking tables classify by domestic sector with foreign exposure netted into a single 'Net Foreign Assets' line, and the Financial Accounts flow-of-funds treats Rest of the World as one aggregate sector; no breakdown by counterparty country exists in the publisher tables checked, so cross-border bilateral (from-whom-to-whom-by-country) cells cannot be sourced here.",
+  "confidence_tier": "B",
+  "tier_basis": "Table identities, sector structure, frequency, and the marginals-only (no counterparty-country) determination are grounded in fetched publisher pages including an actual data-table htm; but instrument-line granularity of the flow-of-funds, the API/bulk question, and the annual FoF lag remain UNVERIFIED.",
+  "unverified": [
+    "instruments at flow-of-funds transaction-item granularity (Financial Accounts htm not opened)",
+    "access.api_or_bulk (no API/bulk endpoint confirmed)",
+    "reporting_lag for the annual Financial Accounts table",
+    "exact first year the Financial Accounts series begins (reported as ~2017/2018 from navigation, not from the table itself)",
+    "Balance Sheet of Monetary Authority row-level labels (htm not opened; inferred to be domestic-sector/IMF-standard from category context)"
+  ],
+  "notes": "PBoC is a control-totals / marginals source for China's monetary authority, depository corporations, and national institutional sectors. It supplies the China sector aggregates and a sector-by-instrument flow-of-funds (incl. a single Rest-of-World column), but yields NO counterparty-country bilateral cells. For cross-border FWTW resolution against China, pair with a bilateral source (e.g. IMF CPIS/CDIS, BIS LBS, or TIC); use PBoC for the China sector control totals the matrix must reconcile to."
+}
