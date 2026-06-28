@@ -6,7 +6,7 @@
       "verifier": "build/contracts/_manifest.json",
       "gate": "human",
       "approved_marker": "build/approvals/DP1.approved",
-      "note": "Grounded 9 data-source contracts against publishers (8 tier A, 1 tier B). Human gate = PR review (web). DP2 not begun."
+      "note": "Grounded 12 data-source contracts against publishers (9 tier A, 3 tier B). Includes China: nbs (marginals_only), pboc (marginals_only), safe (mixed - outward portfolio assets bilateral, IIP marginals). Each China contract states bilateral-vs-marginals with fetched-page evidence; absent bilateral series recorded as UNVERIFIED-by-absence. Human gate = PR review (web). DP2 not begun."
     }
   ]
 }

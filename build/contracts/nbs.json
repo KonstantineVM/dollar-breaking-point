@@ -1,0 +1,75 @@
+{
+  "source_id": "nbs",
+  "publisher": "National Bureau of Statistics of China (NBS)",
+  "dataset_title": "China Statistical Yearbook 2025, Chapter 3 National Accounts — Flow of Funds Accounts (tables 3-15 Non-financial Transaction and 3-16 Financial Transaction)",
+  "role_in_matrix": "Supplies China's sector-by-instrument capital and financial account marginals (sources/uses of funds by institutional sector) for the China block of the global SFC from-whom-to-whom matrix; provides sector control totals and a single Rest-of-the-World column, not counterparty-resolved bilateral cells.",
+  "bilateral_or_marginals": "marginals_only",
+  "bilateral_determination_evidence": {
+    "finding": "NBS Flow of Funds Accounts (Financial Transaction) table 3-16 is organized as a sector x instrument x (Uses/Resources) matrix. Columns are institutional sectors (Non-financial Enterprises, Financial Institutions, General Government, Households, Total of Domestic Sectors, The Rest of the World, Total), each split into Uses and Resources; rows are financial instruments (Currency, Deposits, Loans, Bonds, Shares, Insurance Technical Reserves, FDI, International Reserve Assets, etc.). There is NO creditor-sector x debtor-sector cross-tabulation: for any instrument you can see total uses and total resources per sector, but not which sector holds the claim against which counterparty sector. The 'Rest of the World' is a single sector column, not a counterparty dimension applied per holder. This yields sector marginals / control totals only, not from-whom-to-whom (counterparty-resolved) cells.",
+    "evidence_excerpt": "Header: 'Sectors / Items | Non-financial Enterprises (Uses, Resources) | Financial Institutions (Uses, Resources) | General Government (Uses, Resources) | Households (Uses, Resources) | Total of Domestic Sectors (Uses, Resources) | The Rest of the World (Uses, Resources) | Total (Uses, Resources)'. Row examples: 'Net Financial Investment', 'Total Funds Uses', 'Total Funds Sources', 'Currency', 'Deposits', 'Loans', 'Bonds', 'Government Bonds', 'Shares', 'Foreign Direct Investment', 'International Reserve Assets'. Title: '3-16 Flow of Funds Accounts (Financial Transaction, 2023)'.",
+    "source_url": "https://www.stats.gov.cn/sj/ndsj/2025/html/E03-16.jpg"
+  },
+  "urls_checked": [
+    "https://www.stats.gov.cn/english/",
+    "https://www.stats.gov.cn/english/Statisticaldata/",
+    "https://www.stats.gov.cn/english/Statisticaldata/yearbook/",
+    "https://www.stats.gov.cn/sj/ndsj/2025/indexeh.htm",
+    "https://www.stats.gov.cn/sj/ndsj/2025/left_.htm",
+    "https://www.stats.gov.cn/sj/ndsj/2025/html/E03-16.jpg",
+    "https://www.stats.gov.cn/sj/ndsj/2025/html/E03-15.jpg",
+    "https://data.stats.gov.cn/english/easyquery.htm?cn=C01"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "China Statistical Yearbook is published annually in English on stats.gov.cn. Chapter 3 'National Accounts' contains two Flow of Funds Accounts tables: 3-15 (Non-financial Transaction) and 3-16 (Financial Transaction). Both are sector x instrument x (Uses/Resources) matrices covering reference year 2023 in the 2025 yearbook edition. Sectors are the four resident institutional sectors plus Total of Domestic Sectors, Rest of the World, and Total. The financial table enumerates financial instruments down the rows.",
+    "claims": [
+      {
+        "claim": "The English China Statistical Yearbook is published annually; the latest edition online is 2025, with editions back to 2004 listed.",
+        "evidence_excerpt": "Yearbook index links: '/sj/ndsj/2025/indexeh.htm 2025', '/sj/ndsj/2024/indexeh.htm 2024', '.../2023/indexeh.htm 2023' ... down to 2004. Frameset title element: 'China Statistical Yearbook 2025'.",
+        "source_url": "https://www.stats.gov.cn/english/Statisticaldata/yearbook/"
+      },
+      {
+        "claim": "Chapter 3 National Accounts contains two Flow of Funds Accounts tables, separated into non-financial and financial transactions, both for reference year 2023 in the 2025 edition.",
+        "evidence_excerpt": "TOC entries: \"<li><a href='html/E03-15.jpg'>3-15 Flow of Funds Accounts (Non-financial Transaction, 2023)</a></li>\" and \"<li><a href='html/E03-16.jpg'>3-16 Flow of Funds Accounts (Financial Transaction, 2023)</a></li>\".",
+        "source_url": "https://www.stats.gov.cn/sj/ndsj/2025/left_.htm"
+      },
+      {
+        "claim": "The Flow of Funds Financial Transaction table reports four resident institutional sectors plus Rest of the World and totals, each split into Uses and Resources.",
+        "evidence_excerpt": "Column headers in table 3-16: 'Non-financial Enterprises', 'Financial Institutions', 'General Government', 'Households', 'Total of Domestic Sectors', 'The Rest of the World', 'Total' — each with sub-columns 'Uses' and 'Resources'.",
+        "source_url": "https://www.stats.gov.cn/sj/ndsj/2025/html/E03-16.jpg"
+      },
+      {
+        "claim": "Instruments are listed as rows (currency, deposits, loans, bonds, shares, insurance technical reserves, FDI, international reserve assets, etc.), confirming a sector-by-instrument marginal layout rather than a counterparty matrix.",
+        "evidence_excerpt": "Row labels in 3-16 include 'Currency', 'Deposits' (Demand/Time/Fiscal/Foreign Exchange/Other), 'Loans' (Short-term & Bills Financing/Medium- and Long-term/Foreign Exchange/Entrusted/Other), 'Bonds' (Government/Financial/Central Bank/Corporate), 'Shares', 'Insurance Technical Reserves', 'Inter-financial Institutions Accounts', 'Foreign Direct Investment', 'International Reserve Assets'. Values are denominated '(100 million yuan)'.",
+        "source_url": "https://www.stats.gov.cn/sj/ndsj/2025/html/E03-16.jpg"
+      }
+    ],
+    "sectors": "Non-financial Enterprises; Financial Institutions; General Government; Households; Total of Domestic Sectors; The Rest of the World; Total. Each split into Uses and Resources. (Residency-based institutional sectors; Rest of the World is a single residency-counterpart column, not a nationality breakdown.)",
+    "instruments": "Currency; Deposits (Demand, Time, Fiscal, Foreign Exchange, Other); Customer Margin of Securities Companies; Loans (Short-term & Bills Financing, Medium- and Long-term, Foreign Exchange, Entrusted, Other); Undiscounted Bankers' Acceptance Bills; Insurance Technical Reserves; Inter-financial Institutions Accounts; Required and Excessive Reserves; Bonds (Government, Financial, Central Bank, Corporate); Shares; Securities Investment Fund Shares; Cash in Vault; Central Bank Loans; Miscellaneous (net); Foreign Direct Investment; Other Foreign Assets and Debts; International Reserve Assets; Errors and Omissions in the Balance of Payments."
+  },
+  "access": {
+    "method": "Public web download from stats.gov.cn English yearbook. Yearbook tables are served as static JPG images per table (e.g. html/E03-16.jpg) plus PDF explanatory notes (e.g. html/zbe03.pdf), inside an HTML frameset TOC (left_.htm). No login required.",
+    "formats": ["JPG (per-table images in yearbook)", "PDF (explanatory notes)", "HTML (frameset TOC)", "Excel/CSV via data portal data.stats.gov.cn easyquery interface (NOT VERIFIED — portal blocked, see api_or_bulk)"],
+    "api_or_bulk": "UNVERIFIED — the data portal data.stats.gov.cn (easyquery endpoint, English interface) returned HTTP 403 (NBS WAF, reason 'UrlACL', blocking the agent's client IP range 160.79.106.x) on every attempted path, including /english/easyquery.htm and the JSON getTree endpoints. Could not confirm machine-readable API/bulk download structure, query codes, or whether the Flow of Funds tables are exposed as queryable series from the publisher. The yearbook JPG/PDF route on www.stats.gov.cn is the verified access path."
+  },
+  "frequency": "Annual (China Statistical Yearbook published yearly; Flow of Funds Accounts are an annual series, one table pair per reference year).",
+  "reporting_lag": "Approximately 2 years for the Flow of Funds tables: the 2025 yearbook edition carries Flow of Funds Accounts for reference year 2023 (tables titled '... 2023'). (Headline GDP tables in the same chapter run to 2024; the Flow of Funds compilation lags further.)",
+  "coverage": "China resident institutional sectors (Non-financial Enterprises, Financial Institutions, General Government, Households) plus a consolidated Rest of the World column; whole-economy financial and non-financial transaction flows. Latest verified reference year on the publisher page: 2023 (in the 2025 yearbook). Historical editions back to 2004 are linked.",
+  "known_frictions": [
+    "Tables are published as flat JPG images, not machine-readable data — values must be OCR'd or hand-keyed from the image; no per-cell data feed verified.",
+    "Annual-only series with a ~2-year publication lag (2023 data in the 2025 yearbook) — needs temporal disaggregation and nowcasting to align with higher-frequency global matrix vintages.",
+    "The NBS data portal (data.stats.gov.cn) is WAF-blocked to the agent's IP (HTTP 403 UrlACL), so the API/bulk path could not be grounded; only the static yearbook is confirmed accessible.",
+    "Sector taxonomy is residency-based China SNA sectors; mapping to the global matrix's sector definitions (esp. splitting Financial Institutions into central bank vs other; Non-financial Enterprises) requires a crosswalk — the yearbook's single 'Financial Institutions' column is coarser than central-bank-vs-OFI needs.",
+    "Yearbook pages use a frameset with gb2312 encoding and JS window.open; direct deep links to table images work (html/E03-16.jpg) but the TOC must be parsed from left_.htm, and table numbering can shift between editions (table-renumbering friction across years)."
+  ],
+  "fwtw_cells": "only marginals — FWTW cells UNVERIFIED, reason: NBS Flow of Funds Accounts (table 3-16 Financial Transaction) is a sector x instrument x (Uses/Resources) matrix with a single consolidated Rest-of-the-World column; it provides per-sector, per-instrument totals (control totals / marginals) but contains no creditor-sector x debtor-sector counterparty cross-tabulation, so from-whom-to-whom bilateral cells cannot be sourced directly from NBS and must be filled from another source or estimated.",
+  "confidence_tier": "A",
+  "tier_basis": "The core determination (FoF tables exist, are sector x instrument marginals with no bilateral counterparty detail, annual, ~2yr lag, latest 2023 in 2025 yearbook) was read directly off the publisher's own table image and TOC; only the secondary data-portal API path is unverified due to a WAF block.",
+  "unverified": [
+    "access.api_or_bulk — data.stats.gov.cn easyquery API / bulk download / query codes (portal returned HTTP 403 UrlACL on all attempts; not confirmable from publisher)",
+    "Whether the data portal exposes the Flow of Funds tables as queryable Excel/CSV series (could not reach portal)",
+    "Exact PDF filename of Chapter 3 explanatory notes / methodology (inferred zbe03.pdf pattern but not fetched and read)",
+    "Sub-annual or provisional releases of Flow of Funds outside the yearbook (not located on the publisher pages fetched)"
+  ],
+  "notes": "Grounded against the publisher's static English yearbook on www.stats.gov.cn, which was reachable; the interactive data portal data.stats.gov.cn was hard-blocked by NBS's WAF (HTTP 403, reason UrlACL, client IP 160.79.106.x) and could not be used — this is a publisher-side geo/IP firewall, not a proxy failure (proxy status healthy). The bilateral determination rests on direct reading of table 3-16's row/column structure (sector columns x instrument rows, each sector split Uses/Resources, single Rest-of-the-World column), which is unambiguously a marginals/control-totals layout with no who-to-whom counterparty dimension. For the global FWTW matrix, NBS supplies China's sector marginals and a consolidated external-sector column; the off-diagonal China-vs-counterparty-country bilateral positions are NOT available from NBS and must come from BIS/IMF CPIS/CDIS or be estimated."
+}
