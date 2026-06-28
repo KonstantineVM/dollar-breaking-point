@@ -392,3 +392,41 @@ echo "=== TIC block (head) ===" && jq -c 'to_entries | map(select(.key|test("tre
 echo
 echo "=== both valid JSON + deferral-language check ===" && for f in build/results/dp2_residual.json build/model/matrix_assembled.json build/model/matrix_spec.json; do jq -e . "$f" >/dev/null 2>&1 && echo "OK $f"; done
 grep -liE 'phase[ -]?two|for now|assume[d]? identified|TODO' build/results/dp2_residual.json build/model/*.json 2>/dev/null || echo "no deferral language"
+2026-06-28T21:32:57Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "DP2: matrix assembly + balancing
+
+Assembled the global SFC from-whom-to-whom matrix from the 12 DP1 contracts,
+pulling REAL data via the documented endpoints (no fabricated cells).
+
+Artifacts:
+- build/model/matrix_spec.json   structure-first; every cell tagged OBSERVED /
+  ESTIMATED(named method) / UNVERIFIED-by-absence / HOLE; methods named before use.
+- build/model/matrix_assembled.json   706 OBSERVED cells (Fed EFA 585, TIC 36
+  named countries + 1 explicit residual bucket, BIS LBS 76, COFER 9 marginal).
+- build/results/dp2_residual.json (verifier)   RAS/Sinkhorn run.
+
+Honest findings (reported, not smoothed):
+- The cross-border bilateral data is too sparse for a dense area-by-area RAS;
+  only the TIC US-Treasury column has genuine area-by-area support. Full RAS is
+  NON-CONVERGENT (row residual L2 ~ $3.96tn); largest residual sits on the US
+  column. BIS claims-vs-liabilities asymmetry of 7.19% ($711bn) is an irreducible
+  floor before any balancing.
+- GCAP residency->nationality: the offshore USD pool is real and measured
+  ($2.07tn BIS Cayman+HK; $1.94tn TIC custodial hubs); the CHINA reallocation
+  magnitude is a HOLE (counterparty-nationality basis absent from the 12
+  contracts). Direction upward; ~$600bn-class figure neither confirmed nor
+  assumed negligible; magnitude not invented.
+
+Integrity critic BLOCKED a false-provenance label (a build-side residual bucket
+mislabeled as the publisher's All Other); fixed by retaining all 36 publisher-named
+TIC countries as observed cells, so the residual now equals the publisher's true
+\$710.8bn All Other (closure checks to the Grand Total within \$300mn rounding).
+
+Oversized raw pulls (ECB QSA 226MB, Fed FWTW 76MB) gitignored as reproducible;
+small processed extracts kept as evidence. Ledger: DP2 done, verifier
+build/results/dp2_residual.json. DP3 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
