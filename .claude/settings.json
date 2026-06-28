@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "deny": [
+      "Write(./build/approvals/**)",
+      "Edit(./build/approvals/**)",
+      "MultiEdit(./build/approvals/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ${CLAUDE_PROJECT_DIR}/.claude/hooks/setup-web.sh", "timeout": 120 },
+          { "type": "command", "command": "bash ${CLAUDE_PROJECT_DIR}/.claude/hooks/inject-context.sh", "timeout": 10 }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ${CLAUDE_PROJECT_DIR}/.claude/hooks/inject-context.sh", "timeout": 10 }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "bash ${CLAUDE_PROJECT_DIR}/.claude/hooks/gate-write-claims.sh", "timeout": 15 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash ${CLAUDE_PROJECT_DIR}/.claude/hooks/stamp-estimation.sh", "timeout": 15 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ${CLAUDE_PROJECT_DIR}/.claude/hooks/gate-stop.sh", "timeout": 30 },
+          {
+            "type": "prompt",
+            "timeout": 60,
+            "prompt": "You are an independent integrity critic for a macro-econometric build. Read the assistant's final message for this turn and any files it wrote under build/. Apply two skills: answer-integrity-audit and analytical-claim-discipline. Return a block decision (with the specific failure named and a concrete correction) if the turn commits any of: substitution (a proxy or a reasoned-to inference presented as the target or as an established result); planting (a conclusion forced by the construction — e.g. a factor defined so its non-identification is automatic — rather than shown by data); scope reduction (deferring the hard part and presenting the deferral as method); scope creep (elements not traceable to the task); ungrounded assertion of a present-day fact; deferral dressed as a settled decision; a dropped thread the task required; a silently overridden instruction; hand-waving an unsolved step (e.g. cell reconciliation) as solved; or a 'done'/'complete' claim whose verifier artifact is absent. You reliably catch the checkable shell and can FLAG suspected substitution or planting, but you CANNOT prove their absence — when the turn rests on judgment you cannot verify, say so and defer it to the human gate rather than passing it as clean. If none of the above is present, allow."
+          }
+        ]
+      }
+    ]
+  }
+}
