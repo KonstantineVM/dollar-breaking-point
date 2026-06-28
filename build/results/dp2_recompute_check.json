@@ -1,0 +1,8 @@
+{
+ "verifier": "dp2_recompute_check",
+ "passed": true,
+ "cpis_consistency_pass_reproduced": true,
+ "bis_floor_reproduced": true,
+ "recomputed_cpis_final_row_L2": 7.216507676102638e-07,
+ "recomputed_bis_floor_usd_mn": 711157.741
+}

@@ -1,197 +1,200 @@
 {
   "dp": "DP2",
   "artifact": "matrix_spec.json",
-  "title": "Structure specification for the global SFC from-whom-to-whom (FWTW) matrix",
+  "title": "Structure specification for the global SFC from-whom-to-whom (FWTW) matrix (CPIS-augmented re-run)",
   "generated": "2026-06-28",
-  "reference_period": "2025-Q4 / 2026-Q1 (mixed vintage; see per-source vintage)",
-  "integrity_rule": "Every cell carries source_basis in {OBSERVED, ESTIMATED, UNVERIFIED-by-absence, HOLE}. OBSERVED cites the contract+pulled file. ESTIMATED names the method below before use. UNVERIFIED-by-absence cites the contract finding that the publisher has no such series. HOLE cites the access friction. No cell is left untagged.",
-
-  "structure": {
-    "design_principle": "A tractable, honest matrix bounded by what the 12 contracts actually deliver in machine-readable form. The dense, real blocks are: (1) the US issuer-to-holder sector matrix (Fed EFA FWTW), (2) cross-border USD bank positions by counterparty country (BIS LBS), (3) foreign holdings of US Treasuries by country (TIC), (4) the world reserve-currency marginal (COFER), (5) euro-area/EU who-to-whom sector accounts (ECB QSA). China cross-border counterparty cells are thin by construction of the China sources and are tagged accordingly.",
-
-    "sector_set": {
-      "source": "Fed Z.1 EFA FWTW holder/issuer sector list (fed_financial_accounts contract), reduced to a global-tractable set; cross-walked to ESA/SNA where ECB/OECD supply marginals.",
-      "sectors": [
-        "S1_CENTRAL_BANK (monetary authority / official sector)",
-        "S2_DEPOSITORY (banks, depository institutions)",
-        "S3_OFI (other financial: MMF, mutual funds, ETFs, brokers, ABS, GSE, insurers, pensions)",
-        "S4_GOVERNMENT (federal + state-local general government)",
-        "S5_NONFIN_CORP (nonfinancial corporate + noncorporate business)",
-        "S6_HOUSEHOLD (households and NPISH)",
-        "S7_ROW (rest of world / external sector)"
-      ],
-      "sector_crosswalk_basis": "Fed FWTW 27 holder / 26 issuer codes aggregated to S1-S7 (fed_z1/fwtw_2026Q1.json); BIS counterparty sector L_CP_SECTOR=A (all sectors) used at area level only; ECB ESA sectors S11/S12K/S125/S13/S1M map to S5/S2/S3/S4/S6."
-    },
-
-    "counterparty_sector_set": "Identical to sector_set (square holder x issuer within an area for the US block; area x area for cross-border blocks). Who-to-whom counterpart-sector resolution is OBSERVED only for the US (Fed FWTW) and euro-area/EU (ECB QSA) blocks; for all other areas the counterpart sector collapses to S7_ROW or is UNVERIFIED-by-absence.",
-
-    "instrument_set": {
-      "source": "Fed Z.1 instrument list (31 components) reduced to a tractable global set the other sources can populate.",
-      "instruments": [
-        "I1_DEPOSITS_LOANS (currency, deposits, loans, interbank) -- BIS LBS + Fed + ECB",
-        "I2_DEBT_SECURITIES (Treasury, agency, corporate/foreign bonds, municipal, open market paper) -- TIC + Fed + CPIS(HOLE)",
-        "I3_EQUITY_FUND_SHARES (corporate equity, mutual/MMF/fund shares) -- Fed (US equity excluded from FWTW per publisher) + CPIS(HOLE)",
-        "I4_RESERVE_ASSETS (official FX reserves by currency, monetary gold) -- COFER (currency marginal) + WGC gold (HOLE)",
-        "I5_DIRECT_INVESTMENT (FDI debt + equity) -- Fed RoW cells only; CDIS not in contract set",
-        "I6_OTHER (insurance, pension, trade credit, miscellaneous) -- Fed + ECB marginals"
-      ]
-    },
-
-    "area_set": {
-      "source": "Union of areas the bilateral sources actually resolve. TIC (41 counterparty countries to US), BIS LBS (per-counterparty, 19 pulled), ECB QSA (EU member states), COFER (World aggregate only).",
-      "areas": ["US","CN","JP","GB","DE","FR","KY","HK","SG","CH","LU","IE","NL","BE","CA","KR","AU","IN","BR","EA_OTHER","ROW_RESIDUAL","WORLD_RESERVES"],
-      "note_china": "CN appears as a counterparty in TIC and BIS LBS (OBSERVED from counterparty-reported claims). CN as a REPORTER yields only marginals (nbs, pboc) plus one bilateral quadrant (safe: China outward portfolio ASSETS by counterparty, semiannual)."
-    },
-
-    "matrix_dimensions": "7 sectors x 7 counterparty-sectors x 6 instruments x 22 areas (as the declared cell space). Density is uneven and reported per block; the matrix is NOT dense and is not claimed to be."
-  },
+  "supersedes": "prior matrix_spec.json that recorded imf_cpis bilateral as a HOLE / one-dense-column-only. That verdict is REFUTED: it was a US-vs-ISO3-USA query bug (HTTP-200-empty trap). CPIS bilateral cells are now OBSERVED and dense among the reporting subset.",
+  "reference_period": "CPIS 2025-S1; BIS LBS 2025-Q4; TIC 2025-12; COFER 2025-Q4; Fed 2026-Q1 (mixed vintage; see per-block).",
+  "integrity_rule": "Every cell carries source_basis in {OBSERVED-bilateral, ESTIMATED, UNVERIFIED-by-absence, HOLE}. OBSERVED-bilateral cites the contract + pulled file. ESTIMATED names the method below before use. UNVERIFIED-by-absence cites the contract finding that the publisher has no such series. HOLE cites the access friction or the structural non-report. No cell untagged; holes listed.",
 
   "estimation_methods_named_before_use": [
     {
-      "id": "M1_counterparty_mirror",
-      "name": "counterparty-mirror",
-      "definition": "Where an economy does not report its own liabilities bilaterally, use the counterparty's reported CLAIM on it as the estimate of its liability. Applied to: China's USD bank liabilities estimated from BIS LBS all-reporting-banks USD claims ON China (bis_lbs/lbs_compact.json, denom=USD position=C cp=CN); China's US-Treasury liability to US estimated from TIC foreign holdings of US Treasuries attributed to China Mainland (treasury_tic/mfh_dec2025.json).",
-      "inputs_on_disk": ["bis_lbs/lbs_compact.json","treasury_tic/mfh_dec2025.json"]
-    },
-    {
       "id": "M2_RAS_sinkhorn",
-      "name": "RAS / Sinkhorn biproportional balancing",
-      "definition": "Iterative proportional fitting of a nonnegative seed matrix to fixed row and column marginals. Used to reconcile the assembled bilateral seed to the area-level claim/liability marginals. Residual = max abs(marginal - achieved marginal) after convergence, reported per pass in dp2_residual.json. Negative Fed FWTW cells (publisher-confirmed sign reversals) are excluded from the RAS seed and reported as a coverage gap, because RAS requires nonnegative entries.",
-      "inputs_on_disk": ["fed_z1/fwtw_2026Q1.json","bis_lbs/lbs_compact.json","treasury_tic/mfh_dec2025.json"]
+      "name": "RAS / Sinkhorn biproportional scaling",
+      "definition": "Alternating row-then-column proportional scaling of a nonnegative seed to row and column targets. APPLIED HERE in two distinct, separately-labeled passes recorded in ras_inputs.json: (i) a CPIS portfolio-block CONSISTENCY pass to the block's own margins (verifies seed margin-consistency; NOT an independent reconciliation, because CPIS supplies only the asset side and no independent portfolio-liability column marginal exists on disk for these areas); (ii) the BIS banking-marginal layer, where claims and liabilities are two INDEPENDENT marginals from the same source that do NOT net (the irreducible floor). Full inputs (row_targets, col_targets, seed sparse RCV, n_passes, tolerance, per-pass residual norms) persisted to build/model/ras_inputs.json so the residual is independently recomputable from disk. Verifier: build/results/dp2_recompute_check.py -> dp2_recompute_check.json.",
+      "inputs_on_disk": ["imf_cpis/coverage/cell_*.xml", "bis_lbs/lbs_compact.json"]
     },
     {
       "id": "M3_gcap_residence_to_nationality",
       "name": "GCAP residency->nationality reallocation",
-      "definition": "Reallocate dollar claims booked against the RESIDENCE of an offshore issuer (Cayman/BVI/HK custodial booking) to the NATIONALITY of the ultimate issuer (China). Requires a residence-vs-nationality basis differential. Attempted from BIS LBS (which carries L_PARENT_CTY for the REPORTING bank but NOT counterparty nationality) and from the BIS consolidated/nationality banking statistics. Effect reported with numbers in dp2_residual.json; if no real residence-vs-nationality basis is obtainable for the COUNTERPARTY (issuer) side, the magnitude is reported as a HOLE and NOT invented."
+      "definition": "Reallocate dollar/portfolio claims booked against the RESIDENCE of an offshore issuer (Cayman/BVI/HK) to the NATIONALITY of the ultimate issuer (notably China). Requires a counterparty-issuer nationality basis. CPIS does NOT supply it (COUNTERPART_COUNTRY is residency). The offshore-hub cells are therefore tagged residency-attributed and the China-by-nationality fraction of the offshore pool is recorded as a BOUNDED HOLE, not invented. Effect on the China channel reported in dp2_residual.json (direction upward; magnitude HOLE)."
+    },
+    {
+      "id": "M1_counterparty_mirror",
+      "name": "counterparty-mirror",
+      "definition": "Where an economy does not report bilaterally, use a counterparty's reported claim/holding as the liability estimate. Noted as available but NOT used to fabricate the 176 CPIS non-reporter rows: non-reporting economies stay HOLE rows, not mirror-filled, to avoid inventing reporter rows."
     }
   ],
 
+  "structure": {
+    "design_principle": "An honest matrix bounded by what the 13 contracts deliver in machine-readable form. The NEW dense block is the CPIS portfolio-investment area x area layer (167 observed bilateral cells, 13 reporters x 14 counterparts, 2025-S1). It sits alongside the prior real blocks: Fed EFA US issuer-to-holder (585), TIC US-Treasury by country (36 + 1 publisher residual), BIS LBS USD bank positions (marginal layer), COFER reserve marginal, ECB QSA euro-area marginals. Density is uneven and reported per block; the matrix is NOT dense and is not claimed to be.",
+
+    "cpis_portfolio_block": {
+      "row_dim": "reporter / holder economy (ISO-3); 13 active reporters (VGB excluded: genuine reporter HOLE).",
+      "col_dim": "counterpart / issuer economy (ISO-3); 14 counterparts (VGB retained as counterpart-only).",
+      "reporters_active": ["USA","DEU","FRA","ITA","NLD","JPN","GBR","CHN","CYM","HKG","BEL","LUX","IRL"],
+      "counterparts": ["USA","DEU","FRA","ITA","NLD","JPN","GBR","CHN","CYM","HKG","VGB","BEL","LUX","IRL"],
+      "basis": "residency",
+      "indicator": "P_TOTINV_P_USD (total PI positions, USD), SECTOR=S1, COUNTERPART_SECTOR=S1, ASSET side (ACCOUNTING_ENTRY=A), 2025-S1",
+      "key_form": "<REPORTER>.A.P_TOTINV_P_USD.S1.S1.<COUNTERPART>.S (IMF.STA:PIP(5.0.0), ISO-3 codes)",
+      "n_observed_bilateral_cells": 167,
+      "honest_density": "Dense among the reporting subset: 13 of 14 load-bearing economies report; the off-diagonal grid is fully populated except the 3 marked intra-block holes below. The 176 CPIS non-reporting economies are NOT given reporter rows.",
+      "reporter_hole_not_invented": "VGB (British Virgin Islands) files no CPIS as a reporter -> its row is a HOLE, left empty, NOT mirror-filled. The 176 non-reporters likewise get no fabricated rows."
+    },
+
+    "area_set": ["USA","DEU","FRA","ITA","NLD","JPN","GBR","CHN","CYM","HKG","VGB","BEL","LUX","IRL"],
+    "area_set_note": "This is the CPIS load-bearing block area set (ISO-3). The BIS/TIC layers use the prior 2-letter area codes (US,CN,JP,GB,DE,FR,KY,HK,...) in their own pulled files; KY<->CYM, HK<->HKG, VG<->VGB are the same economies across the two coding schemes."
+  },
+
   "cell_basis_register": [
     {
-      "block": "US_ISSUER_TO_HOLDER",
-      "area": "US",
-      "dimensions": "S1-S7 holder x S1-S7 issuer x I1-I6 instrument, residency basis",
-      "source_basis": "OBSERVED",
-      "contract": "fed_financial_accounts",
-      "file": "fed_z1/fwtw_2026Q1.json (from fwtw_data.csv, 2026Q1)",
-      "n_cells_nonzero": 585,
+      "block": "PORTFOLIO_INVESTMENT_BILATERAL_CPIS",
+      "area": "13 reporter x 14 counterpart (load-bearing)",
+      "dimensions": "holder-economy x issuer-economy, I2 debt + I3 equity combined (P_TOTINV_P_USD total), S1/S1, residency",
+      "source_basis": "OBSERVED-bilateral",
+      "contract": "imf_cpis",
+      "basis": "residency",
+      "file": "imf_cpis/coverage/cell_<REP>_<CP>.xml (167 cells, 2025-S1)",
+      "n_observed_cells": 167,
+      "load_bearing_cells_populated": {
+        "USA->CHN": 255341.0,
+        "USA->CYM": 2798130.0,
+        "USA->HKG": 107448.0,
+        "USA->VGB": 51419.0,
+        "USA->JPN": 1344145.0,
+        "USA->GBR": 1885490.0,
+        "JPN->USA": 2342597.3,
+        "note": "USD millions; full set in matrix_assembled.json"
+      },
+      "intra_block_holes": [
+        {"cell": "VGB->* (entire reporter row, 13 cells)", "tag": "HOLE", "reason": "BVI does not file CPIS as a reporter (genuine structural non-report; code valid as counterpart). Row left empty, not invented."},
+        {"cell": "HKG->ITA", "tag": "stale_cell", "reason": "last obs 2021-S2; no 2025-S1 vintage; seeded 0 (UNVERIFIED-by-absence for the current vintage)."},
+        {"cell": "HKG->BEL", "tag": "stale_cell", "reason": "last obs 2021; no 2025-S1 vintage; seeded 0."}
+      ],
+      "offshore_hub_residency_status": {
+        "RULE": "Every CPIS-sourced cell is basis=residency. Offshore-hub cells stay residency-attributed and are NOT silently reallocated to issuer-nationality. The offshore-SPV issuer-nationality gap (CBS narrowed it; CPIS does NOT close it) is a MARKED, BOUNDED hole at the cell level so DP3 sees the masked-China pool as visible.",
+        "USA->CYM": {"value_usd_mn": 2798130.0, "basis_tag": "residency", "nationality_status": "NOT reallocated; masked-China pool; bounded HOLE", "note": "dwarfs USA->CHN ($255,341mn) by ~11x; consistent with large Chinese-by-nationality issuance routed through Cayman residence."},
+        "USA->HKG": {"value_usd_mn": 107448.0, "basis_tag": "residency", "nationality_status": "NOT reallocated; partial China-conduit masking; bounded HOLE"},
+        "USA->VGB": {"value_usd_mn": 51419.0, "basis_tag": "residency", "nationality_status": "NOT reallocated; offshore-SPV masking; bounded HOLE"},
+        "USA->CHN": {"value_usd_mn": 255341.0, "basis_tag": "residency", "nationality_status": "UNDERSTATED direct leg; true China-by-nationality = this + unquantified fraction of CYM/HKG/VGB pools. GCAP direction upward; magnitude HOLE."}
+      },
       "caveats": [
-        "Publisher-confirmed ESTIMATED issuer-to-holder allocation (~2/3 fully specified, <1/4 by proportional assumption).",
-        "Corporate equities EXCLUDED from FWTW by the publisher: I3 equity cells partially UNVERIFIED-by-absence within this block.",
-        "Negative levels occur (sign-reversed relationships); excluded from RAS seed."
-      ]
-    },
-    {
-      "block": "CROSS_BORDER_USD_BANK_POSITIONS",
-      "area": "per-counterparty (US,CN,JP,GB,DE,FR,KY,HK,SG,CH,LU,IE,NL,BE,CA,KR,AU,IN,BR)",
-      "dimensions": "all-reporting-banks (S2) USD claims and liabilities vs counterparty area, instrument I1, residency basis",
-      "source_basis": "OBSERVED",
-      "contract": "bis_lbs",
-      "file": "bis_lbs/lbs_compact.json (WS_LBS_D_PUB, 2025-Q4)",
-      "n_cells": 76,
-      "caveats": [
-        "Counterparty SECTOR resolved only at L_CP_SECTOR=A (all sectors): no sector x sector resolution at counterparty-area level. Per-counterparty USD x foreign-currency-type split returned 'No results' on the public API; only L_CURR_TYPE=A (denom fixes currency) is populated -> counterparty-sector and currency-type granularity is UNVERIFIED-by-absence at the bilateral level.",
-        "Residency (booking-office) basis; intragroup positions included (unconsolidated)."
+        "ASSET (holder) side only (ACCOUNTING_ENTRY=A). Liability/mirror side is a known CPIS asymmetry, not closed here.",
+        "Semi-annual; no quarterly disaggregation applied.",
+        "P_TOTINV combines debt + equity; not split here."
       ]
     },
     {
       "block": "FOREIGN_HOLDINGS_US_TREASURIES",
-      "area": "41 counterparty countries incl. CN, JP, GB, KY, HK, BE, LU",
-      "dimensions": "S7_ROW(by country) holder x S4_GOVERNMENT(US) issuer x I2 debt, residency/custodial basis",
-      "source_basis": "OBSERVED",
+      "area": "36 named counterparty countries + publisher All Other",
+      "dimensions": "country holder x US-government issuer x I2 debt, residency/custodial",
+      "source_basis": "OBSERVED-bilateral",
       "contract": "treasury_tic",
-      "file": "treasury_tic/mfh_dec2025.json (mfhhis01.txt, Dec 2025)",
-      "n_cells": 41,
-      "caveats": [
-        "CONFIRMED custodial/financial-center bias (publisher footnote): hub countries (BE/LU/KY/IE/CH/GB) overstated vs beneficial owner -- this is the exact residence-vs-nationality distortion GCAP must address.",
-        "Monthly figures are partly estimated, benchmarked to annual SHL survey."
-      ]
+      "basis": "residency/custodial",
+      "file": "treasury_tic/mfh_dec2025.json (mfhhis01.txt, 2025-12)",
+      "n_cells": 36,
+      "explicit_publisher_residual_All_Other_usd_bn": 710.8,
+      "caveats": ["Custodial/financial-center bias (BE/LU/KY/IE/CH/GB overstated vs beneficial owner) — the same residency-vs-nationality distortion GCAP addresses."]
+    },
+    {
+      "block": "CROSS_BORDER_USD_BANK_POSITIONS",
+      "area": "19 counterparty areas (US + 18 named)",
+      "dimensions": "all reporting banks (S2) USD claims (C) and liabilities (L) vs counterparty area, I1, residency",
+      "source_basis": "OBSERVED",
+      "contract": "bis_lbs",
+      "basis": "residency",
+      "file": "bis_lbs/lbs_compact.json (WS_LBS_D_PUB, 2025-Q4)",
+      "position_C_label": "Total claims",
+      "position_L_label": "Total liabilities",
+      "marginal_floor": "claims and liabilities are independent marginals that do NOT net; the $711,157.7mn asymmetry (excl. US self-position) is the irreducible pre-RAS floor (dp2_residual.json).",
+      "caveats": ["Counterparty sector at L_CP_SECTOR=A only; no sector x sector at bilateral level."]
+    },
+    {
+      "block": "US_ISSUER_TO_HOLDER",
+      "area": "US",
+      "dimensions": "S1-S7 holder x S1-S7 issuer x I1-I6 instrument, residency",
+      "source_basis": "OBSERVED",
+      "contract": "fed_financial_accounts",
+      "basis": "residency",
+      "file": "fed_z1/fwtw_2026Q1.json (2026Q1)",
+      "n_cells_nonzero": 585,
+      "caveats": ["Corporate equities EXCLUDED from FWTW by publisher; some I3 cells UNVERIFIED-by-absence.", "Negative levels excluded from RAS seed."]
     },
     {
       "block": "WORLD_RESERVE_CURRENCY_MARGINAL",
       "area": "WORLD_RESERVES",
-      "dimensions": "I4 reserve assets by currency (USD/EUR/JPY/GBP/CNY/CHF/AUD/CAD/Other)",
+      "dimensions": "I4 reserve assets by currency",
       "source_basis": "OBSERVED",
       "contract": "imf_cofer",
       "file": "imf_cofer/cofer_marginal.json (2025-Q4)",
       "n_cells": 9,
-      "caveats": ["World/group aggregate only; no bilateral creditor-by-debtor detail and no individual-country composition (confidential). It is a MARGINAL, not a FWTW cell source."]
+      "caveats": ["World aggregate only; MARGINAL, not a bilateral cell source."]
     },
     {
       "block": "EUROAREA_WHO_TO_WHOM",
-      "area": "EU member states (FR,DE,etc.) x counterpart sector",
-      "dimensions": "REF_SECTOR x COUNTERPART_SECTOR x instrument, ESA2010 residency basis",
-      "source_basis": "OBSERVED",
+      "area": "EU member states x counterpart sector",
+      "dimensions": "REF_SECTOR x COUNTERPART_SECTOR x instrument, ESA2010 residency",
+      "source_basis": "OBSERVED (marginals; USD merge UNVERIFIED)",
       "contract": "ecb_qsa",
-      "file": "ecb_qsa/qsa_lastobs.csv (QSA whole-dataflow last observation, 2025-Q4/2024)",
-      "n_cells": "306238 rows pulled; mixed units (XDC stocks, ratios, per-capita). Stock positions (STO=LE) in XDC are the usable subset.",
-      "caveats": [
-        "Heterogeneous units in the whole-dataflow pull; only STO=LE, ACCOUNTING_ENTRY A/L, in XDC are balance-sheet stocks. Currency conversion XDC->USD per area not applied (UNVERIFIED conversion basis); euro-area block is reported as available who-to-whom marginals, not merged USD cells.",
-        "Counterpart-sector detail only for deposits/loans/debt securities/listed shares/fund shares per the contract."
-      ]
+      "file": "ecb_qsa/qsa_lastobs.csv (2025-Q4/2024)",
+      "caveats": ["Heterogeneous units; XDC->USD conversion basis unverified; retained as available who-to-whom marginals, not merged USD cells."]
     },
     {
       "block": "CHINA_OUTWARD_PORTFOLIO_ASSETS_BY_COUNTRY",
-      "area": "CN reporter x counterparty (HK,US,KY,BVI,GB,...)",
-      "dimensions": "China outward portfolio investment ASSETS by counterparty economy and holder sector, semiannual",
+      "area": "CN reporter x counterparty",
       "source_basis": "HOLE",
       "contract": "safe",
-      "friction": "SAFE publishes this CPIS-aligned table as HTML press text + Excel on www.safe.gov.cn; the contract verified its EXISTENCE and top-5 recipients (HK 978.9, US 364.0, KY 145.1, BVI 65.2, GB 48.5 USD bn end-2025) but did not confirm a machine API or open the full Excel. Not pulled here (access-frictioned China source, effort-capped). The top-5 end-2025 values are recorded in the contract evidence_excerpt but are NOT loaded as matrix cells because the full counterparty table was not obtained.",
-      "reason_tag": "HOLE"
+      "friction": "SAFE publishes as HTML/Excel; full counterparty table not machine-pulled. NOTE: CPIS now supplies CHN as a reporter (CHN->* row, 13 observed cells) on a residency basis, partially covering this need; SAFE's own bilateral table remains a HOLE.",
+      "reason_tag": "HOLE (SAFE table) / partially superseded by CPIS CHN reporter row"
     },
     {
       "block": "CHINA_SECTOR_MARGINALS",
       "area": "CN",
-      "dimensions": "China sector-by-instrument control totals, single RoW column",
       "source_basis": "UNVERIFIED-by-absence (bilateral) / HOLE (marginal values)",
-      "contracts": ["nbs","pboc"],
-      "finding": "nbs and pboc are MARGINALS-ONLY per their contracts: no creditor-sector x debtor-sector and no counterparty-country dimension (single netted RoW). Bilateral China cells are UNVERIFIED-by-absence (publisher has no such series). The marginal VALUES themselves are a HOLE: NBS yearbook is JPG-image only (OCR/hand-key required, not pulled) and data.stats.gov.cn is WAF-403; PBoC tables net foreign exposure into a single 'Net Foreign Assets' line and were not pulled.",
+      "contracts": ["nbs", "pboc"],
+      "finding": "nbs/pboc are marginals-only; bilateral China cells UNVERIFIED-by-absence; marginal VALUES a HOLE (NBS JPG-only + WAF-403; PBoC netted).",
       "reason_tag": "UNVERIFIED-by-absence + HOLE"
-    },
-    {
-      "block": "PORTFOLIO_INVESTMENT_BILATERAL_GLOBAL",
-      "area": "all reporter x counterpart",
-      "dimensions": "I2 debt + I3 equity portfolio positions, holder-sector x issuer-sector, residency",
-      "source_basis": "HOLE",
-      "contract": "imf_cpis",
-      "friction": "IMF SDMX PIP v5.0.0 endpoint confirmed live and DSD/INDICATOR codelist resolved (P_TOTINV_P_USD is the correct indicator), but every data query (US.A.P_TOTINV_P_USD.... and all sector-code variants S1/_T, FREQ A, startPeriod 2023/2024, lastNObservations) returned an EMPTY dataset envelope (0 observations, 4714-byte stub). The contract itself flagged the latest reference period and a working data key as UNVERIFIED; that wall was hit. CPIS bilateral cells are therefore not obtainable through the verified access path with the codes resolvable here.",
-      "reason_tag": "HOLE",
-      "files_attempted": ["imf_cpis/us_2024.xml","imf_cpis/us_all_keys.xml","imf_cpis/cpis_us_assets.xml"]
     },
     {
       "block": "MONETARY_GOLD_RESERVES_BY_COUNTRY",
       "area": "per-country official sector",
-      "dimensions": "I4 monetary gold by holder country",
       "source_basis": "HOLE",
       "contract": "wgc_gold",
-      "friction": "Goldhub gold-reserves files are login-walled Excel; access-frictioned source, not pulled (effort-capped). COFER supplies the FX-reserve currency marginal but NOT monetary gold; the gold leg of I4 is a HOLE.",
+      "friction": "Goldhub gold-reserves Excel login-walled; not pulled.",
       "reason_tag": "HOLE"
     },
     {
       "block": "NON_US_NON_EA_ADVANCED_FWTW",
-      "area": "JP,GB,CA,CH,KR,NO,SE,AU peers",
-      "dimensions": "counterpart-sector cells for advanced economies outside US/euro-area",
+      "area": "JP,GB,CA,CH,KR peers",
       "source_basis": "UNVERIFIED-by-absence",
       "contract": "oecd_financial_accounts",
-      "finding": "Per the OECD contract, the counterpart (who-to-whom) balance-sheet dataflow DF_T725R_A covers mainly euro-area reporters; among the target non-US/non-EA advanced economies only ISR (and RUS) appear. For JP/GB/CA/CH/KR the publisher offers only NON-counterpart marginals (DF_T720R_A), so direct FWTW counterpart-sector cells for these economies do not exist at the publisher. Marginal stocks for these economies are obtainable via DF_T720R_A but were not pulled within the effort cap and are recorded as a marginal HOLE; the bilateral cells are UNVERIFIED-by-absence.",
-      "reason_tag": "UNVERIFIED-by-absence (bilateral) + HOLE (marginals not pulled)"
+      "finding": "Counterpart who-to-whom dataflow empty for target non-EA advanced economies; marginals (DF_T720R_A) not pulled within effort cap. NOTE: CPIS now supplies JPN, GBR as REPORTERS (portfolio layer), covering part of this on a residency basis.",
+      "reason_tag": "UNVERIFIED-by-absence (bilateral) + HOLE (marginals)"
     },
     {
       "block": "COUNTRY_IIP_MARGINALS",
       "area": "212 economies",
-      "dimensions": "gross external assets/liabilities, NIIP, residency",
       "source_basis": "HOLE",
       "contract": "brookings",
-      "friction": "EWN database is a manual Excel download (access-frictioned); not pulled within the effort cap. Would supply country-level row/column control totals (marginals), not bilateral cells.",
+      "friction": "EWN database manual Excel; not pulled. Would supply row/column control totals, not bilateral cells.",
       "reason_tag": "HOLE"
+    },
+    {
+      "block": "BANK_CLAIMS_BY_NATIONALITY_CHINA",
+      "area": "China nationality (bank-claims leg only)",
+      "source_basis": "OBSERVED (per contract) / not pulled this run",
+      "contract": "bis_cbs",
+      "finding": "bis_cbs supplies counterparty-nationality for the BANK-CLAIMS leg only; it narrows but does NOT close the offshore-SPV PORTFOLIO issuer-nationality gap. The CPIS offshore-hub portfolio masking (US->CYM etc.) remains a bounded HOLE at portfolio scope.",
+      "reason_tag": "OBSERVED (bank-claims leg) / portfolio-nationality still HOLE"
     }
   ],
 
   "block_summary_counts": {
-    "OBSERVED_blocks": 5,
+    "OBSERVED_bilateral_blocks": 3,
+    "OBSERVED_other_blocks": 3,
     "ESTIMATED_methods_named": 3,
-    "UNVERIFIED_by_absence_blocks": 3,
-    "HOLE_blocks": 5,
-    "note": "Counts are of register blocks, not individual cells; per-cell counts are in dp2_residual.json (assembled-cell census)."
+    "UNVERIFIED_by_absence_blocks": 2,
+    "HOLE_blocks": 4,
+    "note": "Per-cell census in dp2_residual.json. Headline change vs prior DP2: imf_cpis moved from HOLE to OBSERVED-bilateral (167 cells)."
   }
 }
