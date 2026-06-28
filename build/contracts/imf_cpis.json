@@ -1,46 +1,104 @@
 {
   "source_id": "imf_cpis",
   "publisher": "International Monetary Fund (IMF), Statistics Department (STA)",
-  "dataset_title": "Portfolio Investment Positions by Counterpart Economy (formerly Coordinated Portfolio Investment Survey, or CPIS)",
-  "role_in_matrix": "Bilateral portfolio investment positions (equity + debt securities) between economies by counterpart economy and by holder/issuer sector; supplies the portfolio-investment counterparty (from-whom-to-whom) layer of the global SFC matrix.",
-  "urls_checked": [
-    "https://api.imf.org/external/sdmx/2.1/dataflow/IMF.STA/PIP",
-    "https://api.imf.org/external/sdmx/2.1/dataflow/IMF.STA/PIP/latest?references=all",
-    "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/5.0.0?references=children",
-    "https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_INDICATOR",
-    "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/US.A.P_TOTINV_P_USD....?startPeriod=2024"
-  ],
-  "date_checked": "2026-06-28",
+  "dataset_title": "Portfolio Investment Positions by Counterpart Economy (formerly Coordinated Portfolio Investment Survey, CPIS)",
+  "reopened": {
+    "date": "2026-06-28",
+    "reason": "DP1-reopen. Prior DP2 verdict tagged CPIS bilateral as a HOLE / one-dense-column-only. build/audit/cpis_probe.json proved that was an artifact of a wrong reporter code: CL_PIP_COUNTRY uses ISO-3 ('USA'), not 2-letter 'US'; the SDMX API returns HTTP 200 + EMPTY for a syntactically-valid-but-nonexistent member, so the wrong code masqueraded as 'no data'. This contract re-grounds the source live and runs a coverage census.",
+    "supersedes_bug": "Prior contract's data example used key 'US.A.P_TOTINV_P_USD....' (reporter='US') which returns HTTP 200 / 0 obs. Corrected reporter member is 'USA'."
+  },
+  "role_in_matrix": "Bilateral portfolio-investment positions (equity + investment fund shares + debt securities) between economies, by counterpart (issuer) economy and by holder x issuer institutional sector. Supplies the portfolio-investment from-whom-to-whom layer of the global SFC matrix. Per build/audit/dp3_identifiability.md, CPIS RESTORES the dense bilateral structure F3/F4 need for global identification.",
+  "bilateral_or_marginals": {
+    "determination": "BILATERAL (full from-whom-to-whom cells, not just marginals).",
+    "evidence": "Live single-cell key USA.A.P_TOTINV_P_USD.S1.S1.JPN.S returns a clean bilateral series 2023-S1..2025-S1. A 14x14 load-bearing reporter x counterpart probe populates every off-diagonal cell for the 13 reporting load-bearing economies. Holder-sector x issuer-sector cross-classification is also populated (SECTOR pos 3 x COUNTERPART_SECTOR pos 4)."
+  },
   "structure": {
-    "description": "SDMX dataset IMF.STA:PIP version 5.0.0, data structure DSD_PIP v5.0.0. Verified directly from the IMF SDMX 2.1 API. The official dataflow Name is 'Portfolio Investment Positions by Counterpart Economy (formerly CPIS)' and the Description states: an economy provides data on its holdings of portfolio investment securities, separately requested for equity and investment fund shares, long-term debt instruments, and short-term debt instruments. The dataset records reporter holdings (ACCOUNTING_ENTRY='A' = Assets, e.g. SERIES_NAME 'Portfolio investment, Total investment, Assets, Positions'); derived counterparty (liability-side) estimates are provided via 'Derived using counterparty information' (SCC) indicator variants. Embedded dataset metadata (FULL_DESCRIPTION) confirms expanded scope from end-June 2013: institutional sector of nonresident issuer, short/negative positions, and resident-holder sector cross-classified by nonresident-issuer sector.",
-    "dimensions": "7 dimensions, verified from DSD_PIP and confirmed by an API error message ('has more than expected 7 dimension(s)'). Order: COUNTRY (reporter), ACCOUNTING_ENTRY, INDICATOR, SECTOR (holder sector), COUNTERPART_SECTOR (issuer sector), COUNTERPART_COUNTRY (issuer/counterpart economy), FREQUENCY; plus TimeDimension TIME_PERIOD.",
-    "bilateral_counterparty": "yes",
-    "instruments": "Equity and investment fund shares (INDICATOR code component F51); Debt securities (F3) with Short-term (F3_S) and Long-term (F3_L) splits; Total investment (TOTINV). Also currency-of-denomination breakdowns (USD, EUR, GBP, JPY, CNY, CHF, CAD, AUD, OTHC); short-or-negative-position series (F3SNP/F5SNP/TSNP); and counterparty-derived (SCC) variants. All on a residency basis (counterpart economy = residence of issuer). Verified from codelist CL_PIP_INDICATOR."
+    "dataflow_id": "IMF.STA:PIP(5.0.0)",
+    "dsd_id": "IMF.STA:DSD_PIP(5.0.0)",
+    "data_path_template": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/<key>",
+    "dimensions_in_order": [
+      "COUNTRY (pos 0, reporter/creditor; codelist IMF.STA:CL_PIP_COUNTRY(2.0.0), ISO-3)",
+      "ACCOUNTING_ENTRY (pos 1; A=Assets, L=Liabilities, _T, _Z)",
+      "INDICATOR (pos 2; codelist IMF.STA:CL_PIP_INDICATOR(4.0.0); P_TOTINV_P_USD=total PI positions USD, P_F51_P_USD=equity, P_F3_P_USD=debt securities)",
+      "SECTOR (pos 3, holder sector; S1=Total economy)",
+      "COUNTERPART_SECTOR (pos 4, issuer sector; S1=Total economy)",
+      "COUNTERPART_COUNTRY (pos 5, issuer/counterpart economy; codelist IMF.STA:CL_PIP_COUNTRY(2.0.0), ISO-3, residency basis)",
+      "FREQUENCY (pos 6; A=Annual, S=Semi-annual)",
+      "TIME_PERIOD (TimeDimension)"
+    ],
+    "country_codelist": {
+      "id": "IMF.STA:CL_PIP_COUNTRY(2.0.0)",
+      "total_members": 347,
+      "pure_iso3_members": 259,
+      "code_basis": "ISO-3 alpha. 2-letter codes ('US') are ABSENT.",
+      "iso3_confirmation": "Enumerated live: USA, JPN, CHN, GBR, HKG, VGB, BEL, LUX, IRL, DEU, FRA, ITA, NLD all PRESENT. Cayman Islands = CYM (NOT 'KYM' — KYM is ABSENT; 'KYM' was a from-memory guess in the probe brief, corrected against the live codelist). Special aggregates present too (e.g. GX031='World Minus 25 Significant Financial Centers', TX983='Not Specified (including Confidential)', TX091='International Organizations')."
+    },
+    "evidence_excerpts": {
+      "dsd_self_id": "<str:DataStructure ... id=\"DSD_PIP\"> with urn ...DSD_PIP(5.0.0); dimensions parsed: COUNTRY position=\"0\", ACCOUNTING_ENTRY position=\"1\", INDICATOR position=\"2\", SECTOR position=\"3\", COUNTERPART_SECTOR position=\"4\", COUNTERPART_COUNTRY position=\"5\", FREQUENCY position=\"6\", TimeDimension TIME_PERIOD.",
+      "codelist_self_id": "<str:Codelist urn=\"urn:sdmx:org.sdmx.infomodel.codelist.Codelist=IMF.STA:CL_PIP_COUNTRY(2.0.0)\" agencyID=\"IMF.STA\" id=\"CL_PIP_COUNTRY\" version=\"2.0.0\">",
+      "country_members": "USA: 'United States'; JPN: 'Japan'; CHN: 'China, People's Republic of'; GBR: 'United Kingdom'; HKG: 'Hong Kong SAR...'; VGB: 'British Virgin Islands'; CYM: 'Cayman Islands'; DEU: 'Germany'; FRA: 'France'; ITA: 'Italy'; NLD: 'Netherlands, The'; BEL: 'Belgium'; LUX: 'Luxembourg'; IRL: 'Ireland'."
+    },
+    "source_urls": [
+      "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/latest?references=children",
+      "https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_COUNTRY/2.0.0"
+    ]
+  },
+  "working_key_example": {
+    "key": "USA.A.P_TOTINV_P_USD.S1.S1.JPN.S",
+    "url": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD.S1.S1.JPN.S?startPeriod=2023",
+    "accept_header": "application/vnd.sdmx.structurespecificdata+xml;version=2.1",
+    "meaning": "US holder, Assets, total PI positions (USD), holder sector S1=Total economy, issuer sector S1, counterpart=JPN, semi-annual.",
+    "live_response_2026-06-28": {
+      "2023-S1": 1177469000000,
+      "2023-S2": 1217880000000,
+      "2024-S1": 1225933000000,
+      "2024-S2": 1189665000000,
+      "2025-S1": 1344145000000
+    },
+    "note": "Reproduced live 2026-06-28: US-resident holdings of Japanese-issued portfolio securities, 2025-S1 = 1,344,145,000,000 USD (~$1.344T). Matches the audit."
   },
   "access": {
-    "method": "IMF Data portal at data.imf.org (web UI; HTML dataset pages returned HTTP 403 to automated fetch on 2026-06-28 due to publisher bot protection, not verifiable via WebFetch). Programmatic access verified working via the IMF SDMX 2.1 REST API at https://api.imf.org/external/sdmx/2.1/ (dataflow IMF.STA:PIP, structure DSD_PIP, codelists, and data queries all returned 200/valid SDMX-ML).",
-    "formats": ["SDMX-ML 2.1 (structure and StructureSpecificData via api.imf.org)", "UNVERIFIED: CSV/Excel/Excel-Add-in download from the data.imf.org web UI (page not fetchable, 403)"],
-    "api_or_bulk": "IMF SDMX 2.1 REST API confirmed live: base https://api.imf.org/external/sdmx/2.1/ ; agency IMF.STA ; dataflow id PIP version 5.0.0 ; DSD DSD_PIP ; data path /data/IMF.STA,PIP,5.0.0/<7-dim key>. NOTE: the legacy data.imf.org/?sk=... and old JSON-RESTful/CompactData endpoints are superseded by this api.imf.org SDMX endpoint."
+    "method": "IMF SDMX 2.1 REST API at https://api.imf.org/external/sdmx/2.1/ . Confirmed live (DSD, codelist, data queries all HTTP 200). The data.imf.org HTML portal returns 403 to automated fetch (publisher bot protection) — use the machine API.",
+    "formats": ["SDMX-ML 2.1 structure (application/vnd.sdmx.structure+xml;version=2.1)", "SDMX-ML 2.1 StructureSpecificData (application/vnd.sdmx.structurespecificdata+xml;version=2.1)"],
+    "query_efficiency": "detail=serieskeysonly for cheap key enumeration; dimensionAtObservation=AllDimensions for flat obs. Single-reporter wild query (e.g. USA.A.P_TOTINV_P_USD....) returns ~26k obs / ~13k bilateral series in one call."
   },
-  "frequency": "Semi-annual. Verified from embedded dataset FULL_DESCRIPTION metadata returned by the API: 'covers end-December holdings from 2001 to date and end-June holdings beginning with data for end-June 2013'; semi-annual collections implemented from end-June 2013. The FREQUENCY dimension is present in the DSD.",
-  "reporting_lag": "Approximately 8-9 months for the semi-annual reference period. Verified: the API dataset attributes report PUBLICATION_DATE=2026-03-11 and UPDATE_DATE=2026-03-11 for the current PIP v5.0.0 vintage; secondary IMF summary indicates this release carries data through the end-June 2025 reference period (end-June 2025 -> published 2026-03-11 ~= 8.5 months). The end-June 2025 reference-period claim is from a secondary IMF news summary and was NOT directly confirmed by reading an observation's TIME_PERIOD from the API.",
-  "coverage": "Voluntary participation, open to all economies; reporter holdings of portfolio investment securities cross-classified by counterpart (issuer) economy and by institutional sector. Time span: end-December holdings from 2001 to date; end-June holdings from end-June 2013. Verified from embedded FULL_DESCRIPTION. Exact count of reporting economies and the full counterpart-economy list NOT enumerated/verified.",
+  "frequency": "Semi-annual (S) and annual (A). Semi-annual collection (end-June / end-December) implemented from end-June 2013; end-December back to 2001. FREQUENCY is dimension pos 6.",
+  "reporting_lag": "~8.5 months for the semi-annual reference period. Latest available vintage = 2025-S1 (end-June 2025), read directly off live observation TIME_PERIOD values (not from a secondary summary). The end-June 2025 reference period is now DIRECTLY CONFIRMED from API observations (resolves a prior UNVERIFIED item).",
+  "coverage": {
+    "detail_file": "build/contracts/cpis_coverage.json",
+    "density_summary": "83 of 259 candidate ISO-3 economies report bilaterally as creditors; the typical reporter resolves ~244 of 259 counterparts (median 244; 51 reporters at >=200). DENSE in the counterpart dimension and among the 83 reporters; SPARSE in the reporter dimension (176 valid-as-counterpart non-reporters). All 14 load-bearing economies populate as counterparts; 13 of 14 also report (VGB/British Virgin Islands does NOT report = the one load-bearing reporter hole; HKG reports but freezes some small-counterpart cells at 2021).",
+    "load_bearing_reporters_active": ["USA","DEU","FRA","ITA","NLD","JPN","GBR","CHN","CYM","HKG","BEL","LUX","IRL"],
+    "load_bearing_reporters_hole": ["VGB"]
+  },
   "known_frictions": [
-    "Renaming/restructuring: the dataset was renamed from 'Coordinated Portfolio Investment Survey (CPIS)' to 'Portfolio Investment Positions by Counterpart Economy' and migrated to the new data.imf.org portal with SDMX id IMF.STA:PIP v5.0.0 and DSD_PIP. Legacy IMF data endpoints and the old CPIS name/IDs no longer apply; pipeline must target api.imf.org SDMX 2.1.",
-    "data.imf.org HTML pages return HTTP 403 to automated/headless fetch (publisher bot protection); use the api.imf.org SDMX API for machine access rather than scraping the portal.",
-    "Reported data are ASSETS (holder side). Liability-side / mirror exposures are available only as 'Derived using counterparty information' (SCC) indicators; for FWTW balancing these derived series and the residency basis must be handled explicitly (assets reported by holder vs. derived liabilities).",
-    "Residency basis (counterpart = residence of issuer), not nationality; offshore financial-center / custodial-center distortions are a known CPIS limitation for from-whom-to-whom attribution.",
-    "Semi-annual frequency (June/December) — temporal disaggregation needed if the matrix requires higher frequency or calendar alignment with quarterly sources.",
-    "Voluntary survey: incomplete reporter coverage and asymmetries between reported assets and derived liabilities; gaps and confidentiality suppressions possible for some cells (specific suppressed cells NOT enumerated/verified)."
+    "HTTP-200-EMPTY TRAP: a syntactically valid but nonexistent codelist member returns HTTP 200 with 0 observations, NOT an error. A wrong member therefore masquerades as 'no data'. Mitigation: validate every dimension member against the live codelist before recording any empty result as a hole.",
+    "US-vs-USA BUG (the specific instance of the trap that caused the prior DP2 HOLE verdict): reporter must be ISO-3 'USA'; '2-letter 'US' returns 200/empty. CL_PIP_COUNTRY is ISO-3 throughout. Cayman is 'CYM' not 'KYM'.",
+    "Reporter-side sparsity: CPIS is a VOLUNTARY creditor survey. 176 of 259 economies do not report bilaterally (incl. VGB). Their codes are valid only as counterparts. Not a query defect.",
+    "Vintage staleness per cell: individual reporters can drop/freeze specific bilateral cells across vintages (e.g. HKG->BEL, HKG->ITA last reported 2021). The cell exists but has no recent obs; probe a wide period window before declaring a hole.",
+    "Residency basis (counterpart = residence of issuer), NOT nationality — see residency_vs_nationality_caveat below.",
+    "Reported entries are primarily ASSETS (holder side). Liability/mirror exposures come as 'derived using counterparty information' (SCC) variants; FWTW balancing must handle the asset-vs-derived-liability asymmetry explicitly.",
+    "Semi-annual frequency — temporal disaggregation needed for quarterly calendar alignment.",
+    "data.imf.org HTML pages return HTTP 403 to automated fetch; use api.imf.org SDMX.",
+    "Dataset renamed from 'CPIS' to 'Portfolio Investment Positions by Counterpart Economy' and migrated to SDMX id IMF.STA:PIP(5.0.0)/DSD_PIP; legacy CPIS endpoints/IDs no longer apply."
   ],
-  "confidence_tier": "A",
+  "residency_vs_nationality_caveat": {
+    "statement": "CPIS counterpart (COUNTERPART_COUNTRY) is RESIDENCY-based. CPIS RESTORES the dense bilateral structure F3/F4 need for global identification (per build/audit/dp3_identifiability.md), BUT it does NOT close the offshore-SPV ISSUER-NATIONALITY gap that BIS CBS only narrowed.",
+    "two_distinct_holes": "These are TWO DIFFERENT HOLES. (1) The bilateral-structure hole is CLOSED by CPIS (dense from-whom-to-whom on residency). (2) The issuer-nationality hole is NOT closed: Chinese securities issued via offshore (Cayman/CYM, BVI/VGB) SPVs appear under the SPV's RESIDENCE in CPIS (CYM/VGB), not China's nationality. Evidence in this data: US->CYM 2025-S1 = $2,798B is the single largest US load-bearing counterpart, far exceeding US->CHN = $255B, consistent with large offshore-SPV issuance routed through Cayman residence.",
+    "carry_forward": "The issuer-nationality gap travels forward into DP3 as a BOUNDED, EXPLICITLY DOCUMENTED hole. CPIS MUST NOT be recorded as closing it.",
+    "must_not": "Do not record CPIS as closing the offshore-SPV issuer-nationality gap."
+  },
+  "confidence_tier": "HIGH",
+  "tier_basis": "Dataflow id, DSD, 8-dimension order, and ISO-3 country codelist all fetched live 2026-06-28 (HTTP 200) and parsed, not recalled. Working bilateral key reproduced live with real obs. Coverage census run programmatically over all 259 candidate reporters + a 14x14 load-bearing cell probe, with every empty cell either confirmed valid (genuine hole) or resolved (transient/stale). Latest vintage 2025-S1 read directly off observations. The one residual caveat (issuer nationality) is a documented structural limitation, not an unverified field.",
   "unverified": [
-    "Exact latest data reference period (end-June 2025) — taken from a secondary IMF news summary; not confirmed by reading a TIME_PERIOD value off an API observation (sample data queries with guessed SECTOR/COUNTERPART codes returned no observations).",
-    "Downloadable file formats from the data.imf.org web UI (CSV/Excel/Excel Add-in) — HTML pages returned 403 and could not be fetched.",
-    "Full enumeration of ACCOUNTING_ENTRY codes and FREQUENCY codes (codelists not inlined in the references=children DSD view; ACCOUNTING_ENTRY='A'=Assets confirmed from a returned data Series attribute).",
-    "Exact number of participating/reporting economies and the complete counterpart-economy code list.",
-    "Specific confidential / suppressed series or cells, if any.",
-    "data.imf.org dataset-page URL content (IMF.STA:PIP page) — returned HTTP 403, could not be verified directly."
+    "Exact publication lag distribution across reporters (only the aggregate latest vintage 2025-S1 was confirmed from observations; per-reporter publication dates not individually enumerated).",
+    "Downloadable file formats from the data.imf.org web UI (CSV/Excel/Add-in) — portal HTML returns HTTP 403, not fetchable; only the SDMX API path is verified.",
+    "Complete enumeration of which specific small bilateral cells are confidentiality-suppressed vs simply not reported (a sample of stale cells was identified; the full suppression list was not enumerated).",
+    "Whether the 176 non-reporting economies include any that report only liabilities/derived (SCC) but not assets — the census probed the assets/holder side (ACCOUNTING_ENTRY=A) only."
   ],
-  "notes": "Grounded on 2026-06-28 against the IMF SDMX 2.1 REST API at api.imf.org, which is the authoritative publisher endpoint and returned valid SDMX-ML for the dataflow (IMF.STA:PIP v5.0.0), data structure (DSD_PIP v5.0.0, 7 dimensions incl. COUNTRY x COUNTERPART_COUNTRY bilateral), the INDICATOR codelist (equity F51 / debt F3 with ST/LT splits, currency breakdowns, SCC counterparty-derived variants), and a live data query whose dataset-level metadata stamped PUBLICATION_DATE/UPDATE_DATE=2026-03-11 and embedded the official frequency/coverage description. The data.imf.org HTML portal pages were not directly fetchable (HTTP 403 bot protection) — all structural facts here come from the machine API, not from memory or secondary blogs. Tier A: core structure, bilateral counterparty layer, instruments, frequency, access path, and current vintage publication date are confirmed from fetched official IMF API responses. Residual UNVERIFIED items are listed above."
+  "urls_checked": [
+    "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/latest?references=children",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_COUNTRY/2.0.0",
+    "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD.S1.S1.JPN.S?startPeriod=2023"
+  ],
+  "date_checked": "2026-06-28"
 }

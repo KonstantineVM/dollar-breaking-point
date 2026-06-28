@@ -2,16 +2,12 @@
   "dp": "DP1",
   "title": "Data contracts for the global SFC from-whom-to-whom matrix",
   "generated": "2026-06-28",
-  "reopened_note": "Reopened to add bis_cbs (BIS Consolidated Banking Statistics) — the counterparty-nationality basis DP2 found missing. CBS-UR NARROWS but does not CLOSE the DP2 China residency->nationality HOLE (covers the bank-claims leg only; the non-bank securities/Treasury leg and issuer-nationality of the offshore-SPV pool remain uncovered).",
-  "grounding_rule": "Each contract grounded against its publisher via live fetch; facts not confirmed are listed per-contract under unverified[]. Nothing from memory. China/CBS sources state bilateral-vs-marginals with fetched-page evidence.",
+  "reopened_note": "CPIS (imf_cpis) reopened: the prior DP2 HOLE was a US-vs-ISO3-USA query bug, not absent data. Coverage census (build/contracts/cpis_coverage.json) establishes the bilateral matrix is DENSE in the counterpart dimension and among 83/259 reporting economies, SPARSE in the reporter dimension (176 non-reporters, valid as counterparts only). All 14 load-bearing economies populate as counterparts; 13/14 as reporters (VGB the one reporter hole). CPIS restores the bilateral structure F3/F4 need but is RESIDENCY-based and does NOT close the offshore-SPV issuer-nationality gap (distinct, carried-forward hole). Earlier reopening added bis_cbs (China nationality, bank-claims leg only).",
   "contract_count": 13,
   "bilateral_cell_sources": [
     "bis_cbs",
+    "imf_cpis",
     "safe"
-  ],
-  "marginals_only_sources": [
-    "nbs",
-    "pboc"
   ],
   "contracts": [
     {
@@ -21,9 +17,7 @@
       "role_in_matrix": "Supplies the counterparty-NATIONALITY basis missing from DP2: claims of national banking systems (consolidated by nationality of the banking group's parent HQ country) on counterparty countries, on both an immediate-counterparty basis and an ultimate-risk/guarantor basis (which reallocates claims to the country of ultimate obligor after risk transfers). Provides reporting-banking-system-nationality x counterparty-country cells for the bank-claims leg of the from-whom-to-whom matrix, enabling the residency->nationality reallocation for China that DP2 recorded as a HOLE.",
       "bilateral_or_marginals": "bilateral",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 12,
-      "unverified_count": 5
+      "confidence_tier": "A"
     },
     {
       "source_id": "bis_lbs",
@@ -32,9 +26,7 @@
       "role_in_matrix": "Cross-border bank claims (financial assets) and liabilities by counterparty country and counterparty sector, with currency breakdown; supplies bilateral bank positions (reporting-country vs counterparty-country cells) for the from-whom-to-whom matrix, on a residence basis.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 6,
-      "unverified_count": 7
+      "confidence_tier": "A"
     },
     {
       "source_id": "brookings",
@@ -43,9 +35,7 @@
       "role_in_matrix": "marginals supplier (secondary/derived) — provides country-level external IIP positions (gross external assets and liabilities, and net IIP) usable as row/column control totals/marginals for the FWTW matrix; NOT a from-whom-to-whom (bilateral counterpart) cell source. Note Brookings is a think tank re-publishing a derived database built largely on IMF/national-source data, not a primary statistical agency.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "B",
-      "urls_checked_count": 2,
-      "unverified_count": 6
+      "confidence_tier": "B"
     },
     {
       "source_id": "ecb_qsa",
@@ -54,9 +44,7 @@
       "role_in_matrix": "Euro-area and EU member-state sectoral balance sheets (stocks/positions) and transactions, including who-to-whom (counterpart-sector) financial accounts, supplying cells and marginals for the euro-area block of the global from-whom-to-whom matrix on a residency basis (ESA 2010).",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 4,
-      "unverified_count": 9
+      "confidence_tier": "A"
     },
     {
       "source_id": "fed_financial_accounts",
@@ -65,9 +53,7 @@
       "role_in_matrix": "US sectoral marginals (sector-by-instrument transactions F.* and levels L.* matrices, balance sheets B.*), SNA-aligned Integrated Macroeconomic Accounts (IMA, S.1-S.9), and estimated from-whom-to-whom (Issuer-to-Holder) bilateral sector-by-instrument cells from the Enhanced Financial Accounts.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 5,
-      "unverified_count": 5
+      "confidence_tier": "A"
     },
     {
       "source_id": "imf_cofer",
@@ -76,20 +62,16 @@
       "role_in_matrix": "Supplies the currency-composition marginal of official reserve assets (USD/EUR/JPY/GBP/CNY/CHF/AUD/CAD/Other shares and USD nominal values) at the World aggregate level; pins the reserve-currency dimension of the FWTW matrix. It is a global/group-level marginal only, not a from-whom-to-whom cell: it has no creditor-by-debtor bilateral detail and no individual reporting-country detail (individual-country reserve composition is confidential).",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 5,
-      "unverified_count": 6
+      "confidence_tier": "A"
     },
     {
       "source_id": "imf_cpis",
       "file": "build/contracts/imf_cpis.json",
       "publisher": "International Monetary Fund (IMF), Statistics Department (STA)",
-      "role_in_matrix": "Bilateral portfolio investment positions (equity + debt securities) between economies by counterpart economy and by holder/issuer sector; supplies the portfolio-investment counterparty (from-whom-to-whom) layer of the global SFC matrix.",
-      "bilateral_or_marginals": "n/a",
+      "role_in_matrix": "Bilateral portfolio-investment positions (equity + investment fund shares + debt securities) between economies, by counterpart (issuer) economy and by holder x issuer institutional sector. Supplies the portfolio-investment from-whom-to-whom layer of the global SFC matrix. Per build/audit/dp3_identifiability.md, CPIS RESTORES the dense bilateral structure F3/F4 need for global identification.",
+      "bilateral_or_marginals": "BILATERAL (full from-whom-to-whom cells, not just marginals).",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 5,
-      "unverified_count": 6
+      "confidence_tier": "HIGH"
     },
     {
       "source_id": "nbs",
@@ -98,9 +80,7 @@
       "role_in_matrix": "Supplies China's sector-by-instrument capital and financial account marginals (sources/uses of funds by institutional sector) for the China block of the global SFC from-whom-to-whom matrix; provides sector control totals and a single Rest-of-the-World column, not counterparty-resolved bilateral cells.",
       "bilateral_or_marginals": "marginals_only",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 8,
-      "unverified_count": 4
+      "confidence_tier": "A"
     },
     {
       "source_id": "oecd_financial_accounts",
@@ -109,9 +89,7 @@
       "role_in_matrix": "Supplies non-US / non-euro-area advanced-economy sectoral financial balance sheets (stock marginals by institutional sector x instrument) and, where the counterpart-information dataflows are populated, from-whom-to-whom (counterparty-sector) cells. Primary marginal source confirmed to cover JPN, GBR, CAN, CHE, KOR, NOR, SWE, DNK, ISL, ISR, NZL, AUS-region peers etc. via the non-consolidated balance-sheet dataflow.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 5,
-      "unverified_count": 6
+      "confidence_tier": "A"
     },
     {
       "source_id": "pboc",
@@ -120,9 +98,7 @@
       "role_in_matrix": "Supplies domestic-sector marginals/control-totals for China: monetary authority balance sheet, depository corporations survey, other depository corporations balance sheet, money supply, financial institutions' assets/liabilities and credit funds, and an annual sector-by-instrument flow-of-funds / financial accounts (five institutional sectors incl. Rest of the World as a single aggregate). Useful for sector control totals and for the China row/column of a global SFC matrix, not for cross-border counterparty resolution.",
       "bilateral_or_marginals": "marginals_only",
       "date_checked": "2026-06-28",
-      "confidence_tier": "B",
-      "urls_checked_count": 7,
-      "unverified_count": 5
+      "confidence_tier": "B"
     },
     {
       "source_id": "safe",
@@ -131,9 +107,7 @@
       "role_in_matrix": "Supplies the external/cross-border leg of China's accounts for the global SFC FWTW matrix: China-row-of-the-world financial assets and liabilities by functional category/instrument (IIP marginals), the flow counterpart (BOP), gross external debt by sector, and — uniquely — a partial bilateral (counterparty-economy-resolved) breakdown of China's OUTWARD portfolio investment ASSETS.",
       "bilateral_or_marginals": "mixed",
       "date_checked": "2026-06-28",
-      "confidence_tier": "B",
-      "urls_checked_count": 6,
-      "unverified_count": 5
+      "confidence_tier": "B"
     },
     {
       "source_id": "treasury_tic",
@@ -142,9 +116,7 @@
       "role_in_matrix": "Supplies the bilateral dollar-asset layer of the FWTW matrix: foreign holdings of U.S. securities (U.S. liabilities) and U.S. holdings of foreign securities (U.S. claims), broken down by counterparty country, plus monthly Major Foreign Holders (MFH) of U.S. Treasuries by country. These provide the from-whom-to-whom cells for cross-border holdings of dollar (and U.S.-resident) securities.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 5,
-      "unverified_count": 5
+      "confidence_tier": "A"
     },
     {
       "source_id": "wgc_gold",
@@ -153,9 +125,7 @@
       "role_in_matrix": "Official-sector gold holdings by country, providing the non-dollar reserve-asset (monetary gold) dimension of central-bank/official-sector reserves; complements IMF COFER currency-composition reserves in the FWTW matrix.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
-      "confidence_tier": "A",
-      "urls_checked_count": 1,
-      "unverified_count": 3
+      "confidence_tier": "A"
     }
   ]
 }

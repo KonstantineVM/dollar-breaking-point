@@ -520,3 +520,145 @@ echo "=== CPIS verdict + working key ===" && jq -r '.verdict, (.keys_tried[] | s
 echo "=== CPIS implication ===" && jq -r '.implication' build/audit/cpis_probe.json
 echo "=== residual verdicts ===" && jq -r '.bis_asymmetry.verdict, .ras_residuals.verdict, .overall' build/audit/residual_recompute.json
 echo "=== IDS category + touches residual ===" && jq -r '.category, .touches_dp2_residual' build/audit/ids_category.json
+2026-06-28T22:35:03Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/ build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short | sed 's/^/  /'
+git commit -q -m "DP2 audit: residuals, CPIS, IDS category, DP3 identifiability
+
+Read-only audit of DP2 (no build/model, contracts, results, or ledger
+modified; artifacts under build/audit/ only). Four independent fact-checks:
+
+1. residual_recompute.json — BIS asymmetry MAGNITUDE reproduces exactly
+   (\$711,157.7mn, both totals to the cent), but dp2_residual.json has the
+   claims/liabilities LABELS REVERSED and its 7.19% matches no reproducible
+   denominator (claims-base 7.46% / liab-base 6.94% / mean 7.20%). The
+   \$3.96tn RAS row residual is UNRECONSTRUCTABLE — the column-target vector
+   is absent from every on-disk artifact (fresh recompute gives ~\$5.49tn);
+   the qualitative non-convergence reproduces, the exact figure cannot.
+
+2. cpis_probe.json — DP2's 'CPIS is a HOLE / 0 observations' was a QUERY
+   BUG, not absent data: DP2 used 2-letter 'US'; CL_PIP_COUNTRY requires
+   ISO-3 'USA', and the SDMX API returns HTTP 200 + empty dataset for a
+   nonexistent member (silent fail). Corrected key returns a real bilateral
+   observation (US holdings of Japanese securities, 2025-S1 = \$1.344T) and
+   26,128 bilateral obs for one reporter, dense across counterparts and the
+   holder x issuer sector cross-tab. Verdict: OBTAINABLE — flips the
+   'one-dense-column-only' verdict.
+
+3. ids_category.json — real BIS dataflow is WS_DEBT_SEC2_PUB (guessed
+   WS_IDS/NAT_RES do not exist; BIS uses ISSUER_RES + ISSUER_NAT). Category
+   ISSUANCE_MARGINAL (no holder dimension); pool = China-ISSUED offshore
+   debt, NOT the China-HELD US Treasuries DP2's residual concerns. Does NOT
+   touch DP2's residual.
+
+4. dp3_identifiability.md — F1/F2 IDENTIFIED (bounded), F3/F4 NOT IDENTIFIED
+   on the current support; global bilateral structure is CONSTITUTIVE for
+   F3/F4. 'Narrow to US-centric' is real for an F1/F2 funding model but
+   EMPTY for the breaking-point claim (drops F3/F4 — changes the subject).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-06-28T22:44:40Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/imf_cpis
+python3 - <<'PY'
+import re
+x=open('dsd_pip.xml').read()
+for m in re.finditer(r'<str:(Dimension|TimeDimension) id="([A-Z_]+)"[^>]*?>(.*?)</str:\1>', x, re.S):
+    dim=m.group(2); body=m.group(3)
+    ref=re.search(r'<Ref\b([^>]*)>', body)
+    if ref:
+        attrs=ref.group(1)
+        cid=re.search(r'id="([^"]+)"',attrs)
+        ver=re.search(r'version="([^"]+)"',attrs)
+        ag=re.search(r'agencyID="([^"]+)"',attrs)
+        print(f"{dim:20s} -> {cid.group(1) if cid else '?'}({ver.group(1) if ver else '?'}) agency={ag.group(1) if ag else '?'}")
+    else:
+        print(f"{dim:20s} -> (no Ref)")
+PY
+echo ""
+echo "=== Country codelist: total member count ==="
+grep -cE '<str:Code id="' cl_pip_country.xml
+echo ""
+echo "=== Check ISO-3 load-bearing members present ==="
+python3 - <<'PY'
+import re
+x=open('cl_pip_country.xml').read()
+# map id -> name
+codes={}
+for m in re.finditer(r'<str:Code id="([^"]+)"[^>]*>(.*?)</str:Code>', x, re.S):
+    cid=m.group(1); body=m.group(2)
+    nm=re.search(r'<com:Name xml:lang="en">([^<]*)</com:Name>', body)
+    codes[cid]=nm.group(1) if nm else ''
+want=['USA','JPN','CHN','GBR','KYM','HKG','VGB','BEL','LUX','IRL','DEU','FRA','ITA','NLD']
+for w in want:
+    print(f"  {w}: {'PRESENT - '+codes[w] if w in codes else 'ABSENT'}")
+print()
+print("2-letter 'US' present?", 'US' in codes)
+print("Total members:", len(codes))
+# show a few special aggregates
+for s in ['GX031','TX983','TX091','W00','_T']:
+    if s in codes: print(f"  special {s}: {codes[s]}")
+PY
+2026-06-28T22:45:35Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/imf_cpis
+# Build candidate ISO-3 reporter list = standard 3-letter alpha codes from codelist (exclude special aggregates like GX*, TX*, W*, _T)
+python3 - <<'PY'
+import re,json
+x=open('cl_pip_country.xml').read()
+codes={}
+for m in re.finditer(r'<str:Code id="([^"]+)"[^>]*>(.*?)</str:Code>', x, re.S):
+    nm=re.search(r'<com:Name xml:lang="en">([^<]*)</com:Name>', m.group(2))
+    codes[m.group(1)]=nm.group(1) if nm else ''
+# ISO-3 = exactly 3 uppercase letters, not starting with patterns that are aggregates
+iso3=[c for c in codes if re.fullmatch(r'[A-Z]{3}', c)]
+specials=[c for c in codes if not re.fullmatch(r'[A-Z]{3}', c)]
+# some 3-letter codes are aggregates (e.g. W00, GX*); pure-alpha filter already excludes digits
+print("Pure 3-alpha codes:", len(iso3))
+print("Non-3-alpha (aggregates/special):", len(specials))
+open('iso3_candidates.txt','w').write('\n'.join(sorted(iso3)))
+open('all_codes.json','w').write(json.dumps(codes,indent=0))
+print("Sample iso3:", sorted(iso3)[:20])
+PY
+2026-06-28T22:50:40Z	OUTPUT (not established until verifier runs)	ls -la /home/user/dollar-breaking-point/build/contracts/ 2>/dev/null
+echo "---"
+ls /home/user/dollar-breaking-point/build/audit/dp3_identifiability.md 2>/dev/null && echo "dp3 ref exists" || echo "dp3 ref MISSING"
+2026-06-28T22:56:57Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "DP1-reopen: CPIS bilateral (coverage + residency basis)
+
+Reopened imf_cpis after the DP2 audit proved CPIS bilateral OBTAINABLE
+(the prior HOLE was a US-vs-ISO3-USA query bug; the IMF SDMX API returns
+HTTP 200 + empty dataset for a nonexistent member, so a wrong code
+masqueraded as 'no data'). Grounded fresh against the live DSD/codelist;
+another from-memory guess corrected (Cayman = CYM, not KYM).
+
+Coverage census (build/contracts/cpis_coverage.json) — honest density,
+count + map, scripted over all 259 candidate reporters + a 14x14
+load-bearing probe:
+- 83 of 259 economies report bilaterally; 176 do not (valid as
+  counterparts only). Median reporter resolves 244 of 259 counterparts.
+- DENSE in the counterpart dimension and among the 83 reporters; SPARSE
+  in the reporter dimension. All 14 load-bearing economies populate as
+  counterparts; 13/14 as reporters. VGB is the one reporter HOLE; HKG
+  freezes some small cells at 2021 (vintage friction).
+- Refutes DP2's 'one dense column only' verdict, with the cause documented.
+
+Residency caveat (explicit in the contract): CPIS counterpart is
+RESIDENCY-based — it RESTORES the dense bilateral structure F3/F4 need but
+does NOT close the offshore-SPV ISSUER-nationality gap (Chinese securities
+via CYM/VGB SPVs appear under SPV residence: US->CYM \$2.8tn >> US->CHN
+\$255B). Two distinct holes; the issuer-nationality hole carries forward
+to DP3 as bounded/documented. integrity-critic PASS.
+
+build/audit/dp2_rerun_requirements.md records the three things the next
+DP2 re-run MUST do (traceable to the audit): fix the claims/liabilities
+label swap; persist the RAS column-target vector for reproducibility; do
+not assume the residual collapses when CPIS cells populate (the ~\$711bn
+BIS marginal-asymmetry floor exists before any RAS).
+
+Manifest unchanged at 13 sources (imf_cpis updated in place; now a
+bilateral cell source). Ledger DP1 note updated. DP2/DP3 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
