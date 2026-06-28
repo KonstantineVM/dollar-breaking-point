@@ -1198,3 +1198,52 @@ python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e
 echo "=== valid JSON? ===" && for f in build/model/dp3_spec.json build/model/dp3_sensitivity.json build/model/china_fraction_bound.json; do jq -e . "$f" >/dev/null 2>&1 && echo "OK $(basename $f)" || echo "INVALID $f"; done
 echo "=== dp3_spec top keys ===" && jq -r 'keys[]' build/model/dp3_spec.json
 echo "=== factor -> observed-quantity mapping (brief) ===" && jq -r '(.factors // .measurement_system // {}) | to_entries[] | "\(.key): \(.value.identified // .value.status // (.value|tostring|.[0:60]))"' build/model/dp3_spec.json 2>/dev/null | head -12
+2026-06-28T23:45:21Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+jq -e . build/ledger.json >/dev/null && echo "ledger valid JSON" || echo "LEDGER INVALID"
+git add build/model/dp3_spec.json build/model/dp3_sensitivity.json build/model/china_fraction_bound.json build/ledger.json build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short | sed 's/^/  /'
+git commit -q -m "DP3: structural spec + F3/F4 restriction + China-fraction sensitivity
+
+Specification only (no parameter fit; estimation is DP4, not begun).
+Integrity-critic PASS on all six gate checks.
+
+STEP 0 — grounded the one external number DP3 needs: the Chinese-nationality
+fraction of the offshore-FC portfolio pool, interval [0.0, 0.60]. Upper bound
+0.60 from Clayton-Coppola-Dos Santos-Maggiori-Schreger 'China in Tax Havens'
+(NBER WP 30865), quoted verbatim from the publisher. No point estimate or
+distribution invented.
+
+STEP 1 — four factors mapped to OBSERVED matrix quantities: F1 (BIS USD
+marginals + Fed S2), F2 (TIC/Fed S4, QUANTITY-only; convenience-yield leg a
+HOLE, not proxied), F3 (CPIS issuer shares across CYM/HKG/VGB/CHN), F4 (USA
+issuer column across 12 holders). Farhi-Maggiori multiple-equilibrium +
+global-games selection; F4 given a concrete observable footprint, NOT defined
+as 'the event that hasn't happened'.
+
+STEP 2 — F3/F4 separating restriction R_sep with economic content, identifying
+matrix variation, a FALSIFIER (if destinations are offshore-USD ABS via Cayman
+SPVs, F4 also moves them -> F3/F4 observationally equivalent), and the
+falsifier-case checked against the matrix: PARTIALLY obtains. The CPIS re-run
+moved the status from NOT-TESTABLE (old audit) to TESTABLE-IN-PRINCIPLE, but
+the nationality is a HOLE and there is one period. 2022-sanctions->F3 encoded
+as a TESTED restriction (reassigning to F4 would flip the binding-mode), not a
+premise.
+
+STEP 3 — sensitivity sweep of the [0,0.60] interval, f as a SCALAR, no
+distribution. Conclusion = FORM (b): identification FLIPS; the China-nationality
+fraction is LOAD-BEARING. Fails at f=0 (F3=F4 observationally equivalent); only
+conditionally identified toward 0.60 (a second HOLE: offshore-USD ABS share);
+no flip-point f* invented.
+
+OPERATIVE VERDICT for DP5: F3/F4 separation NOT ESTABLISHED — it depends on
+data we do not have. The f->0.60 branch must NOT be read as identification.
+This is the permitted, expected 'hazard not (yet) identified' outcome, recorded
+honestly, not massaged. Carried forward unresolved: offshore issuer-nationality
+HOLE, $711bn BIS floor, F2 price leg.
+
+Ledger: DP3 done, verifier build/model/dp3_spec.json. DP4 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
