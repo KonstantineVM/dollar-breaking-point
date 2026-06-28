@@ -487,3 +487,36 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
   git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 else echo "clean"; fi
+2026-06-28T22:04:54Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+st=$(git status --porcelain)
+if [ -n "$st" ]; then
+  echo "uncommitted:"; echo "$st"
+  git add -A
+  git commit -q -m "DP1-reopen: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+  git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+  echo "=== now clean? ===" && git status --porcelain && echo "(clean if empty)"
+else echo "clean"; fi
+2026-06-28T22:31:56Z	OUTPUT (not established until verifier runs)	S=/tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad
+python3 - "$S/cl_country.xml" <<'EOF'
+import re,sys
+x=open(sys.argv[1]).read()
+codes={c.group(1):re.search(r'<com:Name[^>]*>(.*?)</com:Name>',c.group(2),re.S) for c in re.finditer(r'<str:Code [^>]*id="([^"]*)"[^>]*?>(.*?)</str:Code>',x,re.S)}
+for k in ['USA','JPN','GBR','DEU','CHN','FRA']:
+    m=codes.get(k); print(f"  {k:6} {'PRESENT '+ (m.group(1).strip() if m else '') if k in codes else 'ABSENT'}")
+# aggregates: codes that look like world/region
+print("  --- aggregate-looking codes (start with W, X, or contain World/All) ---")
+for k,m in codes.items():
+    n=m.group(1).strip() if m else ''
+    if k.startswith(('W','X','5','1C','TX','GX')) or 'World' in n or 'All countries' in n or 'Not specified' in n:
+        print(f"  {k:8} {n[:45]}")
+EOF
+2026-06-28T22:34:38Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== all audit JSON valid? ===" && for f in build/audit/*.json; do jq -e . "$f" >/dev/null 2>&1 && echo "OK $f" || echo "INVALID $f"; done
+echo "=== dp3 md exists, non-empty ===" && wc -l build/audit/dp3_identifiability.md | awk '{print $1" lines"}'
+echo "=== CPIS verdict + working key ===" && jq -r '.verdict, (.keys_tried[] | select(.obs_count>0) | "WORKING: "+.key+"  obs="+(.obs_count|tostring))' build/audit/cpis_probe.json 2>/dev/null | head
+echo "=== CPIS implication ===" && jq -r '.implication' build/audit/cpis_probe.json
+echo "=== residual verdicts ===" && jq -r '.bis_asymmetry.verdict, .ras_residuals.verdict, .overall' build/audit/residual_recompute.json
+echo "=== IDS category + touches residual ===" && jq -r '.category, .touches_dp2_residual' build/audit/ids_category.json

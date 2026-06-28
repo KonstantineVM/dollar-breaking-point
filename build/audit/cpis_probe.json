@@ -1,0 +1,71 @@
+{
+  "audit": "cpis_bilateral_probe",
+  "date": "2026-06-28",
+  "dataflow_id": {
+    "value": "IMF.STA:PIP(5.0.0), DSD IMF.STA:DSD_PIP(5.0.0)",
+    "evidence_excerpt": "<str:DataStructure urn=\"urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=IMF.STA:DSD_PIP(5.0.0)\" agencyID=\"IMF.STA\" id=\"DSD_PIP\"> ; data path /data/IMF.STA,PIP,5.0.0/<key>",
+    "source_url": "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/latest?references=children"
+  },
+  "dimensions_in_order": {
+    "value": [
+      "COUNTRY (pos 0, reporter; codelist IMF.STA:CL_PIP_COUNTRY(2.0.0))",
+      "ACCOUNTING_ENTRY (pos 1; codelist IMF:CL_ACCOUNTING_ENTRY(2.2.2))",
+      "INDICATOR (pos 2; codelist IMF.STA:CL_PIP_INDICATOR(4.0.0))",
+      "SECTOR (pos 3, holder sector; codelist IMF:CL_SECTOR(2.13.1))",
+      "COUNTERPART_SECTOR (pos 4, issuer sector; codelist IMF:CL_SECTOR(2.13.1))",
+      "COUNTERPART_COUNTRY (pos 5, issuer/counterpart economy; codelist IMF.STA:CL_PIP_COUNTRY(2.0.0))",
+      "FREQUENCY (pos 6; codelist IMF:CL_FREQ(1.2.0))",
+      "TIME_PERIOD (TimeDimension)"
+    ],
+    "evidence_excerpt": "<str:Dimension id=\"COUNTRY\" ... position=\"0\"; ACCOUNTING_ENTRY position=\"1\"; INDICATOR position=\"2\"; SECTOR position=\"3\"; COUNTERPART_SECTOR position=\"4\"; COUNTERPART_COUNTRY position=\"5\"; FREQUENCY position=\"6\"; <str:TimeDimension id=\"TIME_PERIOD\">. Enumeration Refs in DSD children: COUNTRY/COUNTERPART_COUNTRY -> IMF.STA:CL_PIP_COUNTRY(2.0.0); ACCOUNTING_ENTRY -> IMF:CL_ACCOUNTING_ENTRY(2.2.2); INDICATOR -> IMF.STA:CL_PIP_INDICATOR(4.0.0); SECTOR & COUNTERPART_SECTOR -> IMF:CL_SECTOR(2.13.1); FREQUENCY -> IMF:CL_FREQ(1.2.0).",
+    "source_url": "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/latest?references=children"
+  },
+  "codelist_members_used": {
+    "COUNTRY / COUNTERPART_COUNTRY": "ISO-3 alpha codes (e.g. USA, JPN, GBR, DEU, CHN, FRA all PRESENT). NOTE: 2-letter codes like 'US' are ABSENT. Codelist also holds special aggregates e.g. GX031='World Minus 25 Significant Financial Centers', TX983='Not Specified (including Confidential)', TX091='International Organizations'. Source: https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_COUNTRY/2.0.0",
+    "ACCOUNTING_ENTRY": "A=Assets, L=Liabilities, _T=Total, _Z=Not applicable. Source: https://api.imf.org/external/sdmx/2.1/codelist/IMF/CL_ACCOUNTING_ENTRY/2.2.2",
+    "INDICATOR": "60 codes; P_TOTINV_P_USD=Total investment Positions; P_F51_P_USD=Equity; P_F3_P_USD=Debt securities (with _S short / _L long splits); plus DIC_<ccy> currency-of-denomination variants. Source: https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_INDICATOR/4.0.0",
+    "SECTOR / COUNTERPART_SECTOR": "S1=Total economy (the 'total' member; NOT _T), S12=Financial corporations, S121=Central bank, S1Q=Other sectors than MFIs, S1SP=Total economy incl. SPEs. Source: https://api.imf.org/external/sdmx/2.1/codelist/IMF/CL_SECTOR/2.13.1",
+    "FREQUENCY": "A=Annual, S=Semi-annual (CPIS/PIP collection). Source: https://api.imf.org/external/sdmx/2.1/codelist/IMF/CL_FREQ/1.2.0"
+  },
+  "keys_tried": [
+    {
+      "url": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/US.A.P_TOTINV_P_USD....?startPeriod=2024",
+      "key": "US.A.P_TOTINV_P_USD.... (reporter='US', the original contract example key)",
+      "obs_count": 0,
+      "sample_obs": "none",
+      "diagnosis": "ROOT CAUSE of DP2's '0 observations'. HTTP 200 but empty: the COUNTRY codelist CL_PIP_COUNTRY uses ISO-3 codes (USA), not the 2-letter 'US'. The SDMX API silently returns a valid-but-empty dataset for a syntactically-valid-but-nonexistent member rather than erroring, so the wrong country code looks like 'no data'. The wild middle dimensions (....) were fine; only the reporter code was wrong."
+    },
+    {
+      "url": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD....?startPeriod=2024",
+      "key": "USA.A.P_TOTINV_P_USD.... (corrected reporter to ISO-3; SECTOR/COUNTERPART_SECTOR/COUNTERPART_COUNTRY/FREQUENCY wild)",
+      "obs_count": 26128,
+      "sample_obs": "series COUNTRY=USA ACCOUNTING_ENTRY=A INDICATOR=P_TOTINV_P_USD SECTOR=S1 COUNTERPART_SECTOR=S1 COUNTERPART_COUNTRY=ABW FREQUENCY=A SCALE=6 -> Obs TIME_PERIOD=2024 OBS_VALUE=170000000 (USD; ~$170m, US holdings of Aruba securities)",
+      "diagnosis": "WORKS. 13064 bilateral series / 26128 obs returned (3.86 MB) for a single reporter, spanning many COUNTERPART_COUNTRY codes. Confirms the only fault in the old key was the 2-letter reporter."
+    },
+    {
+      "url": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD.S1.S1.JPN.S?startPeriod=2023",
+      "key": "USA.A.P_TOTINV_P_USD.S1.S1.JPN.S (fully specified minimal bilateral cell: US holder, Assets, total PI, holder sector S1=Total economy, issuer sector S1, counterpart=JPN, semi-annual)",
+      "obs_count": 5,
+      "sample_obs": "TIME_PERIOD=2023-S1 OBS_VALUE=1177469000000; 2023-S2=1217880000000; 2024-S1=1225933000000; 2024-S2=1189665000000; 2025-S1=1344145000000 (USD)",
+      "diagnosis": "WORKS. Clean single-cell bilateral series. SECTOR total member is S1 (Total economy), not _T. Semi-annual code is S. Latest available period = 2025-S1 (end-June 2025)."
+    },
+    {
+      "url": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD...JPN.?startPeriod=2023",
+      "key": "USA.A.P_TOTINV_P_USD...JPN. (US->JPN, sectors and frequency wild)",
+      "obs_count": 539,
+      "sample_obs": "series COUNTRY=USA ... COUNTERPART_COUNTRY=JPN FREQUENCY=A -> TIME_PERIOD=2023 OBS_VALUE=1217880000000 (USD)",
+      "diagnosis": "WORKS. 154 series across sector cross-classifications confirms the holder x issuer sector cross-tabulation (from-whom-to-whom by sector) is populated, not just sector totals."
+    }
+  ],
+  "verdict": "OBTAINABLE",
+  "evidence_for_verdict": "Working bilateral key: GET https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD.S1.S1.JPN.S (accept: application/vnd.sdmx.structurespecificdata+xml;version=2.1). Real bilateral observation: creditor=USA, debtor/counterpart=JPN, instrument=total portfolio investment assets, period=2025-S1 (end-June 2025), OBS_VALUE=1344145000000 USD (~$1.344 trillion of US-resident holdings of Japanese-issued portfolio securities); full semiannual series 2023-S1..2025-S1 returned. Bilateral cells are dense across counterpart economies (26128 obs for a single reporter) and across the holder-sector x issuer-sector cross-classification (154 series for USxJPN alone).",
+  "implication": "Yes, it flips DP2's tag. CPIS/PIP bilateral data is fully OBTAINABLE; the '0 observations / HOLE / one-dense-column-only' verdict was an artifact of a wrong reporter code (2-letter 'US' instead of ISO-3 'USA' in CL_PIP_COUNTRY), which the API returns as HTTP 200 with an empty dataset rather than an error.",
+  "files_checked": [
+    "https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_PIP/latest?references=children (HTTP 200)",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF/CL_ACCOUNTING_ENTRY/2.2.2 (HTTP 200)",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF/CL_FREQ/1.2.0 (HTTP 200)",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_INDICATOR/4.0.0 (HTTP 200)",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF/CL_SECTOR/2.13.1 (HTTP 200)",
+    "https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_PIP_COUNTRY/2.0.0 (HTTP 200)"
+  ]
+}
