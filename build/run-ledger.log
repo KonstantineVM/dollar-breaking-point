@@ -622,3 +622,43 @@ PY
 2026-06-28T22:50:40Z	OUTPUT (not established until verifier runs)	ls -la /home/user/dollar-breaking-point/build/contracts/ 2>/dev/null
 echo "---"
 ls /home/user/dollar-breaking-point/build/audit/dp3_identifiability.md 2>/dev/null && echo "dp3 ref exists" || echo "dp3 ref MISSING"
+2026-06-28T22:56:57Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "DP1-reopen: CPIS bilateral (coverage + residency basis)
+
+Reopened imf_cpis after the DP2 audit proved CPIS bilateral OBTAINABLE
+(the prior HOLE was a US-vs-ISO3-USA query bug; the IMF SDMX API returns
+HTTP 200 + empty dataset for a nonexistent member, so a wrong code
+masqueraded as 'no data'). Grounded fresh against the live DSD/codelist;
+another from-memory guess corrected (Cayman = CYM, not KYM).
+
+Coverage census (build/contracts/cpis_coverage.json) — honest density,
+count + map, scripted over all 259 candidate reporters + a 14x14
+load-bearing probe:
+- 83 of 259 economies report bilaterally; 176 do not (valid as
+  counterparts only). Median reporter resolves 244 of 259 counterparts.
+- DENSE in the counterpart dimension and among the 83 reporters; SPARSE
+  in the reporter dimension. All 14 load-bearing economies populate as
+  counterparts; 13/14 as reporters. VGB is the one reporter HOLE; HKG
+  freezes some small cells at 2021 (vintage friction).
+- Refutes DP2's 'one dense column only' verdict, with the cause documented.
+
+Residency caveat (explicit in the contract): CPIS counterpart is
+RESIDENCY-based — it RESTORES the dense bilateral structure F3/F4 need but
+does NOT close the offshore-SPV ISSUER-nationality gap (Chinese securities
+via CYM/VGB SPVs appear under SPV residence: US->CYM \$2.8tn >> US->CHN
+\$255B). Two distinct holes; the issuer-nationality hole carries forward
+to DP3 as bounded/documented. integrity-critic PASS.
+
+build/audit/dp2_rerun_requirements.md records the three things the next
+DP2 re-run MUST do (traceable to the audit): fix the claims/liabilities
+label swap; persist the RAS column-target vector for reproducibility; do
+not assume the residual collapses when CPIS cells populate (the ~\$711bn
+BIS marginal-asymmetry floor exists before any RAS).
+
+Manifest unchanged at 13 sources (imf_cpis updated in place; now a
+bilateral cell source). Ledger DP1 note updated. DP2/DP3 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
