@@ -430,3 +430,17 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
 echo "=== log ===" && git log --oneline -1
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+2026-06-28T21:33:05Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+st=$(git status --porcelain)
+if [ -n "$st" ]; then
+  echo "uncommitted:"; echo "$st"
+  git add build/run-ledger.log 2>/dev/null
+  git commit -q -m "DP2: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+  git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+else
+  echo "clean"
+fi
+echo "=== confirm DP2 ledger entry verifier exists ===" && ls -la build/results/dp2_residual.json | awk '{print $5, $9}'

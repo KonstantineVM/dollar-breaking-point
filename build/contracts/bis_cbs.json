@@ -1,0 +1,161 @@
+{
+  "source_id": "bis_cbs",
+  "publisher": "Bank for International Settlements (BIS)",
+  "dataset_title": "Consolidated Banking Statistics (CBS)",
+  "role_in_matrix": "Supplies the counterparty-NATIONALITY basis missing from DP2: claims of national banking systems (consolidated by nationality of the banking group's parent HQ country) on counterparty countries, on both an immediate-counterparty basis and an ultimate-risk/guarantor basis (which reallocates claims to the country of ultimate obligor after risk transfers). Provides reporting-banking-system-nationality x counterparty-country cells for the bank-claims leg of the from-whom-to-whom matrix, enabling the residency->nationality reallocation for China that DP2 recorded as a HOLE.",
+  "bilateral_or_marginals": "bilateral",
+  "bilateral_determination_evidence": {
+    "finding": "CBS is bilateral on a reporting-banking-system-nationality x counterparty-country grid. The DSD carries both a reporting axis (L_REP_CTY = nationality of the reporting/parent banking system, plus CBS_BANK_TYPE) and a counterparty axis (L_CP_COUNTRY). A concrete cell was retrieved: US-headquartered banks' total claims on China on the guarantor (ultimate-risk) basis.",
+    "evidence_excerpt": "dataflow,BIS:WS_CBS_PUB(1.0),I,Q,S,US,4R,U,C,A,A,TO1,A,CN,2025-Q4,161312.0,3,USD,6,...  (columns: ...,L_REP_CTY=US, CBS_BANK_TYPE=4R, CBS_BASIS=U, L_POSITION=C, ..., L_CP_COUNTRY=CN, TIME_PERIOD=2025-Q4, OBS_VALUE=161312.0)",
+    "source_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBS_PUB/1.0/Q.S.US.4R.U.C.A.A.TO1.A.CN?lastNObservations=2"
+  },
+  "ultimate_risk_china_nationality_cells": {
+    "available": "yes",
+    "evidence_excerpt": "CBS_BASIS dimension (codelist CL_CBS_BASIS) members include 'U = Guarantor basis' and 'R = Guarantor basis, calculated (=F+Q)'; the BIS publisher glossary text on data.bis.org/topics/CBS defines the Guarantor Basis (CBS/G) as identifying 'the obligor as the ultimate party to a contract ... after taking into account risk transfers such as parent or third-party guarantees' (i.e. ultimate-risk basis). Counterparty country dimension L_CP_COUNTRY uses codelist CL_BIS_IF_REF_AREA in which 'CN = China' is a valid member. A live data pull returned a real value for CBS_BASIS=U x L_REP_CTY=US x L_CP_COUNTRY=CN: 2025-Q4 = 161312.0 USD mn. Structure-availability listing also shows CBS_BASIS=U cells for many reporting countries (BE, NO, SG, GR, ...) crossed with counterparty countries.",
+    "source_url": "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_CBS_BASIS/latest ; https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBS_PUB/1.0/Q.S.US.4R.U.C.A.A.TO1.A.CN?lastNObservations=2"
+  },
+  "urls_checked": [
+    "https://stats.bis.org/api/v2/structure/dataflow/BIS/all/latest",
+    "https://stats.bis.org/api/v2/structure/datastructure/BIS/BIS_CBS/latest?references=children",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_CBS_BASIS/latest",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_BIS_IF_REF_AREA/latest",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_STOCK_FLOW/latest",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_L_POSITION/latest",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_L_INSTR/latest",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_L_SECTOR/latest",
+    "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_CURRENCY_3POS/latest",
+    "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBS_PUB/1.0/Q...........CN?lastNObservations=1&dimensionAtObservation=AllDimensions",
+    "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBS_PUB/1.0/Q.S.US.4R.U.C.A.A.TO1.A.CN?lastNObservations=2",
+    "https://data.bis.org/topics/CBS"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "CBS measure international banking activity from a NATIONALITY perspective, focusing on the country where the banking group's parent is headquartered (BIS publisher: data.bis.org/topics/CBS). They track the worldwide consolidated claims of national banking systems on counterparties, EXCLUDING intragroup positions between offices of the same banking group. Published on an immediate-counterparty basis (CBS_BASIS=F) and a guarantor/ultimate-risk basis (CBS_BASIS=U; also R = F+Q calculated), with positions including Total claims (C), Foreign claims (S), International claims (I), Cross-border/Local claims, Guarantees extended (W), and risk-transfer flows (O inward/outward, Q net).",
+    "dataflow_id": {
+      "value": "WS_CBS_PUB (agency BIS, version 1.0); data structure BIS_CBS(1.0)",
+      "evidence_excerpt": "\"id\":\"WS_CBS_PUB\",\"annotations\":[{\"title\":\"16\",\"type\":\"WEBSTATS_DISPLAY_ORDER\"}],\"name\":\"Consolidated banking\",...\"version\":\"1.0\",\"agencyID\":\"BIS\",...\"structure\":\"urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BIS:BIS_CBS(1.0)\"",
+      "source_url": "https://stats.bis.org/api/v2/structure/dataflow/BIS/all/latest"
+    },
+    "dimensions_in_order": {
+      "value": [
+        "FREQ",
+        "L_MEASURE",
+        "L_REP_CTY",
+        "CBS_BANK_TYPE",
+        "CBS_BASIS",
+        "L_POSITION",
+        "L_INSTR",
+        "REM_MATURITY",
+        "CURR_TYPE_BOOK",
+        "L_CP_SECTOR",
+        "L_CP_COUNTRY"
+      ],
+      "evidence_excerpt": "DSD id: BIS_CBS 1.0 | 1 FREQ -> CL_FREQ ; 2 L_MEASURE -> CL_STOCK_FLOW ; 3 L_REP_CTY -> CL_BIS_IF_REF_AREA ; 4 CBS_BANK_TYPE -> CL_BIS_IF_REF_AREA ; 5 CBS_BASIS -> CL_CBS_BASIS ; 6 L_POSITION -> CL_L_POSITION ; 7 L_INSTR -> CL_L_INSTR ; 8 REM_MATURITY -> CL_ISSUE_MAT ; 9 CURR_TYPE_BOOK -> CL_CURRENCY_3POS ; 10 L_CP_SECTOR -> CL_L_SECTOR ; 11 L_CP_COUNTRY -> CL_BIS_IF_REF_AREA",
+      "source_url": "https://stats.bis.org/api/v2/structure/datastructure/BIS/BIS_CBS/latest?references=children"
+    },
+    "csv_columns": {
+      "value": [
+        "STRUCTURE",
+        "STRUCTURE_ID",
+        "ACTION",
+        "FREQ",
+        "L_MEASURE",
+        "L_REP_CTY",
+        "CBS_BANK_TYPE",
+        "CBS_BASIS",
+        "L_POSITION",
+        "L_INSTR",
+        "REM_MATURITY",
+        "CURR_TYPE_BOOK",
+        "L_CP_SECTOR",
+        "L_CP_COUNTRY",
+        "TIME_PERIOD",
+        "OBS_VALUE",
+        "DECIMALS",
+        "UNIT_MEASURE",
+        "UNIT_MULT",
+        "TIME_FORMAT",
+        "COLLECTION",
+        "ORG_VISIBILITY",
+        "AVAILABILITY",
+        "TITLE_GRP",
+        "OBS_STATUS",
+        "OBS_CONF",
+        "OBS_PRE_BREAK"
+      ],
+      "evidence_excerpt": "STRUCTURE,STRUCTURE_ID,ACTION,FREQ,L_MEASURE,L_REP_CTY,CBS_BANK_TYPE,CBS_BASIS,L_POSITION,L_INSTR,REM_MATURITY,CURR_TYPE_BOOK,L_CP_SECTOR,L_CP_COUNTRY,TIME_PERIOD,OBS_VALUE,DECIMALS,UNIT_MEASURE,UNIT_MULT,TIME_FORMAT,COLLECTION,ORG_VISIBILITY,AVAILABILITY,TITLE_GRP,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK",
+      "source_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBS_PUB/1.0/Q.S.US.4R.U.C.A.A.TO1.A.CN?lastNObservations=2"
+    },
+    "claims": [
+      {
+        "claim": "CBS_BASIS codelist (CL_CBS_BASIS) carries the IC vs ultimate-risk distinction: F=Immediate counterparty basis; U=Guarantor basis; R=Guarantor basis, calculated (=F+Q); O=Outward risk transfers; P=Inward risk transfers; Q=Net risk transfers (Inward-Outward); Y=Residual reporting basis.",
+        "evidence_excerpt": "CODELIST: CL_CBS_BASIS CBS basis -- F = Immediate counterparty basis ; O = Outward risk transfers ; P = Inward risk transfers ; Q = Net risk transfers (Inward-Outward) ; R = Guarantor basis, calculated (=F+Q) ; U = Guarantor basis ; Y = Residual reporting basis",
+        "source_url": "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_CBS_BASIS/latest"
+      },
+      {
+        "claim": "The reporting axis L_REP_CTY and bank-type axis CBS_BANK_TYPE are NATIONALITY axes (consolidated by parent HQ country). BIS publisher text: CBS 'measure international banking activity from a nationality perspective, focusing on the country where the banking group's parent is headquartered.'",
+        "evidence_excerpt": "data.bis.org/topics/CBS: 'measure international banking activity from a nationality perspective, focusing on the country where the banking group's parent is headquartered.' Guarantor Basis (CBS/G): 'identify the obligor as the ultimate party to a contract, ie the obligor that is contractually bound to the contract after taking into account risk transfers such as parent or third-party guarantees.'",
+        "source_url": "https://data.bis.org/topics/CBS"
+      },
+      {
+        "claim": "CBS measures BANK claims (consolidated worldwide claims of national banking systems), and EXCLUDES intragroup positions. The instrument dimension L_INSTR is bank-balance-sheet-oriented (A=All instruments, D=Debt securities, G=Loans and deposits, V=Derivatives, R/S=Tier 1/Tier 2 capital, E=Risk-weighted assets). There is no member for securities held by non-bank investors; CBS is the claims of banks, not of all sectors.",
+        "evidence_excerpt": "CL_L_INSTR: A=All instruments; D=Debt securities; E=Risk-weighted assets; G=Loans and deposits; I=Derivatives and Other instruments; V=Derivatives; R=Tier 1 capital; S=Tier 2 capital. data.bis.org/topics/CBS: CBS 'track the worldwide claims of banking groups' and 'exclude intragroup positions'.",
+        "source_url": "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_L_INSTR/latest ; https://data.bis.org/topics/CBS"
+      },
+      {
+        "claim": "Counterparty sector breakdown (L_CP_SECTOR, CL_L_SECTOR) covers Banks (total/related/unrelated/central banks), Non-financial corporations, Non-bank financial institutions, General government, Households+NPISHs, and All sectors.",
+        "evidence_excerpt": "CL_L_SECTOR: A=All sectors; B=Banks, total; C=Non-financial corporations; F=Non-bank financial institutions; G=General government; H=Households and NPISHs; I=Banks, related offices; J=Banks, unrelated banks; M=Banks, central banks; N=Non-banks, total",
+        "source_url": "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_L_SECTOR/latest"
+      },
+      {
+        "claim": "L_MEASURE (dim 2, codelist CL_STOCK_FLOW) value S used in the headline observation denotes a STOCK / amounts-outstanding (level) measure, NOT a flow. Therefore the headline 161,312 (US banks' guarantor-basis total claims on China, 2025-Q4) is a position / amount outstanding, not a transaction flow. The change/flow members of this codelist are separate codes (F = FX and break adjusted change; G = Annual growth).",
+        "evidence_excerpt": "CODELIST: CL_STOCK_FLOW Stock, flow -- F = FX and break adjusted change (BIS calculated) ; S = Amounts outstanding / Stocks ; R = Revisions ; B = Break in stocks ; G = Annual growth (BIS calculated)",
+        "source_url": "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_STOCK_FLOW/latest"
+      },
+      {
+        "claim": "Latest available vintage is 2025-Q4 (retrieved live). Series are quarterly, reported in USD millions (UNIT_MULT=6, UNIT_MEASURE=USD).",
+        "evidence_excerpt": "dataflow,BIS:WS_CBS_PUB(1.0),I,Q,S,US,4R,U,C,A,A,TO1,A,CN,2025-Q4,161312.0,3,USD,6,... and prior obs 2025-Q3,157033.0",
+        "source_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBS_PUB/1.0/Q.S.US.4R.U.C.A.A.TO1.A.CN?lastNObservations=2"
+      }
+    ]
+  },
+  "access": {
+    "method": "BIS Statistics SDMX REST API v2 (stats.bis.org/api/v2) and BIS Data Portal (data.bis.org/topics/CBS). Data pulled with a constrained dimension key; full SDMX key order is FREQ.L_MEASURE.L_REP_CTY.CBS_BANK_TYPE.CBS_BASIS.L_POSITION.L_INSTR.REM_MATURITY.CURR_TYPE_BOOK.L_CP_SECTOR.L_CP_COUNTRY.",
+    "api_base": "https://stats.bis.org/api/v2",
+    "bulk_file_url": "UNVERIFIED",
+    "formats": [
+      "SDMX-CSV (confirmed via Accept: application/vnd.sdmx.data+csv;version=2.0.0)",
+      "SDMX (XML/JSON structure and data)",
+      "BIS Data Portal tables/dashboards (web)"
+    ]
+  },
+  "frequency": "Quarterly (BIS publisher data.bis.org/topics/CBS lists release frequency Quarterly; observed TIME_PERIOD values are quarterly, e.g. 2025-Q3, 2025-Q4).",
+  "reporting_lag": "About one quarter plus ~2.5 months. On 2026-06-28, data.bis.org/topics/CBS listed last release 15 June 2026 and next release 31 July 2026; latest available reference period observed in the API is 2025-Q4 (so ~1 quarter behind plus publication lag).",
+  "coverage": "Worldwide consolidated claims of national banking systems (banks headquartered in BIS-reporting jurisdictions) on counterparties in 200+ countries; counterparty country dimension uses CL_BIS_IF_REF_AREA (432 codes incl. CN=China). Exact current count/list of reporting banking systems NOT confirmed from a fetched jurisdictions page.",
+  "known_frictions": [
+    "Two bases must not be mixed: immediate-counterparty (CBS_BASIS=F) vs guarantor/ultimate-risk (CBS_BASIS=U, and the calculated R=F+Q). For the China residency->nationality reallocation, the ultimate-risk basis (U) is the relevant one; selecting F instead would not capture risk transfers.",
+    "'Ultimate risk' is published under the label 'Guarantor basis' (CBS/G); the codelist member is U (or calculated R=F+Q). An analyst expecting a literal 'ultimate risk' code member will not find one — it is the guarantor basis. This is a naming friction, grounded here.",
+    "Position dimension interacts with basis: Foreign Claims (L_POSITION=S) is populated under the immediate-counterparty basis (F); under the guarantor basis (U) the populated positions observed for China are B (Local claims), C (Total claims), D (Cross-border), W (Guarantees extended), X. Use L_POSITION=C (Total claims) for the ultimate-risk total. Do not assume position S exists on basis U.",
+    "CBS consolidates by reporting-bank NATIONALITY and reallocates by ULTIMATE OBLIGOR country — it is NOT an issuer-nationality view of an offshore-SPV securities pool. It tells you which national banking system holds the claim and the ultimate-obligor country, not the nationality of the issuer of a security held by a non-bank.",
+    "CBS excludes intragroup positions (consolidated), unlike LBS which includes them — the two BIS bank datasets are on different consolidation bases and must not be summed.",
+    "Bilateral confidentiality / cell suppression rules NOT confirmed from a fetched methodology page; some reporting-country x counterparty cells may be suppressed. OBS_CONF field present in CSV but suppression policy not read.",
+    "Full unfiltered API key 'all' returned 'No results for query' (code 100); data must be pulled with a constrained, valid key. Some plausible keys (e.g. basis=U with position=S) return no results because that basis/position combination is not populated."
+  ],
+  "discrepancies_found": [
+    "Expected (by analogy to a literal 'ultimate risk' label) a CBS_BASIS member named 'ultimate risk' or code 'UR'. BIS actually publishes it as 'Guarantor basis' code U (with R='Guarantor basis, calculated (=F+Q)'). Grounded correction: ultimate-risk basis = CBS_BASIS U (or R).",
+    "Initial guessed data key Q.S.5A.4R.U.S.A.A.TO1.A.CN returned 'No results' — two errors corrected by grounding: (i) position S (Foreign Claims) is not populated on the guarantor basis U for China; the populated total is position C (Total claims); (ii) L_REP_CTY='5A' (all reporting countries) is not a populated reporting value for this series — concrete data exists for specific reporting countries (e.g. US, BE, NO, SG).",
+    "CBS_BANK_TYPE (dim 4) does not use '5A'; observed populated values include 4R (Domestic banks, excl. domestic positions), 4O (All excl. 4C banks, excl. domestic positions), 4B (Domestic banks). The bank-type codelist resolves through CL_BIS_IF_REF_AREA but the populated members are these aggregate-bank codes.",
+    "There is NO standalone CBS_BANK_TYPE-specific codelist (CL_CBS_BANK_TYPE returned 404); dim 4 reuses CL_BIS_IF_REF_AREA."
+  ],
+  "confidence_tier": "A",
+  "tier_basis": "Dataflow id, DSD, full dimension order, the CBS_BASIS/instrument/sector codelists, the CN counterparty member, the CSV header, and a concrete US-banks x China x ultimate-risk-basis observation (2025-Q4 = 161312 USD mn) were all read directly from the live BIS SDMX API and the BIS publisher topic page on 2026-06-28.",
+  "unverified": [
+    "Exact bulk-download file format and URL (only the SDMX REST API was exercised; data.bis.org/topics/CBS/data bulk file not fetched).",
+    "Bilateral confidentiality / cell-suppression policy (OBS_CONF present in CSV but the suppression rules were not read from a methodology page).",
+    "Exact current count and list of reporting banking systems / jurisdictions (jurisdictions document not fetched).",
+    "Whether R (Guarantor basis, calculated = F+Q) vs U (Guarantor basis) differ in coverage for China specifically — both are present in the basis codelist; only U was pulled with a concrete value.",
+    "Full CL_L_SECTOR and CL_CURRENCY_3POS member lists were sampled (first ~12 / relevant codes), not exhaustively enumerated."
+  ],
+  "closes_or_narrows_dp2_china_hole": "NARROWS. CBS-UR (guarantor basis, CBS_BASIS=U) genuinely supplies reporting-banking-system-nationality x counterparty-country cells with China as counterparty and reallocates claims to the country of ultimate obligor — so it closes the residency->nationality reallocation gap FOR THE BANK-CLAIMS LEG (loans/deposits/debt-securities held BY BANKS, consolidated by parent-bank nationality). It does NOT close the full DP2 China hole for two grounded reasons. First, CBS measures only the worldwide claims of BANKING GROUPS (instrument set is bank-balance-sheet items; counterparty/issuer holdings by non-banks are not in scope), so the securities leg that the TIC/CPIS Treasury-and-portfolio data carry — US Treasuries and other securities held by non-bank investors, including via offshore SPVs — is outside CBS entirely; CBS cannot reallocate that leg to ultimate-obligor or issuer nationality. Second, CBS's nationality axis is the nationality of the REPORTING BANK (who holds the claim) and its risk-transfer reallocation is to the ultimate-OBLIGOR country (counterparty side); it is NOT an ISSUER-nationality view of the offshore-SPV securities pool that DP2 needed for the China residency->nationality reallocation of issued liabilities. Therefore CBS-UR narrows the hole to the non-bank securities/Treasury leg and the issuer-nationality-of-SPV question, which remain UNCOVERED by this source.",
+  "notes": "Grounded on 2026-06-28 against the live BIS SDMX REST API (stats.bis.org/api/v2) and data.bis.org/topics/CBS. Every structural claim (dataflow id WS_CBS_PUB, DSD BIS_CBS, 11-dimension order, CBS_BASIS codelist, CN counterparty member, CSV header, a real ultimate-risk China value) is backed by a fetched excerpt. The DP1 grounding rule was load-bearing here: the naive ultimate-risk key (basis label, position S, reporting=5A) was falsified by the publisher and corrected to basis=U, position=C, specific reporting countries. The latest vintage is 2025-Q4. Confidence A for confirmed items; remaining UNVERIFIED items (bulk file, confidentiality policy, jurisdiction list) should be closed before bilateral cells are used in the matrix."
+}

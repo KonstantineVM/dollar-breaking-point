@@ -6,7 +6,7 @@
       "verifier": "build/contracts/_manifest.json",
       "gate": "human",
       "approved_marker": "build/approvals/DP1.approved",
-      "note": "12 data-source contracts grounded against publishers (9 tier A, 3 tier B), incl. China (nbs/pboc marginals_only, safe mixed). Merged to main via PR #2."
+      "note": "13 data-source contracts grounded against publishers (10 tier A, 3 tier B). Original 12 incl. China (nbs/pboc marginals_only, safe mixed) merged to main via PR #2. REOPENED to add bis_cbs (BIS Consolidated Banking Statistics, tier A, bilateral) — the counterparty-nationality basis DP2 found missing. Grounding falsified naive guesses against the publisher (ultimate-risk is published as 'Guarantor basis' CBS_BASIS=U, not 'UR'; key 5A/position-S corrected); integrity critic BLOCKED an ungrounded L_MEASURE=S code in the headline observation, fixed by adding the CL_STOCK_FLOW excerpt (S = Amounts outstanding/Stocks). Determination: CBS-UR NARROWS but does NOT CLOSE the DP2 China HOLE (bank-claims leg only; non-bank securities/Treasury leg and offshore-SPV issuer-nationality remain uncovered)."
     },
     {
       "id": "DP2",
