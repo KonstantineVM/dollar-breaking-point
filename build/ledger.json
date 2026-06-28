@@ -6,7 +6,14 @@
       "verifier": "build/contracts/_manifest.json",
       "gate": "human",
       "approved_marker": "build/approvals/DP1.approved",
-      "note": "Grounded 12 data-source contracts against publishers (9 tier A, 3 tier B). Includes China: nbs (marginals_only), pboc (marginals_only), safe (mixed - outward portfolio assets bilateral, IIP marginals). Each China contract states bilateral-vs-marginals with fetched-page evidence; absent bilateral series recorded as UNVERIFIED-by-absence. Human gate = PR review (web). DP2 not begun."
+      "note": "12 data-source contracts grounded against publishers (9 tier A, 3 tier B), incl. China (nbs/pboc marginals_only, safe mixed). Merged to main via PR #2."
+    },
+    {
+      "id": "DP2",
+      "status": "done",
+      "verifier": "build/results/dp2_residual.json",
+      "gate": "none",
+      "note": "Assembled the global SFC FWTW matrix from real pulled data (706 OBSERVED cells: Fed EFA 585, TIC 36 named-country + 1 residual bucket, BIS LBS 76, COFER 9 marginal). RAS/Sinkhorn run, NON-CONVERGENT by structural sparsity (only the TIC US-Treasury column has area-by-area support; row residual L2 ~ $3.96tn) — reported, not smoothed. GCAP China reallocation magnitude recorded as HOLE (counterparty-nationality basis absent from the 12 contracts; direction upward, ~$600bn-class figure neither confirmed nor assumed). Integrity critic BLOCKED a false-provenance label on the TIC residual; fixed by retaining all 36 publisher-named countries (residual now = publisher's true $710.8bn All Other). DP3 not begun."
     }
   ]
 }

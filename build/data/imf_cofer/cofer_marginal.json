@@ -1,0 +1,18 @@
+{
+ "source": "IMF COFER",
+ "period": "2025-Q4",
+ "world_allocated_reserves_USD_bn": 13136.8,
+ "usd_value_bn": 7457.8,
+ "currency_shares_pct": {
+  "CI_AUD": 2.028,
+  "CI_CAD": 2.492,
+  "CI_CHF": 0.189,
+  "CI_CNY": 1.953,
+  "CI_EUR": 20.25,
+  "CI_GBP": 4.413,
+  "CI_JPY": 5.776,
+  "CI_OTHC": 6.13,
+  "CI_T": 100.0,
+  "CI_USD": 56.77
+ }
+}

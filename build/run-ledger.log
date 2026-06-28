@@ -96,3 +96,299 @@ git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
 echo "=== final status ===" && git status --short && echo "(clean if empty)"
 2026-06-28T21:02:00Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
 git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+2026-06-28T21:02:09Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/run-ledger.log 2>/dev/null
+git commit -q -m "DP1: record stamp-hook log byproduct (China round)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
+git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+echo "=== status ===" && git status --short && echo "(clean if empty above)"
+2026-06-28T21:16:21Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data
+# L_DENOM code for USD, and bank type / parent / reporting aggregates
+curl -sS --max-time 30 "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_L_BANK_TYPE/latest" -o /tmp/bt.json -w "banktype %{http_code}\n"
+python3 -c "import json;d=json.load(open('/tmp/bt.json'));print([(c['id'],c.get('name','')[:30]) for c in d['data']['codelists'][0]['codes']])"
+curl -sS --max-time 30 "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_CURRENCY_3POS/latest" -o /tmp/cur.json -w "curr %{http_code}\n"
+python3 -c "import json;d=json.load(open('/tmp/cur.json'));print([c['id'] for c in d['data']['codelists'][0]['codes'] if c['id'] in ('USD','EUR','TO1','TC1','D5')])"
+2026-06-28T21:16:31Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data
+curl -sS --max-time 40 "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_BIS_IF_REF_AREA/latest" -o /tmp/ra.json -w "refarea %{http_code}\n"
+python3 -c "
+import json
+d=json.load(open('/tmp/ra.json'))
+cs=d['data']['codelists'][0]['codes']
+# find aggregates and China, US
+for c in cs:
+    if c['id'] in ('5A','5J','5R','CN','US','1C','2C','4U','957','GB','KY','HK','JP'):
+        print(c['id'],'|',c.get('name','')[:40])
+print('total codes',len(cs))
+"
+2026-06-28T21:20:44Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data
+python3 << 'EOF'
+import csv, json
+# Fed FWTW 2026Q1: aggregate over instruments -> holder x issuer sector matrix (US block), and keep Rest of World cells
+period='2026Q1'
+cells={}  # (holder,issuer)->level (sum over instruments)
+rowtot={}; coltot={}
+holders=set(); issuers=set()
+with open('fed_z1/fwtw_data.csv') as f:
+    for r in csv.DictReader(f):
+        if r['Date']!=period: continue
+        h=r['Holder Name']; i=r['Issuer Name']
+        try: v=float(r['Level'])
+        except: continue
+        holders.add(h); issuers.add(i)
+        cells[(h,i)]=cells.get((h,i),0)+v
+        rowtot[h]=rowtot.get(h,0)+v
+        coltot[i]=coltot.get(i,0)+v
+# Rest of World as holder (foreign holdings of US instruments) and as issuer
+row_n=len(holders); col_n=len(issuers)
+print('Fed FWTW',period,'holders',row_n,'issuers',col_n,'nonzero cells',sum(1 for v in cells.values() if v!=0))
+print('RoW as holder (foreign holdings of US-issued, $mn):', round(rowtot.get('Rest of World',0),1))
+print('RoW as issuer (US holdings of foreign-issued, $mn):', round(coltot.get('Rest of World',0),1))
+# save compact
+out={'source':'Fed Z.1 EFA from-whom-to-whom','period':period,'unit':'USD millions','basis':'residency','note':'estimated issuer-to-holder; corporate equities excluded per publisher',
+     'holder_sectors':sorted(holders),'issuer_sectors':sorted(issuers),
+     'cells':[{'holder':h,'issuer':i,'level':round(v,3)} for (h,i),v in cells.items() if v!=0],
+     'holder_totals':{k:round(v,3) for k,v in rowtot.items()},
+     'issuer_totals':{k:round(v,3) for k,v in coltot.items()}}
+json.dump(out, open('fed_z1/fwtw_2026Q1.json','w'))
+print('wrote fed_z1/fwtw_2026Q1.json, cells:',len(out['cells']))
+EOF
+2026-06-28T21:23:28Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 << 'EOF'
+import json, numpy as np
+
+D='build/data/'
+bis=json.load(open(D+'bis_lbs/lbs_compact.json'))
+tic=json.load(open(D+'treasury_tic/mfh_dec2025.json'))
+cofer=json.load(open(D+'imf_cofer/cofer_marginal.json'))
+fed=json.load(open(D+'fed_z1/fwtw_2026Q1.json'))
+
+# BIS lookup
+bm={}
+for r in bis['rows']: bm[(r['denom'],r['position'],r['cp_country'])]=r['value_usd_mn']
+
+# ---- ASSEMBLE: area x area USD cross-border CLAIM matrix (creditor area -> debtor area), I1+I2 ----
+areas=['US','CN','JP','GB','DE','FR','KY','HK','SG','CH','LU','IE','NL','BE','CA','KR','AU','IN','BR']
+n=len(areas); idx={a:i for i,a in enumerate(areas)}
+
+# Seed: we have, per counterparty area, BIS all-reporting-banks USD CLAIMS on that area (=area's USD bank liability)
+# and USD LIABILITIES to that area (=area's USD bank claim). These are area marginals vs the WORLD of reporting banks,
+# not area-x-area bilateral. The only true area-x-area bilateral USD cell obtainable is US-Treasury: TIC gives
+# (counterparty area -> US government) holdings.
+# Build a seed from the structure we can defend:
+#   row = creditor area (holds the claim), col = debtor area (owes)
+# Observed bilateral entries:
+tic_map={'China, Mainland':'CN','Japan':'JP','United Kingdom':'GB','Cayman Islands':'KY','Hong Kong':'HK',
+         'Belgium':'BE','Luxembourg':'LU','Switzerland':'CH','Ireland':'IE','Canada':'CA','Korea':'KR',
+         'Singapore':'SG','Brazil':'BR','India':'IN','France':'FR','Germany':'DE','Netherlands':'NL','Australia':'AU'}
+seed=np.zeros((n,n))
+observed_mask=np.zeros((n,n),bool)
+# TIC: counterparty area holds US Treasuries => creditor=area, debtor=US  (in USD bn -> convert to mn)
+for name,v in tic['holdings'].items():
+    if name in tic_map and tic_map[name] in idx:
+        a=idx[tic_map[name]]; u=idx['US']
+        seed[a,u]+= v*1000.0  # bn -> mn
+        observed_mask[a,u]=True
+# BIS USD claims ON area = banks (resident in reporting countries) hold claim on that area.
+# Treat as creditor=ROW-bank-system, debtor=area. We cannot place a single creditor area, so we use BIS
+# as a COLUMN MARGINAL (total USD liability of each area to the global bank system), and BIS USD liabilities
+# TO area as a ROW MARGINAL (total USD claim of each area on the global bank system).
+col_marg=np.zeros(n)  # USD liability of debtor area (sum over creditors) -> from BIS USD claims on area
+row_marg=np.zeros(n)  # USD claim of creditor area -> from BIS USD liabilities to area
+for a in areas:
+    col_marg[idx[a]]=bm.get(('USD','C',a),0.0)   # claims ON a  = a's liability
+    row_marg[idx[a]]=bm.get(('USD','L',a),0.0)   # liabilities TO a = a's claim
+print('Assembled seed nonzero (observed bilateral USD-Treasury) cells:', int(observed_mask.sum()))
+print('Row marginal (USD claims, BIS) total $mn:', round(row_marg.sum(),1))
+print('Col marginal (USD liabilities, BIS) total $mn:', round(col_marg.sum(),1))
+
+# ---- BALANCE: RAS / Sinkhorn ----
+# Seed must be nonnegative and have support where marginals are nonzero. Where seed row/col is empty but
+# marginal nonzero, RAS cannot create mass from a zero row. Add a minimal uniform prior ONLY to rows/cols
+# that have a positive marginal but zero seed, and FLAG those as estimated-by-prior (not observed).
+seed_for_ras=seed.copy()
+prior_added=np.zeros((n,n),bool)
+eps=1.0  # $1mn uniform prior to enable RAS where a marginal exists but seed is empty
+for i in range(n):
+    if seed_for_ras[i,:].sum()==0 and row_marg[i]>0:
+        seed_for_ras[i,:]=eps; prior_added[i,:]=True
+for j in range(n):
+    if seed_for_ras[:,j].sum()==0 and col_marg[j]>0:
+        seed_for_ras[:,j]=eps; prior_added[:,j]=True
+# avoid self-loops dominating: keep diagonal as is
+A=seed_for_ras.copy()
+passes=[]
+maxpass=200; tol=1e-6
+r_target=row_marg.copy(); c_target=col_marg.copy()
+# scale targets to common total (RAS requires sum(row)=sum(col)); report the imbalance as a structural residual
+tot_r=r_target.sum(); tot_c=c_target.sum()
+total_imbalance=tot_r-tot_c
+# Use the average total as the consistent grand total; rescale both marginals proportionally
+G=(tot_r+tot_c)/2.0
+r_t=r_target*(G/tot_r); c_t=c_target*(G/tot_c)
+for p in range(maxpass):
+    # row scale
+    rs=A.sum(1); rs[rs==0]=1
+    A=A*(r_t/rs)[:,None]
+    # col scale
+    cs=A.sum(0); cs[cs==0]=1
+    A=A*(c_t/cs)[None,:]
+    row_res=np.abs(A.sum(1)-r_t)
+    col_res=np.abs(A.sum(0)-c_t)
+    passes.append({'pass':p+1,'row_resid_L2':float(np.linalg.norm(row_res)),
+                   'col_resid_L2':float(np.linalg.norm(col_res)),
+                   'row_resid_Linf':float(row_res.max()),'col_resid_Linf':float(col_res.max())})
+    if max(row_res.max(),col_res.max())<tol*G:
+        break
+print('RAS passes to converge:',len(passes))
+print('final row L2',passes[-1]['row_resid_L2'],'col L2',passes[-1]['col_resid_L2'])
+
+# Where do largest residuals concentrate?
+row_res=A.sum(1)-r_t; col_res=A.sum(0)-c_t
+row_rank=sorted([(areas[i],float(row_res[i])) for i in range(n)],key=lambda x:-abs(x[1]))[:5]
+col_rank=sorted([(areas[j],float(col_res[j])) for j in range(n)],key=lambda x:-abs(x[1]))[:5]
+
+np.save('/tmp/A_balanced.npy',A)
+json.dump({'areas':areas,'passes':passes,'row_rank':row_rank,'col_rank':col_rank,
+           'observed_bilateral_cells':int(observed_mask.sum()),
+           'prior_seeded_cells':int(prior_added.sum()),
+           'marginal_imbalance_row_minus_col_USD_mn':float(total_imbalance),
+           'grand_total_used_USD_mn':float(G),
+           'row_marg_total':float(tot_r),'col_marg_total':float(tot_c)},
+          open('/tmp/ras_out.json','w'),indent=1)
+print('OK')
+EOF
+2026-06-28T21:25:21Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 << 'EOF'
+import json
+ras=json.load(open('/tmp/ras_out.json'))
+gcap=json.load(open('/tmp/gcap.json'))
+diag=json.load(open('/tmp/diag.json'))
+
+art={
+ "dp":"DP2",
+ "artifact":"dp2_residual.json",
+ "title":"Reconciliation residual diagnostic for the global SFC FWTW matrix",
+ "generated":"2026-06-28",
+ "matrix_spec":"build/model/matrix_spec.json",
+ "assembled_matrix":"build/model/matrix_assembled.json",
+ "method":"M2_RAS_sinkhorn (biproportional / Sinkhorn iterative proportional fitting), method named in matrix_spec.json before use",
+
+ "headline_finding":"The assembled cross-border bilateral data is TOO SPARSE for a meaningful dense area-by-area RAS. Genuine area-x-area bilateral support exists for ONE column only (foreign holdings of US Treasuries, TIC). BIS LBS supplies area-level MARGINALS (claims-on / liabilities-to each area vs the global bank system), not area-x-area cells. A full-matrix RAS to those marginals does NOT converge: the row marginal cannot be satisfied by a seed whose only observed mass sits in the US-Treasury column. This is reported, not smoothed over. What WAS balanced is the single column that has real bilateral support.",
+
+ "balancing_pass_log":{
+   "scope":"area x area USD cross-border claim matrix, 19 areas, seed = 17 observed bilateral TIC cells + uniform prior on otherwise-empty rows/cols with positive marginals",
+   "n_passes_run":len(ras['passes']),
+   "converged":False,
+   "convergence_tolerance_rel":1e-6,
+   "first_pass":ras['passes'][0],
+   "last_pass":ras['passes'][-1],
+   "interpretation":"Column residual drives to ~0 (col L2 = %.2e) because the prior lets columns absorb their marginals, but ROW residual stalls at L2 ~ %.3e USD mn: rows whose only real support points into the US column cannot simultaneously match their BIS USD-claim row marginals. Non-convergence is structural sparsity, not a numerical failure."%(ras['passes'][-1]['col_resid_L2'],ras['passes'][-1]['row_resid_L2']),
+   "marginal_imbalance_row_minus_col_USD_mn":ras['marginal_imbalance_row_minus_col_USD_mn'],
+   "observed_bilateral_cells_in_seed":ras['observed_bilateral_cells'],
+   "prior_seeded_cells":ras['prior_seeded_cells']
+ },
+
+ "largest_residuals_concentration":{
+   "row_side_top5_area_residual_USD_mn":ras['row_rank'],
+   "col_side_top5_area_residual_USD_mn":ras['col_rank'],
+   "where_they_sit":"Row (creditor-side) residuals concentrate in the large USD-claim areas (GB, KY) whose claims have no bilateral debtor support in the seed beyond the US column. The US column itself absorbs the bulk of placeable mass. Residuals concentrate by AREA in offshore/financial-center jurisdictions (Cayman, UK, Hong Kong) and by INSTRUMENT in I1 deposits/loans (BIS) which lack a counterparty-area resolution."
+ },
+
+ "what_was_actually_balanced":{
+   "block":"us_treasury_by_counterparty (TIC, Dec-2025)",
+   "method":"single-column closure to the published Grand Total marginal",
+   "named_area_cells_sum_USD_mn":round(diag['ust_named_sum'],1),
+   "published_grand_total_USD_mn":round(diag['ust_grand'],1),
+   "closure_residual_All_Other_USD_mn":round(diag['ust_residual'],1),
+   "closure_residual_pct":round(100*diag['ust_residual']/diag['ust_grand'],2),
+   "reading":"Our 18 named counterparty areas account for 72.1% of foreign US-Treasury holdings; the remaining 27.92% ($2.587tn) is the publisher's 'All Other' residual and is held in an EXPLICIT ROW_RESIDUAL bucket, not fabricated into per-country cells."
+ },
+
+ "bis_marginal_asymmetry":{
+   "usd_claims_of_named_areas_USD_mn":round(diag['bis_row_marg'],1),
+   "usd_liabilities_of_named_areas_USD_mn":round(diag['bis_col_marg'],1),
+   "asymmetry_USD_mn":round(diag['bis_row_marg']-diag['bis_col_marg'],1),
+   "asymmetry_pct":round(100*(diag['bis_row_marg']-diag['bis_col_marg'])/((diag['bis_row_marg']+diag['bis_col_marg'])/2),2),
+   "reading":"Reported USD claims and USD liabilities across the same area set differ by 7.19% ($711bn). This creditor/debtor asymmetry is itself an irreducible reconciliation residual: even before RAS, the marginals from the same source on the same areas do not net to zero. Any 'balanced' matrix sits at least this far from internal consistency."
+ },
+
+ "gcap_residency_to_nationality":{
+   "method":"M3_gcap_residence_to_nationality (named in matrix_spec.json before use)",
+   "china_channel_inputs_real_USD_mn":gcap['china_channel'],
+   "offshore_dollar_pool_real":{
+     "bis_usd_claims_Cayman_plus_HongKong_USD_mn":gcap['china_channel']['offshore_pool_bis_USD_claims_KY_plus_HK_mn'],
+     "tic_ustsy_offshore_hubs_USD_mn":gcap['china_channel']['offshore_pool_tic_ustsy_hubs_mn']
+   },
+   "china_reallocation_magnitude":"HOLE",
+   "china_reallocation_reason":"The residency->nationality reallocation requires the COUNTERPARTY ISSUER's nationality. BIS LBS carries L_PARENT_CTY for the REPORTING bank only, NOT the counterparty issuer's nationality; TIC is custodial-residence only. The BIS Consolidated Banking Statistics nationality view (DSD BIS_CBS) and a securities-by-nationality source are NOT among the 12 DP1 contracts and were not grounded. Therefore the SHARE of the $2.07tn offshore dollar pool (Cayman+HK, BIS) that is Chinese-by-nationality is NOT obtainable from on-disk data.",
+   "explicit_non_assumption":"The ~$600bn-class China residency understatement is NEITHER confirmed NOR assumed negligible. It is recorded as a HOLE: the offshore pool it would draw from is real and measured ($2.07tn BIS / $1.94tn TIC), but the China-attributed fraction cannot be computed without a counterparty-nationality basis that is absent from the contract set. We do not invent the magnitude.",
+   "effect_on_load_bearing_cells":{
+     "us_treasury_china_direct_USD_mn":gcap['china_channel']['tic_ustsy_china_direct_mn'],
+     "note":"China's DIRECT US-Treasury holding (TIC, residence) is $683.5bn. Under GCAP a portion of the $421.2bn Cayman + $267.8bn Hong Kong custodial-attributed Treasuries could be Chinese-by-nationality, which would RAISE the China cell above $683.5bn -- but by an amount that is a HOLE, not assumed. The DIRECTION of the GCAP correction on the China channel is upward; its MAGNITUDE is unquantified-by-absence-of-nationality-data."
+   }
+ },
+
+ "cell_census":{
+   "OBSERVED_cells":{"fed_us_issuer_to_holder":585,"tic_us_treasury_by_area":18,"bis_usd_bank_positions":76,"cofer_reserve_currency_marginal":9,"total_observed":688},
+   "ESTIMATED_cells":{"ras_prior_seeded":ras['prior_seeded_cells'],"note":"prior-seeded cells are estimation-by-uniform-prior (method M2), flagged, not observed"},
+   "UNVERIFIED_by_absence_blocks":["china_bilateral (nbs,pboc: marginals-only, no counterparty dimension)","non_us_non_ea_advanced_FWTW (oecd: counterpart dataflow empty for JP/GB/CA/CH/KR)","us_equity_in_FWTW (Fed excludes corporate equities)"],
+   "HOLE_blocks":["imf_cpis_portfolio_bilateral (endpoint live, 0 observations returned for all keys/periods tried)","safe_china_outward_portfolio_by_country (HTML/Excel, not pulled)","wgc_monetary_gold (login-walled)","brookings_ewn_iip_marginals (manual Excel)","china_marginal_values (NBS JPG-only + WAF-403; PBoC netted)","oecd_advanced_marginals (not pulled within effort cap)"]
+ },
+
+ "sources_not_pulled":[
+   {"source":"imf_cpis","friction":"SDMX PIP v5.0.0 endpoint and DSD/indicator codelist confirmed live, but every data query (P_TOTINV_P_USD, all sector-code and frequency variants, multiple periods) returned an empty 0-observation dataset envelope. Bilateral portfolio cells not obtainable via the verified path with codes resolvable here.","tag":"HOLE"},
+   {"source":"safe","friction":"HTML press + Excel only, no machine API (China access-frictioned); effort-capped. Top-5 end-2025 recipients exist in the contract but full counterparty table not obtained.","tag":"HOLE"},
+   {"source":"nbs","friction":"Flow-of-funds tables are JPG images; data.stats.gov.cn WAF-403 to this IP. Marginal values would need OCR/hand-key.","tag":"HOLE"},
+   {"source":"pboc","friction":"Per-table htm/xls only; foreign exposure netted to a single 'Net Foreign Assets' line. Not pulled.","tag":"HOLE"},
+   {"source":"wgc_gold","friction":"Goldhub gold-reserves Excel is login-walled.","tag":"HOLE"},
+   {"source":"brookings","friction":"EWN database is a manual Excel download; no API.","tag":"HOLE"},
+   {"source":"oecd_financial_accounts","friction":"Counterpart who-to-whom dataflow empty for target non-EA advanced economies (per contract); marginal balance sheets (DF_T720R_A) obtainable but not pulled within the effort cap.","tag":"UNVERIFIED-by-absence (bilateral) + HOLE (marginals)"},
+   {"source":"ecb_qsa","friction":"Pulled (306k rows) but heterogeneous units; XDC->USD conversion basis unverified, so euro-area who-to-whom retained as available marginals rather than merged USD cells.","tag":"PARTIAL"}
+ ]
+}
+json.dump(art,open('build/results/dp2_residual.json','w'),indent=1)
+print('wrote build/results/dp2_residual.json')
+print('largest row residual:',ras['row_rank'][0])
+print('largest col residual:',ras['col_rank'][0])
+EOF
+2026-06-28T21:25:29Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== artifacts ==="
+ls -la build/model/matrix_spec.json build/model/matrix_assembled.json build/results/dp2_residual.json
+echo "=== valid JSON? ==="
+for f in build/model/matrix_spec.json build/model/matrix_assembled.json build/results/dp2_residual.json; do
+  python3 -c "import json;json.load(open('$f'));print('OK $f')"
+done
+echo "=== deferral-language scan (must be empty) ==="
+grep -inE 'phase two|phase 2|for now|assume identified|TODO|to be done|later|placeholder' build/model/matrix_spec.json build/model/matrix_assembled.json build/results/dp2_residual.json || echo "none found"
+2026-06-28T21:25:37Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+grep -inwE 'TODO|later|placeholder' build/model/matrix_spec.json build/model/matrix_assembled.json build/results/dp2_residual.json || echo "NONE (word-boundary): clean"
+echo "---"
+grep -inE '\bfor now\b|\bphase two\b|\bphase 2\b|\bassume identified\b|\bto be (done|added|filled)\b' build/model/matrix_spec.json build/model/matrix_assembled.json build/results/dp2_residual.json || echo "NONE (phrases): clean"
+2026-06-28T21:26:03Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== block_summary_counts ===" && jq -c '.block_summary_counts' build/model/matrix_spec.json
+echo "=== estimation methods named ===" && jq -r '.estimation_methods_named_before_use[]? | if type=="object" then (.name//.method//tostring) else tostring end' build/model/matrix_spec.json
+echo
+echo "=== residual: headline_finding ===" && jq -r '.headline_finding' build/results/dp2_residual.json
+echo "=== residual: cell_census ===" && jq -c '.cell_census' build/results/dp2_residual.json
+echo "=== residual: method ===" && jq -r '.method' build/results/dp2_residual.json
+echo "=== what_was_actually_balanced ===" && jq -r '.what_was_actually_balanced' build/results/dp2_residual.json
+2026-06-28T21:30:39Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+for f in build/model/matrix_assembled.json build/results/dp2_residual.json; do
+  python3 -c "import json;json.load(open('$f'));print('valid JSON: $f')"
+done
+echo "=== stale false-provenance check (should NOT appear as a claim) ==="
+grep -nE '2587300|72\.1|18 named' build/results/dp2_residual.json build/model/matrix_assembled.json || echo "no stale 2587300/72.1/18-named claims"
+echo "=== confirm new numbers present ==="
+grep -nE '710800|92\.33|36 publisher-named|named_country_cells_retained' build/results/dp2_residual.json | head
+echo "=== deferral language (word-boundary) ==="
+grep -inwE 'TODO|later|placeholder' build/results/dp2_residual.json build/model/matrix_assembled.json || echo "clean"
+grep -inE '\bfor now\b|\bphase two\b|\bassume identified\b' build/results/dp2_residual.json build/model/matrix_assembled.json || echo "clean phrases"
+2026-06-28T21:31:24Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== matrix_assembled top structure ===" && jq -r 'paths(scalars) as $p | $p | join(".")' build/model/matrix_assembled.json 2>/dev/null | grep -i 'treasury\|tic' | head -8
+echo "=== matrix_assembled keys ===" && jq -r 'keys[]' build/model/matrix_assembled.json
+echo "=== TIC block (head) ===" && jq -c 'to_entries | map(select(.key|test("treasur|tic";"i"))) | .[0].value' build/model/matrix_assembled.json 2>/dev/null | head -c 600
+echo
+echo "=== both valid JSON + deferral-language check ===" && for f in build/results/dp2_residual.json build/model/matrix_assembled.json build/model/matrix_spec.json; do jq -e . "$f" >/dev/null 2>&1 && echo "OK $f"; done
+grep -liE 'phase[ -]?two|for now|assume[d]? identified|TODO' build/results/dp2_residual.json build/model/*.json 2>/dev/null || echo "no deferral language"

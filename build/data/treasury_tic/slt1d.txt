@@ -1,0 +1,216 @@
+
+
+
+                                                        
+                TABLE 1D:  U.S. Long-Term Securities Held by Foreign Residents in January 2023
+                                              Millions of dollars
+
+
+                                         Total U.S.           U.S.           U.S.           U.S.           U.S.
+                                          Long-Term       Treasury         Agency      Corporate      Corporate
+                                         Securities                         Bonds      and Other         Stocks
+                                                                                           Bonds
+                                         ----------       --------         ------      ---------      ---------
+
+Europe
+  Albania                                       618           n.a.           n.a.           n.a.           n.a.
+  Armenia                                       738           n.a.           n.a.           n.a.           n.a.
+  Austria                                    34,730          4,175             73          2,144         28,338
+  Azerbaijan                                 18,142           n.a.           n.a.           n.a.           n.a.
+  Belarus                                        53           n.a.           n.a.           n.a.           n.a.
+  Belgium                                   954,505        280,233          8,597        581,943         83,732
+  Bulgaria                                      652           n.a.           n.a.           n.a.           n.a.
+  Croatia                                     2,073          1,218              0              7            848
+  Cyprus                                      4,108            123              6             88          3,891
+  Czech Republic                             37,433           n.a.           n.a.           n.a.           n.a.
+  Denmark                                   186,606         11,583            778         18,152        156,093
+  Estonia                                     1,942           n.a.           n.a.           n.a.           n.a.
+  Finland                                    61,481          6,108            408          4,995         49,970
+  France                                    591,005        169,553         17,372         73,278        330,802
+  Georgia                                        34           n.a.           n.a.           n.a.           n.a.
+  Germany                                   537,823         81,379          3,332        121,064        332,048
+  Gibraltar                                     975             43              4            421            507
+  Greece                                      5,669          2,460              3            228          2,978
+  Guernsey                                   71,726          7,214            911          8,977         54,624
+  Holy See (Vatican City)                        23             12              0             10              1
+  Hungary                                     4,530            589          2,408            123          1,410
+  Iceland                                     2,266           n.a.           n.a.           n.a.           n.a.
+  Ireland                                 1,239,090        195,955         24,427        246,334        772,374
+  Isle of Man                                 3,997          1,063              8            271          2,655
+  Italy                                     111,997         38,582            741         15,788         56,886
+  Jersey                                     28,675          3,226            740          3,420         21,289
+  Kazakhstan                                  3,345          2,688            109            302            246
+  Latvia                                      2,088            221          1,116            315            436
+  Lithuania                                   2,276           n.a.           n.a.           n.a.           n.a.
+  Luxembourg                              1,995,235        254,675         49,997        618,238      1,072,325
+  Malta                                       4,129            441             43            834          2,811
+  Monaco                                      3,293           n.a.           n.a.           n.a.           n.a.
+  Netherlands                               451,344         72,172         19,073         68,636        291,463
+  Norway                                    601,859        104,342            190         58,426        438,901
+  Poland                                     39,696         36,689              0          1,244          1,763
+  Portugal                                   14,028          5,433              2          1,017          7,576
+  Romania                                     7,944          7,077              0            438            429
+  Russia                                      1,716             54              2            106          1,554
+  Serbia                                      1,522          1,484              0              1             37
+  Slovakia                                      494           n.a.           n.a.           n.a.           n.a.
+  Slovenia                                    3,054           n.a.           n.a.           n.a.           n.a.
+  Spain                                      86,248         38,801          3,782          5,644         38,021
+  Sweden                                    339,977         38,773            337          8,248        292,619
+  Switzerland                               954,250        236,108          8,175         85,067        624,900
+  Turkey                                      2,639          1,400              0             51          1,188
+  Ukraine                                    14,828         14,727              2             42             57
+  United Kingdom                          2,444,219        565,124         88,139        449,132      1,341,824
+  Uzbekistan                                    143           n.a.           n.a.           n.a.           n.a.
+  Total Europe                           10,876,922      2,230,151        233,324      2,376,224      6,037,223
+  Memo: Euro Area                         6,103,318      1,154,457        129,201      1,741,235      3,078,425
+  Memo: European Union                    6,720,156      1,276,344        134,522      1,769,583      3,539,707
+
+Canada                                    1,905,262        228,535         99,858        228,014      1,348,855
+
+Latin America
+  Argentina                                  11,267          1,763             14          1,755          7,735
+  Belize                                      1,467            318              4            285            860
+  Bolivia                                       914            258              1            215            440
+  Brazil                                    229,441        212,138             74            890         16,339
+  Chile                                      63,152         31,626            846          3,415         27,265
+  Colombia                                   71,098         37,632          2,217         11,580         19,669
+  Costa Rica                                  6,625          2,204             61            939          3,421
+  Ecuador                                     1,322            174             31            381            736
+  El Salvador                                 1,463            273              1            182          1,007
+  Guatemala                                  11,966          8,326          2,573            609            458
+  Guyana                                        392             51            189            110             42
+  Honduras                                    3,575          3,327              3             90            155
+  Mexico                                    104,107         46,563         13,039          5,593         38,912
+  Nicaragua                                     134              2              0             64             68
+  Panama                                     29,186          2,862          1,150          7,349         17,825
+  Paraguay                                    6,517          6,170              4            128            215
+  Peru                                       42,425         31,519          1,806          2,537          6,563
+  Suriname                                      323            131             34             72             86
+  Uruguay                                    10,405          5,099            493          1,276          3,537
+  Venezuela                                   4,740            256             13          1,242          3,229
+  Total Latin America                       600,573        390,692         22,553         38,712        148,616
+
+Caribbean
+  Anguilla                                   12,211            100              2            176         11,933
+  Antigua and Barbuda                           428           n.a.           n.a.           n.a.           n.a.
+  Aruba                                       1,517            257            233            669            358
+  Bahamas                                    54,274          4,691         17,023          7,542         25,018
+  Barbados                                   17,187          1,397          1,773         11,166          2,851
+  Bermuda                                   309,740         42,167         19,470        122,798        125,305
+  Bonaire, Sint Eustatius, & Saba             2,973           n.a.           n.a.           n.a.           n.a.
+  British Virgin Islands                    184,185         29,853          2,814         24,042        127,476
+  Cayman Islands                          2,098,118        159,363         35,876        463,712      1,439,167
+  Cuba                                            3              0              0              0              3
+  Curacao                                     5,630            734             39          1,214          3,643
+  Dominica                                      222           n.a.           n.a.           n.a.           n.a.
+  Dominican Republic                          3,890          3,226             30            195            439
+  Haiti                                       1,476            230            420            717            109
+  Jamaica                                     1,341            723              1            345            272
+  St. Kitts and Nevis                         5,739            545             50          1,239          3,906
+  Saint Lucia                                   837            248              5            246            338
+  St Maarten                                    109           n.a.           n.a.           n.a.           n.a.
+  Saint Vincent and the Grenadines              377           n.a.           n.a.           n.a.           n.a.
+  Trinidad & Tobago                          10,035          1,996            822          3,036          4,181
+  Turks and Caicos Islands                    2,463            286             87            370          1,720
+  Total Caribbean                         2,713,167        246,651         78,676        637,627      1,750,213
+
+Asia
+  Afghanistan                                 1,004            994              0             10              0
+  Bahrain                                     1,009            242              2             23            742
+  Bangladesh                                  4,530           n.a.           n.a.           n.a.           n.a.
+  Brunei                                      2,764            115              6            235          2,408
+  Cambodia                                    5,567           n.a.           n.a.           n.a.           n.a.
+  China, Mainland                         1,421,504        855,041        259,989         20,292        286,182
+  EastTimor                                  12,591           n.a.           n.a.           n.a.           n.a.
+  Hong Kong                                 409,751        188,562          8,979         59,669        152,541
+  India                                     239,409        228,811            157            574          9,867
+  Indonesia                                  26,693         11,491          9,289          2,723          3,190
+  Iraq                                       27,785           n.a.           n.a.           n.a.           n.a.
+  Israel                                    148,535         42,225          4,051          7,981         94,278
+  Japan                                   2,445,233      1,031,430        284,442        325,806        803,555
+  Jordan                                      1,684           n.a.           n.a.           n.a.           n.a.
+  Korea, South                              532,519         94,769         40,431         48,601        348,718
+  Kuwait                                    318,114         36,154          5,245         23,251        253,464
+  Lebanon                                       281              8             23              8            242
+  Macau                                       5,380          1,070            423          1,306          2,581
+  Malaysia                                   52,813          8,600         15,685          2,731         25,797
+  Mongolia                                      229           n.a.           n.a.           n.a.           n.a.
+  Nepal                                       1,066           n.a.           n.a.           n.a.           n.a.
+  Oman                                       17,137           n.a.           n.a.           n.a.           n.a.
+  Pakistan                                      119           n.a.           n.a.           n.a.           n.a.
+  Philippines                                52,721         46,462            542            605          5,112
+  Qatar                                      41,299           n.a.           n.a.           n.a.           n.a.
+  Saudi Arabia                              299,812        102,050          3,056          7,795        186,911
+  Singapore                                 598,739        174,813          9,594         59,643        354,689
+  Sri Lanka                                      58             27              0              0             31
+  Syria                                           0              0              0              0              0
+  Taiwan                                    692,068        226,907        215,578        148,877        100,706
+  Thailand                                   63,083         28,886         13,510          2,143         18,544
+  United Arab Emirates                      189,908         43,314            906          4,651        141,037
+  Vietnam                                    36,368         36,277              0              3             88
+  Total Asia                              7,650,003      3,227,525        872,158        718,286      2,832,034
+
+Africa
+  Algeria                                        68           n.a.           n.a.           n.a.           n.a.
+  Angola                                      1,403           n.a.           n.a.           n.a.           n.a.
+  Botswana                                    1,495           n.a.           n.a.           n.a.           n.a.
+  Egypt                                       2,510          1,127             41             54          1,288
+  Gabon                                          55           n.a.           n.a.           n.a.           n.a.
+  Ghana                                       2,599           n.a.           n.a.           n.a.           n.a.
+  Kenya                                       4,363          4,275              8             12             68
+  Liberia                                       943             24             10            270            639
+  Mauritius                                   2,548            833              1            211          1,503
+  Morocco                                     6,252          3,864              3              6          2,379
+  Mozambique                                    474           n.a.           n.a.           n.a.           n.a.
+  Namibia                                       613           n.a.           n.a.           n.a.           n.a.
+  Nigeria                                     6,823           n.a.           n.a.           n.a.           n.a.
+  Seychelles                                    535            145              0             50            340
+  South Africa                               32,138         11,585            865          1,520         18,168
+  Swaziland                                      55           n.a.           n.a.           n.a.           n.a.
+  Tanzania                                    1,749          1,711              1             23             14
+  Tunisia                                       299           n.a.           n.a.           n.a.           n.a.
+  Uganda                                        637           n.a.           n.a.           n.a.           n.a.
+  Zambia                                        157           n.a.           n.a.           n.a.           n.a.
+  Total Africa                               69,878         37,191          1,636          2,930         28,121
+
+Other Countries
+  Australia                                 578,692         50,052          4,969         40,276        483,395
+  Fiji                                            9              0              2              1              6
+  French Polynesia                               15              1              0              1             13
+  Marshall Islands                            2,153             25             29            351          1,748
+  New Zealand                                50,387          4,158          1,133          3,329         41,767
+  Samoa                                       1,761              9              1             32          1,719
+  Total Other                               635,829         55,100          6,188         44,205        530,336
+
+All Countries                            24,459,743      6,415,845      1,314,583      4,052,833     12,676,482
+
+International Orgs.
+  International                              60,830         33,200          4,739         10,061         12,830
+  Total Regional Orgs.                       27,673         13,253          3,865          6,807          3,748
+  Total IROs                                 88,503         46,453          8,604         16,868         16,578
+
+  Country Unknown                             8,109              0            190          6,835          1,084
+
+Grand Total                              24,548,246      6,462,298      1,323,187      4,069,701     12,693,060
+
+Of which: Foreign official                5,822,967      3,464,289        685,653        176,264      1,496,761
+
+Of which:
+  Asset-backed securities                                               1,201,831        331,789
+  Fund shares                                                                                         2,305,373
+
+Of which: Type of U.S. issuer
+  Depository institutions                                                                218,047        269,078
+  Other financial organizations                                                        1,380,976      4,100,121
+  Non-financial organizations                                                          2,329,012      8,248,928
+  State and local government                                                              84,350
+
+Definitions:
+Euro area:  As of January 2023, includes Austria, Belgium, Croatia, Cyprus, Estonia, Finland, France, Germany, Greece, Ireland, Italy,
+Latvia, Lithuania, Luxembourg, Malta, the Netherlands, Portugal, Slovakia, Slovenia, and Spain.
+
+European Union includes Austria, Belgium, Bulgaria, Croatia, Cyprus, the Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece,
+Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, the Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, and Sweden.
+
+
+
