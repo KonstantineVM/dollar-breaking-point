@@ -1,0 +1,45 @@
+{
+  "source_id": "fed_financial_accounts",
+  "publisher": "Board of Governors of the Federal Reserve System",
+  "dataset_title": "Financial Accounts of the United States - Z.1 (formerly Flow of Funds Accounts)",
+  "role_in_matrix": "US sectoral marginals (sector-by-instrument transactions F.* and levels L.* matrices, balance sheets B.*), SNA-aligned Integrated Macroeconomic Accounts (IMA, S.1-S.9), and estimated from-whom-to-whom (Issuer-to-Holder) bilateral sector-by-instrument cells from the Enhanced Financial Accounts.",
+  "urls_checked": [
+    "https://www.federalreserve.gov/releases/z1/",
+    "https://www.federalreserve.gov/apps/fof/Guide/z1_tables_description.pdf",
+    "https://www.federalreserve.gov/releases/efa/fwtw.htm",
+    "https://www.federalreserve.gov/econres/notes/feds-notes/from-whom-to-whom-relationships-in-the-financial-accounts-of-the-united-states-20230324.html",
+    "https://www.federalreserve.gov/datadownload/choose.aspx?rel=z1"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "Z.1 organizes data as sector-by-instrument matrices. F.* tables are transactions (flows), L.* tables are levels (stocks), B.* are balance sheets / change in net worth, M.1 are the financial-accounts matrices (transactions: M.1.f flows, M.1.l levels), D.* are debt summaries, and S.* are the Integrated Macroeconomic Accounts. Summary financial-accounts matrices (M.1) cross sectors against instruments; the from-whom-to-whom linkages between sectors are NOT directly in the core release and are supplied as estimated Issuer-to-Holder data in the Enhanced Financial Accounts.",
+    "sectors": "Confirmed from z1_tables_description.pdf. Domestic nonfinancial: households & nonprofits (F.101/L.101), nonfinancial business (F.102) split corporate (F.103)/noncorporate (F.104), general government (F.105) split federal (F.106)/state & local (F.107). Domestic financial sectors (F.108) include monetary authority (F.109), private depository institutions (F.110) with US-chartered (F.111)/foreign banking offices in US (F.112)/banks in US-affiliated areas (F.113)/credit unions (F.114), property-casualty insurers (F.115), life insurers (F.116, with general/separate accounts), pension funds (F.117-F.120 private/federal/state-local, DB/DC splits), money market funds (F.121), mutual funds (F.122), closed-end funds (F.123), ETFs (F.124), GSEs (F.125), agency/GSE-backed mortgage pools (F.126), ABS issuers (F.127), finance companies (F.128), mortgage REITs (F.129), security brokers & dealers (F.130), holding companies (F.131), other financial business (F.132). Rest of the world is F.133/L.133. IMA sector set (S.1 total economy, S.2 selected aggregates, S.3 households & NPISH, S.4 nonfinancial noncorporate, S.5 nonfinancial corporate, S.6 financial business with S.61 central bank/S.62 private depositories/S.63 insurers/S.64 pension funds/S.65 other financial, S.7 federal government, S.8 state & local, S.9 rest of the world).",
+    "instruments": "Confirmed from z1_tables_description.pdf, instrument tables F.200/L.200 through F.235/L.235: monetary gold & SDRs, currency & deposits, interbank assets/liabilities, checkable deposits & currency, time & savings deposits, other deposits, money market fund shares, fed funds & security repurchase agreements, debt securities, open market paper, Treasury securities, agency- & GSE-backed securities, municipal securities, corporate & foreign bonds, loans (depository institution loans n.e.c., other loans & advances), total mortgages (1-4 family residential, multifamily, commercial, farm), consumer credit, direct investment intercompany debt, corporate equities, other equity (direct investment equity / miscellaneous), mutual fund shares, life insurance reserves, pension entitlements, trade credit, taxes payable, total/identified/unidentified miscellaneous financial claims.",
+    "from_whom_to_whom_available": "yes"
+  },
+  "access": {
+    "method": "Web release pages (HTML/PDF) at federalreserve.gov/releases/z1/; bulk and custom download via the Data Download Program (DDP) at federalreserve.gov/datadownload (rel=z1); Enhanced Financial Accounts FWTW data via dedicated CSV/template downloads at releases/efa/fwtw.htm. Also mirrored on FRED (St. Louis Fed).",
+    "formats": ["PDF", "CSV (zipped/preformatted packages)", "HTML", "XML/SDMX (single bulk file ~561 MB)", "FWTW: CSV data file + Data Dictionary (text) + Template Files (Excel)"],
+    "api_or_bulk": "Data Download Program (DDP) provides custom-built and 200+ preformatted CSV packages plus a single bulk XML/SDMX ZIP download (~561 MB). The DDP choose page did not advertise a named REST API; programmatic REST API existence is UNVERIFIED from the pages fetched."
+  },
+  "frequency": "Quarterly (Z.1 release). FWTW/Issuer-to-Holder series are quarterly, updated with each Z.1 release.",
+  "reporting_lag": "Approximately one quarter plus ~10-11 weeks: latest release June 11, 2026 covers 2026:Q1 (quarter ending March 2026). The release page characterized timing as roughly one week after... see notes; effective lag from end-of-reference-quarter to publication is about 10-11 weeks.",
+  "coverage": "Quarterly time series. FWTW Issuer-to-Holder data span 1945:Q4 through the current Z.1 release. Latest core vintage confirmed: 2026:Q1 (released June 11, 2026). Geography: United States with Rest-of-World sector capturing cross-border claims (residency basis).",
+  "known_frictions": [
+    "FWTW (Issuer-to-Holder) data are ESTIMATED, not observed: per the FEDS Note methodology, ~two-thirds of assets are fully specified from known relationships, but under one-fourth of remaining assets rely entirely on proportional-allocation assumptions that could substantially alter results. Treat estimated bilateral cells as a proxy, not a measured marginal.",
+    "FWTW covers 29 of 30 instruments; corporate equities are EXCLUDED from the from-whom-to-whom estimation due to data limitations (a material gap given the size of the equity instrument).",
+    "Negative FWTW levels can occur (interpreted as 'from'/'to' reversed) due to net-issuance construction; the publisher describes these as imperfections in the methodology.",
+    "Core Z.1 release is on a RESIDENCY basis (Rest of the World = F.133/S.9), not a nationality basis. Any nationality-basis adjustment must come from another source.",
+    "Tables are periodically renumbered/revised and new sectors/instruments added (e.g., ETFs F.124, mortgage REITs F.129, CCPs L.132.c appear in current taxonomy); table identifiers can shift across vintages, so mappings must be re-validated each release.",
+    "Last-update date for the FWTW project was reported inconsistently across publisher surfaces during the check (a fetched page indicated June 18, 2026; a search-index snippet indicated March 27, 2026) - see unverified."
+  ],
+  "confidence_tier": "A",
+  "unverified": [
+    "Exact FWTW project last-update date: fetched fwtw.htm rendered 'June 18, 2026' while a search snippet showed 'March 27, 2026'; not reconciled against a single authoritative timestamp on the page.",
+    "Existence/name of a programmatic REST API for Z.1: the DDP choose page confirmed bulk XML/SDMX and CSV packages but did not advertise a named API; not confirmed.",
+    "Precise publication-lag wording: the z1 release-page fetch summarized timing as '~one week' which conflicts with the quarter-plus-~10-week gap implied by the 2026:Q1 data released 2026-06-11; exact official lag statement not verbatim-confirmed.",
+    "Full enumeration of FWTW holder/issuer sector list and per-instrument coverage table was not read field-by-field from the FWTW data dictionary file (described but not downloaded/parsed).",
+    "Residency-vs-nationality wording in the FWTW FEDS Note was not explicitly stated on the methodology page (inferred from core Z.1 Rest-of-World residency convention)."
+  ],
+  "notes": "Verified against five publisher URLs fetched 2026-06-28. Sector and instrument taxonomies and the IMA (S.1-S.9) and FWTW availability were confirmed directly from the Federal Reserve's own z1_tables_description.pdf (decompressed and read locally) and the releases/efa/fwtw.htm and FEDS Note methodology pages. Tier A overall for structure/access/frequency. The FWTW bilateral cells are publisher-confirmed but ESTIMATED; for SFC FWTW matrix use, the reliable hard marginals are the M.1/F.*/L.* sector-by-instrument totals on residency basis, while the issuer-to-holder bilateral allocation should be flagged as a proxy with equities excluded."
+}

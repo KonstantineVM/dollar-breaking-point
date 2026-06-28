@@ -1,0 +1,47 @@
+{
+  "source_id": "bis_lbs",
+  "publisher": "Bank for International Settlements (BIS)",
+  "dataset_title": "Locational Banking Statistics (LBS)",
+  "role_in_matrix": "Cross-border bank claims (financial assets) and liabilities by counterparty country and counterparty sector, with currency breakdown; supplies bilateral bank positions (reporting-country vs counterparty-country cells) for the from-whom-to-whom matrix, on a residence basis.",
+  "urls_checked": [
+    "https://data.bis.org/topics/LBS",
+    "http://www.bis.org/statistics/dataportal/banking.htm",
+    "https://data.bis.org/topics/LBS/data",
+    "https://stats.bis.org/api/v2/structure/dataflow/BIS/all/latest",
+    "https://stats.bis.org/api/v2/structure/datastructure/BIS/all/latest?references=children",
+    "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_LBS_D_PUB/1.0/all"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "LBS measure international banking activity from a residence perspective (location of the banking office). They capture outstanding claims (financial assets) and liabilities of internationally active banks on counterparties in over 200 countries, compiled on an unconsolidated basis including intragroup positions between offices of the same banking group, on principles consistent with balance of payments statistics. Stated to capture around 95% of all cross-border banking activity (source: data.bis.org/topics/LBS).",
+    "dimensions": "Confirmed via BIS SDMX structure API (DSD BIS_LBS, dataflow WS_LBS_D_PUB v1.0). Dimensions: FREQ, L_MEASURE, L_POSITION (claim/liability), L_INSTR (instrument), L_DENOM (currency of denomination), L_CURR_TYPE (currency type), L_PARENT_CTY (parent/nationality country), L_REP_BANK_TYPE, L_REP_CTY (reporting/residence country), L_CP_SECTOR (counterparty sector), L_CP_COUNTRY (counterparty country). A dissemination variant DSD BIS_LBS_DISS additionally carries L_POS_TYPE.",
+    "counterparty_breakdown": "Counterparty country (L_CP_COUNTRY): more than 200 counterparty countries (data.bis.org/topics/LBS). Counterparty sector (L_CP_SECTOR): per data portal narrative, banks (related offices, unrelated banks, central banks) and non-banks (non-bank financial institutions, non-financial corporations, households, general government). Exact sector codelist values were NOT individually fetched from a publisher codelist page.",
+    "currency_breakdown": "Yes. Currency of denomination is a dataset dimension (L_DENOM) with currency-type dimension (L_CURR_TYPE). WebSearch (BIS-hosted methodology pages) states the minimum recommended currency breakdown covers local/domestic currency of the reporting country, US dollar, euro, yen, Swiss franc, pound sterling, plus a residual; this specific currency list was NOT confirmed from a publisher page I directly fetched."
+  },
+  "access": {
+    "method": "BIS Data Portal (data.bis.org, interactive browse + tables/dashboards) and BIS Statistics SDMX REST API (stats.bis.org/api/v2). Bulk downloads referenced from the data portal.",
+    "formats": ["CSV (confirmed via API format=csv parameter)", "SDMX (XML/JSON, API default)", "Data portal tables/dashboards (web)"],
+    "api_or_bulk": "SDMX REST API v2 confirmed live (base https://stats.bis.org/api/v2). LBS dataflow id WS_LBS_D_PUB (agency BIS, version 1.0), data structure BIS_LBS, both returned by the live structure endpoint on 2026-06-28. Bulk download link referenced on data.bis.org/topics/LBS/data but the exact bulk file format/URL was NOT confirmed from a fetched page."
+  },
+  "frequency": "Quarterly (data.bis.org/topics/LBS lists release frequency as Quarterly).",
+  "reporting_lag": "Approximately one quarter plus ~2.5 months. data.bis.org/topics/LBS on 2026-06-28 listed last release 15 June 2026 and next release 31 July 2026; the precise latest reference period (data quarter) was NOT confirmed from a fetched page.",
+  "coverage": "Internationally active banks in BIS reporting jurisdictions vs counterparties in more than 200 countries; stated ~95% of all cross-border banking activity. Exact current count and list of reporting jurisdictions NOT confirmed from a fetched page (data portal referenced a 30 Oct 2025 jurisdictions document not fetched).",
+  "known_frictions": [
+    "Residence basis (L_REP_CTY) is the primary FWTW axis; a nationality/parent-country view (L_PARENT_CTY) also exists. Mixing the two would double-count or misattribute cells; pick one basis consistently.",
+    "Unconsolidated reporting INCLUDES intragroup positions between offices of the same banking group (confirmed on data.bis.org/topics/LBS). For a SFC matrix this intragroup component must be handled deliberately (it is not netted out).",
+    "Exact counterparty-sector codelist values and exact currency codelist values were not read from a publisher codelist page; do not assume the sector/currency partition without resolving the L_CP_SECTOR and L_DENOM codelists.",
+    "Bilateral confidentiality / cell suppression: NOT confirmed. The BIS methodology PDFs (dsd_lbs notes, bankstatsguide_repreqloc) were returned as unparseable binary by WebFetch, so any statement about confidentiality-restricted bilateral cells could not be grounded.",
+    "A full unfiltered API key ('all') returned no results / 400; data must be pulled with a constrained key (per-dimension codes), which requires resolving codelists first."
+  ],
+  "confidence_tier": "A",
+  "unverified": [
+    "Exact counterparty-sector codelist values (L_CP_SECTOR) — sector narrative from data portal text but not from a codelist page",
+    "Exact currency codelist (L_DENOM) and the specific recommended currency list — from WebSearch of BIS-hosted pages, not from a page directly fetched",
+    "Latest available data reference period (which quarter is the most recent vintage)",
+    "Exact number and list of reporting jurisdictions (30 Oct 2025 jurisdictions document not fetched)",
+    "Bilateral confidentiality / cell-suppression rules — methodology PDFs (dsd_lbs_ver201712.pdf, bankstatsguide_repreqloc.pdf) returned as unparseable binary",
+    "Exact bulk-download file format and URL",
+    "Working narrow API data-key example (constructed keys returned 404 'no results' because code values were guessed, not resolved from codelists)"
+  ],
+  "notes": "Verified on 2026-06-28 against BIS publisher pages and the live BIS SDMX API. The dimension list is HIGH confidence (read directly from the BIS structure API DSD BIS_LBS / dataflow WS_LBS_D_PUB). Frequency (quarterly) and release dates (last 15 Jun 2026, next 31 Jul 2026) are from data.bis.org/topics/LBS. Key items left UNVERIFIED are the codelist values (sector/currency), the confidentiality rules, and the exact latest vintage, because the BIS methodology PDFs could not be parsed by the fetch tool and the codelists were not separately resolved. Overall tier A for the items confirmed on fetched publisher pages/endpoints; the UNVERIFIED list must be closed (resolve L_CP_SECTOR, L_DENOM, L_CP_COUNTRY codelists and read the LBS methodology PDF for confidentiality) before using bilateral cells in the matrix."
+}

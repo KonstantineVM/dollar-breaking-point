@@ -1,0 +1,41 @@
+{
+  "source_id": "brookings",
+  "publisher": "Brookings Institution",
+  "dataset_title": "External Wealth of Nations (EWN) database, hosted by the Hutchins Center on Fiscal and Monetary Policy at Brookings (curated by Gian Maria Milesi-Ferretti and Philip Lane)",
+  "role_in_matrix": "marginals supplier (secondary/derived) — provides country-level external IIP positions (gross external assets and liabilities, and net IIP) usable as row/column control totals/marginals for the FWTW matrix; NOT a from-whom-to-whom (bilateral counterpart) cell source. Note Brookings is a think tank re-publishing a derived database built largely on IMF/national-source data, not a primary statistical agency.",
+  "primary_source": "no",
+  "urls_checked": [
+    "https://www.brookings.edu/articles/the-external-wealth-of-nations-database/",
+    "https://www.brookings.edu/articles/the-external-wealth-of-nations-update-to-year-end-2024-rising-equity-prices-large-valuation-changes/"
+  ],
+  "date_checked": "2026-06-28",
+  "structure": {
+    "description": "Annual database of each economy's external financial assets and liabilities and net international investment position (NIIP), residency/IIP-based. Instrument categories per the database-overview page: foreign direct investment, portfolio investment (equity and debt), other investment (loans, deposits, trade credits), financial derivatives, and foreign exchange reserves. Provides each country's aggregate position vis-a-vis the rest of the world; per the year-end 2024 update page it discusses only aggregate external assets/liabilities and notes bilateral data exist but are NOT the focus here — so the headline database is country-aggregate, not counterpart-country (bilateral) detail. Currency-of-denomination / counterpart-country breakdowns within the headline reusable file are UNVERIFIED.",
+    "is_reusable_dataset": "yes"
+  },
+  "access": {
+    "method": "Free, open-access Excel download linked from the Brookings article pages (editor's note on the year-end 2024 update page states 'External Wealth of Nations database [Excel download]' with a direct link). Web download; no API confirmed.",
+    "formats": ["Excel (.xlsx)"]
+  },
+  "frequency": "Annual data; database refreshed multiple times per year (partial and complete updates — e.g., releases in Jan, Feb, and Apr 2026), with periodic complete annual updates.",
+  "reporting_lag": "Approximately 13 months for the complete annual vintage (year-end 2024 data published January 20, 2026).",
+  "coverage": "212 countries and territories, plus the euro area and the Eastern Caribbean Currency Union (ECCU); annual, 1970-2024. Latest vintage: year-end 2024 (released April 2026 per the overview page; the Jan 20, 2026 update article also describes year-end 2024 data).",
+  "known_frictions": [
+    "Annual-only series — requires temporal disaggregation for any sub-annual (quarterly) FWTW matrix.",
+    "Country-aggregate marginals, NOT bilateral cells: supplies row/column totals (each country's external assets/liabilities vs rest-of-world), not from-whom-to-whom counterpart-country entries; cells must come from another source (e.g., IMF CPIS/CDIS, BIS).",
+    "Derived/estimated database (incorporates estimates and gap-filling where official IIP is missing), not raw official statistics — vintages get revised across the multiple intra-year updates, so a fixed vintage must be pinned for reproducibility.",
+    "Think-tank republication of a Milesi-Ferretti/Lane academic database; underlying primary statistics are IMF BOP/IIP and national sources — treat Brookings as the access/hosting layer, not the originating statistical authority.",
+    "Exact instrument breakdown and any currency-of-denomination split were not confirmed line-by-line from the downloaded Excel file itself (page-level description only); see unverified.",
+    "Exact NIIP/instrument column layout, sheet structure, and presence of currency-composition fields in the actual Excel file are UNVERIFIED (file not opened/inspected)."
+  ],
+  "confidence_tier": "B",
+  "unverified": [
+    "Complete instrument-category breakdown as it appears in the actual Excel file (overview page lists FDI/portfolio/other investment/derivatives/reserves, but the year-end 2024 update page did not enumerate all categories and the file was not opened).",
+    "Whether the headline reusable file includes any currency-of-denomination or counterpart-country (bilateral) breakdown, or only rest-of-world aggregates — UNVERIFIED.",
+    "Exact direct download URL of the Excel file (the link presence is confirmed on the page, but the resolved file URL was not captured).",
+    "Whether the residency/IIP (balance-of-payments) accounting basis is stated explicitly by the publisher — inferred from IIP framing on the overview page but not quoted verbatim from the update page.",
+    "Licensing/terms-of-use text for redistribution of the downloaded file.",
+    "Internal sheet structure, column headers, and units of the actual Excel workbook."
+  ],
+  "notes": "Brookings is NOT a primary statistical agency and is NOT a primary from-whom-to-whom source for this matrix. However, the verification did surface a genuine primary, recurring, downloadable dataset hosted by Brookings/Hutchins Center: the External Wealth of Nations (EWN) database — annual external assets/liabilities and NIIP for 212 countries+territories (plus euro area, ECCU), 1970-2024, free Excel download. For the FWTW build its usable contribution is as a MARGINALS source (country-level IIP control totals by instrument), not as a cell-level bilateral source. It is itself a derived database built on IMF/national data, so it functions as a secondary/derived layer; confidence B (dataset existence, coverage, frequency, lag, access verified from publisher pages on 2026-06-28; exact file structure and currency/bilateral fields not opened/verified)."
+}
