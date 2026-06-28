@@ -1102,3 +1102,40 @@ print("wrote dp2_residual.json")
 print("new total observed:", n_cpis+585+36+76+9, " delta vs 706:", (n_cpis+585+36+76+9)-706)
 PY
 python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/write_residual.py
+2026-06-28T23:16:17Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/model/matrix_spec.json build/model/matrix_assembled.json build/model/ras_inputs.json build/results/dp2_residual.json build/results/dp2_recompute_check.py build/results/dp2_recompute_check.json build/ledger.json build/data/ build/run-ledger.log 2>/dev/null
+echo "=== non-data staged ===" && git status --short | grep -v 'build/data/' | sed 's/^/  /'
+echo "=== largest staged ===" && git status --short | awk '{print $2}' | xargs -I{} du -k {} 2>/dev/null | sort -rn | head -2
+git commit -q -m "DP2 re-run: CPIS bilateral assembly + residency-tagged
+
+Supersedes the prior DP2. Reassembled the global SFC FWTW matrix on the
+CPIS-augmented support; integrity-critic VERIFIED (PASS on all four gate
+checks).
+
+- 167 OBSERVED CPIS bilateral cells (13 reporters x 14 counterparts,
+  2025-S1), all traced to real IMF SDMX envelopes. Census 706 -> 873
+  OBSERVED (+167), 0 ESTIMATED. Load-bearing cells populate (US->CHN
+  \$255B, US->CYM \$2.8tn, JP->US \$2.34tn, CHN->* row, CYM->* row).
+- Label swap FIXED + verified against the BIS source (lbs_compact.json
+  header): position C = Total claims = \$9.53tn; position L = Total
+  liabilities = \$10.24tn (prior artifact had them inverted).
+- Residual now REPRODUCIBLE: build/model/ras_inputs.json persists row/col
+  targets + the 167-cell seed; build/results/dp2_recompute_check.py
+  regenerates the residual from ras_inputs.json alone (passed=true). Fixes
+  the prior unreconstructable \$3.96tn (a blind recompute had given \$5.49tn).
+- NO assumed collapse: the CPIS block is a labeled CONSISTENCY pass (no
+  independent portfolio-liability marginal exists on disk; ~1e-7 by
+  construction, explicitly NOT a reconciliation). The binding residual is
+  the irreducible ~\$711.16bn BIS claims/liabilities marginal floor,
+  untouched by the CPIS layer.
+- Offshore-hub cells kept basis=residency, NOT reallocated to nationality;
+  the offshore-SPV China-by-nationality fraction of the \$2.96tn pool is a
+  bounded cell-level HOLE in matrix_spec, matrix_assembled, and the residual.
+
+Ledger: DP2 done (re-run), verifier build/results/dp2_residual.json. DP3
+not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
