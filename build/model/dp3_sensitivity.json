@@ -1,0 +1,63 @@
+{
+  "dp": "DP3-STEP3",
+  "artifact": "dp3_sensitivity.json",
+  "title": "Bounded robustness sweep of F3/F4 identification over the China-nationality fraction interval [0.0, 0.60]",
+  "generated": "2026-06-28",
+  "status": "SPECIFICATION-LEVEL sensitivity ANALYSIS. No parameter is fit. The sweep evaluates whether the STEP-2 separating restriction R_sep is supported as a SINGLE SCALAR f is swept across the grounded admissible interval. This is a BOUND on the answer, NOT a posterior and NOT a Monte Carlo.",
+  "reads": [
+    "build/model/dp3_spec.json (R_sep, its falsifier, the three-kind restriction set)",
+    "build/model/china_fraction_bound.json (interval [0.0,0.60], grounded endpoints)",
+    "build/model/matrix_assembled.json (offshore pool cells)"
+  ],
+
+  "sweep_object": {
+    "f_definition": "f = Chinese-by-nationality fraction of the US->offshore-FC (CYM/HKG/VGB) portfolio pool, treated as a SINGLE SCALAR swept across [0.0, 0.60]. NO probability distribution is assigned to f (forbidden; DP2 refused to invent this number). The lower endpoint is the direct-only/zero-incremental floor; the upper endpoint is the maximum published instrument-specific China-nationality share (NBER WP 30865).",
+    "mechanism": {
+      "cells_affected": "As f rises, more of the US->CYM ($2,798,130mn), US->HKG ($107,448mn), US->VGB ($51,419mn) offshore pool (total $2,956,997mn) is China-by-nationality. China's EFFECTIVE bilateral exposure -- the cell F3 reads as its reallocation DESTINATION -- grows from the direct US->CHN cell ($255,341mn) toward $255,341mn + f x $2,956,997mn.",
+      "effective_china_destination_usd_mn": {
+        "f_0.00": 255341,
+        "f_0.0864": 510826,
+        "f_0.20": 846740,
+        "f_0.60": 2029539,
+        "note": "= direct 255,341 + f * 2,956,997. At f=0.0864 the offshore increment equals the direct cell (China_eff = 2x direct); at f=0.60 China_eff = 7.95x the direct cell."
+      },
+      "what_this_changes_for_F3_vs_F4": "R_sep separates F3 from F4 via the DESTINATION-EXCLUSION: F3's reallocation lands in a China-by-nationality, NON-USD destination column that F4 (a dollar run) would NOT also move. The mass that gives the destination-exclusion its discriminating power is exactly the China-by-nationality portion = f x pool. The remainder (1-f) x pool stays residency CYM/HKG/VGB, an unmeasured share of which is offshore-USD (US-bank ABS via Cayman SPV; china_fraction_bound footnote 3). Offshore-USD mass is a DOLLAR claim -> F4 ALSO moves it -> on that mass the destination column is NOT excludable from F4 -> the separation has NO support on it."
+    }
+  },
+
+  "where_the_conclusion_can_change_derived_from_R_sep": {
+    "governing_inequality": "The destination-exclusion restriction R_sep is SUPPORTED only insofar as the China-by-nationality-and-non-USD destination mass spans a direction DISTINCT from the offshore-USD (F4-shared) mass. Support is proportional to f x pool; the confound is proportional to (1-f) x pool x (USD-share of remainder). The separation is identified iff f x pool exceeds the spanning threshold set by the confound mass -- i.e. iff f is large enough that the China-non-USD destination is not drowned by offshore-USD claims F4 also moves.",
+    "f_equals_0_is_a_DEGENERATE_point": "At f=0 the China-by-nationality destination mass is ZERO. The destination-exclusion has NO support: every offshore-pool cell is potentially an offshore-USD claim that F4 also moves, so F3's destination column is fully inside F4's reach. SEPARATION FAILS at f=0 by construction of R_sep. This is not a knife-edge artifact; it is the floor endpoint of the grounded interval and it is an ADMISSIBLE value (china_fraction_bound lower_bound=0.0 is defensible).",
+    "the_second_HOLE_that_blocks_a_clean_flip_point": "The flip is NOT a clean single f* because the confound magnitude -- the USD-share of the (1-f) remainder -- is ITSELF a HOLE (the offshore-USD/ABS share of the CYM/HKG/VGB pool is unpublished; china_fraction_bound carries it as UNVERIFIED, biasing the true China fraction DOWNWARD). So the threshold f* is not a single number computable from disk; it is bounded BELOW by 0 (fails) and is NOT shown to be crossed anywhere in (0,0.60] without ALSO knowing the offshore-USD share."
+  },
+
+  "evaluation_points_chosen_and_why": {
+    "principle": "Granularity is justified from the R_sep inequality, NOT a fixed grid. Points are placed at the endpoints and at the equation-relevant locations where the separation outcome can change.",
+    "points": [
+      {"f": 0.00, "why": "LOWER endpoint (zero-incremental floor, admissible). DEGENERATE: destination-exclusion support = 0 -> SEPARATION FAILS. F3 and F4 observationally equivalent on the offshore cells."},
+      {"f": 0.0864, "why": "Equation landmark: offshore increment = direct cell (China_eff = 2x direct). The China-by-nationality destination first becomes as large as the directly-observed China cell. Still: separation only supported if the China part is non-USD AND exceeds the offshore-USD confound -- which is a HOLE. Outcome: CONDITIONAL, not established."},
+      {"f": 0.20, "why": "NBER WP 30865 corporate-BOND China-nationality share (~20%). The blended pool's plausible debt-weighted region. Destination mass ~$591bn incremental. Separation support GROWS but the offshore-USD confound (ABS is debt) is largest in exactly this debt region -> the confound and the support move TOGETHER; outcome remains HOLE-dependent."},
+      {"f": 0.60, "why": "UPPER endpoint (equity China-nationality share, conservative ceiling). Destination mass ~$1,774bn incremental (7.95x direct). This is the MOST FAVORABLE admissible case for separation. EVEN HERE separation is only CONDITIONALLY identified: it requires the 60%-China mass to be non-USD, and the 40% remainder's offshore-USD share is unmeasured. So the BEST admissible case does NOT deliver clean separation."}
+    ],
+    "why_not_more_points": "The outcome is MONOTONE in f (support increases with f) but the threshold f* is not a disk-computable scalar because the confound (offshore-USD share) is a HOLE. Adding interior points would imply a precision the data does not support and risks reporting a smooth distribution of outcomes -- which the mandate forbids. Four points (two endpoints + two equation landmarks) suffice to BOUND the answer as binary."
+  },
+
+  "conclusion": {
+    "form": "(b)",
+    "statement": "Identification of the F3/F4 SEPARATION is NOT ROBUST across the admissible China-nationality interval [0.0, 0.60] -- it FLIPS. The China-nationality fraction f is LOAD-BEARING for the structural conclusion.",
+    "flip_characterization": {
+      "fails_at": "f = 0.00 (admissible lower endpoint): the destination-exclusion that separates F3 from F4 has ZERO support; F3 and F4 are OBSERVATIONALLY EQUIVALENT on the offshore-pool cells. SEPARATION NOT IDENTIFIED.",
+      "conditionally_supported_toward": "f -> 0.60: separation support GROWS monotonically with f, but is identified ONLY conditional on a SECOND unmeasured quantity -- the offshore-USD (ABS) share of the non-China remainder -- which is itself a HOLE. So the separation is NOT cleanly identified even at the most favorable admissible f.",
+      "why_not_a_single_clean_f_star": "The flip threshold f* is bounded below by 0 (definite failure) but is NOT a single disk-computable number, because the confound magnitude is a HOLE. Reporting a precise f* would invent the offshore-USD share. The honest bound: SEPARATION FAILS at f=0 and is at best CONDITIONALLY-IDENTIFIED (pending a second HOLE) toward f=0.60 -- it is NOWHERE established as robustly identified across the full interval."
+    },
+    "downstream_consequence_the_planting_guard": "Because the conclusion FLIPS within the admissible interval, the F3/F4 assignment of the offshore-pool mass is NOT a premise -- it is contingent on f, which is data we DO NOT HAVE. The 2022-sanctions episode's assignment to F3 (vs F4) therefore CANNOT be asserted from this matrix: at f=0 it could equally be F4. This is exactly the reassignment the planting guard asks about, and the sweep shows the downstream binding-mode attribution WOULD flip. The separation is recorded as TESTABLE-IN-PRINCIPLE on the CPIS support but NOT ESTABLISHED as identified, BECAUSE its truth-value depends on an unmeasured China-nationality fraction (and a second unmeasured offshore-USD share).",
+    "what_this_is_NOT": "This is NOT a claim that F3/F4 can never be separated, and NOT a claim that the run has not happened. F4 has a concrete observable footprint (common signed USA-column move across 12 holders); the non-identification here is a property of the offshore-nationality HOLE and the single-snapshot support, curable in principle by (i) a counterparty-issuer NATIONALITY basis for the portfolio pool and (ii) a currency split of the destination columns and/or a second time period for the contagion-vs-substitution discriminator."
+  },
+
+  "carried_forward_not_resolved": [
+    "offshore-SPV issuer-nationality bounded HOLE (f in [0,0.60]) -- LOAD-BEARING for F3/F4 separation per this sweep.",
+    "offshore-USD (ABS) share of the non-China remainder of the pool -- a SECOND HOLE that blocks a clean flip-point.",
+    "$711,157.7mn BIS banking-marginal floor.",
+    "single-snapshot (no contagion-vs-substitution dynamic discriminator)."
+  ]
+}

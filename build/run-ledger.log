@@ -1139,3 +1139,111 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
 echo "=== log ===" && git log --oneline -1
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-06-28T23:16:28Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+st=$(git status --porcelain)
+if [ -n "$st" ]; then
+  echo "uncommitted: $st"
+  git add build/run-ledger.log 2>/dev/null
+  git commit -q -m "DP2 re-run: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+  git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+else echo "clean"; fi
+echo "=== verifier exists? ===" && ls -la build/results/dp2_residual.json | awk '{print $5, $9}'
+2026-06-28T23:31:49Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git fetch origin main -q 2>&1 | tail -1
+echo "=== DP2 re-run merged to main? (ras_inputs on origin/main) ===" && git ls-tree origin/main -- build/model/ras_inputs.json | head -1 || echo "(not on main)"
+echo "=== branch vs main ===" && git rev-list --left-right --count origin/main...HEAD
+echo "=== preconditions present locally ===" && for f in build/results/dp2_residual.json build/model/matrix_assembled.json build/model/ras_inputs.json build/model/matrix_spec.json build/audit/dp3_identifiability.md; do [ -f "$f" ] && echo "OK $f" || echo "MISSING $f"; done
+2026-06-28T23:38:03Z	OUTPUT (not established until verifier runs)	cat > /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/rank.py << 'EOF'
+# Identification arithmetic for separating F3 (across-issuer reallocation) from
+# F4 (across-holder dollar-leg run) on a SINGLE cross-sectional 13x14 grid.
+#
+# Observed object available to a single-snapshot factor model:
+#   the 13x14 matrix X (one realization). A factor model on a SINGLE matrix can
+#   only be identified via STRUCTURE IMPOSED on loadings, not via a sample
+#   covariance over repeated draws -- there is exactly ONE draw.
+#
+# Two routes a factor model could use for cross-sectional identification:
+#  (R1) cross-HOLDER covariance: treat the 14 issuer columns as "variables" and
+#       the (<=13) holders as observations -> Sigma_col is 14x14, rank <= 13-1=12.
+#  (R2) cross-ISSUER covariance: treat 13 holders as "variables", 14 issuers as
+#       observations -> Sigma_row is 13x13, rank <= 14-1=13.
+#
+# F4 = a COMMON DOLLAR-LEG factor: loads on the USA column across holders. In R1
+#      it is a single column's loading vector. In a single snapshot, "the USA
+#      column is high/low across holders" cannot be separated from "holders differ
+#      in total size" (a holder fixed effect) UNLESS a scale normalization
+#      (shares) removes the size factor.
+# F3 = a SUBSTITUTION factor: within-row reallocation across issuer columns,
+#      i.e. negative covariance between a holder's USA share and its share in
+#      destination issuer k.
+#
+# The separating restriction needs: variation that moves USA-column loadings
+# ACROSS holders (F4) ORTHOGONAL to variation that moves the WITHIN-row issuer
+# split (F3). On a single snapshot these are read off the SAME Sigma. They are
+# separately identified ONLY IF there is a second issuer column whose
+# cross-holder pattern is moved by F4 but NOT by F3 (an exclusion), AND a
+# destination column moved by F3 but NOT F4.
+print("Single-snapshot 13x14 grid: 1 realization, NOT a panel.")
+print("Order condition for an UNRESTRICTED 2-factor decomposition of one matrix:")
+print("  a single matrix has rank <= min(13,14)=13; its SVD gives 13 orthogonal")
+print("  components but their ROTATION is unidentified without external restriction.")
+print("  -> F3 and F4 are two directions in that rotation-indeterminate subspace.")
+print("  Separating them REQUIRES an a-priori loading restriction (exclusion/sign).")
+EOF
+python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/rank.py
+2026-06-28T23:42:14Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== valid JSON? ===" && for f in build/model/dp3_spec.json build/model/dp3_sensitivity.json build/model/china_fraction_bound.json; do jq -e . "$f" >/dev/null 2>&1 && echo "OK $(basename $f)" || echo "INVALID $f"; done
+echo "=== dp3_spec top keys ===" && jq -r 'keys[]' build/model/dp3_spec.json
+echo "=== factor -> observed-quantity mapping (brief) ===" && jq -r '(.factors // .measurement_system // {}) | to_entries[] | "\(.key): \(.value.identified // .value.status // (.value|tostring|.[0:60]))"' build/model/dp3_spec.json 2>/dev/null | head -12
+2026-06-28T23:45:21Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+jq -e . build/ledger.json >/dev/null && echo "ledger valid JSON" || echo "LEDGER INVALID"
+git add build/model/dp3_spec.json build/model/dp3_sensitivity.json build/model/china_fraction_bound.json build/ledger.json build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short | sed 's/^/  /'
+git commit -q -m "DP3: structural spec + F3/F4 restriction + China-fraction sensitivity
+
+Specification only (no parameter fit; estimation is DP4, not begun).
+Integrity-critic PASS on all six gate checks.
+
+STEP 0 — grounded the one external number DP3 needs: the Chinese-nationality
+fraction of the offshore-FC portfolio pool, interval [0.0, 0.60]. Upper bound
+0.60 from Clayton-Coppola-Dos Santos-Maggiori-Schreger 'China in Tax Havens'
+(NBER WP 30865), quoted verbatim from the publisher. No point estimate or
+distribution invented.
+
+STEP 1 — four factors mapped to OBSERVED matrix quantities: F1 (BIS USD
+marginals + Fed S2), F2 (TIC/Fed S4, QUANTITY-only; convenience-yield leg a
+HOLE, not proxied), F3 (CPIS issuer shares across CYM/HKG/VGB/CHN), F4 (USA
+issuer column across 12 holders). Farhi-Maggiori multiple-equilibrium +
+global-games selection; F4 given a concrete observable footprint, NOT defined
+as 'the event that hasn't happened'.
+
+STEP 2 — F3/F4 separating restriction R_sep with economic content, identifying
+matrix variation, a FALSIFIER (if destinations are offshore-USD ABS via Cayman
+SPVs, F4 also moves them -> F3/F4 observationally equivalent), and the
+falsifier-case checked against the matrix: PARTIALLY obtains. The CPIS re-run
+moved the status from NOT-TESTABLE (old audit) to TESTABLE-IN-PRINCIPLE, but
+the nationality is a HOLE and there is one period. 2022-sanctions->F3 encoded
+as a TESTED restriction (reassigning to F4 would flip the binding-mode), not a
+premise.
+
+STEP 3 — sensitivity sweep of the [0,0.60] interval, f as a SCALAR, no
+distribution. Conclusion = FORM (b): identification FLIPS; the China-nationality
+fraction is LOAD-BEARING. Fails at f=0 (F3=F4 observationally equivalent); only
+conditionally identified toward 0.60 (a second HOLE: offshore-USD ABS share);
+no flip-point f* invented.
+
+OPERATIVE VERDICT for DP5: F3/F4 separation NOT ESTABLISHED — it depends on
+data we do not have. The f->0.60 branch must NOT be read as identification.
+This is the permitted, expected 'hazard not (yet) identified' outcome, recorded
+honestly, not massaged. Carried forward unresolved: offshore issuer-nationality
+HOLE, $711bn BIS floor, F2 price leg.
+
+Ledger: DP3 done, verifier build/model/dp3_spec.json. DP4 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2

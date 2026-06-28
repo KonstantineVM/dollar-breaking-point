@@ -1,0 +1,159 @@
+{
+  "dp": "DP3",
+  "artifact": "dp3_spec.json",
+  "title": "Structural model specification + overidentifying restrictions for the four-factor breaking-point measurement system, on the DP2 CPIS-augmented RE-RUN matrix",
+  "generated": "2026-06-28",
+  "status": "SPECIFICATION ONLY. No parameter is fit. No factor is scored. Every quantity below is a restriction or an identification ARGUMENT stated so it can FAIL. Estimation is DP4 and is NOT begun here.",
+  "reads": [
+    "build/model/matrix_assembled.json (CPIS 13x14 block, 167 observed cells, 2025-S1)",
+    "build/model/matrix_spec.json (cell_basis_register, offshore-hub residency tags)",
+    "build/results/dp2_residual.json ($711bn BIS floor; offshore-hub residency HOLE)",
+    "build/audit/dp3_identifiability.md (per-factor verdict ON THE OLD one-column matrix)",
+    "build/model/china_fraction_bound.json (China-nationality fraction interval [0.0, 0.60])"
+  ],
+
+  "what_changed_vs_old_audit": {
+    "old_support": "ONE dense bilateral column (TIC US-Treasury). The audit verdict (F3/F4 NOT IDENTIFIED, separation NOT TESTABLE) was correct ON THAT support: with one issuer column there is no i->j vs i->k split and no multi-issuer holder block.",
+    "new_support": "The CPIS re-run supplies a DENSE 13-reporter x 14-counterpart area x area grid (167 observed cells). Confirmed by direct read of matrix_assembled.json: ~12 holders observed per issuer column and ~13 issuer columns observed per holder row. The reallocation axis (i's split across issuers j,k) and the multi-holder dollar-leg block (12 holders of the USA column) BOTH now exist as observed cells. This REFUTES the old audit's data-absence verdict at the level of cell support.",
+    "but_the_decisive_new_constraint": "The CPIS block is a SINGLE CROSS-SECTIONAL SNAPSHOT (2025-S1) -- ONE realization of the 13x14 matrix, NOT a panel/time-series. There is no second matrix on disk to form a sample covariance over repeated draws. This moves the F3/F4 question from 'the off-diagonal does not exist' (old) to 'the off-diagonal exists once, so F3 and F4 occupy a rotation-indeterminate subspace whose separation rests ENTIRELY on an a-priori loading restriction -- which is testable only if that restriction is OVERIDENTIFYING.' DP3 must therefore (i) state that restriction, (ii) state its falsifier, (iii) check whether the falsifier-case obtains on THIS single snapshot. This is the substance of STEP 2."
+  },
+
+  "step1_structural_model": {
+    "equilibrium_concept": {
+      "name": "Farhi-Maggiori (2018, QJE) reserve-asset multiple-equilibrium model with a global-games (Morris-Shin) equilibrium selection.",
+      "object_built": "Per CLAUDE.md the breaking point is NOT a scalar/date but three objects: (1) frontier = the fundamentals-gated manifold on which a self-fulfilling reserve-run equilibrium becomes feasible; (2) distance-to-frontier = signed scalar position; (3) hazard = with binding-mode attribution. DP3 specifies the MEASUREMENT SYSTEM that maps observables to the latent state that indexes this manifold; it does NOT locate the frontier (that is downstream and conditional on identification holding).",
+      "state_variables": {
+        "theta": "fundamental state of the issuer (US fiscal capacity / safe-asset backing). In Farhi-Maggiori, theta gates whether the run equilibrium exists. NOT directly in the position matrix; entered as an external fundamental index (carried as a model input, not a matrix cell). Marked: theta is NOT a matrix observable -> any claim about its level is out-of-matrix and must be sourced separately (a HOLE for this matrix).",
+        "x_holders": "vector of holders' dollar-leg exposures (the USA issuer column of the CPIS grid + BIS USD funding marginals). Observable.",
+        "s_split": "for each holder, the share split of its portfolio across issuer columns (the CPIS row, normalized). Observable.",
+        "kappa": "convenience-yield / safe-asset premium on the US Treasury leg. PRICE observable, NOT in this STOCK matrix -> F2's price manifestation is a HOLE (see F2)."
+      },
+      "global_games_selection_operationalized": {
+        "rule": "Selection is operationalized as a THRESHOLD on the fundamental state: a run equilibrium is SELECTED when theta falls below a critical theta*(global-games), where theta* is shifted by the strategic-complementarity strength among holders. The complementarity strength is read off the CROSS-HOLDER co-movement of dollar-leg exposures (F4 loadings on the USA column). HIGHER F4 cross-holder co-movement => stronger complementarity => higher theta* => run feasible at better fundamentals.",
+        "what_makes_it_falsifiable": "If F4 is NOT separately identified from F3 and from the holder-size/funding-level factor (F1), then the complementarity strength is NOT recoverable from the matrix, and theta*(global-games) cannot be pinned -> the selection step has NO observable input and the breaking-point hazard is NOT IDENTIFIED. This is the load-bearing dependency: the global-games threshold needs F4's cross-holder loading, which STEP 2 tests for identifiability.",
+        "not_planted": "theta* is NOT defined so that the run 'has not happened' forces non-identification. theta* is a function of an ESTIMABLE complementarity parameter; if the matrix supports estimating it, the threshold is identified and the run's feasibility is a genuine empirical question, answerable in either direction."
+      }
+    },
+
+    "factors": {
+      "F1_funding_stress": {
+        "definition": "Common-level tightness in USD funding across holders/sectors.",
+        "observed_quantities_it_loads_on": [
+          "BIS LBS USD claims/liabilities per-area MARGINALS (I1), 18 named areas (matrix_assembled cross_border_usd_bank_positions_BIS_LBS).",
+          "Fed EFA US-internal S2 depository cells (subset of the 585 us_issuer_to_holder cells).",
+          "CPIS row TOTALS (holder portfolio size) as a scale control."
+        ],
+        "mapping_verdict": "MAPPED. F1 is a marginal/level factor; the BIS per-area USD marginals + Fed S2 cells carry a genuine cross-section of funding exposure. No pair structure required. Consistent with old audit F1=IDENTIFIED(bounded).",
+        "bound": "The $711,157.7mn BIS claims-vs-liabilities asymmetry (dp2_residual bis_marginal_asymmetry) is the noise FLOOR on F1's level; it bounds precision but does not break identification of a level factor. CARRIED FORWARD as a HOLE, not resolved."
+      },
+      "F2_treasury_despecialization": {
+        "definition": "Erosion of the safe-asset premium / convenience yield on US Treasuries; a factor on the price AND quantity of the safe leg.",
+        "observed_quantities_it_loads_on": [
+          "TIC US-Treasury-by-counterparty column (36 country cells, us_treasury_by_counterparty_TIC) -- quantity-by-holder of the US safe leg.",
+          "Fed S4-government issuer cells (domestic holder split of the safe leg).",
+          "USA issuer COLUMN of the CPIS grid (foreign portfolio holdings of US securities) as the broad-safe-leg quantity."
+        ],
+        "mapping_verdict": "MAPPED ON THE QUANTITY SIDE ONLY. The convenience-yield/PRICE manifestation (kappa) is a yield observable NOT present in this stock/position matrix -> F2's price leg is a HOLE. F2 is identified only as a US-Treasury-specific QUANTITY factor. Consistent with old audit F2=IDENTIFIED(bounded; quantity-only).",
+        "separation_from_F4": "F2 (US-Treasury-specific quantity move) and F4 (broad dollar run) both touch the USA column. They are separated by F2 loading on the TREASURY instrument (TIC I2 + Fed S4) while F4 loads on the BROAD dollar leg across instruments (CPIS total PI + BIS USD funding). The instrument dimension carries this separation; recorded as restriction R2 below."
+      },
+      "F3_sanctions_reallocation": {
+        "definition": "Reallocation of claims ACROSS COUNTERPARTIES (issuer columns): holder i exits issuer j's claim and moves INTO issuer k's claim. A within-row substitution factor.",
+        "observed_quantities_it_loads_on": [
+          "CPIS row-normalized issuer SHARES for each of the 13 reporter rows (s_split): the i->j vs i->k split, now OBSERVED across 13-14 issuer columns.",
+          "Specifically the offshore-hub destination columns CYM, HKG, VGB and the direct CHN column -- the cells US->CYM (2,798,130), US->HKG (107,448), US->VGB (51,419), US->CHN (255,341), and the analogous destination cells in other holders' rows.",
+          "Cross-holder consistency of the destination pattern: e.g. CYM as a destination column has 12 holders (col_holders), so 'reallocation into the China-conduit columns' is a pattern observable across holders, not just for the US row."
+        ],
+        "mapping_verdict": "MAPPED AT CELL LEVEL on the new support (REFUTES old audit 'reallocation axis absent'). BUT the ECONOMIC content of F3 -- reallocation toward CHINA-BY-NATIONALITY -- depends on attributing the offshore-hub columns (CYM/HKG/VGB) to issuer nationality, which is the BOUNDED HOLE (china_fraction_bound, [0,0.60]). So F3's CELLS are observed; F3's INTERPRETATION as China-reallocation is HOLE-dependent. STEP 3 sweeps exactly this."
+      },
+      "F4_dollar_run": {
+        "definition": "Self-fulfilling run ACROSS HOLDERS on the dollar leg: a common, contagious propensity to exit dollar (USA-column) claims, propagating holder-to-holder.",
+        "observed_quantities_it_loads_on": [
+          "The USA issuer COLUMN of the CPIS grid across 12 holders: CYM->USA (4,513,338), IRL->USA (2,583,036), JPN->USA (2,342,597), LUX->USA (2,199,787), GBR->USA (1,824,619), DEU->USA (878,234), FRA->USA (876,069), NLD->USA (750,521), HKG->USA (419,578), CHN->USA (330,700), ITA->USA (238,397), BEL->USA (119,099).",
+          "BIS USD funding marginals as the contagion-conduit (common dollar-exit raises funding stress).",
+          "COFER world USD reserve-currency share (56.77%) as a single MARGINAL on currency substitution -- no holder resolution."
+        ],
+        "mapping_verdict": "CELLS MAPPED (the multi-holder dollar-leg block now EXISTS, refuting old audit 'holders are marginals only'). BUT identification of F4 AS A SEPARATE FACTOR is NOT automatic: on a SINGLE snapshot F4's cross-holder USA-column loading sits in the same rotation-indeterminate subspace as F1 (holder size/funding level) and F3 (the USA-column drop is the SOURCE of the within-row reallocation). Whether F4 is separately identified is the STEP-2 question; the cells existing is necessary, not sufficient."
+      }
+    }
+  },
+
+  "step2_F3_F4_separating_restriction": {
+    "framing": "F3 (across-issuer reallocation) and F4 (across-holder dollar run) both MOVE THE SAME CELLS: a fall in the USA column. The separation must be a TESTABLE overidentifying restriction, not an assertion of which is which. It is testable ONLY if it imposes more than it consumes given the single-snapshot covariance.",
+
+    "restriction_R_sep": {
+      "name": "DESTINATION-EXCLUSION restriction.",
+      "economic_content": "A sanctions reallocation (F3) is a SUBSTITUTION: a holder that exits issuer j moves the mass INTO a specific destination issuer k, holding its total portfolio size approximately fixed (re-balancing, not deleveraging). A dollar run (F4) is a COMMON FLIGHT: holders cut the USA/dollar leg TOGETHER and the mass leaves the measured dollar system -- into non-USD safe assets, gold, or out of the portfolio (deleveraging), WITHOUT a common compensating destination column inside the grid. The real-world mechanism that distinguishes them: F3 conserves the holder's row total and reallocates ACROSS columns; F4 shrinks the holder's USA exposure and is correlated ACROSS holders' USA cells with NO conserved row total.",
+      "matrix_variation_that_identifies_it": {
+        "moves_under_F3_not_F4": "The DESTINATION columns. F3 predicts that when a holder's USA share falls, a SPECIFIC destination column rises in the SAME row (within-row negative covariance: USA share down, China-conduit columns CYM/HKG/VGB/CHN up), and that this destination pattern is CONSISTENT across holders (a common destination loading). F4 predicts NO common in-grid destination -- the USA-column fall is NOT offset within the observed columns.",
+        "moves_under_F4_not_F3": "The CROSS-HOLDER co-movement of the USA column AT FIXED within-row split. F4 predicts the USA cells fall TOGETHER across holders proportional to each holder's dollar exposure, with the residual (non-USA) columns NOT systematically receiving the mass. F3 predicts NO purely-common USA-column move that is orthogonal to a destination rise.",
+        "the_overidentifying_content": "The restriction imposes that F3's loading vector is NONZERO on the destination columns (CYM/HKG/VGB/CHN) and ZERO on the pure-deleveraging direction, while F4's loading vector is NONZERO on the common USA-column direction and ZERO on the destination columns. That is 2 exclusion blocks on a single 13x14 covariance -- MORE restrictions than the 1 rotation angle needed to separate two factors in a 2D subspace, hence OVERIDENTIFYING and testable."
+      },
+      "falsifier": {
+        "statement": "R_sep FAILS -- F3 and F4 become OBSERVATIONALLY EQUIVALENT on this matrix -- IF the destination columns that F3 reallocates INTO are themselves dollar-denominated / dollar-system claims that F4 would ALSO move, so that 'reallocate USA->destination' and 'run from the dollar' produce the SAME cell pattern. Concretely: if the China-conduit destination (CYM/HKG/VGB) is, by nationality, dominated by claims that are STILL on the US dollar leg (offshore USD issuance), then a fall in US->USA matched by a rise in US->CYM is NOT a move out of the dollar (F4 would not fire) NOR unambiguously a move toward China (F3's economic content), and the two factors load identically on the same cells. The single-snapshot worsens this: with ONE realization there is no time path to see whether the USA-column drop LEADS other holders' drops (contagion = F4) versus co-occurs with the same holder's own destination rise (substitution = F3).",
+        "the_decisive_dependency": "Whether the falsifier-case obtains DEPENDS ON the China-nationality fraction f of the offshore pool (china_fraction_bound [0,0.60]) AND on the currency composition of the destination columns. If the destination is genuinely China-by-nationality AND non-USD, F3 and F4 are distinguishable. If the destination is offshore-USD (US-bank ABS via Cayman SPVs -- explicitly flagged in china_fraction_bound footnote 3), the destination is still a dollar claim and the separation collapses."
+      },
+      "does_falsifier_case_obtain_in_current_matrix": {
+        "verdict": "PARTIALLY -- and the part that decides it is UNMEASURED. Matrix evidence: (1) The destination columns ARE populated and dense (CYM 12 holders, HKG 12, VGB 13, CHN 12), so the cell support for a destination-exclusion test EXISTS. (2) BUT the currency/nationality of the destination columns is RESIDENCY-tagged and NOT reallocated (matrix_spec offshore_hub_residency_status; dp2_residual gcap_residency_to_nationality = HOLE). The matrix CANNOT tell, from its own cells, whether US->CYM mass is China-by-nationality-non-USD (F3 destination, separation holds) or offshore-USD ABS (F4 also moves it, separation fails). (3) There is ONE time period, so the lead/lag contagion-vs-substitution discriminator is absent by construction.",
+        "consequence": "On the CURRENT matrix the destination-exclusion restriction is EVALUABLE in form (the cells exist, unlike the old support where it was not even evaluable) but its truth-value is PINNED TO THE CHINA-NATIONALITY HOLE. So the F3/F4 separation is TESTABLE-IN-PRINCIPLE on this support (an advance over the old NOT-TESTABLE verdict) but its OUTCOME is conditional on f. Whether the conclusion is robust to f, or flips within [0,0.60], is computed in dp3_sensitivity.json (STEP 3). DP3 does NOT assert the separation; it specifies the test and hands the f-dependence to the sweep."
+      }
+    },
+
+    "restriction_R2_F2_vs_F4": {
+      "name": "INSTRUMENT-EXCLUSION (separates F2 Treasury-quantity from F4 broad dollar run).",
+      "content": "F2 loads on the TREASURY instrument leg (TIC I2 + Fed S4-government); F4 loads on the BROAD dollar leg across instruments (CPIS total PI USA column + BIS USD funding I1). Restriction: F2 loading is zero on non-Treasury USD funding; F4 loading is common across USD instruments.",
+      "falsifier": "If the only multi-holder USD column in the matrix is the CPIS total-PI USA column (which COMBINES I2 debt + I3 equity, NOT split -- matrix_spec caveat 'P_TOTINV combines debt + equity; not split here'), then F2 (Treasury-debt-specific) and F4 (broad-dollar) project onto the SAME unsplit column and the instrument exclusion has no observable to bite on.",
+      "does_falsifier_obtain": "YES, PARTIALLY. The CPIS USA column is instrument-unsplit (I2+I3 combined). The TIC column IS Treasury-only and single-debtor, and the Fed S4 cells ARE government-issuer, so a Treasury-vs-broad split EXISTS across the TIC/Fed layers but NOT within the CPIS multi-holder column. So F2/F4 separation is supported for the US-row Treasury quantity but THIN for the cross-holder dimension. Recorded as a bound, not a clean identification."
+    }
+  },
+
+  "overidentifying_restrictions_of_three_kinds": {
+    "note": "Per the DP3 mandate, the restriction set is of three kinds, each able to FAIL.",
+    "kind_1_rank_condition_on_systematic_covariance": {
+      "restriction": "RANK(R1): the systematic (4-factor) part of the 13x14 CPIS covariance has rank EXACTLY 4 after removing the holder-size scale factor, with the F3 and F4 directions OCCUPYING DISTINCT left/right singular subspaces (F4 in the cross-holder/column-common subspace, F3 in the within-row/destination subspace).",
+      "how_it_can_fail": "If the rank of the cross-holder-vs-destination block is < 2 (i.e. the USA-column-common direction and the destination-substitution direction are COLLINEAR on the single snapshot), then F3 and F4 are NOT separately spanned and the rank condition FAILS. This is checkable at DP4 by the singular spectrum of the (size-removed) grid. STATED so it can fail: it is NOT assumed to hold.",
+      "single_snapshot_caveat": "Because there is ONE realization, 'covariance' here is the cross-sectional second moment of the single 13x14 grid (over its rows or columns), NOT a time-series covariance. The rank condition is therefore a statement about ONE matrix's singular structure; its failure mode (collinearity) is MORE likely on one snapshot than on a panel. This is a genuine vulnerability, recorded not hidden."
+    },
+    "kind_2_theory_pinned_sign_pattern": {
+      "restriction": "SIGN(R_sep): F3's destination loadings on (CYM,HKG,VGB,CHN) are >= 0 (reallocation INTO the China-conduit, never out, under a sanctions-reallocation hypothesis); F4's USA-column loading is <= 0 across holders (a run REDUCES dollar exposure); and the F3 within-row total is conserved (sum of row-loadings ~ 0) while F4's is not (deleveraging).",
+      "how_it_can_fail": "If the fitted destination loadings come out with MIXED signs (some holders reallocate IN, others OUT, with no common direction), the theory-pinned sign pattern is violated and F3 is not the postulated common reallocation factor -- it would be noise. If F4's USA-column loadings are not common-signed across holders, the run factor is not a run. Checkable at DP4; able to fail."
+    },
+    "kind_3_event_projection": {
+      "restriction": "EVENT(R_proj): named historical episodes project onto the factor they should load on, NOT onto the other. This is the planting guard made operational -- the assignment of episodes to F3 vs F4 is a TESTED restriction, not a premise.",
+      "episode_assignments_to_be_TESTED_not_asserted": [
+        {
+          "episode": "2022 Russia reserve immobilization / sanctions",
+          "should_load_on": "F3 (reallocation across counterparties: sanctioned holders shift OUT of US/EU claims INTO alternative counterparties).",
+          "should_NOT_load_on": "F4 (it is a targeted-counterparty event, not a system-wide dollar run).",
+          "falsifier": "If the 2022 episode's cell footprint loads on the COMMON USA-column direction (all holders cut USD together) rather than the destination-substitution direction, the F3 assignment is REJECTED and the episode belongs to F4 -- which would FLIP the binding-mode attribution of the hazard."
+        },
+        {
+          "episode": "2008 GFC dollar funding squeeze",
+          "should_load_on": "F1 (common funding stress) and partially F4 (flight),",
+          "should_NOT_load_on": "F3 (it was not a counterparty-substitution event).",
+          "falsifier": "If 2008 loads on the destination-substitution direction, the F1/F4 vs F3 boundary is wrong."
+        },
+        {
+          "episode": "2011-2013 US debt-ceiling / Treasury de-specialization scares",
+          "should_load_on": "F2 (Treasury-specific quantity/premium).",
+          "should_NOT_load_on": "F4 (no broad cross-holder dollar exit occurred).",
+          "falsifier": "If this loads on the common cross-holder USA-column direction, F2 and F4 are not separated."
+        }
+      ],
+      "the_planting_test_made_explicit": "ASK: if the 2022 episode were REASSIGNED from F3 to F4, would a downstream conclusion flip? YES -- it would move the breaking-point hazard's binding-mode from 'sanctions-reallocation pressure' to 'dollar-run pressure', changing whether the run equilibrium is judged feasible. THEREFORE this assignment is encoded as a TESTED restriction (EVENT R_proj above) with an explicit falsifier, NOT as a premise. F4 is NOT defined as 'the event that has not happened': F4 has a concrete observable footprint (common signed USA-column move across 12 holders) that the 2022 or any episode CAN load on, so its identification is an empirical question answerable in either direction."
+    }
+  },
+
+  "step2_bottom_line": {
+    "advance_over_old_audit": "On the OLD one-column support the F3/F4 separating restriction was NOT EVALUABLE (no destination columns, no multi-holder block). On the NEW CPIS support the restriction R_sep is EVALUABLE IN FORM: the destination columns and the 12-holder dollar-leg block both EXIST as observed cells. This is a real change in identifiability status.",
+    "the_remaining_obstruction": "TWO obstructions remain, and they are NOT cured by adding CPIS: (1) the destination columns' issuer NATIONALITY and CURRENCY are a bounded HOLE (china_fraction_bound), so the destination-exclusion's TRUTH-VALUE is pinned to f in [0,0.60]; (2) the block is a SINGLE SNAPSHOT, so the contagion-vs-substitution (lead/lag) discriminator is absent and the rank condition is read off one matrix. F3/F4 separation is therefore TESTABLE-IN-PRINCIPLE but its OUTCOME is f-dependent and snapshot-fragile.",
+    "honest_status_statement": "F3/F4 separating restriction R_sep is SPECIFIED with a falsifier; the falsifier-case obtains PARTIALLY in the current matrix (destination cells exist but their nationality/currency is HOLE; single snapshot removes the dynamic discriminator). Whether the separation HOLDS or FAILS across the admissible China-nationality interval is resolved in dp3_sensitivity.json. DP3 does NOT manufacture a separation the data cannot support, and does NOT force 'now identified' merely because CPIS was added."
+  },
+
+  "carried_forward_not_resolved": [
+    "offshore-SPV issuer-nationality bounded HOLE (CYM/HKG/VGB portfolio pool); china_fraction_bound [0,0.60].",
+    "$711,157.7mn BIS banking-marginal floor (F1 noise floor).",
+    "F2 convenience-yield/price leg (kappa): not in the stock matrix -> HOLE.",
+    "theta (issuer fundamental): out-of-matrix; required by the global-games selection; HOLE for this matrix.",
+    "single-snapshot: no time-series; contagion-vs-substitution dynamic discriminator absent."
+  ]
+}
