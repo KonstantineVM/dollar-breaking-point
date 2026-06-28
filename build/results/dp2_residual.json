@@ -1,202 +1,150 @@
 {
  "dp": "DP2",
  "artifact": "dp2_residual.json",
- "title": "Reconciliation residual diagnostic for the global SFC FWTW matrix",
+ "title": "Reconciliation residual diagnostic for the CPIS-augmented global SFC FWTW matrix",
  "generated": "2026-06-28",
+ "supersedes": "prior dp2_residual.json (which (a) INVERTED the BIS claims/liabilities labels, (b) reported an unreconstructable $3.96tn row residual whose column-target vector was never persisted, and (c) recorded CPIS bilateral as a HOLE).",
  "matrix_spec": "build/model/matrix_spec.json",
  "assembled_matrix": "build/model/matrix_assembled.json",
- "method": "M2_RAS_sinkhorn (biproportional / Sinkhorn iterative proportional fitting), method named in matrix_spec.json before use",
- "headline_finding": "The assembled cross-border bilateral data is TOO SPARSE for a meaningful dense area-by-area RAS. Genuine area-x-area bilateral support exists for ONE column only (foreign holdings of US Treasuries, TIC). BIS LBS supplies area-level MARGINALS (claims-on / liabilities-to each area vs the global bank system), not area-x-area cells. A full-matrix RAS to those marginals does NOT converge: the row marginal cannot be satisfied by a seed whose only observed mass sits in the US-Treasury column. This is reported, not smoothed over. What WAS balanced is the single column that has real bilateral support.",
- "balancing_pass_log": {
-  "scope": "area x area USD cross-border claim matrix, 19 areas, seed = the 17 observed bilateral TIC US-Treasury cells whose counterparty country falls inside this 19-area RAS set (a subset of the 36 publisher-named TIC country cells retained in matrix_assembled.json; the other named countries fall outside the 19-area RAS set) + uniform prior on otherwise-empty rows/cols with positive marginals",
-  "n_passes_run": 200,
-  "converged": false,
-  "convergence_tolerance_rel": 1e-06,
-  "first_pass": {
-   "pass": 1,
-   "row_resid_L2": 4131597.8655553362,
-   "col_resid_L2": 3.729721449754307e-09,
-   "row_resid_Linf": 3901038.568212725,
-   "col_resid_Linf": 3.725290298461914e-09
+ "ras_inputs": "build/model/ras_inputs.json",
+ "verifier": "build/results/dp2_recompute_check.json (regenerates every residual below from ras_inputs.json alone)",
+ "method": "M2_RAS_sinkhorn, named in matrix_spec.json before use.",
+ "headline_finding": "CPIS now supplies 167 OBSERVED-bilateral portfolio cells (13 reporters x 14 counterparts), refuting the prior HOLE. Two residual layers are reported on their own terms and NOT conflated: (1) the CPIS portfolio block is margin-CONSISTENT (its RAS to its own margins converges to ~1e-7, an EXACT-BY-CONSTRUCTION consistency check, NOT an independent reconciliation, because CPIS has no independent portfolio-liability column marginal on disk); (2) the BIS banking-marginal FLOOR is $711,157.7mn and is IRREDUCIBLE PRE-RAS \u2014 same source, same 18 areas, claims and liabilities that do not net. CPIS densifies the portfolio layer; it does NOT touch the banking floor. The residual did NOT collapse to zero: it is dominated by this $711bn banking floor, which is unchanged by populating CPIS.",
+ "bis_marginal_asymmetry": {
+  "LABEL_CORRECTION": "Prior artifact INVERTED these. Corrected and VERIFIED against the BIS source: lbs_compact.json header states position_C='Total claims', position_L='Total liabilities'. Summing the on-disk USD vectors over the 18 named non-US areas gives position C = 9,529,422.9 (CLAIMS) and position L = 10,240,580.6 (LIABILITIES).",
+  "bis_source_excerpt": "build/data/bis_lbs/lbs_compact.json header: \"position_C\": \"Total claims\", \"position_L\": \"Total liabilities\", \"unit\": \"USD millions\". Each row carries denom/position/cp_country/value_usd_mn; e.g. {position:C, cp_country:CN, value_usd_mn:236443.208} is a CLAIM on China, {position:L, cp_country:CN, value_usd_mn:638801.0} a LIABILITY to China.",
+  "usd_claims_position_C_USD_mn": 9529422.9,
+  "usd_liabilities_position_L_USD_mn": 10240580.6,
+  "asymmetry_USD_mn": 711157.7,
+  "asymmetry_sign": "liabilities EXCEED claims by 711,157.7 (L - C > 0).",
+  "denominator_basis_for_pct": "Prior 7.19% matched no reproducible denominator. Stated explicitly here: 711,157.7 / 9,529,422.9 (claims base) = 7.463%; / 10,240,580.6 (liab base) = 6.945%; / mean = 7.194%. The unambiguous figure is the ABSOLUTE $711,157.7mn; the percentage is denominator-dependent and reported only with its base.",
+  "us_self_position_excluded": "US-on-US ($8,262,469.8 claims / $4,194,157.2 liab) excluded as a near-tautological self-position; this is what reconciles these totals to the audit's target figures.",
+  "reading": "This creditor/debtor asymmetry is itself an irreducible reconciliation residual: even before any RAS, marginals from the SAME source on the SAME areas do not net to zero. Any 'balanced' matrix sits at least $711bn from internal consistency. CPIS does not reduce it."
+ },
+ "balancing_passes": {
+  "pass_1_cpis_portfolio_consistency": {
+   "scope": "CPIS area x area portfolio block, 13 reporters x 14 counterparts, 167 observed cells, 2025-S1, USD mn.",
+   "honest_label": "CONSISTENCY pass, NOT an independent reconciliation. Targets are the block's OWN row/col sums. Converges by construction; verifies the seed is margin-consistent. It is NOT presented as reconciling the portfolio layer against an external source \u2014 no such independent portfolio-liability marginal exists on disk for these areas (asset-vs-derived-liability mirror remains an open CPIS friction).",
+   "n_passes_run": 8,
+   "converged": true,
+   "tolerance_rel": 1e-06,
+   "first_pass": {
+    "pass": 1,
+    "row_resid_L2": 0.0005169515560754149,
+    "col_resid_L2": 1.6342260806549407e-09,
+    "row_resid_Linf": 0.00030251359567046165,
+    "col_resid_Linf": 9.313225746154785e-10
+   },
+   "last_pass": {
+    "pass": 8,
+    "row_resid_L2": 7.216507676102638e-07,
+    "col_resid_L2": 2.0694440271043192e-09,
+    "row_resid_Linf": 6.842892616987228e-07,
+    "col_resid_Linf": 9.313225746154785e-10
+   },
+   "interpretation": "row_resid_L2 and col_resid_L2 -> ~1e-7 (machine-level). This confirms the assembled CPIS cells are self-consistent; it does NOT certify reconciliation against any independent marginal."
   },
-  "last_pass": {
-   "pass": 200,
-   "row_resid_L2": 3962793.3519522827,
-   "col_resid_L2": 3.727904178704343e-09,
-   "row_resid_Linf": 3741654.0057547353,
-   "col_resid_Linf": 3.725290298461914e-09
-  },
-  "interpretation": "Column residual drives to ~0 (col L2 = 3.73e-09) because the prior lets columns absorb their marginals, but ROW residual stalls at L2 ~ 3.963e+06 USD mn: rows whose only real support points into the US column cannot simultaneously match their BIS USD-claim row marginals. Non-convergence is structural sparsity, not a numerical failure.",
-  "marginal_imbalance_row_minus_col_USD_mn": -3357154.934000002,
-  "observed_bilateral_cells_in_seed": 17,
-  "observed_bilateral_cells_in_seed_note": "17 = the subset of the 36 retained publisher-named TIC US-Treasury cells whose counterparty country is one of the 19 RAS areas; not a count of all retained TIC cells.",
-  "prior_seeded_cells": 38
+  "pass_2_bis_banking_marginal": {
+   "scope": "BIS LBS USD positions, 18 named non-US areas, 2025-Q4.",
+   "honest_label": "Independent reconciliation: claims (creditor-reported) vs liabilities (debtor-reported), same source, same areas. They do NOT net.",
+   "floor_pre_ras_USD_mn": 711157.7,
+   "is_irreducible": "This floor exists BEFORE any RAS and is NOT reduced by adding CPIS portfolio cells (different instrument layer)."
+  }
+ },
+ "post_ras_residual_relative_to_floor": {
+  "cpis_block_post_consistency_residual_USD_mn": 1e-06,
+  "bis_banking_floor_USD_mn": 711157.7,
+  "statement": "The CPIS portfolio block's post-pass residual is ~7e-7 USD mn (machine-level, expected for a consistency pass). The BINDING residual for the assembled matrix is the BIS banking floor of $711,157.7mn, which is ~10^12 times larger and is UNTOUCHED by the CPIS layer. Reported relative to the floor: the portfolio block contributes negligibly to internal inconsistency; the $711bn banking-marginal asymmetry is where the matrix sits from internal consistency. We do NOT claim the residual collapsed \u2014 the floor is intact.",
+  "do_not_misread": "The ~0 CPIS residual is NOT a claim that the global matrix is reconciled. It is a margin-consistency artifact of a single asset-side block balanced to its own margins."
  },
  "largest_residuals_concentration": {
-  "row_side_top5_area_residual_USD_mn": [
-   [
-    "US",
-    3741654.0057547353
-   ],
-   [
-    "GB",
-    -1012728.3981216457
-   ],
+  "by_area_AND_instrument": "Largest residuals concentrate in the BANKING (I1) layer at offshore/financial-center and China-channel areas. Per-area BIS liability-minus-claim (L - C, USD mn):",
+  "bis_top_area_residuals_L_minus_C_USD_mn": [
    [
     "KY",
-    -430135.9001632164
+    -457472.6
+   ],
+   [
+    "CN",
+    402357.8
    ],
    [
     "HK",
-    -301330.0097849349
-   ],
-   [
-    "CN",
-    -241562.16315931454
-   ]
-  ],
-  "col_side_top5_area_residual_USD_mn": [
-   [
-    "US",
-    3.725290298461914e-09
-   ],
-   [
-    "JP",
-    1.1641532182693481e-10
-   ],
-   [
-    "FR",
-    -5.820766091346741e-11
-   ],
-   [
-    "CN",
-    2.9103830456733704e-11
+    322507.8
    ],
    [
     "CH",
-    -2.9103830456733704e-11
+    233989.8
+   ],
+   [
+    "CA",
+    -230512.4
+   ],
+   [
+    "GB",
+    224913.1
    ]
   ],
-  "where_they_sit": "Row (creditor-side) residuals concentrate in the large USD-claim areas (GB, KY) whose claims have no bilateral debtor support in the seed beyond the US column. The US column itself absorbs the bulk of placeable mass. Residuals concentrate by AREA in offshore/financial-center jurisdictions (Cayman, UK, Hong Kong) and by INSTRUMENT in I1 deposits/loans (BIS) which lack a counterparty-area resolution."
- },
- "what_was_actually_balanced": {
-  "block": "us_treasury_by_counterparty (TIC, Dec-2025)",
-  "method": "single-column closure to the published Grand Total marginal",
-  "named_country_cells_retained": 36,
-  "named_country_cells_sum_USD_mn": 8556700.0,
-  "named_country_cells_pct": 92.33,
-  "published_grand_total_USD_mn": 9267200.0,
-  "closure_residual_publisher_All_Other_USD_mn": 710800.0,
-  "closure_residual_pct": 7.67,
-  "closure_check_named_plus_AllOther_USD_mn": 9267500.0,
-  "closure_check_note": "Named + publisher All Other = 9,267,500 vs Grand Total 9,267,200; the $300mn gap is publisher rounding in mfhhis01.txt.",
-  "reading": "All 36 publisher-named counterparty countries in mfhhis01.txt (Dec-2025) are retained as observed cells, accounting for 92.33% ($8.557tn) of foreign US-Treasury holdings. The remaining 7.67% ($710.8bn) is the publisher's OWN true unallocated 'All Other' line (mfhhis01.txt), held in an EXPLICIT ROW_RESIDUAL bucket, not fabricated into per-country cells. This residual is the publisher's All Other, not a build-side drop: no publisher-named country is dropped into it.",
-  "provenance_correction_2026-06-28": "An earlier draft labeled a $2,587,300mn bucket as 'the publisher All Other'. That was false: the publisher's true All Other is $710,800mn and the earlier bucket additionally absorbed ~$1,876,500mn of publisher-NAMED countries (Taiwan 310.6, Norway 208.1, Saudi Arabia 149.5, Korea 140.6, Israel 105.7, Bermuda 101.4, UAE 95.6, El Salvador 93.8, Mexico 85.4, Thailand 82.8, Spain 73.6, Kuwait 66.1, Italy 62.1, Philippines 62.0, Poland 60.5, Sweden 50.1, Peru 45.1, Colombia 44.2, Chile 39.6 USD bn) that were dropped for tractability. Fixed by RETAINING those countries as observed cells; the residual now equals the publisher All Other exactly."
- },
- "bis_marginal_asymmetry": {
-  "usd_claims_of_named_areas_USD_mn": 10240580.6,
-  "usd_liabilities_of_named_areas_USD_mn": 9529422.9,
-  "asymmetry_USD_mn": 711157.7,
-  "asymmetry_pct": 7.19,
-  "reading": "Reported USD claims and USD liabilities across the same area set differ by 7.19% ($711bn). This creditor/debtor asymmetry is itself an irreducible reconciliation residual: even before RAS, the marginals from the same source on the same areas do not net to zero. Any 'balanced' matrix sits at least this far from internal consistency."
+  "where_they_sit": "KY (Cayman, L-C = -457,472.6: claims exceed liabilities), CN (China, +402,357.8: liabilities exceed claims), HK (+322,507.8), CH (+233,989.8), CA (-230,512.4). The CHINA and OFFSHORE-HUB (KY, HK) areas dominate the asymmetry \u2014 exactly the residency/nationality channel. China's banking LIABILITIES exceed claims by $402bn, consistent with the direction of the residency understatement (offshore-booked Chinese exposure not captured as a direct China claim). Instrument: I1 deposits/loans (BIS). The CPIS portfolio layer (I2/I3) is internally consistent and does not add to this concentration."
  },
  "gcap_residency_to_nationality": {
-  "method": "M3_gcap_residence_to_nationality (named in matrix_spec.json before use)",
-  "china_channel_inputs_real_USD_mn": {
-   "bis_usd_claims_on_china_residence_mn": 236443.2,
-   "bis_usd_claims_on_cayman_mn": 1594948.8,
-   "bis_usd_claims_on_hongkong_mn": 474346.8,
-   "tic_ustsy_china_direct_mn": 683500.0,
-   "tic_ustsy_offshore_hubs_mn": {
-    "KY": 421200.0,
-    "HK": 267800.0,
-    "BE": 477300.0,
-    "LU": 434200.0,
-    "IE": 340700.0
-   },
-   "offshore_pool_bis_USD_claims_KY_plus_HK_mn": 2069295.6,
-   "offshore_pool_tic_ustsy_hubs_mn": 1941200.0
+  "method": "M3_gcap_residence_to_nationality (named before use).",
+  "applied": "The residency->nationality reallocation requires the COUNTERPARTY ISSUER's nationality. CPIS COUNTERPART_COUNTRY is RESIDENCY. The offshore-hub portfolio cells are therefore tagged residency-attributed and NOT reallocated; the China-by-nationality fraction is a BOUNDED HOLE.",
+  "china_channel_real_cells_USD_mn": {
+   "cpis_us_to_china_direct_residency": 255341.0,
+   "cpis_us_to_cayman_residency": 2798130.0,
+   "cpis_us_to_hongkong_residency": 107448.0,
+   "cpis_us_to_bvi_residency": 51419.0,
+   "bis_usd_claims_on_china_residence": 236443.2,
+   "bis_usd_liabilities_to_china": 638801.0,
+   "tic_ustsy_china_direct_usd_bn": 683.5
   },
-  "offshore_dollar_pool_real": {
-   "bis_usd_claims_Cayman_plus_HongKong_USD_mn": 2069295.6,
-   "tic_ustsy_offshore_hubs_USD_mn": 1941200.0
+  "offshore_pool_real_measured": {
+   "cpis_us_to_offshore_hubs_CYM_HKG_VGB_USD_mn": 2956997.0,
+   "note": "$2,956,997mn of US-resident portfolio holdings booked to CYM+HKG+VGB residence. This pool is REAL and MEASURED; an unquantified fraction is Chinese-by-nationality."
   },
-  "china_reallocation_magnitude": "HOLE",
-  "china_reallocation_reason": "The residency->nationality reallocation requires the COUNTERPARTY ISSUER's nationality. BIS LBS carries L_PARENT_CTY for the REPORTING bank only, NOT the counterparty issuer's nationality; TIC is custodial-residence only. The BIS Consolidated Banking Statistics nationality view (DSD BIS_CBS) and a securities-by-nationality source are NOT among the 12 DP1 contracts and were not grounded. Therefore the SHARE of the $2.07tn offshore dollar pool (Cayman+HK, BIS) that is Chinese-by-nationality is NOT obtainable from on-disk data.",
-  "explicit_non_assumption": "The ~$600bn-class China residency understatement is NEITHER confirmed NOR assumed negligible. It is recorded as a HOLE: the offshore pool it would draw from is real and measured ($2.07tn BIS / $1.94tn TIC), but the China-attributed fraction cannot be computed without a counterparty-nationality basis that is absent from the contract set. We do not invent the magnitude.",
-  "effect_on_load_bearing_cells": {
-   "us_treasury_china_direct_USD_mn": 683500.0,
-   "note": "China's DIRECT US-Treasury holding (TIC, residence) is $683.5bn. Under GCAP a portion of the $421.2bn Cayman + $267.8bn Hong Kong custodial-attributed Treasuries could be Chinese-by-nationality, which would RAISE the China cell above $683.5bn -- but by an amount that is a HOLE, not assumed. The DIRECTION of the GCAP correction on the China channel is upward; its MAGNITUDE is unquantified-by-absence-of-nationality-data."
-  }
+  "effect_on_load_bearing_china_cell": {
+   "direct_us_to_china_cpis_USD_mn": 255341.0,
+   "us_to_cayman_dwarfs_us_to_china": "US->CYM ($2,798,130mn) exceeds US->CHN ($255,341mn) by ~11x. The masked-China pool is VISIBLE and BOUNDED, not misattributed.",
+   "direction": "upward (true China-by-nationality exposure exceeds the direct $255,341mn residency cell).",
+   "magnitude": "HOLE \u2014 not computable from on-disk data. CPIS does NOT close the offshore-SPV issuer-nationality gap (COUNTERPART_COUNTRY is residency). bis_cbs narrows it for the bank-claims leg ONLY, not for portfolio. The fraction of the $2.96tn offshore portfolio pool that is Chinese-by-nationality is NOT obtainable; we do NOT invent it."
+  },
+  "explicit_non_assumption": "The China residency understatement is NEITHER confirmed at a value NOR assumed negligible. It is a marked, bounded HOLE: the offshore pool it draws from is real ($2.96tn CPIS / $2.07tn BIS Cayman+HK), the China-attributed fraction is unquantified-by-absence-of-nationality-data."
  },
  "cell_census": {
   "OBSERVED_cells": {
+   "imf_cpis_portfolio_bilateral": 167,
    "fed_us_issuer_to_holder": 585,
    "tic_us_treasury_named_countries": 36,
-   "tic_us_treasury_explicit_residual_buckets": 1,
-   "tic_us_treasury_note": "36 publisher-named counterparty-country cells (OBSERVED) + 1 explicit publisher 'All Other' residual bucket ($710.8bn). The residual bucket is NOT counted as an observed country cell.",
    "bis_usd_bank_positions": 76,
    "cofer_reserve_currency_marginal": 9,
-   "total_observed": 706
+   "total_observed": 873
   },
   "ESTIMATED_cells": {
-   "ras_prior_seeded": 38,
-   "note": "prior-seeded cells are estimation-by-uniform-prior (method M2), flagged, not observed"
+   "ras_consistency_scaled": "the 167 CPIS cells are rescaled by <1e-6 in the consistency pass; they remain OBSERVED (no mass added/moved between sources). No uniform-prior cells were seeded this run.",
+   "count": 0
   },
   "UNVERIFIED_by_absence_blocks": [
-   "china_bilateral (nbs,pboc: marginals-only, no counterparty dimension)",
-   "non_us_non_ea_advanced_FWTW (oecd: counterpart dataflow empty for JP/GB/CA/CH/KR)",
-   "us_equity_in_FWTW (Fed excludes corporate equities)"
+   "china_sector_marginals (nbs,pboc: marginals-only)",
+   "non_us_non_ea_advanced_FWTW counterpart-sector (oecd: dataflow empty) \u2014 partially covered by CPIS JPN/GBR reporter rows on residency",
+   "HKG->ITA, HKG->BEL current vintage (2021-stale)"
   ],
   "HOLE_blocks": [
-   "imf_cpis_portfolio_bilateral (endpoint live, 0 observations returned for all keys/periods tried)",
-   "safe_china_outward_portfolio_by_country (HTML/Excel, not pulled)",
+   "VGB reporter row (BVI files no CPIS; 13 cells)",
+   "176 CPIS non-reporting economies (no reporter rows; valid as counterparts only)",
+   "offshore-SPV issuer-NATIONALITY of the CYM/HKG/VGB portfolio pool (residency-vs-nationality gap; bounded)",
+   "safe_china_outward_portfolio_by_country (HTML/Excel; partly superseded by CPIS CHN reporter row)",
    "wgc_monetary_gold (login-walled)",
    "brookings_ewn_iip_marginals (manual Excel)",
-   "china_marginal_values (NBS JPG-only + WAF-403; PBoC netted)",
-   "oecd_advanced_marginals (not pulled within effort cap)"
-  ]
- },
- "sources_not_pulled": [
-  {
-   "source": "imf_cpis",
-   "friction": "SDMX PIP v5.0.0 endpoint and DSD/indicator codelist confirmed live, but every data query (P_TOTINV_P_USD, all sector-code and frequency variants, multiple periods) returned an empty 0-observation dataset envelope. Bilateral portfolio cells not obtainable via the verified path with codes resolvable here.",
-   "tag": "HOLE"
-  },
-  {
-   "source": "safe",
-   "friction": "HTML press + Excel only, no machine API (China access-frictioned); effort-capped. Top-5 end-2025 recipients exist in the contract but full counterparty table not obtained.",
-   "tag": "HOLE"
-  },
-  {
-   "source": "nbs",
-   "friction": "Flow-of-funds tables are JPG images; data.stats.gov.cn WAF-403 to this IP. Marginal values would need OCR/hand-key.",
-   "tag": "HOLE"
-  },
-  {
-   "source": "pboc",
-   "friction": "Per-table htm/xls only; foreign exposure netted to a single 'Net Foreign Assets' line. Not pulled.",
-   "tag": "HOLE"
-  },
-  {
-   "source": "wgc_gold",
-   "friction": "Goldhub gold-reserves Excel is login-walled.",
-   "tag": "HOLE"
-  },
-  {
-   "source": "brookings",
-   "friction": "EWN database is a manual Excel download; no API.",
-   "tag": "HOLE"
-  },
-  {
-   "source": "oecd_financial_accounts",
-   "friction": "Counterpart who-to-whom dataflow empty for target non-EA advanced economies (per contract); marginal balance sheets (DF_T720R_A) obtainable but not pulled within the effort cap.",
-   "tag": "UNVERIFIED-by-absence (bilateral) + HOLE (marginals)"
-  },
-  {
-   "source": "ecb_qsa",
-   "friction": "Pulled (306k rows) but heterogeneous units; XDC->USD conversion basis unverified, so euro-area who-to-whom retained as available marginals rather than merged USD cells.",
-   "tag": "PARTIAL"
+   "china_marginal_values (NBS JPG + WAF-403; PBoC netted)"
+  ],
+  "census_delta_vs_prior_706": {
+   "prior_total_observed": 706,
+   "prior_cpis_status": "HOLE (0 bilateral cells; recorded as one-dense-column-only)",
+   "new_total_observed": 873,
+   "delta_observed": 167,
+   "driver": "+167 CPIS OBSERVED-bilateral portfolio cells (prior: 0). The other blocks (Fed 585, TIC 36, BIS 76, COFER 9) are unchanged. Net observed cell count rises from 706 to 873.",
+   "load_bearing_cells_now_populated": "USA->CHN, USA->CYM, USA->HKG, USA->VGB, USA->JPN, USA->GBR, JPN->USA, CHN->USA, CHN->* (China as reporter, 13 cells), CYM->*, and the full 13x14 off-diagonal grid except the 3 marked intra-block holes. The China channel (direct + offshore hubs) is fully populated on a residency basis with the nationality gap marked."
   }
- ]
+ }
 }
