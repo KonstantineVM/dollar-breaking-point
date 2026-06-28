@@ -1,0 +1,1 @@
+STOP-BLOCK	2026-06-28T20:28:27Z	session=060d2c58-c106-5eed-9b8f-e9daf06281e7	remote=true	reason=Build cannot close yet:   - step DP-EVIDENCE: marked done but verifier artifact 'build/results/missing.json' is missing — the result is NOT ESTABLISHED

@@ -1,0 +1,17 @@
+2026-06-28T20:07:25Z	OUTPUT (not established until verifier runs)	echo "=== gate-stop.log present? ===" && ls -la build/gate-stop.log 2>&1 || echo "(no gate-stop.log)"; echo "=== full build tree ===" && find build -type f | sort; echo "=== git status ===" && git status --porcelain
+2026-06-28T20:07:36Z	OUTPUT (not established until verifier runs)	git add build/ && git status --short && echo "=== committing ===" && git commit -q -m "preflight: egress + stop-gate
+
+Egress: 9/10 DP1 hosts reachable; www.oecd.org returns 403 from a
+Cloudflare origin bot-challenge (cf-mitigated: challenge), not a proxy
+host_not_allowed deny — environment allow-list not implicated.
+
+Stop gate: armed DP-PREFLIGHT (done, verifier absent), genuinely
+concluded, hook fired and blocked with the verifier-missing reason.
+Recorded the exact block reason; created the verifier artifact to close.
+
+No build steps (DP0/DP1) started.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo "=== done ===" && git log --oneline -1
+2026-06-28T20:07:43Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -15
+2026-06-28T20:28:08Z	OUTPUT (not established until verifier runs)	git diff .claude/hooks/gate-stop.sh

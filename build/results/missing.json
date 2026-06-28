@@ -1,0 +1,7 @@
+{
+  "id": "DP-EVIDENCE",
+  "purpose": "Gate-satisfaction artifact for the self-evidencing Stop-gate test (PART 2).",
+  "note": "Created AFTER the edited Stop hook fired at a real turn-end and wrote a STOP-BLOCK line to build/gate-stop.log. This file exists solely to satisfy the deterministic verifier check so the turn can close. It is NOT an estimation/identification result and establishes no analytical claim. The build (DP0/DP1) has not started.",
+  "stop_gate_fired": true,
+  "evidence_line": "STOP-BLOCK\t2026-06-28T20:28:27Z\tsession=060d2c58-c106-5eed-9b8f-e9daf06281e7\tremote=true\treason=Build cannot close yet:   - step DP-EVIDENCE: marked done but verifier artifact 'build/results/missing.json' is missing — the result is NOT ESTABLISHED"
+}

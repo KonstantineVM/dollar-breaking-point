@@ -17,6 +17,21 @@
 set -uo pipefail
 input="$(cat)"
 
+# Self-evidencing: append exactly one line to build/gate-stop.log BEFORE emitting any
+# block decision. The line is authored by the hook (a real turn-end block leaves a
+# durable record the assistant cannot fabricate or suppress). Does not touch the
+# decision, the stop_hook_active guard, or the verifier/approval checks.
+log_block() {
+  local reason="$1" sid ts remote flat
+  sid="$(printf '%s' "$input" | jq -r '.session_id // "unknown"' 2>/dev/null || echo unknown)"
+  ts="$(date -u +%FT%TZ)"
+  remote="${CLAUDE_CODE_REMOTE:-false}"
+  flat="$(printf '%s' "$reason" | tr '\n' ' ')"
+  mkdir -p "${PROJECT_DIR:-$(pwd)}/build"
+  printf 'STOP-BLOCK\t%s\tsession=%s\tremote=%s\treason=%s\n' \
+    "$ts" "$sid" "$remote" "$flat" >> "${PROJECT_DIR:-$(pwd)}/build/gate-stop.log"
+}
+
 active="$(printf '%s' "$input" | jq -r '.stop_hook_active // false' 2>/dev/null || echo true)"
 [ "$active" = "true" ] && exit 0
 
@@ -25,6 +40,7 @@ LEDGER="$PROJECT_DIR/build/ledger.json"
 [ -f "$LEDGER" ] || exit 0
 
 if ! jq -e . "$LEDGER" >/dev/null 2>&1; then
+  log_block "build/ledger.json is not valid JSON; cannot verify build state. Fix the ledger before closing the turn."
   jq -n '{decision: "block", reason: "build/ledger.json is not valid JSON; cannot verify build state. Fix the ledger before closing the turn."}'
   exit 0
 fi
@@ -44,6 +60,7 @@ done < <(jq -r '.steps[]? | [.id, (.status // ""), (.verifier // ""), (.gate // 
 if [ "${#problems[@]}" -gt 0 ]; then
   reason="Build cannot close yet:"
   for p in "${problems[@]}"; do reason="${reason}"$'\n'"  - ${p}"; done
+  log_block "$reason"
   jq -n --arg r "$reason" '{decision: "block", reason: $r}'
   exit 0
 fi
