@@ -60,3 +60,29 @@ echo "=== jsondata on a single series ==="; curl -sS --max-time 30 -o /dev/null 
 echo "=== default (SDMX-ML) on single series ==="; curl -sS --max-time 30 -o /dev/null -w "HTTP:%{http_code} type:%{content_type}\n" "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.AT.W0.S11.S1.N.L.F.F.F._Z._Z.XDC._T.S.V.N._T?lastNObservations=1" 2>&1
 echo "=== euro area aggregate ref_area: try I9 serieskeysonly ==="; curl -sS --max-time 40 "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.I9.W0.S1M.S1.N.L.LE.F.F._Z._Z.XDC._T.S.V.N._T?detail=serieskeysonly&lastNObservations=1&format=csvdata" 2>&1 | head -3
 echo "=== try U2 ==="; curl -sS --max-time 40 "https://data-api.ecb.europa.eu/service/data/QSA/Q.N.U2.W0.S1M.S1.N.L.LE.F.F._Z._Z.XDC._T.S.V.N._T?detail=serieskeysonly&lastNObservations=1&format=csvdata" 2>&1 | head -3
+2026-06-28T20:46:02Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/contracts/ build/ledger.json build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short
+git commit -q -m "DP1: data contracts
+
+Grounded 9 external data sources for the global SFC from-whom-to-whom
+matrix against their publishers (one data-source-agent per source):
+fed_financial_accounts, bis_lbs, imf_cpis, imf_cofer, treasury_tic,
+ecb_qsa, oecd_financial_accounts (via sdmx.oecd.org), wgc_gold, brookings.
+
+Each contract cites the exact publisher URL(s) fetched and the check date,
+with a confidence tier (8 tier A, 1 tier B) and an explicit unverified[]
+list for anything the publisher did not confirm. Nothing filled from memory.
+OECD grounded via the SDMX API (www.oecd.org returns a Cloudflare 403);
+IMF/ECB structure grounded via the SDMX/data APIs where the human-facing
+portals returned bot-protection 403/503.
+
+build/contracts/_manifest.json lists all 9 contracts.
+build/ledger.json marks DP1 done, verifier build/contracts/_manifest.json,
+human gate = PR review. DP2 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+2026-06-28T20:46:09Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4
