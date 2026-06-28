@@ -444,3 +444,35 @@ else
   echo "clean"
 fi
 echo "=== confirm DP2 ledger entry verifier exists ===" && ls -la build/results/dp2_residual.json | awk '{print $5, $9}'
+2026-06-28T21:53:41Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "DP1-reopen: BIS CBS (China nationality basis)
+
+Reopened DP1 to add a 13th contract: BIS Consolidated Banking Statistics
+(CBS) — the counterparty-nationality basis DP2 found missing (DP2 recorded
+the China residency->nationality reallocation as a HOLE for lack of it).
+
+Grounded against the BIS publisher, every structural claim fetched not
+asserted: real dataflow WS_CBS_PUB (DSD BIS_CBS 1.0), 11-dimension order,
+the CBS_BASIS/instrument/sector codelists, CN counterparty member, CSV
+header, and a live observation (US banks' guarantor-basis total claims on
+China, 2025-Q4 = 161,312 USD mn). Naive guesses were FALSIFIED against the
+publisher and recorded as discrepancies: 'ultimate risk' is published as
+'Guarantor basis' CBS_BASIS=U (not 'UR'); the 5A/position-S key returned no
+results and was corrected. Integrity critic BLOCKED one ungrounded code
+(L_MEASURE=S) in the headline observation; fixed by adding the CL_STOCK_FLOW
+excerpt confirming S = Amounts outstanding/Stocks (a level, not a flow).
+
+Determination: CBS-UR NARROWS but does NOT CLOSE the DP2 China HOLE. It
+closes the bank-claims leg's nationality reallocation (claims consolidated
+by parent-bank nationality, reallocated to ultimate obligor), but CBS covers
+bank balance-sheet items only — the non-bank securities/Treasury leg (TIC/
+CPIS) is out of scope, and CBS's nationality axis is the reporting bank, not
+the issuer-nationality of the offshore-SPV securities pool DP2 needed.
+
+Regenerated build/contracts/_manifest.json (13 sources). Ledger: DP1 note
+updated for the reopening. DP3 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
