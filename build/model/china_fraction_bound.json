@@ -1,0 +1,47 @@
+{
+  "quantity": "Chinese-nationality fraction of the US->offshore-FC (Cayman/BVI/HK) portfolio pool that is China-issued-via-SPV",
+  "dp": "DP3-STEP0",
+  "generated": "2026-06-28",
+  "checked_on": "2026-06-28",
+  "offshore_pool_context_usd_mn": {
+    "us_to_cym": 2798130,
+    "us_to_chn_direct": 255341,
+    "us_to_hkg": 107448,
+    "us_to_vgb": 51419,
+    "us_to_offshore_hubs_CYM_HKG_VGB": 2956997,
+    "source": "build/results/dp2_residual.json"
+  },
+  "lower_bound": {
+    "value": 0.0,
+    "basis": "DIRECT-ONLY FLOOR = 0 INCREMENTAL. The direct US->CHN residency cell ($255,341mn) is already counted separately in the matrix; the lower bound on the China-by-nationality fraction OF THE OFFSHORE POOL (incremental, beyond what is already attributed directly to China by residence) is zero. This is the conservative floor the DP3 sweep starts from: assume NONE of the $2.96tn offshore pool is Chinese-by-nationality. It is a defensible floor because the offshore pool is, by construction, residence-attributed to CYM/HKG/VGB and not to China; zero incremental reallocation is admissible."
+  },
+  "upper_bound": {
+    "value": 0.60,
+    "basis": "Highest published, denominator-matched share of a tax-haven-RESIDENT securities pool attributable to CHINESE-NATIONALITY ultimate parents. The relevant published quantity is 'the share of total outstanding securities issued by entities resident in tax havens that are Chinese by nationality' (the paper's Figure 1, Panels a/b). For EQUITIES this share is 'more than 60% ... by 2020'; for CORPORATE BONDS it is 'almost 20% ... by 2019'. The offshore pool here ($2.96tn US holdings of CYM/HKG/VGB securities) is a BLEND of equity and debt, so the true blended China-nationality fraction lies BELOW the equity-only 60% (debt drags it down). 0.60 is therefore adopted as a CONSERVATIVE (high) upper bound: it is the maximum single instrument-specific published share, and the blended fraction cannot exceed it given the lower (~20%) debt share. Tax-haven set in the source is CYM/BMU/VGB (Panels a/b exclude Hong Kong); methodology restates TIC+CPIS to nationality per Coppola et al. (2021).",
+    "citation": "Clayton, Christopher; Coppola, Antonio; Dos Santos, Amanda; Maggiori, Matteo; Schreger, Jesse. 'China in Tax Havens.' NBER Working Paper No. 30865, January 2023. EXACT QUOTED FIGURE: 'For equities, Panel (a) shows that Chinese firms went from being a trivial fraction of the total in the early 2000s to accounting for more than 60% of the total value outstanding by 2020. For corporate bonds, Chinese firms ... constitut[e] almost 20% of the total by 2019.' WHAT IT MEASURES: the fraction, by market value, of securities outstanding issued by entities RESIDENT in tax havens (Cayman/Bermuda/BVI; Hong Kong excluded in these panels) whose ULTIMATE-PARENT NATIONALITY is Chinese. YEAR: 2020 (equity), 2019 (corporate bonds). METHOD: residence->nationality restatement of TIC/CPIS via subsidiary-parent map of Coppola, Maggiori, Neiman, Schreger (QJE 2021), security-level amounts-outstanding from Factset/Dealogic/Worldscope.",
+    "source_url": "https://www.nber.org/system/files/working_papers/w30865/w30865.pdf",
+    "secondary_corroboration_url": "https://www.nber.org/digest/20233/chinese-firms-access-foreign-capital-international-tax-havens",
+    "evidence_excerpt": "ABSTRACT: 'In the last twenty years, China's presence went from raising a negligible amount of capital in these markets to accounting for more than half of equity issuance and around a fifth of global corporate bonds outstanding in tax havens.' BODY (Sec. 2.1): 'We start by estimating the total value of securities outstanding issued by an entity resident in a tax haven whose nationality is not the tax haven itself. We then compute the fraction of this total that is accounted for by entities that are Chinese by nationality. For equities, Panel (a) shows that Chinese firms ... account[ed] for more than 60% of the total value outstanding by 2020. For corporate bonds ... almost 20% of the total by 2019.' FOOTNOTE 3: 'The definition of corporate debt used here excludes asset backed securities. U.S. banks are substantial issuers of ABS via Cayman domiciled special purpose vehicles.'"
+  },
+  "alternative_figures_considered_and_rejected_as_the_bound": {
+    "panel_c_70pct": {
+      "figure": "'approximately 70% of foreign fund investment in China by nationality was via a tax haven affiliate of a Chinese firm' (end-2020, equities).",
+      "why_rejected": "WRONG DENOMINATOR for this bound. 70% is the share OF CHINA-by-nationality holdings that route THROUGH havens; it is NOT the share OF THE HAVEN POOL that is Chinese. Using it would invert the conditional. The denominator-matched quantity is Panels (a)/(b) (share of the haven pool that is Chinese), i.e. 60% equity / ~20% corporate bond."
+    },
+    "qje_2021_nearly_600bn": {
+      "figure": "Coppola-Maggiori-Neiman-Schreger (QJE 2021) and this paper: US national accounts understate the US position in Chinese firms by 'nearly $600 billion'; China's official net creditor position overstated by ~50%.",
+      "why_rejected": "A LEVEL (dollar reallocation into China), not a FRACTION of the offshore pool. It corroborates the DIRECTION and order of magnitude of the DP2 hole but is not itself the share quantity the sweep needs; it would require dividing by a haven-pool denominator that is vintage/holder-set dependent. Recorded as corroborating, not as the endpoint."
+    }
+  },
+  "no_defensible_external_bound": false,
+  "interval_for_sweep": [0.0, 0.60],
+  "unverified": [
+    "BLENDED-POOL EXACTNESS: 0.60 is the EQUITY-only share; the source does not publish a single blended equity+debt China-nationality fraction for the specific US->CYM+HKG+VGB pool ($2.96tn) defined in dp2_residual.json. The exact blended fraction is UNVERIFIED; 0.60 is used as a conservative UPPER envelope (debt share ~20% is strictly lower), not as a point estimate.",
+    "HOLDER/VINTAGE MISMATCH: the source restates a holder set of USA+EMU+GBR+CAN+CHE+NOR+SWE+DNK as of 2019-2020; the DP2 pool is US-reporter CPIS 2025-S1. Whether the China-nationality share of the haven pool is the same for US-only holders in 2025 as for the 8-country set in 2020 is UNVERIFIED (publisher gives no US-only-2025 cut). Direction of any drift is not asserted.",
+    "HONG KONG: Panels (a)/(b) exclude Hong Kong from the haven set; the DP2 pool INCLUDES HKG residence ($107,448mn). The China-nationality share of the HKG sub-pool is not separately published here and is UNVERIFIED; folding HKG in could move the blended fraction either way and is not quantified.",
+    "ABS DILUTION: footnote 3 notes US banks are substantial ABS issuers via Cayman SPVs and ABS is EXCLUDED from the source's corporate-debt denominator. The DP2 CPIS pool likely INCLUDES such US-bank ABS, which is NON-Chinese; this pushes the true blended China fraction further BELOW 0.60, reinforcing 0.60 as a conservative upper bound but leaving the exact dilution UNVERIFIED."
+  ],
+  "confidence_tier": "HIGH",
+  "confidence_reason": "Upper bound is a directly published, denominator-matched, primary-source figure (NBER WP 30865, Sec 2.1 + abstract + Fig 1 notes), fetched and quoted verbatim from the publisher PDF on 2026-06-28; not asserted from memory. HIGH applies to the EXISTENCE and value of a defensible upper envelope (0.60). The residual uncertainties above (blended-pool exactness, holder/vintage/HKG/ABS) are explicitly carried as UNVERIFIED rather than smoothed over, and they all bias the TRUE fraction DOWNWARD relative to 0.60, so 0.60 remains a sound conservative ceiling for the DP3 sweep.",
+  "notes": "Interval with grounded endpoints; NOT a point estimate or distribution. lower=0 is the direct-only / zero-incremental floor (assume none of the $2.96tn offshore pool is Chinese-by-nationality beyond the separately-counted direct cell). upper=0.60 is the maximum published instrument-specific China-nationality share of a tax-haven-resident securities pool (equities, 2020). The DP3 sensitivity sweep should test the fraction across [0.0, 0.60]; this is a conservative ceiling because the blended equity+debt pool, the included-but-lower-share HKG sub-pool, and US-bank ABS dilution all push the true blended fraction below the equity-only 60%."
+}
