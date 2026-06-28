@@ -1,0 +1,43 @@
+{
+  "audit": "bis_ids_category",
+  "date": "2026-06-28",
+  "dataflow_id": {
+    "value": "WS_DEBT_SEC2_PUB",
+    "evidence_excerpt": "{\"id\":\"WS_DEBT_SEC2_PUB\",\"name\":\"International debt securities (BIS-compiled)\",\"agencyID\":\"BIS\",\"structure\":\"urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BIS:BIS_DEBT_SEC2(1.0)\"}",
+    "source_url": "https://stats.bis.org/api/v2/structure/dataflow/BIS/WS_DEBT_SEC2_PUB/latest (and BIS/all/latest list), fetched 2026-06-28"
+  },
+  "dimensions_in_order": {
+    "value": [
+      "FREQ",
+      "ISSUER_RES",
+      "ISSUER_NAT",
+      "ISSUER_BUS_IMM",
+      "ISSUER_BUS_ULT",
+      "MARKET",
+      "ISSUE_TYPE",
+      "ISSUE_CUR_GROUP",
+      "ISSUE_CUR",
+      "ISSUE_OR_MAT",
+      "ISSUE_RE_MAT",
+      "ISSUE_RATE",
+      "ISSUE_RISK",
+      "ISSUE_COL",
+      "MEASURE",
+      "TIME_PERIOD"
+    ],
+    "evidence_excerpt": "DSD BIS:BIS_DEBT_SEC2(1.0) dimensionList positions 1-15: 1 FREQ; 2 ISSUER_RES (codelist CL_BIS_IF_REF_AREA = issuer residence); 3 ISSUER_NAT (codelist CL_BIS_IF_REF_AREA = issuer nationality); 4 ISSUER_BUS_IMM; 5 ISSUER_BUS_ULT; 6 MARKET; 7 ISSUE_TYPE; 8 ISSUE_CUR_GROUP; 9 ISSUE_CUR; 10 ISSUE_OR_MAT; 11 ISSUE_RE_MAT; 12 ISSUE_RATE; 13 ISSUE_RISK; 14 ISSUE_COL; 15 MEASURE; TIME_PERIOD. No dimension whose id/concept contains HOLD/COUNTERP/CREDIT/INVEST.",
+    "source_url": "https://stats.bis.org/api/v2/structure/datastructure/BIS/BIS_DEBT_SEC2/latest?references=children, fetched 2026-06-28"
+  },
+  "discrepancies_found": [
+    "Guessed dataflow id 'WS_IDS' does NOT exist in the BIS dataflow list; the real International Debt Securities dataflow id is 'WS_DEBT_SEC2_PUB' (DSD BIS_DEBT_SEC2).",
+    "Guessed dimension 'NAT_RES' does NOT exist; BIS publishes issuer residence vs nationality as TWO separate dimensions, 'ISSUER_RES' (position 2) and 'ISSUER_NAT' (position 3), not a combined NAT_RES code."
+  ],
+  "category": "ISSUANCE_MARGINAL",
+  "category_evidence": "All 15 dimensions are issuer-side (ISSUER_RES, ISSUER_NAT, ISSUER_BUS_IMM/ULT) or instrument-attribute (MARKET, ISSUE_TYPE, ISSUE_CUR, maturity, rate, risk, collateral) plus MEASURE/FREQ. There is NO holder, counterparty, creditor, or investor dimension. The data therefore describe amounts of debt outstanding classified by who ISSUED it (by residence and by nationality) and the instrument's features — an issuer-side marginal only, with no from-whom-to-whom holder counterparty. It cannot supply HOLDER_BILATERAL_CELLS.",
+  "pool_touched": "CHINA_ISSUED_OFFSHORE_DEBT. Via ISSUER_RES vs ISSUER_NAT, IDS isolates debt issued by Chinese-NATIONALITY entities through offshore/foreign-resident vehicles (nationality != residence). That is debt for which a Chinese-controlled entity is the ISSUER/obligor. It is a distinct pool from China as a HOLDER/creditor of foreign (e.g. US) debt.",
+  "touches_dp2_residual": "no — DP2's residual concerns China as a HOLDER of US Treasuries (holder-side reallocation), but IDS has no holder dimension and measures only debt ISSUED by Chinese-nationality obligors; it addresses a different pool.",
+  "confidence_tier": "A",
+  "unverified": [
+    "Frequency/vintage/publication-lag not assessed (out of scope: category-only audit, no data pull performed)."
+  ]
+}
