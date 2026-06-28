@@ -1,0 +1,1 @@
+2026-06-28T20:07:25Z	OUTPUT (not established until verifier runs)	echo "=== gate-stop.log present? ===" && ls -la build/gate-stop.log 2>&1 || echo "(no gate-stop.log)"; echo "=== full build tree ===" && find build -type f | sort; echo "=== git status ===" && git status --porcelain

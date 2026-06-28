@@ -1,0 +1,7 @@
+{
+  "id": "DP-PREFLIGHT",
+  "purpose": "Gate-satisfaction artifact for the Stop-gate preflight test.",
+  "note": "Created AFTER the Stop hook fired on a real turn-end and blocked the conclusion (verifier absent). This file exists solely to satisfy the deterministic verifier check so the preflight turn can close. It is NOT an estimation/identification result and establishes no analytical claim. The build (DP0/DP1) has not started.",
+  "stop_gate_fired": true,
+  "block_reason": "step DP-PREFLIGHT: marked done but verifier artifact 'build/results/missing.json' is missing — the result is NOT ESTABLISHED"
+}
