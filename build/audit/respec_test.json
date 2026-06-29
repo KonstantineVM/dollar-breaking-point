@@ -1,0 +1,369 @@
+{
+ "audit": "FALSIFICATION TEST 1 -- is DP5 non-identification an artifact of symmetrizing the USA block?",
+ "mode": "READ-ONLY on existing artifacts; writes only build/audit/.",
+ "generated": "2026-06-29",
+ "status": "AUDIT OUTPUT. Tests whether the DP4 f=0 rank-1 collapse survives a PRINCIPLED de-symmetrization of the USA block. Does NOT modify any DP4/DP5 artifact and does NOT start DP6.",
+ "reads_verbatim": [
+  "build/results/dp4_inputs.json (DESTn, USAn, grid, tau, margin def)",
+  "build/model/matrix_assembled.json (per-holder offshore-destination cells)"
+ ],
+ "the_charge": "DP4 gives v_F3 and v_F4 the IDENTICAL -USAn block across all 12 holders. At f=0 the destination blocks also coincide, so v_F3==v_F4 -> rank-1 -> margin=0. dp5_verdict sec.1 calls F4 the COMMON fall and F3 CONCENTRATED reallocation -- a cross-sectional shape difference visible in ONE snapshot. So the shared -USAn may over-symmetrize and manufacture the degeneracy.",
+ "respec_construction": {
+  "DESTn": [
+   0.9990951099712532,
+   0.038365183667732096,
+   0.018359572807414907
+  ],
+  "USAn_common_F4_block": [
+   0.687025681368424,
+   0.39319284856387593,
+   0.356592925064875,
+   0.33485421836162954,
+   0.2777456722921348,
+   0.13368573960832403,
+   0.1333562568644043,
+   0.11424514650244733,
+   0.06386870389150866,
+   0.050339589863281964,
+   0.036289072627502396,
+   0.018129329417877982
+  ],
+  "holders_order": [
+   "CYM",
+   "IRL",
+   "JPN",
+   "LUX",
+   "GBR",
+   "DEU",
+   "FRA",
+   "NLD",
+   "HKG",
+   "CHN",
+   "ITA",
+   "BEL"
+  ],
+  "offshore_destination_cells_used_usd_mn": {
+   "CYM": {
+    "CYM": 0.0,
+    "HKG": 37846.1,
+    "VGB": 23751.4
+   },
+   "IRL": {
+    "CYM": 157542.6,
+    "HKG": 13996.0,
+    "VGB": 11262.9
+   },
+   "JPN": {
+    "CYM": 853134.7,
+    "HKG": 10849.4,
+    "VGB": 2138.0
+   },
+   "LUX": {
+    "CYM": 192433.1,
+    "HKG": 22678.9,
+    "VGB": 10632.1
+   },
+   "GBR": {
+    "CYM": 59195.5,
+    "HKG": 38954.3,
+    "VGB": 2497.1
+   },
+   "DEU": {
+    "CYM": 31489.3,
+    "HKG": 7275.8,
+    "VGB": 1912.7
+   },
+   "FRA": {
+    "CYM": 22400.3,
+    "HKG": 3500.1,
+    "VGB": 2036.1
+   },
+   "NLD": {
+    "CYM": 49145.5,
+    "HKG": 9102.9,
+    "VGB": 1933.8
+   },
+   "HKG": {
+    "CYM": 688007.8,
+    "HKG": 0.0,
+    "VGB": 36170.7
+   },
+   "CHN": {
+    "CYM": 125241.8,
+    "HKG": 816088.7,
+    "VGB": 67160.0
+   },
+   "ITA": {
+    "CYM": 4563.6,
+    "HKG": 708.1,
+    "VGB": 553.8
+   },
+   "BEL": {
+    "CYM": 2304.2,
+    "HKG": 496.9,
+    "VGB": 174.6
+   }
+  },
+  "offshore_exposure_per_holder_usd_mn": {
+   "CYM": 61597.5,
+   "IRL": 182801.5,
+   "JPN": 866122.1,
+   "LUX": 225744.1,
+   "GBR": 100646.90000000001,
+   "DEU": 40677.799999999996,
+   "FRA": 27936.499999999996,
+   "NLD": 60182.200000000004,
+   "HKG": 724178.5,
+   "CHN": 1008490.5,
+   "ITA": 5825.500000000001,
+   "BEL": 2975.7
+  },
+  "CONCn_concentrated_F3_block_unit": [
+   0.039793728075768836,
+   0.11809494188632098,
+   0.5595393859785521,
+   0.14583707666884482,
+   0.06502074548916918,
+   0.026279009893591613,
+   0.018047769542411884,
+   0.03887940422584578,
+   0.46783980368226247,
+   0.6515134010957613,
+   0.0037634378490262006,
+   0.001922386405861688
+  ],
+  "v_F3_respec": "[ (f+(1-f)*s)*DESTn ; -CONCn ]  (concentrated USA block)",
+  "v_F4_respec": "[ (    (1-f)*s)*DESTn ; -USAn  ]  (common USA block, unchanged)",
+  "CONCn_HHI": 0.21906932288320233,
+  "uniform_HHI_1over12": 0.08333333333333333,
+  "concentration_ratio_vs_uniform": 2.6288318745984283,
+  "angle_between_USAn_and_CONCn_deg": 65.58109228157092,
+  "only_change_vs_dp4": "the F3 USA block: -USAn -> -CONCn. Nothing else moved."
+ },
+ "margin_surface_respec": [
+  {
+   "f": 0.0,
+   "usd_share": 0.0,
+   "separation_margin": 0.7658949440356357,
+   "largest_singular_value": 1.1888670803334789,
+   "footprint_collinearity_cos": 0.41340493470065065
+  },
+  {
+   "f": 0.0,
+   "usd_share": 0.5,
+   "separation_margin": 0.6850372633948313,
+   "largest_singular_value": 1.2372242916143057,
+   "footprint_collinearity_cos": 0.5307239477605205
+  },
+  {
+   "f": 0.0,
+   "usd_share": 1.0,
+   "separation_margin": 0.5415695086040893,
+   "largest_singular_value": 1.3064082315074124,
+   "footprint_collinearity_cos": 0.7067024673503253
+  },
+  {
+   "f": 0.0864,
+   "usd_share": 0.0,
+   "separation_margin": 0.7668960199232087,
+   "largest_singular_value": 1.1882215679855088,
+   "footprint_collinearity_cos": 0.41187049462594155
+  },
+  {
+   "f": 0.0864,
+   "usd_share": 0.5,
+   "separation_margin": 0.6864714698875726,
+   "largest_singular_value": 1.2364291006889134,
+   "footprint_collinearity_cos": 0.5287569210303953
+  },
+  {
+   "f": 0.0864,
+   "usd_share": 1.0,
+   "separation_margin": 0.5542975889134123,
+   "largest_singular_value": 1.3010588698920498,
+   "footprint_collinearity_cos": 0.6927541829247779
+  },
+  {
+   "f": 0.2,
+   "usd_share": 0.0,
+   "separation_margin": 0.7711180906951123,
+   "largest_singular_value": 1.1854859299893543,
+   "footprint_collinearity_cos": 0.40537689020272466
+  },
+  {
+   "f": 0.2,
+   "usd_share": 0.5,
+   "separation_margin": 0.6926641996940995,
+   "largest_singular_value": 1.2329705213273077,
+   "footprint_collinearity_cos": 0.5202163064621326
+  },
+  {
+   "f": 0.2,
+   "usd_share": 1.0,
+   "separation_margin": 0.5744642778896597,
+   "largest_singular_value": 1.2922812361977216,
+   "footprint_collinearity_cos": 0.6699907934287118
+  },
+  {
+   "f": 0.6,
+   "usd_share": 0.0,
+   "separation_margin": 0.8034352450817277,
+   "largest_singular_value": 1.1638263646096285,
+   "footprint_collinearity_cos": 0.3544918069604641
+  },
+  {
+   "f": 0.6,
+   "usd_share": 0.5,
+   "separation_margin": 0.7489599802428317,
+   "largest_singular_value": 1.199607830915861,
+   "footprint_collinearity_cos": 0.43905894799465744
+  },
+  {
+   "f": 0.6,
+   "usd_share": 1.0,
+   "separation_margin": 0.6826225148424349,
+   "largest_singular_value": 1.2385582353002986,
+   "footprint_collinearity_cos": 0.53402650223019
+  }
+ ],
+ "margin_surface_dp4_baseline_reproduced": [
+  {
+   "f": 0.0,
+   "usd_share": 0.0,
+   "separation_margin": 0.0,
+   "largest_singular_value": 1.4142135623730951,
+   "footprint_collinearity_cos": 1.0
+  },
+  {
+   "f": 0.0,
+   "usd_share": 0.5,
+   "separation_margin": 9.03504139826397e-17,
+   "largest_singular_value": 1.414213562373095,
+   "footprint_collinearity_cos": 1.0
+  },
+  {
+   "f": 0.0,
+   "usd_share": 1.0,
+   "separation_margin": 2.884885333023628e-17,
+   "largest_singular_value": 1.4142135623730951,
+   "footprint_collinearity_cos": 1.0
+  },
+  {
+   "f": 0.0864,
+   "usd_share": 0.0,
+   "separation_margin": 0.060923821637082154,
+   "largest_singular_value": 1.4129006645752327,
+   "footprint_collinearity_cos": 0.9962882879571332
+  },
+  {
+   "f": 0.0864,
+   "usd_share": 0.5,
+   "separation_margin": 0.04886061361471669,
+   "largest_singular_value": 1.413369251270592,
+   "footprint_collinearity_cos": 0.9976126404371934
+  },
+  {
+   "f": 0.0864,
+   "usd_share": 1.0,
+   "separation_margin": 0.031901851573927144,
+   "largest_singular_value": 1.4138536953539982,
+   "footprint_collinearity_cos": 0.9989822718661553
+  },
+  {
+   "f": 0.2,
+   "usd_share": 0.0,
+   "separation_margin": 0.13935323573236433,
+   "largest_singular_value": 1.4073310469434404,
+   "footprint_collinearity_cos": 0.9805806756909202
+  },
+  {
+   "f": 0.2,
+   "usd_share": 0.5,
+   "separation_margin": 0.11295520920857466,
+   "largest_singular_value": 1.4096953999756998,
+   "footprint_collinearity_cos": 0.9872411207126472
+  },
+  {
+   "f": 0.2,
+   "usd_share": 1.0,
+   "separation_margin": 0.07820655552050046,
+   "largest_singular_value": 1.4120494802497605,
+   "footprint_collinearity_cos": 0.9938837346736189
+  },
+  {
+   "f": 0.6,
+   "usd_share": 0.0,
+   "separation_margin": 0.3775010917698861,
+   "largest_singular_value": 1.3628987217370718,
+   "footprint_collinearity_cos": 0.8574929257125443
+  },
+  {
+   "f": 0.6,
+   "usd_share": 0.5,
+   "separation_margin": 0.3343386858322726,
+   "largest_singular_value": 1.37412431866842,
+   "footprint_collinearity_cos": 0.888217643155949
+  },
+  {
+   "f": 0.6,
+   "usd_share": 1.0,
+   "separation_margin": 0.28435008349206115,
+   "largest_singular_value": 1.3853321009844746,
+   "footprint_collinearity_cos": 0.9191450300180581
+  }
+ ],
+ "f0_edge_respec": [
+  {
+   "f": 0.0,
+   "usd_share": 0.0,
+   "separation_margin": 0.7658949440356357,
+   "largest_singular_value": 1.1888670803334789,
+   "footprint_collinearity_cos": 0.41340493470065065
+  },
+  {
+   "f": 0.0,
+   "usd_share": 0.5,
+   "separation_margin": 0.6850372633948313,
+   "largest_singular_value": 1.2372242916143057,
+   "footprint_collinearity_cos": 0.5307239477605205
+  },
+  {
+   "f": 0.0,
+   "usd_share": 1.0,
+   "separation_margin": 0.5415695086040893,
+   "largest_singular_value": 1.3064082315074124,
+   "footprint_collinearity_cos": 0.7067024673503253
+  }
+ ],
+ "f0_edge_dp4_baseline": [
+  {
+   "f": 0.0,
+   "usd_share": 0.0,
+   "separation_margin": 0.0,
+   "largest_singular_value": 1.4142135623730951,
+   "footprint_collinearity_cos": 1.0
+  },
+  {
+   "f": 0.0,
+   "usd_share": 0.5,
+   "separation_margin": 9.03504139826397e-17,
+   "largest_singular_value": 1.414213562373095,
+   "footprint_collinearity_cos": 1.0
+  },
+  {
+   "f": 0.0,
+   "usd_share": 1.0,
+   "separation_margin": 2.884885333023628e-17,
+   "largest_singular_value": 1.4142135623730951,
+   "footprint_collinearity_cos": 1.0
+  }
+ ],
+ "f0_margin_respec_max_over_s": 0.7658949440356357,
+ "f0_margin_respec_min_over_s": 0.5415695086040893,
+ "f0_margin_dp4_baseline_max_over_s": 9.03504139826397e-17,
+ "principled_assessment": "PRINCIPLED: CONCn is built ONLY from matrix offshore-destination cells (rows[h][CYM]+rows[h][HKG]+rows[h][VGB]); no free parameter was tuned to force separation. The concentration is what the data already shows: HHI=0.2191 vs uniform 1/12=0.0833 (=2.63x), driven by JPN/CHN/HKG large offshore books vs ITA/BEL near-zero. The USA common direction and the concentrated direction sit 65.6 deg apart, a real cross-sectional shape difference present in ONE snapshot.",
+ "threshold_tau": 0.1,
+ "verdict": "OVERTURN",
+ "f0_margin_respec": 0.7658949440356357,
+ "reason": "OVERTURN (test 1). With a PRINCIPLED concentrated F3 USA block (-CONCn, built only from matrix offshore-destination cells, no tuning), the f=0 separation margin OPENS to 0.7659 (max over s_usd; min 0.5416) -- it is NO LONGER 0. The DP4 rank-1 collapse at f=0 was driven by the SHARED -USAn block, i.e. by SYMMETRIZING the USA direction across F3 and F4. The common-vs-concentrated shape difference that dp5_verdict sec.1 itself asserts is a CROSS-SECTIONAL fact present in the single snapshot and DOES separate the footprints at f=0. The non-identification at the admissible endpoint is therefore SELF-INFLICTED by operator specification, not a property of the data. NOTE: the destination blocks still coincide at f=0, so separation now rests ENTIRELY on the USA-block shape; the margin is below tau=0.1 where CONCn~USAn, so the OPEN is real but modest. The concentrated construction is defensible (HHI 0.219 = 2.6x uniform), not strained."
+}
