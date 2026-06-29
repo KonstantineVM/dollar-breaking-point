@@ -1,0 +1,43 @@
+{
+  "resolved_url": "https://drive.usercontent.google.com/download?id=1dGUfDFPqreYzJClEs46JWBivEJXhyNM7&export=download&confirm=t&uuid=5a2aa471-0602-483f-b3aa-337530c66ee0",
+  "drive_file_id": "1dGUfDFPqreYzJClEs46JWBivEJXhyNM7",
+  "server_filename": "nport.zip",
+  "content_type": "application/octet-stream",
+  "total_bytes": 16470969928,
+  "captured_headers_file": "build/data/gcap_route/drive_206_headers.txt",
+  "captured_headers_file_committed_copy": "build/contracts/gcap_route_evidence/drive_206_headers.txt",
+  "header_facts": {
+    "http_status": "HTTP/2 206",
+    "accept_ranges": "bytes",
+    "content_range": "bytes 0-0/16470969928",
+    "content_disposition": "attachment; filename=\"nport.zip\"",
+    "content_type": "application/octet-stream",
+    "is_html": false,
+    "note": "Genuine 206 partial-content from the live 16.47 GB object; total size taken from content-range denominator and from the ZIP64 EOCD context."
+  },
+  "range_requests": [
+    {
+      "path": "build/data/gcap_route/zip_tail.bin",
+      "committed_copy": "build/contracts/gcap_route_evidence/zip_tail.bin",
+      "offset": 16470869928,
+      "length": 100000,
+      "sha256": "07d803f02c8c3ae982ed3dd98421f113b49447bdf4f1459025ce4106d8be98fb",
+      "http_status": 206,
+      "purpose": "last 100KB -> ZIP64 EOCD + central directory (26 members, sizes, offsets)"
+    },
+    {
+      "path": "build/data/gcap_route/member0_head.bin",
+      "committed_copy": "build/contracts/gcap_route_evidence/member0_head.bin",
+      "offset": 0,
+      "length": 8388608,
+      "sha256": "a7700ed636e94ee25ec7d9e784654330d13a1c4d80722a5a37684eea9af9e14c",
+      "http_status": 206,
+      "purpose": "first 8MB -> local header + raw-deflate prefix of member 2019q3.dta -> Stata dta-118 <varnames>"
+    }
+  ],
+  "blob_stability_check": "Both blobs were re-fetched from the live object with identical byte ranges; the re-fetched sha256 matched the on-disk blobs exactly (zip_tail 07d8..98fb, member0_head a770..e14c), confirming the committed blobs are the genuine source bytes.",
+  "regen_script": "build/contracts/gcap_route_evidence/regen_nport_schema.py",
+  "verifier_output": "build/results/gcap_route_drive_open_verify.json",
+  "verifier_result": "PASS",
+  "checked_on": "2026-06-29"
+}

@@ -1,0 +1,184 @@
+[
+ {
+  "name": "2019q3.dta",
+  "uncompressed": 2106638761,
+  "compressed": 212989011,
+  "local_header_offset": 0,
+  "method": 8
+ },
+ {
+  "name": "2019q4.dta",
+  "uncompressed": 5011727347,
+  "compressed": 528886727,
+  "local_header_offset": 212989079,
+  "method": 8
+ },
+ {
+  "name": "2020q1.dta",
+  "uncompressed": 4754257417,
+  "compressed": 458943312,
+  "local_header_offset": 741875894,
+  "method": 8
+ },
+ {
+  "name": "2020q2.dta",
+  "uncompressed": 5600668441,
+  "compressed": 684839628,
+  "local_header_offset": 1200819294,
+  "method": 8
+ },
+ {
+  "name": "2020q3.dta",
+  "uncompressed": 5307572046,
+  "compressed": 577366005,
+  "local_header_offset": 1885659010,
+  "method": 8
+ },
+ {
+  "name": "2020q4.dta",
+  "uncompressed": 5386732481,
+  "compressed": 746375419,
+  "local_header_offset": 2463025103,
+  "method": 8
+ },
+ {
+  "name": "2021q1.dta",
+  "uncompressed": 5060627351,
+  "compressed": 712004896,
+  "local_header_offset": 3209400610,
+  "method": 8
+ },
+ {
+  "name": "2021q2.dta",
+  "uncompressed": 5470837232,
+  "compressed": 771185862,
+  "local_header_offset": 3921405594,
+  "method": 8
+ },
+ {
+  "name": "2021q3.dta",
+  "uncompressed": 5223143729,
+  "compressed": 641311170,
+  "local_header_offset": 4692591544,
+  "method": 8
+ },
+ {
+  "name": "2021q4.dta",
+  "uncompressed": 7609497566,
+  "compressed": 812827207,
+  "local_header_offset": 5333902802,
+  "method": 8
+ },
+ {
+  "name": "2022q1.dta",
+  "uncompressed": 6165458393,
+  "compressed": 779669334,
+  "local_header_offset": 6146730097,
+  "method": 8
+ },
+ {
+  "name": "2022q2.dta",
+  "uncompressed": 10694715020,
+  "compressed": 1025362863,
+  "local_header_offset": 6926399519,
+  "method": 8
+ },
+ {
+  "name": "2022q3.dta",
+  "uncompressed": 6244982201,
+  "compressed": 819043325,
+  "local_header_offset": 7951762470,
+  "method": 8
+ },
+ {
+  "name": "2022q4.dta",
+  "uncompressed": 7503258701,
+  "compressed": 655179248,
+  "local_header_offset": 8770805883,
+  "method": 8
+ },
+ {
+  "name": "2023q1.dta",
+  "uncompressed": 6255353443,
+  "compressed": 695781530,
+  "local_header_offset": 9425985219,
+  "method": 8
+ },
+ {
+  "name": "2023q2.dta",
+  "uncompressed": 6908142101,
+  "compressed": 686244710,
+  "local_header_offset": 10121766837,
+  "method": 8
+ },
+ {
+  "name": "2023q3.dta",
+  "uncompressed": 5938145167,
+  "compressed": 606230374,
+  "local_header_offset": 10808011635,
+  "method": 8
+ },
+ {
+  "name": "2023q4.dta",
+  "uncompressed": 7183942457,
+  "compressed": 710982803,
+  "local_header_offset": 11414242097,
+  "method": 8
+ },
+ {
+  "name": "2024q1.dta",
+  "uncompressed": 5787836843,
+  "compressed": 682708187,
+  "local_header_offset": 12125224988,
+  "method": 8
+ },
+ {
+  "name": "2024q2.dta",
+  "uncompressed": 6601739081,
+  "compressed": 700088291,
+  "local_header_offset": 12807933263,
+  "method": 8
+ },
+ {
+  "name": "2024q3.dta",
+  "uncompressed": 5601365335,
+  "compressed": 537362465,
+  "local_header_offset": 13508021642,
+  "method": 8
+ },
+ {
+  "name": "2024q4.dta",
+  "uncompressed": 6208812553,
+  "compressed": 570382784,
+  "local_header_offset": 14045384195,
+  "method": 8
+ },
+ {
+  "name": "2025q1.dta",
+  "uncompressed": 5723461764,
+  "compressed": 540249362,
+  "local_header_offset": 14615767067,
+  "method": 8
+ },
+ {
+  "name": "2025q2.dta",
+  "uncompressed": 6448430417,
+  "compressed": 584498805,
+  "local_header_offset": 15156016517,
+  "method": 8
+ },
+ {
+  "name": "2025q3.dta",
+  "uncompressed": 5493325981,
+  "compressed": 563663121,
+  "local_header_offset": 15740515410,
+  "method": 8
+ },
+ {
+  "name": "2025q4.dta",
+  "uncompressed": 1382459964,
+  "compressed": 166788627,
+  "local_header_offset": 16304178619,
+  "method": 8
+ }
+]

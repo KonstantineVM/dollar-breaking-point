@@ -2008,3 +2008,87 @@ EOF
 )"
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
 echo "--- tree ---"; git status --short | grep -v '^??' | head
+2026-06-29T22:52:29Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 << 'EOF'
+import json
+p="build/contracts/gcap_route_determination.json"
+d=json.load(open(p))
+
+# locate file #2
+f2=next(f for f in d["files"] if f["id"]==2)
+f2["resolved_download_url"]="https://drive.usercontent.google.com/download?id=1dGUfDFPqreYzJClEs46JWBivEJXhyNM7&export=download&confirm=t&uuid=<re-resolved per fetch; latest 5a2aa471-0602-483f-b3aa-337530c66ee0>"
+f2["raw_provenance"]={
+  "why": "Closes the integrity-critic block on file #2: the schema is now tied to RAW, reproducible bytes from the genuine 16.47 GB Drive object, not to a derived JSON plus a prose HTTP description.",
+  "captured_206_headers": "build/data/gcap_route/drive_206_headers.txt (committed copy: build/contracts/gcap_route_evidence/drive_206_headers.txt). Genuine HTTP/2 206 from drive.usercontent.google.com: accept-ranges: bytes; content-range: bytes 0-0/16470969928; content-type: application/octet-stream; content-disposition: attachment; filename=\"nport.zip\". Re-fetched 2026-06-29 with a freshly re-resolved uuid from the interstitial; server returned a real 206 partial-content (NOT 200/HTML).",
+  "resolved_url_latest": "https://drive.usercontent.google.com/download?id=1dGUfDFPqreYzJClEs46JWBivEJXhyNM7&export=download&confirm=t&uuid=5a2aa471-0602-483f-b3aa-337530c66ee0",
+  "raw_byte_blobs_committed": {
+    "build/contracts/gcap_route_evidence/zip_tail.bin": {"offset": 16470869928, "length": 100000, "sha256": "07d803f02c8c3ae982ed3dd98421f113b49447bdf4f1459025ce4106d8be98fb", "contains": "ZIP64 EOCD + central directory (26 members, sizes, offsets)"},
+    "build/contracts/gcap_route_evidence/member0_head.bin": {"offset": 0, "length": 8388608, "sha256": "a7700ed636e94ee25ec7d9e784654330d13a1c4d80722a5a37684eea9af9e14c", "contains": "local header + raw-deflate prefix of member 2019q3.dta -> Stata dta-118 <varnames>"}
+  },
+  "blob_stability": "Both blobs re-fetched from the live object with identical byte ranges produced byte-identical sha256 to the on-disk blobs, confirming they are the genuine source bytes of the 16.47 GB nport.zip.",
+  "provenance_json": "build/data/gcap_route/drive_open_provenance.json (committed copy: build/contracts/gcap_route_evidence/drive_open_provenance.json)",
+  "regen_script": "build/contracts/gcap_route_evidence/regen_nport_schema.py -- reads ONLY the two committed raw blobs (no network), regenerates the 26-member list and the 41 varnames, and byte-compares to committed nport_zip_entries.json / nport_2019q3_schema.json. Prints PASS only on exact match plus route assertions (security id present; investment_country the only geography column; no nationality/ultimate_parent column).",
+  "verifier_output": "build/results/gcap_route_drive_open_verify.json",
+  "verifier_result": "PASS (overall_pass=true; all 11 checks true: sha256 of both blobs, entries byte-match, 26 members 2019q3..2025q4, schema byte-match, nvar=41, has_security_identifier, only_geography_is_investment_country, no_parent_nationality_column).",
+  "committed_reference_schemas": ["build/contracts/gcap_route_evidence/nport_zip_entries.json", "build/contracts/gcap_route_evidence/nport_2019q3_schema.json"],
+  "note_original_json_gitignored": "The working schema JSONs under build/data/gcap_route/ are gitignored; committed copies live under build/contracts/gcap_route_evidence/ so the verifier compares against committed artifacts."
+}
+
+# extend evidence_paths
+extra=[
+  "build/data/gcap_route/drive_206_headers.txt",
+  "build/data/gcap_route/drive_open_provenance.json",
+  "build/contracts/gcap_route_evidence/zip_tail.bin",
+  "build/contracts/gcap_route_evidence/member0_head.bin",
+  "build/contracts/gcap_route_evidence/drive_206_headers.txt",
+  "build/contracts/gcap_route_evidence/drive_open_provenance.json",
+  "build/contracts/gcap_route_evidence/regen_nport_schema.py",
+  "build/contracts/gcap_route_evidence/nport_zip_entries.json",
+  "build/contracts/gcap_route_evidence/nport_2019q3_schema.json",
+  "build/results/gcap_route_drive_open_verify.json"
+]
+for e in extra:
+  if e not in d["evidence_paths"]:
+    d["evidence_paths"].append(e)
+
+# note the verdict basis now references the verified provenance; verdict unchanged because verifier PASSed
+d["verdict_provenance_note"]="File #2 schema re-grounded on raw committed bytes; regen verifier build/results/gcap_route_drive_open_verify.json = PASS and the captured 206 headers show the genuine 16,470,969,928-byte nport.zip. Verdict therefore STANDS as ROUTE-A-ABSENT-EARNED (security id present; only investment_country=residence; no nationality column). Had the verifier failed or the object been unreachable, the verdict would move to INCOMPLETE."
+
+json.dump(d, open(p,"w"), indent=2)
+json.load(open(p))  # validate
+print("contract updated and valid JSON")
+print("route_verdict:", d["route_verdict"], "| route_a_exists:", d["route_a_exists"], "| incomplete:", d["incomplete"])
+EOF
+2026-06-29T22:55:39Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point; python3 -c "
+import json
+d=json.load(open('build/ledger.json'))
+for s in d['steps']:
+    if s['id']=='DP1':
+        print('DP1 status:', s['status'], '| verifier:', s.get('verifier'),'| gate:', s.get('gate'))
+        n=s.get('note','')
+        print('note length:', len(n))
+        print('note tail:', n[-700:])
+"
+2026-06-29T22:56:01Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point; python3 << 'EOF'
+import json
+p='build/ledger.json'
+d=json.load(open(p))
+add=(" || PART-0 RE-RUN (ANTI-CHERRY-PICK, 2026-06-29): the prior 'route A absent' was NOT EARNED -- it rested on the UNOPENED GCAP product 'Public Security-Level Data on U.S. Fund Holdings' (Google Drive nport.zip). RE-DONE by opening ALL FIVE candidate files and enumerating REAL column schemas (not filenames/listings): "
+     "#1 public-US-funds-data.zip = N-PORT processing CODE only (no data table); "
+     "#2 Drive nport.zip OPENED via HTTP-206 range reads (16,470,969,928-byte ZIP64, 26 quarterly dta-118 members 2019q3..2025q4): security ids issuer_cusip/identifier_isin/issuer_lei PRESENT, but the ONLY geography column is investment_country = issuer RESIDENCE per the publisher Nov-2025 README; NO nationality/ultimate_parent column among the 41 vars; "
+     "#3 GCAP_FundHoldingsStatistics.zip = country-level nationality aggregates, NO security key; "
+     "#4 redrawing-the-map.zip = the per-security cusip6->ultparent_country crosswalk + residency-vs-nationality masterfile exist by SCHEMA but are MOCK placeholders ('Mock Data: String') / licensed CMNS, NOT populated; "
+     "#5 CCDMS_Replication.zip = country x country restated bilateral aggregates, NO security key. "
+     "VERDICT: ROUTE-A-ABSENT-EARNED (route_a_exists=false, incomplete=false) -- no opened FREE file carries BOTH a security id AND a populated ultimate-parent-nationality column; per-security parent nationality still requires the licensed CMNS layer. "
+     "File #2 'opened' provenance HARDENED after a first integrity-critic BLOCK: captured genuine HTTP/2 206 headers (content-range bytes 0-0/16470969928, filename nport.zip), committed raw byte blobs (zip_tail.bin=ZIP64 central dir; member0_head.bin=deflate prefix of 2019q3.dta), and a no-network regen script that byte-regenerates the 26-member list + 41 varnames. Verifier build/results/gcap_route_drive_open_verify.json overall_pass=true (11/11); orchestrator EXECUTED the regen script -> PASS. Integrity-critic RE-ADJUDICATION = PASS. "
+     "Contract: build/contracts/gcap_route_determination.json. This is a Part-0 schema re-determination ONLY: separability NOT re-run, DP2-DP5 untouched, DP6 NOT begun. The STILL-GEOMETRIC-ONLY / UNIDENTIFIABLE-FROM-AVAILABLE-DATA standing is unchanged.")
+for s in d['steps']:
+    if s['id']=='DP1':
+        s['note']=s.get('note','')+add
+        v=s.get('verifier')
+        # keep primary verifier; record the route verifier in note (already cited). Optionally add to a list.
+        break
+json.dump(d, open(p,'w'), indent=2)
+json.load(open(p))  # validate
+print("ledger updated + valid; DP1 note now", len(d['steps'][[i for i,s in enumerate(d['steps']) if s['id']=='DP1'][0]]['note']),"chars")
+EOF
