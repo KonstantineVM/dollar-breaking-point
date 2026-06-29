@@ -1,0 +1,104 @@
+{
+ "verifier": "vintage_test_compute",
+ "generated": "2026-06-29",
+ "reads_only": [
+  "build/data/gcap_usa_haven_to_chn_matrix.csv",
+  "build/data/gcap_usa_haven_pool_denominators.csv",
+  "build/results/dp4_inputs.json"
+ ],
+ "step1_f_path": {
+  "f_path_Fund_Holdings_matrix_comparable": {
+   "2007": 0.1888,
+   "2008": 0.1655,
+   "2009": 0.251,
+   "2010": 0.322,
+   "2011": 0.2932,
+   "2012": 0.3147,
+   "2013": 0.4122,
+   "2014": 0.3964,
+   "2015": 0.4225,
+   "2016": 0.361,
+   "2017": 0.5026,
+   "2018": 0.483,
+   "2019": 0.4889,
+   "2020": 0.5317
+  },
+  "f_path_Enhanced_Fund_Holdings": {
+   "2007": 0.28,
+   "2008": 0.2996,
+   "2009": 0.4017,
+   "2010": 0.4507,
+   "2011": 0.4308,
+   "2012": 0.4185,
+   "2013": 0.5133,
+   "2014": 0.5514,
+   "2015": 0.606,
+   "2016": 0.5879,
+   "2017": 0.695,
+   "2018": 0.6528,
+   "2019": 0.7021,
+   "2020": 0.7084
+  },
+  "years_covered_by_denominator_file": [
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "denominator_covers_all_2007_2020": true,
+  "volatility_Fund_Holdings": {
+   "mean_abs_annual_change": 0.0493,
+   "max_abs_annual_change": 0.1416,
+   "min_f": 0.1655,
+   "max_f": 0.5317,
+   "ols_slope_per_year": 0.0264,
+   "trend": "rising"
+  },
+  "volatility_Enhanced_Fund_Holdings": {
+   "mean_abs_annual_change": 0.0472,
+   "max_abs_annual_change": 0.1071,
+   "min_f": 0.28,
+   "max_f": 0.7084,
+   "ols_slope_per_year": 0.03374,
+   "trend": "rising"
+  }
+ },
+ "step2_break_even": {
+  "tau": 0.1,
+  "worst_confound_corner": "s_usd=1.0",
+  "sanity_published_anchors": {
+   "f0.2_s1.0": 0.078207,
+   "f0.6_s1.0": 0.28435,
+   "f0.49_s1.0": 0.220969
+  },
+  "f_star_at_s_usd_1.0": 0.24944,
+  "f_star_by_s_usd": {
+   "0.0": 0.14249,
+   "0.25": 0.1535,
+   "0.5": 0.177,
+   "0.75": 0.21023,
+   "1.0": 0.24944
+  },
+  "f_star_worst_over_s_usd_hole": 0.24944,
+  "note": "f_star is the f at which the column-normalised [v_F3|v_F4] separation margin falls to tau=0.10. The worst confound (largest f_star required) is at s_usd=1.0."
+ },
+ "step3_distance": {
+  "primary_basis": "Fund Holdings (ABS-inclusive, matrix-comparable, conservative low floor)",
+  "f_2020_Fund_Holdings": 0.5317,
+  "f_2019_Fund_Holdings_pinned_floor": 0.4889,
+  "f_2020_Enhanced_Fund_Holdings": 0.7084,
+  "distance_2020_FH_from_f_star": 0.2823,
+  "distance_2019_FH_pinned_floor_from_f_star": 0.2395,
+  "distance_2020_EFH_from_f_star": 0.459
+ }
+}

@@ -1,0 +1,111 @@
+{
+ "test": "RESOLUTION TEST B -- geometric vs empirical separability (settles Test 5 / Test 2 tension).",
+ "generated": "2026-06-29",
+ "checked_on": "2026-06-29",
+ "read_only_inputs": [
+  "build/results/dp4_inputs.json (operator recipe: DESTn, USAn, tau)",
+  "build/audit/panel_test.json (executed 11-period panel stats)",
+  "build/data/imf_cpis/panel/*.xml (raw CPIS pulls, re-parsed here)"
+ ],
+ "moment_space": {
+  "block_A_destination": [
+   "CYM",
+   "HKG",
+   "VGB"
+  ],
+  "block_B_holders": [
+   "CYM",
+   "IRL",
+   "JPN",
+   "LUX",
+   "GBR",
+   "DEU",
+   "FRA",
+   "NLD",
+   "HKG",
+   "CHN",
+   "ITA",
+   "BEL"
+  ],
+  "dim": 15,
+  "n_transitions_used": 10
+ },
+ "operator_F3_exclusive_direction": "v_F3 - v_F4 = [ f*DESTn ; 0 ] -- pure block-A destination-mass axis; vanishes at f=0.",
+ "pinned_margins": {
+  "f=0.49|s_usd=0.0": 0.31939,
+  "f=0.49|s_usd=0.5": 0.274453,
+  "f=0.49|s_usd=1.0": 0.220969,
+  "f=0.6|s_usd=0.0": 0.377501,
+  "f=0.6|s_usd=0.5": 0.334339,
+  "f=0.6|s_usd=1.0": 0.28435,
+  "f=0.71|s_usd=0.0": 0.429671,
+  "f=0.71|s_usd=0.5": 0.393131,
+  "f=0.71|s_usd=1.0": 0.352033
+ },
+ "min_pinned_margin": 0.220969,
+ "pinned_margin_confirms_geometric_nondegeneracy": true,
+ "empirical_projection": {
+  "representative_point": "f=0.60, s_usd=0.50 (interior of pinned rectangle)",
+  "variance_on_F3_exclusive": 66680752446.65318,
+  "variance_on_shared_F4": 316650799554.62866,
+  "share_on_F3_exclusive": 0.17395059733155022,
+  "share_on_F3_exclusive_exCYM_break": 0.4032566939544885,
+  "F3_direction_populated": false,
+  "all_pinned_points": {
+   "f=0.49|s_usd=0.5": {
+    "var_on_F3_exclusive": 78914968871.90901,
+    "var_on_shared_F4": 304416583129.3732,
+    "share_on_F3_exclusive": 0.20586609283768284,
+    "exCYM_break_var_on_F3_exclusive": 68159404541.27056,
+    "exCYM_break_var_on_shared_F4": 81452388793.70087,
+    "exCYM_break_share_on_F3_exclusive": 0.4555750788219343
+   },
+   "f=0.6|s_usd=0.5": {
+    "var_on_F3_exclusive": 66680752446.65318,
+    "var_on_shared_F4": 316650799554.62866,
+    "share_on_F3_exclusive": 0.17395059733155022,
+    "exCYM_break_var_on_F3_exclusive": 60331957156.86277,
+    "exCYM_break_var_on_shared_F4": 89279836178.10869,
+    "exCYM_break_share_on_F3_exclusive": 0.4032566939544885
+   },
+   "f=0.71|s_usd=0.5": {
+    "var_on_F3_exclusive": 55595746003.59292,
+    "var_on_shared_F4": 327735805997.68896,
+    "share_on_F3_exclusive": 0.14503305484075313,
+    "exCYM_break_var_on_F3_exclusive": 52489347560.245995,
+    "exCYM_break_var_on_shared_F4": 97122445774.72548,
+    "exCYM_break_share_on_F3_exclusive": 0.35083696539032605
+   },
+   "f=0.6|s_usd=0.0": {
+    "var_on_F3_exclusive": 33728874797.251205,
+    "var_on_shared_F4": 349602677204.0308,
+    "share_on_F3_exclusive": 0.0879887779160386,
+    "exCYM_break_var_on_F3_exclusive": 33728874797.25118,
+    "exCYM_break_var_on_shared_F4": 115882918537.72029,
+    "exCYM_break_share_on_F3_exclusive": 0.22544262083493868
+   },
+   "f=0.6|s_usd=1.0": {
+    "var_on_F3_exclusive": 114599400403.5433,
+    "var_on_shared_F4": 268732151597.73898,
+    "share_on_F3_exclusive": 0.2989563468106063,
+    "exCYM_break_var_on_F3_exclusive": 87207691989.95345,
+    "exCYM_break_var_on_shared_F4": 62404101345.017914,
+    "exCYM_break_share_on_F3_exclusive": 0.5828931666817262
+   }
+  },
+  "note": "Variance on the F3-exclusive axis is NOT zero, but it is common-growth co-movement of the destination block, not substitution: the loadings carry the WRONG sign (destination rises WITH the USA block, not against it). Variance landing on an axis is necessary but not sufficient for the axis to be 'populated' in the F3 (substitution) sense."
+ },
+ "panel_substitution_sign": {
+  "within_holder_US_vs_offshore_corr_recomputed_from_raw_xml": 0.4664,
+  "panel_test_reported": 0.4664,
+  "plus_0.47_confirmed": true,
+  "sign_is_substitution_F3": false,
+  "interpretation": "POSITIVE co-movement = US claims and offshore-China pool RISE TOGETHER = common growth, WRONG sign for F3 substitution (which needs US down while offshore-China up).",
+  "aggregate_dest_vs_usa_corr": 0.6197,
+  "panel_footprint_cosine_F4_vs_F3": 0.9386,
+  "panel_contemp_US_diff_corr": 0.6331
+ },
+ "verdict": "GEOMETRIC_ONLY",
+ "reason": "Pinning f to [0.49,0.71] makes the DP4 operator geometrically non-degenerate (min pinned margin 0.221 >= tau 0.1); the F3-exclusive direction f*DESTn exists ON PAPER. But the executed panel does NOT move along it in the F3 sense: (1) the within-holder US-column vs offshore-China co-movement is +0.47 (recomputed from raw XML; Test 2 reported +0.47) -- POSITIVE, the WRONG sign for substitution (F3 requires the holder to CUT US claims WHILE the offshore-China pool RISES, i.e. corr<0). (2) Aggregate offshore-destination change co-moves with aggregate USA-column change at corr +0.62; the destination block does not vary independently of the USA block, so the variance that lands on the F3-exclusive axis is common-growth co-movement, not a holder reallocating along f*DESTn. (3) The panel F3/F4 footprints stay near-collinear (cosine 0.94) and the 2022 episode is simultaneous across 11/12 holders (no lead/lag), so the time dimension supplies no orthogonal F3 loading. The reopening restores identification ON PAPER; the empirical question -- can you distinguish a reallocation from a run IN THE DATA -- remains NO.",
+ "scope_limit": "READ-ONLY. Only build/audit/geo_vs_emp_test.json (+ this script) written. dp4/dp5 artifacts unmodified; DP6 NOT started. This adjudicates whether the Test-5 geometric reopening delivers REAL empirical separability; it computes no hazard and no distribution."
+}
