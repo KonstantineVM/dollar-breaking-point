@@ -1524,3 +1524,11 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
 else echo "clean"; fi
 echo "=== verifier exists? ===" && ls build/results/dp5_idtest.json >/dev/null 2>&1 && echo "dp5_idtest.json present"
 echo "=== open PRs ===" 
+2026-06-29T01:26:14Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/run-ledger.log build/audit/respec_test.json build/audit/respec_test.py 2>/dev/null
+git commit -q -m "Falsification audit: test 1 (operator re-spec) - OVERTURN candidate
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
+git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+echo "=== test artifacts progress ===" && for f in respec_test panel_test rank4_test episode_truth f_pin_test; do [ -f build/audit/$f.json ] && echo "$f: ON DISK" || echo "$f: not yet"; done

@@ -1,0 +1,449 @@
+{
+  "test": "FALSIFICATION TEST 2 -- execute DP5 resolution path (a): temporal lead/lag discriminator on the CPIS/PIP panel.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "grounding": {
+    "api": "IMF SDMX 2.1 api.imf.org dataflow IMF.STA,PIP,5.0.0",
+    "key_form_verified_fresh_2026-06-29": "COUNTRY.A.P_TOTINV_P_USD.S1.S1.COUNTERPART.S (holder.A.indicator.S1.S1.issuer.S)",
+    "probe": "USA.A.P_TOTINV_P_USD.S1.S1.CYM.S?startPeriod=2020&endPeriod=2025 returned 11 semiannual periods; 2025-S1 = 2,798,130,000,000 matches dp2_residual us_to_cym.",
+    "raw_pulls_dir": "build/data/imf_cpis/panel/*.xml"
+  },
+  "periods": [
+    "2020-S1",
+    "2020-S2",
+    "2021-S1",
+    "2021-S2",
+    "2022-S1",
+    "2022-S2",
+    "2023-S1",
+    "2023-S2",
+    "2024-S1",
+    "2024-S2",
+    "2025-S1"
+  ],
+  "panel_periods_pulled": 11,
+  "cells_pulled": {
+    "destination_USA_to": [
+      "CHN",
+      "CYM",
+      "HKG",
+      "VGB"
+    ],
+    "us_column_holders_to_USA": [
+      "BEL",
+      "CHN",
+      "CYM",
+      "DEU",
+      "FRA",
+      "GBR",
+      "HKG",
+      "IRL",
+      "ITA",
+      "JPN",
+      "LUX",
+      "NLD"
+    ],
+    "n_series": 16
+  },
+  "raw_panel": {
+    "destination_cells_USA_to_X": {
+      "CHN": {
+        "2020-S1": 238547000000.0,
+        "2020-S2": 290122000000.0,
+        "2021-S1": 311768000000.0,
+        "2021-S2": 303380000000.0,
+        "2022-S1": 280872000000.0,
+        "2022-S2": 242595000000.0,
+        "2023-S1": 248384000000.0,
+        "2023-S2": 216915000000.0,
+        "2024-S1": 227791000000.0,
+        "2024-S2": 245984000000.0,
+        "2025-S1": 255341000000.0
+      },
+      "CYM": {
+        "2020-S1": 2074184000000.0,
+        "2020-S2": 2472992000000.0,
+        "2021-S1": 2787862000000.0,
+        "2021-S2": 2804042000000.0,
+        "2022-S1": 2591425000000.0,
+        "2022-S2": 2657565000000.0,
+        "2023-S1": 2545166000000.0,
+        "2023-S2": 2663448000000.0,
+        "2024-S1": 2616416000000.0,
+        "2024-S2": 2677013000000.0,
+        "2025-S1": 2798130000000.0
+      },
+      "HKG": {
+        "2020-S1": 162150000000.0,
+        "2020-S2": 195536000000.0,
+        "2021-S1": 169003000000.0,
+        "2021-S2": 148516000000.0,
+        "2022-S1": 134603000000.0,
+        "2022-S2": 127384000000.0,
+        "2023-S1": 118208000000.0,
+        "2023-S2": 103526000000.0,
+        "2024-S1": 93326000000.0,
+        "2024-S2": 92269000000.0,
+        "2025-S1": 107448000000.0
+      },
+      "VGB": {
+        "2020-S1": 59998000000.0,
+        "2020-S2": 65287000000.0,
+        "2021-S1": 77114000000.0,
+        "2021-S2": 84890000000.0,
+        "2022-S1": 73618000000.0,
+        "2022-S2": 61894000000.0,
+        "2023-S1": 52911000000.0,
+        "2023-S2": 51941000000.0,
+        "2024-S1": 52018000000.0,
+        "2024-S2": 50180000000.0,
+        "2025-S1": 51419000000.0
+      }
+    },
+    "us_column_holder_to_USA": {
+      "BEL": {
+        "2020-S1": 78029903600.0,
+        "2020-S2": 82241469100.00003,
+        "2021-S1": 88831711599.99998,
+        "2021-S2": 98596227800.00005,
+        "2022-S1": 75356646300.0,
+        "2022-S2": 78063387400.00002,
+        "2023-S1": 88718716800.00002,
+        "2023-S2": 96384729999.99998,
+        "2024-S1": 106270676000.0,
+        "2024-S2": 113811495000.0,
+        "2025-S1": 119098639999.9999
+      },
+      "CHN": {
+        "2020-S1": 168889361943.3,
+        "2020-S2": 178438518109.1,
+        "2021-S1": 192000761517.8,
+        "2021-S2": 204461806550.9,
+        "2022-S1": 197880060914.07,
+        "2022-S2": 217684694099.82,
+        "2023-S1": 237905170073.03,
+        "2023-S2": 256665986882.44,
+        "2024-S1": 290970528782.45,
+        "2024-S2": 331610803615.84,
+        "2025-S1": 330700334561.03
+      },
+      "CYM": {
+        "2020-S1": 1608620560507.5,
+        "2020-S2": 2196627282398.61,
+        "2021-S1": 2224424615145.61,
+        "2021-S2": 1928882671241.29,
+        "2022-S1": 2033058211172.86,
+        "2022-S2": 1966804855568.46,
+        "2023-S1": 1721811860757.46,
+        "2023-S2": 3855273633186.81,
+        "2024-S1": 3859655693186.81,
+        "2024-S2": 4509780297996.0,
+        "2025-S1": 4513338297996.0
+      },
+      "DEU": {
+        "2020-S1": 524173900800.0,
+        "2020-S2": 624860180700.0002,
+        "2021-S1": 690143097200.0,
+        "2021-S2": 730006004000.0004,
+        "2022-S1": 605003279400.0,
+        "2022-S2": 607408434600.0002,
+        "2023-S1": 693714778200.0002,
+        "2023-S2": 729155244999.9999,
+        "2024-S1": 787324916999.9998,
+        "2024-S2": 830908064400.0001,
+        "2025-S1": 878233511999.9996
+      },
+      "FRA": {
+        "2020-S1": 477367933781.2,
+        "2020-S2": 543296670851.9002,
+        "2021-S1": 618307843182.8,
+        "2021-S2": 595883820067.2003,
+        "2022-S1": 499495944390.3,
+        "2022-S2": 513594793252.4001,
+        "2023-S1": 595264006735.2001,
+        "2023-S2": 615119517934.9999,
+        "2024-S1": 713297620712.4998,
+        "2024-S2": 782560970413.2001,
+        "2025-S1": 876069015519.9996
+      },
+      "GBR": {
+        "2020-S1": 1077838879425.0,
+        "2020-S2": 1244769952800.0,
+        "2021-S1": 1415621354040.0,
+        "2021-S2": 1443624894360.001,
+        "2022-S1": 1197268656520.0,
+        "2022-S2": 1255585855440.0,
+        "2023-S1": 1222497275325.903,
+        "2023-S2": 1378163981780.001,
+        "2024-S1": 1505128256122.5,
+        "2024-S2": 1523815321050.0,
+        "2025-S1": 1824619144950.0
+      },
+      "HKG": {
+        "2020-S1": 210675095142.8756,
+        "2020-S2": 215567522249.4518,
+        "2021-S1": 223251834685.2066,
+        "2021-S2": 232747371120.8002,
+        "2022-S1": 213241111252.708,
+        "2022-S2": 247776383196.7213,
+        "2023-S1": 279793899948.9535,
+        "2023-S2": 304917552170.0166,
+        "2024-S1": 324011011523.6876,
+        "2024-S2": 370822385368.3668,
+        "2025-S1": 419578297140.6738
+      },
+      "IRL": {
+        "2020-S1": 1254237589000.0,
+        "2020-S2": 1454660786600.001,
+        "2021-S1": 1709865166400.0,
+        "2021-S2": 1811882513000.001,
+        "2022-S1": 1522443364000.0,
+        "2022-S2": 1501845328800.0,
+        "2023-S1": 1704938422800.0,
+        "2023-S2": 1929774210000.0,
+        "2024-S1": 2118561249499.999,
+        "2024-S2": 2385746582400.0,
+        "2025-S1": 2583036431999.999
+      },
+      "ITA": {
+        "2020-S1": 145828615826.2076,
+        "2020-S2": 164475388459.8875,
+        "2021-S1": 178306145896.4332,
+        "2021-S2": 184841567280.2805,
+        "2022-S1": 163952490353.7911,
+        "2022-S2": 169389545150.9088,
+        "2023-S1": 193337951589.549,
+        "2023-S2": 204365752739.85,
+        "2024-S1": 214096714510.2514,
+        "2024-S2": 226000404128.3649,
+        "2025-S1": 238396975991.2119
+      },
+      "JPN": {
+        "2020-S1": 1908564703848.236,
+        "2020-S2": 2072516864964.991,
+        "2021-S1": 2117447313510.48,
+        "2021-S2": 2221054248343.648,
+        "2022-S1": 1755847509471.141,
+        "2022-S2": 1694471351372.868,
+        "2023-S1": 1869060208921.963,
+        "2023-S2": 1984559529011.775,
+        "2024-S1": 2067753466689.767,
+        "2024-S2": 2184748057186.862,
+        "2025-S1": 2342597257026.434
+      },
+      "LUX": {
+        "2020-S1": 1394459950738.292,
+        "2020-S2": 1649398042191.736,
+        "2021-S1": 1881521191759.044,
+        "2021-S2": 1992628737782.816,
+        "2022-S1": 1624366806099.479,
+        "2022-S2": 1606993865140.117,
+        "2023-S1": 1721898492426.28,
+        "2023-S2": 1831095170291.205,
+        "2024-S1": 1945772202255.747,
+        "2024-S2": 2100620526337.385,
+        "2025-S1": 2199787258657.219
+      },
+      "NLD": {
+        "2020-S1": 603587877200.0,
+        "2020-S2": 705869641400.0002,
+        "2021-S1": 757935375200.0,
+        "2021-S2": 787496780000.0004,
+        "2022-S1": 605079104500.0,
+        "2022-S2": 574354500600.0002,
+        "2023-S1": 612212172000.0001,
+        "2023-S2": 638091089999.9999,
+        "2024-S1": 677312843499.9998,
+        "2024-S2": 727258050300.0001,
+        "2025-S1": 750520671999.9998
+      }
+    }
+  },
+  "method": "See module docstring. F4 = cross-holder lead/lag + contemporaneous co-movement of US-column first-differences; F3 = within-holder US-column vs offshore-China destination first-difference correlation. Separation at f=0 holds iff both footprints are present, statistically distinguishable, and load on different temporal directions (footprint cosine away from +/-1).",
+  "F4_cross_holder_lead_lag": {
+    "n_holder_pairs": 66,
+    "mean_leadlag_xcorr_corr(a_leads_b)": 0.20267487185883848,
+    "mean_contemporaneous_US_diff_corr": 0.6331395016258039,
+    "mean_pairwise_leadlag_asymmetry_abs": 0.2665174293058636,
+    "note": "10 first-difference transitions per holder; lead/lag uses 9 overlapping pairs. With n<=9 per pair, individual correlations are very low power."
+  },
+  "F3_within_holder_us_vs_destination": {
+    "destination_pool_keys": [
+      "CYM",
+      "HKG",
+      "VGB",
+      "CHN"
+    ],
+    "offshore_pool_keys": [
+      "CYM",
+      "HKG",
+      "VGB"
+    ],
+    "per_holder": {
+      "BEL": {
+        "corr_us_vs_dest_pool": 0.39194346364663024,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.38474950799883273,
+        "n_off": 10
+      },
+      "CHN": {
+        "corr_us_vs_dest_pool": 0.0027672638571231392,
+        "n_pool": 10,
+        "corr_us_vs_offshore": -0.0139671354869474,
+        "n_off": 10
+      },
+      "CYM": {
+        "corr_us_vs_dest_pool": 0.22022655886118497,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.26177312203029923,
+        "n_off": 10
+      },
+      "DEU": {
+        "corr_us_vs_dest_pool": 0.644057946464232,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.6145960138773409,
+        "n_off": 10
+      },
+      "FRA": {
+        "corr_us_vs_dest_pool": 0.5060155675789331,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.4669077196333044,
+        "n_off": 10
+      },
+      "GBR": {
+        "corr_us_vs_dest_pool": 0.7161603228712312,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.728434825113769,
+        "n_off": 10
+      },
+      "HKG": {
+        "corr_us_vs_dest_pool": 0.09057203635933138,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.09822453698409352,
+        "n_off": 10
+      },
+      "IRL": {
+        "corr_us_vs_dest_pool": 0.5954671094730214,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.5726154697656924,
+        "n_off": 10
+      },
+      "ITA": {
+        "corr_us_vs_dest_pool": 0.5574111811222406,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.5340387531496447,
+        "n_off": 10
+      },
+      "JPN": {
+        "corr_us_vs_dest_pool": 0.5401029181607411,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.5219194359387054,
+        "n_off": 10
+      },
+      "LUX": {
+        "corr_us_vs_dest_pool": 0.7541623924007235,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.733991346823989,
+        "n_off": 10
+      },
+      "NLD": {
+        "corr_us_vs_dest_pool": 0.7190441100784312,
+        "n_pool": 10,
+        "corr_us_vs_offshore": 0.6937080981101987,
+        "n_off": 10
+      }
+    },
+    "mean_corr_us_vs_dest_pool": 0.478160905906152,
+    "mean_corr_us_vs_offshore": 0.4664159744949102
+  },
+  "separation_diagnostic": {
+    "f4_footprint_per_holder_contemp": {
+      "BEL": 0.7382234833506846,
+      "CHN": 0.4329718284220833,
+      "CYM": 0.11749965807806256,
+      "DEU": 0.7439287423760682,
+      "FRA": 0.6889704692978942,
+      "GBR": 0.5931068952596217,
+      "HKG": 0.5053886845081924,
+      "IRL": 0.7722981257502376,
+      "ITA": 0.7391735596399126,
+      "JPN": 0.7661432418387061,
+      "LUX": 0.7458358808217842,
+      "NLD": 0.7541334501663989
+    },
+    "f3_footprint_per_holder_within": {
+      "BEL": 0.38474950799883273,
+      "CHN": -0.0139671354869474,
+      "CYM": 0.26177312203029923,
+      "DEU": 0.6145960138773409,
+      "FRA": 0.4669077196333044,
+      "GBR": 0.728434825113769,
+      "HKG": 0.09822453698409352,
+      "IRL": 0.5726154697656924,
+      "ITA": 0.5340387531496447,
+      "JPN": 0.5219194359387054,
+      "LUX": 0.733991346823989,
+      "NLD": 0.6937080981101987
+    },
+    "footprint_cosine_F4_vs_F3_across_holders": 0.9385662124430663,
+    "holders_in_common": [
+      "BEL",
+      "CHN",
+      "CYM",
+      "DEU",
+      "FRA",
+      "GBR",
+      "HKG",
+      "IRL",
+      "ITA",
+      "JPN",
+      "LUX",
+      "NLD"
+    ]
+  },
+  "robustness": {
+    "R1_drop_CYM_reclassification_break": {
+      "why": "CYM->USA jumps 1.72T->3.86T at 2023-S2 (+124%), a coverage/reclassification break, not a flow. Dropped CYM as a holder.",
+      "mean_within_holder_US_vs_offshore_corr": 0.485,
+      "count_negative_F3_sign": "1 of 11",
+      "reading": "In raw first-differences the F3 substitution sign (NEGATIVE US-vs-offshore) is ABSENT; US claims and the offshore-China pool co-move POSITIVELY (common growth/valuation trend)."
+    },
+    "R2_remove_common_factor": {
+      "why": "Every US-column series shares one factor (2022-S1 dip + common uptrend). Demeaned each transition by the cross-holder mean to test whether an IDIOSYNCRATIC F3 substitution or F4 lead/lag survives.",
+      "mean_idiosyncratic_US_vs_offshore_corr": -0.137,
+      "count_negative_F3_sign": "6 of 11 (BEL,CHN,DEU,FRA,HKG,ITA negative; GBR,IRL,JPN,LUX positive; NLD ~0)",
+      "residual_leadlag_mean_pairwise_asymmetry": 0.195,
+      "residual_footprint_cosine_F4_vs_F3": -0.865,
+      "reading": "The sign-flip is MIXED (6 vs 5), incoherent across holders, from <=9 obs each. The footprint cosine of -0.865 is a MECHANICAL artifact of demeaning (residuals are anti-correlated with the factor they were demeaned against), NOT two recovered factors. Removing the cross-holder common factor REMOVES the F4 contagion/common-run direction itself -- so the residual cannot be used to claim it separates F3 from F4 (circular)."
+    }
+  },
+  "episode_2022_simultaneity": {
+    "transition": "2021-S2 -> 2022-S1",
+    "pct_change_US_column_by_holder": {
+      "BEL": -23.6,
+      "CHN": -3.2,
+      "CYM": 5.4,
+      "DEU": -17.1,
+      "FRA": -16.2,
+      "GBR": -17.1,
+      "HKG": -8.4,
+      "IRL": -16.0,
+      "ITA": -11.3,
+      "JPN": -20.9,
+      "LUX": -18.5,
+      "NLD": -23.2
+    },
+    "holders_dropping_simultaneously": "11 of 12, all in the SAME semiannual bucket 2022-S1",
+    "decisive_reading": "The one episode the lead/lag test needs to order (the 2022 sanctions/repricing event) hits 11 of 12 holders' US-column SIMULTANEOUSLY within a single semiannual period. There is NO temporal ordering to detect at semiannual resolution: the F4 contagion discriminator (does a's drop LEAD b's?) cannot fire when everyone moves at once. A broad simultaneous drop is observationally the SHARED common-run direction -- exactly the f=0 degenerate footprint DP4 identified. Semiannual frequency is too coarse to separate contagion-ordering from a common shock."
+  },
+  "interpretation": {
+    "F3_substitution_signature": "ABSENT / WRONG SIGN in levels. F3 predicts a holder cutting US claims WHILE the offshore-China pool rises (negative within-holder corr). Observed mean is +0.466 (positive co-movement). The substitution footprint is not present in the panel; offshore-China and US claims grow together.",
+    "F4_contagion_signature": "NOT ORDERABLE. Contemporaneous cross-holder co-movement is high (+0.633) but that is common-trend, not ordered contagion. Lead/lag asymmetry is small (0.27) and noise-level (<=9 obs/pair). The decisive 2022 episode is SIMULTANEOUS across 11/12 holders -> no lead/lag to detect at semiannual resolution.",
+    "footprint_collinearity": "The F4-contemporaneous and F3-within footprints across holders have cosine 0.939 (raw) -- still NEARLY COLLINEAR. The panel does NOT split the USA-column block into two distinct temporal directions. One dominant common factor governs both.",
+    "f_dependence_persists": "Even the R2 demeaned negative correlations cannot separate F3 from F4 WITHOUT f: whether a holder's idiosyncratic US-vs-offshore anti-co-movement is F3 substitution-INTO-CHINA vs F4 rebalancing into NON-China offshore depends entirely on the China-nationality fraction f of that holder's offshore pool. The discriminator relocates the f-dependence; it does not remove it."
+  },
+  "verdict": "CONFIRM",
+  "discriminator_separates_F3_F4": false,
+  "reason": "CONFIRM the DP5/DP4 'F3/F4 not identified' on data in hand. The 11-period CPIS/PIP panel was pulled (16 series, 2020-S1..2025-S1) and the temporal lead/lag discriminator built. It does NOT break the f=0 degeneracy, for three grounded reasons shown on the raw panel: (1) the F3 substitution footprint is ABSENT/wrong-sign -- US-column holdings and the offshore-China destination pool co-move POSITIVELY (mean within-holder corr +0.47), not negatively as substitution requires; (2) the F4 contagion footprint is NOT ORDERABLE -- the one episode that matters (2022) drops 11 of 12 holders SIMULTANEOUSLY within a single semiannual bucket, so there is no lead/lag to detect; semiannual frequency is too coarse, exactly the granularity_caveat path (a) flagged; (3) the F3 and F4 footprints remain near-collinear across holders (cosine 0.94), so the USA-column block stays a single shared direction. The only way to get a sign-split (R2 demeaning) is to REMOVE the common F4 direction first (circular) and yields an incoherent 6-vs-5 split that STILL needs f to be read as F3-into-China vs F4-into-non-China-offshore. The time dimension the build already had does NOT separate F3 from F4 without pinning the China-nationality fraction f. 'not identified' stands -- it was NOT false on data in hand. (No separation is fabricated; the raw 11-period panel is shown in raw_panel.)",
+  "caveat_on_scope": "This tests path (a) -- the temporal panel -- ONLY, against DP4's actual rank-1-at-f=0 operator. It does NOT re-open or modify DP4/DP5 artifacts and does NOT start DP6. The DP5 resolution_path.json claimed path (a) would 'break the degeneracy without pinning a hole'; executing it shows that claim was OPTIMISTIC: at CPIS's actual semiannual residency-basis granularity the panel cannot order the 2022 episode and carries no F3 substitution sign, so it does not deliver f-free separation. This is a finding ABOUT path (a)'s grounded granularity_caveat (semiannual; residency basis), now executed rather than asserted."
+}

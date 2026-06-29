@@ -1,0 +1,105 @@
+{
+  "audit": "FALSIFICATION TEST 4 -- ground-truth of the 2022 episode vs the operator's 'F4-at-endpoint / undecidable' reading",
+  "date_run": "2026-06-29",
+  "scope": "READ-ONLY on build artifacts; writes ONLY build/audit/episode_truth.json + build/audit/cpis_2022_probe.py + build/audit/cpis_2022_raw.json. Does NOT modify dp4/dp5 artifacts. Does NOT start DP6.",
+  "willing_to": "OVERTURN",
+
+  "question": "The episode-sort (dp5_episode_sort.json) and dp4_spectrum.json record 2022 (Russia reserve immobilization) as loading on the SHARED F3=F4 direction at the admissible endpoint f=0 -> 'observationally F4 at the admissible endpoint / UNDECIDABLE, NOT F3'. Was the REAL 2022 a CONCENTRATED REALLOCATION (F3-like: a specific holder substituting away from a specific counterparty) or a GENERALIZED DOLLAR RUN (F4-like: a broad common fall in dollar claims across all holders)?",
+
+  "operator_reading": {
+    "label": "F4_at_endpoint/undecidable",
+    "source_artifacts": [
+      "build/results/dp5_episode_sort.json -> episodes[0].decidable_or_undecidable = 'UNDECIDABLE / F4-at-endpoint'; sort_summary.the_2022_verdict = '2022 = UNDECIDABLE / F4-at-endpoint, NOT F3. At admissible f=0 it loads on the shared F3=F4 = F4 common-run direction.'",
+      "build/results/dp4_spectrum.json -> episode_2022_f_contingent.at_f0 = 'the 2022 offshore footprint loads on the SHARED F3=F4 direction, which is observationally the F4 common-run direction. The episode is observationally F4 at the admissible endpoint, NOT F3.'"
+    ],
+    "why_operator_cannot_read_F3": "At f=0 the F3-EXCLUSIVE component f*DESTn vanishes, so v_F3==v_F4 (operator rank-1, separation margin = 0 for ALL s_usd; dp4_spectrum grid f=0 rows). The symmetrized operator has NO direction that isolates a concentrated substitution from a common run. Whatever 2022 actually was, this operator can only project it onto the collapsed shared direction at the admissible endpoint.",
+    "operator_own_mechanism_description_is_F3_like": "dp5_episode_sort.json episodes[0].mechanism describes 2022 as 'A sanctioned holder EXITS US/EU claims and shifts mass into alternative counterparties ... a fall in a holder's USA-column cell MATCHED BY a rise in the offshore/China-conduit destination columns' -- i.e. a CONCENTRATED, COMPENSATED SUBSTITUTION by a specific holder. That is structurally an F3 (counterparty-substitution) signature. The operator NAMES it F3-like but then can only READ it on the collapsed F3=F4 axis. The gap between the named mechanism (F3-like substitution) and the readable direction (F4-at-endpoint) IS the symptom of the test-1 symmetrization."
+  },
+
+  "ground_truth": {
+    "real_2022_character": "concentrated_reallocation",
+    "what_2022_was": "The Feb-Mar 2022 immobilization of Russian Federation official reserves by the G7/EU/UK. A TARGETED, single-counterparty sanctions action against ONE holder's claims (and a collapse in everyone's holdings of that one counterparty's securities). It was NOT a broad common fall in dollar claims across reserve managers; the published record finds NO structural break in the aggregate dollar reserve share.",
+
+    "evidence_published_record": [
+      {
+        "claim": "No generalized de-dollarization / no run by other reserve managers; the freeze did NOT shift official portfolios away from the dollar.",
+        "quote": "\"it is hard to argue that the freezing of the Russian reserves and subsequent discussion of seizing them has led official reserve managers to shift their portfolios away from the dollar in favour of other currencies.\"",
+        "structural_break_test": "Chow test for a structural break in the dollar share of FX reserves at 2022Q1: F(2,96)=0.574, p=0.57 -> CANNOT reject parameter stability across 1999Q2-2021Q4 vs 2022Q1-2024Q1. i.e. NO break at the immobilization.",
+        "dollar_share_figures_cofer": "USD share of allocated reserves ~58.8% at end-2021, nearly identical at end-March 2024; renminbi share 2.8% (end-2021) -> 2.2% (Mar 2024), i.e. it FELL, the opposite of a run into the diversification destination.",
+        "authors": "McCauley, Robert N.; Chinn, Menzie D.; Ito, Hiro",
+        "title": "The Russian sanctions and dollar foreign exchange reserves (VoxEU/CEPR column)",
+        "date": "2024-08-06",
+        "url_fetched": "https://www.rieti.go.jp/en/columns/v01_0215.html (RIETI mirror; fetched 2026-06-29). Primary: https://cepr.org/voxeu/columns/russian-sanctions-and-dollar-foreign-exchange-reserves (returned HTTP 403 via proxy; RIETI carries the same authored column)."
+      },
+      {
+        "claim": "Scale and CONCENTRATION of the immobilization: a single-target sanctions action, ~$280-330bn, held in a handful of jurisdictions, NOT a system-wide dollar exit.",
+        "quote": "\"In 2022, most of the frozen assets were debt securities denominated in euros or U.S. dollars. Euroclear, a Belgian central securities depository, managed approximately $200 billion of those assets on behalf of the Central Bank of Russia.\" REPO Task Force estimate ~$280bn (CBR / many experts $300-330bn); Euroclear ~$200bn, France majority of remainder, U.S. ~$5bn.",
+        "title": "What is the status of Russia's frozen sovereign assets? (Brookings)",
+        "date": "2025-06-24",
+        "url_fetched": "https://www.brookings.edu/articles/what-is-the-status-of-russias-frozen-sovereign-assets/ (fetched 2026-06-29)"
+      },
+      {
+        "claim": "Context: the secular dollar-share decline that DID occur is a slow, active diversification across many small currencies + RMB -- a gradual 'stealth erosion', NOT a 2022 run.",
+        "title": "The Stealth Erosion of Dollar Dominance (Arslanalp, Eichengreen, Simpson-Bell), IMF WP/22/58",
+        "date": "2022-03-24",
+        "url": "https://www.imf.org/en/publications/wp/issues/2022/03/24/the-stealth-erosion-of-dollar-dominance-active-diversifiers-and-the-rise-of-nontraditional-515150 (search-surfaced; corroborates gradual-diversification reading, used only as context not as the load-bearing 2022 claim)"
+      }
+    ],
+
+    "evidence_portfolio_data_CPIS_PIP": {
+      "source": "IMF CPIS/PIP (IMF.STA,PIP,5.0.0), bilateral assets, indicator P_TOTINV_P_USD, holder/issuer sector S1, semiannual. Pulled live 2026-06-29 via the verified working key form GET .../<HOLDER>.A.P_TOTINV_P_USD.S1.S1.<COUNTERPART>.S . Raw: build/audit/cpis_2022_raw.json; script: build/audit/cpis_2022_probe.py.",
+      "test_A_holdings_of_US_securities_did_NOT_broadly_fall": {
+        "finding": "The 'dollar leg' (each reporter's holdings of US-issued securities) shows NO broad common 2022 collapse. Where 2022-S1 dipped (JPN, GBR, DEU, CAN, BRA), it tracks the H1-2022 US asset-price drawdown (valuations) and REVERSED by 2023-2024. Several reporters did the OPPOSITE of a run.",
+        "USD-share-rising_through_2022": {
+          "CHN_holdings_of_USA_2021S2_to_2022S2": "204.46bn -> 197.88bn (2022S1 dip) -> 217.68bn (2022S2, ABOVE pre-war), then 237.9 / 256.7 (2023) -- net RISING, not a run.",
+          "SAU_holdings_of_USA_2021S2_to_2022S2": "116.47bn -> 119.06bn -> 122.30bn -- MONOTONE RISE straight through the immobilization."
+        },
+        "valuation-driven-dip_then_recovery": {
+          "JPN": "2221bn (2021S2) -> 1756bn (2022S1) -> 1694bn (2022S2) -> back to 1869/1985 (2023) -> 2185 (2024S2): a V, consistent with H1-2022 US market valuation loss, not a permanent exit.",
+          "GBR": "1443.6 -> 1197.3 -> 1255.6 -> 1222.5/1378.2 (2023): same V-shape and recovery.",
+          "DEU": "730.0 -> 605.0 -> 607.4 -> 693.7/729.2 (2023): recovered to pre-war by 2023S2."
+        },
+        "implication": "There is NO generalized common fall in dollar claims across holders in 2022. The D2 'common USA-column fall' that the operator's F4 direction would require is NOT present in the portfolio data as a durable 2022 signature."
+      },
+      "test_B_holdings_of_RUSSIAN_securities_collapsed_concentrated": {
+        "finding": "The actual 2022 portfolio signature is a SHARP, CONCENTRATED collapse in EVERY holder's claims on ONE counterparty economy (RUS) in 2022-S1 -- the immobilization. This is a counterparty-specific reallocation, the F3-type footprint, not a broad dollar run.",
+        "USA_holdings_of_RUS": "83.85bn (2021S2) -> 33.23bn (2022S1): -60% in one half-year.",
+        "JPN_holdings_of_RUS": "3.863bn -> 0.106bn: -97%.",
+        "LUX_holdings_of_RUS": "22.12bn -> 2.42bn: -89%.",
+        "DEU_holdings_of_RUS": "7.77bn -> 5.17bn -> 3.77bn (2022) -> 1.65bn (2023S1).",
+        "FRA_holdings_of_RUS": "4.09bn -> 0.95bn (2022S1): -77%.",
+        "GBR_holdings_of_RUS": "11.58bn -> 7.61bn -> 7.78bn -> 2.00bn (2023S1).",
+        "NLD_AUT_ITA_CHN": "all collapse 2022-S1: NLD 5.89->2.33, AUT 3.09->0.60, ITA 1.12->0.58, CHN 0.617->0.105.",
+        "RUS_as_reporter_goes_dark": "RUS holdings of USA reported only through 2021-S2 (n_obs=4) then STOP -- Russia ceased CPIS reporting after sanctions (the immobilized holder exits the dataset).",
+        "implication": "The 2022 signature is CONCENTRATED on a single counterpart (RUS), uniform in DIRECTION across holders (everyone cut RUS) but driven by ONE targeted event -- the textbook F3 'specific reallocation away from a specific counterparty', NOT the F4 'broad common fall in dollar claims'."
+      }
+    }
+  },
+
+  "comparison_operator_vs_truth": {
+    "operator_says": "At admissible f=0 the 2022 footprint loads on the collapsed shared direction = observationally F4 (common run) / UNDECIDABLE; an F3 reading exists only if f>0 AND s_usd low, a region not pinned on disk.",
+    "truth_says": "2022 was a CONCENTRATED, single-counterparty reallocation (F3-type) with NO generalized dollar run (published Chow test p=0.57; dollar share flat; CPIS shows US-securities holdings broadly STABLE/RISING while RUS-securities holdings collapsed). The F4 'broad common fall in dollar claims' that the operator's endpoint reading asserts is NOT in the data.",
+    "match": false,
+    "diagnosis": "MIS-SPECIFICATION, not fundamental non-identification. The real 2022 carries a genuine F3 (concentrated-reallocation) signature, but the operator -- symmetrized to f=0 where v_F3==v_F4 -- has NO direction in which to express it and is forced to read a real F3 episode as 'F4-at-endpoint / undecidable'. The operator even NAMES the mechanism F3-like (holder exits, shifts mass to alternative counterparties) yet cannot READ it as F3. The non-identification at this episode is therefore at least PARTLY SELF-INFLICTED by the f=0 symmetrization flagged in test 1, not an irreducible property of the world."
+  },
+
+  "verdict": "OVERTURN",
+  "real_2022_character": "concentrated_reallocation",
+  "match": false,
+  "reason": "GROUND TRUTH: the Feb-Mar 2022 Russia reserve immobilization was a TARGETED, single-counterparty sanctions reallocation (~$280-330bn, concentrated in Euroclear/France, ~$5bn US), with NO generalized de-dollarization -- published Chow test for a 2022Q1 break in the dollar reserve share is F(2,96)=0.574, p=0.57 (McCauley-Chinn-Ito 2024), dollar share ~58.8% flat end-2021 to Mar-2024. Live CPIS/PIP data confirm: holdings of US securities were broadly STABLE-to-RISING through 2022 (CHN, SAU rose; G7 dips were valuation V-shapes that recovered), while holdings of RUSSIAN securities COLLAPSED 60-97% across every holder in 2022-S1. That is an F3 concentrated-reallocation signature, NOT an F4 broad common dollar run. The operator (dp5/dp4) can ONLY read 2022 as 'F4-at-endpoint / undecidable' because at the admissible endpoint f=0 the F3-exclusive direction vanishes and v_F3==v_F4 -- the symmetrized operator cannot see a real F3 episode. A known concentrated-reallocation (F3-like) event being readable only as F4/undecidable is evidence of MIS-SPECIFICATION (test 1), i.e. the non-identification is at least partly self-inflicted. OVERTURN.",
+
+  "caveats_against_overclaiming": [
+    "This audit does NOT supply a value for the holes f or s_usd, does NOT re-run estimation, and does NOT claim 2022 is identified-as-F3 inside the existing operator. It establishes that the GROUND-TRUTH character of 2022 (concentrated reallocation) is F3-like and is therefore MISREAD by the f=0-symmetrized operator -- a specification critique, not a new identification.",
+    "The CPIS 'P_TOTINV_P_USD' indicator is total-portfolio value in USD; the 2022-S1 dips in US-securities holdings conflate price/valuation with quantity. The argument does NOT rest on those dips (they recover); it rests on (a) the published no-structural-break result for the dollar SHARE and (b) the asymmetry: RUS-counterparty holdings collapsed durably while US-counterparty holdings did not -- which is robust to valuation since both legs faced the same H1-2022 market.",
+    "CEPR primary URL returned HTTP 403 via the proxy; the authored column was fetched from the RIETI mirror (same authors, same Chow statistic). IMF COFER landing page also 403'd; the 58.8% figure is taken from the McCauley-Chinn-Ito column which sources it to COFER. These are publisher / authored-publisher sources, not secondary blogs, but the COFER primary table was not directly reachable this run (noted, not confabulated).",
+    "OVERTURN here is a falsification finding about the OPERATOR'S READING of 2022, fed back to the gate. It does NOT itself start DP6 or set any ledger step done."
+  ],
+
+  "sources": [
+    "build/audit/cpis_2022_raw.json (live IMF CPIS/PIP pull, 2026-06-29; key form GET https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/<HOLDER>.A.P_TOTINV_P_USD.S1.S1.<COUNTERPART>.S)",
+    "McCauley, Chinn & Ito, 'The Russian sanctions and dollar foreign exchange reserves', VoxEU/CEPR, 2024-08-06 -- fetched https://www.rieti.go.jp/en/columns/v01_0215.html (2026-06-29); Chow F(2,96)=0.574, p=0.57; USD share 58.8% end-2021 ~flat to Mar-2024",
+    "Brookings, 'What is the status of Russia's frozen sovereign assets?', 2025-06-24 -- https://www.brookings.edu/articles/what-is-the-status-of-russias-frozen-sovereign-assets/ (fetched 2026-06-29); ~$280-330bn immobilized, Euroclear ~$200bn, US ~$5bn, Feb 2022",
+    "Arslanalp, Eichengreen & Simpson-Bell, 'The Stealth Erosion of Dollar Dominance', IMF WP/22/58, 2022-03-24 -- https://www.imf.org/en/publications/wp/issues/2022/03/24/the-stealth-erosion-of-dollar-dominance-active-diversifiers-and-the-rise-of-nontraditional-515150 (context: gradual diversification, not a 2022 run)",
+    "OPERATOR READING (read-only): build/results/dp5_episode_sort.json (episodes[0]; sort_summary.the_2022_verdict); build/results/dp4_spectrum.json (episode_2022_f_contingent)"
+  ]
+}

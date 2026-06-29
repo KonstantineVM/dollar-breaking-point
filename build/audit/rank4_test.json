@@ -1,0 +1,600 @@
+{
+ "dp": "AUDIT-FT3",
+ "artifact": "rank4_test.json",
+ "generated": "2026-06-29",
+ "status": "AUDIT OUTPUT -- read-only falsification test of the DP4 section-1 'identified' table. Does NOT modify build artifacts and does NOT start DP6.",
+ "question": "The build only litigated F3/F4 and PRE-DECLARED F1/F2 identified. Build the FULL four-factor operator M4 and test rank/conditioning for OTHER ungated collinearities (F1-F4? F2-F4?).",
+ "moment_space_definition": {
+  "principle": "Common observed-moment space = UNION of the cells the four factors touch, indexed by area/holder. Each factor is a column-normalised DIRECTION in the union; zero where it does not load.",
+  "S_share_shared_holder_index": {
+   "cells": "[BIS_C(19 USD claim marginals) | BIS_L(19 USD liability marginals) | DEST(3 offshore dest cells US->CYM/HKG/VGB) | USA(12 USA-column-by-holder cells)] = 53 cells",
+   "F1": "BIS_C+BIS_L blocks, loading = USD per-area marginal (common funding-level co-movement).",
+   "F2": "USA(12) block, loading = TIC US-Treasury-by-holder quantity on the SAME 12 holders (the safe-leg quantity-by-holder). LANDS ON THE SAME 12 USA cells as F4 -- this is the test the build never ran.",
+   "F3": "DEST+USA, coef (f+(1-f)s) on DEST, -USAn on USA.",
+   "F4": "DEST+USA, coef (1-f)s on DEST, -USAn on USA.",
+   "rationale": "This is the HONEST test: dp3 R2 separates F2 from F4 by an 'instrument dimension', but on a single snapshot the only multi-holder observable for both is a by-holder quantity vector over the same 12 holders. If TIC-by-holder direction ~ CPIS-USA-by-holder direction, F2 and F4 are collinear regardless of instrument labels."
+  },
+  "S_block_TIC_own_block": {
+   "cells": "[BIS_C(19)|BIS_L(19)|TIC(12 own cells)|DEST(3)|USA(12)] = 65 cells",
+   "note": "F2 typed into its OWN disjoint TIC block. This is the build's IMPLICIT assumption (instrument dimension = separate cells). Reported to show the CONFIRM-looking result is an ARTIFACT of that typing, not a test of it."
+  }
+ },
+ "M4_results": {
+  "S_share_shared_holder_index": {
+   "interior": {
+    "f": 0.2,
+    "s_usd": 0.5,
+    "singular_values": [
+     1.591406666601939,
+     1.0000000000000002,
+     0.676013248779284,
+     0.10213182153367094
+    ],
+    "smax": 1.591406666601939,
+    "smin": 0.10213182153367094,
+    "condition_number": 15.581888609293845,
+    "rank_tol_1e8": 4,
+    "rank_tol_1e6rel": 4,
+    "rank_abs_1e3": 4,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.5123431305151314,
+      0.6020041666069406,
+      0.6124504061569706
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.8563986207651049,
+      0.41123802269500537,
+      0.31219335521680874
+     ],
+     [
+      -0.0,
+      -0.06392119339922597,
+      0.6844518040576598,
+      -0.7262505139114418
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.16619037896906,
+     1.0770329614269005
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": -0.6206395651746259,
+     "F2-F4": -0.6720164708378925,
+     "F3-F4": 0.9872411207126474
+    },
+    "collinear_combinations": []
+   },
+   "f0_smid": {
+    "f": 0.0,
+    "s_usd": 0.5,
+    "singular_values": [
+     1.5947285472909556,
+     1.0000000000000002,
+     0.6759000373245131,
+     2.946533043744141e-16
+    ],
+    "smax": 1.5947285472909556,
+    "smin": 2.946533043744141e-16,
+    "condition_number": 5412220136735830.0,
+    "rank_tol_1e8": 3,
+    "rank_tol_1e6rel": 3,
+    "rank_abs_1e3": 3,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.510238545950912,
+      0.608135110902955,
+      0.608135110902955
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.8600329215942254,
+      0.36079313586465367,
+      0.36079313586465367
+     ],
+     [
+      -0.0,
+      -0.0,
+      0.7071067811865475,
+      -0.7071067811865476
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.1180339887498947,
+     1.1180339887498947
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": -0.6473719913680558,
+     "F2-F4": -0.6473719913680558,
+     "F3-F4": 0.9999999999999998
+    },
+    "collinear_combinations": [
+     {
+      "singular_value": 2.946533043744141e-16,
+      "rel": 1.8476705949420436e-16,
+      "mixing_vector": {
+       "F3": 0.7071,
+       "F4": -0.7071,
+       "F1": -0.0,
+       "F2": -0.0
+      },
+      "dominant_columns": [
+       "F3",
+       "F4"
+      ]
+     }
+    ]
+   },
+   "f0_susd1": {
+    "f": 0.0,
+    "s_usd": 1.0,
+    "singular_values": [
+     1.5426259757612806,
+     1.0000000000000002,
+     0.7875945015720698,
+     5.2472329662558244e-17
+    ],
+    "smax": 1.5426259757612806,
+    "smin": 5.2472329662558244e-17,
+    "condition_number": 2.939884670037864e+16,
+    "rank_tol_1e8": 3,
+    "rank_tol_1e6rel": 3,
+    "rank_abs_1e3": 3,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.4645541534548038,
+      0.6261746715206111,
+      0.6261746715206111
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.8855447128789662,
+      0.3284893921362677,
+      0.3284893921362677
+     ],
+     [
+      -0.0,
+      -0.0,
+      0.7071067811865475,
+      -0.7071067811865476
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.414213562373095,
+     1.414213562373095
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": -0.51179249653048,
+     "F2-F4": -0.51179249653048,
+     "F3-F4": 0.9999999999999999
+    },
+    "collinear_combinations": [
+     {
+      "singular_value": 5.2472329662558244e-17,
+      "rel": 3.401493977609403e-17,
+      "mixing_vector": {
+       "F3": 0.7071,
+       "F4": -0.7071,
+       "F1": -0.0,
+       "F2": -0.0
+      },
+      "dominant_columns": [
+       "F3",
+       "F4"
+      ]
+     }
+    ]
+   },
+   "best_case": {
+    "f": 0.6,
+    "s_usd": 0.0,
+    "singular_values": [
+     1.572348896003673,
+     1.0000000000000002,
+     0.6327681277678954,
+     0.3568241103360935
+    ],
+    "smax": 1.572348896003673,
+    "smin": 0.3568241103360935,
+    "condition_number": 4.406509679300184,
+    "rank_tol_1e8": 4,
+    "rank_tol_1e6rel": 4,
+    "rank_abs_1e3": 4,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.5429617699648955,
+      0.5816574431068848,
+      0.6056955796726184
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      0.8149645378928198,
+      0.538948061579691,
+      0.21299715701538585
+     ],
+     [
+      -0.0,
+      -0.20254707683333992,
+      0.6092697315621836,
+      -0.7666583827679797
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.1661903789690597,
+     0.9999999999999999
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": -0.620639565174626,
+     "F2-F4": -0.7237838897141898,
+     "F3-F4": 0.8574929257125442
+    },
+    "collinear_combinations": []
+   }
+  },
+  "S_block_TIC_own_block": {
+   "interior": {
+    "f": 0.2,
+    "s_usd": 0.5,
+    "singular_values": [
+     1.4096953999756994,
+     1.0000000000000002,
+     1.0,
+     0.11295520920857476
+    ],
+    "smax": 1.4096953999756994,
+    "smin": 0.11295520920857476,
+    "condition_number": 12.480127387243025,
+    "rank_tol_1e8": 4,
+    "rank_tol_1e6rel": 4,
+    "rank_abs_1e3": 4,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.0,
+      -0.7071067811865475,
+      -0.7071067811865477
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      -1.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      -0.0,
+      0.7071067811865477,
+      -0.7071067811865475
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.16619037896906,
+     1.0770329614269005
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": 0.0,
+     "F2-F4": 0.0,
+     "F3-F4": 0.9872411207126474
+    },
+    "collinear_combinations": []
+   },
+   "f0_smid": {
+    "f": 0.0,
+    "s_usd": 0.5,
+    "singular_values": [
+     1.4142135623730951,
+     1.0000000000000002,
+     1.0,
+     0.0
+    ],
+    "smax": 1.4142135623730951,
+    "smin": 0.0,
+    "condition_number": Infinity,
+    "rank_tol_1e8": 3,
+    "rank_tol_1e6rel": 3,
+    "rank_abs_1e3": 3,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.0,
+      -0.7071067811865475,
+      -0.7071067811865475
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      -1.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      -0.7071067811865475,
+      0.7071067811865475
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.1180339887498947,
+     1.1180339887498947
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": 0.0,
+     "F2-F4": 0.0,
+     "F3-F4": 0.9999999999999998
+    },
+    "collinear_combinations": [
+     {
+      "singular_value": 0.0,
+      "rel": 0.0,
+      "mixing_vector": {
+       "F3": -0.7071,
+       "F4": 0.7071,
+       "F1": 0.0,
+       "F2": 0.0
+      },
+      "dominant_columns": [
+       "F3",
+       "F4"
+      ]
+     }
+    ]
+   },
+   "f0_susd1": {
+    "f": 0.0,
+    "s_usd": 1.0,
+    "singular_values": [
+     1.4142135623730951,
+     1.0000000000000002,
+     1.0,
+     0.0
+    ],
+    "smax": 1.4142135623730951,
+    "smin": 0.0,
+    "condition_number": Infinity,
+    "rank_tol_1e8": 3,
+    "rank_tol_1e6rel": 3,
+    "rank_abs_1e3": 3,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.0,
+      -0.7071067811865475,
+      -0.7071067811865475
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      -1.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0,
+      -0.7071067811865475,
+      0.7071067811865475
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.414213562373095,
+     1.414213562373095
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": 0.0,
+     "F2-F4": 0.0,
+     "F3-F4": 0.9999999999999999
+    },
+    "collinear_combinations": [
+     {
+      "singular_value": 0.0,
+      "rel": 0.0,
+      "mixing_vector": {
+       "F3": -0.7071,
+       "F4": 0.7071,
+       "F1": 0.0,
+       "F2": 0.0
+      },
+      "dominant_columns": [
+       "F3",
+       "F4"
+      ]
+     }
+    ]
+   },
+   "best_case": {
+    "f": 0.6,
+    "s_usd": 0.0,
+    "singular_values": [
+     1.3628987217370718,
+     1.0000000000000002,
+     1.0,
+     0.377501091769886
+    ],
+    "smax": 1.3628987217370718,
+    "smin": 0.377501091769886,
+    "condition_number": 3.610317298281766,
+    "rank_tol_1e8": 4,
+    "rank_tol_1e6rel": 4,
+    "rank_abs_1e3": 4,
+    "right_singular_vectors_Vt": [
+     [
+      -0.0,
+      -0.0,
+      -0.7071067811865476,
+      -0.7071067811865474
+     ],
+     [
+      -1.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      -1.0,
+      -0.0,
+      -0.0
+     ],
+     [
+      -0.0,
+      -0.0,
+      0.7071067811865474,
+      -0.7071067811865476
+     ]
+    ],
+    "column_norms": [
+     10426574.98255703,
+     1885.3501107221437,
+     1.1661903789690597,
+     0.9999999999999999
+    ],
+    "pairwise_cos_F_columns": {
+     "F1-F2": 0.0,
+     "F1-F3": 0.0,
+     "F1-F4": 0.0,
+     "F2-F3": 0.0,
+     "F2-F4": 0.0,
+     "F3-F4": 0.8574929257125442
+    },
+    "collinear_combinations": []
+   }
+  }
+ },
+ "key_readout_interior_S_share": {
+  "f": 0.2,
+  "s_usd": 0.5,
+  "singular_spectrum": [
+   1.591406666601939,
+   1.0000000000000002,
+   0.676013248779284,
+   0.10213182153367094
+  ],
+  "condition_number": 15.581888609293845,
+  "rank_tol_1e6rel": 4,
+  "pairwise_cos": {
+   "F1-F2": 0.0,
+   "F1-F3": 0.0,
+   "F1-F4": 0.0,
+   "F2-F3": -0.6206395651746259,
+   "F2-F4": -0.6720164708378925,
+   "F3-F4": 0.9872411207126474
+  },
+  "abs_cos_F1_F4": 0.0,
+  "abs_cos_F2_F4": 0.6720164708378925,
+  "abs_cos_F1_F2": 0.0,
+  "abs_cos_F3_F4_known": 0.9872411207126474
+ },
+ "f0_case_S_share": {
+  "note": "At f=0 the F3-F4 difference collapses (gated by the build). Reported for completeness.",
+  "singular_spectrum": [
+   1.5947285472909556,
+   1.0000000000000002,
+   0.6759000373245131,
+   2.946533043744141e-16
+  ],
+  "rank_tol_1e6rel": 3,
+  "cos_F3_F4": 0.9999999999999998
+ },
+ "rank4": 4,
+ "condition_number": 15.581888609293845,
+ "new_collinearities": [],
+ "elevated_correlations_not_collinear": [
+  {
+   "pair": "F2-F4",
+   "cos": -0.6720164708378925,
+   "angle_deg": 47.77711159800442
+  }
+ ],
+ "f1_f4_collinear": false,
+ "f2_f4_collinear": false,
+ "f1_f2_collinear": false,
+ "verdict_on_section1_table": "CONFIRM",
+ "reason": "Full 4-factor operator is full column rank away from the gated F3-F4 degeneracy (rank4=4/4, cond=15.6); the ONLY small singular value is the F3-F4 difference direction (mixing vector ~(F3,-F4), F1=F2=0), exactly the degeneracy the build gated and NOT contaminated by F1/F2. So F1/F2 ARE separately identified -- section-1 table SURVIVES -- BUT with a QUALIFICATION the build never quantified: on the shared-holder snapshot the F2 (Treasury-by-holder) and F4 (USA-column run) footprints are ELEVATED-correlated (|cos F2-F4|=0.672, ~48 deg apart), consistent with dp3 R2's own 'THIN for the cross-holder dimension' caveat. F1 is block-orthogonal (cos 0) only because its BIS marginals occupy disjoint cells -- its identification rests on that disjointness, a level-factor claim, not a tested cross-factor separation. No NEW gating failure; the bound on F2 is real and larger than the \u00a71 table's bare 'identified (bounded)' implies.",
+ "caveats": [
+  "Single snapshot: 'collinearity' here is the angle between fixed footprint DIRECTIONS in the union cell space, not a sampling covariance. A small angle => observationally near-equivalent footprints on this one matrix.",
+  "F1 level direction taken as the USD per-area marginal vector (exposure-weighted common shock). An alternative F1 = uniform/equal-weight level direction is also defensible; the F1-vs-F4 cosine is reported so the reader can see sensitivity.",
+  "F2's by-holder footprint is the TIC Treasury-by-holder quantity; the convenience-yield PRICE leg (kappa) is a HOLE not on disk (dp3), so F2 is tested only on its quantity-by-holder direction -- exactly the direction that overlaps F4.",
+  "The S_block space makes F1,F2 block-orthogonal to F4 BY CONSTRUCTION; its full-rank result is not evidence of identification, only of the typing choice."
+ ]
+}
