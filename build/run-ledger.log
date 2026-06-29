@@ -1460,3 +1460,55 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
 git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 echo "=== DP5 artifacts progress ===" && for f in dp5_episode_sort.json dp5_idtest.json dp5_resolution_path.json; do [ -f build/results/$f ] && echo "$f: ON DISK" || echo "$f: not yet"; done
+2026-06-29T01:07:53Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+jq -e . build/ledger.json >/dev/null && echo "ledger valid JSON" || echo "LEDGER INVALID"
+git add build/results/dp5_episode_sort.json build/results/dp5_idtest.json build/results/dp5_resolution_path.json build/results/dp5_verdict.md build/ledger.json build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short | sed 's/^/  /'
+git commit -q -m "DP5: identification gate — final verdict + resolution path
+
+TERMINAL stage of the build. Integrity-critic PASS on all six gate checks.
+FINAL VERDICT: F3/F4 separation (the breaking-point mechanism) is NOT
+IDENTIFIED — HOLDS. This is the permitted, expected non-identification,
+bounded exactly, with a grounded path to resolution. Not a hazard number,
+not a date.
+
+Part 1 — episode-sort by operator footprint, NO pre-assignment: 2022 Russia
+reserve-immobilization = UNDECIDABLE / F4-at-endpoint (loads on the collapsed
+F3=F4 shared direction at the admissible endpoint f=0), NOT F3; 2008 GFC and
+2020 COVID = UNDECIDABLE; 2011-13 debt-ceiling = F2-flavoured/thin. No episode
+decidably isolates the F3-exclusive direction.
+
+Part 2 — overid test: criterion stated before running (overturned iff disk
+contains a discriminator that breaks the f=0 rank-1 degeneracy WITHOUT pinning
+a hole). All three discriminators ABSENT: temporal lead/lag (one 2025-S1
+snapshot), currency split (CPIS has no currency dimension), issuer-nationality
+basis (CPIS counterpart is residency; f stays a HOLE). Verdict HOLDS; no hole
+value supplied; the favourable interior region is not counted as identification.
+dp5_idtest.json IS the DP4 verifier (re-derives the rank-1 by moment-counting),
+so DP4 is now established — and the established result is NON-IDENTIFICATION.
+
+Per-object (CLAUDE.md): frontier NOT located; distance NOT a scalar (margin
+surface, infimum 0); hazard NOT IDENTIFIED — a bounded conditional surface over
+(f, offshore-USD share), never a point, no date.
+
+Part 3 — grounded resolution path (fetched 2026-06-29, ranked a>b>c>d): (a) a
+CPIS semiannual panel is GROUNDED-HIGH (11 periods 2020-S1..2025-S1 for the
+US->CYM cell) and breaks the degeneracy directly -> the mechanism is
+unidentified-NOW-but-RESOLVABLE; (b) currency split PARTIAL (BIS debt only);
+(c) nationality basis MEDIUM (globalcapitalallocation restated data exists,
+2025 counterpart vintage unverified); (d) offshore-USD/ABS share
+NONE_AT_GRANULARITY -> a residual unidentifiable-from-available-data component.
+
+The non-identification is DATA-DRIVEN (f=0 is a grounded admissible endpoint;
+the issuer-nationality basis is a genuine HOLE), NOT planted by the operator
+construction. Routed to the ★ human gate: the path-(a) live fetch, the
+unidentified-now-but-resolvable framing, and the operator recipe's faithfulness
+to the economics.
+
+Ledger: DP5 done, verifier build/results/dp5_idtest.json; DP4 now established
+(result = non-identification). DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
