@@ -1,0 +1,91 @@
+{
+  "audit": "dp4_verification",
+  "reads_only": [
+    "build/results/dp4_inputs.json",
+    "build/results/dp4_spectrum.json"
+  ],
+  "check1_f0_edge": [
+    {
+      "f": 0.0,
+      "usd_share": 0.0,
+      "singular_values": [
+        1.4142135623730951,
+        0.0
+      ],
+      "smallest_singular_value": 0.0,
+      "vF3_equals_vF4_exactly": true,
+      "max_abs_col_diff": 0.0
+    },
+    {
+      "f": 0.0,
+      "usd_share": 0.5,
+      "singular_values": [
+        1.414213562373095,
+        9.03504139826397e-17
+      ],
+      "smallest_singular_value": 9.03504139826397e-17,
+      "vF3_equals_vF4_exactly": true,
+      "max_abs_col_diff": 0.0
+    },
+    {
+      "f": 0.0,
+      "usd_share": 1.0,
+      "singular_values": [
+        1.4142135623730951,
+        2.884885333023628e-17
+      ],
+      "smallest_singular_value": 2.884885333023628e-17,
+      "vF3_equals_vF4_exactly": true,
+      "max_abs_col_diff": 0.0
+    }
+  ],
+  "check1_finding": "At f=0 v_F3 and v_F4 are ALGEBRAICALLY IDENTICAL (max|diff|=0) for ALL usd_share -> operator literally rank 1 -> smallest singular value is a true zero; the 9.0e-17/2.9e-17 values are the same rank-1 collapse rounded by float SVD.",
+  "check2_recompute": {
+    "ran": "build/results/dp4_recompute_check.py",
+    "passed": true,
+    "n_points": 12,
+    "max_dev": 5.551e-17,
+    "note": "regenerates ALL 12 (f,usd_share) points from dp4_inputs.json alone; inputs contain operator_recipe + full evaluation grid (f x usd_share)."
+  },
+  "check3_tau_sensitivity": {
+    "tau_0.05": {
+      "identified_cells": [
+        "f=0.0864,s=0.0",
+        "f=0.2,s=0.0",
+        "f=0.2,s=0.5",
+        "f=0.2,s=1.0",
+        "f=0.6,s=0.0",
+        "f=0.6,s=0.5",
+        "f=0.6,s=1.0"
+      ],
+      "n_identified": 7
+    },
+    "tau_0.1": {
+      "identified_cells": [
+        "f=0.2,s=0.0",
+        "f=0.2,s=0.5",
+        "f=0.6,s=0.0",
+        "f=0.6,s=0.5",
+        "f=0.6,s=1.0"
+      ],
+      "n_identified": 5
+    },
+    "tau_0.15": {
+      "identified_cells": [
+        "f=0.6,s=0.0",
+        "f=0.6,s=0.5",
+        "f=0.6,s=1.0"
+      ],
+      "n_identified": 3
+    }
+  },
+  "check3_infimum_margin": 0.0,
+  "check3_finding": "OVERALL verdict (infimum=0, nowhere robustly identified) is tau-INDEPENDENT: the f=0 margin is a true 0 for ANY tau>0. Only the LOCAL identified flags are tau-dependent.",
+  "check3_published_flags_match": true,
+  "check4_2022": {
+    "STATEMENT": "The 2022 Russia reserve-immobilization / sanctions episode's signature in the operator is F3-OR-F4 CONTINGENT ON f. It is NOT reported as an F3 identification.",
+    "at_f0": "At f=0 the operator is rank 1: the 2022 offshore footprint loads on the SHARED F3=F4 direction, which is observationally the F4 common-run direction. The episode is observationally F4 at the admissible endpoint, NOT F3.",
+    "toward_f060": "As f rises the F3-exclusive destination term becomes nonzero and the episode COULD load on F3 -- but only conditional on s_usd low (else the confound re-aligns the footprints). So even the F3 reading is conditional on BOTH holes.",
+    "planting_guard": "Reviving the 2022-sanctions->F3 assignment as established is the specific planting failure forbidden here. NOT committed: the episode is f-contingent, and at the admissible endpoint f=0 it is F4."
+  }
+}
