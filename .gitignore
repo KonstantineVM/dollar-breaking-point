@@ -1,0 +1,8 @@
+# Large raw fetched data intentionally NOT committed (re-fetchable from URLs recorded in build/audit/sep_data_acquired.json).
+# The load-bearing recompute inputs (slt_table*.txt, slt_haven_extract.json) and grounding evidence ARE committed.
+build/data/gcap_post2020_check/Restated_Bilateral_External_Portfolios.xlsx
+build/data/treasury_tic/current/slt_tables/slt_table1.html
+build/data/treasury_tic/current/slt_tables/slt_table2.html
+build/data/treasury_tic/current/slt_tables/slt_table3.html
+build/data/treasury_tic/current/slt_tables/slt_table4.html
+build/data/treasury_tic/current/slt_tables/slt_table6.html

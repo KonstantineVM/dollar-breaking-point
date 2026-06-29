@@ -1733,3 +1733,37 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
 EOF
 )"
 2026-06-29T03:30:23Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -8
+2026-06-29T03:50:02Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/contracts/fed_swap_lines.json build/contracts/_manifest.json build/model/dp3_spec.json build/ledger.json build/data/fed_swaps/SWPT_2002_2026.csv build/run-ledger.log
+git commit -q -m "$(cat <<'EOF'
+Official-sector reopening: swap-line DP1 contract + F4 backstop re-spec
+
+Resolution Test C established the Fed central-bank-liquidity-swap leg was
+absent and blocking. Two-part structural fix (f/separability untouched):
+
+PART 1 (DP1) — build/contracts/fed_swap_lines.json, manifest -> 14.
+Grounded FRED SWPT / Fed H.4.1 (fetched 2026-06-29): weekly, Millions USD,
+system-aggregate, coverage 2002-2026 spanning 2008+2020; peaks 583,135mn
+(2008-12-17) and 448,946mn (2020-05-27) recomputed from CSV (agree with Test C,
+not copied); current ~$35mn -> stress-state dimension only. Per-counterparty-CB
+breakdown honestly UNVERIFIED. Wider CSV persisted (SWPT_2002_2026.csv) so the
+window/current-value claims are re-checkable from disk.
+
+PART 2 (DP3) — F4 official_sector_respec in dp3_spec.json.
+v_F4 re-specified as two opposite-sign components: run-DRAIN (negative -USAn)
+plus a genuine state-dependent backstop-INJECTION (positive on the SWPT cell,
+~0 calm / ~$0.5tn stress). Enters global-games selection as a circuit-breaker
+raising theta*. Falsifier: backstop present-but-insufficient vs absent (distinct
+signatures). Estimability honestly bounded (2 active episodes; non-identification
+permitted, reserved to DP5). Specification only — no fit, DP4/DP5 out of scope.
+
+Integrity-critic GATE: PASS on all three artifacts. Backstop genuine (not
+cosmetic) and f/separability OPEN-and-untouched both CONFIRMED by name. Two
+non-blocking judgment items routed to the human gate. DP6 not begun; the
+f/empirical-separability question remains OPEN.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4

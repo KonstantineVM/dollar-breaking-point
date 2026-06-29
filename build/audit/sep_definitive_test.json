@@ -1,0 +1,85 @@
+{
+  "artifact": "sep_definitive_test.json",
+  "task": "TERMINAL separability experiment, Part 2 -- DEFINITIVE separability test of the structurally-complete operator (F4 backstop respec, f pinned [0.49,0.71]) against Test B's GEOMETRIC_ONLY finding, using Part 1's higher-resolution (residency-MONTHLY) TIC SLT. Specification + measurement only; the identification VERDICT is Part 3's terminal call. NO hazard, NO date.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "Wrote EXACTLY this file plus the recompute script build/audit/sep_definitive_test.py. Did NOT modify build/model, build/results, build/contracts, or any other build/audit file. DP6 NOT started. Makes NO hazard claim and NO date.",
+
+  "read_only_inputs": [
+    "build/audit/sep_data_acquired.json (Part 1 acquisition: monthly TIC SLT OBTAINED at residency granularity, both directions, 2020-01..2026-04, 2022 covered; GCAP nationality restatement NONE_AT_GRANULARITY post-2020 => f stays pinned)",
+    "build/data/treasury_tic/current/slt_haven_extract.json (CYM/HKG/VGB, both directions, 76 monthly rows each) -- the acquired data the numbers below are computed from",
+    "build/results/dp4_inputs.json (operator recipe: DESTn, USAn, tau=0.10)",
+    "build/model/dp3_spec.json -> step1_structural_model.factors.F4_dollar_run.official_sector_respec (F4-OFFICIAL-BACKSTOP: v_F4 = [d_run ; b_backstop], opposite-sign two-component)",
+    "build/model/china_fraction_bound.json + build/audit/f_pin_test.json (f pinned [0.49,0.71])",
+    "build/audit/geo_vs_emp_test.json (Test B, the finding under test: within-holder corr +0.4664, footprint cosine 0.9386, 2022 simultaneous)"
+  ],
+
+  "transform_choice_justification": "Substitution is a FLOW/CHANGE concept (a holder reallocating across periods), so the principled transform is month-over-month LOG-CHANGE, demeaned. This is stated on standard grounds, not chosen to engineer a verdict. We additionally report simple changes and levels as a SYMMETRIC-ERROR robustness check so a reader can see whether the sign is an artifact of one transform; the verdict is read off the principled (log-change) transform, with the robustness panel disclosed.",
+
+  "a_substitution_sign": {
+    "question": "Does the higher-frequency variation LOAD the F3 direction with the CORRECT (negative) sign? F3 substitution = US-leg DOWN while offshore-haven (China-conduit) exposure UP => NEGATIVE within-holder co-movement.",
+    "within_holder_pairing": "US-leg = F4[h] = foreign holder h's holdings OF US LT securities (Table 1, slt_table1.txt / slt_haven_extract.json F4_foreign_holdings_of_us_table1); offshore-haven exposure = F3[h] = US holdings OF h's LT securities (Table 2, slt_table2.txt / F3_us_holdings_of_foreign_table2); h in {CYM,HKG,VGB}. Same US-column-vs-offshore-conduit pairing Test B used, at the haven residency cells the DP4 operator's block A actually uses, now MONTHLY.",
+    "recomputed_logchange_pooled": 0.362091,
+    "recomputed_logchange_per_haven": {"CYM": 0.606213, "HKG": 0.285294, "VGB": 0.407876},
+    "robustness_change_pooled": 0.552738,
+    "robustness_change_per_haven": {"CYM": 0.572823, "HKG": 0.255442, "VGB": 0.33499},
+    "robustness_level_pooled": 0.809315,
+    "robustness_level_per_haven": {"CYM": 0.84436, "HKG": -0.266226, "VGB": -0.48458},
+    "testB_semiannual_value": 0.4664,
+    "finding": "POSITIVE, +0.362 pooled on the principled log-change transform (all three havens individually positive). This is the SAME WRONG sign as Test B's +0.4664 -- US-leg and offshore-haven exposure RISE TOGETHER (common growth), not US-down-while-offshore-up (substitution). Simple changes give +0.553 (also positive). Only LEVELS flip negative for HKG/VGB (and CYM levels stay +0.844), but levels are NOT the substitution-appropriate transform and the pooled level corr is +0.809 anyway. The substitution (negative) sign does NOT appear at monthly frequency.",
+    "sign_is_substitution_F3": false,
+    "coverage_limitation_stated_not_invented": "TIC SLT resolves ONLY US<->foreign legs. It does NOT carry a foreign<->foreign within-holder cell (e.g. a German holder's claim ON Cayman, or a haven holder's offshore-China-conduit exposure routed outside the US). So the offshore-China-conduit exposure can only be proxied by the US<->haven residency cells (F3[h]) -- exactly the cells the operator uses -- and the substitution test is confined to the haven residencies. We say so rather than reconstruct a foreign<->foreign cell that TIC does not contain. The China-NATIONALITY reallocation cannot be observed here at all (post-2020 nationality data NONE_AT_GRANULARITY per Part 1); this tests RESIDENCY-monthly co-movement only.",
+    "traced_to": "build/data/treasury_tic/current/slt_haven_extract.json (F3_us_holdings_of_foreign_table2 + F4_foreign_holdings_of_us_table1), parsed from slt_table2.txt / slt_table1.txt. Recomputed by build/audit/sep_definitive_test.py."
+  },
+
+  "b_footprint_separation": {
+    "question": "Do the F3 and F4 footprints SEPARATE at monthly frequency -- cosine well below Test B's 0.9386? And is there a temporal LEAD/LAG the semiannual panel could not show?",
+    "recomputed_footprint_cosine_meandirection": -0.047026,
+    "recomputed_footprint_cosine_monthly_mean": 0.328619,
+    "testB_panel_footprint_cosine": 0.9386,
+    "footprint_construction": "mean monthly log-change footprint over the CYM/HKG/VGB block for each direction (F4 US-leg vs F3 offshore-exposure); cosine of the two mean-direction vectors. Robustness: mean of the per-month cross-haven cosines.",
+    "finding": "The footprint cosine FELL sharply vs Test B -- mean-direction cosine -0.047, per-month-mean +0.329, both WELL BELOW 0.9386. The two directions' AVERAGE drift vectors over the haven block are nearly orthogonal at monthly frequency. HOWEVER this is a statement about average drift directions, not about period-by-period co-movement: the per-month cosine is still POSITIVE (+0.329) and the within-holder co-movement (part a) is POSITIVE (+0.362). The footprint-cosine drop alone does not establish substitution; it is consistent with the two directions having different average growth rates while still co-moving positively each period. The load-bearing discriminator (the substitution SIGN) does not turn negative.",
+    "lead_lag": {
+      "definition": "xcorr(k) = corr( F4 aggregate US-leg log-change_t , F3 aggregate offshore-exposure log-change_{t+k} ). k>0 => F3 LAGS F4; k<0 => F3 LEADS. Substitution would show a strong NEGATIVE corr at some lead/lag; common-growth/contagion shows POSITIVE corr peaking at k=0 (contemporaneous).",
+      "full_sample_profile": {"-6": 0.061496, "-5": 0.184014, "-4": 0.142008, "-3": 0.004834, "-2": 0.045186, "-1": -0.005407, "0": 0.607988, "1": 0.072219, "2": 0.128483, "3": 0.001783, "4": 0.064697, "5": -0.158386, "6": 0.189448},
+      "full_sample_peak": {"k_at_max_abs": 0, "value": 0.607988},
+      "episode_2022_window": "2021-07..2023-06",
+      "episode_2022_profile": {"-6": -0.115969, "-5": 0.224061, "-4": -0.038137, "-3": -0.068053, "-2": 0.311573, "-1": -0.218999, "0": 0.444814, "1": 0.169414, "2": -0.173746, "3": 0.113961, "4": 0.172996, "5": -0.185, "6": 0.176069},
+      "episode_2022_peak": {"k_at_max_abs": 0, "value": 0.444814},
+      "finding": "BOTH the full sample and the 2022 episode window peak at k=0 (CONTEMPORANEOUS) with POSITIVE sign (+0.608 full, +0.445 in 2022). No off-zero lead/lag dominates, and no NEGATIVE lead/lag appears at any k that a substitution reallocation would produce. The monthly resolution confirms Test B's semiannual finding (2022 simultaneous, no lead/lag) -- it does NOT reveal a hidden temporal substitution signature."
+    },
+    "traced_to": "Same slt_haven_extract.json series; recomputed by build/audit/sep_definitive_test.py."
+  },
+
+  "operator_with_backstop": {
+    "construction": "Base 15x2 [v_F3|v_F4] exactly per dp4_inputs.json: v_F3=[(f+(1-f)s)*DESTn ; -USAn], v_F4=[((1-f)s)*DESTn ; -USAn]; margin = smallest singular value of the COLUMN-NORMALISED 2-column operator. BACKSTOP respec (dp3_spec F4-OFFICIAL-BACKSTOP): v_F4 gains a 16th OFFICIAL cell b_backstop (POSITIVE, opposite-sign to the -USAn drain), entered as a single system-aggregate term; v_F3 = 0 in that cell (the backstop is an F4-only leg). Operator becomes 16x2.",
+    "base_min_margin_pinned_rectangle": 0.220969,
+    "base_reproduces_geo_vs_emp": "EXACT match: geo_vs_emp_test.json min_pinned_margin = 0.220969; recomputed here = 0.220969. Pinned-f geometry unchanged, as expected (sanity anchor satisfied, >=0.221).",
+    "base_margins_pinned": {"f=0.49|s=0.0": 0.31939, "f=0.49|s=0.5": 0.274453, "f=0.49|s=1.0": 0.220969, "f=0.6|s=0.0": 0.377501, "f=0.6|s=0.5": 0.334339, "f=0.6|s=1.0": 0.28435, "f=0.71|s=0.0": 0.429671, "f=0.71|s=0.5": 0.393131, "f=0.71|s=1.0": 0.352033},
+    "backstop_balance_usd_mn": {"stress_2020": 448946.0, "calm_2026": 35.0, "source": "dp3_spec F4-OFFICIAL-BACKSTOP / fed_swap_lines.json: peaks 583135 (2008-12-17), 448946 (2020-05-27); calm ~35"},
+    "backstop_scaling": "b entered in the same USAn-normalised units (divided by the raw USA-column L2 norm 6,569,388 mn): b_stress_scaled=0.068339, b_calm_scaled=5e-06. NOT tuned to a target margin.",
+    "backstop_stress_min_margin": 0.224911,
+    "backstop_stress_margins_pinned": {"f=0.49|s=0.0": 0.322644, "f=0.49|s=0.5": 0.278111, "f=0.49|s=1.0": 0.224911, "f=0.6|s=0.0": 0.380135, "f=0.6|s=0.5": 0.337298, "f=0.6|s=1.0": 0.287576, "f=0.71|s=0.0": 0.431873, "f=0.71|s=0.5": 0.395574, "f=0.71|s=1.0": 0.354695},
+    "backstop_calm_min_margin": 0.220969,
+    "margin_anchor": "The F4-exclusive official cell is an orthogonal direction added to F4 only, so it can only INCREASE the F3/F4 angle => margin >= base. Stress anchor 0.224911 >= base 0.220969 >= tau 0.10; calm anchor equals base (backstop ~0 in calm). The structurally-complete (backstop) operator is geometrically non-degenerate on the pinned rectangle, exactly as the f-pin established -- and ADDING the backstop does not collapse it. GEOMETRY (on paper) is confirmed; the EMPIRICAL loading is the separate question parts (a)/(b) answer.",
+    "traced_to": "build/results/dp4_inputs.json (DESTn, USAn, tau, usa_issuer_column_by_holder); build/model/dp3_spec.json (backstop respec + balances). Recomputed by build/audit/sep_definitive_test.py."
+  },
+
+  "honest_scope": {
+    "what_residency_monthly_CAN_settle": "Whether RESIDENCY-MONTHLY resolution moves Test B's GEOMETRIC_ONLY finding. It does NOT: the within-holder substitution sign stays POSITIVE (+0.362, principled transform; +0.553 changes) -- the wrong sign for F3 substitution, same as Test B's +0.4664 -- and the lead/lag stays CONTEMPORANEOUS and POSITIVE (peak at k=0: +0.608 full, +0.445 in 2022), so the higher frequency supplies no orthogonal F3 (substitution) loading.",
+    "what_residency_monthly_CANNOT_settle": "The China-NATIONALITY reallocation fraction f. Post-2020 nationality cells are NONE_AT_GRANULARITY (Part 1: GCAP restatement frozen at 2020), so f stays pinned [0.49,0.71] and the test cannot observe a nationality-basis reallocation at monthly frequency. This test adjudicates RESIDENCY co-movement/lead-lag only; a nationality-basis substitution, if it existed, would be invisible to TIC's residency-only US<->foreign coverage. That absence is itself part of the answer: the higher-resolution data that EXISTS (residency-monthly) does not load F3, and the data that COULD load nationality-F3 does not exist post-2020.",
+    "footprint_cosine_nuance": "The footprint cosine DID fall (mean-direction -0.047, per-month +0.329, both << 0.9386). Read alone this looks like separation. But it reflects average-drift-direction divergence, not period-by-period substitution: the within-holder co-movement and the per-month cosine remain POSITIVE. Separation of average drift directions WITHOUT a negative substitution sign or a substitution lead/lag does not constitute REAL (empirical) separability in the F3 sense; it is consistent with two positively-co-moving directions that have different mean growth rates."
+  },
+
+  "symmetric_error_self_check": {
+    "did_not_engineer_negative": "We did NOT select levels (where HKG/VGB flip negative) to manufacture separability; levels are not the flow/substitution-appropriate transform and the pooled level corr is +0.809 anyway. The verdict is read off the principled log-change transform.",
+    "did_not_engineer_failure": "We did NOT select a transform or window to manufacture failure. The principled transform (log-change) and the simple-change robustness BOTH give positive (wrong-sign) co-movement; the footprint cosine genuinely fell (disclosed, not suppressed); the lead/lag genuinely peaks at 0 across both full sample and the 2022 window. The positive sign is robust across the two flow transforms, not a single-transform artifact.",
+    "ambiguity_assessment": "The sign does NOT flip across the two REASONABLE (flow) transforms -- both positive. The only negative appears in LEVELS for two of three havens, which is not the substitution-appropriate transform. Therefore this is NOT an OPEN/sign-flip case under the principled criterion: the substitution sign is determinedly positive at monthly frequency. (Had the flow-transform sign flipped sign across havens or transforms, we would have reported OPEN.)"
+  },
+
+  "verdict": "GEOMETRIC-ONLY-CONFIRMED",
+  "verdict_basis": "Per the task's symmetric definition, GEOMETRIC-ONLY-CONFIRMED holds when no obtainable granularity loads F3: the substitution sign stays wrong/positive AND/OR the footprints stay near-collinear at monthly frequency. Here the substitution SIGN stays POSITIVE (+0.362 principled log-change, +0.553 changes; same wrong sign as Test B's +0.4664) and the lead/lag stays CONTEMPORANEOUS+POSITIVE (no substitution lead/lag, mirroring Test B's simultaneous 2022). The structurally-complete operator (backstop + pinned f) is geometrically non-degenerate (min margin 0.221 base, 0.225 backstop-stress, >= tau 0.10) -- the F3-exclusive direction exists ON PAPER -- but the residency-monthly data still do NOT move along it in the substitution sense. The footprint-cosine FELL (mean-dir -0.047), but average-drift-direction divergence without a negative substitution sign or a substitution lead/lag is not empirical F3 separability. REAL SEPARABILITY would require ALL of: negative within-holder sign + footprint separation + temporal lead/lag; the negative sign and the lead/lag both FAIL. Higher (residency-monthly) resolution does NOT overturn Test B's GEOMETRIC_ONLY finding; it confirms it at higher frequency.",
+  "feeds_part3": "This REAL/GEOMETRIC-ONLY finding is an input to Part 3's terminal identification VERDICT; Part 2 makes NO identification verdict, NO hazard claim, and NO date.",
+
+  "reproducibility": "Every number above is regenerated from the on-disk data alone by build/audit/sep_definitive_test.py, which reads slt_haven_extract.json, dp4_inputs.json, and dp3_spec.json and prints the identical figures. Base operator margin reproduces geo_vs_emp_test.json min_pinned_margin (0.220969) exactly."
+}

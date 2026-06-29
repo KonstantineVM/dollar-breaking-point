@@ -1,0 +1,2322 @@
+{
+ "F3_us_holdings_of_foreign_table2": {
+  "CYM": {
+   "country_code": "36137",
+   "n_months": 76,
+   "series": [
+    {
+     "date": "2020-01",
+     "total_holdings": "1951221",
+     "treas": "920"
+    },
+    {
+     "date": "2020-02",
+     "total_holdings": "1957470",
+     "treas": "1022"
+    },
+    {
+     "date": "2020-03",
+     "total_holdings": "1838065",
+     "treas": "666"
+    },
+    {
+     "date": "2020-04",
+     "total_holdings": "1908678",
+     "treas": "718"
+    },
+    {
+     "date": "2020-05",
+     "total_holdings": "1955882",
+     "treas": "643"
+    },
+    {
+     "date": "2020-06",
+     "total_holdings": "2069173",
+     "treas": "622"
+    },
+    {
+     "date": "2020-07",
+     "total_holdings": "2169545",
+     "treas": "732"
+    },
+    {
+     "date": "2020-08",
+     "total_holdings": "2279805",
+     "treas": "728"
+    },
+    {
+     "date": "2020-09",
+     "total_holdings": "2297700",
+     "treas": "777"
+    },
+    {
+     "date": "2020-10",
+     "total_holdings": "2336063",
+     "treas": "842"
+    },
+    {
+     "date": "2020-11",
+     "total_holdings": "2438389",
+     "treas": "910"
+    },
+    {
+     "date": "2020-12",
+     "total_holdings": "2497195",
+     "treas": "1008"
+    },
+    {
+     "date": "2021-01",
+     "total_holdings": "2623485",
+     "treas": "990"
+    },
+    {
+     "date": "2021-02",
+     "total_holdings": "2637175",
+     "treas": "1008"
+    },
+    {
+     "date": "2021-03",
+     "total_holdings": "2583275",
+     "treas": "921"
+    },
+    {
+     "date": "2021-04",
+     "total_holdings": "2655170",
+     "treas": "949"
+    },
+    {
+     "date": "2021-05",
+     "total_holdings": "2678810",
+     "treas": "941"
+    },
+    {
+     "date": "2021-06",
+     "total_holdings": "2779580",
+     "treas": "961"
+    },
+    {
+     "date": "2021-07",
+     "total_holdings": "2686054",
+     "treas": "1000"
+    },
+    {
+     "date": "2021-08",
+     "total_holdings": "2727956",
+     "treas": "1009"
+    },
+    {
+     "date": "2021-09",
+     "total_holdings": "2773621",
+     "treas": "1043"
+    },
+    {
+     "date": "2021-10",
+     "total_holdings": "2783130",
+     "treas": "1003"
+    },
+    {
+     "date": "2021-11",
+     "total_holdings": "2752521",
+     "treas": "604"
+    },
+    {
+     "date": "2021-12",
+     "total_holdings": "2742390",
+     "treas": "648"
+    },
+    {
+     "date": "2022-01",
+     "total_holdings": "2689065",
+     "treas": "628"
+    },
+    {
+     "date": "2022-02",
+     "total_holdings": "2691643",
+     "treas": "619"
+    },
+    {
+     "date": "2022-03",
+     "total_holdings": "2664801",
+     "treas": "580"
+    },
+    {
+     "date": "2022-04",
+     "total_holdings": "2581845",
+     "treas": "553"
+    },
+    {
+     "date": "2022-05",
+     "total_holdings": "2570966",
+     "treas": "509"
+    },
+    {
+     "date": "2022-06",
+     "total_holdings": "2591341",
+     "treas": "527"
+    },
+    {
+     "date": "2022-07",
+     "total_holdings": "2521436",
+     "treas": "556"
+    },
+    {
+     "date": "2022-08",
+     "total_holdings": "2547309",
+     "treas": "581"
+    },
+    {
+     "date": "2022-09",
+     "total_holdings": "2447130",
+     "treas": "661"
+    },
+    {
+     "date": "2022-10",
+     "total_holdings": "2358803",
+     "treas": "848"
+    },
+    {
+     "date": "2022-11",
+     "total_holdings": "2517273",
+     "treas": "1061"
+    },
+    {
+     "date": "2022-12",
+     "total_holdings": "2539114",
+     "treas": "708"
+    },
+    {
+     "date": "2023-01",
+     "total_holdings": "2619720",
+     "treas": "868"
+    },
+    {
+     "date": "2023-02",
+     "total_holdings": "2536246",
+     "treas": "839"
+    },
+    {
+     "date": "2023-03",
+     "total_holdings": "2556480",
+     "treas": "1077"
+    },
+    {
+     "date": "2023-04",
+     "total_holdings": "2513311",
+     "treas": "918"
+    },
+    {
+     "date": "2023-05",
+     "total_holdings": "2480437",
+     "treas": "1039"
+    },
+    {
+     "date": "2023-06",
+     "total_holdings": "2507434",
+     "treas": "1125"
+    },
+    {
+     "date": "2023-07",
+     "total_holdings": "2590598",
+     "treas": "1140"
+    },
+    {
+     "date": "2023-08",
+     "total_holdings": "2532226",
+     "treas": "1119"
+    },
+    {
+     "date": "2023-09",
+     "total_holdings": "2497878",
+     "treas": "1058"
+    },
+    {
+     "date": "2023-10",
+     "total_holdings": "2467825",
+     "treas": "1001"
+    },
+    {
+     "date": "2023-11",
+     "total_holdings": "2512105",
+     "treas": "1042"
+    },
+    {
+     "date": "2023-12",
+     "total_holdings": "2541742",
+     "treas": "850"
+    },
+    {
+     "date": "2024-01",
+     "total_holdings": "2494314",
+     "treas": "826"
+    },
+    {
+     "date": "2024-02",
+     "total_holdings": "2550384",
+     "treas": "468"
+    },
+    {
+     "date": "2024-03",
+     "total_holdings": "2585304",
+     "treas": "592"
+    },
+    {
+     "date": "2024-04",
+     "total_holdings": "2571723",
+     "treas": "567"
+    },
+    {
+     "date": "2024-05",
+     "total_holdings": "2611066",
+     "treas": "599"
+    },
+    {
+     "date": "2024-06",
+     "total_holdings": "2594973",
+     "treas": "821"
+    },
+    {
+     "date": "2024-07",
+     "total_holdings": "2569690",
+     "treas": "856"
+    },
+    {
+     "date": "2024-08",
+     "total_holdings": "2585580",
+     "treas": "886"
+    },
+    {
+     "date": "2024-09",
+     "total_holdings": "2700949",
+     "treas": "900"
+    },
+    {
+     "date": "2024-10",
+     "total_holdings": "2662403",
+     "treas": "960"
+    },
+    {
+     "date": "2024-11",
+     "total_holdings": "2656682",
+     "treas": "909"
+    },
+    {
+     "date": "2024-12",
+     "total_holdings": "2676897",
+     "treas": "724"
+    },
+    {
+     "date": "2025-01",
+     "total_holdings": "2698866",
+     "treas": "712"
+    },
+    {
+     "date": "2025-02",
+     "total_holdings": "2755703",
+     "treas": "966"
+    },
+    {
+     "date": "2025-03",
+     "total_holdings": "2752245",
+     "treas": "1175"
+    },
+    {
+     "date": "2025-04",
+     "total_holdings": "2698383",
+     "treas": "1259"
+    },
+    {
+     "date": "2025-05",
+     "total_holdings": "2741676",
+     "treas": "1288"
+    },
+    {
+     "date": "2025-06",
+     "total_holdings": "2784845",
+     "treas": "1226"
+    },
+    {
+     "date": "2025-07",
+     "total_holdings": "2822146",
+     "treas": "1192"
+    },
+    {
+     "date": "2025-08",
+     "total_holdings": "2898741",
+     "treas": "1125"
+    },
+    {
+     "date": "2025-09",
+     "total_holdings": "3004196",
+     "treas": "1562"
+    },
+    {
+     "date": "2025-10",
+     "total_holdings": "2992858",
+     "treas": "1596"
+    },
+    {
+     "date": "2025-11",
+     "total_holdings": "2984082",
+     "treas": "1512"
+    },
+    {
+     "date": "2025-12",
+     "total_holdings": "2989723",
+     "treas": "1549"
+    },
+    {
+     "date": "2026-01",
+     "total_holdings": "3013546",
+     "treas": "1672"
+    },
+    {
+     "date": "2026-02",
+     "total_holdings": "2968635",
+     "treas": "1561"
+    },
+    {
+     "date": "2026-03",
+     "total_holdings": "2892698",
+     "treas": "1380"
+    },
+    {
+     "date": "2026-04",
+     "total_holdings": "2962194",
+     "treas": "1736"
+    }
+   ]
+  },
+  "HKG": {
+   "country_code": "42005",
+   "n_months": 76,
+   "series": [
+    {
+     "date": "2020-01",
+     "total_holdings": "173235",
+     "treas": "184"
+    },
+    {
+     "date": "2020-02",
+     "total_holdings": "171846",
+     "treas": "178"
+    },
+    {
+     "date": "2020-03",
+     "total_holdings": "151187",
+     "treas": "178"
+    },
+    {
+     "date": "2020-04",
+     "total_holdings": "162488",
+     "treas": "176"
+    },
+    {
+     "date": "2020-05",
+     "total_holdings": "148639",
+     "treas": "185"
+    },
+    {
+     "date": "2020-06",
+     "total_holdings": "160621",
+     "treas": "183"
+    },
+    {
+     "date": "2020-07",
+     "total_holdings": "157964",
+     "treas": "195"
+    },
+    {
+     "date": "2020-08",
+     "total_holdings": "167240",
+     "treas": "206"
+    },
+    {
+     "date": "2020-09",
+     "total_holdings": "161951",
+     "treas": "201"
+    },
+    {
+     "date": "2020-10",
+     "total_holdings": "174145",
+     "treas": "177"
+    },
+    {
+     "date": "2020-11",
+     "total_holdings": "167622",
+     "treas": "144"
+    },
+    {
+     "date": "2020-12",
+     "total_holdings": "167725",
+     "treas": "145"
+    },
+    {
+     "date": "2021-01",
+     "total_holdings": "161913",
+     "treas": "132"
+    },
+    {
+     "date": "2021-02",
+     "total_holdings": "164805",
+     "treas": "199"
+    },
+    {
+     "date": "2021-03",
+     "total_holdings": "164921",
+     "treas": "301"
+    },
+    {
+     "date": "2021-04",
+     "total_holdings": "170272",
+     "treas": "192"
+    },
+    {
+     "date": "2021-05",
+     "total_holdings": "172431",
+     "treas": "161"
+    },
+    {
+     "date": "2021-06",
+     "total_holdings": "167073",
+     "treas": "184"
+    },
+    {
+     "date": "2021-07",
+     "total_holdings": "163212",
+     "treas": "189"
+    },
+    {
+     "date": "2021-08",
+     "total_holdings": "165897",
+     "treas": "189"
+    },
+    {
+     "date": "2021-09",
+     "total_holdings": "157877",
+     "treas": "276"
+    },
+    {
+     "date": "2021-10",
+     "total_holdings": "157480",
+     "treas": "277"
+    },
+    {
+     "date": "2021-11",
+     "total_holdings": "148396",
+     "treas": "278"
+    },
+    {
+     "date": "2021-12",
+     "total_holdings": "147418",
+     "treas": "280"
+    },
+    {
+     "date": "2022-01",
+     "total_holdings": "149012",
+     "treas": "358"
+    },
+    {
+     "date": "2022-02",
+     "total_holdings": "145899",
+     "treas": "319"
+    },
+    {
+     "date": "2022-03",
+     "total_holdings": "142438",
+     "treas": "348"
+    },
+    {
+     "date": "2022-04",
+     "total_holdings": "132683",
+     "treas": "320"
+    },
+    {
+     "date": "2022-05",
+     "total_holdings": "133245",
+     "treas": "358"
+    },
+    {
+     "date": "2022-06",
+     "total_holdings": "134031",
+     "treas": "351"
+    },
+    {
+     "date": "2022-07",
+     "total_holdings": "128299",
+     "treas": "325"
+    },
+    {
+     "date": "2022-08",
+     "total_holdings": "123427",
+     "treas": "312"
+    },
+    {
+     "date": "2022-09",
+     "total_holdings": "109228",
+     "treas": "297"
+    },
+    {
+     "date": "2022-10",
+     "total_holdings": "96292",
+     "treas": "253"
+    },
+    {
+     "date": "2022-11",
+     "total_holdings": "121024",
+     "treas": "241"
+    },
+    {
+     "date": "2022-12",
+     "total_holdings": "127228",
+     "treas": "250"
+    },
+    {
+     "date": "2023-01",
+     "total_holdings": "132179",
+     "treas": "347"
+    },
+    {
+     "date": "2023-02",
+     "total_holdings": "123239",
+     "treas": "334"
+    },
+    {
+     "date": "2023-03",
+     "total_holdings": "124997",
+     "treas": "314"
+    },
+    {
+     "date": "2023-04",
+     "total_holdings": "125276",
+     "treas": "301"
+    },
+    {
+     "date": "2023-05",
+     "total_holdings": "113350",
+     "treas": "294"
+    },
+    {
+     "date": "2023-06",
+     "total_holdings": "116797",
+     "treas": "343"
+    },
+    {
+     "date": "2023-07",
+     "total_holdings": "118117",
+     "treas": "376"
+    },
+    {
+     "date": "2023-08",
+     "total_holdings": "106478",
+     "treas": "335"
+    },
+    {
+     "date": "2023-09",
+     "total_holdings": "98848",
+     "treas": "316"
+    },
+    {
+     "date": "2023-10",
+     "total_holdings": "98904",
+     "treas": "298"
+    },
+    {
+     "date": "2023-11",
+     "total_holdings": "99773",
+     "treas": "311"
+    },
+    {
+     "date": "2023-12",
+     "total_holdings": "105317",
+     "treas": "354"
+    },
+    {
+     "date": "2024-01",
+     "total_holdings": "93772",
+     "treas": "408"
+    },
+    {
+     "date": "2024-02",
+     "total_holdings": "97433",
+     "treas": "501"
+    },
+    {
+     "date": "2024-03",
+     "total_holdings": "91296",
+     "treas": "513"
+    },
+    {
+     "date": "2024-04",
+     "total_holdings": "95538",
+     "treas": "462"
+    },
+    {
+     "date": "2024-05",
+     "total_holdings": "98442",
+     "treas": "460"
+    },
+    {
+     "date": "2024-06",
+     "total_holdings": "91862",
+     "treas": "455"
+    },
+    {
+     "date": "2024-07",
+     "total_holdings": "90090",
+     "treas": "434"
+    },
+    {
+     "date": "2024-08",
+     "total_holdings": "91651",
+     "treas": "415"
+    },
+    {
+     "date": "2024-09",
+     "total_holdings": "106039",
+     "treas": "419"
+    },
+    {
+     "date": "2024-10",
+     "total_holdings": "99617",
+     "treas": "399"
+    },
+    {
+     "date": "2024-11",
+     "total_holdings": "94983",
+     "treas": "442"
+    },
+    {
+     "date": "2024-12",
+     "total_holdings": "90864",
+     "treas": "379"
+    },
+    {
+     "date": "2025-01",
+     "total_holdings": "88511",
+     "treas": "614"
+    },
+    {
+     "date": "2025-02",
+     "total_holdings": "94893",
+     "treas": "567"
+    },
+    {
+     "date": "2025-03",
+     "total_holdings": "94355",
+     "treas": "559"
+    },
+    {
+     "date": "2025-04",
+     "total_holdings": "92429",
+     "treas": "505"
+    },
+    {
+     "date": "2025-05",
+     "total_holdings": "100878",
+     "treas": "456"
+    },
+    {
+     "date": "2025-06",
+     "total_holdings": "106553",
+     "treas": "582"
+    },
+    {
+     "date": "2025-07",
+     "total_holdings": "112372",
+     "treas": "570"
+    },
+    {
+     "date": "2025-08",
+     "total_holdings": "115901",
+     "treas": "561"
+    },
+    {
+     "date": "2025-09",
+     "total_holdings": "117913",
+     "treas": "537"
+    },
+    {
+     "date": "2025-10",
+     "total_holdings": "117145",
+     "treas": "535"
+    },
+    {
+     "date": "2025-11",
+     "total_holdings": "121217",
+     "treas": "535"
+    },
+    {
+     "date": "2025-12",
+     "total_holdings": "119795",
+     "treas": "525"
+    },
+    {
+     "date": "2026-01",
+     "total_holdings": "131034",
+     "treas": "521"
+    },
+    {
+     "date": "2026-02",
+     "total_holdings": "133414",
+     "treas": "535"
+    },
+    {
+     "date": "2026-03",
+     "total_holdings": "125479",
+     "treas": "530"
+    },
+    {
+     "date": "2026-04",
+     "total_holdings": "130970",
+     "treas": "546"
+    }
+   ]
+  },
+  "VGB": {
+   "country_code": "35807",
+   "n_months": 76,
+   "series": [
+    {
+     "date": "2020-01",
+     "total_holdings": "71543",
+     "treas": "39"
+    },
+    {
+     "date": "2020-02",
+     "total_holdings": "69588",
+     "treas": "42"
+    },
+    {
+     "date": "2020-03",
+     "total_holdings": "59068",
+     "treas": "25"
+    },
+    {
+     "date": "2020-04",
+     "total_holdings": "56985",
+     "treas": "24"
+    },
+    {
+     "date": "2020-05",
+     "total_holdings": "57566",
+     "treas": "15"
+    },
+    {
+     "date": "2020-06",
+     "total_holdings": "59839",
+     "treas": "14"
+    },
+    {
+     "date": "2020-07",
+     "total_holdings": "60903",
+     "treas": "12"
+    },
+    {
+     "date": "2020-08",
+     "total_holdings": "64305",
+     "treas": "19"
+    },
+    {
+     "date": "2020-09",
+     "total_holdings": "62653",
+     "treas": "31"
+    },
+    {
+     "date": "2020-10",
+     "total_holdings": "62592",
+     "treas": "45"
+    },
+    {
+     "date": "2020-11",
+     "total_holdings": "69174",
+     "treas": "43"
+    },
+    {
+     "date": "2020-12",
+     "total_holdings": "66889",
+     "treas": "265"
+    },
+    {
+     "date": "2021-01",
+     "total_holdings": "70975",
+     "treas": "265"
+    },
+    {
+     "date": "2021-02",
+     "total_holdings": "68698",
+     "treas": "272"
+    },
+    {
+     "date": "2021-03",
+     "total_holdings": "69160",
+     "treas": "270"
+    },
+    {
+     "date": "2021-04",
+     "total_holdings": "74440",
+     "treas": "296"
+    },
+    {
+     "date": "2021-05",
+     "total_holdings": "76415",
+     "treas": "294"
+    },
+    {
+     "date": "2021-06",
+     "total_holdings": "76979",
+     "treas": "287"
+    },
+    {
+     "date": "2021-07",
+     "total_holdings": "75891",
+     "treas": "291"
+    },
+    {
+     "date": "2021-08",
+     "total_holdings": "78471",
+     "treas": "291"
+    },
+    {
+     "date": "2021-09",
+     "total_holdings": "79054",
+     "treas": "296"
+    },
+    {
+     "date": "2021-10",
+     "total_holdings": "80720",
+     "treas": "303"
+    },
+    {
+     "date": "2021-11",
+     "total_holdings": "77446",
+     "treas": "316"
+    },
+    {
+     "date": "2021-12",
+     "total_holdings": "82049",
+     "treas": "317"
+    },
+    {
+     "date": "2022-01",
+     "total_holdings": "80169",
+     "treas": "314"
+    },
+    {
+     "date": "2022-02",
+     "total_holdings": "78567",
+     "treas": "256"
+    },
+    {
+     "date": "2022-03",
+     "total_holdings": "76925",
+     "treas": "220"
+    },
+    {
+     "date": "2022-04",
+     "total_holdings": "74235",
+     "treas": "201"
+    },
+    {
+     "date": "2022-05",
+     "total_holdings": "75663",
+     "treas": "204"
+    },
+    {
+     "date": "2022-06",
+     "total_holdings": "73533",
+     "treas": "202"
+    },
+    {
+     "date": "2022-07",
+     "total_holdings": "72044",
+     "treas": "203"
+    },
+    {
+     "date": "2022-08",
+     "total_holdings": "72187",
+     "treas": "218"
+    },
+    {
+     "date": "2022-09",
+     "total_holdings": "70643",
+     "treas": "229"
+    },
+    {
+     "date": "2022-10",
+     "total_holdings": "61890",
+     "treas": "244"
+    },
+    {
+     "date": "2022-11",
+     "total_holdings": "59779",
+     "treas": "417"
+    },
+    {
+     "date": "2022-12",
+     "total_holdings": "59526",
+     "treas": "410"
+    },
+    {
+     "date": "2023-01",
+     "total_holdings": "60508",
+     "treas": "397"
+    },
+    {
+     "date": "2023-02",
+     "total_holdings": "59310",
+     "treas": "399"
+    },
+    {
+     "date": "2023-03",
+     "total_holdings": "57729",
+     "treas": "1"
+    },
+    {
+     "date": "2023-04",
+     "total_holdings": "53386",
+     "treas": "1"
+    },
+    {
+     "date": "2023-05",
+     "total_holdings": "52048",
+     "treas": "1"
+    },
+    {
+     "date": "2023-06",
+     "total_holdings": "51960",
+     "treas": "1"
+    },
+    {
+     "date": "2023-07",
+     "total_holdings": "52600",
+     "treas": "1"
+    },
+    {
+     "date": "2023-08",
+     "total_holdings": "53175",
+     "treas": "1"
+    },
+    {
+     "date": "2023-09",
+     "total_holdings": "52312",
+     "treas": "1"
+    },
+    {
+     "date": "2023-10",
+     "total_holdings": "51270",
+     "treas": "1"
+    },
+    {
+     "date": "2023-11",
+     "total_holdings": "51439",
+     "treas": "1"
+    },
+    {
+     "date": "2023-12",
+     "total_holdings": "51506",
+     "treas": "0"
+    },
+    {
+     "date": "2024-01",
+     "total_holdings": "51601",
+     "treas": "1"
+    },
+    {
+     "date": "2024-02",
+     "total_holdings": "53575",
+     "treas": "0"
+    },
+    {
+     "date": "2024-03",
+     "total_holdings": "54956",
+     "treas": "0"
+    },
+    {
+     "date": "2024-04",
+     "total_holdings": "53332",
+     "treas": "0"
+    },
+    {
+     "date": "2024-05",
+     "total_holdings": "52491",
+     "treas": "0"
+    },
+    {
+     "date": "2024-06",
+     "total_holdings": "51780",
+     "treas": "0"
+    },
+    {
+     "date": "2024-07",
+     "total_holdings": "52881",
+     "treas": "0"
+    },
+    {
+     "date": "2024-08",
+     "total_holdings": "52348",
+     "treas": "0"
+    },
+    {
+     "date": "2024-09",
+     "total_holdings": "54218",
+     "treas": "0"
+    },
+    {
+     "date": "2024-10",
+     "total_holdings": "52120",
+     "treas": "0"
+    },
+    {
+     "date": "2024-11",
+     "total_holdings": "51701",
+     "treas": "0"
+    },
+    {
+     "date": "2024-12",
+     "total_holdings": "49895",
+     "treas": "0"
+    },
+    {
+     "date": "2025-01",
+     "total_holdings": "51462",
+     "treas": "0"
+    },
+    {
+     "date": "2025-02",
+     "total_holdings": "51201",
+     "treas": "0"
+    },
+    {
+     "date": "2025-03",
+     "total_holdings": "49647",
+     "treas": "0"
+    },
+    {
+     "date": "2025-04",
+     "total_holdings": "49244",
+     "treas": "0"
+    },
+    {
+     "date": "2025-05",
+     "total_holdings": "49473",
+     "treas": "0"
+    },
+    {
+     "date": "2025-06",
+     "total_holdings": "51419",
+     "treas": "0"
+    },
+    {
+     "date": "2025-07",
+     "total_holdings": "51342",
+     "treas": "0"
+    },
+    {
+     "date": "2025-08",
+     "total_holdings": "52521",
+     "treas": "0"
+    },
+    {
+     "date": "2025-09",
+     "total_holdings": "53544",
+     "treas": "0"
+    },
+    {
+     "date": "2025-10",
+     "total_holdings": "54688",
+     "treas": "0"
+    },
+    {
+     "date": "2025-11",
+     "total_holdings": "56653",
+     "treas": "0"
+    },
+    {
+     "date": "2025-12",
+     "total_holdings": "57734",
+     "treas": "0"
+    },
+    {
+     "date": "2026-01",
+     "total_holdings": "57832",
+     "treas": "0"
+    },
+    {
+     "date": "2026-02",
+     "total_holdings": "57729",
+     "treas": "0"
+    },
+    {
+     "date": "2026-03",
+     "total_holdings": "55172",
+     "treas": "0"
+    },
+    {
+     "date": "2026-04",
+     "total_holdings": "58439",
+     "treas": "0"
+    }
+   ]
+  }
+ },
+ "F4_foreign_holdings_of_us_table1": {
+  "CYM": {
+   "country_code": "36137",
+   "n_months": 76,
+   "series": [
+    {
+     "date": "2020-01",
+     "total_holdings": "1741421",
+     "treas": "132534"
+    },
+    {
+     "date": "2020-02",
+     "total_holdings": "1746502",
+     "treas": "132188"
+    },
+    {
+     "date": "2020-03",
+     "total_holdings": "1524987",
+     "treas": "113327"
+    },
+    {
+     "date": "2020-04",
+     "total_holdings": "1601611",
+     "treas": "107339"
+    },
+    {
+     "date": "2020-05",
+     "total_holdings": "1695171",
+     "treas": "106820"
+    },
+    {
+     "date": "2020-06",
+     "total_holdings": "1748805",
+     "treas": "114416"
+    },
+    {
+     "date": "2020-07",
+     "total_holdings": "1783624",
+     "treas": "115028"
+    },
+    {
+     "date": "2020-08",
+     "total_holdings": "1858766",
+     "treas": "120391"
+    },
+    {
+     "date": "2020-09",
+     "total_holdings": "1882040",
+     "treas": "117121"
+    },
+    {
+     "date": "2020-10",
+     "total_holdings": "1848762",
+     "treas": "109431"
+    },
+    {
+     "date": "2020-11",
+     "total_holdings": "1983660",
+     "treas": "106164"
+    },
+    {
+     "date": "2020-12",
+     "total_holdings": "2064293",
+     "treas": "105027"
+    },
+    {
+     "date": "2021-01",
+     "total_holdings": "2010184",
+     "treas": "106055"
+    },
+    {
+     "date": "2021-02",
+     "total_holdings": "2081439",
+     "treas": "103160"
+    },
+    {
+     "date": "2021-03",
+     "total_holdings": "2115697",
+     "treas": "107622"
+    },
+    {
+     "date": "2021-04",
+     "total_holdings": "2170764",
+     "treas": "114979"
+    },
+    {
+     "date": "2021-05",
+     "total_holdings": "2187859",
+     "treas": "118228"
+    },
+    {
+     "date": "2021-06",
+     "total_holdings": "2313131",
+     "treas": "141349"
+    },
+    {
+     "date": "2021-07",
+     "total_holdings": "2283121",
+     "treas": "145552"
+    },
+    {
+     "date": "2021-08",
+     "total_holdings": "2313697",
+     "treas": "142542"
+    },
+    {
+     "date": "2021-09",
+     "total_holdings": "2304858",
+     "treas": "142969"
+    },
+    {
+     "date": "2021-10",
+     "total_holdings": "2332786",
+     "treas": "144236"
+    },
+    {
+     "date": "2021-11",
+     "total_holdings": "2310100",
+     "treas": "141908"
+    },
+    {
+     "date": "2021-12",
+     "total_holdings": "2332598",
+     "treas": "144625"
+    },
+    {
+     "date": "2022-01",
+     "total_holdings": "2230234",
+     "treas": "146313"
+    },
+    {
+     "date": "2022-02",
+     "total_holdings": "2243746",
+     "treas": "142457"
+    },
+    {
+     "date": "2022-03",
+     "total_holdings": "2240682",
+     "treas": "160851"
+    },
+    {
+     "date": "2022-04",
+     "total_holdings": "2140147",
+     "treas": "158768"
+    },
+    {
+     "date": "2022-05",
+     "total_holdings": "2161541",
+     "treas": "170796"
+    },
+    {
+     "date": "2022-06",
+     "total_holdings": "2030274",
+     "treas": "175477"
+    },
+    {
+     "date": "2022-07",
+     "total_holdings": "2076676",
+     "treas": "168261"
+    },
+    {
+     "date": "2022-08",
+     "total_holdings": "2065998",
+     "treas": "173958"
+    },
+    {
+     "date": "2022-09",
+     "total_holdings": "2010403",
+     "treas": "165325"
+    },
+    {
+     "date": "2022-10",
+     "total_holdings": "2009417",
+     "treas": "156119"
+    },
+    {
+     "date": "2022-11",
+     "total_holdings": "2071071",
+     "treas": "164456"
+    },
+    {
+     "date": "2022-12",
+     "total_holdings": "2055213",
+     "treas": "165554"
+    },
+    {
+     "date": "2023-01",
+     "total_holdings": "2091885",
+     "treas": "166341"
+    },
+    {
+     "date": "2023-02",
+     "total_holdings": "2074082",
+     "treas": "158998"
+    },
+    {
+     "date": "2023-03",
+     "total_holdings": "2132361",
+     "treas": "174876"
+    },
+    {
+     "date": "2023-04",
+     "total_holdings": "2134556",
+     "treas": "170703"
+    },
+    {
+     "date": "2023-05",
+     "total_holdings": "2172768",
+     "treas": "168978"
+    },
+    {
+     "date": "2023-06",
+     "total_holdings": "2225758",
+     "treas": "164826"
+    },
+    {
+     "date": "2023-07",
+     "total_holdings": "2261525",
+     "treas": "179371"
+    },
+    {
+     "date": "2023-08",
+     "total_holdings": "2265835",
+     "treas": "174531"
+    },
+    {
+     "date": "2023-09",
+     "total_holdings": "2243740",
+     "treas": "175230"
+    },
+    {
+     "date": "2023-10",
+     "total_holdings": "2211102",
+     "treas": "184683"
+    },
+    {
+     "date": "2023-11",
+     "total_holdings": "2286612",
+     "treas": "188661"
+    },
+    {
+     "date": "2023-12",
+     "total_holdings": "2373564",
+     "treas": "179544"
+    },
+    {
+     "date": "2024-01",
+     "total_holdings": "2390064",
+     "treas": "192610"
+    },
+    {
+     "date": "2024-02",
+     "total_holdings": "2431634",
+     "treas": "176100"
+    },
+    {
+     "date": "2024-03",
+     "total_holdings": "2483125",
+     "treas": "178531"
+    },
+    {
+     "date": "2024-04",
+     "total_holdings": "2467692",
+     "treas": "188973"
+    },
+    {
+     "date": "2024-05",
+     "total_holdings": "2513997",
+     "treas": "201496"
+    },
+    {
+     "date": "2024-06",
+     "total_holdings": "2543354",
+     "treas": "182947"
+    },
+    {
+     "date": "2024-07",
+     "total_holdings": "2589710",
+     "treas": "234324"
+    },
+    {
+     "date": "2024-08",
+     "total_holdings": "2643949",
+     "treas": "275905"
+    },
+    {
+     "date": "2024-09",
+     "total_holdings": "2710501",
+     "treas": "283459"
+    },
+    {
+     "date": "2024-10",
+     "total_holdings": "2689131",
+     "treas": "275129"
+    },
+    {
+     "date": "2024-11",
+     "total_holdings": "2781676",
+     "treas": "262006"
+    },
+    {
+     "date": "2024-12",
+     "total_holdings": "2791786",
+     "treas": "267417"
+    },
+    {
+     "date": "2025-01",
+     "total_holdings": "2830609",
+     "treas": "256591"
+    },
+    {
+     "date": "2025-02",
+     "total_holdings": "2829516",
+     "treas": "273840"
+    },
+    {
+     "date": "2025-03",
+     "total_holdings": "2797909",
+     "treas": "308697"
+    },
+    {
+     "date": "2025-04",
+     "total_holdings": "2759817",
+     "treas": "298090"
+    },
+    {
+     "date": "2025-05",
+     "total_holdings": "2869151",
+     "treas": "283228"
+    },
+    {
+     "date": "2025-06",
+     "total_holdings": "2977341",
+     "treas": "286197"
+    },
+    {
+     "date": "2025-07",
+     "total_holdings": "2975482",
+     "treas": "280440"
+    },
+    {
+     "date": "2025-08",
+     "total_holdings": "3019449",
+     "treas": "257790"
+    },
+    {
+     "date": "2025-09",
+     "total_holdings": "3107014",
+     "treas": "272122"
+    },
+    {
+     "date": "2025-10",
+     "total_holdings": "3121867",
+     "treas": "255776"
+    },
+    {
+     "date": "2025-11",
+     "total_holdings": "3209619",
+     "treas": "274684"
+    },
+    {
+     "date": "2025-12",
+     "total_holdings": "3232040",
+     "treas": "266722"
+    },
+    {
+     "date": "2026-01",
+     "total_holdings": "3258364",
+     "treas": "277081"
+    },
+    {
+     "date": "2026-02",
+     "total_holdings": "3252722",
+     "treas": "289709"
+    },
+    {
+     "date": "2026-03",
+     "total_holdings": "3226231",
+     "treas": "311226"
+    },
+    {
+     "date": "2026-04",
+     "total_holdings": "3363709",
+     "treas": "319520"
+    }
+   ]
+  },
+  "HKG": {
+   "country_code": "42005",
+   "n_months": 76,
+   "series": [
+    {
+     "date": "2020-01",
+     "total_holdings": "437549",
+     "treas": "237854"
+    },
+    {
+     "date": "2020-02",
+     "total_holdings": "440275",
+     "treas": "248668"
+    },
+    {
+     "date": "2020-03",
+     "total_holdings": "421296",
+     "treas": "241416"
+    },
+    {
+     "date": "2020-04",
+     "total_holdings": "444269",
+     "treas": "244798"
+    },
+    {
+     "date": "2020-05",
+     "total_holdings": "452034",
+     "treas": "244358"
+    },
+    {
+     "date": "2020-06",
+     "total_holdings": "430472",
+     "treas": "235778"
+    },
+    {
+     "date": "2020-07",
+     "total_holdings": "452563",
+     "treas": "238866"
+    },
+    {
+     "date": "2020-08",
+     "total_holdings": "438624",
+     "treas": "225381"
+    },
+    {
+     "date": "2020-09",
+     "total_holdings": "431218",
+     "treas": "219201"
+    },
+    {
+     "date": "2020-10",
+     "total_holdings": "404356",
+     "treas": "195990"
+    },
+    {
+     "date": "2020-11",
+     "total_holdings": "418119",
+     "treas": "194921"
+    },
+    {
+     "date": "2020-12",
+     "total_holdings": "426050",
+     "treas": "193401"
+    },
+    {
+     "date": "2021-01",
+     "total_holdings": "432234",
+     "treas": "192486"
+    },
+    {
+     "date": "2021-02",
+     "total_holdings": "430882",
+     "treas": "194638"
+    },
+    {
+     "date": "2021-03",
+     "total_holdings": "431238",
+     "treas": "195094"
+    },
+    {
+     "date": "2021-04",
+     "total_holdings": "438885",
+     "treas": "193738"
+    },
+    {
+     "date": "2021-05",
+     "total_holdings": "448732",
+     "treas": "203513"
+    },
+    {
+     "date": "2021-06",
+     "total_holdings": "450901",
+     "treas": "197732"
+    },
+    {
+     "date": "2021-07",
+     "total_holdings": "460187",
+     "treas": "205092"
+    },
+    {
+     "date": "2021-08",
+     "total_holdings": "459418",
+     "treas": "198482"
+    },
+    {
+     "date": "2021-09",
+     "total_holdings": "459473",
+     "treas": "210125"
+    },
+    {
+     "date": "2021-10",
+     "total_holdings": "475614",
+     "treas": "214189"
+    },
+    {
+     "date": "2021-11",
+     "total_holdings": "479932",
+     "treas": "214767"
+    },
+    {
+     "date": "2021-12",
+     "total_holdings": "473745",
+     "treas": "204469"
+    },
+    {
+     "date": "2022-01",
+     "total_holdings": "457963",
+     "treas": "205854"
+    },
+    {
+     "date": "2022-02",
+     "total_holdings": "425500",
+     "treas": "180897"
+    },
+    {
+     "date": "2022-03",
+     "total_holdings": "422781",
+     "treas": "180376"
+    },
+    {
+     "date": "2022-04",
+     "total_holdings": "395161",
+     "treas": "170143"
+    },
+    {
+     "date": "2022-05",
+     "total_holdings": "394738",
+     "treas": "162057"
+    },
+    {
+     "date": "2022-06",
+     "total_holdings": "367769",
+     "treas": "164590"
+    },
+    {
+     "date": "2022-07",
+     "total_holdings": "383049",
+     "treas": "167254"
+    },
+    {
+     "date": "2022-08",
+     "total_holdings": "379466",
+     "treas": "167119"
+    },
+    {
+     "date": "2022-09",
+     "total_holdings": "354343",
+     "treas": "156840"
+    },
+    {
+     "date": "2022-10",
+     "total_holdings": "358789",
+     "treas": "158102"
+    },
+    {
+     "date": "2022-11",
+     "total_holdings": "380363",
+     "treas": "168055"
+    },
+    {
+     "date": "2022-12",
+     "total_holdings": "383805",
+     "treas": "175078"
+    },
+    {
+     "date": "2023-01",
+     "total_holdings": "403691",
+     "treas": "182697"
+    },
+    {
+     "date": "2023-02",
+     "total_holdings": "390897",
+     "treas": "174164"
+    },
+    {
+     "date": "2023-03",
+     "total_holdings": "404522",
+     "treas": "179325"
+    },
+    {
+     "date": "2023-04",
+     "total_holdings": "406699",
+     "treas": "180948"
+    },
+    {
+     "date": "2023-05",
+     "total_holdings": "409193",
+     "treas": "182402"
+    },
+    {
+     "date": "2023-06",
+     "total_holdings": "404727",
+     "treas": "169164"
+    },
+    {
+     "date": "2023-07",
+     "total_holdings": "415730",
+     "treas": "171295"
+    },
+    {
+     "date": "2023-08",
+     "total_holdings": "420342",
+     "treas": "177495"
+    },
+    {
+     "date": "2023-09",
+     "total_holdings": "404974",
+     "treas": "170880"
+    },
+    {
+     "date": "2023-10",
+     "total_holdings": "401209",
+     "treas": "177340"
+    },
+    {
+     "date": "2023-11",
+     "total_holdings": "432006",
+     "treas": "191074"
+    },
+    {
+     "date": "2023-12",
+     "total_holdings": "483436",
+     "treas": "216989"
+    },
+    {
+     "date": "2024-01",
+     "total_holdings": "470963",
+     "treas": "209261"
+    },
+    {
+     "date": "2024-02",
+     "total_holdings": "462283",
+     "treas": "187591"
+    },
+    {
+     "date": "2024-03",
+     "total_holdings": "464505",
+     "treas": "175981"
+    },
+    {
+     "date": "2024-04",
+     "total_holdings": "468980",
+     "treas": "191197"
+    },
+    {
+     "date": "2024-05",
+     "total_holdings": "481073",
+     "treas": "189400"
+    },
+    {
+     "date": "2024-06",
+     "total_holdings": "489977",
+     "treas": "194040"
+    },
+    {
+     "date": "2024-07",
+     "total_holdings": "510263",
+     "treas": "205958"
+    },
+    {
+     "date": "2024-08",
+     "total_holdings": "518888",
+     "treas": "207001"
+    },
+    {
+     "date": "2024-09",
+     "total_holdings": "516870",
+     "treas": "199892"
+    },
+    {
+     "date": "2024-10",
+     "total_holdings": "534451",
+     "treas": "219102"
+    },
+    {
+     "date": "2024-11",
+     "total_holdings": "548190",
+     "treas": "220010"
+    },
+    {
+     "date": "2024-12",
+     "total_holdings": "536730",
+     "treas": "213388"
+    },
+    {
+     "date": "2025-01",
+     "total_holdings": "545640",
+     "treas": "209603"
+    },
+    {
+     "date": "2025-02",
+     "total_holdings": "545894",
+     "treas": "215363"
+    },
+    {
+     "date": "2025-03",
+     "total_holdings": "519041",
+     "treas": "202976"
+    },
+    {
+     "date": "2025-04",
+     "total_holdings": "514016",
+     "treas": "193164"
+    },
+    {
+     "date": "2025-05",
+     "total_holdings": "539803",
+     "treas": "193671"
+    },
+    {
+     "date": "2025-06",
+     "total_holdings": "553123",
+     "treas": "190680"
+    },
+    {
+     "date": "2025-07",
+     "total_holdings": "572211",
+     "treas": "201053"
+    },
+    {
+     "date": "2025-08",
+     "total_holdings": "585731",
+     "treas": "208244"
+    },
+    {
+     "date": "2025-09",
+     "total_holdings": "598597",
+     "treas": "197574"
+    },
+    {
+     "date": "2025-10",
+     "total_holdings": "615780",
+     "treas": "207108"
+    },
+    {
+     "date": "2025-11",
+     "total_holdings": "622499",
+     "treas": "210939"
+    },
+    {
+     "date": "2025-12",
+     "total_holdings": "642057",
+     "treas": "219070"
+    },
+    {
+     "date": "2026-01",
+     "total_holdings": "651666",
+     "treas": "213605"
+    },
+    {
+     "date": "2026-02",
+     "total_holdings": "653252",
+     "treas": "217959"
+    },
+    {
+     "date": "2026-03",
+     "total_holdings": "648122",
+     "treas": "226888"
+    },
+    {
+     "date": "2026-04",
+     "total_holdings": "676868",
+     "treas": "217424"
+    }
+   ]
+  },
+  "VGB": {
+   "country_code": "35807",
+   "n_months": 76,
+   "series": [
+    {
+     "date": "2020-01",
+     "total_holdings": "152156",
+     "treas": "31939"
+    },
+    {
+     "date": "2020-02",
+     "total_holdings": "147464",
+     "treas": "32909"
+    },
+    {
+     "date": "2020-03",
+     "total_holdings": "141624",
+     "treas": "32294"
+    },
+    {
+     "date": "2020-04",
+     "total_holdings": "142910",
+     "treas": "32008"
+    },
+    {
+     "date": "2020-05",
+     "total_holdings": "147937",
+     "treas": "32153"
+    },
+    {
+     "date": "2020-06",
+     "total_holdings": "159223",
+     "treas": "30680"
+    },
+    {
+     "date": "2020-07",
+     "total_holdings": "159423",
+     "treas": "30767"
+    },
+    {
+     "date": "2020-08",
+     "total_holdings": "165356",
+     "treas": "31287"
+    },
+    {
+     "date": "2020-09",
+     "total_holdings": "168504",
+     "treas": "30741"
+    },
+    {
+     "date": "2020-10",
+     "total_holdings": "168997",
+     "treas": "30298"
+    },
+    {
+     "date": "2020-11",
+     "total_holdings": "180880",
+     "treas": "29333"
+    },
+    {
+     "date": "2020-12",
+     "total_holdings": "182479",
+     "treas": "29325"
+    },
+    {
+     "date": "2021-01",
+     "total_holdings": "179869",
+     "treas": "29447"
+    },
+    {
+     "date": "2021-02",
+     "total_holdings": "190743",
+     "treas": "29755"
+    },
+    {
+     "date": "2021-03",
+     "total_holdings": "182668",
+     "treas": "30035"
+    },
+    {
+     "date": "2021-04",
+     "total_holdings": "187706",
+     "treas": "29771"
+    },
+    {
+     "date": "2021-05",
+     "total_holdings": "189668",
+     "treas": "30780"
+    },
+    {
+     "date": "2021-06",
+     "total_holdings": "197375",
+     "treas": "30591"
+    },
+    {
+     "date": "2021-07",
+     "total_holdings": "196458",
+     "treas": "31970"
+    },
+    {
+     "date": "2021-08",
+     "total_holdings": "202218",
+     "treas": "32156"
+    },
+    {
+     "date": "2021-09",
+     "total_holdings": "192868",
+     "treas": "32077"
+    },
+    {
+     "date": "2021-10",
+     "total_holdings": "199369",
+     "treas": "32523"
+    },
+    {
+     "date": "2021-11",
+     "total_holdings": "193684",
+     "treas": "31963"
+    },
+    {
+     "date": "2021-12",
+     "total_holdings": "196957",
+     "treas": "31703"
+    },
+    {
+     "date": "2022-01",
+     "total_holdings": "189461",
+     "treas": "31500"
+    },
+    {
+     "date": "2022-02",
+     "total_holdings": "189684",
+     "treas": "30631"
+    },
+    {
+     "date": "2022-03",
+     "total_holdings": "192844",
+     "treas": "27816"
+    },
+    {
+     "date": "2022-04",
+     "total_holdings": "189548",
+     "treas": "31138"
+    },
+    {
+     "date": "2022-05",
+     "total_holdings": "184029",
+     "treas": "31588"
+    },
+    {
+     "date": "2022-06",
+     "total_holdings": "182927",
+     "treas": "33527"
+    },
+    {
+     "date": "2022-07",
+     "total_holdings": "189286",
+     "treas": "34574"
+    },
+    {
+     "date": "2022-08",
+     "total_holdings": "188176",
+     "treas": "33602"
+    },
+    {
+     "date": "2022-09",
+     "total_holdings": "188912",
+     "treas": "34284"
+    },
+    {
+     "date": "2022-10",
+     "total_holdings": "185055",
+     "treas": "34372"
+    },
+    {
+     "date": "2022-11",
+     "total_holdings": "189708",
+     "treas": "33955"
+    },
+    {
+     "date": "2022-12",
+     "total_holdings": "182422",
+     "treas": "32882"
+    },
+    {
+     "date": "2023-01",
+     "total_holdings": "183537",
+     "treas": "30266"
+    },
+    {
+     "date": "2023-02",
+     "total_holdings": "187742",
+     "treas": "32689"
+    },
+    {
+     "date": "2023-03",
+     "total_holdings": "187140",
+     "treas": "34194"
+    },
+    {
+     "date": "2023-04",
+     "total_holdings": "189140",
+     "treas": "34746"
+    },
+    {
+     "date": "2023-05",
+     "total_holdings": "189092",
+     "treas": "33902"
+    },
+    {
+     "date": "2023-06",
+     "total_holdings": "198244",
+     "treas": "35105"
+    },
+    {
+     "date": "2023-07",
+     "total_holdings": "202150",
+     "treas": "34536"
+    },
+    {
+     "date": "2023-08",
+     "total_holdings": "203445",
+     "treas": "34827"
+    },
+    {
+     "date": "2023-09",
+     "total_holdings": "200828",
+     "treas": "36539"
+    },
+    {
+     "date": "2023-10",
+     "total_holdings": "195750",
+     "treas": "37089"
+    },
+    {
+     "date": "2023-11",
+     "total_holdings": "203444",
+     "treas": "38026"
+    },
+    {
+     "date": "2023-12",
+     "total_holdings": "215924",
+     "treas": "38734"
+    },
+    {
+     "date": "2024-01",
+     "total_holdings": "214299",
+     "treas": "39674"
+    },
+    {
+     "date": "2024-02",
+     "total_holdings": "224276",
+     "treas": "37956"
+    },
+    {
+     "date": "2024-03",
+     "total_holdings": "227753",
+     "treas": "38101"
+    },
+    {
+     "date": "2024-04",
+     "total_holdings": "228137",
+     "treas": "39593"
+    },
+    {
+     "date": "2024-05",
+     "total_holdings": "231680",
+     "treas": "38132"
+    },
+    {
+     "date": "2024-06",
+     "total_holdings": "233023",
+     "treas": "38418"
+    },
+    {
+     "date": "2024-07",
+     "total_holdings": "236080",
+     "treas": "39857"
+    },
+    {
+     "date": "2024-08",
+     "total_holdings": "234252",
+     "treas": "39751"
+    },
+    {
+     "date": "2024-09",
+     "total_holdings": "292072",
+     "treas": "49368"
+    },
+    {
+     "date": "2024-10",
+     "total_holdings": "295506",
+     "treas": "48850"
+    },
+    {
+     "date": "2024-11",
+     "total_holdings": "310478",
+     "treas": "50119"
+    },
+    {
+     "date": "2024-12",
+     "total_holdings": "306379",
+     "treas": "49887"
+    },
+    {
+     "date": "2025-01",
+     "total_holdings": "311214",
+     "treas": "51135"
+    },
+    {
+     "date": "2025-02",
+     "total_holdings": "305314",
+     "treas": "52586"
+    },
+    {
+     "date": "2025-03",
+     "total_holdings": "297240",
+     "treas": "55216"
+    },
+    {
+     "date": "2025-04",
+     "total_holdings": "299784",
+     "treas": "56380"
+    },
+    {
+     "date": "2025-05",
+     "total_holdings": "309528",
+     "treas": "55162"
+    },
+    {
+     "date": "2025-06",
+     "total_holdings": "325402",
+     "treas": "55997"
+    },
+    {
+     "date": "2025-07",
+     "total_holdings": "324907",
+     "treas": "55783"
+    },
+    {
+     "date": "2025-08",
+     "total_holdings": "334709",
+     "treas": "54495"
+    },
+    {
+     "date": "2025-09",
+     "total_holdings": "351849",
+     "treas": "58253"
+    },
+    {
+     "date": "2025-10",
+     "total_holdings": "363650",
+     "treas": "60245"
+    },
+    {
+     "date": "2025-11",
+     "total_holdings": "368185",
+     "treas": "60739"
+    },
+    {
+     "date": "2025-12",
+     "total_holdings": "390076",
+     "treas": "60255"
+    },
+    {
+     "date": "2026-01",
+     "total_holdings": "360704",
+     "treas": "59560"
+    },
+    {
+     "date": "2026-02",
+     "total_holdings": "356213",
+     "treas": "59839"
+    },
+    {
+     "date": "2026-03",
+     "total_holdings": "354978",
+     "treas": "64479"
+    },
+    {
+     "date": "2026-04",
+     "total_holdings": "376784",
+     "treas": "65902"
+    }
+   ]
+  }
+ }
+}
