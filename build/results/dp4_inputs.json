@@ -1,0 +1,106 @@
+{
+ "dp": "DP4",
+ "artifact": "dp4_inputs.json",
+ "purpose": "Persisted operator recipe + matrix quantities (verbatim from matrix_assembled.json) + evaluation points so dp4_spectrum.json regenerates from disk ALONE via dp4_recompute_check.py.",
+ "generated": "2026-06-29",
+ "reads": [
+  "build/model/matrix_assembled.json (cell values, reproduced verbatim below)"
+ ],
+ "matrix_quantities_usd_mn": {
+  "offshore_pool_destination_cells": {
+   "US->CYM": 2798130.0,
+   "US->HKG": 107448.0,
+   "US->VGB": 51419.0
+  },
+  "offshore_pool_total_POOL": 2956997.0,
+  "direct_us_to_china_cell_not_in_pool": 255341.0,
+  "usa_issuer_column_by_holder": {
+   "CYM": 4513338.3,
+   "IRL": 2583036.4,
+   "JPN": 2342597.3,
+   "LUX": 2199787.3,
+   "GBR": 1824619.1,
+   "DEU": 878233.5,
+   "FRA": 876069.0,
+   "NLD": 750520.7,
+   "HKG": 419578.3,
+   "CHN": 330700.3,
+   "ITA": 238397.0,
+   "BEL": 119098.6
+  },
+  "bis_marginal_floor_carried_forward": 711157.7
+ },
+ "moment_space": {
+  "block_A_destination_cells": [
+   "US->CYM",
+   "US->HKG",
+   "US->VGB"
+  ],
+  "block_B_usa_column_holders": [
+   "CYM",
+   "IRL",
+   "JPN",
+   "LUX",
+   "GBR",
+   "DEU",
+   "FRA",
+   "NLD",
+   "HKG",
+   "CHN",
+   "ITA",
+   "BEL"
+  ],
+  "dimension": 15
+ },
+ "operator_recipe": {
+  "shape": "15 x 2  (columns = [v_F3 | v_F4])",
+  "destination_line_direction_DESTn": [
+   0.9990951099712532,
+   0.038365183667732096,
+   0.018359572807414907
+  ],
+  "usa_common_direction_USAn": [
+   0.687025681368424,
+   0.39319284856387593,
+   0.356592925064875,
+   0.33485421836162954,
+   0.2777456722921348,
+   0.13368573960832403,
+   0.1333562568644043,
+   0.11424514650244733,
+   0.06386870389150866,
+   0.050339589863281964,
+   0.036289072627502396,
+   0.018129329417877982
+  ],
+  "v_F3": "[ (f + (1-f)*s_usd)*DESTn ; -USAn ]  -- F3-exclusive China-non-USD rise (f) + shared offshore-USD (1-f)*s_usd, shared common USA fall.",
+  "v_F4": "[ (    (1-f)*s_usd)*DESTn ; -USAn ]  -- shared offshore-USD destination (the FALSIFIER: F4 also moves offshore-USD claims) + shared common USA fall.",
+  "separating_component": "f*DESTn (F3-exclusive). Vanishes at f=0 -> v_F3==v_F4 -> rank-1 -> margin 0 for ALL s_usd.",
+  "confound": "shared term (1-f)*s_usd*DESTn grows with s_usd, dominates both footprints, shrinks the angle -> margin falls.",
+  "single_snapshot_shared_USA": "the USA block -USAn is the SAME realized common fall for both factors; one matrix has no lead/lag discriminator, so it does NOT separate them.",
+  "margin_definition": "smallest singular value of the COLUMN-NORMALISED operator (geometric; 0=footprints collapsed/observationally equivalent, 1=orthogonal/cleanly separated).",
+  "threshold_tau": 0.1,
+  "threshold_basis": "stated, not tuned: for a column-normalised 15x2 map the smallest singular value lies in [0,1]; tau=0.10 marks a footprint angle of ~arccos(sqrt(1-tau^2)) where the two footprints are within ~8 degrees of collinear -- below it the factors are treated as observationally inseparable. The verdict (form (b)) does NOT depend on tau: the margin is EXACTLY 0 at f=0 for all s_usd regardless of tau."
+ },
+ "evaluation_points": {
+  "f_points": [
+   0.0,
+   0.0864,
+   0.2,
+   0.6
+  ],
+  "f_points_justification": "SAME equation-justified points as dp3_sensitivity.json (endpoints 0.0, 0.60 + landmarks 0.0864 offshore-increment=direct-cell, 0.20 NBER corporate-bond China-nationality share).",
+  "usd_share_points": [
+   0.0,
+   0.5,
+   1.0
+  ],
+  "usd_share_justification": "the offshore-USD (ABS) share of the (1-f) remainder is a HOLE; swept as a PARAMETER at 0.0 (remainder fully non-USD; F4 has no destination reach), 0.5 (HOLE midpoint -- NOT an estimate), 1.0 (remainder fully offshore-USD = confound maximal; F4 reaches all destinations). No point value invented."
+ },
+ "carried_forward_not_resolved": [
+  "HOLE: China-nationality fraction f in [0.0, 0.60] (china_fraction_bound.json).",
+  "HOLE: offshore-USD (ABS) share of the non-China remainder s_usd in [0,1] (second hole; UNVERIFIED).",
+  "$711,157.7mn BIS banking-marginal floor (does not enter operator; carried as F1 noise floor).",
+  "UNESTIMABLE-FROM-ONE-SNAPSHOT: contagion-vs-substitution (lead/lag) discriminator; no second matrix on disk."
+ ]
+}

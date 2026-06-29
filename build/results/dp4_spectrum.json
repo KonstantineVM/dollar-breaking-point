@@ -1,0 +1,376 @@
+{
+ "dp": "DP4",
+ "artifact": "dp4_spectrum.json",
+ "title": "Singular spectrum and F3/F4 separation-margin SURFACE over the (f, offshore-USD-share) plane -- the DP3 degeneracy made numerical. NO point hazard.",
+ "status": "OUTPUT -- NOT ESTABLISHED. Estimation run; not established until the DP5 verifier scenario runs and its verifier artifact exists on disk. Inherits DP3 form (b): F3/F4 separation NOT ESTABLISHED -- fails at f=0, at best conditionally identified toward f=0.60. NOT re-opened/softened/overturned.",
+ "generated": "2026-06-29",
+ "reads": [
+  "build/results/dp4_inputs.json (operator recipe + matrix quantities + eval points)"
+ ],
+ "regenerates_from": "build/results/dp4_inputs.json via build/results/dp4_recompute_check.py",
+ "what_the_operator_is": "The 15x2 linear map M=[v_F3|v_F4] whose columns are the F3 and F4 loading-footprints in the observed-moment space (3 offshore-pool destination cells + 12 USA-column cells), implied by R_sep + its falsifier. Its near-singularity IS the F3/F4 degeneracy DP3 argued analytically. Not a fit; a footprint operator.",
+ "singular_spectrum_full": {
+  "note": "operator is 15x2 -> two singular values per (f,s_usd). The COLLAPSING direction is the right-singular vector of the SMALLER singular value: the (F3,F4) combination that is unresolved.",
+  "degenerate_endpoint_f0_smid": {
+   "f": 0.0,
+   "usd_share": 0.5,
+   "singular_values": [
+    1.414213562373095,
+    9.03504139826397e-17
+   ],
+   "smallest_singular_value_separation_margin": 9.03504139826397e-17,
+   "largest_singular_value": 1.414213562373095,
+   "spectral_gap": 1.414213562373095,
+   "footprint_collinearity_cos": 1.0,
+   "collapsing_right_singular_vector_F3_F4": [
+    -0.7071067811865477,
+    0.7071067811865475
+   ],
+   "column_norms_usd_dimensionless": [
+    1.1180339887498947,
+    1.1180339887498947
+   ]
+  },
+  "worst_confound_f060_usdshare1": {
+   "f": 0.6,
+   "usd_share": 1.0,
+   "singular_values": [
+    1.3853321009844746,
+    0.28435008349206115
+   ],
+   "smallest_singular_value_separation_margin": 0.28435008349206115,
+   "largest_singular_value": 1.3853321009844746,
+   "spectral_gap": 1.1009820174924134,
+   "footprint_collinearity_cos": 0.9191450300180579,
+   "collapsing_right_singular_vector_F3_F4": [
+    -0.7071067811865477,
+    0.7071067811865475
+   ],
+   "column_norms_usd_dimensionless": [
+    1.414213562373095,
+    1.0770329614269005
+   ]
+  },
+  "best_case_f060_usdshare0": {
+   "f": 0.6,
+   "usd_share": 0.0,
+   "singular_values": [
+    1.3628987217370716,
+    0.3775010917698861
+   ],
+   "smallest_singular_value_separation_margin": 0.3775010917698861,
+   "largest_singular_value": 1.3628987217370716,
+   "spectral_gap": 0.9853976299671855,
+   "footprint_collinearity_cos": 0.8574929257125444,
+   "collapsing_right_singular_vector_F3_F4": [
+    -0.7071067811865474,
+    0.7071067811865476
+   ],
+   "column_norms_usd_dimensionless": [
+    1.1661903789690597,
+    0.9999999999999999
+   ]
+  },
+  "which_direction_collapses": "At f=0 the smallest-singular-value right vector is ~(1,-1)/sqrt(2): the F3-MINUS-F4 difference is unresolved -- i.e. the operator cannot tell a sanctions-reallocation from a dollar-run on the offshore cells. As f rises the collapsing combination tilts but the F3-F4 difference remains the poorly-resolved direction whenever s_usd is high."
+ },
+ "separation_margin_surface": {
+  "axes": {
+   "f": [
+    0.0,
+    0.0864,
+    0.2,
+    0.6
+   ],
+   "usd_share": [
+    0.0,
+    0.5,
+    1.0
+   ]
+  },
+  "margin_definition": "smallest singular value of the column-normalised operator; 0 = F3/F4 footprints COLLAPSE (observationally equivalent), 1 = orthogonal (cleanly separated).",
+  "threshold_tau": 0.1,
+  "grid": [
+   {
+    "f": 0.0,
+    "usd_share": 0.0,
+    "singular_values": [
+     1.4142135623730951,
+     0.0
+    ],
+    "smallest_singular_value_separation_margin": 0.0,
+    "largest_singular_value": 1.4142135623730951,
+    "spectral_gap": 1.4142135623730951,
+    "footprint_collinearity_cos": 1.0,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865475,
+     0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     0.9999999999999999,
+     0.9999999999999999
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.0,
+    "usd_share": 0.5,
+    "singular_values": [
+     1.414213562373095,
+     9.03504139826397e-17
+    ],
+    "smallest_singular_value_separation_margin": 9.03504139826397e-17,
+    "largest_singular_value": 1.414213562373095,
+    "spectral_gap": 1.414213562373095,
+    "footprint_collinearity_cos": 1.0,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865477,
+     0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     1.1180339887498947,
+     1.1180339887498947
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.0,
+    "usd_share": 1.0,
+    "singular_values": [
+     1.4142135623730951,
+     2.884885333023628e-17
+    ],
+    "smallest_singular_value_separation_margin": 2.884885333023628e-17,
+    "largest_singular_value": 1.4142135623730951,
+    "spectral_gap": 1.4142135623730951,
+    "footprint_collinearity_cos": 1.0,
+    "collapsing_right_singular_vector_F3_F4": [
+     0.7071067811865475,
+     -0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     1.414213562373095,
+     1.414213562373095
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.0864,
+    "usd_share": 0.0,
+    "singular_values": [
+     1.4129006645752324,
+     0.060923821637082154
+    ],
+    "smallest_singular_value_separation_margin": 0.060923821637082154,
+    "largest_singular_value": 1.4129006645752324,
+    "spectral_gap": 1.3519768429381502,
+    "footprint_collinearity_cos": 0.9962882879571333,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865475,
+     0.7071067811865476
+    ],
+    "column_norms_usd_dimensionless": [
+     1.0037255401752012,
+     0.9999999999999999
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.0864,
+    "usd_share": 0.5,
+    "singular_values": [
+     1.413369251270592,
+     0.04886061361471669
+    ],
+    "smallest_singular_value_separation_margin": 0.04886061361471669,
+    "largest_singular_value": 1.413369251270592,
+    "spectral_gap": 1.3645086376558753,
+    "footprint_collinearity_cos": 0.9976126404371933,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865475,
+     0.7071067811865476
+    ],
+    "column_norms_usd_dimensionless": [
+     1.1380097714870463,
+     1.0993935782966897
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.0864,
+    "usd_share": 1.0,
+    "singular_values": [
+     1.4138536953539982,
+     0.031901851573927144
+    ],
+    "smallest_singular_value_separation_margin": 0.031901851573927144,
+    "largest_singular_value": 1.4138536953539982,
+    "spectral_gap": 1.381951843780071,
+    "footprint_collinearity_cos": 0.9989822718661552,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865477,
+     0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     1.414213562373095,
+     1.3544980472484998
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.2,
+    "usd_share": 0.0,
+    "singular_values": [
+     1.4073310469434401,
+     0.13935323573236436
+    ],
+    "smallest_singular_value_separation_margin": 0.13935323573236436,
+    "largest_singular_value": 1.4073310469434401,
+    "spectral_gap": 1.2679778112110758,
+    "footprint_collinearity_cos": 0.9805806756909203,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865474,
+     0.7071067811865476
+    ],
+    "column_norms_usd_dimensionless": [
+     1.0198039027185568,
+     0.9999999999999999
+    ],
+    "identified_at_threshold_tau": true
+   },
+   {
+    "f": 0.2,
+    "usd_share": 0.5,
+    "singular_values": [
+     1.4096953999756998,
+     0.11295520920857467
+    ],
+    "smallest_singular_value_separation_margin": 0.11295520920857467,
+    "largest_singular_value": 1.4096953999756998,
+    "spectral_gap": 1.2967401907671252,
+    "footprint_collinearity_cos": 0.987241120712647,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865477,
+     0.7071067811865474
+    ],
+    "column_norms_usd_dimensionless": [
+     1.16619037896906,
+     1.0770329614269005
+    ],
+    "identified_at_threshold_tau": true
+   },
+   {
+    "f": 0.2,
+    "usd_share": 1.0,
+    "singular_values": [
+     1.4120494802497605,
+     0.07820655552050046
+    ],
+    "smallest_singular_value_separation_margin": 0.07820655552050046,
+    "largest_singular_value": 1.4120494802497605,
+    "spectral_gap": 1.33384292472926,
+    "footprint_collinearity_cos": 0.9938837346736189,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865475,
+     0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     1.414213562373095,
+     1.2806248474865696
+    ],
+    "identified_at_threshold_tau": false
+   },
+   {
+    "f": 0.6,
+    "usd_share": 0.0,
+    "singular_values": [
+     1.3628987217370716,
+     0.3775010917698861
+    ],
+    "smallest_singular_value_separation_margin": 0.3775010917698861,
+    "largest_singular_value": 1.3628987217370716,
+    "spectral_gap": 0.9853976299671855,
+    "footprint_collinearity_cos": 0.8574929257125444,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865474,
+     0.7071067811865476
+    ],
+    "column_norms_usd_dimensionless": [
+     1.1661903789690597,
+     0.9999999999999999
+    ],
+    "identified_at_threshold_tau": true
+   },
+   {
+    "f": 0.6,
+    "usd_share": 0.5,
+    "singular_values": [
+     1.37412431866842,
+     0.33433868583227266
+    ],
+    "smallest_singular_value_separation_margin": 0.33433868583227266,
+    "largest_singular_value": 1.37412431866842,
+    "spectral_gap": 1.0397856328361472,
+    "footprint_collinearity_cos": 0.8882176431559488,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865477,
+     0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     1.2806248474865696,
+     1.0198039027185568
+    ],
+    "identified_at_threshold_tau": true
+   },
+   {
+    "f": 0.6,
+    "usd_share": 1.0,
+    "singular_values": [
+     1.3853321009844746,
+     0.28435008349206115
+    ],
+    "smallest_singular_value_separation_margin": 0.28435008349206115,
+    "largest_singular_value": 1.3853321009844746,
+    "spectral_gap": 1.1009820174924134,
+    "footprint_collinearity_cos": 0.9191450300180579,
+    "collapsing_right_singular_vector_F3_F4": [
+     -0.7071067811865477,
+     0.7071067811865475
+    ],
+    "column_norms_usd_dimensionless": [
+     1.414213562373095,
+     1.0770329614269005
+    ],
+    "identified_at_threshold_tau": true
+   }
+  ],
+  "how_the_margin_moves": "MONOTONE INCREASING in f (more China-non-USD destination = more separating support) and MONOTONE DECREASING in s_usd (more offshore-USD remainder = stronger confound). The margin is EXACTLY 0 along the entire f=0 edge for all s_usd, and stays below tau in a band of small f / high s_usd."
+ },
+ "numerical_confirmations_of_dp3": {
+  "margin_zero_along_f0_edge": "At f=0 the F3-exclusive destination term f*DESTn is ZERO, so v_F3==v_F4 and the operator is rank 1: separation margin = 0.0 for s_usd=0.0, 0.5 AND 1.0. The f=0 failure is not a knife-edge in s_usd -- it holds for the whole edge. This is DP3's admissible-endpoint degeneracy, shown as numbers.",
+  "margin_falls_with_usd_share_even_at_f060": "At f=0.60 the margin falls from 0.3775 (s_usd=0.0) to 0.2844 (s_usd=1.0): the offshore-USD confound bites even at the MOST FAVOURABLE admissible f. The separation is NOT clean even there -- exactly DP3's 'conditionally identified, pending the second hole'.",
+  "margin_clears_tau_only_when": "the margin clears tau ONLY for f away from 0 with s_usd not too high. That region is NOT pinned on disk: f is a HOLE in [0,0.60] AND s_usd is a HOLE in [0,1]. So identification is NOWHERE established across the full admissible plane."
+ },
+ "hazard_as_bound_not_point": {
+  "STATEMENT": "NO point hazard is output. A point breaking-point hazard requires data NOT on disk -- the China-nationality fraction f AND the offshore-USD share s_usd. Both are HOLES. The hazard is reported ONLY as a CONDITIONAL SURFACE over (f, s_usd), carrying the regions where F3/F4 IS vs IS NOT identified.",
+  "identified_region": "f sufficiently large AND s_usd sufficiently low: separation margin >= tau; the binding-mode attribution (sanctions-reallocation F3 vs dollar-run F4) is DECIDABLE there.",
+  "NOT_identified_region": "(i) the entire f=0 edge for ALL s_usd: margin=0, F3=F4, attribution UNDECIDABLE; (ii) small f with high s_usd: margin<tau, the confound dominates, attribution UNDECIDABLE.",
+  "bound_over_the_plane": "Over the full admissible plane (f in [0,0.60], s_usd in [0,1]) the separation margin's INFIMUM is 0 (attained along f=0). The margin is NOT bounded away from 0, so the binding-mode is NOWHERE robustly identified across the whole plane. The hazard is a BOUND/SURFACE with an explicit unidentified region, never a scalar.",
+  "single_hazard_number_would_be": "a STAGE FAILURE -- it would require inventing f and s_usd. Refused."
+ },
+ "episode_2022_f_contingent": {
+  "STATEMENT": "The 2022 Russia reserve-immobilization / sanctions episode's signature in the operator is F3-OR-F4 CONTINGENT ON f. It is NOT reported as an F3 identification.",
+  "at_f0": "At f=0 the operator is rank 1: the 2022 offshore footprint loads on the SHARED F3=F4 direction, which is observationally the F4 common-run direction. The episode is observationally F4 at the admissible endpoint, NOT F3.",
+  "toward_f060": "As f rises the F3-exclusive destination term becomes nonzero and the episode COULD load on F3 -- but only conditional on s_usd low (else the confound re-aligns the footprints). So even the F3 reading is conditional on BOTH holes.",
+  "planting_guard": "Reviving the 2022-sanctions->F3 assignment as established is the specific planting failure forbidden here. NOT committed: the episode is f-contingent, and at the admissible endpoint f=0 it is F4."
+ },
+ "single_snapshot_honesty": {
+  "UNESTIMABLE-FROM-ONE-SNAPSHOT": "The contagion-vs-substitution discriminator (does a holder's USA drop LEAD others' = F4 contagion, or co-occur with that holder's own destination rise = F3 substitution?) needs temporal variation. There is ONE matrix on disk. This quantity is UNESTIMABLE-FROM-ONE-SNAPSHOT and is NOT proxied. It is why the USA block is a SHARED direction in the operator (it does not separate the factors on one realization)."
+ },
+ "carried_forward_not_resolved": [
+  "HOLE: f in [0.0, 0.60].",
+  "HOLE: offshore-USD share s_usd in [0,1] (second hole).",
+  "$711,157.7mn BIS banking-marginal floor.",
+  "UNESTIMABLE-FROM-ONE-SNAPSHOT: contagion-vs-substitution lead/lag discriminator."
+ ],
+ "verifier_required": "DP5 episode-sort gate + hazard overid test (identification-gate-agent), verifier artifact build/results/dp5_idtest.json. Until that artifact exists on disk, every result here is an OUTPUT, NOT ESTABLISHED."
+}

@@ -1247,3 +1247,46 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
 echo "=== log ===" && git log --oneline -1
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-06-28T23:45:30Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+st=$(git status --porcelain)
+if [ -n "$st" ]; then
+  git add build/run-ledger.log 2>/dev/null
+  git commit -q -m "DP3: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+  git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+else echo "clean"; fi
+echo "=== verifier exists? ===" && ls build/model/dp3_spec.json >/dev/null 2>&1 && echo "dp3_spec.json present"
+2026-06-29T00:04:43Z	OUTPUT (not established until verifier runs)	python3 -c "
+import numpy as np
+US_CYM=2798130.0; US_HKG=107448.0; US_VGB=51419.0
+DEST=np.array([US_CYM,US_HKG,US_VGB]); POOL=DEST.sum()
+USA=np.array([4513338.3,2583036.4,2342597.3,2199787.3,1824619.1,878233.5,876069.0,750520.7,419578.3,330700.3,238397.0,119098.6])
+u=USA/np.linalg.norm(USA)
+# Operator columns = each factor's PREDICTED observed move per unit amplitude, in moment space
+# [destination block (3) ; USA block (12)].
+# F4 (dollar run, unit amplitude): USA leg falls = -u (common). Destination cells: the offshore-USD
+#   fraction of each destination ALSO falls because F4 exits dollar claims wherever booked.
+#   Per-cell offshore-USD content fraction of the (already-residency) destination = (1-f)*s.
+#   So F4 destination move = -(1-f)*s*DEST_norm.
+# F3 (reallocation, unit amplitude): USA leg falls = -u (the SAME observed common USA fall: the row's
+#   dollar source). Destination cells RISE by the China-non-USD content = +f*DEST_norm.
+# The DISCRIMINATOR is the destination block. Both share -u on USA (single realized fall).
+# KEY: identification rests on the destination block being DIFFERENT between F3 (+f*DEST) and
+#   F4 (-(1-f)*s*DEST). These two destination directions are ANTIPARALLEL (same DEST line),
+#   so on the destination LINE the only thing distinguishing them is the SIGNED SCALAR
+#   coefficient f vs -(1-f)*s. Two vectors sharing the SAME USA block and lying on the SAME
+#   destination line are collinear iff their destination coefficients have the same ratio to
+#   their (identical) USA block -> they are collinear when one destination coeff equals the other,
+#   i.e. degenerate when BOTH destination coeffs ->0 (f->0 AND (1-f)s->0) OR when the destination
+#   block is negligible vs the USA block (||DEST coeff|| << ||u||).
+DESTn=DEST/np.linalg.norm(DEST)
+def margin(f,s):
+    vF3=np.concatenate([ f*DESTn, -u])
+    vF4=np.concatenate([-(1-f)*s*DESTn, -u])
+    M=np.column_stack([vF3/np.linalg.norm(vF3), vF4/np.linalg.norm(vF4)])
+    return np.linalg.svd(M,compute_uv=False)[1], abs(vF3@vF4)/(np.linalg.norm(vF3)*np.linalg.norm(vF4))
+for f,s in [(0,0.0),(0,0.5),(0,1.0),(0.0864,0),(0.0864,0.5),(0.0864,1),(0.2,0.5),(0.6,0),(0.6,0.5),(0.6,1.0)]:
+    m2,c=margin(f,s); print(f'f={f:.4f} s={s:.2f}  margin={m2:.5f}  cos={c:.5f}')
+"
