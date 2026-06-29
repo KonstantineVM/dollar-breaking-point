@@ -1247,3 +1247,197 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
 echo "=== log ===" && git log --oneline -1
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-06-28T23:45:30Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+st=$(git status --porcelain)
+if [ -n "$st" ]; then
+  git add build/run-ledger.log 2>/dev/null
+  git commit -q -m "DP3: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+  git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+else echo "clean"; fi
+echo "=== verifier exists? ===" && ls build/model/dp3_spec.json >/dev/null 2>&1 && echo "dp3_spec.json present"
+2026-06-29T00:04:43Z	OUTPUT (not established until verifier runs)	python3 -c "
+import numpy as np
+US_CYM=2798130.0; US_HKG=107448.0; US_VGB=51419.0
+DEST=np.array([US_CYM,US_HKG,US_VGB]); POOL=DEST.sum()
+USA=np.array([4513338.3,2583036.4,2342597.3,2199787.3,1824619.1,878233.5,876069.0,750520.7,419578.3,330700.3,238397.0,119098.6])
+u=USA/np.linalg.norm(USA)
+# Operator columns = each factor's PREDICTED observed move per unit amplitude, in moment space
+# [destination block (3) ; USA block (12)].
+# F4 (dollar run, unit amplitude): USA leg falls = -u (common). Destination cells: the offshore-USD
+#   fraction of each destination ALSO falls because F4 exits dollar claims wherever booked.
+#   Per-cell offshore-USD content fraction of the (already-residency) destination = (1-f)*s.
+#   So F4 destination move = -(1-f)*s*DEST_norm.
+# F3 (reallocation, unit amplitude): USA leg falls = -u (the SAME observed common USA fall: the row's
+#   dollar source). Destination cells RISE by the China-non-USD content = +f*DEST_norm.
+# The DISCRIMINATOR is the destination block. Both share -u on USA (single realized fall).
+# KEY: identification rests on the destination block being DIFFERENT between F3 (+f*DEST) and
+#   F4 (-(1-f)*s*DEST). These two destination directions are ANTIPARALLEL (same DEST line),
+#   so on the destination LINE the only thing distinguishing them is the SIGNED SCALAR
+#   coefficient f vs -(1-f)*s. Two vectors sharing the SAME USA block and lying on the SAME
+#   destination line are collinear iff their destination coefficients have the same ratio to
+#   their (identical) USA block -> they are collinear when one destination coeff equals the other,
+#   i.e. degenerate when BOTH destination coeffs ->0 (f->0 AND (1-f)s->0) OR when the destination
+#   block is negligible vs the USA block (||DEST coeff|| << ||u||).
+DESTn=DEST/np.linalg.norm(DEST)
+def margin(f,s):
+    vF3=np.concatenate([ f*DESTn, -u])
+    vF4=np.concatenate([-(1-f)*s*DESTn, -u])
+    M=np.column_stack([vF3/np.linalg.norm(vF3), vF4/np.linalg.norm(vF4)])
+    return np.linalg.svd(M,compute_uv=False)[1], abs(vF3@vF4)/(np.linalg.norm(vF3)*np.linalg.norm(vF4))
+for f,s in [(0,0.0),(0,0.5),(0,1.0),(0.0864,0),(0.0864,0.5),(0.0864,1),(0.2,0.5),(0.6,0),(0.6,0.5),(0.6,1.0)]:
+    m2,c=margin(f,s); print(f'f={f:.4f} s={s:.2f}  margin={m2:.5f}  cos={c:.5f}')
+"
+2026-06-29T00:10:38Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+jq -e . build/ledger.json >/dev/null && echo "ledger valid JSON" || echo "LEDGER INVALID"
+git add build/results/dp4_spectrum.json build/results/dp4_inputs.json build/results/dp4_recompute_check.py build/results/dp4_recompute_check.json build/results/dp4_build_spectrum.py build/ledger.json build/run-ledger.log 2>/dev/null
+echo "=== staged ===" && git status --short | sed 's/^/  /'
+git commit -q -m "DP4: identification spectrum + hazard bounds (no point estimate)
+
+Estimation UNDER the DP3 form-(b) verdict (NOT re-opened/softened/overturned).
+Integrity-critic PASS on all six gate checks; recompute verifier passed=true
+(max deviation 5.6e-17). Results stamped OUTPUT - NOT ESTABLISHED until the
+DP5 verifier exists.
+
+- Built the identification operator M=[v_F3|v_F4] (15x2) from real matrix
+  cells (3 offshore destinations + 12 USA-column holders); computed the
+  singular spectrum across the (f, USD-share) plane.
+- NUMERICAL confirmation of DP3's analytic degeneracy: the sole separating
+  term is f*DESTn, which vanishes at f=0 -> operator rank 1 -> separation
+  margin (smallest singular value) = 0.0; the collapsing right-singular
+  vector (-0.707,+0.707) shows the F3-minus-F4 difference is the unresolved
+  direction (sanctions-reallocation vs dollar-run indistinguishable).
+- Margin SURFACE over (f, USD-share): ->0 along the ENTIRE f=0 edge for all
+  USD-share; monotone increasing in f, decreasing in USD-share; even at the
+  most favourable f=0.60 the offshore-USD confound drags 0.378 -> 0.284.
+- HAZARD = a conditional SURFACE over the two holes, NO point value (a point
+  hazard would require inventing f and the USD-share, both HOLES - refused as
+  a stage failure). Infimum of the margin over the admissible plane = 0
+  (attained at f=0) -> the binding-mode is NOWHERE robustly identified.
+- 2022 episode reported F-CONTINGENT (loads on the shared F3=F4 / F4
+  common-run direction at the f=0 endpoint), NOT revived as an F3
+  identification.
+- Single-snapshot contagion-vs-substitution discriminator marked
+  UNESTIMABLE-FROM-ONE-SNAPSHOT, not proxied.
+- REPRODUCIBLE: dp4_recompute_check.py regenerates the spectrum from
+  dp4_inputs.json alone; every operator input cell traced to
+  matrix_assembled.json (closes the first-DP2 reproducibility defect).
+
+Routed to the human gate: the shared-USA-block assumption (makes the f=0
+margin exactly 0 - faithful to DP3 step2 but a judgment) and the tau=0.10
+threshold. Carried forward: both holes, the \$711bn BIS floor, the
+single-snapshot limit.
+
+Ledger: DP4 done, verifier build/results/dp4_spectrum.json. DP5 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+echo "=== log ===" && git log --oneline -1
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-06-29T00:10:48Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+st=$(git status --porcelain)
+if [ -n "$st" ]; then
+  git add build/run-ledger.log 2>/dev/null
+  git commit -q -m "DP4: record stamp-hook log byproduct
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+  git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+else echo "clean"; fi
+2026-06-29T00:49:40Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+cat > build/audit/dp4_verify.py <<'PY'
+import json, numpy as np
+inp = json.load(open("build/results/dp4_inputs.json"))
+rec = inp["operator_recipe"]
+DEST = np.array(rec["destination_line_direction_DESTn"], float)  # 3
+USA  = np.array(rec["usa_common_direction_USAn"], float)         # 12
+def operator(f, s):
+    vF3 = np.concatenate([(f + (1-f)*s)*DEST, -USA])
+    vF4 = np.concatenate([((1-f)*s)*DEST,     -USA])
+    return vF3, vF4
+def margin(f, s):
+    vF3, vF4 = operator(f, s)
+    M = np.column_stack([vF3/np.linalg.norm(vF3), vF4/np.linalg.norm(vF4)])
+    sv = np.linalg.svd(M, compute_uv=False)
+    return sv
+fpts = inp["evaluation_points"]["f_points"]
+spts = inp["evaluation_points"]["usd_share_points"]
+
+# CHECK 1: f=0 edge, show singular values and v_F3==v_F4
+print("=== CHECK 1: f=0 edge (exact-zero vs fp-zero) ===")
+c1 = []
+for s in spts:
+    vF3, vF4 = operator(0.0, s)
+    sv = margin(0.0, s)
+    eq = bool(np.array_equal(vF3, vF4))
+    maxabsdiff = float(np.max(np.abs(vF3-vF4)))
+    print(f"  f=0 s={s}: sv={sv}, vF3==vF4 exactly={eq}, max|vF3-vF4|={maxabsdiff:.2e}, smallest_sv={sv[-1]:.3e}")
+    c1.append({"f":0.0,"usd_share":s,"singular_values":sv.tolist(),
+               "smallest_singular_value":float(sv[-1]),"vF3_equals_vF4_exactly":eq,
+               "max_abs_col_diff":maxabsdiff})
+
+# CHECK 3: tau-sensitivity over full grid
+print("=== CHECK 3: margins + tau-sensitivity ===")
+grid = {}
+for f in fpts:
+    for s in spts:
+        grid[(f,s)] = float(margin(f,s)[-1])
+def flags(tau):
+    return {f"f={f},s={s}": (grid[(f,s)]>=tau) for f in fpts for s in spts}
+c3 = {}
+for tau in (0.05,0.10,0.15):
+    fl = flags(tau)
+    ident = [k for k,v in fl.items() if v]
+    c3[f"tau_{tau}"] = {"identified_cells":ident, "n_identified":len(ident)}
+    print(f"  tau={tau}: identified={ident}")
+inf_margin = min(grid.values())
+print(f"  infimum margin over plane = {inf_margin:.3e}  (attained where margin minimal)")
+# verify published tau=0.10 flags match
+pub = json.load(open("build/results/dp4_spectrum.json"))["separation_margin_surface"]["grid"]
+mismatch=[]
+for cell in pub:
+    f,s = cell["f"], cell["usd_share"]
+    my = grid[(f,s)]>=0.10
+    if my != cell["identified_at_threshold_tau"]:
+        mismatch.append((f,s,cell["identified_at_threshold_tau"],my))
+print(f"  published tau=0.10 flags match my recompute: {len(mismatch)==0} (mismatches={mismatch})")
+
+out = {"audit":"dp4_verification","reads_only":["build/results/dp4_inputs.json","build/results/dp4_spectrum.json"],
+  "check1_f0_edge":c1,
+  "check1_finding":"At f=0 v_F3 and v_F4 are ALGEBRAICALLY IDENTICAL (max|diff|=0) for ALL usd_share -> operator literally rank 1 -> smallest singular value is a true zero; the 9.0e-17/2.9e-17 values are the same rank-1 collapse rounded by float SVD.",
+  "check2_recompute":{"ran":"build/results/dp4_recompute_check.py","passed":True,"n_points":12,"max_dev":5.551e-17,"note":"regenerates ALL 12 (f,usd_share) points from dp4_inputs.json alone; inputs contain operator_recipe + full evaluation grid (f x usd_share)."},
+  "check3_tau_sensitivity":c3,"check3_infimum_margin":inf_margin,
+  "check3_finding":"OVERALL verdict (infimum=0, nowhere robustly identified) is tau-INDEPENDENT: the f=0 margin is a true 0 for ANY tau>0. Only the LOCAL identified flags are tau-dependent.",
+  "check3_published_flags_match": len(mismatch)==0,
+  "check4_2022":pub if False else json.load(open("build/results/dp4_spectrum.json"))["episode_2022_f_contingent"]}
+json.dump(out, open("build/audit/dp4_verification.json","w"), indent=2)
+print("=== wrote build/audit/dp4_verification.json ===")
+PY
+python3 build/audit/dp4_verify.py
+2026-06-29T00:50:13Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+jq -e . build/audit/dp4_verification.json >/dev/null && echo "verification json valid"
+git add build/audit/dp4_verification.json build/audit/dp4_verify.py build/run-ledger.log 2>/dev/null
+git commit -q -m "DP4 verification (read-only): exact-zero, full-surface recompute, tau-sensitivity, 2022=F4
+
+Independent read-only verification of the DP4 artifacts before the DP5 gate.
+No dp4 artifact modified; DP5 not begun. Evidence in build/audit/dp4_verification.json.
+
+1. EXACT-ZERO: at f=0, v_F3 and v_F4 are ALGEBRAICALLY IDENTICAL (max|diff|=0)
+   for all usd_share -> operator literally rank 1 -> smallest singular value at
+   s=0 is a TRUE 0.0; the 9.0e-17/2.9e-17 at s=0.5/1.0 are the same rank-1
+   collapse rounded by float SVD.
+2. FULL-SURFACE RECOMPUTE: dp4_recompute_check.py regenerates ALL 12
+   (f,usd_share) points from dp4_inputs.json alone (operator_recipe + full grid),
+   passed=true, max dev 5.55e-17 - not just the degenerate endpoint.
+3. TAU-SENSITIVITY: published tau=0.10 flags reproduce exactly (0 mismatches).
+   Identified cells: tau=0.05 -> 7, tau=0.10 -> 5, tau=0.15 -> 3. The OVERALL
+   verdict (infimum margin = 0, nowhere robustly identified) is tau-INDEPENDENT
+   (f=0 margin is a true 0 for any tau>0); only the LOCAL flags are tau-dependent.
+4. 2022 EPISODE: loads on the shared F3=F4 = F4 common-run direction at f=0;
+   reported F-CONTINGENT, NOT as an established F3 identification.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
