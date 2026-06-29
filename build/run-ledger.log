@@ -1532,3 +1532,95 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
 git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 echo "=== test artifacts progress ===" && for f in respec_test panel_test rank4_test episode_truth f_pin_test; do [ -f build/audit/$f.json ] && echo "$f: ON DISK" || echo "$f: not yet"; done
+2026-06-29T01:32:18Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Falsification audit: all 5 tests (3 OVERTURN, 2 CONFIRM)
+
+Adversarial test of whether the DP5 non-identification is genuine or
+self-inflicted. Read-only on build artifacts; results under build/audit/.
+
+- Test 1 respec_test (operator re-spec): OVERTURN. A principled concentrated
+  v_F3 USA block (from matrix offshore-destination cells) opens the f=0 margin
+  from ~0 to 0.766 -> the rank-1 collapse was partly an artifact of
+  symmetrizing the USA block.
+- Test 2 panel_test (execute CPIS 11-period panel): CONFIRM. The temporal
+  lead/lag discriminator does NOT separate F3/F4 (semiannual too coarse;
+  US-vs-destination co-move POSITIVELY +0.47; footprints near-collinear 0.94).
+- Test 3 rank4_test (full 4-factor rank): CONFIRM. M4 rank 4, cond 15.6; only
+  the known F3/F4 difference is small; no new F1-F4/F2-F4 collinearity (F2-F4
+  cos 0.67). The S1 'F1/F2 identified' table survives.
+- Test 4 episode_truth (2022 ground truth): OVERTURN. The real 2022 Russia
+  immobilization was a CONCENTRATED reallocation (F3-type): US-securities
+  holdings stable/rising while Russian-securities holdings collapsed 60-97%
+  across holders; no de-dollarization (Chow F=0.574 p=0.57). The symmetrized
+  operator can only read this F3 event as F4/undecidable.
+- Test 5 f_pin_test (pin f from GCAP): OVERTURN. The GCAP holdings-side,
+  counterpart-resolved restatement (USA x haven{CYM,HKG,VGB} x CHN-nationality)
+  gives f in [0.49,0.71], never near 0 across 2007-2020. f is bounded away
+  from 0, so the f=0 endpoint that makes the operator rank-1 is INADMISSIBLE
+  on the grounded set; the build's [0,0.60] used the wrong issuance-side figure.
+
+Integrity-critic GATE pending. No DP3/DP4/DP5 artifact modified; DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
+git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-06-29T01:40:27Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 - <<'EOF'
+import json, collections
+p="build/audit/f_pin_test.json"
+d=json.load(open(p), object_pairs_hook=collections.OrderedDict)
+
+# update raw_outputs_on_disk
+d["computation"]["raw_outputs_on_disk"]=[
+  "build/data/gcap_usa_haven_to_chn_matrix.csv (the 360 USA haven->CHN Restatement-Matrices CHN-share rows = the NUMERATOR shares)",
+  "build/data/gcap_usa_haven_pool_denominators.csv (USA x {CYM,HKG,VGB} Position_Residency $mn per methodology/year/asset-class, parsed from the publisher RBEP xlsx = the DENOMINATOR pool weights)",
+  "build/data/gcap_f_pool_results.json (computed f per methodology/year)"
+]
+
+closure1=collections.OrderedDict([
+  ("gap_closed","Previously the denominator pool weights (e.g. ~1,700,910 mn) existed only as a computed result in gcap_f_pool_results.json, not as a parsed-from-publisher artifact. NOW the Position_Residency dollar weights are re-parsed from the fetched GCAP 'Restated Bilateral External Portfolios' xlsx (v1.8) and written to build/data/gcap_usa_haven_pool_denominators.csv (318 rows: USA x {CYM,HKG,VGB} x methodology x year x asset-class)."),
+  ("end_to_end_recompute","build/audit/f_pin_recompute_check.py reads ONLY the two on-disk CSVs (numerator gcap_usa_haven_to_chn_matrix.csv + denominator gcap_usa_haven_pool_denominators.csv) and recomputes f = sum(Position_Residency * CHN_share) / sum(Position_Residency). Output build/audit/f_pin_recompute_check.json."),
+  ("recompute_result",collections.OrderedDict([
+     ("Fund Holdings|2019",0.4889),("Fund Holdings|2020",0.5317),
+     ("Enhanced Fund Holdings|2019",0.7021),("Enhanced Fund Holdings|2020",0.7084),
+     ("f_interval_recomputed",[0.4889,0.7084]),
+     ("matches_pinned_interval_0.49_0.71",True)])),
+  ("confirmation","f in [0.49,0.71] is now recomputable end-to-end from disk alone (numerator + denominator files), not from in-memory results. The denominator file was successfully re-fetched and parsed from the publisher RBEP xlsx; no residual gap on the denominator.")
+])
+
+closure2=collections.OrderedDict([
+  ("gap_closed","The prior identification-holds reading cited dp4_spectrum margins at f=0.6 (0.38/0.33/0.28). But the pinned interval FLOOR is f=0.49 and dp4_spectrum has NO grid row there; at f=0.2,s=1.0 the margin is 0.078 (BELOW tau=0.10), so the floor had to be checked directly. The DP4 15x2 operator was rebuilt from build/results/dp4_inputs.json (identical construction to build/results/dp4_recompute_check.py: column-normalised [v_F3|v_F4], smallest singular value) and the margin evaluated at the corner and across the pinned interval."),
+  ("sanity","Reproduces published dp4_spectrum grid values EXACTLY: f=0.2,s=1.0 -> 0.078207 (published 0.078207); f=0.6,s=1.0 -> 0.284350 (published 0.284350). Same operator and column-normalisation convention."),
+  ("floor_corner_f0.49_s_usd1.0",collections.OrderedDict([("margin",0.220359),("clears_tau_0.10",True),("note","WORST confound (s_usd=1.0) at the pinned FLOOR f=0.49. Margin 0.220 >= tau 0.10 -> identification HOLDS even at this corner.")])),
+  ("floor_f0.49_s_usd0.0_best_confound",collections.OrderedDict([("margin",0.318778),("clears_tau_0.10",True)])),
+  ("ceiling_f0.71_s_usd1.0",collections.OrderedDict([("margin",0.351023),("clears_tau_0.10",True)])),
+  ("min_margin_over_pinned_interval_x_full_s_usd_hole",collections.OrderedDict([("margin",0.220359),("at_f_s",[0.4889,1.0]),("note","Minimum over the FULL rectangle f in [0.49,0.71] x s_usd in [0,1]. Attained at the floor/worst-confound corner; 0.220 >= tau.")])),
+  ("floor_clears_tau_for_all_s_usd",True),
+  ("s_usd_threshold_below_which_floor_clears_tau","none -- the floor f=0.49 clears tau across the ENTIRE s_usd hole [0,1]; it never drops below tau even at s_usd=1.0, so no s_usd cutoff is needed."),
+  ("identification_sub_region","Across the pinned interval f in [0.49,0.71], the separation margin clears tau=0.10 for the WHOLE s_usd hole [0,1]. Identification HOLDS on the entire pinned-f rectangle, NOT only a sub-region. Once f is bounded away from 0 at >=0.49, the F3-exclusive term f*DESTn is large enough that even the maximal offshore-USD confound (s_usd=1.0) leaves the footprints ~13 degrees from collinear (margin 0.220)."),
+  ("s_usd_hole_untouched","Test 5 does NOT pin s_usd; the s_usd hole in [0,1] remains UNTOUCHED and is swept here as a free parameter. With f pinned to [0.49,0.71], the margin clears tau for ALL s_usd, so the s_usd hole no longer threatens identification ON THIS POOL. The single-snapshot temporal degeneracy (DP5 path a) is also untouched and NOT claimed resolved."),
+  ("recompute_artifact","build/audit/f_pin_recompute_check.json (corner + grid + floor scan).")
+])
+
+# insert the two closures right after 'computation'
+new=collections.OrderedDict()
+for k,v in d.items():
+    new[k]=v
+    if k=="computation":
+        new["reproducibility_closure_1_denominator_on_disk"]=closure1
+        new["reproducibility_closure_2_corner_margin"]=closure2
+
+# also augment the 'reason' to note the corner check, without changing the verdict
+new["reason"]=new["reason"]+" REPRODUCIBILITY CLOSURES (2026-06-29): (1) denominator pool weights now on disk (gcap_usa_haven_pool_denominators.csv) and f in [0.49,0.71] recomputes end-to-end from the numerator+denominator files alone (build/audit/f_pin_recompute_check.py/.json). (2) The DP4 operator margin at the pinned FLOOR corner (f=0.49, s_usd=1.0, worst confound) is 0.220 >= tau=0.10, and the minimum margin over the WHOLE rectangle f in [0.49,0.71] x s_usd in [0,1] is 0.220 -- so F3/F4 identification HOLDS across the entire pinned interval for ALL s_usd; the s_usd hole remains untouched but no longer threatens identification on this pool. This strengthens, and does not change, the OVERTURN verdict."
+
+json.dump(new, open(p,"w"), indent=2)
+print("updated", p)
+# verify valid + verdict intact
+chk=json.load(open(p))
+print("verdict:", chk["verdict"], "| bounded_away_from_zero:", chk["bounded_away_from_zero"], "| f_interval_pinned:", chk["f_interval_pinned"])
+print("has closure1:", "reproducibility_closure_1_denominator_on_disk" in chk)
+print("has closure2:", "reproducibility_closure_2_corner_margin" in chk)
+EOF
+2026-06-29T01:41:21Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== f_pin_recompute_check.json (full, compact) ===" && jq -c '.' build/audit/f_pin_recompute_check.json 2>/dev/null | head -c 900
+echo; echo "=== f_pin_test corner/min-margin fields ===" && jq -r 'paths(scalars) as $p | "\($p|join(".")): \(getpath($p)|tostring|.[0:80])"' build/audit/f_pin_test.json 2>/dev/null | grep -iE 'margin|corner|0.220|0.49|identif|denom|recompute|end_to_end' | head -12
