@@ -1674,3 +1674,37 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
 git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 echo "=== progress ===" && for f in vintage_test geo_vs_emp_test official_sector_test; do [ -f build/audit/$f.json ] && echo "$f: ON DISK" || echo "$f: not yet"; done
+2026-06-29T03:23:07Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/ build/data/ build/run-ledger.log 2>/dev/null
+echo "=== staged (non-panel) ===" && git status --short | grep -vE 'imf_cpis/panel' | sed 's/^/  /'
+echo "=== largest staged ===" && git status --short | awk '{print $2}' | xargs -I{} du -k {} 2>/dev/null | sort -rn | head -2
+git commit -q -m "Resolution tests A/B/C: vintage SUPPORTED, geo-vs-emp GEOMETRIC_ONLY, official-sector REOPEN
+
+Read-only resolution of the three open questions the falsification audit left.
+
+- Test A (vintage): SUPPORTED. GCAP f path rises 0.17(2007)->0.53(2020),
+  slope +0.026/yr; break-even f*=0.249 (worst s_usd corner). 2020 f sits 0.282
+  above f*; f never fell over ANY 5-yr window in 14 years (worst 5yr +0.068).
+  A 0.28 fall by 2025 is ~4.5x the worst single-year decline with no precedent
+  against a rising trend; only post-2020 signal (Cayman Compass Nov-2025) points
+  UP. Exact 2025 f UNVERIFIED (no post-2020 restatement) but the break region is
+  unreachable on the evidence -> the 2020->2025 transfer is SUPPORTED.
+- Test B (geo vs empirical): GEOMETRIC_ONLY. Pinning f makes the operator
+  geometrically non-degenerate (margin >=0.221) BUT no observed panel variance
+  loads on the F3-exclusive direction in the F3 sense: within-holder
+  US-vs-offshore co-movement is +0.4664 (recomputed from raw XML; WRONG sign for
+  substitution), footprints near-collinear (0.94). The empirical question 'can
+  you tell a reallocation from a run in the data' remains NO.
+- Test C (official sector): genuine SEPARATE DP1+DP3 reopening, independent of f.
+  Swap-line dimension ABSENT from all 13 contracts/matrix. Fed swap balances
+  groundable (FRED SWPT, weekly H.4.1; peaks $583.1bn 2008-12-17, $448.9bn
+  2020-05-27). Omitting the backstop mis-specifies F4 (a run with no
+  circuit-breaker) and is a DP1 official-sector gap. The balance is a weekly
+  POSITION, so 'flow, out of scope' does not apply.
+
+Integrity-critic GATE + consolidated verdict pending. No DP artifact modified;
+DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
+git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1

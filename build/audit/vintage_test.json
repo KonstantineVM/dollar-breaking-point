@@ -20,11 +20,12 @@
    "2019": 0.4889, "2020": 0.5317
   },
   "Enhanced_Fund_Holdings": {
-   "2007": 0.2800, "2008": 0.3185, "2009": 0.3997, "2010": 0.4756,
-   "2011": 0.4781, "2012": 0.4877, "2013": 0.5125, "2014": 0.5512,
-   "2015": 0.6058, "2016": 0.5879, "2017": 0.6951, "2018": 0.6532,
+   "2007": 0.2800, "2008": 0.2996, "2009": 0.4017, "2010": 0.4507,
+   "2011": 0.4308, "2012": 0.4185, "2013": 0.5133, "2014": 0.5514,
+   "2015": 0.6060, "2016": 0.5879, "2017": 0.6950, "2018": 0.6528,
    "2019": 0.7021, "2020": 0.7084
-  }
+  },
+  "Enhanced_Fund_Holdings_note": "Transcription corrected 2026-06-29 to align exactly with the machine-generated verifier build/audit/vintage_test_compute.json (f_path_Enhanced_Fund_Holdings). A prior hand-transcription of this column disagreed at 2008/2009/2010/2011/2012/2013/2014/2015/2017/2018; the compute artifact (regenerated from the GCAP CSVs alone) is authoritative. The matrix-comparable Fund_Holdings path -- the basis the verdict rests on -- was always correct and is unchanged. The EFH correction does not move the verdict: EFH 2020=0.7084 sits 0.459 above f*=0.249, even further than the conservative FH basis."
  },
  "years_covered": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
  "years_covered_note": "The on-disk denominator CSV covers ALL 14 years 2007-2020 (318 rows: USA x {CYM,HKG,VGB} x methodology x year x asset-class). No missing-year denominators; nothing was fabricated. The prior f_pin_test computed only 2019-2020 for the pin; this test extends to the full path with the same disk inputs.",
