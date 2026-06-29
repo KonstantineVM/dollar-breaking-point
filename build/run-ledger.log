@@ -1416,3 +1416,28 @@ json.dump(out, open("build/audit/dp4_verification.json","w"), indent=2)
 print("=== wrote build/audit/dp4_verification.json ===")
 PY
 python3 build/audit/dp4_verify.py
+2026-06-29T00:50:13Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+jq -e . build/audit/dp4_verification.json >/dev/null && echo "verification json valid"
+git add build/audit/dp4_verification.json build/audit/dp4_verify.py build/run-ledger.log 2>/dev/null
+git commit -q -m "DP4 verification (read-only): exact-zero, full-surface recompute, tau-sensitivity, 2022=F4
+
+Independent read-only verification of the DP4 artifacts before the DP5 gate.
+No dp4 artifact modified; DP5 not begun. Evidence in build/audit/dp4_verification.json.
+
+1. EXACT-ZERO: at f=0, v_F3 and v_F4 are ALGEBRAICALLY IDENTICAL (max|diff|=0)
+   for all usd_share -> operator literally rank 1 -> smallest singular value at
+   s=0 is a TRUE 0.0; the 9.0e-17/2.9e-17 at s=0.5/1.0 are the same rank-1
+   collapse rounded by float SVD.
+2. FULL-SURFACE RECOMPUTE: dp4_recompute_check.py regenerates ALL 12
+   (f,usd_share) points from dp4_inputs.json alone (operator_recipe + full grid),
+   passed=true, max dev 5.55e-17 - not just the degenerate endpoint.
+3. TAU-SENSITIVITY: published tau=0.10 flags reproduce exactly (0 mismatches).
+   Identified cells: tau=0.05 -> 7, tau=0.10 -> 5, tau=0.15 -> 3. The OVERALL
+   verdict (infimum margin = 0, nowhere robustly identified) is tau-INDEPENDENT
+   (f=0 margin is a true 0 for any tau>0); only the LOCAL flags are tau-dependent.
+4. 2022 EPISODE: loads on the shared F3=F4 = F4 common-run direction at f=0;
+   reported F-CONTINGENT, NOT as an established F3 identification.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
