@@ -16,3 +16,11 @@ build/data/nport/nport_readme_extract.txt
 build/data/nport/gcap/cmns_guide_flat.txt
 # Raw single-quarter N-PORT sample (redundant; the panel + provenance carry the grounded content).
 build/data/nport/nport_flat.txt
+
+# DP1-reopen CORRECTED: large free GCAP products, reproducible from the S3/Drive URLs in
+# build/contracts/gcap_product_contract.json (the small READMEs/PDFs, the route-A-absent
+# data_zip_listing.txt, and the access-evidence HTML ARE committed; per-quarter calibration
+# + recompute live in build/results/dp1reopen_corrected_verify.json).
+build/data/gcap_products/Restatement_Matrices.dta
+build/data/gcap_products/redrawing-the-map.zip
+build/data/gcap_products/redrawing_extract/data.zip

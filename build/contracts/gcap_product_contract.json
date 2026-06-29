@@ -1,0 +1,122 @@
+{
+  "source_id": "gcap_product",
+  "publisher": "The Global Capital Allocation Project (GCAP) — Antonio Coppola, Matteo Maggiori, Brent Neiman, Jesse Schreger. Finished restatement data products posted at globalcapitalallocation.com/data, served from the GCAP S3 bucket (globalcapitalallocation.s3.us-east-2.amazonaws.com) and Google Drive.",
+  "dataset_title": "GCAP finished reattribution products: Restatement_Matrices.dta (residency->nationality / sales reallocation SHARE matrices), Restated_Bilateral_External_Portfolios (.xlsx/.dta) (restated bilateral TIC/CPIS LEVELS), China_Tax_Havens_Data.xlsx (China-in-tax-havens figure series), and the 'Redrawing the Map' (CMNS) replication package redrawing-the-map.zip.",
+  "role_in_matrix": "Part-0 grounding ONLY for the DP1-REOPEN: determine whether the FREE GCAP product retires the prior 'commercially-gated crosswalk HOLE' (build/contracts/nport_gcap_contract.json) and at WHAT granularity it supplies the haven->China nationality reattribution. This contract makes NO separability/identification claim; it records what the free files actually contain.",
+  "urls_checked": [
+    "https://www.globalcapitalallocation.com/data  (data page HTML, fetched HTTP 200, 184923 bytes; all download hrefs enumerated directly from the HTML)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/Restatement_Matrices.dta  (HTTP 200, 140232696 bytes, downloaded)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/RestatementMatrices_ReadMe.pdf  (HTTP 200, 127118 bytes, read)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/Restated_Bilateral_External_Portfolios.xlsx  (HEAD HTTP 200, Content-Length 29659179 = prior-pass file; reused build/data/gcap_post2020_check/Restated_Bilateral_External_Portfolios.xlsx)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/Restated_Bilateral_External_Portfolios_ReadMe.pdf  (HTTP 200, 138437 bytes, read)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/China_Tax_Havens_Data.xlsx  (HEAD HTTP 200, Content-Length 18726 = prior-pass file; reused)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/China_TH_Issuance_Series_Readme.pdf  (HTTP 200, 44375 bytes, downloaded)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/CMNS_Data_Guide.pdf  (HTTP 200, 141395 bytes, downloaded)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/redrawing-the-map.zip  (HTTP 200, 43317839 bytes, downloaded; inner data.zip extracted and listed)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/public-US-funds-data.zip  (HEAD HTTP 200, Content-Length 77115 — CODE only)",
+    "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/NPORT_readme.pdf  (HTTP 200, 85558 bytes, downloaded)",
+    "https://drive.google.com/uc?export=download&id=1dGUfDFPqreYzJClEs46JWBivEJXhyNM7  (the N-PORT processed DATA zip; HTTP 200, redirects to drive.usercontent.google.com download, no login)"
+  ],
+  "date_checked": "2026-06-29",
+  "route_determination": "ROUTE (B) — AGGREGATE country x country reallocation/restatement, NOT route (A). The free GCAP product provides the FINISHED reattribution as AGGREGATE country-by-country reallocation SHARES (Restatement_Matrices.dta) and restated bilateral LEVELS (Restated_Bilateral_External_Portfolios), enabling CALIBRATION of the haven->China nationality fraction f for the haven cells. It does NOT post a per-security ISIN/CUSIP -> ultimate-parent-country table; route (A) is NOT available as a free download. Grounded below from the actual files.",
+  "route_A_security_level_table": {
+    "available_free": "NO (verified from disk).",
+    "evidence": "The ONLY product describing a security-level ultimate-parent mapping is the CMNS 'Redrawing the Map' package (redrawing-the-map.zip, downloaded HTTP 200, 43317839 bytes). Its inner data.zip (43144390 bytes, dated 2021-04/05) was extracted and fully listed (504 entries, saved to build/data/gcap_products/redrawing_extract/data_zip_listing.txt). The archive contains ONLY 'data/raw/' (raw licensed-source inputs) and 'data/raw/orbis/ownership_data/US/' — there is NO 'data/processed/', no built CMNS output table, and no security->parent crosswalk file. The licensed inputs needed to BUILD a crosswalk are present only as tiny SAMPLE STUBS, e.g. data/raw/ciq/ciq_ultimate_parents.csv = 274 bytes; data/raw/cgs_master/ master_*.PIP files = 102-333 bytes; data/raw/Internal/Security-Masterfile-Dictionary.xlsx = 31480 bytes is a column DICTIONARY, not a populated crosswalk. The aggregation CODE (aggregation_data_sources/CGS.do, Capital_IQ.do, Dealogic.do, Factset.do, Orbis.do, SDC.do, Morningstar_Country.do; cmns_aggregation/UP_Aggregation.py) is present, consistent with CMNS_Data_Guide.pdf which names the required commercial raw inputs (CGS, Dealogic, SDC, Capital IQ, ORBIS/Bureau van Dijk, FactSet, Morningstar). Therefore the per-security ultimate-parent table is BUILDABLE from licensed inputs but is NOT posted as a finished free file.",
+    "filename": "NONE (no free per-security parent table exists on the data page or inside redrawing-the-map.zip)",
+    "columns": "N/A",
+    "row_count": "N/A",
+    "key": "N/A",
+    "parent_country_field": "N/A"
+  },
+  "route_B_aggregate_matrices": {
+    "available_free": "YES (verified from disk).",
+    "primary_file_1": {
+      "filename": "Restatement_Matrices.dta",
+      "downloaded": "HTTP 200, 140232696 bytes, sha256 starts e28e4b449b8bc8ae, read with pyreadstat",
+      "row_count": 4122880,
+      "columns_header_verbatim": ["Methodology", "Year", "Investor", "Asset_Class", "Asset_Class_Code", "Destination", "Destination_Restated", "Value"],
+      "field_semantics": "Value = share of Investor's holdings reallocated FROM Destination (residency ISO) TO Destination_Restated (nationality/sales ISO); for each (Investor, Destination, Methodology) the Value sums to 1 (per readme). Destination = country of organization (residency); Destination_Restated = nationality (or sales) country.",
+      "dimensions": "Methodology(6) x Year x Investor x Asset_Class(5) x Destination(243) x Destination_Restated(243), sparse (non-zero only).",
+      "methodologies_value_labels": {"1": "Enhanced Fund Holdings", "2": "Fund Holdings", "3": "Issuance", "4": "Sales-Based, Enhanced Fund Holdings", "5": "Sales-Based, Fund Holdings", "6": "Sales-Based, Issuance"},
+      "asset_class_value_labels": {"1": "All Bonds", "2": "Asset-Backed Securities", "3": "Common Equity", "4": "Corporate Bonds", "5": "Government Bonds"},
+      "investors_verbatim": ["AUS", "CAN", "CHE", "DNK", "EMU", "GBR", "NOR", "SWE", "USA", "World"],
+      "year_min_max": [2007, 2020],
+      "chn_as_nationality_destination": "CONFIRMED: CHN present as Destination_Restated. Example read from disk (Investor=USA, Asset_Class=Common Equity, Year=2020, Methodology=Enhanced Fund Holdings, Destination_Restated=CHN): reallocation Value FROM CYM(Cayman)=0.823155, FROM HKG=0.197880, FROM BMU(Bermuda)=0.094063, FROM SGP=0.031940, FROM VGB(BVI)=0.027774, FROM CHN(domestic)=0.985846. These are exactly the haven->China nationality fractions f available for calibration of the haven cells."
+    },
+    "primary_file_2": {
+      "filename": "Restated_Bilateral_External_Portfolios.xlsx (also .dta)",
+      "verified": "xlsx reused from prior pass build/data/gcap_post2020_check/ (29659179 bytes); confirmed IDENTICAL to current S3 file by HEAD Content-Length=29659179, Last-Modified 2023-01-05. Header read directly from the xlsx.",
+      "columns_header_verbatim": ["Methodology", "Year", "Investor", "Investor_Name", "Asset_Class_Code", "Asset_Class", "Issuer", "Issuer_Name", "Position_Residency", "Restatement_TH_Only", "Restatement_Full", "Restatement_Ex_Domestic", "Restatement_Sales", "Restatement_Sales_Ex_Domestic", "Estimated_Common_Equity"],
+      "field_semantics": "Restated TIC/CPIS bilateral LEVELS in USD millions. Position_Residency = residency-basis value; Restatement_TH_Only / Restatement_Full = nationality-basis value (Tax-Haven-Only vs Full Nationality reallocation); Restatement_Sales* = sales-weighted; Estimated_Common_Equity populated only for tax-haven issuers when Asset_Class_Code=EF. Investor x Issuer x Asset_Class x Year x Methodology.",
+      "dimensions": "Investor (9 countries with full versions: USA, EMU, GBR, CAN, CHE, SWE, DNK, NOR, AUS; ex-domestic only for others) x Issuer (country) x Asset_Class x Year x Methodology(Fund Holdings / Issuance / Enhanced Fund Holdings).",
+      "year_min_max": [2007, 2020],
+      "note": "This is the LEVELS analog: it directly gives e.g. US holdings of CHN-nationality securities (Restatement_Full / Restatement_TH_Only) vs residency (Position_Residency). Country x country, not per-security."
+    },
+    "supporting_file": {
+      "filename": "China_Tax_Havens_Data.xlsx",
+      "verified": "reused from prior pass (18726 bytes); IDENTICAL to current S3 by HEAD Content-Length=18726, Last-Modified 2023-06-19. Read directly.",
+      "structure": "Figure-underlying-data only. Sheets: Summary, Figure_1a..1d. Figure_1c/1d are annual time series of China-related issuance in tax havens by residency haven (columns Year, CYM, BMU, VGB, HKG, CHN, Other). Year range 2007-2020. Aggregate series, NOT a security crosswalk.",
+      "year_min_max": [2007, 2020]
+    }
+  },
+  "route_C_other": "N/A — no richer/different free product (e.g. per-security ISIN-level parent table) was found. The data page additionally lists SHS-Based restated portfolios, Fund_Counterparty_Statistics, GCAP_FundHoldingsStatistics, currency series, and the public-US-funds-data N-PORT pipeline (CODE on S3 + processed DATA on Google Drive), but none of these is a security->parent crosswalk; the N-PORT processed data remains RESIDENCE-basis per build/contracts/nport_gcap_contract.json.",
+  "access_determination": {
+    "free_download_confirmed": "YES (from disk evidence). Every load-bearing file was fetched with HTTP 200 and NO login, NO paywall, NO approval step: Restatement_Matrices.dta (140 MB) and all readmes came directly off the S3 bucket globalcapitalallocation.s3.us-east-2.amazonaws.com; redrawing-the-map.zip (43 MB) likewise. The data page itself is a static Squarespace site with account creation disabled (page JSON: \"loginAllowed\":false, \"signupAllowed\":false), confirming there is no access account/gate.",
+    "access_mechanism": "Direct S3 object download (globalcapitalallocation.s3.us-east-2.amazonaws.com/<File>) for the matrices/levels/readmes; the N-PORT processed DATA zip is a direct Google Drive link (uc?export=download&id=1dGUfDFPqreYzJClEs46JWBivEJXhyNM7, redirects to drive.usercontent.google.com, no login). The public-US-funds-data CODE zip is on S3 (77115 bytes).",
+    "use_license_vs_access_gate": "The page states verbatim: 'All the data and code are provided for academic research and educational uses only.' This is a USE license, NOT an access gate — it does not restrict download (all files came down freely). The licensed commercial inputs (CGS/Dealogic/SDC/Capital IQ/ORBIS/FactSet/Morningstar) are needed ONLY to REBUILD the security-level crosswalk from scratch; they are NOT needed to use the posted aggregate restatement product.",
+    "any_file_still_gated": "NO finished aggregate product is gated. The ONLY thing not freely available is a BUILT per-security ultimate-parent table: it is not posted at all (route A), and rebuilding it requires the licensed inputs."
+  },
+  "vintage": {
+    "max_data_year_in_free_files": 2020,
+    "evidence": "Restatement_Matrices.dta Year max = 2020 (read from file); Restatement_Matrices ReadMe states 'matrices estimated for the years 2007 to 2020 ... as of the last reporting date of the year (December)'. RBEP ReadMe: 'data for the years 2007 to 2020'; RBEP xlsx scan Year max = 2020. China_Tax_Havens Figure_1c/1d Year max = 2020. The prior pass's finding that GCAP terminates at data-year 2020 is CONFIRMED.",
+    "implication_recorded_not_claimed": "All free GCAP reattribution products end at December 2020. Whether the panel's post-2020 quarters can be nationality-tagged from this product is a downstream question (Part 1), NOT decided here. This contract records the vintage; it makes no separability/sufficiency claim."
+  },
+  "prior_error_resolution": {
+    "prior_contract": "build/contracts/nport_gcap_contract.json",
+    "prior_claim_quoted": "'NATIONALITY (ultimate-parent) attribution ... is obtainable only via the commercially-gated CMNS aggregation' and 'the haven->parent-nationality (haven->China) reattribution is NOT reproducible from public data; it is gated on a stack of paywalled, non-redistributed ownership databases.'",
+    "verdict": "PARTIALLY RETIRED, PARTIALLY UPHELD — and the prior framing conflated two different objects.",
+    "retired": "RETIRED for the AGGREGATE finished product. The prior contract examined the cmns-aggregation CODE repo (which needs licensed inputs to BUILD a crosswalk) and concluded the nationality layer is commercially gated. That is an ACCESS-GATE error WITH RESPECT TO THE FINISHED AGGREGATE PRODUCT: GCAP posts the FINISHED reattribution — the residency->nationality reallocation SHARE matrices (Restatement_Matrices.dta) and restated bilateral LEVELS (Restated_Bilateral_External_Portfolios) — as FREE direct downloads, with only a USE license, no access gate. The licensed inputs are needed only to rebuild the crosswalk, which is unnecessary for the country-level reattribution. So the haven->China nationality fraction f (e.g. CYM->CHN = 0.823 for US equities 2020) IS freely available.",
+    "upheld": "UPHELD for the PER-SECURITY crosswalk. There is NO free finished per-security ISIN/CUSIP->ultimate-parent table. The CMNS replication package posts only raw licensed-input STUBS plus build code; a populated security-level crosswalk is not downloadable and would require the licensed inputs to construct. If a per-holding (per-security) nationality tag is required, that remains gated; if a country x country reallocation share or restated bilateral level suffices, the HOLE is retired.",
+    "honest_note": "This correction is grounded in the downloaded files, not in the architect's say-so. The architect implied route (A) might exist; the actual files show it does NOT exist as a free product. Route (B) is what is free."
+  },
+  "frequency": "ANNUAL (end-of-December positions). Both the matrices and the restated bilateral levels are estimated 'as of the last reporting date of the year (December)'. No sub-annual (quarterly/monthly) GCAP reattribution product exists in the free files. Australia is an exception (2017-2019 only, June when December unavailable).",
+  "reporting_lag": "UNVERIFIED — no release-calendar/lag statement was read from the publisher. The readmes are dated December 2022 (Version 1.5 matrices / 1.8 RBEP); S3 Last-Modified is 2023-01-05 (RBEP xlsx) and 2023-06-19 (China_TH). The product has not been extended past data-year 2020 as of 2026-06-29.",
+  "coverage": "Investor side: USA, EMU (block), GBR, CAN, CHE, SWE, DNK, NOR, AUS (full versions); ex-domestic-only restatements for other CPIS reporters; 'World' for the Issuance methodologies. Issuer side: individual countries (243 ISO codes incl. XSN supranational, OTH residual, KOS Kosovo). Asset classes: common equity, corporate bonds, government/agency/muni bonds, asset-backed securities, all bonds, all equities (EF). Geographic restatement: residency (Destination/Position_Residency) -> nationality (Destination_Restated/Restatement_Full/Restatement_TH_Only) or sales-weighted. Years 2007-2020.",
+  "known_frictions": [
+    "VINTAGE CEILING — all free GCAP reattribution products terminate at data-year 2020 (December). No post-2020 nationality restatement is published. Confirmed from Restatement_Matrices.dta (Year max 2020), RBEP, and China_TH.",
+    "GRANULARITY CEILING — the free product is AGGREGATE country x country (route B). NO free per-security ISIN/CUSIP->ultimate-parent table (route A) is posted; building one requires the licensed CMNS inputs (CGS, Dealogic, SDC, Capital IQ, ORBIS/BvD, FactSet, Morningstar) per CMNS_Data_Guide.pdf. A per-holding nationality tag therefore cannot be drawn directly from the free product.",
+    "ANNUAL FREQUENCY — December-only annual snapshots; no sub-annual GCAP restatement. Any quarterly/monthly use would require temporal disaggregation (not provided by GCAP).",
+    "METHODOLOGY MULTIPLICITY — six reallocation methodologies in the matrices (Fund Holdings, Enhanced Fund Holdings, Issuance, and three sales-based) and three in RBEP; the haven->China fraction differs by methodology and asset class. A choice among them is required for any calibration (recorded here as a friction, not resolved).",
+    "INVESTOR-SIDE SCOPE for the share matrices — fund-holdings-based reallocation shares are only estimated for 9 investor economies; 'Issuance' methodology shares are investor-agnostic ('World'). EMU is a block on the investor side only.",
+    "INTERPOLATION/EXTRAPOLATION in RBEP Position_Residency for missing bilateral-years (linear interpolation / first-last back/forward fill), and ABS bilaterals set to zero when missing (per RBEP ReadMe). Restated values inherit this.",
+    "USE LICENSE — 'academic research and educational uses only' (a use restriction; not an access gate)."
+  ],
+  "confidence_tier": "HIGH",
+  "confidence_reason": "Every load-bearing fact was read from an actually-downloaded file on 2026-06-29: the data-page hrefs were enumerated from the fetched HTML (not from a summarizer); the access mechanism (direct S3 / Google Drive, no login; loginAllowed:false) was confirmed by HTTP-200 downloads of 140 MB + 43 MB files; the route-B matrix structure (8 columns verbatim, 4,122,880 rows, methodology/asset value-labels, Year max 2020, CHN as Destination_Restated with the actual CYM/BMU/HKG/VGB->CHN reallocation shares) was read with pyreadstat directly from Restatement_Matrices.dta; the RBEP 15-column header and Year-2020 ceiling were read from the xlsx (confirmed identical to current S3 by Content-Length); and the ABSENCE of a route-A per-security crosswalk was confirmed by extracting and fully listing redrawing-the-map.zip's inner data.zip (504 entries; only data/raw/ with sample stubs, no built crosswalk). The prior-error correction rests on these file contents, not on the prompt's assertion.",
+  "determination": "ROUTE (B) free, route (A) absent. The FINISHED haven->China nationality reattribution is FREE-DOWNLOAD at AGGREGATE country x country granularity (reallocation shares Restatement_Matrices.dta + restated bilateral levels Restated_Bilateral_External_Portfolios), max data-year 2020, December annual. The prior 'commercially-gated crosswalk HOLE' is RETIRED for the aggregate product (the access-gate framing was an error: only a USE license applies) but UPHELD for a per-security ultimate-parent table (none is posted; rebuilding requires licensed inputs). Part-0 grounding only — NO separability/identification/sufficiency claim is made here.",
+  "files_on_disk": {
+    "downloaded_this_pass": [
+      "build/data/gcap_products/gcap_data_page.html",
+      "build/data/gcap_products/Restatement_Matrices.dta (140232696 bytes)",
+      "build/data/gcap_products/RestatementMatrices_ReadMe.pdf",
+      "build/data/gcap_products/Restated_Bilateral_External_Portfolios_ReadMe.pdf",
+      "build/data/gcap_products/China_TH_Issuance_Series_Readme.pdf",
+      "build/data/gcap_products/CMNS_Data_Guide.pdf",
+      "build/data/gcap_products/NPORT_readme.pdf",
+      "build/data/gcap_products/redrawing-the-map.zip (43317839 bytes)",
+      "build/data/gcap_products/redrawing_extract/data.zip (43144390 bytes)",
+      "build/data/gcap_products/redrawing_extract/data_zip_listing.txt"
+    ],
+    "reused_from_prior_pass_verified_identical_to_current_s3": [
+      "build/data/gcap_post2020_check/Restated_Bilateral_External_Portfolios.xlsx (Content-Length match 29659179)",
+      "build/data/gcap_post2020_check/China_Tax_Havens_Data.xlsx (Content-Length match 18726)"
+    ]
+  },
+  "unverified": [
+    "Restated_Bilateral_External_Portfolios.dta itself was NOT downloaded (the .xlsx, byte-identical-in-size to current S3, was used instead); column structure verified from the .xlsx and the ReadMe. The .dta is presumed equivalent per the ReadMe ('available in .xlsx and .dta formats') but was not byte-read.",
+    "The Google Drive N-PORT processed DATA zip was HEAD-checked (HTTP 200, no login) but NOT downloaded/extracted; its internal structure is not re-verified here. Per build/contracts/nport_gcap_contract.json it is RESIDENCE-basis and carries no nationality layer, so it is not route-determining.",
+    "Reporting lag / update cadence: no publisher release-calendar statement was read; the product appears static at data-year 2020 (readmes Dec-2022, S3 Last-Modified 2023). Whether a future GCAP release will extend past 2020 is unknown.",
+    "Whether the GCAP country-level reallocation shares can be validly applied to N-PORT/other panels at the cell level is a Part-1 / downstream separability question, deliberately NOT assessed in this grounding contract."
+  ],
+  "notes": "Part-0 grounding only: exactly one artifact written (this contract). Downloaded files persisted under build/data/gcap_products/. No other contract, no build/model, no build/results, no build/audit, no panel modified. Part 1 (the nationality attach) NOT started. No separability or identification claim made."
+}

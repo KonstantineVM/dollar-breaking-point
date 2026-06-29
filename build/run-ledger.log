@@ -1888,3 +1888,61 @@ echo; echo "=== SUBMISSION header ==="; head -1 q_2019q4/SUBMISSION.tsv
 echo; echo "=== IDENTIFIERS header ==="; head -1 q_2019q4/IDENTIFIERS.tsv
 echo; echo "=== FUND_REPORTED_INFO header ==="; head -1 q_2019q4/FUND_REPORTED_INFO.tsv
 echo; echo "=== REGISTRANT header ==="; head -1 q_2019q4/REGISTRANT.tsv
+2026-06-29T21:02:36Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "$(cat <<'EOF'
+DP1-reopen: N-PORT nationality cell + separability re-test -> RESIDUAL HOLE / OPEN
+
+An in-chat sweep claimed SEC Form N-PORT + the GCAP public pipeline make the
+discriminating cell (US-fund holdings of Chinese-NATIONALITY haven-issued
+securities) publicly constructible, falsifying the terminal verdict's
+missing-data premise. Grounded against primary sources; premise REFINED, not
+overturned. DP2-DP5 NOT re-run; DP6 NOT begun.
+
+PART 0 nport_gcap_contract.json — DETERMINATION: RESIDUAL HOLE. N-PORT IS
+publicly constructible on a RESIDENCE basis (item C.5.a = country of
+organization; public only for the third month of each fiscal quarter per SEC
+PR 2019-23; 2019Q4-present; security-level ISIN/CUSIP). BUT the NATIONALITY
+(haven->China ultimate-parent) reattribution is a COMMERCIALLY-GATED HOLE: the
+GCAP/CMNS crosswalk code is public but its inputs need 7 licensed
+non-redistributed databases (CGS/Dealogic/SDC/Capital IQ/ORBIS/FactSet/
+Morningstar + OpenFIGI). Fetched, not asserted.
+
+PART 1 panel (provenance + build_us_china_panel.py) — built what CAN be built:
+1,141,109 security-level rows across a DOCUMENTED 8-fiscal-quarter subset (not
+the full 21-quarter range; skips stated), 41,067 accession numbers (3
+spot-checked live vs EDGAR), identifier coverage 99.33% MEASURED;
+issuer_nationality = "UNDETERMINED-NO-PUBLIC-CROSSWALK" on every row (not
+fabricated; Alibaba sits at residence KY, China-parent UNDETERMINED). The 38MB
+parquet is gitignored (reproducible via the build script + SEC URLs);
+per-quarter aggregates in build/results/dp1reopen_p2p3_verify.json.
+
+PART 2 f_measured_quarterly.json — f (China-nationality fraction) UNDETERMINED:
+unmeasurable from residence data, not fabricated. The computable RESIDENCE
+ratio CN/(CN+haven) drifts 0.300->0.250 but is explicitly NOT f (a falling
+residence ratio is consistent with f RISING). Pin [0.49,0.71] neither confirmed
+nor refuted from public N-PORT.
+
+PART 3 sep_retest_nationality.json — the nationality-resolved F3 test CANNOT run
+(nationality is the HOLE). Labeled RESIDENCE-only secondary check on the new
+quarterly panel: +0.981 q-o-q (echoes prior GEOMETRIC_ONLY, NOT the nationality
+test). VERDICT OPEN -- not F3-LOADS, not a fresh STILL-GEOMETRIC-ONLY; "one
+licensed crosswalk away from nationality, still OPEN."
+
+Verifier build/results/dp1reopen_p2p3_verify.json regenerated from the panel
+alone (nationality uniformly UNDETERMINED; residence trend delta -0.049395;
+residence secondary corr +0.981297).
+
+Integrity-critic GATE: PASS on all four; endpoint OPEN confirmed HOLE-driven
+not planted; symmetric-error PASS both directions. Non-blocking to human gate:
+verbatim PDF-quote fidelity (source PDFs committed for verification) and the
+live EDGAR spot-checks. NET: the terminal UNIDENTIFIABLE-FROM-AVAILABLE-DATA
+verdict stands, now with a sharper sourced statement of exactly what is missing
+(the nationality x counterpart x sub-annual conjunction = one licensed CMNS
+crosswalk). Full-chain re-run with a licensed crosswalk is the human's call.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+echo "--- tree ---"; git status --short | grep -v parquet | grep -v 'nport_flat\|_extract\|cmns_guide_flat' | head
