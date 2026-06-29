@@ -1946,3 +1946,65 @@ EOF
 )"
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
 echo "--- tree ---"; git status --short | grep -v parquet | grep -v 'nport_flat\|_extract\|cmns_guide_flat' | head
+2026-06-29T22:15:10Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "$(cat <<'EOF'
+DP1-reopen CORRECTED: GCAP nationality attached + separability re-test -> STILL-GEOMETRIC-ONLY
+
+The prior pass's "commercially-gated HOLE / OPEN" rested on an ACCESS-GATE ERROR:
+GCAP posts the finished reattribution as FREE direct downloads ("academic use
+only" is a use license, not an access gate; the licensed CGS/Dealogic/etc inputs
+are needed only to REBUILD the crosswalk, which is unnecessary). Grounded from the
+actual downloaded files. DP2-DP5 NOT re-run; DP6 NOT begun.
+
+PART 0 gcap_product_contract.json — ROUTE (B). The free product is AGGREGATE
+country x country reallocation SHARES (Restatement_Matrices.dta, 4.12M rows, max
+year 2020, Dec-annual; USA equity 2020 CYM->CHN=0.823155, HKG=0.198, VGB=0.028) +
+restated bilateral LEVELS. Free-download confirmed from disk (loginAllowed:false,
+HTTP-200 no login). NO free per-security ISIN->parent table (route A absent;
+redrawing-the-map.zip = raw-input stubs only). Access-gate framing RETIRED for the
+aggregate product, UPHELD only for a per-security crosswalk.
+
+PART 1 f_calibrated_gcap.json — calibrated China-nationality mass by applying the
+GCAP shares (Fund Holdings primary, EFH sensitivity) per haven x asset x year to
+the panel haven holdings; headline CYM->CHN=0.823155 reproduced exactly. A
+CALIBRATED AGGREGATE fraction, NOT a per-security tag (intra-haven heterogeneity =
+route-A residual).
+
+PART 2 f_measured_quarterly.json (OVERWRITES prior UNDETERMINED) — f MEASURED:
+0.502/0.525 (2019, INSIDE pin [0.49,0.71]), 0.419/0.423/0.450 (2020, BELOW floor),
+0.356/0.372/0.379 (post-2020, 2020-vintage extrapolated, BELOW). Moves DOWN
+~0.52->~0.37; does NOT exceed 0.71; below-pin because the N-PORT pool is more
+ABS/HKG-heavy than the GCAP-RBEP pool the pin used (shares match GCAP exactly).
+
+PART 3 sep_retest_nationality.json (OVERWRITES prior OPEN) — drove F3 with the
+GCAP-calibrated China-nationality series; within-pool substitution sign +0.521
+(down from residence proxy +0.981 but still positive/wrong); footprint -0.144
+(average-drift); calibration largely a near-fixed reweighting (corr +0.894;
+shares annual/2020-frozen). VERDICT STILL-GEOMETRIC-ONLY (not F3-LOADS, not
+OPEN-for-access). Honest residual: intra-haven per-security heterogeneity
+(route A) — a granularity limit, not an access hole.
+
+Verifier dp1reopen_corrected_verify.json (orchestrator-executed) regenerates from
+disk: headline 0.823155, FH 2022q2=0.372433/2024q4=0.379477, sign +0.520811,
+residence +0.981297, footprint -0.143966, indep-var +0.894.
+
+Integrity-critic GATE: initially BLOCKED on a transcription error (2022q2/2024q4 FH
+display rows mis-assembled from the EFH calibration); corrected to the authoritative
+recompute (the +0.521 Part-3 series always used the correct mass, so the verdict was
+unaffected); critic CLEARED all BLOCKs -> PASS on all four; STILL-GEOMETRIC-ONLY
+certified clean; symmetric-error PASS both directions. Non-blocking to the human
+gate: the asset-class mapping judgment (ABS->0; residual debt->Corporate Bonds).
+
+NET: access-gate error corrected, f now MEASURED (not UNDETERMINED); the separability
+verdict moves from the wrongly-framed OPEN to a determinate STILL-GEOMETRIC-ONLY —
+aggregate nationality-resolved data still do not load F3; the terminal
+UNIDENTIFIABLE-FROM-AVAILABLE-DATA result stands, residual sharpened to intra-haven
+per-security tagging (route A = a licensed crosswalk). 137MB .dta + 42MB zips
+gitignored (reproducible from S3 URLs); READMEs/listing/access-HTML committed.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+echo "--- tree ---"; git status --short | grep -v '^??' | head

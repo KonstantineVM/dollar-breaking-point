@@ -24,3 +24,9 @@ build/data/nport/nport_flat.txt
 build/data/gcap_products/Restatement_Matrices.dta
 build/data/gcap_products/redrawing-the-map.zip
 build/data/gcap_products/redrawing_extract/data.zip
+
+# Part 0 re-run (GCAP route determination): all five candidate raw downloads +
+# extracts are large and re-fetchable from the URLs recorded in
+# build/contracts/gcap_route_determination.json. Only the contract + small
+# enumerated-schema evidence (varname listings, zip directory dumps) are committed.
+build/data/gcap_route/
