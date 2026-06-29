@@ -1,0 +1,93 @@
+{
+  "artifact": "transform_robustness.json",
+  "task": "TEST 1 of the FINAL read-only ratification of the terminal separability verdict (UNIDENTIFIABLE-FROM-AVAILABLE-DATA). Recompute the WITHIN-HOLDER co-movement sign between the US-leg series F4[h] and the offshore-exposure series F3[h] for h in {CYM,HKG,VGB}, pooled and per-haven, under EVERY defensible flow transform, and read off whether the POSITIVE (wrong-for-F3-substitution) sign is ROBUST or whether any defensible transform flips the pooled sign NEGATIVE. SYMMETRIC: report ALL signs regardless of direction.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "READ-ONLY on all prior artifacts. Wrote EXACTLY this file, build/audit/pairing_audit.json (Test 2), and the recompute script build/audit/transform_robustness.py. Did NOT modify the operator, contracts, dp3/dp4/dp5 artifacts, sep_*_*.json, geo_vs_emp_test.json, or any prior verdict file. DP6 NOT started. Makes NO hazard claim and NO date. Does NOT declare the build complete -- that is the human's call.",
+
+  "read_only_inputs": [
+    "build/data/treasury_tic/current/slt_haven_extract.json (76 monthly rows each for CYM/HKG/VGB, both directions) -- the ONLY data source; every number below is reproducible from it alone by transform_robustness.py",
+    "build/audit/sep_definitive_test.json (the verdict under ratification; supplies the anchors a-pooled +0.362091, per-haven CYM +0.606213/HKG +0.285294/VGB +0.407876, b-pooled +0.552738)"
+  ],
+
+  "within_holder_pairing": "US-leg = F4[h] = F4_foreign_holdings_of_us_table1[h] (foreign holder h's holdings OF US LT securities, Table 1); offshore-exposure = F3[h] = F3_us_holdings_of_foreign_table2[h] (US holdings OF h's LT securities, Table 2); h in {CYM,HKG,VGB}. F3 substitution would require US-leg DOWN while offshore-exposure UP within a holder => NEGATIVE co-movement; the verdict found POSITIVE (wrong sign). Pooling convention = transform each per-haven series, demean per-haven, then pool (exactly the verdict script's convention).",
+
+  "anchor_reproduction": {
+    "transform_a_demeaned_MoM_logchange_pooled": 0.362091,
+    "transform_a_per_haven": {"CYM": 0.606213, "HKG": 0.285294, "VGB": 0.407876},
+    "transform_a_target": {"pooled": 0.362091, "CYM": 0.606213, "HKG": 0.285294, "VGB": 0.407876},
+    "transform_a_reproduced_exactly": true,
+    "transform_b_simple_MoM_change_pooled": 0.552738,
+    "transform_b_target_pooled": 0.552738,
+    "transform_b_reproduced_exactly": true,
+    "statement": "The verdict's two stated anchors REPRODUCE EXACTLY from slt_haven_extract.json alone: (a) pooled +0.362091 with per-haven CYM +0.606213 / HKG +0.285294 / VGB +0.407876, and (b) pooled +0.552738. No reproduction failure to report."
+  },
+
+  "five_transforms": {
+    "a_demeaned_MoM_logchange": {
+      "justification": "the verdict's principled transform; substitution is a flow/change concept, so the principled measure is month-over-month log-change, demeaned",
+      "pooled": 0.362091, "pooled_sign": "POSITIVE",
+      "per_haven": {"CYM": 0.606213, "HKG": 0.285294, "VGB": 0.407876},
+      "per_haven_sign": {"CYM": "POSITIVE", "HKG": "POSITIVE", "VGB": "POSITIVE"},
+      "n_per_haven": {"CYM": 75, "HKG": 75, "VGB": 75}
+    },
+    "b_simple_MoM_change": {
+      "justification": "level difference; symmetric robustness check against any log distortion",
+      "pooled": 0.552738, "pooled_sign": "POSITIVE",
+      "per_haven": {"CYM": 0.572823, "HKG": 0.255442, "VGB": 0.33499},
+      "per_haven_sign": {"CYM": "POSITIVE", "HKG": "POSITIVE", "VGB": "POSITIVE"},
+      "n_per_haven": {"CYM": 75, "HKG": 75, "VGB": 75}
+    },
+    "c_QoQ_logchange": {
+      "justification": "slower cadence -- substitution may operate quarterly rather than monthly; resample to quarter-end level then take log-change",
+      "pooled": 0.517265, "pooled_sign": "POSITIVE",
+      "per_haven": {"CYM": 0.764463, "HKG": 0.479107, "VGB": 0.485096},
+      "per_haven_sign": {"CYM": "POSITIVE", "HKG": "POSITIVE", "VGB": "POSITIVE"},
+      "n_per_haven": {"CYM": 25, "HKG": 25, "VGB": 25},
+      "sample_note": "76 monthly rows collapse to 26 quarter-end levels => 25 QoQ log-changes per haven"
+    },
+    "d_YoY_logchange": {
+      "justification": "12-month log-change removes residual seasonality",
+      "pooled": 0.527275, "pooled_sign": "POSITIVE",
+      "per_haven": {"CYM": 0.819399, "HKG": 0.47288, "VGB": 0.442025},
+      "per_haven_sign": {"CYM": "POSITIVE", "HKG": "POSITIVE", "VGB": "POSITIVE"},
+      "n_per_haven": {"CYM": 64, "HKG": 64, "VGB": 64},
+      "sample_note": "12-month lag drops the first 12 observations => 64 YoY log-changes per haven"
+    },
+    "e_growth_vs_own_trailing12m_mean": {
+      "justification": "scale-free reallocation share: v_t / mean(v[t-12..t-1]) - 1. Trailing 12-month window chosen to match the TIC annual reporting cycle and to align with the YoY panel; it removes each holder's own scale so the measure reflects relative reallocation, the cleanest framing of a substitution share",
+      "trailing_window_months": 12,
+      "pooled": 0.508101, "pooled_sign": "POSITIVE",
+      "per_haven": {"CYM": 0.80716, "HKG": 0.507815, "VGB": 0.381717},
+      "per_haven_sign": {"CYM": "POSITIVE", "HKG": "POSITIVE", "VGB": "POSITIVE"},
+      "n_per_haven": {"CYM": 64, "HKG": 64, "VGB": 64},
+      "sample_note": "trailing 12-month mean starts at index 12 => 64 observations per haven"
+    }
+  },
+
+  "five_pooled_signs_summary": {
+    "a_logchange": 0.362091,
+    "b_change": 0.552738,
+    "c_QoQ": 0.517265,
+    "d_YoY": 0.527275,
+    "e_trailing_mean": 0.508101,
+    "all_positive": true
+  },
+
+  "all_per_haven_signs": "ALL 15 cells (5 transforms x 3 havens) are POSITIVE. Not a single per-haven correlation is negative under any of the five defensible flow transforms. Range of per-haven values: min HKG-MoM-change +0.255442, max CYM-YoY +0.819399.",
+
+  "symmetric_error_self_check": {
+    "did_not_cherry_pick_to_force_survives": "All FIVE defensible flow transforms requested were computed and reported in full (pooled + per-haven + sign + n), regardless of outcome. None was omitted. The two slower-cadence / deseasonalized / scale-free transforms (c,d,e) -- which are exactly the candidates that could have surfaced a slower substitution signal the monthly transform misses -- were computed and ALL came back POSITIVE.",
+    "did_not_engineer_negative": "No transform was constructed or windowed to manufacture a negative. Each transform is justified on standard grounds: monthly log-change (flow concept) / simple change (log-distortion robustness) / QoQ (slower cadence) / YoY (deseasonalize) / trailing-mean (scale-free reallocation share).",
+    "reduced_sample_disclosure": "n is stated per transform: a,b use 75 per haven; c reduces to 25 (quarterly resample); d and e reduce to 64 (12-month lag / trailing window). The reduced-sample transforms (c,d,e) do NOT flip the sign -- they make it MORE strongly positive (pooled +0.517/+0.527/+0.508 vs +0.362 monthly).",
+    "ambiguity_assessment": "There is no sign split. Pooled is positive for all five; per-haven is positive for all fifteen cells. This is NOT an OPEN case."
+  },
+
+  "call": "SURVIVES",
+  "call_basis": "All five defensible flow-transform POOLED correlations are POSITIVE (a +0.362091, b +0.552738, c +0.517265, d +0.527275, e +0.508101), and every one of the 15 per-haven cells is POSITIVE. The positive (wrong-for-F3-substitution) sign is therefore ROBUST across every defensible flow transform tested -- it is not an artifact of the monthly cadence (the slower QoQ, the deseasonalized YoY, and the scale-free trailing-mean transforms all confirm it and in fact strengthen it). No defensible transform flips the pooled sign negative; none flips any per-haven sign negative. Per the task's symmetric definition, the transform judgment is RATIFIED ON EVIDENCE and the terminal separability verdict SURVIVES at the transform-robustness test. The call FOLLOWS FROM the five numbers above, not from prior commitment to the verdict.",
+
+  "coverage_limit_restated": "This test measures RESIDENCY co-movement only. TIC SLT carries only US<->foreign legs, so it cannot observe a foreign<->foreign or nationality-basis reallocation; a China-nationality reallocation fraction f is invisible to it. The transform-robustness result speaks to whether the residency-cell positive co-movement is transform-robust -- it does NOT and cannot speak to a nationality-basis substitution. See pairing_audit.json for the full coverage-limit statement.",
+
+  "no_hazard_no_date": "This artifact makes NO hazard claim and NO date. It ratifies a sign, nothing more.",
+  "reproducibility": "Every number is regenerated from build/data/treasury_tic/current/slt_haven_extract.json alone by build/audit/transform_robustness.py."
+}

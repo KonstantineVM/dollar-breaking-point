@@ -1767,3 +1767,56 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
 EOF
 )"
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4
+2026-06-29T04:18:10Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add .gitignore
+git commit -q -m "$(cat <<'EOF'
+Terminal separability experiment: UNIDENTIFIABLE FROM AVAILABLE DATA
+
+Resolves the separability axis of the prior OPEN-PENDING-DATA verdict.
+Three parts (artifacts in build/audit/; prior DP3/DP4/DP5 read-only):
+
+PART 1 sep_data_acquired.json — ACQUIRE higher-resolution flows.
+Monthly TIC SLT OBTAINED at RESIDENCY granularity (both directions,
+2020-01..2026-04, 2022 covered, CYM/HKG/VGB individual counterparties).
+GCAP post-2020 NATIONALITY restatement NONE_AT_GRANULARITY (frozen at
+data-year 2020) -> f stays pinned [0.49,0.71]. Double-verified.
+
+PART 2 sep_definitive_test.json (+ .py) — DEFINITIVE test vs the
+backstop-complete operator (F4 official_sector_respec + pinned f).
+Recomputed from disk: within-holder substitution sign +0.362 (log-change;
++0.553 simple change) -- same WRONG (positive) sign as Test B's +0.4664;
+lead/lag contemporaneous+positive (k=0: +0.608 full, +0.445 in 2022, no
+substitution lead/lag); footprint cosine fell (mean-dir -0.047) but that
+is average-drift divergence not substitution. Operator non-degenerate
+(base margin 0.220969 == geo_vs_emp; backstop-stress 0.224911; >= tau).
+VERDICT: GEOMETRIC-ONLY-CONFIRMED -- residency-monthly does not load F3.
+
+PART 3 terminal_verdict.md — TERMINAL ENDPOINT: UNIDENTIFIABLE FROM
+AVAILABLE DATA (the project's other-form success: a grounded impossibility
+result). Frontier manifold + signed distance exist geometrically on the
+pinned rectangle, but the hazard's binding-mode attribution (F3 sanctions-
+reallocation vs F4 run on a USA-column fall) is NOT IDENTIFIED FROM DATA.
+Datasets tried & why each fails: semiannual CPIS residency (+0.47 wrong
+sign); monthly TIC SLT residency (+0.36 wrong sign, no lead/lag); GCAP
+nationality (frozen 2020). What would close it: a post-2020, counterpart-
+resolved, NATIONALITY-basis restatement at f-granularity, sub-annual,
+spanning a sanctions episode -- the nationality x counterpart x sub-annual
+CONJUNCTION is missing. No date, no bare probability.
+
+Integrity-critic GATE: PASS on all three; symmetric-error check PASS both
+directions (no manufactured separability via levels; no manufactured
+failure -- positive sign robust across both flow transforms); UNIDENTIFIABLE
+confirmed data-driven not planted (operator non-degenerate). DP6 not begun.
+
+Large raw fetches (29MB RBEP xlsx, redundant .html table duplicates) left
+uncommitted via .gitignore; S3/publisher URLs recorded in the artifact and
+the load-bearing .txt tables + extract committed for recompute.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)"
+echo "--- push ---"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4
+echo "--- tree clean? ---"
+git status --short
