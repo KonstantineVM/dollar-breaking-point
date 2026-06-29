@@ -6,3 +6,13 @@ build/data/treasury_tic/current/slt_tables/slt_table2.html
 build/data/treasury_tic/current/slt_tables/slt_table3.html
 build/data/treasury_tic/current/slt_tables/slt_table4.html
 build/data/treasury_tic/current/slt_tables/slt_table6.html
+
+# DP1-reopen N-PORT: the 38MB security-level residence panel is reproducible from
+# build/data/nport/build_us_china_panel.py + the SEC ZIP URLs in us_china_panel_provenance.json
+# (per-quarter aggregates + the recompute live in build/results/dp1reopen_p2p3_verify.json).
+build/data/nport/us_china_nationality_panel.parquet
+# Corrupted binary text extracts (superseded by the committed source PDFs nport_readme.pdf / CMNS_Data_Guide.pdf).
+build/data/nport/nport_readme_extract.txt
+build/data/nport/gcap/cmns_guide_flat.txt
+# Raw single-quarter N-PORT sample (redundant; the panel + provenance carry the grounded content).
+build/data/nport/nport_flat.txt

@@ -1,0 +1,79 @@
+{
+  "artifact": "f_measured_quarterly.json",
+  "task": "DP1-REOPEN Part 2 -- recompute f (the China-NATIONALITY fraction) against the N-PORT panel. RESULT: f remains UNDETERMINED because nationality is the commercially-gated HOLE. Compute ONLY what the RESIDENCE panel supports, labelled explicitly as NOT f.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "Wrote EXACTLY this file plus build/audit/sep_retest_nationality.json (Part 3) and the shared recompute script build/audit/sep_retest_nationality_recompute.py. Did NOT modify the operator, contracts, dp3/dp4/dp5/sep_* prior artifacts, china_fraction_bound.json, f_pin_test.json, or the panel. DP6 NOT started. No hazard, no date, no bare probability.",
+
+  "read_only_inputs": [
+    "build/data/nport/us_china_nationality_panel.parquet (the RESIDENCE panel; 1,141,109 rows; issuer_nationality uniformly 'UNDETERMINED-NO-PUBLIC-CROSSWALK')",
+    "build/data/nport/us_china_panel_provenance.json (provenance: subset disclosure, 99.33% identifier coverage, the nationality HOLE)",
+    "build/contracts/nport_gcap_contract.json (Part 0: RESIDUAL HOLE determination)",
+    "build/model/china_fraction_bound.json + build/audit/f_pin_test.json (the pinned f in [0.49,0.71], issuance/holdings-side, frozen-2020 GCAP vintage)"
+  ],
+
+  "HEADLINE_DETERMINATION": {
+    "claim": "The China-NATIONALITY fraction f -- the share of US-held offshore/haven (CYM/HKG/VGB) exposure that reattributes to China by ULTIMATE PARENT -- CANNOT be measured from the N-PORT panel. f remains UNDETERMINED.",
+    "SUBJECT_DRIVER": "f is a NATIONALITY (ultimate-parent) quantity; the panel's only geographic field, investment_country (N-PORT item C.5.a), is RESIDENCE (issuer country of organization). The driver of the non-measurability is that the haven->ultimate-parent reattribution is not in N-PORT and the issuer_nationality column is uniformly 'UNDETERMINED-NO-PUBLIC-CROSSWALK' on all 1,141,109 rows (verified, see verification.issuer_nationality_distinct_values).",
+    "BOUNDARIES": "Holds for the N-PORT public data (US-registered-fund holders only, RESIDENCE basis, 8-fiscal-quarter subset 2019q3..2024q4). It is NOT a claim that f is unmeasurable in principle -- it is measurable once a licensed CMNS ultimate-parent crosswalk is applied to this exact panel (see crosswalk_that_would_close_it).",
+    "FALSIFIER": "A reproducible PUBLIC issuer->ultimate-parent-nationality crosswalk applied to the panel that fills issuer_nationality with non-UNDETERMINED China/non-China assignments at >=95% row coverage, yielding a measured f. None exists at this granularity: the GCAP/CMNS crosswalk requires 7 licensed, non-redistributed commercial ownership databases (CGS, Dealogic, SDC, S&P Capital IQ, Bureau van Dijk ORBIS, FactSet, Morningstar) plus an OpenFIGI key.",
+    "SOURCE": "build/data/nport/us_china_nationality_panel.parquet (issuer_nationality column, recomputed value_counts on disk: single value 'UNDETERMINED-NO-PUBLIC-CROSSWALK'); build/contracts/nport_gcap_contract.json structure.crosswalk_determination and known_frictions; build/data/nport/us_china_panel_provenance.json NATIONALITY_IS_UNDETERMINED_HOLE."
+  },
+
+  "f_is_not_fabricated": "No quarterly f is produced. The panel cannot distinguish a China-parent haven-issued security (e.g. Alibaba, residence KY) from a genuinely-haven security, so any 'f' derived here would be a relabelled residence statistic -- a substitution this build explicitly guards against. f stays UNDETERMINED.",
+
+  "RESIDENCE_STATISTICS_EXPLICITLY_NOT_F": {
+    "what_this_is": "USD value (N-PORT item C.2.c) of US-registered-fund holdings of CN-RESIDENT issuers vs CYM/HKG/VGB-RESIDENT issuers, per fiscal quarter, and the RESIDENCE ratio CN-resident / (CN-resident + haven-resident). This is a RESIDENCE statistic. It is NOT the nationality fraction f.",
+    "why_it_is_NOT_f_SUBJECT_DRIVER": "The residence ratio measures CN-resident mass relative to haven-resident mass. f measures the China-by-ULTIMATE-PARENT share OF the haven-resident mass. The residence ratio OMITS exactly the China-parent haven-issued securities (Alibaba-type, residence KY) that f is built to capture -- those sit entirely in the haven-resident denominator term, attributed away from China. So the residence ratio is a LOWER-bound-flavoured residence statistic, NOT the reattribution fraction f; the two answer different questions and are not comparable as levels.",
+    "value_basis_caveat_SOURCE": "currency_value is N-PORT item C.2.c summed in its reported units. Per build/contracts/nport_gcap_contract.json (value_basis: PARTIALLY VERIFIED) and the provenance value_basis_caveat, USD denomination of currency_value is the N-PORT standard but was NOT confirmed from the primary form-instruction text (SEC instruction PDF returned 403 in Part 0); currency_code is mixed across rows (USD 36.1%, HKD, CNY, ...), retained per row so denomination is auditable. The residence statistics below are sums of C.2.c as reported; they are labelled USD on the N-PORT standard but carry this UNVERIFIED-denomination caveat. ~0.94% of rows carry a negative currency_value (short/derivative legs), included as-filed.",
+    "per_quarter_residence_usd_value": [
+      {"fiscal_quarter": "2019q3", "cn_resident_usd_value": 133066146981.0, "cym_resident_usd_value": 210686342230.1, "hkg_resident_usd_value": 91980420554.6, "vgb_resident_usd_value": 7979705118.6, "haven_resident_usd_value": 310646467903.3, "residence_ratio_cn_over_cn_plus_haven": 0.299893},
+      {"fiscal_quarter": "2019q4", "cn_resident_usd_value": 183459152575.4, "cym_resident_usd_value": 294210404772.7, "hkg_resident_usd_value": 112581403622.0, "vgb_resident_usd_value": 10975512443.5, "haven_resident_usd_value": 417767320838.3, "residence_ratio_cn_over_cn_plus_haven": 0.305142},
+      {"fiscal_quarter": "2020q1", "cn_resident_usd_value": 167523216226.3, "cym_resident_usd_value": 237254943533.7, "hkg_resident_usd_value": 148763472391.6, "vgb_resident_usd_value": 8096528689.3, "haven_resident_usd_value": 394114944614.6, "residence_ratio_cn_over_cn_plus_haven": 0.298276},
+      {"fiscal_quarter": "2020q2", "cn_resident_usd_value": 187477797281.9, "cym_resident_usd_value": 267856506464.1, "hkg_resident_usd_value": 159423786894.7, "vgb_resident_usd_value": 9111295820.2, "haven_resident_usd_value": 436391589179.0, "residence_ratio_cn_over_cn_plus_haven": 0.300508},
+      {"fiscal_quarter": "2020q3", "cn_resident_usd_value": 222706216206.8, "cym_resident_usd_value": 311916022359.0, "hkg_resident_usd_value": 164746497700.0, "vgb_resident_usd_value": 9334776208.8, "haven_resident_usd_value": 485997296267.8, "residence_ratio_cn_over_cn_plus_haven": 0.314245},
+      {"fiscal_quarter": "2022q1", "cn_resident_usd_value": 201794084662.2, "cym_resident_usd_value": 305235952668.7, "hkg_resident_usd_value": 223128922532.7, "vgb_resident_usd_value": 10433267221.7, "haven_resident_usd_value": 538798142423.2, "residence_ratio_cn_over_cn_plus_haven": 0.272477},
+      {"fiscal_quarter": "2022q2", "cn_resident_usd_value": 170289284368.8, "cym_resident_usd_value": 272290330183.6, "hkg_resident_usd_value": 150481000718.3, "vgb_resident_usd_value": 8326490360.4, "haven_resident_usd_value": 431097821262.4, "residence_ratio_cn_over_cn_plus_haven": 0.283161},
+      {"fiscal_quarter": "2024q4", "cn_resident_usd_value": 136269379093.5, "cym_resident_usd_value": 276000595869.5, "hkg_resident_usd_value": 127683401099.7, "vgb_resident_usd_value": 4041324125.1, "haven_resident_usd_value": 407725321094.3, "residence_ratio_cn_over_cn_plus_haven": 0.250498}
+    ],
+    "residence_trend_2019q3_to_2024q4": {
+      "SUBJECT_DRIVER": "The OBSERVABLE residence ratio CN-resident/(CN-resident+haven-resident) declines mildly across the 8-quarter subset, driven by haven-resident mass (CYM+HKG+VGB) growing faster than CN-resident mass over 2019->2024.",
+      "first_2019q3": 0.299893,
+      "last_2024q4": 0.250498,
+      "delta": -0.049395,
+      "shape": "Roughly flat ~0.30 through 2020q3 (peak 0.314 at 2020q3), then steps down to ~0.27-0.28 in 2022 and ~0.25 by 2024q4. Monotone-ish DOWN after 2020q3 on this subset.",
+      "BOUNDARIES": "8 documented fiscal quarters (subset, NOT the continuous 21-quarter range); US-registered-fund holders only; RESIDENCE basis; mixed-currency C.2.c sums with the UNVERIFIED-USD-denomination caveat.",
+      "FALSIFIER": "Recompute group-sums of currency_value by fiscal_quarter x investment_country_iso3 from the panel and obtain a first/last residence ratio differing from 0.2999 / 0.2505 (delta -0.049). Reproduced by build/audit/sep_retest_nationality_recompute.py from disk.",
+      "explicitly_not_nationality_f": "This DOWN drift is a RESIDENCE trend. It says nothing directly about whether the NATIONALITY f rose or fell: a falling residence-CN share is consistent with MORE China-parent issuance migrating INTO the havens (which would RAISE nationality f while LOWERING the residence-CN ratio) just as easily as with less China exposure. The sign of the nationality f trend is UNOBSERVABLE here. Do not read the residence decline as a decline in f.",
+      "SOURCE": "build/data/nport/us_china_nationality_panel.parquet via build/audit/sep_retest_nationality_recompute.py (part2_residence_per_quarter, part2_residence_trend)."
+    }
+  },
+
+  "COMPARISON_TO_PINNED_INTERVAL": {
+    "claim": "The pinned f in [0.49,0.71] (from f_pin_test.json / china_fraction_bound.json) can be NEITHER CONFIRMED NOR REFUTED from public N-PORT data.",
+    "SUBJECT_DRIVER": "The pin is a NATIONALITY fraction (GCAP US-holdings-side restatement, haven->CHN ultimate parent, vintage 2007-2020). The N-PORT panel is RESIDENCE-basis with nationality UNDETERMINED, so it cannot produce a nationality f to test the pin against. The residence ratio (~0.25-0.31) is NOT comparable to the pinned nationality interval -- different denominators, different question (see RESIDENCE_STATISTICS_EXPLICITLY_NOT_F.why_it_is_NOT_f).",
+    "do_not_relabel": "The residence ratio ~0.25-0.31 must NOT be read as a low-side estimate of f that 'refutes' [0.49,0.71]. It is a residence statistic that omits the haven-issued China-parent securities; the nationality f restates those very securities to China and is expected to be HIGHER than any residence-CN ratio. Treating the residence ratio as f would be the exact substitution this build guards against.",
+    "BOUNDARIES": "Applies to the public N-PORT panel only. The pin's own vintage caveat (2020-vintage GCAP, DP2 cell is 2025-S1) is untouched here.",
+    "FALSIFIER": "Produce a nationality-resolved f from the panel (requires the licensed crosswalk) and compare to [0.49,0.71]. Not possible from public data in this pass.",
+    "SOURCE": "build/audit/f_pin_test.json (f_interval_pinned [0.49,0.71], US-holdings-side nationality restatement); build/data/nport/us_china_nationality_panel.parquet (residence basis, nationality UNDETERMINED)."
+  },
+
+  "REPLACES_VINTAGE_LEAP": {
+    "claim": "This Part REPLACES any 'vintage-leap' assumption (extrapolating the 2020-vintage nationality f forward to 2024/2025) with the honest statement: f is STILL UNMEASURABLE AT NATIONALITY GRANULARITY from public data.",
+    "SUBJECT_DRIVER": "The reopening hoped N-PORT would supply a post-2020 nationality-basis f. It does not: N-PORT is residence-basis and the nationality column is the HOLE. So the post-2020 nationality f is not measured here; it remains pinned at its 2020 vintage with the unverified-2025 caveat carried in f_pin_test.json -- not refreshed by N-PORT.",
+    "not_dressed_as_a_measurement": "This is reported as 'still unmeasurable at nationality granularity', NOT as a fresh measurement of f. The only NEW measured quantities are the RESIDENCE statistics above, which are labelled NOT f.",
+    "BOUNDARIES": "Public N-PORT, 8-quarter subset, US-fund holders, residence basis.",
+    "FALSIFIER": "A public nationality-resolved f at any post-2020 vintage. None obtained.",
+    "SOURCE": "build/audit/f_pin_test.json residual_gaps_carried_as_unverified (VINTAGE); build/contracts/nport_gcap_contract.json crosswalk_determination; this panel."
+  },
+
+  "verification": {
+    "issuer_nationality_distinct_values": ["UNDETERMINED-NO-PUBLIC-CROSSWALK"],
+    "rows_by_residence_iso3": {"CHN": 477784, "CYM": 467404, "HKG": 169777, "VGB": 26144},
+    "currency_code_mix_pct": {"USD": 36.08, "note": "remainder HKD/CNY/TWD/EUR/... ; C.2.c value-denomination caveat applies"},
+    "recompute_script": "build/audit/sep_retest_nationality_recompute.py",
+    "reproducibility": "Every residence number above is regenerated from build/data/nport/us_china_nationality_panel.parquet alone by the recompute script (part2_residence_per_quarter / part2_residence_trend). The HOLE assertion is a value_counts on issuer_nationality returning the single UNDETERMINED value."
+  },
+
+  "verdict_part2": "f UNDETERMINED. The nationality fraction f is NOT measured and NOT fabricated -- nationality is the commercially-gated HOLE (issuer_nationality uniformly UNDETERMINED). The only computed quantities are RESIDENCE statistics, labelled NOT f: per-quarter CN-resident vs haven-resident USD holdings and the RESIDENCE ratio CN/(CN+haven), which drifts DOWN from 0.300 (2019q3) to 0.250 (2024q4), delta -0.049. That residence DOWN trend is explicitly distinguished from the unobservable nationality-f trend. The pinned nationality f in [0.49,0.71] can be neither confirmed nor refuted from public N-PORT data."
+}

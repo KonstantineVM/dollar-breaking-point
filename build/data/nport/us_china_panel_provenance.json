@@ -1,0 +1,97 @@
+{
+  "artifact": "build/data/nport/us_china_nationality_panel.parquet",
+  "build_script": "build/data/nport/build_us_china_panel.py",
+  "build_date": "2026-06-29",
+  "step": "DP1-REOPEN Part 1 — INGEST N-PORT, build the RESIDENCE cell that CAN be built",
+  "what_this_is": "A quarterly panel of U.S.-registered-fund holdings whose issuer INVESTMENT_COUNTRY (Form N-PORT item C.5.a, the issuer's country of ORGANIZATION = RESIDENCE) is in the haven set {KY Cayman, HK Hong Kong, VG British Virgin Islands} or is CN (China mainland, resident-issued). Despite the filename it is RESIDENCE-resolved, with an explicit UNDETERMINED nationality column.",
+
+  "basis_statement": {
+    "geographic_basis": "RESIDENCE (issuer country of organization). The ONLY geographic field on an N-PORT holding is INVESTMENT_COUNTRY (item C.5.a), defined verbatim by the SEC data dictionary as 'the ISO country code that corresponds to the country where the issuer is organized' (domicile/residence), NOT ultimate-parent nationality. Confirmed in build/contracts/nport_gcap_contract.json (structure.residence_vs_nationality).",
+    "iso_code_form": "N-PORT C.5.a uses ISO-3166 alpha-2 codes (verified in the as-filed data: distinct values include US, JP, GB, KY, CN, HK, VG, ...). The DP1-REOPEN task named the targets in alpha-3 (CYM/HKG/VGB/CHN); the alpha-2 -> alpha-3 mapping applied is {KY->CYM, HK->HKG, VG->VGB, CN->CHN}. Column investment_country holds the as-filed alpha-2; investment_country_iso3 echoes the alpha-3."
+  },
+
+  "NATIONALITY_IS_UNDETERMINED_HOLE": {
+    "column": "issuer_nationality",
+    "value_on_every_row": "UNDETERMINED-NO-PUBLIC-CROSSWALK",
+    "why": "The NATIONALITY (haven -> ultimate-parent, i.e. haven -> China) reattribution is a COMMERCIALLY-GATED HOLE. It is NOT in N-PORT and is obtainable only via the GCAP/CMNS ultimate-parent crosswalk, whose code is public but which requires LICENSED, NON-REDISTRIBUTED commercial ownership databases: CUSIP Global Services (CGS), Dealogic, SDC, S&P Capital IQ, Bureau van Dijk ORBIS, FactSet, Morningstar (plus an OpenFIGI/Bloomberg API key for CUSIP->FIGI). Per build/contracts/nport_gcap_contract.json (Part 0 grounded determination: structure.crosswalk_determination, determination, known_frictions). This column is NOT filled and was NOT approximated or guessed. The residence-haven subset is NOT the China-nationality cell; conflating them would be a substitution this build explicitly guards against.",
+    "contract_reference": "build/contracts/nport_gcap_contract.json",
+    "contract_determination_quote": "RESIDUAL HOLE (NOT overturned). N-PORT makes U.S.-fund holdings PUBLICLY CONSTRUCTIBLE on a RESIDENCE basis ... BUT the discriminating cell requires NATIONALITY (haven->China ultimate-parent) reattribution, and NO reproducible PUBLIC crosswalk exists.",
+    "illustration": "Spot-check row: Alibaba Group Holding Ltd appears with investment_country=KY (Cayman, its country of organization). Its CHINA nationality is precisely what the gated CMNS crosswalk would assign and is exactly what this panel leaves UNDETERMINED rather than fabricate."
+  },
+
+  "SCOPE_LIMIT": {
+    "holder_universe": "U.S.-REGISTERED-FUND HOLDERS ONLY (open-end funds and other registered investment companies filing Form N-PORT; excludes money-market funds / UIT-organized ETFs per N-PORT scope, and excludes banks, insurers, pensions, and direct/official holders). This is the operator's dense US-holder leg, NOT the global holder matrix; non-US holder legs are OUT OF SCOPE.",
+    "basis": "RESIDENCE, not nationality (see NATIONALITY_IS_UNDETERMINED_HOLE).",
+    "frequency": "Effectively QUARTERLY on each fund's FISCAL-quarter-end. Only the third-month-of-fiscal-quarter N-PORT report is ever public (SEC press release 2019-23); the first two months are permanently withheld."
+  },
+
+  "COVERAGE_SUBSET_DISCLOSURE": {
+    "claimed_range": "NOT 2019Q4-2024Q4 continuous. A DOCUMENTED TRACTABLE SUBSET of 8 fiscal quarters was built (the full 21-quarter range was not downloaded in this run; each quarterly ZIP is 240-724 MB and FUND_REPORTED_HOLDING.tsv alone is ~0.5-1 GB uncompressed per quarter).",
+    "fiscal_quarters_built": ["2019q3", "2019q4", "2020q1", "2020q2", "2020q3", "2022q1", "2022q2", "2024q4"],
+    "selection_rationale": "Spread across the period: coverage start (2019Q3/Q4), the COVID-onset run (2020Q1-Q3), the sanctions episode (2022Q1-Q2), and the latest available (2024Q4). N-PORT public-data convention (GCAP C_nport_build.py): the ZIP labelled <YYYY>qQ contains filings disseminated in that quarter whose holdings are as-of the PREVIOUS fiscal quarter-end; both labels are recorded per row (zip_quarter, fiscal_quarter) and the authoritative as-of date is the filing's REPORT_DATE.",
+    "quarters_skipped_and_why": "All fiscal quarters between 2020q3 and 2022q1, between 2022q2 and 2024q4, and 2024q1-q3 were NOT built. Reason: download/parse cost of the full 21-quarter range was infeasible within this run; the 8 quarters built are the documented maximal-spread tractable subset and are sufficient to demonstrate the residence cell is constructible and traceable. No silent truncation: this is explicitly a subset, not the full range."
+  },
+
+  "per_quarter_rows": [
+    {"zip_quarter": "2019q4", "fiscal_quarter": "2019q3", "as_of_date": "30-SEP-2019", "panel_rows": 98195,  "total_holdings_in_quarter": 2939568, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2019q4_nport.zip", "zip_bytes": 240007320},
+    {"zip_quarter": "2020q1", "fiscal_quarter": "2019q4", "as_of_date": "31-DEC-2019", "panel_rows": 127737, "total_holdings_in_quarter": 4355921, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q1_nport.zip", "zip_bytes": 340462382},
+    {"zip_quarter": "2020q2", "fiscal_quarter": "2020q1", "as_of_date": "31-MAR-2020", "panel_rows": 128649, "total_holdings_in_quarter": 4058607, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q2_nport.zip", "zip_bytes": 332888140},
+    {"zip_quarter": "2020q3", "fiscal_quarter": "2020q2", "as_of_date": "30-JUN-2020", "panel_rows": 137359, "total_holdings_in_quarter": 4631801, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q3_nport.zip", "zip_bytes": 371068711},
+    {"zip_quarter": "2020q4", "fiscal_quarter": "2020q3", "as_of_date": "30-SEP-2020", "panel_rows": 143364, "total_holdings_in_quarter": 4408043, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q4_nport.zip", "zip_bytes": 359205250},
+    {"zip_quarter": "2022q2", "fiscal_quarter": "2022q1", "as_of_date": "31-MAR-2022", "panel_rows": 178640, "total_holdings_in_quarter": 5384188, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q2_nport.zip", "zip_bytes": 432741571},
+    {"zip_quarter": "2022q3", "fiscal_quarter": "2022q2", "as_of_date": "30-JUN-2022", "panel_rows": 165815, "total_holdings_in_quarter": 10002036, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q3_nport.zip", "zip_bytes": 724385184},
+    {"zip_quarter": "2025q1", "fiscal_quarter": "2024q4", "as_of_date": "31-DEC-2024", "panel_rows": 161350, "total_holdings_in_quarter": 5948809, "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2025q1_nport.zip", "zip_bytes": 462120659}
+  ],
+
+  "totals": {
+    "total_rows": 1141109,
+    "distinct_accession_numbers": 41067,
+    "distinct_ciks": 1470,
+    "rows_by_residence_iso3": {"CHN": 477784, "CYM": 467404, "HKG": 169777, "VGB": 26144},
+    "haven_resident_rows": 663325,
+    "china_resident_rows": 477784,
+    "haven_resident_note": "is_haven_resident=True marks RESIDENCE in CYM/HKG/VGB. This is residence, NOT parent-nationality; it does NOT identify China-parent issuers."
+  },
+
+  "IDENTIFIER_COVERAGE_CHECK": {
+    "definition": "Share of built panel rows carrying a usable ISIN (12 alphanumeric) OR usable CUSIP (9 alphanumeric).",
+    "result_pct": 99.3341,
+    "passes_95pct_threshold": true,
+    "n_usable": 1133510,
+    "n_total": 1141109,
+    "isin_usable_n": 1106587,
+    "cusip_usable_n": 828526,
+    "reported_actual_not_asserted": "This is the measured value on the rows actually built, not an assumed figure."
+  },
+
+  "ACCESSION_TRACEABILITY_SPOTCHECKS": {
+    "method": "Each panel row carries a real accession_number + holding_id. Three accession numbers were resolved live against SEC EDGAR archives on 2026-06-29.",
+    "checks": [
+      {"accession_number": "0001752724-19-160209", "cik": "81443",  "registrant_name": "AB CAP FUND, INC.", "issuer_example": "China Cinda Asset Management (residence CN, ISIN CNE100001QS1)", "edgar_index_dir": "https://www.sec.gov/Archives/edgar/data/81443/000175272419160209/", "http_status": 200, "form_type_confirmed": "NPORT-P", "primary_doc_present": true},
+      {"accession_number": "0001752724-19-160216", "cik": "1653463", "registrant_name": "Bernstein Fund Inc", "issuer_example": "Fabrinet (residence KY, ISIN KYG3323L1005)", "edgar_index_dir": "https://www.sec.gov/Archives/edgar/data/1653463/000175272419160216/", "http_status": 200},
+      {"accession_number": "0001145549-19-043048", "cik": "315754", "registrant_name": "Ohio National Fund, Inc.", "issuer_example": "Alibaba Group Holding Ltd (residence KY, China-parent UNDETERMINED here)", "edgar_index_dir": "https://www.sec.gov/Archives/edgar/data/315754/000114554919043048/", "http_status": 200}
+    ],
+    "result": "All three accession numbers resolve to live EDGAR filing-index directories (HTTP 200); the first is confirmed NPORT-P with primary_doc.xml present and the CIK's filing type is NPORT-P."
+  },
+
+  "panel_columns": {
+    "traceability_keys": ["accession_number", "holding_id"],
+    "as_of": ["report_period", "as_of_date", "zip_quarter", "fiscal_quarter"],
+    "fund": ["cik", "series_id", "registrant_name"],
+    "security": ["issuer_name", "issuer_lei", "cusip", "isin", "asset_cat", "issuer_type"],
+    "value": ["currency_value", "currency_code", "percentage"],
+    "RESIDENCE": ["investment_country", "investment_country_iso3", "is_haven_resident"],
+    "NATIONALITY_HOLE": ["issuer_nationality"]
+  },
+
+  "value_basis_caveat": "currency_value (item C.2.c) is reported with currency_code (C.2.b). Per the Part-0 contract, USD denomination of currency_value is the N-PORT standard but was NOT confirmed from the primary form-instruction text (SEC instruction PDF returned 403 in the Part-0 pass); currency_code is retained per row so the denomination is auditable.",
+
+  "sources": {
+    "sec_nport_data_sets_listing": "https://www.sec.gov/data-research/sec-markets-data/form-n-port-data-sets",
+    "sec_zip_pattern": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/<YYYY>q<Q>_nport.zip",
+    "gcap_pipeline_followed": "github.com/global-capital-allocation-project/public-US-funds-data (table/column names and the zip-quarter -> previous-fiscal-quarter convention follow B_processing_functions_nport.py and C_nport_build.py)",
+    "user_agent_used": "dollar-breaking-point research milevsky@hotmail.com (descriptive UA with contact email, per SEC EDGAR requirement)"
+  },
+
+  "integrity_notes": "Built ONLY from actual fetched SEC filings; every row traces to a real accession_number (spot-checked against EDGAR). The nationality crosswalk was NOT fabricated or approximated — issuer_nationality is uniformly UNDETERMINED-NO-PUBLIC-CROSSWALK. The residence-haven subset is NOT presented as the China-nationality cell. Identifier coverage is the measured 99.33%, not an asserted figure. No contracts, build/model, build/results, or prior verdict/audit files were modified; DP2/DP3/DP6 were not started."
+}

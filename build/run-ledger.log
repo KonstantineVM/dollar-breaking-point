@@ -1820,3 +1820,71 @@ echo "--- push ---"
 git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4
 echo "--- tree clean? ---"
 git status --short
+2026-06-29T20:00:19Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 -c "import json;json.load(open('build/ledger.json'));print('ledger.json VALID')"
+git add build/audit/transform_robustness.json build/audit/transform_robustness.py build/audit/pairing_audit.json build/audit/criterion_statement.md build/ledger.json build/run-ledger.log
+git commit -q -m "$(cat <<'EOF'
+Final ratification: transform robustness + pairing audit -> verdict SURVIVES
+
+Read-only ratification testing whether the terminal UNIDENTIFIABLE-FROM-
+AVAILABLE-DATA verdict survives the two analyst judgments the critic could
+not certify (the transform choice and the within-holder pairing). Artifacts
+in build/audit/; prior artifacts unmodified; DP6 not begun.
+
+TEST 1 transform_robustness.json (+ .py) — within-holder substitution sign
+recomputed under five defensible flow transforms, from slt_haven_extract.json
+alone: (a) demeaned MoM log-change +0.362091 (anchor reproduced exactly),
+(b) simple MoM change +0.552738, (c) QoQ log-change +0.517265, (d) YoY
+log-change +0.527275, (e) growth vs trailing-12m mean +0.508101. ALL FIVE
+pooled POSITIVE; all 15 per-haven cells POSITIVE. The slower-cadence /
+deseasonalized / scale-free transforms — the candidates that could have
+surfaced a slower substitution signal — strengthen the wrong sign rather
+than flip it. CALL: SURVIVES.
+
+TEST 2 pairing_audit.json — pairing US-leg=F4(Table 1) vs offshore=F3(Table 2)
+CONFIRMED against the raw SLT tables: titles quoted, country codes matched
+(CYM 36137/HKG 42005/VGB 35807), 20 spot-checks exact, 76 months aligned.
+Coverage limit restated (residency-only; nationality f invisible).
+
+TEST 3 criterion_statement.md — the conjunctive REAL-separability bar stated
+for audit: {negative sign AND footprint separation AND lead/lag}, SIGN
+load-bearing. Footprint cosine -0.047 MET, sign +0.362 FAILED, lead/lag
+k=0+positive FAILED. Geometric openness (margin>=0.221>tau) explicitly NOT
+identification.
+
+Integrity-critic GATE: PASS all three; symmetric-error check PASS both
+directions (all five transforms genuinely computed, none cherry-picked or
+engineered; machinery could have returned OVERTURNS/OPEN). The critic's one
+flagged non-blocking limit (read-only, could not execute the script) was
+CLOSED by running transform_robustness.py — it regenerated all five pooled
+signs exactly from disk.
+
+CONSOLIDATED CALL: TERMINAL VERDICT RATIFIED (geometric-only robust across
+defensible transforms; pairing correct). Build completeness NOT declared —
+that is the human's gate call. DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)"
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+echo "--- tree ---"; git status --short
+2026-06-29T20:23:53Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/nport
+python3 - <<'PY'
+import re
+flat=open('nport_flat.txt').read()
+for kw in ['country','isin','cusip','lei','currency','issuer','investment_country','curcd','valusd','val_usd','identifiers','accession_number','series_id','registrant','cik']:
+    j=flat.find(kw)
+    print('>>',kw,'@',j)
+    if j>=0: print('   ',flat[j-30:j+160])
+PY
+2026-06-29T20:31:24Z	OUTPUT (not established until verifier runs)	cd /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad
+mkdir -p q_2019q4
+unzip -o -q 2019q4_nport.zip \
+  FUND_REPORTED_HOLDING.tsv SUBMISSION.tsv IDENTIFIERS.tsv FUND_REPORTED_INFO.tsv REGISTRANT.tsv \
+  -d q_2019q4
+echo "=== HOLDING header ==="; head -1 q_2019q4/FUND_REPORTED_HOLDING.tsv
+echo; echo "=== SUBMISSION header ==="; head -1 q_2019q4/SUBMISSION.tsv
+echo; echo "=== IDENTIFIERS header ==="; head -1 q_2019q4/IDENTIFIERS.tsv
+echo; echo "=== FUND_REPORTED_INFO header ==="; head -1 q_2019q4/FUND_REPORTED_INFO.tsv
+echo; echo "=== REGISTRANT header ==="; head -1 q_2019q4/REGISTRANT.tsv

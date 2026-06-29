@@ -1,0 +1,67 @@
+{
+  "artifact": "sep_retest_nationality.json",
+  "task": "DP1-REOPEN Part 3 -- re-run the F3 (substitution) separability test against the N-PORT panel, driving the F3 direction with NATIONALITY-resolved data as the reopening promised. RESULT: the nationality-resolved F3 test CANNOT be run (nationality is the HOLE). A RESIDENCE-only secondary check is computed and labelled. VERDICT: OPEN.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "Wrote EXACTLY this file plus build/audit/f_measured_quarterly.json (Part 2) and the shared recompute script build/audit/sep_retest_nationality_recompute.py. Did NOT modify the operator, contracts, dp3/dp4/dp5/sep_definitive_test/geo_vs_emp prior artifacts, china_fraction_bound.json, f_pin_test.json, or the panel. DP6 NOT started. No hazard, no date, no bare probability, no identification claim.",
+
+  "read_only_inputs": [
+    "build/data/nport/us_china_nationality_panel.parquet (RESIDENCE panel; issuer_nationality uniformly UNDETERMINED)",
+    "build/data/nport/us_china_panel_provenance.json",
+    "build/contracts/nport_gcap_contract.json (Part 0 RESIDUAL HOLE)",
+    "build/audit/sep_definitive_test.json + build/audit/geo_vs_emp_test.json (prior RESIDENCE-basis GEOMETRIC_ONLY finding: within-holder sign +0.362 monthly TIC SLT / +0.4664 semiannual CPIS)",
+    "build/audit/f_measured_quarterly.json (Part 2: f UNDETERMINED; residence statistics)"
+  ],
+
+  "PROMISED_TEST_CANNOT_RUN": {
+    "claim": "The nationality-resolved F3 separability re-test the reopening promised -- driving the F3 (substitution) direction with NATIONALITY-resolved holdings -- CANNOT be run. The F3 loading at NATIONALITY granularity is UNTESTABLE from public data.",
+    "SUBJECT_DRIVER": "The discriminating F3 (substitution) axis is f*DESTn -- it is the China-by-NATIONALITY destination mass (per geo_vs_emp_test.json operator_F3_exclusive_direction: v_F3 - v_F4 = [f*DESTn ; 0]). Driving it empirically requires a nationality-resolved series. The panel's issuer_nationality cell is uniformly 'UNDETERMINED-NO-PUBLIC-CROSSWALK' on all 1,141,109 rows, so no nationality series exists to project onto the F3 axis. The test cannot be executed at nationality granularity.",
+    "BOUNDARIES": "Public N-PORT (US-fund holders, residence basis, 8-quarter subset). Not a claim that the test is impossible in principle -- it becomes runnable once a licensed CMNS crosswalk fills issuer_nationality (see crosswalk_that_would_close_it).",
+    "FALSIFIER": "A nationality-resolved CN-parent holdings series, built from the panel via a reproducible public crosswalk, projected onto the F3-exclusive axis f*DESTn with a measured sign. None obtainable from public data.",
+    "SOURCE": "build/data/nport/us_china_nationality_panel.parquet (issuer_nationality value_counts = single UNDETERMINED value); build/audit/geo_vs_emp_test.json operator_F3_exclusive_direction; build/contracts/nport_gcap_contract.json crosswalk_determination."
+  },
+
+  "SECONDARY_RESIDENCE_ONLY_CHECK": {
+    "label": "RESIDENCE-ONLY. This is NOT the nationality F3 test. It is a co-movement check on the NEW N-PORT quarterly panel (a different dataset and frequency from the prior TIC monthly / CPIS semiannual tests), on the SAME RESIDENCE basis that already returned GEOMETRIC_ONLY.",
+    "what_is_measured": "Quarter-over-quarter log-change co-movement of US-registered-fund total USD holdings of CN-RESIDENT issuers vs HAVEN-RESIDENT (CYM+HKG+VGB) issuers, across the 5 CONTIGUOUS calendar-quarter transitions available in the 8-quarter subset (2019q3->2019q4, 2019q4->2020q1, 2020q1->2020q2, 2020q2->2020q3, 2022q1->2022q2). Non-contiguous gaps (2020q3->2022q1, 2022q2->2024q4) are EXCLUDED from the log-change to avoid treating a multi-quarter jump as one transition.",
+    "substitution_sign_meaning": "F3 substitution would show a NEGATIVE co-movement (CN-resident exposure UP while haven-resident exposure DOWN, or vice versa, i.e. reallocation between the two legs). Common growth / contagion shows POSITIVE co-movement (both rise/fall together).",
+    "result_logchange_corr_cn_vs_haven": 0.981297,
+    "result_level_corr_cn_vs_haven_all8q": 0.81855,
+    "cn_resident_logchange": [0.321146, -0.09087, 0.112538, 0.172193, -0.169749],
+    "haven_resident_logchange": [0.296269, -0.058282, 0.101897, 0.107663, -0.223006],
+    "n_contiguous_transitions": 5,
+    "finding_SUBJECT_DRIVER": "STRONGLY POSITIVE: q-o-q log-change corr = +0.981 (and +0.819 in levels across all 8 quarters). CN-resident and haven-resident US-fund holdings RISE AND FALL TOGETHER -- common growth, the WRONG sign for F3 substitution -- driven by both legs tracking the same risk-on/risk-off cycle. This is the SAME wrong-sign result the prior RESIDENCE-basis tests returned (+0.362 monthly TIC SLT in sep_definitive_test; +0.4664 semiannual CPIS in geo_vs_emp_test).",
+    "explicitly_not_the_F3_nationality_test": "This residence co-movement is NOT the nationality F3 test. CN-resident vs haven-resident is a residence split; the F3 axis is the China-by-NATIONALITY destination mass, which would restate part of the HAVEN-resident leg INTO China. The discriminating reallocation could be ENTIRELY WITHIN the haven-resident leg (China-parent haven securities sold while genuine-haven securities held) and would be INVISIBLE to this residence split. A residence co-movement sign cannot stand in for the nationality F3 sign.",
+    "coarser_lead_lag_caveat": "Quarterly N-PORT gives COARSER lead/lag resolution than the prior monthly TIC residency test (sep_definitive_test lead/lag peaked at k=0 monthly). With only 5 contiguous quarterly transitions, no meaningful lead/lag profile is estimable here; the contemporaneous-positive reading is all the quarterly panel supports, and it is coarser, not sharper, than the monthly test.",
+    "BOUNDARIES": "5 contiguous transitions, US-fund holders, RESIDENCE basis, mixed-currency C.2.c sums (USD-denomination UNVERIFIED per Part 2 / contract value_basis). Small-n: the +0.981 is a 5-point correlation and is reported as a sign, not a precise coefficient.",
+    "FALSIFIER": "Recompute q-o-q log-changes of CN-resident and haven-resident currency_value sums over the 5 contiguous transitions and obtain a corr of opposite (negative) sign. Reproduced as +0.981 by build/audit/sep_retest_nationality_recompute.py from disk.",
+    "SOURCE": "build/data/nport/us_china_nationality_panel.parquet via build/audit/sep_retest_nationality_recompute.py (part3_residence_secondary_check). The cn_resident_logchange and haven_resident_logchange arrays are the authoritative per-transition series; the recompute script is the SOURCE of record."
+  },
+
+  "VERDICT": {
+    "verdict": "OPEN",
+    "verdict_SUBJECT_DRIVER": "OPEN because the discriminating input -- the NATIONALITY mapping -- is an unresolved HOLE. The test that would settle F3 (nationality-resolved substitution) never ran, because issuer_nationality is uniformly UNDETERMINED. The residence-only secondary check echoes the prior GEOMETRIC_ONLY finding but does NOT discriminate the nationality F3 axis, so it cannot CLOSE the question.",
+    "explicitly_NOT_F3_LOADS": "This is NOT an F3-LOADS verdict. No nationality data loaded the F3 (substitution) direction; none could be loaded, because the nationality cell is the HOLE. A positive F3 loading was neither found nor manufactured by treating residence-haven as China-nationality.",
+    "explicitly_NOT_a_fresh_STILL_GEOMETRIC_ONLY": "This is NOT recorded as a fresh STILL-GEOMETRIC-ONLY finding. The residence-only secondary check merely ECHOES the prior RESIDENCE-basis GEOMETRIC_ONLY (+0.981 quarterly N-PORT, same wrong sign as +0.362 monthly TIC / +0.4664 semiannual CPIS) on the same basis; the DISCRIMINATING nationality test never ran. Re-confirming residence is not the same as testing nationality. Recording a fresh GEOMETRIC_ONLY here would be quietly re-running residence and presenting it as the answer -- which is exactly the substitution this Part is instructed to avoid. The honest landing when the discriminating nationality input is a HOLE is OPEN.",
+    "BOUNDARIES": "Verdict scoped to the F3-separability question at NATIONALITY granularity against public N-PORT. It does not reopen or close the geometric (on-paper) non-degeneracy, which f_pin_test / sep_definitive_test already established and which is untouched here.",
+    "FALSIFIER": "Run the nationality-resolved F3 test (crosswalk applied to the panel) and obtain a determinate sign -- negative (F3-LOADS) or positive (genuine nationality-basis GEOMETRIC_ONLY). Either would replace OPEN. Until that test runs, OPEN stands.",
+    "SOURCE": "build/data/nport/us_china_nationality_panel.parquet (HOLE); build/audit/sep_definitive_test.json + build/audit/geo_vs_emp_test.json (prior residence GEOMETRIC_ONLY); build/audit/sep_retest_nationality_recompute.py (residence secondary check)."
+  },
+
+  "crosswalk_that_would_close_it": {
+    "claim": "The cell is now PUBLICLY CONSTRUCTIBLE ON RESIDENCE and ONE LICENSED CROSSWALK AWAY from nationality -- a sharper statement of the HOLE than before, but still OPEN.",
+    "SUBJECT_DRIVER": "What would close it is the GCAP/CMNS ultimate-parent crosswalk applied to THIS N-PORT panel: the crosswalk's commercial inputs are CUSIP Global Services (CGS), Dealogic, SDC, S&P Capital IQ, Bureau van Dijk ORBIS, FactSet, Morningstar (plus an OpenFIGI/Bloomberg API key for CUSIP->FIGI). The panel already carries usable ISIN/CUSIP on 99.33% of rows (provenance IDENTIFIER_COVERAGE_CHECK), which is the join key the crosswalk consumes; applying the crosswalk fills issuer_nationality and the EXACT SAME panel becomes nationality-resolved, at which point the F3 test is runnable and f is measurable.",
+    "BOUNDARIES": "The crosswalk CODE is public (github.com/global-capital-allocation-project/cmns-aggregation); the load-bearing INPUT DATA is licensed and non-redistributed, so the closing step is a licensing action, not a public download. Mapping quality degrades if sources are dropped (repo README).",
+    "FALSIFIER": "A reproducible PUBLIC (no-license) crosswalk -- e.g. a GLEIF LEI level-2 ultimate-parent path -- shown to fill issuer_nationality at adequate coverage for the China-haven subset would close it without the commercial stack. Whether such a public alternative suffices is NOT established (contract unverified item) and must not be assumed.",
+    "SOURCE": "build/contracts/nport_gcap_contract.json structure.crosswalk_determination + access.commercial_dependency_for_nationality + unverified[2]; build/data/nport/us_china_panel_provenance.json NATIONALITY_IS_UNDETERMINED_HOLE + IDENTIFIER_COVERAGE_CHECK."
+  },
+
+  "symmetric_error_self_check": {
+    "did_not_manufacture_F3_LOADS": "No residence-haven series was relabelled as China-nationality to manufacture an F3 loading. The nationality F3 test was reported as untestable, not run with a proxy.",
+    "did_not_manufacture_fresh_geometric_only": "The residence secondary check is labelled residence-only and noted as an ECHO of the prior finding on the same basis, NOT presented as a fresh discriminating result. The verdict is OPEN, not a quiet re-run of residence dressed as the answer.",
+    "did_not_claim_identification": "No identification verdict, no hazard, no distribution, no date computed. The geometric (on-paper) non-degeneracy from prior artifacts is untouched.",
+    "every_number_from_disk": "All residence numbers are regenerated from the panel by build/audit/sep_retest_nationality_recompute.py."
+  },
+
+  "verdict_part3": "OPEN. The nationality-resolved F3 (substitution) test CANNOT be run -- issuer_nationality is the commercially-gated HOLE. A RESIDENCE-only secondary check on the quarterly N-PORT panel gives strongly POSITIVE CN-resident-vs-haven-resident co-movement (+0.981 q-o-q log-change; +0.819 levels), the same wrong-for-substitution sign and same residence basis as the prior GEOMETRIC_ONLY tests, at coarser quarterly lead/lag -- explicitly NOT the nationality F3 test. Verdict is NOT F3-LOADS (no nationality data loaded F3; none could) and NOT a fresh STILL-GEOMETRIC-ONLY (residence merely echoes; the discriminating test never ran). It would close once the licensed CMNS crosswalk (CGS/Dealogic/SDC/Capital IQ/ORBIS/FactSet/Morningstar + OpenFIGI) is applied to this exact panel, making it nationality-resolved -- one licensed crosswalk away, but still OPEN."
+}
