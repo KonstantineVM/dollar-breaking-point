@@ -1,0 +1,111 @@
+{
+  "dp": "DP5-PART2",
+  "artifact": "dp5_idtest.json",
+  "title": "Hazard overidentification test of the F3/F4 (breaking-point) separation, with the OVERTURN CRITERION stated before the test is run. THIS ARTIFACT IS THE DP4 VERIFIER: until it exists, dp4_spectrum.json is OUTPUT-not-established.",
+  "generated": "2026-06-29",
+  "is_dp4_verifier_for": "build/results/dp4_spectrum.json",
+  "reads": [
+    "build/results/dp4_spectrum.json",
+    "build/results/dp4_inputs.json (operator recipe; re-confirmed this run)",
+    "build/audit/dp4_verification.json (f=0 rank-1, tau-independent, infimum=0)",
+    "build/model/dp3_spec.json (R_sep, falsifier, three-kind restriction set, R2)",
+    "build/model/dp3_sensitivity.json (f-flip; f=0 degenerate; second hole)",
+    "build/model/china_fraction_bound.json (f in [0,0.60])",
+    "build/model/matrix_assembled.json + matrix_spec.json (cell support, basis tags, vintage)"
+  ],
+  "status": "GATE OUTPUT. On-disk artifacts only; operator rank/margin re-confirmed from dp4_inputs.json (max|v_F3-v_F4|=0 at f=0 for all s_usd; infimum margin over admissible plane = 0). No re-estimation, no re-specification, no re-grounding. No value supplied for f or s_usd.",
+
+  "overturn_criterion_stated_BEFORE_running": {
+    "criterion": "The non-identification verdict (F3/F4 separation NOT ESTABLISHED) is OVERTURNED iff the data ON DISK contains a discriminator that breaks the f=0 rank-1 degeneracy WITHOUT assuming a value for f or for s_usd.",
+    "forbidden_move": "Supplying a value for either hole (f in [0,0.60] OR s_usd in [0,1]) to manufacture an overturn is the forbidden move. A 'separation that holds at f=0.6, s_usd=0' is NOT an overturn -- it assumes a hole. Only an IN-DATA discriminator that algebraically lifts the rank from 1 to 2 at f=0, with no hole assumed, qualifies.",
+    "why_f0_is_the_test_point": "f=0 is an ADMISSIBLE endpoint (china_fraction_bound lower_bound=0.0, defensible). At f=0 the F3-exclusive component f*DESTn vanishes, so v_F3==v_F4 ALGEBRAICALLY (max|diff|=0, dp4_verification check1) for ALL s_usd -> the operator is rank-1 -> margin=0. The separation's infimum over the whole admissible plane is therefore 0. An overturn must break THIS, not just find a favourable interior point."
+  },
+
+  "overid_logic": {
+    "question": "Does the matrix on disk carry MORE independent moment restrictions than free parameters in the F3/F4 sub-problem, so that the separation is OVER-identified (testable AND identified) rather than under-/just-identified?",
+    "parameters_to_separate_F3_from_F4": "1 rotation angle in the 2D (F3,F4) subspace (which combination is F3, which is F4).",
+    "moment_content_available": "On a SINGLE 13x14 cross-sectional snapshot, the F3 and F4 footprints share the USA-column block (-USAn, identical) and share the offshore-USD destination mass ((1-f)*s_usd*DESTn, identical). The ONLY component that adds an independent moment to pin the rotation is f*DESTn. At f=0 that component is zero -> 0 independent separating moments for 1 parameter -> UNDER-identified (rank-1). The separation is over-identified ONLY if an extra in-data discriminator supplies independent moments that survive at f=0."
+  },
+
+  "discriminators_tested_against_disk": [
+    {
+      "id": "i_temporal_lead_lag",
+      "name": "Temporal lead/lag (contagion-vs-substitution): does a holder's USA-column drop LEAD other holders' drops (F4 contagion) or co-occur with that same holder's own destination rise (F3 substitution)?",
+      "what_it_would_do": "A second (and further) time period would let the USA-block direction carry a dynamic signature that differs between F4 (cross-holder propagation, leads) and F3 (within-holder substitution, co-occurs), splitting the shared D2 direction WITHOUT assuming f or s_usd.",
+      "test_against_disk": "Is there more than one time period in the matrix?",
+      "finding": "ABSENT.",
+      "evidence": "matrix_assembled.json reference_period = single vintage CPIS 2025-S1 (one 13x14 grid; 167 observed cells; 'balanced_matrix_after_consistency_pass' is the SAME single realization). dp3_spec: 'The CPIS block is a SINGLE CROSS-SECTIONAL SNAPSHOT (2025-S1) -- ONE realization ... NOT a panel/time-series. There is no second matrix on disk.' dp4_spectrum single_snapshot_honesty: the lead/lag discriminator is 'UNESTIMABLE-FROM-ONE-SNAPSHOT' and 'is NOT proxied'. dp4_inputs single_snapshot_shared_USA: 'one matrix has no lead/lag discriminator, so it does NOT separate them.'",
+      "breaks_f0_degeneracy_without_assuming_a_hole": false
+    },
+    {
+      "id": "ii_currency_split_of_destination_columns",
+      "name": "Currency split (USD vs non-USD) of the offshore destination columns US->{CYM,HKG,VGB}.",
+      "what_it_would_do": "If the CPIS destination cells carried a currency dimension, the non-USD portion would be F3-exclusive (F4, a dollar run, does not move non-USD destinations) and would supply an independent separating moment INDEPENDENT of f -- it would pin s_usd from data rather than leaving it a hole, and could lift the rank at f=0 via the currency channel.",
+      "test_against_disk": "Do the CPIS destination cells carry a currency dimension?",
+      "finding": "ABSENT.",
+      "evidence": "matrix_spec cpis_portfolio_block indicator = 'P_TOTINV_P_USD (total PI positions, USD)' on a RESIDENCY basis; caveat 'P_TOTINV combines debt + equity; not split here' and ASSET-side only. The cells are a single USD-denominated total per residency pair; there is NO USD-vs-non-USD split on the destination columns. The offshore-USD (ABS) share s_usd of the (1-f) remainder is explicitly a SECOND HOLE (dp3_sensitivity 'the_second_HOLE'; china_fraction_bound footnote 3 / ABS DILUTION unverified). The matrix cannot tell, from its own cells, whether US->CYM mass is non-USD (F3) or offshore-USD (F4 also moves it).",
+      "breaks_f0_degeneracy_without_assuming_a_hole": false
+    },
+    {
+      "id": "iii_counterparty_issuer_nationality_basis",
+      "name": "Counterparty-issuer NATIONALITY basis for the offshore portfolio pool (pins f, the China-by-nationality fraction).",
+      "what_it_would_do": "A nationality basis for the CYM/HKG/VGB portfolio pool would pin f from data, making the F3-exclusive f*DESTn component a measured nonzero quantity rather than a swept hole -- removing the f=0 endpoint as admissible and lifting the rank to 2.",
+      "test_against_disk": "Is a counterparty-issuer nationality basis for the PORTFOLIO pool on disk?",
+      "finding": "ABSENT (for the portfolio scope).",
+      "evidence": "matrix_spec M3_gcap_residence_to_nationality: 'CPIS does NOT supply it (COUNTERPART_COUNTRY is residency). The offshore-hub cells are therefore tagged residency-attributed and the China-by-nationality fraction ... is recorded as a BOUNDED HOLE.' offshore_hub_residency_status: USA->CYM/HKG/VGB all 'NOT reallocated; masked-China pool; bounded HOLE'. BANK_CLAIMS_BY_NATIONALITY_CHINA (bis_cbs): supplies nationality for the BANK-CLAIMS leg ONLY -- 'it narrows but does NOT close the offshore-SPV PORTFOLIO issuer-nationality gap ... portfolio-nationality still HOLE.' china_fraction_bound: f is an INTERVAL [0,0.60], not a disk value; f=0 admissible.",
+      "breaks_f0_degeneracy_without_assuming_a_hole": false
+    }
+  ],
+
+  "overid_test_result": {
+    "independent_separating_moments_at_f0": 0,
+    "parameters_to_pin": 1,
+    "identification_status": "UNDER-identified at f=0 (0 independent separating moments for 1 rotation parameter); operator rank 1; margin 0 for ALL s_usd.",
+    "over_identified_anywhere_on_disk": false,
+    "infimum_separation_margin_over_admissible_plane": 0.0,
+    "infimum_attained_on": "the entire f=0 edge, for ALL s_usd (re-confirmed from dp4_inputs.json this run: max|v_F3-v_F4|=0 exactly).",
+    "all_three_degeneracy_breaking_discriminators": "ABSENT from the single matrix on disk."
+  },
+
+  "verdict": {
+    "result": "HOLDS",
+    "statement": "The non-identification verdict HOLDS. No in-data discriminator breaks the f=0 rank-1 degeneracy without assuming a value for f or s_usd. All three candidate discriminators -- (i) temporal lead/lag, (ii) destination currency split, (iii) counterparty-issuer nationality basis -- are ABSENT from disk. Therefore F3/F4 SEPARATION is NOT IDENTIFIED, and this is the ESTABLISHED FINAL result of the identification gate.",
+    "criterion_applied": "Stated overturn criterion: overturn iff disk contains a discriminator breaking the f=0 rank-1 degeneracy WITHOUT assuming f or s_usd. Outcome: NOT met. No overturn.",
+    "no_forbidden_move": "No value was supplied for f or s_usd. The favourable interior region (f>=0.2, s_usd low) where the margin clears tau is NOT treated as identification: it assumes both holes and is explicitly NOT established."
+  },
+
+  "per_object_verdict": {
+    "frontier": {
+      "object": "fundamentals-gated multiple-equilibrium manifold.",
+      "status": "NOT LOCATED (not identified as a located manifold). The global-games selection threshold theta* requires F4's cross-holder complementarity loading, which depends on F3/F4 separation; that separation is not identified, and theta (issuer fundamental) is out-of-matrix. The frontier is specified in FORM (Farhi-Maggiori multiple-equilibrium boundary) but its location is not pinned on disk.",
+      "evidence": "dp3_spec step1 global_games_selection_operationalized ('if F4 is NOT separately identified ... theta*(global-games) cannot be pinned'); theta carried as a HOLE (out-of-matrix)."
+    },
+    "distance": {
+      "object": "signed scalar position relative to the frontier.",
+      "status": "NOT A SCALAR ON DISK. It is reported only as the CONDITIONAL separation-margin SURFACE over (f, s_usd) whose infimum is 0. The two measurable erosion channels are present as bounded quantities (F2 Treasury-quantity de-specialization; F1/F3 offshore-reallocation cells) but the distance collapses to a surface, not a point, because both f and s_usd are holes.",
+      "evidence": "dp4_spectrum separation_margin_surface + hazard_as_bound_not_point ('infimum 0 ... NEVER a scalar')."
+    },
+    "hazard": {
+      "object": "run hazard with binding-mode attribution.",
+      "status": "NOT IDENTIFIED. The binding-mode attribution (sanctions-reallocation F3 vs dollar-run F4) is UNDECIDABLE at the admissible endpoint f=0 (rank-1) and is nowhere robustly identified across the admissible plane (infimum margin 0). No episode exhibits a decidable F3-exclusive loading on disk (see dp5_episode_sort.json). The hazard is reported as the BOUNDED CONDITIONAL SURFACE from dp4 (infimum 0), NEVER a point. The two measurable erosion channels that DO exist are F2 (Treasury-specific quantity de-specialization, quantity-side only; price/convenience-yield leg a HOLE) and F3 (offshore-destination reallocation cells, present but nationality/currency-masked) -- these are the bounded erosion channels reported in lieu of a fabricated hazard number.",
+      "evidence": "dp4_spectrum hazard_as_bound_not_point; dp3_spec F2_treasury_despecialization (quantity-only, price HOLE) and F3_sanctions_reallocation (cells observed, interpretation HOLE-dependent); dp5_episode_sort.json sort_summary (no decidable F3-exclusive episode)."
+    }
+  },
+
+  "hazard_never_a_point": "The hazard, wherever referenced, is the bounded conditional surface over (f, s_usd) with infimum 0. No point hazard is output; a point would require inventing f and s_usd and is refused.",
+
+  "carried_forward_not_resolved": [
+    "HOLE: China-nationality fraction f in [0.0,0.60] (load-bearing; f=0 admissible -> rank-1).",
+    "HOLE: offshore-USD (ABS) share s_usd in [0,1] of the (1-f) remainder (second hole).",
+    "UNESTIMABLE-FROM-ONE-SNAPSHOT: contagion-vs-substitution lead/lag discriminator (no second time period on disk).",
+    "F2 convenience-yield/price leg (kappa): not in the stock matrix -> HOLE (F2 identified quantity-side only).",
+    "theta (issuer fundamental): out-of-matrix; required by the global-games selection -> frontier not located.",
+    "$711,157.7mn BIS banking-marginal floor (F1 noise floor; does not enter the F3/F4 operator)."
+  ],
+
+  "curable_in_principle_by_not_on_disk": [
+    "a counterparty-issuer NATIONALITY basis for the offshore portfolio pool (pins f) -- discriminator (iii);",
+    "a currency split (USD vs non-USD) of the destination columns (pins s_usd) -- discriminator (ii);",
+    "a second time period for the contagion-vs-substitution lead/lag -- discriminator (i)."
+  ]
+}

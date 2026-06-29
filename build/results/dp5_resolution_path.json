@@ -1,0 +1,159 @@
+{
+  "dp": "DP5",
+  "part": "PART 3 of 3 -- RESOLUTION PATH",
+  "artifact": "dp5_resolution_path.json",
+  "title": "Minimal additional data that would break the F3/F4 (sanctions-reallocation vs dollar-run) identification degeneracy, each tied to its operator deficiency and GROUNDED against a real publisher source or recorded as 'none at granularity'. NO point hazard is produced or implied here.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "status": "OUTPUT -- NOT ESTABLISHED. This is the resolution-path map for the DP5 verdict; it does not re-open, soften, or overturn DP4. The DP4 result stands: M=[v_F3|v_F4] is rank-1 at f=0, F3/F4 observationally equivalent on the offshore-pool cells; separation-margin infimum over the admissible plane is 0. This artifact only characterizes what data WOULD repair it and whether such data exists.",
+  "reads": [
+    "build/results/dp4_spectrum.json (the rank-1-at-f=0 operator, the two HOLES f and s_usd, the single-snapshot honesty note)",
+    "build/model/china_fraction_bound.json (the f in [0,0.60] bound and NBER WP 30865 ABS footnote)",
+    "build/contracts/imf_cpis.json (CPIS/PIP structure: semiannual, USD-VALUED indicators only, no currency-of-denomination dimension)",
+    "build/contracts/bis_cbs.json (BIS SDMX API path conventions)"
+  ],
+  "operator_context_recap": {
+    "degeneracy": "v_F3 == v_F4 at f=0 (F3-exclusive destination term f*DESTn vanishes), operator rank 1, smallest singular value = 0 along the ENTIRE f=0 edge for all s_usd. Collapsing right-singular vector ~ (1,-1)/sqrt(2): the F3-MINUS-F4 difference is the unresolved direction.",
+    "two_holes": "HOLE-1 f = China-by-nationality fraction of the US->offshore (CYM/HKG/VGB) portfolio pool, admissible [0,0.60]. HOLE-2 s_usd = offshore-USD/ABS share of the non-China remainder, admissible [0,1].",
+    "single_snapshot": "One 2025-S1 matrix on disk; the USA-column block is a SHARED F3=F4 direction because contagion-vs-substitution (lead/lag) is UNESTIMABLE-FROM-ONE-SNAPSHOT.",
+    "two_repair_modes": "(i) BREAK THE DEGENERACY WITHOUT PINNING A HOLE -- introduce a new observed dimension that makes v_F3 != v_F4 even at f=0 (paths a, b). (ii) MEASURE A HOLE -- collapse the admissible set by pinning f or s_usd directly (paths c, d). Mode (i) is structurally stronger: it removes the rank-1 degeneracy itself rather than ruling out one endpoint of an interval."
+  },
+  "paths": [
+    {
+      "path_id": "a",
+      "name": "A SECOND TIME PERIOD (temporal panel) -- the contagion-vs-substitution discriminator",
+      "deficiency_repaired": "SINGLE-SNAPSHOT / shared-USA-block. The 12 USA-column cells load on a common F3=F4 direction precisely because, on one realization, a holder's USA-column drop cannot be ordered in time against either (F4) other holders' subsequent drops or (F3) that same holder's own destination-column rise. A panel supplies that temporal ordering.",
+      "operator_mechanism": "With >=2 periods the USA-column move is testable for LEAD-LAG: if holder a's USA drop LEADS holder b's drop (a precedes b) that is F4 contagion; if holder a's USA drop CO-OCCURS with a's own offshore-destination rise that is F3 substitution. The lead and co-occurrence patterns load on DIFFERENT temporal directions, so the USA block stops being a single shared direction. v_F3 and v_F4 acquire distinct temporal footprints -> v_F3 != v_F4 EVEN AT f=0, WITHOUT pinning either hole. This is the strongest repair: it attacks the rank-1 degeneracy directly.",
+      "breaks_degeneracy_without_pinning_hole": true,
+      "grounded_source": {
+        "exists": true,
+        "name": "IMF, Portfolio Investment Positions by Counterpart Economy (formerly CPIS) -- dataflow IMF.STA:PIP(5.0.0), semiannual bilateral positions.",
+        "fetched_url": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD.S1.S1.CYM.S?startPeriod=2020",
+        "fetched_date": "2026-06-29",
+        "quoted_confirming_text": "Live SDMX response 2026-06-29 for the exact load-bearing cell US-holder -> Cayman(CYM) total portfolio holdings returns ELEVEN semiannual periods: TIME_PERIOD=2020-S1 OBS_VALUE=2074184000000; 2020-S2 2472992000000; 2021-S1 2787862000000; 2021-S2 2804042000000; 2022-S1 2591425000000; 2022-S2 2657565000000; 2023-S1 2545166000000; 2023-S2 2663448000000; 2024-S1 2616416000000; 2024-S2 2677013000000; 2025-S1 2798130000000. The 2025-S1 value (2,798,130 mn) matches dp2_residual.json us_to_cym. The bilateral from-whom-to-whom cell IS retrievable as a multi-period TIME SERIES, not just a single snapshot.",
+        "corroboration": "build/contracts/imf_cpis.json working_key_example already showed US->JPN over 2023-S1..2025-S1; this fetch extends a load-bearing OFFSHORE cell (US->CYM) back to 2020-S1, confirming a panel of >=11 semiannual periods spanning the 2022 sanctions episode is directly available.",
+        "granularity_caveat": "Semiannual (not quarterly) frequency; the 2022 Russia immobilization falls between 2022-S1 and 2022-S2, so the lead/lag test has semiannual resolution. Adequate to order holder drops across the episode, but fine intra-period sequencing is not available. CPIS is residency-basis, so the panel discriminates contagion-vs-substitution on the RESIDENCY cells; it does not itself resolve issuer nationality (that is path c)."
+      },
+      "confidence": "HIGH",
+      "confidence_reason": "The panel was fetched live today from the publisher API for the exact offshore cell; 11 periods returned, value matches the matrix. Existence at the needed bilateral granularity and across the episode is verified, not recalled."
+    },
+    {
+      "path_id": "b",
+      "name": "A CURRENCY SPLIT of the destination columns (USD vs non-USD)",
+      "deficiency_repaired": "The offshore-destination mass is currently a single undifferentiated quantity on which F3 and F4 load identically at f=0. Splitting it by currency of denomination introduces a dimension on which F4 (dollar-run, USD-specific) and F3 (sanctions-reallocation, not currency-specific) load DIFFERENTLY.",
+      "operator_mechanism": "Splitting the offshore destination into USD vs non-USD makes the non-USD part F3-EXCLUDABLE from F4: a dollar-run (F4) should not move non-USD destination mass, whereas sanctions-reallocation (F3) can. The non-USD column thus carries F3 weight but ~0 F4 weight -> the two columns are no longer collinear -> v_F3 != v_F4 WITHOUT pinning f. Breaks the degeneracy via an exclusion restriction rather than by measuring a hole.",
+      "breaks_degeneracy_without_pinning_hole": true,
+      "grounded_source": {
+        "exists": "PARTIAL -- grounded for DEBT only; not for the equity/ABS portion of the CPIS pool.",
+        "name": "BIS International Debt Securities Statistics -- dataflow BIS:WS_DEBT_SEC2_PUB(1.0), DSD BIS_DEBT_SEC2(1.0). Currency-of-denomination IS a native dimension.",
+        "fetched_url": "https://stats.bis.org/api/v2/structure/datastructure/BIS/BIS_DEBT_SEC2/latest ; https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.KY...............?lastNObservations=1&dimensionAtObservation=AllDimensions",
+        "fetched_date": "2026-06-29",
+        "quoted_confirming_text": "DSD BIS_DEBT_SEC2 dimension list fetched live 2026-06-29 includes position 8 ISSUE_CUR_GROUP -> BIS:CL_CUR_GROUP(1.0) {A=All currencies, D=Domestic currency, F=Foreign currencies} and position 9 ISSUE_CUR -> BIS:CL_ISSUE_CUR(1.0). For ISSUER_RES=KY (Cayman Islands) the live data carries distinct ISSUE_CUR members: USD (352 obs), EU1 (288 obs), TO1=total (352 obs) at 2026-Q1 -- e.g. a real Cayman-resident foreign-currency amounts-outstanding obs USD 117,952 mn (Q.KY.3P.B.1.C.A.F.TO1...). Currency-of-denomination of debt issued by offshore-resident entities IS published.",
+        "granularity_caveat": "GROUNDED FOR DEBT, NOT FOR THE WHOLE POOL. (1) BIS WS_DEBT_SEC2_PUB covers DEBT SECURITIES only; the CPIS offshore pool ($2.96tn) is a BLEND of equity + investment-fund shares + debt, and BIS does not currency-split the equity/fund part. (2) IMF CPIS itself CANNOT supply the currency split: per build/contracts/imf_cpis.json the PIP indicators are P_TOTINV_P_USD / P_F51_P_USD / P_F3_P_USD -- USD-VALUED, i.e. valued-in-USD, NOT currency-of-denomination; the CPIS DSD has NO currency dimension (dimensions are COUNTRY, ACCOUNTING_ENTRY, INDICATOR, SECTOR, COUNTERPART_SECTOR, COUNTERPART_COUNTRY, FREQUENCY -- no currency). So the currency split is available for the DEBT sub-pool from BIS but NOT for the equity/ABS portion at the same counterpart granularity."
+      },
+      "confidence": "MEDIUM",
+      "confidence_reason": "BIS currency dimension and a real Cayman-resident-by-currency observation fetched live today (HIGH for the debt sub-pool). Downgraded to MEDIUM overall because the split is grounded only for debt; the equity/fund-share component of the CPIS pool has no grounded currency-of-denomination source at the offshore-counterpart granularity, and the BIS basis (issuer-resident debt) is not identical to the CPIS holdings basis, so combining them requires an unverified bridge."
+    },
+    {
+      "path_id": "c",
+      "name": "A COUNTERPARTY-ISSUER NATIONALITY BASIS for the portfolio pool (PINS f)",
+      "deficiency_repaired": "HOLE-1 (f). Measures the China-by-nationality fraction of the offshore pool directly, removing the f=0 endpoint -- and indeed any single f -- from the admissible set, collapsing the f-axis of the surface to a point.",
+      "operator_mechanism": "A nationality-restated holdings/issuance dataset MEASURES f. With f pinned > 0, the f=0 rank-1 endpoint is excluded; the F3-exclusive destination term f*DESTn is nonzero, so v_F3 != v_F4 at the realized f. NOTE this is mode (ii): it does not by itself break the rank-1 degeneracy AS A STRUCTURE (the operator is still rank-1 AT f=0); it rules out the f=0 endpoint by measurement. Whether attribution then clears the threshold still depends on s_usd (HOLE-2), so c alone leaves the second hole open.",
+      "breaks_degeneracy_without_pinning_hole": false,
+      "grounded_source": {
+        "exists": "YES for a reusable nationality-restated bilateral dataset (existence verified); EXACT haven-counterpart-fraction granularity UNVERIFIED in-page. BIS as a nationality source: NO at the needed JOINT granularity (verified negative).",
+        "name": "Global Capital Allocation Project (globalcapitalallocation.com) -- 'Restated Bilateral External Portfolios' + 'Restatement Matrices' (Coppola, Maggiori, Neiman, Schreger, QJE 2021 'Redrawing the Map of Global Capital Flows') and 'China in Tax Havens' replication data + 'Time Series For Chinese Firms' Presence in Tax Havens' (Clayton-Coppola-Dos Santos-Maggiori-Schreger).",
+        "fetched_url": "https://www.globalcapitalallocation.com/data",
+        "fetched_date": "2026-06-29",
+        "quoted_confirming_text": "Publisher page raw text fetched 2026-06-29 lists, under 'Redrawing the Map of Global Capital Flows: The Role of Cross-Border Financing and Tax Havens': 'Restated Bilateral External portfolios DTA XLS README', 'Restatement MATRICES DTA TAR README', 'Global Fund Holdings Summary Statistics ZIP TAR README'; and under China work: 'China in Tax Havens REPLICATION DATA AND CODE For AEA P&P Publication ZIP GIT README', 'Time Series For Chinese FIRMS' Presence in Tax Havens XLS ZIP README', plus 'GCAP Public Security-Level Data on U.S. Fund Holdings'. A reusable, publicly downloadable residence->nationality restatement object (the Restatement Matrices, DTA) therefore EXISTS, not merely a paper aggregate.",
+        "bis_negative_result_grounded": {
+          "claim": "BIS does NOT publish the joint (haven-residence x China-nationality) cell that would pin f.",
+          "fetched_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.KY.CN.............?lastNObservations=1 (and Q.KY...... , Q..CN......)",
+          "quoted_confirming_text": "DSD BIS_DEBT_SEC2 has BOTH position 2 ISSUER_RES and position 3 ISSUER_NAT (separate residence and nationality dimensions). BUT the live query Q.KY.CN... (Cayman residence x China nationality) returns SDMX ErrorMessage code 100 'No results for query'. Enumerating actual data: for ISSUER_RES=KY the ONLY ISSUER_NAT value present is 3P; for ISSUER_NAT=CN the ONLY ISSUER_RES value present is 3P, where CL_BIS_IF_REF_AREA defines 3P = 'All countries excluding residents'. BIS thus publishes residence and nationality as ALTERNATIVE MARGINAL views (one axis specific, the other collapsed to the 3P aggregate), NEVER the joint haven-residence x China-nationality cell. BIS cannot pin f."
+        },
+        "granularity_caveat": "The GCAP Restatement Matrices EXIST and are downloadable (verified). What is NOT verified from the publisher PAGE today is whether they resolve the China-by-nationality fraction of the SPECIFIC US->CYM/HKG/VGB portfolio pool at the exact counterpart granularity the DP4 surface needs, and for a vintage aligned to 2025-S1 -- the README content is not exposed in-page (WebFetch could not extract column/granularity text; would require downloading the DTA/README). The closest PUBLISHED point figure (NBER WP 30865: equity share 'more than 60%' 2020, corp-bond 'almost 20%' 2019) is already grounded in china_fraction_bound.json and is a paper-level aggregate, not a counterpart-resolved 2025 cut. So: a reusable nationality dataset EXISTS, but exact-granularity/vintage match for pinning f is UNVERIFIED pending file inspection; an aligned single published fraction does NOT exist."
+      },
+      "confidence": "MEDIUM",
+      "confidence_reason": "Existence of a downloadable nationality-restatement dataset verified from the publisher page today; BIS inability to pin f verified as a live negative (code-100 + 3P-only enumeration). MEDIUM not HIGH because the exact counterpart granularity and 2025 vintage of the GCAP matrices for the precise US->haven pool could not be confirmed in-page and only a non-aligned paper aggregate is currently grounded as a number."
+    },
+    {
+      "path_id": "d",
+      "name": "The OFFSHORE-USD/ABS SHARE of the non-China remainder (PINS s_usd, the second hole)",
+      "deficiency_repaired": "HOLE-2 (s_usd). Measuring the offshore-USD/ABS share of the non-China remainder removes the second hole, collapsing the (f, s_usd) surface to a single LINE in f.",
+      "operator_mechanism": "With s_usd measured, the s_usd-axis of the surface is pinned; the only remaining free coordinate is f, so the separation-margin question reduces to a 1-D problem along f. Mode (ii): measures a hole; does not by itself break the rank-1 degeneracy (still rank-1 at f=0). Combined with c (which pins f) it would collapse the surface to a POINT; alone it leaves the f-axis (incl. the f=0 degenerate endpoint) open.",
+      "breaks_degeneracy_without_pinning_hole": false,
+      "grounded_source": {
+        "exists": "PARTIAL for the USD (currency) component of DEBT; NONE_AT_GRANULARITY for the ABS share of the offshore portfolio remainder.",
+        "name_usd_component": "BIS WS_DEBT_SEC2_PUB (same as path b) gives USD vs total for Cayman-resident debt issuance.",
+        "fetched_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.KY...............?lastNObservations=1&dimensionAtObservation=AllDimensions ; https://stats.bis.org/api/v2/structure/codelist/BIS/CL_ISSUE_TYPE/latest",
+        "fetched_date": "2026-06-29",
+        "quoted_confirming_text": "USD-share-of-debt component IS available: for ISSUER_RES=KY the live data carries ISSUE_CUR in {USD, EU1, TO1} (a USD-vs-total ratio is computable for Cayman-resident debt). HOWEVER the ABS component is NOT: the BIS CL_ISSUE_TYPE codelist fetched live 2026-06-29 has ONLY {A=All issue types, C=Foreign issues, E=Euromarket issues, G=Not applicable} -- there is NO asset-backed-securities flag. BIS cannot isolate the ABS share of offshore issuance. And per china_fraction_bound.json's grounded quote, NBER WP 30865 footnote 3 states only that 'U.S. banks are substantial issuers of ABS via Cayman domiciled special purpose vehicles' and that ABS is EXCLUDED from its corporate-debt denominator -- it gives NO published ABS SHARE figure.",
+        "granularity_caveat": "The s_usd hole as defined is the offshore-USD/ABS share of the non-China remainder of the BLENDED CPIS portfolio pool (equity+fund+debt incl. US-bank ABS via Cayman SPVs). (1) The USD-currency share is grounded for the DEBT sub-pool only (BIS), not for the blended pool. (2) The ABS share -- the specific confound named in NBER WP 30865 fn.3 -- is published NOWHERE at this granularity: BIS has no ABS issue-type flag, and the NBER paper gives only a qualitative 'substantial', not a share. NONE_AT_GRANULARITY for the ABS component."
+      },
+      "confidence": "MEDIUM",
+      "confidence_reason": "USD-share-of-Cayman-debt availability and the ABS-flag ABSENCE both verified live today (the BIS ISSUE_TYPE codelist has no ABS member; NBER fn.3 has no share). The most decision-relevant part of s_usd (the ABS dilution) is grounded as NONE_AT_GRANULARITY -- a real, important negative finding, not a confabulated source."
+    }
+  ],
+  "ranking": {
+    "criteria": "(1) how much of the degeneracy it repairs -- mode (i) break-the-rank-1-structure beats mode (ii) pin-one-hole; (2) whether a grounded source exists at the needed granularity, fetched today.",
+    "order": [
+      {
+        "rank": 1,
+        "path_id": "a",
+        "why": "STRONGEST. Mode (i): breaks the rank-1 degeneracy directly (makes v_F3 != v_F4 even at f=0) AND the source is FULLY GROUNDED live today -- 11 semiannual periods of the exact offshore bilateral cell spanning the 2022 episode. Repairs the deficiency that DP4 flagged as UNESTIMABLE-FROM-ONE-SNAPSHOT, with a verified panel in hand. Caveat: semiannual resolution; residency basis."
+      },
+      {
+        "rank": 2,
+        "path_id": "b",
+        "why": "Mode (i) (exclusion restriction breaks collinearity without pinning f), source PARTIALLY GROUNDED (BIS currency dimension verified live for the debt sub-pool). Below a because the split is grounded for debt only; the equity/fund/ABS portion of the pool has no grounded currency-of-denomination source, and CPIS itself carries no currency dimension."
+      },
+      {
+        "rank": 3,
+        "path_id": "c",
+        "why": "Mode (ii) (pins f, does not break the rank-1 structure; leaves s_usd open). A reusable nationality-restatement dataset EXISTS and is downloadable (GCAP, verified today); BIS verified UNABLE to supply the joint haven-residence x China-nationality cell. Below b because pinning one endpoint is weaker than removing the collinearity, and the exact counterpart granularity/vintage of the GCAP matrices for the precise pool is UNVERIFIED in-page."
+      },
+      {
+        "rank": 4,
+        "path_id": "d",
+        "why": "WEAKEST on grounding. Mode (ii) (pins s_usd only; leaves the f=0 degenerate endpoint open). The USD-currency share is grounded for debt only; the ABS share -- the specific confound DP4 inherited from NBER WP 30865 fn.3 -- is NONE_AT_GRANULARITY (BIS has no ABS flag; NBER gives no share). Without ABS, s_usd cannot be fully pinned from available data."
+      }
+    ]
+  },
+  "overall_finding": {
+    "verdict": "UNIDENTIFIED-NOW-BUT-RESOLVABLE on the primary axis; with a residual UNIDENTIFIABLE-FROM-AVAILABLE-DATA component on one sub-hole.",
+    "resolvable_part": "The rank-1 F3/F4 degeneracy is RESOLVABLE: path (a) -- a multi-period CPIS/PIP panel -- is FULLY GROUNDED today (11 semiannual periods of the offshore bilateral cell spanning the 2022 episode), and it breaks the degeneracy directly without needing either hole. Path (b)'s currency dimension is also grounded (BIS, debt). So the verdict is NOT merely 'unidentified now' by accident of one snapshot -- the discriminating data demonstrably EXISTS and is retrievable. The breaking-point mechanism (F3 sanctions-reallocation vs F4 dollar-run) is identifiable in principle from data that exists.",
+    "unidentifiable_part": "TWO residual components have NO grounded source at the required granularity: (1) the ABS share of the offshore portfolio remainder (path d's ABS component) -- BIS has no ABS issue-type flag and NBER WP 30865 fn.3 publishes no share; (2) an aligned single published counterpart-resolved China-by-nationality FRACTION for the exact US->CYM/HKG/VGB 2025 pool (path c) -- only a downloadable restatement dataset (granularity/vintage unverified in-page) and a non-aligned 2019/2020 paper aggregate exist. These two are the unidentifiable-FROM-CURRENTLY-PUBLISHED-DATA residue.",
+    "implication_for_dp5_verdict": "The DP4/DP5 'F3-F4 NOT ESTABLISHED' is NOT a permanent unidentifiability on the primary axis: a grounded resolution path (a) exists and could be executed (build the CPIS semiannual panel). It IS partially unidentifiable on the s_usd/ABS sub-hole from available data. The honest statement is: unidentified-NOW, RESOLVABLE in principle (path a grounded), with a bounded residual that is unidentifiable from currently-published data (ABS share; aligned haven-counterpart nationality fraction). This does NOT manufacture identification -- no path is executed here, and no point hazard is produced.",
+    "no_hazard_manufactured": "This artifact identifies what data would resolve the degeneracy; it does NOT compute f, s_usd, a separation margin at a pinned point, or any hazard scalar. The DP4 surface and its f=0 rank-1 degeneracy stand unaltered. 'hazard not identified' remains the current result; the resolution path is a roadmap, not a result."
+  },
+  "grounding_log": {
+    "rule": "Every named dataset/endpoint/figure was fetched from its publisher today (2026-06-29) and quoted, or recorded as NONE_AT_GRANULARITY with what was checked. No dataset structure or figure was asserted from memory. The build's four prior confabulation catches were the reason for this discipline.",
+    "fetched_today_2026-06-29": [
+      "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,PIP,5.0.0/USA.A.P_TOTINV_P_USD.S1.S1.CYM.S?startPeriod=2020 -> 11 semiannual periods (path a, HIGH)",
+      "https://stats.bis.org/api/v2/structure/datastructure/BIS/BIS_DEBT_SEC2/latest -> DSD with ISSUER_RES, ISSUER_NAT, ISSUE_CUR_GROUP, ISSUE_CUR dimensions (paths b,c,d)",
+      "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q..CN.............?lastNObservations=1 -> China-nationality x currency populated, 2026-Q1 (path b)",
+      "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.KY.CN.............?lastNObservations=1 -> ErrorMessage code 100 'No results for query' (path c NEGATIVE: no joint cell)",
+      "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.KY...............?lastNObservations=1 -> ISSUER_NAT only 3P; ISSUE_CUR in {USD,EU1,TO1} (paths c,d)",
+      "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_BIS_IF_REF_AREA/latest -> KY=Cayman, CN=China, HK, VG, 3P='All countries excluding residents'",
+      "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_CUR_GROUP/latest -> {A,D,F} (path b)",
+      "https://stats.bis.org/api/v2/structure/codelist/BIS/CL_ISSUE_TYPE/latest -> {A,C,E,G} NO ABS flag (path d NEGATIVE)",
+      "https://www.globalcapitalallocation.com/data -> lists 'Restated Bilateral External portfolios DTA XLS', 'Restatement MATRICES DTA TAR', 'China in Tax Havens ... ZIP GIT', 'Time Series For Chinese Firms' Presence in Tax Havens XLS ZIP' (path c)"
+    ],
+    "from_existing_grounded_contracts_not_re-recalled": [
+      "build/contracts/imf_cpis.json -> CPIS PIP indicators are USD-VALUED (P_TOTINV_P_USD etc.), DSD has NO currency-of-denomination dimension (used to establish CPIS cannot itself supply path b's split).",
+      "build/model/china_fraction_bound.json -> NBER WP 30865 fn.3 ABS quote (used for path d ABS NONE_AT_GRANULARITY) and the equity 60%/bond 20% paper aggregates (path c non-aligned figure)."
+    ]
+  },
+  "carried_forward_not_resolved": [
+    "HOLE-1 f in [0,0.60] -- NOT pinned here; path c could pin it (dataset exists; exact granularity unverified).",
+    "HOLE-2 s_usd in [0,1] -- NOT pinned here; USD component groundable (BIS debt), ABS component NONE_AT_GRANULARITY.",
+    "The DP4 rank-1-at-f=0 operator and separation-margin-infimum-0 result stand unaltered.",
+    "No path executed; no f, s_usd, margin, or hazard computed. 'hazard not identified' remains current."
+  ],
+  "do_not": [
+    "Do NOT treat any path as executed or any hole as pinned -- this is a roadmap.",
+    "Do NOT begin DP6.",
+    "Do NOT modify dp4_spectrum.json, china_fraction_bound.json, or any other artifact.",
+    "Do NOT promote path (a)'s existence into an F3/F4 identification -- the panel is not built or estimated here."
+  ]
+}
