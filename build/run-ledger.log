@@ -1708,3 +1708,28 @@ DP6 not begun.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" 2>&1 | tail -1
 git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-06-29T03:30:18Z	OUTPUT (not established until verifier runs)	git add build/audit/vintage_test.json build/audit/consolidated_verdict.md build/run-ledger.log && git commit -m "$(cat <<'EOF'
+Consolidated verdict: OPEN-PENDING-DATA; fix EFH transcription in vintage test
+
+Resolve the three open questions left by the falsification audit:
+- Test A (vintage): SUPPORTED — f bounded far above break-id f*=0.249;
+  rules out the NOT-IDENTIFIED endpoint (f=0 inadmissible on grounded set).
+- Test B (geo vs empirical): GEOMETRIC_ONLY — margins >=0.221 geometrically
+  but within-holder co-movement +0.47 (wrong sign); rules out IDENTIFIED.
+- Test C (official sector): BLOCKING GAP — Fed swap line absent from matrix.
+
+Consolidated status = OPEN-PENDING-DATA, pending named datasets (monthly TIC
+SLT/TIC-S CYM/HKG/VGB or post-2020 GCAP f-granularity restatement; Fed
+H.4.1/FRED SWPT swap balances wired into F4). Verdict NOT merged; DP6 NOT
+started; both await the human gate.
+
+Applied the integrity-critic's one required correction: realign the EFH
+column in vintage_test.json to its machine-generated verifier
+vintage_test_compute.json (2008->0.2996, 2011->0.4308, 2012->0.4185, etc.).
+Does not move any verdict — the matrix-comparable FH basis was always correct.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)"
+2026-06-29T03:30:23Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -8

@@ -3,7 +3,8 @@
   "title": "Data contracts for the global SFC from-whom-to-whom matrix",
   "generated": "2026-06-28",
   "reopened_note": "CPIS (imf_cpis) reopened: the prior DP2 HOLE was a US-vs-ISO3-USA query bug, not absent data. Coverage census (build/contracts/cpis_coverage.json) establishes the bilateral matrix is DENSE in the counterpart dimension and among 83/259 reporting economies, SPARSE in the reporter dimension (176 non-reporters, valid as counterparts only). All 14 load-bearing economies populate as counterparts; 13/14 as reporters (VGB the one reporter hole). CPIS restores the bilateral structure F3/F4 need but is RESIDENCY-based and does NOT close the offshore-SPV issuer-nationality gap (distinct, carried-forward hole). Earlier reopening added bis_cbs (China nationality, bank-claims leg only).",
-  "contract_count": 13,
+  "swap_line_reopen_note": "fed_swap_lines added (2026-06-29) per Resolution Test C (build/audit/official_sector_test.json): the official-sector central-bank-liquidity-swap-line dimension (the Fed cross-border dollar PROVISION leg — FRED SWPT / H.4.1 'Central bank liquidity swaps') was absent from all 13 prior sources, which carry only HELD-RESERVE positions. Groundable as a weekly system AGGREGATE (tier A; units Millions of USD; coverage 2002-12-18..2026-06-24 spanning both 2008 and 2020; peaks 583,135mn on 2008-12-17 and 448,946mn on 2020-05-27, recomputed from the fetched CSV). The per-counterparty-central-bank breakdown is UNVERIFIED/needs-NY-Fed (H.4.1 is aggregate-only; NY Fed operation-results / Markets API not machine-confirmable in this environment). STRESS-STATE dimension (current ~$35mn, near-zero), so it does NOT distort the 2025 matrix LEVEL but fills a structural/dynamics gap. DP1 sector-coverage addition only; no F4/identification claim made here.",
+  "contract_count": 14,
   "bilateral_cell_sources": [
     "bis_cbs",
     "imf_cpis",
@@ -53,6 +54,15 @@
       "role_in_matrix": "US sectoral marginals (sector-by-instrument transactions F.* and levels L.* matrices, balance sheets B.*), SNA-aligned Integrated Macroeconomic Accounts (IMA, S.1-S.9), and estimated from-whom-to-whom (Issuer-to-Holder) bilateral sector-by-instrument cells from the Enhanced Financial Accounts.",
       "bilateral_or_marginals": "n/a",
       "date_checked": "2026-06-28",
+      "confidence_tier": "A"
+    },
+    {
+      "source_id": "fed_swap_lines",
+      "file": "build/contracts/fed_swap_lines.json",
+      "publisher": "Board of Governors of the Federal Reserve System — H.4.1 'Factors Affecting Reserve Balances'; redistributed by FRED (Federal Reserve Bank of St. Louis) as series SWPT. Per-counterparty operation results published by the Federal Reserve Bank of New York (Markets Group).",
+      "role_in_matrix": "Supplies the official-sector cross-border dollar-PROVISION leg of the FWTW matrix: the Fed's outstanding dollar liquidity injected to foreign central banks via central-bank liquidity swap lines (the dollar EXPANSION of opposite sign to a run; the circuit-breaker that arrested the 2008 ~$583bn and 2020 ~$449bn episodes). A weekly STOCK on the Fed balance sheet. STRESS-STATE dimension; current ~$35mn so it does not distort the 2025 matrix LEVEL but fills a structural/dynamics gap. Closes the official-sector Fed-injection gap that Resolution Test C established was absent from the other 13 sources (which carry only held-reserve positions).",
+      "bilateral_or_marginals": "marginal (system aggregate groundable; per-counterparty-central-bank breakdown UNVERIFIED/needs-NY-Fed)",
+      "date_checked": "2026-06-29",
       "confidence_tier": "A"
     },
     {
