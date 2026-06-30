@@ -2473,3 +2473,71 @@ for cik in sorted(newly):
     print(f'  CIK {cik}: cusip6={c6} isin={iss} lei={le}')
 PY
 python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/diag2.py
+2026-06-30T21:00:37Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 << 'EOF'
+import json
+p='build/ledger.json'
+d=json.load(open(p))
+add=(" || CONSTRUCT-THE-CROSSWALK COVERAGE BUILD (2026-06-30; gates whether a FREE per-security re-tag is worth running, by CONSTRUCTING the crosswalk the prior GLEIF-only pass lacked; does NOT re-tag operator, re-run separability, or touch DP2-DP6): "
+     "Pre-registration committed FIRST (git 4efb52d): expected B toward ~0.45-0.65, materially above 0.287, not clearing 0.80. "
+     "Built a free official crosswalk: R1 SEC-HFCAA Commission-Identified-Issuer list (174 CIIs; 148 matched to panel after fix), R2 EDGAR VIE-look-through Inline-XBRL OpCo-jurisdiction=CN (read from real 20-Fs, e.g. Alibaba acc 0001193125-26-231755 EntityIncorporation=Cayman + VIE-in-PRC), R3 Form F-6/20-F home-jurisdiction=CN, R4 GLEIF-QCC CN country-segment; glued to panel via GLEIF ISIN->LEI (12.1% by count, 41.5% by value) + QCC/OpenCorporates. Every CN tag traces to a rule; none name-guessed. "
+     "Applied to the haven panel -> build/data/nport/panel_crosswalk_tagged.parquet (value reconciles to panel haven exactly; per-rule R1 56,041rows/19.3%, R2 12,861/10.3%, R3 9,347/8.8%, R4 8,805/3.3%; CN-tagged union 64,057rows/$761B/22.2%). "
+     "RE-MEASURED coverage (build/audit/crosswalk_coverage.json; same statistic as the prior freemap pass; orchestrator-executed recompute byte-identical): B (nationality!=residence, decision number) = 0.3425 vs prior 0.287 = +0.0554 UP; A_union=0.690; C CN-share=0.278 USD-equiv/0.222 raw; uncovered tail 0.310, KY-dominated (0.296), diffuse (HHI 0.0014, top-10 6.8%). "
+     "LEAK FIX (load-bearing): the first run left NetEase (HFCAA-listed, ~$33B) untagged via an undecoded HTML '&nbsp;' entity in the HFCAA conclusive-list names; fixing the html.unescape + re-deriving the HFCAA CIK->security map from real SEC files recovered NetEase/ZTO/VNET/MINISO/Youdao/Chindata/China-Southern-Air (matches 134->148, B 0.324->0.3425). Post-fix top-20 tail carries no genuinely-untagged obvious-CN name (the lone flag 'Dryden Senior Loan Fund' is the se-NIO-r substring false positive; NIO itself is tagged). ANT International ($2.9B) documented as a GENUINE free-route residual (not an HFCAA CII -- IPO pulled; QCC=HK; GLEIF SELF->HK). Tencent/Meituan/Xiaomi are HKEX-not-SEC, genuinely unreachable by the free route. "
+     "DECISION (pre-registered rule on B): B=0.3425 << 0.80 with a large/diffuse/Cayman tail -> RECOMMEND-NOT-PROCEED. The free SEC/XBRL route adds REAL per-security CN nationality (now tags every SEC-listed Chinese VIE/ADR incl. NetEase) but ~31% of haven value -- diffuse non-Chinese Cayman structured credit -- has no non-residence nationality; the licensed CMNS crosswalk remains the only closer for the residual. "
+     "PREDICTION: PARTIALLY REFUTED -- directional claim held (B rose materially above 0.287) but the 0.45-0.65 magnitude was REFUTED on the LOW side (B reached only 0.34; the free route added less than predicted, because the prior GLEIF+handmap had already captured most large-name value and the haven pool is non-China-Cayman-dominated). Reported as found, not tuned. "
+     "Integrity-critic GATE = PASS (pre-registration genuine; HFCAA/XBRL/F-6/GLEIF/QCC really fetched; every CN flag rule-traceable, alias excludes reverse-merger drift; NetEase leak found+fixed, no obvious-CN left untagged; B recomputed, value reconciles; recommendation honest re the low-side miss). Two read-only items (git ordering; recompute execution) CLOSED by orchestrator execution. Standing UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict unchanged. DP2-DP5 untouched, DP6 NOT begun.")
+for s in d['steps']:
+    if s['id']=='DP1':
+        s['note']=s.get('note','')+add
+        break
+json.dump(d, open(p,'w'), indent=2)
+json.load(open(p)); print("ledger updated + valid (DP1 note appended)")
+EOF
+git add build/ledger.json build/run-ledger.log
+git commit -q -m "Construct-the-crosswalk coverage: SEC HFCAA + XBRL VIE + GLEIF/QCC -> B 0.287->0.3425, RECOMMEND-NOT-PROCEED
+
+Constructs the free per-security China-nationality crosswalk the prior
+GLEIF-only pass lacked, applies it to the haven panel, and re-measures
+discriminating coverage B for direct comparison to 0.287. Does NOT re-tag the
+operator, re-run separability, or touch DP2-DP6.
+
+Part 0 (pre-registered FIRST, commit 4efb52d): expected B toward ~0.45-0.65,
+materially above 0.287, not clearing 0.80.
+
+Part 1 sources (all fetched, match rates measured): SEC HFCAA list (174 CIIs,
+148 matched to panel); EDGAR VIE-look-through XBRL OpCo-jurisdiction + F-6/20-F
+home jurisdiction (read from real filings, e.g. Alibaba 20-F Cayman+VIE-in-PRC);
+GLEIF ISIN->LEI (12.1% count / 41.5% value); QCC (85% of haven LEIs carry a
+code, CN-segment restricted) + OpenCorporates.
+
+Part 2 tagged panel (value reconciles exactly; every CN tag rule-traceable, no
+name-guessing): R1 HFCAA 56,041 rows/19.3%, R2 XBRL-VIE 12,861/10.3%, R3
+F-6/20-F 9,347/8.8%, R4 QCC 8,805/3.3%; CN union 64,057 rows/$761B/22.2%.
+
+Part 3 coverage (recompute byte-identical): B_union = 0.3425 vs prior 0.287
+(+0.0554 UP); A_union 0.690; CN-share 0.278; uncovered tail 0.310, KY-dominated
+(0.296), diffuse (HHI 0.0014, top-10 6.8%).
+
+Leak fix (load-bearing): first run left NetEase (HFCAA, ~$33B) untagged via an
+undecoded HTML &nbsp; in the conclusive-list names; html.unescape + re-deriving
+the CIK->security map from real SEC files recovered NetEase/ZTO/VNET/MINISO/
+Youdao/Chindata/China-Southern-Air (134->148; B 0.324->0.3425). Post-fix tail
+has no genuinely-untagged obvious-CN name (lone flag Dryden = se-NIO-r false
+positive; NIO tagged). ANT International ($2.9B) a genuine free-route residual
+(not HFCAA, QCC=HK, GLEIF SELF->HK). Tencent/Meituan/Xiaomi HKEX-not-SEC,
+unreachable by the free route.
+
+Part 4 decision (pre-registered rule on B): B=0.3425 << 0.80, large/diffuse/
+Cayman tail -> RECOMMEND-NOT-PROCEED. The route adds real per-security CN
+nationality but ~31% diffuse non-Chinese Cayman value has no non-residence
+nationality; the licensed CMNS crosswalk remains the only closer. Prediction
+PARTIALLY REFUTED: directional rise held, but the 0.45-0.65 magnitude refuted on
+the low side (B only 0.34). Reported as found.
+
+Integrity-critic GATE = PASS; the two read-only items (git ordering; recompute
+execution) closed by orchestrator execution. DP2-DP5 untouched, DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
