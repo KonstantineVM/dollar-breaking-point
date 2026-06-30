@@ -1,0 +1,62 @@
+{
+  "artifact": "cm_regression_verify",
+  "generated_by": "build/audit/cm_regression_recompute.py (no network)",
+  "headline_beta_in_result": -0.03825701828422519,
+  "headline_beta_recomputed_independently": -0.03825701828422519,
+  "beta_matches": true,
+  "headline_n_obs": 22200,
+  "headline_within_dof": 17671,
+  "n_specs_run": 8,
+  "all_betas_read_from_estimator_not_hardcoded": true,
+  "power_diagnostic_gprc_residual_sd": 0.0661000542826132,
+  "wild_cluster_bootstrap_p_in_result": 0.048,
+  "wild_cluster_bootstrap_p_recomputed": 0.048,
+  "bootstrap_p_recomputed_matches": true,
+  "bootstrap_seed": 42,
+  "bootstrap_reps": 2000,
+  "bootstrap_deterministic_under_seed": true,
+  "leave_one_out_betas_in_result_headline": {
+    "2019q3": -0.04633307986811396,
+    "2019q4": -0.046198902169155634,
+    "2020q1": 9.43518157762414e-05,
+    "2020q2": 8.036670434929933e-06,
+    "2020q3": 4.893050415640326e-05,
+    "2022q1": -1.911676143962324e-05,
+    "2022q2": 0.0067070917593688275,
+    "2024q4": -0.03970792470178694
+  },
+  "leave_one_out_betas_recomputed_headline": {
+    "2019q3": -0.04633307986811396,
+    "2019q4": -0.046198902169155634,
+    "2020q1": 9.43518157762414e-05,
+    "2020q2": 8.036670434929933e-06,
+    "2020q3": 4.893050415640326e-05,
+    "2022q1": -1.911676143962324e-05,
+    "2022q2": 0.0067070917593688275,
+    "2024q4": -0.03970792470178694
+  },
+  "leave_one_out_betas_in_result_no_lags": {
+    "2019q3": -0.033903997670748344,
+    "2019q4": -0.034763377672206615,
+    "2020q1": -0.05432021482112664,
+    "2020q2": -0.011690270252577595,
+    "2020q3": -0.0311645154037821,
+    "2022q1": -0.03115857910233591,
+    "2022q2": -0.038508960731703026,
+    "2024q4": 0.07285946322243736
+  },
+  "leave_one_out_betas_recomputed_no_lags": {
+    "2019q3": -0.033903997670748344,
+    "2019q4": -0.034763377672206615,
+    "2020q1": -0.05432021482112664,
+    "2020q2": -0.011690270252577595,
+    "2020q3": -0.0311645154037821,
+    "2022q1": -0.03115857910233591,
+    "2022q2": -0.038508960731703026,
+    "2024q4": 0.07285946322243736
+  },
+  "leave_one_out_recomputed_matches": true,
+  "drop_2022q2_beta_headline": 0.0067070917593688275,
+  "drop_2022q1_beta_headline": -1.911676143962324e-05,
+  "drop_2024q4_beta_no_lags": 0.07285946322243736
+}

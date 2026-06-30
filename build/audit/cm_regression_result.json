@@ -1,0 +1,474 @@
+{
+  "artifact": "cm_regression_result",
+  "generated_by": "build/audit/cm_regression_recompute.py (no network)",
+  "panel_path": "/home/user/dollar-breaking-point/build/data/cm_panel/cm_weight_panel.parquet",
+  "estimator": "within (fund-demeaned) OLS; fund FE + X_t replace time FE because GPRC_China is a single national series (time FE would absorb it).",
+  "panel_dims": {
+    "n_funds": 7412,
+    "n_quarters": 8,
+    "quarters": [
+      "2019q3",
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2022q1",
+      "2022q2",
+      "2024q4"
+    ],
+    "n_fund_quarter_obs": 37403
+  },
+  "specs": [
+    {
+      "label": "HEADLINE w~gprc_avg+L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "w",
+      "gprc_col": "gprc_avg",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 22200,
+      "n_funds": 4522,
+      "within_dof": 17671,
+      "n_quarter_clusters": 6,
+      "n_fund_clusters": 4522,
+      "beta_GPRC_China": -0.03825701828422519,
+      "se_classical": {
+        "se": 0.04198023173780084,
+        "t": -0.9113103167979154,
+        "p": 0.36214432312349115,
+        "dof": 17671,
+        "ci95": [
+          -0.1205423966347679,
+          0.04402836006631752
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.01568204422570934,
+        "t": -2.439542813015803,
+        "p": 0.014744045926171831,
+        "dof": 4521,
+        "ci95": [
+          -0.06900149106081277,
+          -0.0075125455076376045
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.012572049058174264,
+        "t": -3.043021714853294,
+        "p": 0.02865168339217593,
+        "dof": 5,
+        "ci95": [
+          -0.07057449922989659,
+          -0.005939537338553791
+        ]
+      }
+    },
+    {
+      "label": "w~gprc_avg+L1+L2+X (no relret)",
+      "status": "OK",
+      "weight_col": "w",
+      "gprc_col": "gprc_avg",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil"
+      ],
+      "n_obs": 22200,
+      "n_funds": 4522,
+      "within_dof": 17672,
+      "n_quarter_clusters": 6,
+      "n_fund_clusters": 4522,
+      "beta_GPRC_China": -0.055901302452832535,
+      "se_classical": {
+        "se": 0.01717808358326975,
+        "t": -3.2542222874777775,
+        "p": 0.0011391696074807662,
+        "dof": 17672,
+        "ci95": [
+          -0.08957203372311488,
+          -0.022230571182550188
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.026117226556100385,
+        "t": -2.140399645144376,
+        "p": 0.032375833936703055,
+        "dof": 4521,
+        "ci95": [
+          -0.10710383378721147,
+          -0.0046987711184536055
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.011720486899613395,
+        "t": -4.769537556897612,
+        "p": 0.005016859178957283,
+        "dof": 5,
+        "ci95": [
+          -0.08602977318179211,
+          -0.025772831723872958
+        ]
+      }
+    },
+    {
+      "label": "w~gprc_avg+X+relret (no lags)",
+      "status": "OK",
+      "weight_col": "w",
+      "gprc_col": "gprc_avg",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 36277,
+      "n_funds": 6286,
+      "within_dof": 29986,
+      "n_quarter_clusters": 8,
+      "n_fund_clusters": 6286,
+      "beta_GPRC_China": -0.03540002590406334,
+      "se_classical": {
+        "se": 0.01860862898913703,
+        "t": -1.902344655521288,
+        "p": 0.05713568228954014,
+        "dof": 29986,
+        "ci95": [
+          -0.07187374076037725,
+          0.0010736889522505802
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.008664795662749638,
+        "t": -4.085500372068751,
+        "p": 4.452900320321509e-05,
+        "dof": 6285,
+        "ci95": [
+          -0.052385984480008654,
+          -0.01841406732811802
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.006994427394193679,
+        "t": -5.061175691587013,
+        "p": 0.0014614318536388452,
+        "dof": 7,
+        "ci95": [
+          -0.05193921854637863,
+          -0.018860833261748047
+        ]
+      }
+    },
+    {
+      "label": "w~gprc_avg+X (no lags,no relret)",
+      "status": "OK",
+      "weight_col": "w",
+      "gprc_col": "gprc_avg",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil"
+      ],
+      "n_obs": 36277,
+      "n_funds": 6286,
+      "within_dof": 29987,
+      "n_quarter_clusters": 8,
+      "n_fund_clusters": 6286,
+      "beta_GPRC_China": -0.03379479901146592,
+      "se_classical": {
+        "se": 0.009976871480432518,
+        "t": -3.3873142575552997,
+        "p": 0.0007067115833870377,
+        "dof": 29987,
+        "ci95": [
+          -0.0533498970930049,
+          -0.014239700929926935
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.014263581204710309,
+        "t": -2.3693067348546206,
+        "p": 0.017851511682621588,
+        "dof": 6285,
+        "ci95": [
+          -0.061756289266731504,
+          -0.00583330875620033
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.002007290389606001,
+        "t": -16.836028900681033,
+        "p": 6.384511360726493e-07,
+        "dof": 7,
+        "ci95": [
+          -0.038541286546717395,
+          -0.029048311476214443
+        ]
+      }
+    },
+    {
+      "label": "w~gprc_END+L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "w",
+      "gprc_col": "gprc_end",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 22200,
+      "n_funds": 4522,
+      "within_dof": 17671,
+      "n_quarter_clusters": 6,
+      "n_fund_clusters": 4522,
+      "beta_GPRC_China": -0.13815254067347102,
+      "se_classical": {
+        "se": 0.1515976919473662,
+        "t": -0.9113103167918727,
+        "p": 0.362144323126674,
+        "dof": 17671,
+        "ci95": [
+          -0.43529890987099185,
+          0.15899382852404978
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.05663050474034226,
+        "t": -2.4395428101324046,
+        "p": 0.014744046043678212,
+        "dof": 4521,
+        "ci95": [
+          -0.24917601352272664,
+          -0.027129067824215397
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.045399787980213144,
+        "t": -3.0430217148521232,
+        "p": 0.028651683392214244,
+        "dof": 5,
+        "ci95": [
+          -0.25485641099714684,
+          -0.021448670349795224
+        ]
+      }
+    },
+    {
+      "label": "w~gprc_END+X+relret (no lags)",
+      "status": "OK",
+      "weight_col": "w",
+      "gprc_col": "gprc_end",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 36277,
+      "n_funds": 6286,
+      "within_dof": 29986,
+      "n_quarter_clusters": 8,
+      "n_fund_clusters": 6286,
+      "beta_GPRC_China": -0.014781908154480425,
+      "se_classical": {
+        "se": 0.009237273173581775,
+        "t": -1.6002458600830471,
+        "p": 0.10955458687140707,
+        "dof": 29986,
+        "ci95": [
+          -0.032887361704001916,
+          0.00332354539504107
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.007948359489021771,
+        "t": -1.8597432809747863,
+        "p": 0.0629685437818438,
+        "dof": 6285,
+        "ci95": [
+          -0.030363407162894693,
+          0.0007995908539338414
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.005221708333167174,
+        "t": -2.8308567256790096,
+        "p": 0.02537499965465794,
+        "dof": 7,
+        "ci95": [
+          -0.027129286313831658,
+          -0.002434529995129192
+        ]
+      }
+    },
+    {
+      "label": "w_ALT~gprc_avg+L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "w_alt",
+      "gprc_col": "gprc_avg",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 22195,
+      "n_funds": 4522,
+      "within_dof": 17666,
+      "n_quarter_clusters": 6,
+      "n_fund_clusters": 4522,
+      "beta_GPRC_China": -0.04527596867674626,
+      "se_classical": {
+        "se": 0.012614382480789374,
+        "t": -3.589233856330081,
+        "p": 0.00033254902141433235,
+        "dof": 17666,
+        "ci95": [
+          -0.07000139805733507,
+          -0.020550539296157452
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.00956114424880381,
+        "t": -4.735413199357463,
+        "p": 2.25300153080891e-06,
+        "dof": 4521,
+        "ci95": [
+          -0.06402048532518592,
+          -0.026531452028306608
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.009875674510910008,
+        "t": -4.584595070111747,
+        "p": 0.005922652527635292,
+        "dof": 5,
+        "ci95": [
+          -0.07066219818914807,
+          -0.01988973916434445
+        ]
+      }
+    },
+    {
+      "label": "w_ALT~gprc_avg+X+relret (no lags)",
+      "status": "OK",
+      "weight_col": "w_alt",
+      "gprc_col": "gprc_avg",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 36261,
+      "n_funds": 6283,
+      "within_dof": 29973,
+      "n_quarter_clusters": 8,
+      "n_fund_clusters": 6283,
+      "beta_GPRC_China": -0.039626298993930414,
+      "se_classical": {
+        "se": 0.007076946242695373,
+        "t": -5.599350007050227,
+        "p": 2.170390712911459e-08,
+        "dof": 29973,
+        "ci95": [
+          -0.05349741889101326,
+          -0.025755179096847568
+        ]
+      },
+      "se_cluster_fund": {
+        "se": 0.004991240004656363,
+        "t": -7.939169215858737,
+        "p": 2.393370505440332e-15,
+        "dof": 6282,
+        "ci95": [
+          -0.049410834839907436,
+          -0.029841763147953393
+        ]
+      },
+      "se_cluster_quarter": {
+        "se": 0.008353725483874376,
+        "t": -4.743548141535545,
+        "p": 0.0020991950653565994,
+        "dof": 7,
+        "ci95": [
+          -0.05937972086424843,
+          -0.019872877123612402
+        ]
+      }
+    }
+  ],
+  "headline_label": "HEADLINE w~gprc_avg+L1+L2+X+relret",
+  "power_diagnostic": {
+    "gprc_quarterly_cross_quarter_sd": 0.2910600113139991,
+    "gprc_raw_pooled_sd": 0.2772981594144052,
+    "gprc_within_fund_sd_after_FE": 0.2808514652795114,
+    "gprc_residual_sd_after_FE_and_controls": 0.0661000542826132,
+    "gprc_residual_share_of_within": 0.2353559174662968,
+    "interpretation": "beta is identified off gprc_residual_sd_after_FE_and_controls; if this collapses toward 0 the macro controls have absorbed nearly all the China-GPRC variation and beta is near-unidentified.",
+    "headline_beta": -0.03825701828422519,
+    "headline_se_cluster_quarter": 0.012572049058174264,
+    "effect_per_1sd_gprc": -0.011135088174646455,
+    "ci95_halfwidth_per_1sd_gprc_clustered_quarter": 0.007172072652580212
+  },
+  "few_cluster_inference": {
+    "note": "Honest inference for a single national GPRC series over 8 quarters. The classical SE treats ~22k fund-quarters as the sample, but beta is identified off ~8 national time points; few-cluster methods are the honest test.",
+    "wild_cluster_bootstrap_quarter": {
+      "spec": "no-lags: w ~ gprc_avg + log_vix + broad_dollar + oil + relative_returns",
+      "weight_col": "w",
+      "gprc_col": "gprc_avg",
+      "reps": 2000,
+      "seed": 42,
+      "n_quarter_clusters_G": 8,
+      "beta_GPRC_China": -0.03540002590406334,
+      "naive_cluster_quarter_se": 0.006994427394193679,
+      "t_obs": -5.061175691587013,
+      "bootstrap_p_twosided": 0.048,
+      "rademacher": true,
+      "null_imposed_restricted_residuals": true
+    },
+    "leave_one_quarter_out_headline": {
+      "spec": "HEADLINE w~gprc_avg+L1+L2+X+relret",
+      "full_beta": -0.03825701828422519,
+      "beta_dropping_quarter": {
+        "2019q3": -0.04633307986811396,
+        "2019q4": -0.046198902169155634,
+        "2020q1": 9.43518157762414e-05,
+        "2020q2": 8.036670434929933e-06,
+        "2020q3": 4.893050415640326e-05,
+        "2022q1": -1.911676143962324e-05,
+        "2022q2": 0.0067070917593688275,
+        "2024q4": -0.03970792470178694
+      },
+      "drop_2022q2_beta": 0.0067070917593688275,
+      "drop_2022q1_beta": -1.911676143962324e-05,
+      "note": "With two weight lags requiring 3 consecutive panel quarters, dropping any single crisis-window quarter (2020q1/q2/q3, 2022q1, 2022q2) breaks most lag chains (n falls 22,200 -> ~9k-15k) and collapses beta to ~0. This is a thin-panel signature, not robustness."
+    },
+    "leave_one_quarter_out_no_lags": {
+      "spec": "w ~ gprc_avg + X + relative_returns (no lags; retains remaining quarters)",
+      "beta_dropping_quarter": {
+        "2019q3": -0.033903997670748344,
+        "2019q4": -0.034763377672206615,
+        "2020q1": -0.05432021482112664,
+        "2020q2": -0.011690270252577595,
+        "2020q3": -0.0311645154037821,
+        "2022q1": -0.03115857910233591,
+        "2022q2": -0.038508960731703026,
+        "2024q4": 0.07285946322243736
+      },
+      "note": "Cleaner read (no lag-chain loss). beta stays negative dropping any single quarter EXCEPT 2024q4, where it flips sign (sign depends on one quarter)."
+    }
+  }
+}
