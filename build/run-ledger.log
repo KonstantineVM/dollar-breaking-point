@@ -2158,3 +2158,51 @@ json.dump(d, open(p,'w'), indent=2)
 json.load(open(p))
 print("ledger updated + valid")
 EOF
+2026-06-30T00:07:14Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Free per-security nationality coverage measurement -> RECOMMEND-NOT-PROCEED
+
+Measures whether a FREE per-security nationality re-tag is worth attempting,
+gating (in a later pass) a re-tag + separability re-test. Symmetric: high
+coverage -> proceed, low -> licensed-only. Does NOT re-tag the operator, rebuild
+it, re-run separability, or touch DP2-DP6/the panel.
+
+Part 1 (free sources, grounded):
+- GLEIF Level-2 RR golden copy (real bulk file, 477,383 relationships, publish
+  2026-06-29 16:00 UTC) + free GLEIF API for parent legal country
+  (entity.legalAddress.country); issuer_lei->parent_country for 3,427 of 3,434
+  distinct non-null haven issuer_leis. Only ~10% have a real reported L2 parent;
+  the big VIE/ADRs resolve SELF=KY (residence), so a hand-map is additive.
+- Filing-sourced hand-map: 9 SEC 20-F Chinese VIE/ADR issuers (Alibaba, Baidu,
+  JD, NetEase, PDD, TAL, Trip.com, ZTO, H World), 70 ISIN rows, each sourced to
+  an EDGAR CIK + 20-F.
+
+Part 2 (measured on the haven CYM/HKG/VGB subset, USD-equivalent; currency_value
+is mixed HKD/USD, converted, B shown FX-invariant):
+- A coverage-any = 0.686 by value, but 58% of A is COSMETIC (GLEIF SELF restating
+  residence).
+- B nationality!=residence (the discriminating share that can break the uniform
+  aggregate reweighting) = 0.287 pooled (0.184-0.360, falling over time).
+- C CN-parent share of total haven value = 0.226 (real, non-trivial).
+- Uncovered tail = 0.314, almost all Cayman (KY=0.300), diffuse (HHI 0.0014,
+  top-10 = 6.7%); top untagged are Cayman CLO/structured-credit + hedge-fund
+  vehicles, not Chinese operating companies.
+
+Part 3 (pre-registered rule applied to B): B=0.287 << 0.80 and the tail is
+large/Cayman-heavy/diffuse -> RECOMMEND-NOT-PROCEED. A free-map re-tag would
+leave ~31% diffuse Cayman value to a max-entropy fill that would dominate and
+collapse back to the ~+0.521 aggregate result; the licensed CMNS crosswalk
+remains the only thing that closes identification. Symmetric: had B>~0.80 with a
+bound-able tail, the same script returns PROCEED.
+
+Reproducibility + GATE: freemap_coverage_recompute.py regenerates every number
+from the panel + the two lookups (no network); executed -> byte-identical to
+freemap_coverage.json (verifier build/results/freemap_coverage_verify.json).
+investment_country confirmed ISO alpha-2 (HK/KY/VG) so B is not inflated by an
+encoding mismatch. Integrity-critic GATE = PASS (GLEIF really fetched, every
+hand-map row sourced, coverage recomputed not asserted, symmetric-error clean
+both directions, NOT-PROCEED earned not planted). Advisory; the re-test is the
+human's call.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
