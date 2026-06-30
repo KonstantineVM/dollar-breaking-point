@@ -1,0 +1,143 @@
+{
+  "artifact": "fwtw_recon_f3test_verify.json",
+  "purpose": "Independent recompute of build/audit/fwtw_recon_f3test.json F3 statistics from the interiors parquet + panel US-leg ALONE (no network). PASS = every persisted statistic reproduced from disk.",
+  "generated": "2026-06-30",
+  "no_network": true,
+  "recompute_script": "build/audit/fwtw_recon_f3test_recompute.py",
+  "inputs": [
+    "build/audit/fwtw_recon_interiors.parquet",
+    "build/data/nport/us_china_nationality_panel.parquet"
+  ],
+  "tolerance": 1e-06,
+  "checks": [
+    {
+      "check": "method1_maxent.substitution_sign_aggregate",
+      "audit": 0.996601,
+      "recompute": 0.996601,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.substitution_sign_within_holder_pooled",
+      "audit": 0.998692,
+      "recompute": 0.998692,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.footprint_cosine",
+      "audit": 0.998267,
+      "recompute": 0.998267,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.per_haven.CYM",
+      "audit": 0.995525,
+      "recompute": 0.995525,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.per_haven.HKG",
+      "audit": 0.995291,
+      "recompute": 0.995291,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.per_haven.VGB",
+      "audit": 0.996714,
+      "recompute": 0.996714,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.leadlag.-1",
+      "audit": -0.685911,
+      "recompute": -0.685911,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.leadlag.0",
+      "audit": 0.996601,
+      "recompute": 0.996601,
+      "pass": true
+    },
+    {
+      "check": "method1_maxent.leadlag.1",
+      "audit": -0.753377,
+      "recompute": -0.753377,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.substitution_sign_aggregate",
+      "audit": 0.996601,
+      "recompute": 0.996601,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.substitution_sign_within_holder_pooled",
+      "audit": 0.956171,
+      "recompute": 0.956171,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.footprint_cosine",
+      "audit": 0.817751,
+      "recompute": 0.817751,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.per_haven.CYM",
+      "audit": 0.999526,
+      "recompute": 0.999526,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.per_haven.HKG",
+      "audit": 0.871718,
+      "recompute": 0.871718,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.per_haven.VGB",
+      "audit": 0.999571,
+      "recompute": 0.999571,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.leadlag.-1",
+      "audit": -0.685911,
+      "recompute": -0.685911,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.leadlag.0",
+      "audit": 0.996601,
+      "recompute": 0.996601,
+      "pass": true
+    },
+    {
+      "check": "method2_ras.leadlag.1",
+      "audit": -0.753377,
+      "recompute": -0.753377,
+      "pass": true
+    },
+    {
+      "check": "n_holders_total",
+      "audit": 7023,
+      "recompute": 7023,
+      "pass": true
+    },
+    {
+      "check": "n_holder_transition_pairs",
+      "audit": 20549,
+      "recompute": 20549,
+      "pass": true
+    }
+  ],
+  "n_checks": 20,
+  "n_pass": 20,
+  "RESULT": "PASS",
+  "verdict_reproduced": {
+    "method1_maxent": "NO-F3 (within-holder pooled +0.998692, all per-haven >0.99, footprint +0.998)",
+    "method2_ras": "NO-F3 (within-holder pooled +0.956171, per-haven +0.87..+0.9996, footprint +0.818)",
+    "prediction_overall": "HELD (no negative holder-varying F3 loading by either method)"
+  },
+  "SOURCE": "build/audit/fwtw_recon_f3test_recompute.py executed 2026-06-30; compared to build/audit/fwtw_recon_f3test.json MEASURED_PER_METHOD."
+}

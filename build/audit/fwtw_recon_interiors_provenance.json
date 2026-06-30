@@ -1,0 +1,206 @@
+{
+  "artifact": "fwtw_recon_interiors_provenance.json",
+  "step": "FWTW-RECONSTRUCTION Part 2 (compute two interiors; NOT F3 stats; NOT prediction compare)",
+  "generated_by": "build/audit/fwtw_recon_interiors_recompute.py",
+  "no_network": true,
+  "inputs": {
+    "row_marginal_source": "/home/user/dollar-breaking-point/build/data/nport/us_china_nationality_panel.parquet",
+    "column_fraction_source": "/home/user/dollar-breaking-point/build/data/bis_ids/ids_cn_nationality.json",
+    "dp2_residency_seed_source": "/home/user/dollar-breaking-point/build/model/matrix_assembled.json"
+  },
+  "holder_axis": {
+    "key": "cik|series_id",
+    "rationale": "7461 distinct cik|series_id vs 7460 distinct series_id (one series_id shared across two ciks); cik|series_id is the unique fund-share-class holder identity."
+  },
+  "row_marginal_definition": {
+    "scope": "per fiscal_quarter, each holder's total USD-equivalent holdings of HAVEN-RESIDENT issuers (is_haven_resident=True => residence in {CYM,HKG,VGB}).",
+    "fx_conversion": {
+      "USD": "x1",
+      "HKD": "/7.8 (HKMA Linked Exchange Rate System peg midpoint)",
+      "minor_currencies": "fixed representative rates (units/USD); identical dict to build/audit/freemap_coverage_recompute.py",
+      "unknown_codes": "treated 1:1 (negligible tail, e.g. 'N/A')"
+    },
+    "sign_filter": "non-positive (<=0) and null currency_value rows DROPPED; a marginal must be a non-negative mass vector.",
+    "equity_heavy_note": "panel haven pool is ~70% equity (asset_cat EC); this is the equity-heavy pool the debt-basis column fraction is applied to."
+  },
+  "column_fraction_derivation": {
+    "column_space": [
+      "China",
+      "non-China"
+    ],
+    "formula": "china_col_fraction(q) = (nationality_basis(q) - residence_basis(q)) / nationality_basis(q)",
+    "interpretation": "BIS-internal share of China-nationality DEBT that is offshore/haven-resident (recovered by nationality reattribution, missed by residence). Used as the China column fraction for the haven panel pool.",
+    "china_col_total": "china_col_fraction(q) * panel_haven_row_total(q)",
+    "per_quarter": {
+      "2019q3": {
+        "nationality_basis_usd_millions": 1131790.0,
+        "residence_basis_usd_millions": 211041.0,
+        "china_col_fraction": 0.8135334293464336
+      },
+      "2019q4": {
+        "nationality_basis_usd_millions": 1162484.0,
+        "residence_basis_usd_millions": 208001.0,
+        "china_col_fraction": 0.8210719459364602
+      },
+      "2020q1": {
+        "nationality_basis_usd_millions": 1174484.0,
+        "residence_basis_usd_millions": 212341.0,
+        "china_col_fraction": 0.819204859325457
+      },
+      "2020q2": {
+        "nationality_basis_usd_millions": 1185886.0,
+        "residence_basis_usd_millions": 214738.0,
+        "china_col_fraction": 0.8189218862521356
+      },
+      "2020q3": {
+        "nationality_basis_usd_millions": 1230825.0,
+        "residence_basis_usd_millions": 221666.0,
+        "china_col_fraction": 0.8199045355757317
+      },
+      "2022q1": {
+        "nationality_basis_usd_millions": 1248453.0,
+        "residence_basis_usd_millions": 253288.0,
+        "china_col_fraction": 0.7971185138727689
+      },
+      "2022q2": {
+        "nationality_basis_usd_millions": 1199987.0,
+        "residence_basis_usd_millions": 254130.0,
+        "china_col_fraction": 0.788222705745979
+      },
+      "2024q4": {
+        "nationality_basis_usd_millions": 1034502.0,
+        "residence_basis_usd_millions": 249082.0,
+        "china_col_fraction": 0.7592252117443948
+      }
+    }
+  },
+  "dp2_seed_mapping": {
+    "seed_construction": "holder-heterogeneous. Each haven RESIDENCY hub d in {CYM,HKG,VGB} gets a DP2 residency->China propensity pi_d = (DP2 reporter-row d -> CHN) / (DP2 reporter-row d total). Each US holder's panel mass by hub (m_CYM,m_HKG,m_VGB) carries that propensity: seed_china_i = sum_d m_{i,d}*pi_d. RAS rescales holder x {China,non-China} seed to the row + China-nationality column marginals.",
+    "dp2_residency_to_china_propensity_per_hub": {
+      "CYM": {
+        "row_total_usd_mn": 6199240.699999999,
+        "to_CHN_usd_mn": 283663.3,
+        "pi": 0.04575774900948757
+      },
+      "HKG": {
+        "row_total_usd_mn": 2166609.0,
+        "to_CHN_usd_mn": 520855.0,
+        "pi": 0.24040101375005826
+      },
+      "VGB": {
+        "row_total_usd_mn": 0.0,
+        "to_CHN_usd_mn": null,
+        "pi": 0.04575774900948757,
+        "note": "no DP2 reporter row; assigned CYM propensity (proxy)"
+      }
+    },
+    "vgb_proxy_note": "VGB has no DP2 reporter row (BVI files no CPIS); assigned CYM propensity."
+  },
+  "methods": {
+    "method1_maxent": "independence table p_ij = row_i * col_j / total; max-entropy, no prior; every holder gets the aggregate China fraction (an OUTPUT, not assumed).",
+    "method2_ras": "RAS/Sinkhorn from the DP2 residency seed split, rescaled to the SAME two marginals as Method 1."
+  },
+  "caveats": {
+    "equity_gap": "The China column fraction is a DEBT-basis nationality split (BIS IDS = debt securities only) applied to an EQUITY-HEAVY panel haven pool. Haven equity VIEs/ADRs (Alibaba/Tencent/PDD/Baidu) are NOT in BIS IDS; their Chinese nationality is NOT measured by this fraction. The debt fraction is NOT assumed equal to the (unknown) equity China-nationality share and NOT silently equated to it. Equity China nationality remains a HOLE.",
+    "ras_residency_proxy": "Method 2's credibility equals the credibility of the assumption that residency-interaction structure proxies nationality-interaction structure -- the assumption this project distrusts. Stated as a caveat, not a disqualification."
+  },
+  "per_quarter_meta": {
+    "2019q3": {
+      "bis_key": "2019-Q3",
+      "n_holders": 3703,
+      "row_total_usd": 169015470836.81726,
+      "china_col_fraction_bis": 0.8135334293464336,
+      "china_col_total_usd": 137499735602.4781,
+      "nonchina_col_total_usd": 31515735234.339172,
+      "nationality_basis_usd_millions": 1131790.0,
+      "residence_basis_usd_millions": 211041.0,
+      "seed_china_share_aggregate": 0.06454902938535721,
+      "status": "BUILT"
+    },
+    "2019q4": {
+      "bis_key": "2019-Q4",
+      "n_holders": 4492,
+      "row_total_usd": 236756756604.63782,
+      "china_col_fraction_bis": 0.8210719459364602,
+      "china_col_total_usd": 194394330858.97482,
+      "nonchina_col_total_usd": 42362425745.662994,
+      "nationality_basis_usd_millions": 1162484.0,
+      "residence_basis_usd_millions": 208001.0,
+      "seed_china_share_aggregate": 0.0624615026428764,
+      "status": "BUILT"
+    },
+    "2020q1": {
+      "bis_key": "2020-Q1",
+      "n_holders": 4577,
+      "row_total_usd": 199081248612.65314,
+      "china_col_fraction_bis": 0.819204859325457,
+      "china_col_total_usd": 163088326264.06482,
+      "nonchina_col_total_usd": 35992922348.58832,
+      "nationality_basis_usd_millions": 1174484.0,
+      "residence_basis_usd_millions": 212341.0,
+      "seed_china_share_aggregate": 0.06937736343799034,
+      "status": "BUILT"
+    },
+    "2020q2": {
+      "bis_key": "2020-Q2",
+      "n_holders": 4508,
+      "row_total_usd": 220094308892.53217,
+      "china_col_fraction_bis": 0.8189218862521356,
+      "china_col_total_usd": 180240046591.63263,
+      "nonchina_col_total_usd": 39854262300.899536,
+      "nationality_basis_usd_millions": 1185886.0,
+      "residence_basis_usd_millions": 214738.0,
+      "seed_china_share_aggregate": 0.06773307434055761,
+      "status": "BUILT"
+    },
+    "2020q3": {
+      "bis_key": "2020-Q3",
+      "n_holders": 4455,
+      "row_total_usd": 249223792464.79004,
+      "china_col_fraction_bis": 0.8199045355757317,
+      "china_col_total_usd": 204339717815.26624,
+      "nonchina_col_total_usd": 44884074649.5238,
+      "nationality_basis_usd_millions": 1230825.0,
+      "residence_basis_usd_millions": 221666.0,
+      "seed_china_share_aggregate": 0.06574237801788432,
+      "status": "BUILT"
+    },
+    "2022q1": {
+      "bis_key": "2022-Q1",
+      "n_holders": 4605,
+      "row_total_usd": 248050487036.06152,
+      "china_col_fraction_bis": 0.7971185138727689,
+      "china_col_total_usd": 197725635591.6019,
+      "nonchina_col_total_usd": 50324851444.459625,
+      "nationality_basis_usd_millions": 1248453.0,
+      "residence_basis_usd_millions": 253288.0,
+      "seed_china_share_aggregate": 0.07049538383650765,
+      "status": "BUILT"
+    },
+    "2022q2": {
+      "bis_key": "2022-Q2",
+      "n_holders": 4585,
+      "row_total_usd": 209705176799.1094,
+      "china_col_fraction_bis": 0.788222705745979,
+      "china_col_total_usd": 165294381865.5329,
+      "nonchina_col_total_usd": 44410794933.57651,
+      "nationality_basis_usd_millions": 1199987.0,
+      "residence_basis_usd_millions": 254130.0,
+      "seed_china_share_aggregate": 0.06599352221367767,
+      "status": "BUILT"
+    },
+    "2024q4": {
+      "bis_key": "2024-Q4",
+      "n_holders": 4384,
+      "row_total_usd": 204137474149.6831,
+      "china_col_fraction_bis": 0.7592252117443948,
+      "china_col_total_usd": 154986317036.2591,
+      "nonchina_col_total_usd": 49151157113.42401,
+      "nationality_basis_usd_millions": 1034502.0,
+      "residence_basis_usd_millions": 249082.0,
+      "seed_china_share_aggregate": 0.06333209021655659,
+      "status": "BUILT"
+    }
+  },
+  "SOURCE": "Panel: SEC Form N-PORT (build_us_china_panel.py provenance). BIS: WS_DEBT_SEC2_PUB nationality vs residence (ids_cn_nationality.json). DP2 seed: matrix_assembled.json CPIS residency USA row."
+}

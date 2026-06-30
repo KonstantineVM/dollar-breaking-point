@@ -2206,3 +2206,108 @@ human's call.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
 for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
+2026-06-30T16:01:56Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/fwtw_recon_prediction.md build/run-ledger.log 2>/dev/null
+git commit -q -m "Pre-register FWTW reconstruction prediction (BEFORE computing any interior)
+
+Records the falsifiable prior verbatim before Parts 1-3: Method 1 (max-entropy)
+expected to return the independence table (~+0.5, no F3); Method 2 (RAS on
+residency seed) expected to relabel the residency pattern (~+0.521, no F3);
+either method returning a negative, correctly-signed, holder-varying F3 loading
+REFUTES the prediction and is the finding. Committed first so the prediction
+cannot be retrofitted to the result. Anti-planting: the +0.52 collapse is a
+prediction to be tested, not an input.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
+2026-06-30T16:11:04Z	OUTPUT (not established until verifier runs)	cd /tmp; python3 -c "
+import csv
+rows=[r for r in csv.DictReader(open('v1keys.csv')) if r['ISSUER_NAT']=='CN' and r['ISSUER_RES']=='3P']
+print('CN-nat (res=3P) series:',len(rows))
+from collections import Counter
+for col in ['MEASURE','ISSUE_CUR_GROUP','ISSUE_CUR','ISSUE_OR_MAT','ISSUE_RE_MAT','ISSUE_RATE','ISSUER_BUS_IMM','ISSUER_BUS_ULT']:
+    print(col,':',dict(Counter(r[col] for r in rows)))
+print('--- candidate TOTAL amounts-outstanding (MEASURE=I) series ---')
+for r in rows:
+    if r['MEASURE']=='I':
+        # most aggregated: currency group A(all), cur group totals, maturity A, rate A, bus 1
+        key='.'.join([r['FREQ'],r['ISSUER_RES'],r['ISSUER_NAT'],r['ISSUER_BUS_IMM'],r['ISSUER_BUS_ULT'],r['MARKET'],r['ISSUE_TYPE'],r['ISSUE_CUR_GROUP'],r['ISSUE_CUR'],r['ISSUE_OR_MAT'],r['ISSUE_RE_MAT'],r['ISSUE_RATE'],r['ISSUE_RISK'],r['ISSUE_COL'],r['MEASURE']])
+        if r['ISSUE_CUR_GROUP']=='A' and r['ISSUE_OR_MAT']=='A' and r['ISSUE_RE_MAT']=='A' and r['ISSUE_RATE']=='A' and r['ISSUER_BUS_IMM']=='1' and r['ISSUER_BUS_ULT']=='1':
+            print('  TOTAL-ish:',key)
+" 
+2026-06-30T16:26:12Z	OUTPUT (not established until verifier runs)	python3 - <<'PY'
+import json, subprocess, sys
+# run recompute, capture stdout JSON
+out = subprocess.run([sys.executable, "build/audit/fwtw_recon_f3test_recompute.py"],
+                     capture_output=True, text=True)
+if out.returncode != 0:
+    print("RECOMPUTE FAILED", out.stderr); sys.exit(1)
+rec = json.loads(out.stdout)
+audit = json.load(open("build/audit/fwtw_recon_f3test.json"))
+M = audit["MEASURED_PER_METHOD"]
+
+checks = []
+def chk(name, a, b, tol=1e-6):
+    ok = (a is None and b is None) or (a is not None and b is not None and abs(a-b) <= tol)
+    checks.append({"check": name, "audit": a, "recompute": b, "pass": bool(ok)})
+
+for meth in ["method1_maxent", "method2_ras"]:
+    a = M[meth]; r = rec[meth]
+    chk(f"{meth}.substitution_sign_aggregate", a["substitution_sign_aggregate_cn_vs_nonchina"], r["substitution_sign_aggregate_cn_vs_nonchina"])
+    chk(f"{meth}.substitution_sign_within_holder_pooled", a["substitution_sign_within_holder_pooled"], r["substitution_sign_within_holder_pooled"])
+    chk(f"{meth}.footprint_cosine", a["footprint_cosine_cn_vs_nonchina"], r["footprint_cosine_cn_vs_nonchina"])
+    for h in ["CYM","HKG","VGB"]:
+        chk(f"{meth}.per_haven.{h}", a["per_haven_substitution_sign"][h], r["per_haven_substitution_sign"][h])
+    for k in ["-1","0","1"]:
+        chk(f"{meth}.leadlag.{k}", a["leadlag_quarterly_cn_vs_nonchina"][k], r["leadlag_quarterly_cn_vs_nonchina"][k])
+
+chk("n_holders_total", M["n_holders_total"], rec["n_holders_total"], tol=0)
+chk("n_holder_transition_pairs", M["n_holder_transition_pairs_pooled"], rec["method1_maxent"]["n_holder_transition_pairs"], tol=0)
+
+all_pass = all(c["pass"] for c in checks)
+verify = {
+  "artifact": "fwtw_recon_f3test_verify.json",
+  "purpose": "Independent recompute of build/audit/fwtw_recon_f3test.json F3 statistics from the interiors parquet + panel US-leg ALONE (no network). PASS = every persisted statistic reproduced from disk.",
+  "generated": "2026-06-30",
+  "no_network": True,
+  "recompute_script": "build/audit/fwtw_recon_f3test_recompute.py",
+  "inputs": ["build/audit/fwtw_recon_interiors.parquet", "build/data/nport/us_china_nationality_panel.parquet"],
+  "tolerance": 1e-6,
+  "checks": checks,
+  "n_checks": len(checks),
+  "n_pass": sum(c["pass"] for c in checks),
+  "RESULT": "PASS" if all_pass else "FAIL",
+  "verdict_reproduced": {
+    "method1_maxent": "NO-F3 (within-holder pooled +0.998692, all per-haven >0.99, footprint +0.998)",
+    "method2_ras": "NO-F3 (within-holder pooled +0.956171, per-haven +0.87..+0.9996, footprint +0.818)",
+    "prediction_overall": "HELD (no negative holder-varying F3 loading by either method)"
+  },
+  "SOURCE": "build/audit/fwtw_recon_f3test_recompute.py executed 2026-06-30; compared to build/audit/fwtw_recon_f3test.json MEASURED_PER_METHOD."
+}
+json.dump(verify, open("build/results/fwtw_recon_f3test_verify.json","w"), indent=2)
+print("RESULT:", verify["RESULT"], "| checks", verify["n_pass"], "/", verify["n_checks"])
+for c in checks:
+    if not c["pass"]: print("  FAIL", c)
+PY
+2026-06-30T16:29:06Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== artifact sizes (decide gitignore) ==="; du -sh build/audit/fwtw_recon_interiors.parquet build/data/bis_ids/raw_cn_nationality_v2.csv build/data/bis_ids/raw_cn_residence_v2.csv 2>/dev/null
+python3 << 'EOF'
+import json
+p='build/ledger.json'
+d=json.load(open(p))
+add=(" || MARGINAL-TO-FWTW RECONSTRUCTION TEST (2026-06-30; tests whether a marginal-recovered US-holder x issuer-nationality interior loads F3; does NOT re-tag operator, re-run separability proper, or touch DP2-DP6): "
+     "PRE-REGISTERED prediction committed FIRST (git 1c679f7, before any interior existed): max-ent -> aggregate ~+0.5 NO-F3; RAS-on-residency -> ~+0.521 NO-F3; a NEGATIVE holder-varying F3 sign would REFUTE. "
+     "Marginals: ROW = per-US-fund haven (CYM/HKG/VGB) holdings from the N-PORT panel; COLUMN = BIS IDS China nationality-basis debt (WS_DEBT_SEC2_PUB, nationality confirmed from real ISSUER_NAT labels; DEBT-ONLY, haven equity VIEs a stated HOLE). China col fraction (nat-res)/nat ~0.76-0.82. "
+     "Two interiors COMPUTED (build/audit/fwtw_recon_interiors.parquet; recompute PASS, orchestrator-executed): Method 1 = independence table p_ij=row_i*col_j/total (every holder identical aggregate fraction, degenerate); Method 2 = RAS/Sinkhorn on the DP2 residency seed (genuinely holder-varying, China-share spread 0.733-0.962). Both satisfy both marginals to ~1e-15. "
+     "F3 test (build/audit/fwtw_recon_f3test.json; same statistic as the prior nationality separability test -- q-o-q log-change, 5 contiguous transitions, non-China-haven counter-leg since the panel has no USA leg; recompute PASS 20/20, orchestrator-executed): Method 1 within-holder substitution sign +0.999 (aggregate +0.997); Method 2 +0.956 on its holder-varying interior (per-haven CYM +0.9995/HKG +0.872/VGB +0.9996; footprint +0.818). BOTH strongly POSITIVE = common growth, NOT substitution. "
+     "RESULT: prediction HELD; both methods NO-F3. No negative, correctly-signed, holder-varying F3 loading appeared, so the refutation criterion was NOT met (and was genuinely attainable -- HKG +0.872 / footprint +0.818 < 1 show the legs are not mechanically collinear). "
+     "Honest magnitude caveat: the predicted ~+0.5/+0.521 point targets did NOT reproduce numerically (both give aggregate +0.997 because the two interiors share the BIS China column marginal); the prediction's BINARY content (NO-F3) held. Anti-planting: the +0.52 collapse is a MEASURED output, never an input (no hardcoded target in either recompute script; +0.997 != predicted +0.5 confirms nothing carried over). "
+     "Integrity-critic GATE = PASS (pre-registration genuine, IDS fetched, both interiors computed+distinct, stats recomputed not assumed, refutation attainable, caveats stated); the two read-only-unverifiable items (git commit ordering; recompute execution) CLOSED by orchestrator execution. This does NOT change the standing UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict -- it confirms that a marginal-recovered nationality interior (max-ent OR RAS) cannot manufacture F3 identification; only a real per-security ultimate-parent crosswalk (licensed CMNS) could. DP2-DP5 untouched, DP6 NOT begun.")
+for s in d['steps']:
+    if s['id']=='DP5':
+        s['note']=s.get('note','')+add
+        break
+json.dump(d, open(p,'w'), indent=2)
+json.load(open(p)); print("ledger updated + valid (note appended to DP5)")
+EOF
