@@ -1,0 +1,27 @@
+[
+ {
+  "issuer_name": "Alibaba Group Holding Limited",
+  "cik": "1577552",
+  "residence_domicile": "Cayman Islands",
+  "residence_source": "dei:EntityIncorporationStateCountryCode = 'Cayman Islands'; dei:EntityAddressCountry='Hong Kong'",
+  "opco_nationality": "CN",
+  "opco_evidence": "20-F FY2026 text: 'The VIEs are incorporated in the PRC and owned by PRC citizens or by PRC entities owned and/or controlled by PRC citizens, and not by our company.'; XBRL member baba:ConsolidatedVIEsAndSubsidiariesMember",
+  "accession": "0001193125-26-231755",
+  "doc": "baba-20260331.htm",
+  "f6_adr_jurisdiction": "Cayman Islands (F-6EF acc 0001193805-22-000150 cover: 'Cayman Islands (Jurisdiction of incorporation or organization of issuer)')",
+  "form": "20-F + F-6EF",
+  "read_date": "2026-06-30"
+ },
+ {
+  "issuer_name": "JD.com, Inc.",
+  "cik": "1549802",
+  "residence_domicile": "Cayman Islands",
+  "residence_source": "dei:EntityIncorporationStateCountryCode = 'Cayman Islands'; dei:EntityAddressCountry=\"People's Republic of China\"",
+  "opco_nationality": "CN",
+  "opco_evidence": "20-F FY2025 text: '...the Company's subsidiaries and consolidated VIEs incorporated in the PRC ... in accordance with the PRC accounting standards and regulations.'",
+  "accession": "0001193125-26-157870",
+  "doc": "d53690d20f.htm",
+  "form": "20-F",
+  "read_date": "2026-06-30"
+ }
+]

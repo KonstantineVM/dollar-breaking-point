@@ -1,0 +1,2906 @@
+[
+  {
+    "issuer_name": "Alibaba Group Holding Limited",
+    "cik": "1577552",
+    "matched": true,
+    "panel_rows": 8990,
+    "panel_value_converted": 295079853225.3733,
+    "isins": [
+      "KYG017191142",
+      "US01609W1027",
+      "US01609WAC64",
+      "US01609WAH51",
+      "US01609WAP77",
+      "US01609WAQ50",
+      "US01609WAR34",
+      "US01609WAS17",
+      "US01609WAT99",
+      "US01609WAU62",
+      "US01609WAV46",
+      "US01609WAW29",
+      "US01609WAX02",
+      "US01609WAY84",
+      "US01609WAZ59",
+      "US01609WBA99",
+      "US01609WBF86",
+      "US01609WBH43",
+      "US01609WBK71",
+      "US01609WBL54",
+      "USG01719AK24",
+      "USG01719AN62"
+    ],
+    "cusip6": [
+      "01609W",
+      "3V099U",
+      "90S99T",
+      "BK6YZP",
+      "G01719"
+    ],
+    "leis": [
+      "529900GE9653COPX1I86",
+      "5493001NTNQJDH60PM02"
+    ],
+    "candidate_norm_names": [
+      "ALIBABA"
+    ]
+  },
+  {
+    "issuer_name": "JD.com, Inc.",
+    "cik": "1549802",
+    "matched": true,
+    "panel_rows": 3508,
+    "panel_value_converted": 53311763718.41522,
+    "isins": [
+      "KYG8208B1014",
+      "US47215P1066",
+      "US47215PAB22",
+      "US47215PAC05",
+      "US47215PAE60",
+      "US47215PAF36",
+      "US47215PAH91"
+    ],
+    "cusip6": [
+      "47215P",
+      "BKPQZT",
+      "G8208B"
+    ],
+    "leis": [
+      "549300HVTWB0GJZ16V92"
+    ],
+    "candidate_norm_names": [
+      "JD COM"
+    ]
+  },
+  {
+    "issuer_name": "Baidu, Inc.",
+    "cik": "1329099",
+    "matched": true,
+    "panel_rows": 4804,
+    "panel_value_converted": 44434723748.92994,
+    "isins": [
+      "KYG070341048",
+      "US0567521085",
+      "US056752AB41",
+      "US056752AF54",
+      "US056752AG38",
+      "US056752AH11",
+      "US056752AJ76",
+      "US056752AK40",
+      "US056752AL23",
+      "US056752AM06",
+      "US056752AN88",
+      "US056752AQ10",
+      "US056752AR92",
+      "US056752AS75",
+      "US056752AT58",
+      "US056752AU22",
+      "US056752AV05"
+    ],
+    "cusip6": [
+      "056752",
+      "567521",
+      "G07034"
+    ],
+    "leis": [
+      "222100XL8T2Q5B8MS302",
+      "254900AL64IANZYI1E02"
+    ],
+    "candidate_norm_names": [
+      "BAIDU"
+    ]
+  },
+  {
+    "issuer_name": "NetEase,&nbsp;Inc.",
+    "cik": "1110646",
+    "matched": true,
+    "panel_rows": 2409,
+    "panel_value_converted": 32796255839.913437,
+    "isins": [
+      "KYG6427A1022",
+      "US64110W1027"
+    ],
+    "cusip6": [
+      "64110W",
+      "BM93SF",
+      "G6427A"
+    ],
+    "leis": [
+      "5299004AF4DSJDB0PA32"
+    ],
+    "candidate_norm_names": [
+      "NETEASE"
+    ]
+  },
+  {
+    "issuer_name": "China Mobile Limited",
+    "cik": "1117795",
+    "matched": true,
+    "panel_rows": 2048,
+    "panel_value_converted": 30487196758.307384,
+    "isins": [
+      "HK0941009539",
+      "US16941M1099"
+    ],
+    "cusip6": [
+      "16941M",
+      "607355",
+      "Y14965"
+    ],
+    "leis": [
+      "529900TACNVLY9DCR586",
+      "529900U2JJ7GK68NI589"
+    ],
+    "candidate_norm_names": [
+      "CHINA MOBILE"
+    ]
+  },
+  {
+    "issuer_name": "Trip.com Group Limited",
+    "cik": "1269238",
+    "matched": true,
+    "panel_rows": 1612,
+    "panel_value_converted": 16919867800.21001,
+    "isins": [
+      "KYG9066F1019",
+      "US22943FAF71",
+      "US22943FAH38",
+      "US22943FAM23",
+      "US89677Q1076",
+      "US89677QAA58",
+      "USG9066FAA96"
+    ],
+    "cusip6": [
+      "22943F",
+      "89677Q",
+      "BK5173",
+      "BNYK8H",
+      "G9066F"
+    ],
+    "leis": [
+      "2549004RMYDSRQL4KW41"
+    ],
+    "candidate_norm_names": [
+      "TRIP COM"
+    ]
+  },
+  {
+    "issuer_name": "Pinduoduo Inc.",
+    "cik": "1737806",
+    "matched": true,
+    "panel_rows": 1130,
+    "panel_value_converted": 12640421842.680004,
+    "isins": [
+      "US7223041028",
+      "US722304AA00",
+      "US722304AB82",
+      "US722304AC65"
+    ],
+    "cusip6": [
+      "722304"
+    ],
+    "leis": [
+      "5493000573DS7005T657"
+    ],
+    "candidate_norm_names": [
+      "PINDUODUO"
+    ]
+  },
+  {
+    "issuer_name": "ZTO Express (Cayman) Inc.&nbsp;",
+    "cik": "1677250",
+    "matched": true,
+    "panel_rows": 984,
+    "panel_value_converted": 11911644599.14999,
+    "isins": [
+      "KYG9897K1058",
+      "US98980A1051",
+      "US98980AAB17"
+    ],
+    "cusip6": [
+      "98980A",
+      "BMZ1C8",
+      "G9897K"
+    ],
+    "leis": [
+      "549300SCJPK3YZJTJR78"
+    ],
+    "candidate_norm_names": [
+      "ZTO EXPRESS CAYMAN"
+    ]
+  },
+  {
+    "issuer_name": "BeiGene, Ltd.",
+    "cik": "1651308",
+    "matched": true,
+    "panel_rows": 1403,
+    "panel_value_converted": 11707041658.320005,
+    "isins": [
+      "CNE100005XT6",
+      "KYG1146Y1017",
+      "US07725L1026"
+    ],
+    "cusip6": [
+      "07725L",
+      "BGDY26",
+      "G1146Y"
+    ],
+    "leis": [
+      "549300JFUK6FRD5MH739"
+    ],
+    "candidate_norm_names": [
+      "BEIGENE"
+    ]
+  },
+  {
+    "issuer_name": "TAL Education Group",
+    "cik": "1499620",
+    "matched": true,
+    "panel_rows": 891,
+    "panel_value_converted": 11412044347.750011,
+    "isins": [
+      "US8740801043"
+    ],
+    "cusip6": [
+      "874080"
+    ],
+    "leis": [
+      "5493003PJZS0EC085V72"
+    ],
+    "candidate_norm_names": [
+      "TAL EDUCATION"
+    ]
+  },
+  {
+    "issuer_name": "Huazhu Group Limited",
+    "cik": "1483994",
+    "matched": true,
+    "panel_rows": 826,
+    "panel_value_converted": 10949993194.500002,
+    "isins": [
+      "KYG465871047",
+      "KYG465871120",
+      "US16949NAC39",
+      "US44332N1063",
+      "US44332NAA46",
+      "US44332NAB29"
+    ],
+    "cusip6": [
+      "16949N",
+      "44332N",
+      "BMB5YK"
+    ],
+    "leis": [
+      "549300Y5ML31FVN83730"
+    ],
+    "candidate_norm_names": [
+      "HUAZHU"
+    ]
+  },
+  {
+    "issuer_name": "New Oriental Education & Technology Group Inc.",
+    "cik": "1372920",
+    "matched": true,
+    "panel_rows": 1108,
+    "panel_value_converted": 8585316607.27,
+    "isins": [
+      "KYG6470A1168",
+      "US6475811070",
+      "US6475812060",
+      "XS2188788140"
+    ],
+    "cusip6": [
+      "647581",
+      "G6470A"
+    ],
+    "leis": [
+      "3003007X0QPXFVRDX034",
+      "529900NHZVBZQZ8EKN29",
+      "529900TACNVLY9DCR586"
+    ],
+    "candidate_norm_names": [
+      "NEW ORIENTAL EDUCATION TECHNOLOGY"
+    ]
+  },
+  {
+    "issuer_name": "Zai Lab Limited",
+    "cik": "1704292",
+    "matched": true,
+    "panel_rows": 888,
+    "panel_value_converted": 6444282969.880002,
+    "isins": [
+      "KYG9887T1085",
+      "KYG9887T1168",
+      "KYG9887T1242",
+      "US98887Q1040"
+    ],
+    "cusip6": [
+      "98887Q",
+      "G9887T"
+    ],
+    "leis": [
+      "549300P2UYQ9U5LY1T58"
+    ],
+    "candidate_norm_names": [
+      "ZAI LAB"
+    ]
+  },
+  {
+    "issuer_name": "Melco Resorts & Entertainment Limited",
+    "cik": "1381640",
+    "matched": true,
+    "panel_rows": 909,
+    "panel_value_converted": 6436977629.529996,
+    "isins": [
+      "KYG5974K1094",
+      "US5854641009"
+    ],
+    "cusip6": [
+      "585464"
+    ],
+    "leis": [
+      "529900NRV6LBR3T6B421"
+    ],
+    "candidate_norm_names": [
+      "MELCO RESORTS ENTERTAINMENT"
+    ]
+  },
+  {
+    "issuer_name": "Bilibili Inc.",
+    "cik": "1723690",
+    "matched": true,
+    "panel_rows": 826,
+    "panel_value_converted": 5549559106.01,
+    "isins": [
+      "KYG1098A1013",
+      "US0900401060",
+      "US090040AA43",
+      "US090040AB26",
+      "US090040AC09",
+      "US090040AD81",
+      "US090040AE64",
+      "USG10970AA21"
+    ],
+    "cusip6": [
+      "090040",
+      "G1098A"
+    ],
+    "leis": [
+      "5493008V60M52L3PIS45"
+    ],
+    "candidate_norm_names": [
+      "BILIBILI"
+    ]
+  },
+  {
+    "issuer_name": "GDS Holdings Limited",
+    "cik": "1526125",
+    "matched": true,
+    "panel_rows": 972,
+    "panel_value_converted": 5324510150.09,
+    "isins": [
+      "KYG3902L1095",
+      "US36165L1089",
+      "US36165LAB45",
+      "XS2574095118"
+    ],
+    "cusip6": [
+      "36165L",
+      "G3902L"
+    ],
+    "leis": [
+      "391200MGV8DDCHTN2R77"
+    ],
+    "candidate_norm_names": [
+      "GDS"
+    ]
+  },
+  {
+    "issuer_name": "Vipshop Holdings Limited",
+    "cik": "1529192",
+    "matched": true,
+    "panel_rows": 1003,
+    "panel_value_converted": 4204971064.999995,
+    "isins": [
+      "US92763W1036"
+    ],
+    "cusip6": [
+      "92763W"
+    ],
+    "leis": [
+      "549300I9F52K06HPZX60"
+    ],
+    "candidate_norm_names": [
+      "VIPSHOP"
+    ]
+  },
+  {
+    "issuer_name": "NIO Inc.",
+    "cik": "1736541",
+    "matched": true,
+    "panel_rows": 818,
+    "panel_value_converted": 4164810793.270001,
+    "isins": [
+      "KYG6525F1028",
+      "US62914V1061",
+      "US62914VAA44",
+      "US62914VAB27",
+      "US62914VAE65",
+      "US62914VAF31",
+      "US62914VAJ52",
+      "US62914VAK26"
+    ],
+    "cusip6": [
+      "62914V",
+      "G6525F"
+    ],
+    "leis": [
+      "549300JBU4TV50CKJV96",
+      "549300JBU4TV5OCKJV96"
+    ],
+    "candidate_norm_names": [
+      "NIO"
+    ]
+  },
+  {
+    "issuer_name": "Weibo Corporation",
+    "cik": "1595761",
+    "matched": true,
+    "panel_rows": 1241,
+    "panel_value_converted": 3480000387.0400023,
+    "isins": [
+      "KY948596AJ03",
+      "KYG9515T1085",
+      "US9485961018",
+      "US948596AC55",
+      "US948596AD39",
+      "US948596AE12"
+    ],
+    "cusip6": [
+      "948596",
+      "G9515T"
+    ],
+    "leis": [
+      "549300Q9ID4640FE0422"
+    ],
+    "candidate_norm_names": [
+      "WEIBO"
+    ]
+  },
+  {
+    "issuer_name": "China Life Insurance Company Limited",
+    "cik": "1268896",
+    "matched": true,
+    "panel_rows": 106,
+    "panel_value_converted": 3472024030.7030473,
+    "isins": [
+      "CNE1000002L3"
+    ],
+    "cusip6": [
+      "671897",
+      "Y1477R"
+    ],
+    "leis": [
+      "549300J6TFLDXGH6S048"
+    ],
+    "candidate_norm_names": [
+      "CHINA LIFE INSURANCE"
+    ]
+  },
+  {
+    "issuer_name": "Li Auto Inc.",
+    "cik": "1791706",
+    "matched": true,
+    "panel_rows": 504,
+    "panel_value_converted": 3213153275.9100013,
+    "isins": [
+      "KYG5479M1050",
+      "US50202M1027",
+      "US50202MAA09",
+      "US50202MAB81"
+    ],
+    "cusip6": [
+      "50202M",
+      "G5479M"
+    ],
+    "leis": [
+      "2549003R73Q70J5H4I65"
+    ],
+    "candidate_norm_names": [
+      "LI AUTO"
+    ]
+  },
+  {
+    "issuer_name": "Tencent Music Entertainment Group",
+    "cik": "1744676",
+    "matched": true,
+    "panel_rows": 893,
+    "panel_value_converted": 3096574858.940003,
+    "isins": [
+      "KYG875771134",
+      "US88034P1093",
+      "US88034PAA75",
+      "US88034PAB58"
+    ],
+    "cusip6": [
+      "88034P"
+    ],
+    "leis": [
+      "213800XTZK2GOHQTYK41"
+    ],
+    "candidate_norm_names": [
+      "TENCENT MUSIC ENTERTAINMENT"
+    ]
+  },
+  {
+    "issuer_name": "XPeng Inc.",
+    "cik": "1810997",
+    "matched": true,
+    "panel_rows": 490,
+    "panel_value_converted": 2979450448.5299997,
+    "isins": [
+      "KYG982AW1003",
+      "US98422D1054"
+    ],
+    "cusip6": [
+      "98422D",
+      "G982AW"
+    ],
+    "leis": [
+      "549300TZNMIREMWQU857"
+    ],
+    "candidate_norm_names": [
+      "XPENG"
+    ]
+  },
+  {
+    "issuer_name": "Autohome Inc.",
+    "cik": "1527636",
+    "matched": true,
+    "panel_rows": 830,
+    "panel_value_converted": 2945806102.7999997,
+    "isins": [
+      "KYG066341028",
+      "US05278C1071"
+    ],
+    "cusip6": [
+      "05278C"
+    ],
+    "leis": [
+      "529900NYB6ZGZN3MVT56"
+    ],
+    "candidate_norm_names": [
+      "AUTOHOME"
+    ]
+  },
+  {
+    "issuer_name": "China Petroleum & Chemical Corporation",
+    "cik": "1123658",
+    "matched": true,
+    "panel_rows": 112,
+    "panel_value_converted": 2766562378.816742,
+    "isins": [
+      "CNE1000002Q2"
+    ],
+    "cusip6": [],
+    "leis": [
+      "529900A2OB24EZ5B3J19"
+    ],
+    "candidate_norm_names": [
+      "CHINA PETROLEUM CHEMICAL"
+    ]
+  },
+  {
+    "issuer_name": "PetroChina Company Limited",
+    "cik": "1108329",
+    "matched": true,
+    "panel_rows": 109,
+    "panel_value_converted": 2679821273.2282925,
+    "isins": [
+      "CNE1000003W8"
+    ],
+    "cusip6": [
+      "622657",
+      "Y6883Q"
+    ],
+    "leis": [
+      "529900RPY4YG47TRSV05"
+    ],
+    "candidate_norm_names": [
+      "PETROCHINA"
+    ]
+  },
+  {
+    "issuer_name": "KE Holdings Inc.",
+    "cik": "1809587",
+    "matched": true,
+    "panel_rows": 439,
+    "panel_value_converted": 2366660726.8599987,
+    "isins": [
+      "KYG5223Y1089",
+      "US4824971042"
+    ],
+    "cusip6": [
+      "482497"
+    ],
+    "leis": [
+      "254900RHVY072XPAZE03"
+    ],
+    "candidate_norm_names": [
+      "KE"
+    ]
+  },
+  {
+    "issuer_name": "Legend Biotech Corporation",
+    "cik": "1801198",
+    "matched": true,
+    "panel_rows": 411,
+    "panel_value_converted": 2178800387.7800016,
+    "isins": [
+      "US52490G1022",
+      "US52490G2012"
+    ],
+    "cusip6": [
+      "52490G"
+    ],
+    "leis": [
+      "254900EIUFZTW136H859"
+    ],
+    "candidate_norm_names": [
+      "LEGEND BIOTECH"
+    ]
+  },
+  {
+    "issuer_name": "iQIYI, Inc.",
+    "cik": "1722608",
+    "matched": true,
+    "panel_rows": 669,
+    "panel_value_converted": 2007094739.8999987,
+    "isins": [
+      "US46267X1081",
+      "US46267XAA63",
+      "US46267XAB47",
+      "US46267XAC20",
+      "US46267XAD03",
+      "US46267XAE85",
+      "USG4939KAF33"
+    ],
+    "cusip6": [
+      "46267X"
+    ],
+    "leis": [
+      "222100XL8T2Q5B8MS302"
+    ],
+    "candidate_norm_names": [
+      "IQIYI"
+    ]
+  },
+  {
+    "issuer_name": "Baozun Inc.",
+    "cik": "1625414",
+    "matched": true,
+    "panel_rows": 602,
+    "panel_value_converted": 1937223683.65,
+    "isins": [
+      "KYG0891M1069",
+      "US06684L1035",
+      "US06684LAA17",
+      "US06684LAB99"
+    ],
+    "cusip6": [
+      "06684L",
+      "G0891M"
+    ],
+    "leis": [
+      "549300IF0HZ7T4762633"
+    ],
+    "candidate_norm_names": [
+      "BAOZUN"
+    ]
+  },
+  {
+    "issuer_name": "JOYY Inc.",
+    "cik": "1530238",
+    "matched": true,
+    "panel_rows": 687,
+    "panel_value_converted": 1624690206.0200007,
+    "isins": [
+      "US46591M1099",
+      "US98426TAC09",
+      "US98426TAD81",
+      "US98426TAE64",
+      "US98426TAF30"
+    ],
+    "cusip6": [
+      "46591M",
+      "98426T"
+    ],
+    "leis": [
+      "549300N6CHVU5CQZPW24"
+    ],
+    "candidate_norm_names": [
+      "JOYY"
+    ]
+  },
+  {
+    "issuer_name": "OneConnect Financial Technology Co., Ltd.",
+    "cik": "1780531",
+    "matched": true,
+    "panel_rows": 95,
+    "panel_value_converted": 1249276775.0100007,
+    "isins": [
+      "US68248T1051"
+    ],
+    "cusip6": [
+      "68248T"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "ONECONNECT FINANCIAL TECHNOLOGY"
+    ]
+  },
+  {
+    "issuer_name": "JinkoSolar Holding Co., Ltd.",
+    "cik": "1481513",
+    "matched": true,
+    "panel_rows": 332,
+    "panel_value_converted": 1172408222.3999994,
+    "isins": [
+      "US47759T1007"
+    ],
+    "cusip6": [
+      "47759T"
+    ],
+    "leis": [
+      "529900Y93WNCS05FG852"
+    ],
+    "candidate_norm_names": [
+      "JINKOSOLAR"
+    ]
+  },
+  {
+    "issuer_name": "Daqo New Energy Corp.",
+    "cik": "1477641",
+    "matched": true,
+    "panel_rows": 345,
+    "panel_value_converted": 1080919770.74,
+    "isins": [
+      "US23703Q2030"
+    ],
+    "cusip6": [
+      "23703Q"
+    ],
+    "leis": [
+      "529900711JBZ5O7VA827"
+    ],
+    "candidate_norm_names": [
+      "DAQO NEW ENERGY"
+    ]
+  },
+  {
+    "issuer_name": "HUYA Inc.",
+    "cik": "1728190",
+    "matched": true,
+    "panel_rows": 403,
+    "panel_value_converted": 802220623.6999999,
+    "isins": [
+      "US44852D1081"
+    ],
+    "cusip6": [
+      "44852D"
+    ],
+    "leis": [
+      "549300WPEZ00T1MABE80"
+    ],
+    "candidate_norm_names": [
+      "HUYA"
+    ]
+  },
+  {
+    "issuer_name": "Futu Holdings Limited",
+    "cik": "1754581",
+    "matched": true,
+    "panel_rows": 398,
+    "panel_value_converted": 791404882.6600006,
+    "isins": [
+      "US36118L1061"
+    ],
+    "cusip6": [
+      "36118L"
+    ],
+    "leis": [
+      "213800X4W4ZRESFPTQ37"
+    ],
+    "candidate_norm_names": [
+      "FUTU"
+    ]
+  },
+  {
+    "issuer_name": "DouYu International Holdings Limited",
+    "cik": "1762417",
+    "matched": true,
+    "panel_rows": 201,
+    "panel_value_converted": 773170645.289999,
+    "isins": [
+      "US25985W1053",
+      "US25985W2044"
+    ],
+    "cusip6": [
+      "25985W"
+    ],
+    "leis": [
+      "549300M2ADOHTIMACT54"
+    ],
+    "candidate_norm_names": [
+      "DOUYU INTERNATIONAL"
+    ]
+  },
+  {
+    "issuer_name": "HUTCHMED (China) Limited",
+    "cik": "1648257",
+    "matched": true,
+    "panel_rows": 194,
+    "panel_value_converted": 666858203.73,
+    "isins": [
+      "KYG4672N1198",
+      "US44842L1035"
+    ],
+    "cusip6": [
+      "44842L",
+      "BNTDT8",
+      "G4672N"
+    ],
+    "leis": [
+      "2138006X34YDQ6OBYE79"
+    ],
+    "candidate_norm_names": [
+      "HUTCHMED CHINA"
+    ]
+  },
+  {
+    "issuer_name": "Full Truck Alliance Co. Ltd.",
+    "cik": "1838413",
+    "matched": true,
+    "panel_rows": 92,
+    "panel_value_converted": 644105966.16,
+    "isins": [
+      "US35969L1089"
+    ],
+    "cusip6": [
+      "35969L"
+    ],
+    "leis": [
+      "984500884LB1DP8DAC57"
+    ],
+    "candidate_norm_names": [
+      "FULL TRUCK ALLIANCE"
+    ]
+  },
+  {
+    "issuer_name": "KANZHUN LIMITED",
+    "cik": "1842827",
+    "matched": true,
+    "panel_rows": 201,
+    "panel_value_converted": 608504306.5999998,
+    "isins": [
+      "US48553T1060"
+    ],
+    "cusip6": [
+      "48553T"
+    ],
+    "leis": [
+      "254900F4ZCBITP7L0251"
+    ],
+    "candidate_norm_names": [
+      "KANZHUN"
+    ]
+  },
+  {
+    "issuer_name": "Yum China Holdings, Inc.",
+    "cik": "1673358",
+    "matched": true,
+    "panel_rows": 21,
+    "panel_value_converted": 571383198.34,
+    "isins": [
+      "US98850P1093"
+    ],
+    "cusip6": [
+      "98850P"
+    ],
+    "leis": [
+      "529900DO9BYZ7VA3K502"
+    ],
+    "candidate_norm_names": [
+      "YUM CHINA"
+    ]
+  },
+  {
+    "issuer_name": "Studio City International Holdings Limited",
+    "cik": "1713334",
+    "matched": true,
+    "panel_rows": 111,
+    "panel_value_converted": 518958502.05,
+    "isins": [
+      "US86389T1060"
+    ],
+    "cusip6": [
+      "86389T"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "STUDIO CITY INTERNATIONAL"
+    ]
+  },
+  {
+    "issuer_name": "Luckin Coffee Inc.",
+    "cik": "1767582",
+    "matched": true,
+    "panel_rows": 147,
+    "panel_value_converted": 451023632.19999975,
+    "isins": [
+      "US54951L1098",
+      "US54951LAB53"
+    ],
+    "cusip6": [
+      "54951L"
+    ],
+    "leis": [
+      "549300FO16ASCVSMYI15"
+    ],
+    "candidate_norm_names": [
+      "LUCKIN COFFEE"
+    ]
+  },
+  {
+    "issuer_name": "Huaneng Power International, Inc.",
+    "cik": "929058",
+    "matched": true,
+    "panel_rows": 77,
+    "panel_value_converted": 437302878.31557953,
+    "isins": [
+      "CNE1000006Z4"
+    ],
+    "cusip6": [
+      "609967",
+      "Y3744A"
+    ],
+    "leis": [
+      "529900WU0SMVKMPG4V21"
+    ],
+    "candidate_norm_names": [
+      "HUANENG POWER INTERNATIONAL"
+    ]
+  },
+  {
+    "issuer_name": "LexinFintech Holdings Ltd.",
+    "cik": "1708259",
+    "matched": true,
+    "panel_rows": 235,
+    "panel_value_converted": 425588538.38,
+    "isins": [
+      "US5288771034"
+    ],
+    "cusip6": [
+      "528877"
+    ],
+    "leis": [
+      "549300F9QU71NQ28CS19"
+    ],
+    "candidate_norm_names": [
+      "LEXINFINTECH"
+    ]
+  },
+  {
+    "issuer_name": "Aluminum Corporation of China Limited",
+    "cik": "1161611",
+    "matched": true,
+    "panel_rows": 70,
+    "panel_value_converted": 378002190.11331296,
+    "isins": [
+      "CNE1000001T8"
+    ],
+    "cusip6": [
+      "642539",
+      "Y0094N"
+    ],
+    "leis": [
+      "529900TKZUWQLIQN6T48"
+    ],
+    "candidate_norm_names": [
+      "ALUMINUM OF CHINA"
+    ]
+  },
+  {
+    "issuer_name": "Hollysys Automation Technologies Ltd.",
+    "cik": "1357450",
+    "matched": true,
+    "panel_rows": 160,
+    "panel_value_converted": 287110954.08000004,
+    "isins": [
+      "VGG456671053"
+    ],
+    "cusip6": [
+      "G45667"
+    ],
+    "leis": [
+      "2549008FKCB1PSUOZ583"
+    ],
+    "candidate_norm_names": [
+      "HOLLYSYS AUTOMATION TECHNOLOGIES"
+    ]
+  },
+  {
+    "issuer_name": "Noah Holdings Limited",
+    "cik": "1499543",
+    "matched": true,
+    "panel_rows": 314,
+    "panel_value_converted": 274310129.62999994,
+    "isins": [
+      "US65487X1028"
+    ],
+    "cusip6": [
+      "65487X"
+    ],
+    "leis": [
+      "3003008QW3IHPD3NTU41"
+    ],
+    "candidate_norm_names": [
+      "NOAH"
+    ]
+  },
+  {
+    "issuer_name": "BEST Inc.",
+    "cik": "1709505",
+    "matched": true,
+    "panel_rows": 209,
+    "panel_value_converted": 269389048.2999999,
+    "isins": [
+      "US08653C1062",
+      "US08653C5022",
+      "US08653CAA45"
+    ],
+    "cusip6": [
+      "08653C"
+    ],
+    "leis": [
+      "529900DFGEHZGJ3B9M87"
+    ],
+    "candidate_norm_names": [
+      "BEST"
+    ]
+  },
+  {
+    "issuer_name": "Lufax Holding Ltd",
+    "cik": "1816007",
+    "matched": true,
+    "panel_rows": 154,
+    "panel_value_converted": 246545770.96999985,
+    "isins": [
+      "US54975P1021",
+      "US54975P2011"
+    ],
+    "cusip6": [
+      "54975P"
+    ],
+    "leis": [
+      "254900TYH7RTK8E9NH16"
+    ],
+    "candidate_norm_names": [
+      "LUFAX"
+    ]
+  },
+  {
+    "issuer_name": "Fanhua Inc.",
+    "cik": "1413855",
+    "matched": true,
+    "panel_rows": 167,
+    "panel_value_converted": 239329584.99000007,
+    "isins": [
+      "US30712A1034"
+    ],
+    "cusip6": [
+      "30712A"
+    ],
+    "leis": [
+      "254900NUPTYHZ8HHTK43"
+    ],
+    "candidate_norm_names": [
+      "FANHUA"
+    ]
+  },
+  {
+    "issuer_name": "China Southern Airlines Company Limited&nbsp;",
+    "cik": "1041668",
+    "matched": true,
+    "panel_rows": 62,
+    "panel_value_converted": 235464504.01411906,
+    "isins": [
+      "CNE1000002T6"
+    ],
+    "cusip6": [
+      "601369"
+    ],
+    "leis": [
+      "529900AJQ1Q18ABYVX84"
+    ],
+    "candidate_norm_names": [
+      "CHINA SOUTHERN AIRLINES"
+    ]
+  },
+  {
+    "issuer_name": "VNET Group,&nbsp;Inc.",
+    "cik": "1508475",
+    "matched": true,
+    "panel_rows": 143,
+    "panel_value_converted": 234573733.47000006,
+    "isins": [
+      "US90138A1034",
+      "US90138VAB36"
+    ],
+    "cusip6": [
+      "90138A",
+      "90138V"
+    ],
+    "leis": [
+      "529900672GYJQ3T38I58"
+    ],
+    "candidate_norm_names": [
+      "VNET"
+    ]
+  },
+  {
+    "issuer_name": "Hello Group Inc.",
+    "cik": "1610601",
+    "matched": true,
+    "panel_rows": 204,
+    "panel_value_converted": 221197643.23999998,
+    "isins": [
+      "US4234031049",
+      "US60879BAB36"
+    ],
+    "cusip6": [
+      "423403",
+      "60879B"
+    ],
+    "leis": [
+      "549300YMGLID32W48529"
+    ],
+    "candidate_norm_names": [
+      "HELLO"
+    ]
+  },
+  {
+    "issuer_name": "Kingsoft Cloud Holdings Limited",
+    "cik": "1795589",
+    "matched": true,
+    "panel_rows": 153,
+    "panel_value_converted": 202990906.85000002,
+    "isins": [
+      "KYG5264S1012",
+      "US49639K1016"
+    ],
+    "cusip6": [
+      "49639K"
+    ],
+    "leis": [
+      "875500HZE0VKCD0Z8K15"
+    ],
+    "candidate_norm_names": [
+      "KINGSOFT CLOUD"
+    ]
+  },
+  {
+    "issuer_name": "Sinopec Shanghai Petrochemical Company Limited",
+    "cik": "908732",
+    "matched": true,
+    "panel_rows": 76,
+    "panel_value_converted": 201210233.43506697,
+    "isins": [
+      "CNE1000004C8"
+    ],
+    "cusip6": [
+      "679745"
+    ],
+    "leis": [
+      "5299008RZ0G8ACZ8ZU65"
+    ],
+    "candidate_norm_names": [
+      "SINOPEC SHANGHAI PETROCHEMICAL"
+    ]
+  },
+  {
+    "issuer_name": "MINISO Group Holding Limited&nbsp;",
+    "cik": "1815846",
+    "matched": true,
+    "panel_rows": 92,
+    "panel_value_converted": 183439454.9199999,
+    "isins": [
+      "KYG6180F1081",
+      "US66981J1025"
+    ],
+    "cusip6": [
+      "66981J",
+      "G6180F"
+    ],
+    "leis": [
+      "2549006PIKT2YKNBL092"
+    ],
+    "candidate_norm_names": [
+      "MINISO"
+    ]
+  },
+  {
+    "issuer_name": "Agora, Inc.",
+    "cik": "1802883",
+    "matched": true,
+    "panel_rows": 145,
+    "panel_value_converted": 178192180.75,
+    "isins": [
+      "US00851L1035"
+    ],
+    "cusip6": [
+      "00851L"
+    ],
+    "leis": [
+      "5493001S8SBPD13GC964",
+      "549300EUXDMXLOPZ1I79"
+    ],
+    "candidate_norm_names": [
+      "AGORA"
+    ]
+  },
+  {
+    "issuer_name": "DiDi Global Inc.",
+    "cik": "1764757",
+    "matched": true,
+    "panel_rows": 67,
+    "panel_value_converted": 177738962.37000003,
+    "isins": [
+      "US23292E1082"
+    ],
+    "cusip6": [
+      "23292E"
+    ],
+    "leis": [
+      "8368006Y2DHY77ADSY31"
+    ],
+    "candidate_norm_names": [
+      "DIDI GLOBAL"
+    ]
+  },
+  {
+    "issuer_name": "GreenTree Hospitality Group Ltd.",
+    "cik": "1724755",
+    "matched": true,
+    "panel_rows": 35,
+    "panel_value_converted": 169897158.38000003,
+    "isins": [
+      "US39579V1008"
+    ],
+    "cusip6": [
+      "39579V"
+    ],
+    "leis": [
+      "3003001U5LT3SICVFH79"
+    ],
+    "candidate_norm_names": [
+      "GREENTREE HOSPITALITY"
+    ]
+  },
+  {
+    "issuer_name": "China Eastern Airlines Corporation Limited",
+    "cik": "1030475",
+    "matched": true,
+    "panel_rows": 58,
+    "panel_value_converted": 169020001.90623474,
+    "isins": [
+      "CNE1000002K5"
+    ],
+    "cusip6": [
+      "617137"
+    ],
+    "leis": [
+      "3003000KIOQE39Q7Y685"
+    ],
+    "candidate_norm_names": [
+      "CHINA EASTERN AIRLINES"
+    ]
+  },
+  {
+    "issuer_name": "FinVolution Group",
+    "cik": "1691445",
+    "matched": true,
+    "panel_rows": 129,
+    "panel_value_converted": 167891003.63000008,
+    "isins": [
+      "US31810T1016"
+    ],
+    "cusip6": [
+      "31810T"
+    ],
+    "leis": [
+      "3003000RAVUT809U6P08"
+    ],
+    "candidate_norm_names": [
+      "FINVOLUTION"
+    ]
+  },
+  {
+    "issuer_name": "360 DigiTech, Inc.",
+    "cik": "1741530",
+    "matched": true,
+    "panel_rows": 163,
+    "panel_value_converted": 158380426.84,
+    "isins": [
+      "US88557W1018"
+    ],
+    "cusip6": [
+      "88557W"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "360 DIGITECH"
+    ]
+  },
+  {
+    "issuer_name": "Qudian Inc.",
+    "cik": "1692705",
+    "matched": true,
+    "panel_rows": 236,
+    "panel_value_converted": 150092655.89999995,
+    "isins": [
+      "US7477981069",
+      "US747798AA42"
+    ],
+    "cusip6": [
+      "747798"
+    ],
+    "leis": [
+      "549300MY8WXPOW8RKH11"
+    ],
+    "candidate_norm_names": [
+      "QUDIAN"
+    ]
+  },
+  {
+    "issuer_name": "I-Mab",
+    "cik": "1778016",
+    "matched": true,
+    "panel_rows": 132,
+    "panel_value_converted": 138080019.00000006,
+    "isins": [
+      "US44975P1030"
+    ],
+    "cusip6": [
+      "44975P"
+    ],
+    "leis": [
+      "549300L1A5T19703RR64"
+    ],
+    "candidate_norm_names": [
+      "I MAB"
+    ]
+  },
+  {
+    "issuer_name": "RLX Technology Inc.",
+    "cik": "1828365",
+    "matched": true,
+    "panel_rows": 129,
+    "panel_value_converted": 117519042.30000004,
+    "isins": [
+      "US74969N1037"
+    ],
+    "cusip6": [
+      "74969N"
+    ],
+    "leis": [
+      "984500EG5DBB2F7F4002"
+    ],
+    "candidate_norm_names": [
+      "RLX TECHNOLOGY"
+    ]
+  },
+  {
+    "issuer_name": "Guangshen Railway Company Limited",
+    "cik": "1012139",
+    "matched": true,
+    "panel_rows": 42,
+    "panel_value_converted": 101498527.23744313,
+    "isins": [
+      "CNE100000379"
+    ],
+    "cusip6": [],
+    "leis": [
+      "529900YIR2NSEPF1UU41"
+    ],
+    "candidate_norm_names": [
+      "GUANGSHEN RAILWAY"
+    ]
+  },
+  {
+    "issuer_name": "ReneSola Ltd",
+    "cik": "1417892",
+    "matched": true,
+    "panel_rows": 42,
+    "panel_value_converted": 101225707.07,
+    "isins": [
+      "US75971T3014"
+    ],
+    "cusip6": [
+      "75971T"
+    ],
+    "leis": [
+      "529900AE4IM429A3P568"
+    ],
+    "candidate_norm_names": [
+      "RENESOLA"
+    ]
+  },
+  {
+    "issuer_name": "Dada Nexus Limited",
+    "cik": "1793862",
+    "matched": true,
+    "panel_rows": 108,
+    "panel_value_converted": 100233009.13999997,
+    "isins": [
+      "US23344D1081"
+    ],
+    "cusip6": [
+      "23344D"
+    ],
+    "leis": [
+      "655600D3KK4AC093RT71"
+    ],
+    "candidate_norm_names": [
+      "DADA NEXUS"
+    ]
+  },
+  {
+    "issuer_name": "Sohu.com Limited",
+    "cik": "1734107",
+    "matched": true,
+    "panel_rows": 191,
+    "panel_value_converted": 100103874.32000001,
+    "isins": [
+      "US83410S1087"
+    ],
+    "cusip6": [
+      "83410S"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "SOHU COM"
+    ]
+  },
+  {
+    "issuer_name": "Chindata Group Holdings Limited&nbsp;",
+    "cik": "1807192",
+    "matched": true,
+    "panel_rows": 93,
+    "panel_value_converted": 95807593.59999998,
+    "isins": [
+      "US16955F1075"
+    ],
+    "cusip6": [
+      "16955F"
+    ],
+    "leis": [
+      "655600DHYORMZZMVIW64"
+    ],
+    "candidate_norm_names": [
+      "CHINDATA"
+    ]
+  },
+  {
+    "issuer_name": "China Foods Holdings Limited",
+    "cik": "1310630",
+    "matched": true,
+    "panel_rows": 84,
+    "panel_value_converted": 74919559.93948948,
+    "isins": [
+      "BMG2154F1095"
+    ],
+    "cusip6": [
+      "610573"
+    ],
+    "leis": [
+      "529900SKC2U9O25M2019"
+    ],
+    "candidate_norm_names": [
+      "CHINA FOODS"
+    ]
+  },
+  {
+    "issuer_name": "Canaan Inc.",
+    "cik": "1780652",
+    "matched": true,
+    "panel_rows": 69,
+    "panel_value_converted": 69494911.32000001,
+    "isins": [
+      "US1347481020"
+    ],
+    "cusip6": [
+      "134748"
+    ],
+    "leis": [
+      "254900OEOGK9ALNMUN24"
+    ],
+    "candidate_norm_names": [
+      "CANAAN"
+    ]
+  },
+  {
+    "issuer_name": "Qutoutiao Inc.",
+    "cik": "1733298",
+    "matched": true,
+    "panel_rows": 82,
+    "panel_value_converted": 62617546.07999996,
+    "isins": [
+      "US74915J1079",
+      "US74915J2069"
+    ],
+    "cusip6": [
+      "74915J"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "QUTOUTIAO"
+    ]
+  },
+  {
+    "issuer_name": "iClick Interactive Asia Group Limited",
+    "cik": "1697818",
+    "matched": true,
+    "panel_rows": 59,
+    "panel_value_converted": 60120585.63999999,
+    "isins": [
+      "US45113Y1047",
+      "US45113Y2037"
+    ],
+    "cusip6": [
+      "45113Y"
+    ],
+    "leis": [
+      "549300RFP0MGSGB4CS86"
+    ],
+    "candidate_norm_names": [
+      "ICLICK INTERACTIVE ASIA"
+    ]
+  },
+  {
+    "issuer_name": "So-Young International Inc.",
+    "cik": "1758530",
+    "matched": true,
+    "panel_rows": 51,
+    "panel_value_converted": 59447762.15999999,
+    "isins": [
+      "US83356Q1085"
+    ],
+    "cusip6": [
+      "83356Q"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "SO YOUNG INTERNATIONAL"
+    ]
+  },
+  {
+    "issuer_name": "BeyondSpring Inc.",
+    "cik": "1677940",
+    "matched": true,
+    "panel_rows": 365,
+    "panel_value_converted": 56986287.280000046,
+    "isins": [
+      "KYG108301006"
+    ],
+    "cusip6": [
+      "G10830"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "BEYONDSPRING"
+    ]
+  },
+  {
+    "issuer_name": "Burning Rock Biotech Limited",
+    "cik": "1792267",
+    "matched": true,
+    "panel_rows": 66,
+    "panel_value_converted": 52360612.13999999,
+    "isins": [
+      "US12233L1070",
+      "US12233L2060"
+    ],
+    "cusip6": [
+      "12233L"
+    ],
+    "leis": [
+      "5493006HO04GB8AQ2V43"
+    ],
+    "candidate_norm_names": [
+      "BURNING ROCK BIOTECH"
+    ]
+  },
+  {
+    "issuer_name": "Niu Technologies",
+    "cik": "1744781",
+    "matched": true,
+    "panel_rows": 122,
+    "panel_value_converted": 51113094.66999999,
+    "isins": [
+      "US65481N1000"
+    ],
+    "cusip6": [
+      "65481N"
+    ],
+    "leis": [
+      "549300NJKNSC80EVQ065"
+    ],
+    "candidate_norm_names": [
+      "NIU TECHNOLOGIES"
+    ]
+  },
+  {
+    "issuer_name": "Uxin Limited",
+    "cik": "1729173",
+    "matched": true,
+    "panel_rows": 83,
+    "panel_value_converted": 49622532.59000001,
+    "isins": [
+      "US91818X1081",
+      "US91818X3061"
+    ],
+    "cusip6": [
+      "91818X"
+    ],
+    "leis": [
+      "549300OV7Z440PI54J04"
+    ],
+    "candidate_norm_names": [
+      "UXIN"
+    ]
+  },
+  {
+    "issuer_name": "Genetron Holdings Limited",
+    "cik": "1782594",
+    "matched": true,
+    "panel_rows": 41,
+    "panel_value_converted": 30808872.62999999,
+    "isins": [
+      "US37186H1005"
+    ],
+    "cusip6": [
+      "37186H"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "GENETRON"
+    ]
+  },
+  {
+    "issuer_name": "Phoenix New Media Limited",
+    "cik": "1509646",
+    "matched": true,
+    "panel_rows": 42,
+    "panel_value_converted": 29482009.59,
+    "isins": [
+      "US71910C1036",
+      "US71910C2026"
+    ],
+    "cusip6": [
+      "71910C"
+    ],
+    "leis": [
+      "529900QQ1GX85WOUID50"
+    ],
+    "candidate_norm_names": [
+      "PHOENIX NEW MEDIA"
+    ]
+  },
+  {
+    "issuer_name": "UP Fintech Holding Limited",
+    "cik": "1756699",
+    "matched": true,
+    "panel_rows": 50,
+    "panel_value_converted": 25504438.18,
+    "isins": [
+      "US91531W1062"
+    ],
+    "cusip6": [
+      "91531W"
+    ],
+    "leis": [
+      "213800JJDNMAG3L84P54"
+    ],
+    "candidate_norm_names": [
+      "UP FINTECH"
+    ]
+  },
+  {
+    "issuer_name": "EHang Holdings Limited",
+    "cik": "1759783",
+    "matched": true,
+    "panel_rows": 28,
+    "panel_value_converted": 24811456.089999996,
+    "isins": [
+      "US26853E1029"
+    ],
+    "cusip6": [
+      "26853E"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "EHANG"
+    ]
+  },
+  {
+    "issuer_name": "Xinyuan Real Estate Co., Ltd.",
+    "cik": "1398453",
+    "matched": true,
+    "panel_rows": 86,
+    "panel_value_converted": 23182264.669999998,
+    "isins": [
+      "US98417P1057",
+      "XS1567240418",
+      "XS1789514756"
+    ],
+    "cusip6": [
+      "98417P"
+    ],
+    "leis": [
+      "5493005I1X3PG0G3GC95"
+    ],
+    "candidate_norm_names": [
+      "XINYUAN REAL ESTATE"
+    ]
+  },
+  {
+    "issuer_name": "Jianpu Technology Inc.",
+    "cik": "1713923",
+    "matched": true,
+    "panel_rows": 30,
+    "panel_value_converted": 16767605.379999999,
+    "isins": [
+      "US47738D1019",
+      "US47738D3098"
+    ],
+    "cusip6": [
+      "47738D"
+    ],
+    "leis": [
+      "5299009WABZ96A98WR28"
+    ],
+    "candidate_norm_names": [
+      "JIANPU TECHNOLOGY"
+    ]
+  },
+  {
+    "issuer_name": "Tuya Inc.",
+    "cik": "1829118",
+    "matched": true,
+    "panel_rows": 37,
+    "panel_value_converted": 16651862.340000002,
+    "isins": [
+      "US90114C1071"
+    ],
+    "cusip6": [
+      "90114C"
+    ],
+    "leis": [
+      "254900XKWS2MIZHXCO08"
+    ],
+    "candidate_norm_names": [
+      "TUYA"
+    ]
+  },
+  {
+    "issuer_name": "Secoo Holding Limited",
+    "cik": "1633441",
+    "matched": true,
+    "panel_rows": 56,
+    "panel_value_converted": 16609139.1,
+    "isins": [
+      "US81367P1012"
+    ],
+    "cusip6": [
+      "81367P"
+    ],
+    "leis": [
+      "5493006YAK6ZHW3YPP89"
+    ],
+    "candidate_norm_names": [
+      "SECOO"
+    ]
+  },
+  {
+    "issuer_name": "Zepp Health Corporation",
+    "cik": "1720446",
+    "matched": true,
+    "panel_rows": 48,
+    "panel_value_converted": 16092102.619999997,
+    "isins": [
+      "US98945L1052",
+      "US98945L2043"
+    ],
+    "cusip6": [
+      "98945L"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "ZEPP HEALTH"
+    ]
+  },
+  {
+    "issuer_name": "Yunji Inc.",
+    "cik": "1759614",
+    "matched": true,
+    "panel_rows": 26,
+    "panel_value_converted": 14536088.780000001,
+    "isins": [
+      "US98873N1072",
+      "US98873N3052"
+    ],
+    "cusip6": [
+      "98873N"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "YUNJI"
+    ]
+  },
+  {
+    "issuer_name": "Xunlei Limited",
+    "cik": "1510593",
+    "matched": true,
+    "panel_rows": 78,
+    "panel_value_converted": 14387683.48,
+    "isins": [
+      "US98419E1082"
+    ],
+    "cusip6": [
+      "98419E"
+    ],
+    "leis": [
+      "529900PYSOIKBMQIQY91"
+    ],
+    "candidate_norm_names": [
+      "XUNLEI"
+    ]
+  },
+  {
+    "issuer_name": "Gracell Biotechnologies Inc.",
+    "cik": "1826492",
+    "matched": true,
+    "panel_rows": 27,
+    "panel_value_converted": 13912955.980000002,
+    "isins": [
+      "US38406L1035",
+      "US384CVR0150"
+    ],
+    "cusip6": [
+      "38406L",
+      "384CVR"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "GRACELL BIOTECHNOLOGIES"
+    ]
+  },
+  {
+    "issuer_name": "Youdao,&nbsp;Inc.",
+    "cik": "1781753",
+    "matched": true,
+    "panel_rows": 34,
+    "panel_value_converted": 12914402.94,
+    "isins": [
+      "US98741T1043"
+    ],
+    "cusip6": [
+      "98741T"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "YOUDAO"
+    ]
+  },
+  {
+    "issuer_name": "Cheetah Mobile Inc.",
+    "cik": "1597835",
+    "matched": true,
+    "panel_rows": 87,
+    "panel_value_converted": 12764210.799999999,
+    "isins": [
+      "US1630751048"
+    ],
+    "cusip6": [
+      "163075"
+    ],
+    "leis": [
+      "529900JR51JXQWYK5B18"
+    ],
+    "candidate_norm_names": [
+      "CHEETAH MOBILE"
+    ]
+  },
+  {
+    "issuer_name": "Connect Biopharma Holdings Limited",
+    "cik": "1835268",
+    "matched": true,
+    "panel_rows": 28,
+    "panel_value_converted": 12302174.53,
+    "isins": [
+      "US2075231017"
+    ],
+    "cusip6": [
+      "207523"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "CONNECT BIOPHARMA"
+    ]
+  },
+  {
+    "issuer_name": "Yatsen Holding Limited",
+    "cik": "1819580",
+    "matched": true,
+    "panel_rows": 39,
+    "panel_value_converted": 8567451.080000002,
+    "isins": [
+      "US9851941099",
+      "US9851942089"
+    ],
+    "cusip6": [
+      "985194"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "YATSEN"
+    ]
+  },
+  {
+    "issuer_name": "Gaotu Techedu Inc.",
+    "cik": "1768259",
+    "matched": true,
+    "panel_rows": 38,
+    "panel_value_converted": 7201066.640000001,
+    "isins": [
+      "US36257Y1091"
+    ],
+    "cusip6": [
+      "36257Y"
+    ],
+    "leis": [
+      "549300R5BPFFORR9ET36"
+    ],
+    "candidate_norm_names": [
+      "GAOTU TECHEDU"
+    ]
+  },
+  {
+    "issuer_name": "Zhihu Inc.",
+    "cik": "1835724",
+    "matched": true,
+    "panel_rows": 33,
+    "panel_value_converted": 5708560.39,
+    "isins": [
+      "KYG989MJ1017",
+      "US98955N1081",
+      "US98955N2071"
+    ],
+    "cusip6": [
+      "98955N"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "ZHIHU"
+    ]
+  },
+  {
+    "issuer_name": "RISE Education Cayman Ltd",
+    "cik": "1712178",
+    "matched": true,
+    "panel_rows": 37,
+    "panel_value_converted": 5310044.900000001,
+    "isins": [
+      "US62955X2018",
+      "US76761L1026"
+    ],
+    "cusip6": [
+      "62955X",
+      "76761L"
+    ],
+    "leis": [
+      "83680097FFBDDVWEE915"
+    ],
+    "candidate_norm_names": [
+      "RISE EDUCATION CAYMAN"
+    ]
+  },
+  {
+    "issuer_name": "Tuniu Corporation",
+    "cik": "1597095",
+    "matched": true,
+    "panel_rows": 70,
+    "panel_value_converted": 4265104.499999999,
+    "isins": [
+      "US89977P1066"
+    ],
+    "cusip6": [
+      "89977P"
+    ],
+    "leis": [
+      "529900H3I6TN4LFDZP44"
+    ],
+    "candidate_norm_names": [
+      "TUNIU"
+    ]
+  },
+  {
+    "issuer_name": "Smart Share Global Limited",
+    "cik": "1834253",
+    "matched": true,
+    "panel_rows": 7,
+    "panel_value_converted": 2573887.42,
+    "isins": [
+      "US83193E1029"
+    ],
+    "cusip6": [
+      "83193E"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "SMART SHARE GLOBAL"
+    ]
+  },
+  {
+    "issuer_name": "ATRenew Inc.",
+    "cik": "1838957",
+    "matched": true,
+    "panel_rows": 10,
+    "panel_value_converted": 2505377.94,
+    "isins": [
+      "US00138L1089"
+    ],
+    "cusip6": [
+      "00138L"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "ATRENEW"
+    ]
+  },
+  {
+    "issuer_name": "Viomi Technology Co., Ltd",
+    "cik": "1742770",
+    "matched": true,
+    "panel_rows": 38,
+    "panel_value_converted": 2416710.4299999992,
+    "isins": [
+      "US92762J1034"
+    ],
+    "cusip6": [
+      "92762J"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "VIOMI TECHNOLOGY"
+    ]
+  },
+  {
+    "issuer_name": "China Online Education Group",
+    "cik": "1659494",
+    "matched": true,
+    "panel_rows": 9,
+    "panel_value_converted": 2029787.6900000002,
+    "isins": [
+      "US16954L1052"
+    ],
+    "cusip6": [
+      "16954L"
+    ],
+    "leis": [
+      "52990045P3PXKHZWLL90"
+    ],
+    "candidate_norm_names": [
+      "CHINA ONLINE EDUCATION"
+    ]
+  },
+  {
+    "issuer_name": "Cango Inc.",
+    "cik": "1725123",
+    "matched": true,
+    "panel_rows": 4,
+    "panel_value_converted": 1949829.4300000002,
+    "isins": [
+      "US1375861036"
+    ],
+    "cusip6": [
+      "137586"
+    ],
+    "leis": [
+      "5299003TQHBB4QUSZB86"
+    ],
+    "candidate_norm_names": [
+      "CANGO"
+    ]
+  },
+  {
+    "issuer_name": "Dingdong (Cayman) Limited",
+    "cik": "1854545",
+    "matched": true,
+    "panel_rows": 10,
+    "panel_value_converted": 1931116.4900000002,
+    "isins": [
+      "US25445D1019"
+    ],
+    "cusip6": [
+      "25445D"
+    ],
+    "leis": [
+      "549300S41MY2F7SBDG73"
+    ],
+    "candidate_norm_names": [
+      "DINGDONG CAYMAN"
+    ]
+  },
+  {
+    "issuer_name": "111, Inc.",
+    "cik": "1738906",
+    "matched": true,
+    "panel_rows": 32,
+    "panel_value_converted": 1739400.87,
+    "isins": [
+      "US68247Q1022"
+    ],
+    "cusip6": [
+      "68247Q"
+    ],
+    "leis": [
+      "549300IRZ6WV1NLO5Z75"
+    ],
+    "candidate_norm_names": [
+      "111"
+    ]
+  },
+  {
+    "issuer_name": "Global Cord Blood Corporation",
+    "cik": "1467808",
+    "matched": true,
+    "panel_rows": 42,
+    "panel_value_converted": 1579431.8599999999,
+    "isins": [
+      "KYG393421030"
+    ],
+    "cusip6": [
+      "G39342"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "GLOBAL CORD BLOOD"
+    ]
+  },
+  {
+    "issuer_name": "Quhuo Limited",
+    "cik": "1781193",
+    "matched": true,
+    "panel_rows": 3,
+    "panel_value_converted": 1385832.15,
+    "isins": [
+      "US74841Q1004"
+    ],
+    "cusip6": [
+      "74841Q"
+    ],
+    "leis": [
+      "549300B52B3TLDJCHI64"
+    ],
+    "candidate_norm_names": [
+      "QUHUO"
+    ]
+  },
+  {
+    "issuer_name": "Mercurity Fintech Holding Inc.",
+    "cik": "1527762",
+    "matched": true,
+    "panel_rows": 8,
+    "panel_value_converted": 1191146.06,
+    "isins": [
+      "KYG594672027",
+      "US58936H1095"
+    ],
+    "cusip6": [
+      "58936H"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "MERCURITY FINTECH"
+    ]
+  },
+  {
+    "issuer_name": "Yalla Group Limited",
+    "cik": "1794350",
+    "matched": true,
+    "panel_rows": 8,
+    "panel_value_converted": 995792.5000000001,
+    "isins": [
+      "US98459U1034"
+    ],
+    "cusip6": [
+      "98459U"
+    ],
+    "leis": [
+      "254900JO9GJYWVJTAX89"
+    ],
+    "candidate_norm_names": [
+      "YALLA"
+    ]
+  },
+  {
+    "issuer_name": "Boqii Holding Limited",
+    "cik": "1815021",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 881735.3200000001,
+    "isins": [
+      "US09950L1044",
+      "US09950L2034"
+    ],
+    "cusip6": [
+      "09950L"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "BOQII"
+    ]
+  },
+  {
+    "issuer_name": "X Financial",
+    "cik": "1725033",
+    "matched": true,
+    "panel_rows": 21,
+    "panel_value_converted": 855421.43,
+    "isins": [
+      "US98372W1036",
+      "US98372W2026"
+    ],
+    "cusip6": [
+      "98372W"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "X FINANCIAL"
+    ]
+  },
+  {
+    "issuer_name": "CNFinance Holdings Limited",
+    "cik": "1733868",
+    "matched": true,
+    "panel_rows": 31,
+    "panel_value_converted": 770519.6900000002,
+    "isins": [
+      "US18979T1051"
+    ],
+    "cusip6": [
+      "18979T"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "CNFINANCE"
+    ]
+  },
+  {
+    "issuer_name": "Aurora Mobile Limited",
+    "cik": "1737339",
+    "matched": true,
+    "panel_rows": 25,
+    "panel_value_converted": 605841.55,
+    "isins": [
+      "US0518571007",
+      "US0518572096"
+    ],
+    "cusip6": [
+      "051857"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "AURORA MOBILE"
+    ]
+  },
+  {
+    "issuer_name": "AMTD IDEA Group",
+    "cik": "1769731",
+    "matched": true,
+    "panel_rows": 4,
+    "panel_value_converted": 579197.7,
+    "isins": [
+      "US00180G1067",
+      "US00180G3048"
+    ],
+    "cusip6": [
+      "00180G"
+    ],
+    "leis": [
+      "549300KHWPN26J8NTV43"
+    ],
+    "candidate_norm_names": [
+      "AMTD IDEA"
+    ]
+  },
+  {
+    "issuer_name": "Huize Holding Limited",
+    "cik": "1778982",
+    "matched": true,
+    "panel_rows": 8,
+    "panel_value_converted": 525772.2999999999,
+    "isins": [
+      "US44473E1055",
+      "US44473E2046"
+    ],
+    "cusip6": [
+      "44473E"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "HUIZE"
+    ]
+  },
+  {
+    "issuer_name": "17 Education & Technology Group Inc.",
+    "cik": "1821468",
+    "matched": true,
+    "panel_rows": 8,
+    "panel_value_converted": 345853.55,
+    "isins": [
+      "US81807M2052",
+      "US81807M3043"
+    ],
+    "cusip6": [
+      "81807M"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "17 EDUCATION TECHNOLOGY"
+    ]
+  },
+  {
+    "issuer_name": "UTStarcom Holdings Corp.",
+    "cik": "1030471",
+    "matched": true,
+    "panel_rows": 16,
+    "panel_value_converted": 334494.75,
+    "isins": [
+      "KYG9310A1141",
+      "KYG9310A1224"
+    ],
+    "cusip6": [
+      "G9310A"
+    ],
+    "leis": [
+      "5299004Q5INQ39MLMZ08"
+    ],
+    "candidate_norm_names": [
+      "UTSTARCOM"
+    ]
+  },
+  {
+    "issuer_name": "AMTD Digital Inc.",
+    "cik": "1809691",
+    "matched": true,
+    "panel_rows": 3,
+    "panel_value_converted": 329163.38,
+    "isins": [
+      "US00180N1019"
+    ],
+    "cusip6": [
+      "00180N"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "AMTD DIGITAL"
+    ]
+  },
+  {
+    "issuer_name": "CooTek (Cayman) Inc.",
+    "cik": "1734262",
+    "matched": true,
+    "panel_rows": 8,
+    "panel_value_converted": 241178.82,
+    "isins": [
+      "US21718L1026",
+      "US21718L2016"
+    ],
+    "cusip6": [
+      "21718L"
+    ],
+    "leis": [
+      "549300KWTVBL1XCBM775"
+    ],
+    "candidate_norm_names": [
+      "COOTEK CAYMAN"
+    ]
+  },
+  {
+    "issuer_name": "Fangdd Network Group Ltd.",
+    "cik": "1750593",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 153871.91999999998,
+    "isins": [
+      "US30712L1098",
+      "US30712L2088"
+    ],
+    "cusip6": [
+      "30712L"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "FANGDD NETWORK"
+    ]
+  },
+  {
+    "issuer_name": "Fuwei Films (Holdings) Co., Ltd.",
+    "cik": "1381074",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 124339.56,
+    "isins": [
+      "KYG3704F1101"
+    ],
+    "cusip6": [],
+    "leis": [
+      "529900XXKPHF6K3K8P23"
+    ],
+    "candidate_norm_names": [
+      "FUWEI FILMS"
+    ]
+  },
+  {
+    "issuer_name": "Kuke Music Holding Limited",
+    "cik": "1809158",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 90319.45,
+    "isins": [
+      "US5012291085"
+    ],
+    "cusip6": [
+      "501229"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "KUKE MUSIC"
+    ]
+  },
+  {
+    "issuer_name": "Adagene Inc.",
+    "cik": "1818838",
+    "matched": true,
+    "panel_rows": 3,
+    "panel_value_converted": 86468.59,
+    "isins": [
+      "US0053291078"
+    ],
+    "cusip6": [
+      "005329"
+    ],
+    "leis": [
+      "875500IY38EWGFPSEV72"
+    ],
+    "candidate_norm_names": [
+      "ADAGENE"
+    ]
+  },
+  {
+    "issuer_name": "China Natural Resources, Inc.",
+    "cik": "793628",
+    "matched": true,
+    "panel_rows": 7,
+    "panel_value_converted": 77582.4,
+    "isins": [
+      "VGG2110U1093",
+      "VGG2110U1176"
+    ],
+    "cusip6": [],
+    "leis": [],
+    "candidate_norm_names": [
+      "CHINA NATURAL RESOURCES"
+    ]
+  },
+  {
+    "issuer_name": "CASI Pharmaceuticals, Inc.",
+    "cik": "895051",
+    "matched": true,
+    "panel_rows": 3,
+    "panel_value_converted": 76844.03000000001,
+    "isins": [
+      "KYG1933S1012"
+    ],
+    "cusip6": [],
+    "leis": [
+      "549300RYDG4U21PJZ263"
+    ],
+    "candidate_norm_names": [
+      "CASI PHARMACEUTICALS"
+    ]
+  },
+  {
+    "issuer_name": "iHuman Inc.",
+    "cik": "1814423",
+    "matched": true,
+    "panel_rows": 5,
+    "panel_value_converted": 75203.98,
+    "isins": [
+      "US45175B1098"
+    ],
+    "cusip6": [
+      "45175B"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "IHUMAN"
+    ]
+  },
+  {
+    "issuer_name": "UCLOUDLINK GROUP INC.",
+    "cik": "1775898",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 51752.44,
+    "isins": [
+      "US90354D1046"
+    ],
+    "cusip6": [
+      "90354D"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "UCLOUDLINK"
+    ]
+  },
+  {
+    "issuer_name": "MOGU Inc.",
+    "cik": "1743971",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": 40086.0,
+    "isins": [
+      "US6080121006"
+    ],
+    "cusip6": [
+      "608012"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "MOGU"
+    ]
+  },
+  {
+    "issuer_name": "Aesthetic Medical International Holdings Group Limited.",
+    "cik": "1757143",
+    "matched": true,
+    "panel_rows": 15,
+    "panel_value_converted": 35311.06999999999,
+    "isins": [
+      "US00809M1045"
+    ],
+    "cusip6": [
+      "00809M"
+    ],
+    "leis": [
+      "549300Z17PKDH79BWD30"
+    ],
+    "candidate_norm_names": [
+      "AESTHETIC MEDICAL INTERNATIONAL"
+    ]
+  },
+  {
+    "issuer_name": "CLPS Incorporation",
+    "cik": "1724542",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 34281.0,
+    "isins": [
+      "KYG316421042"
+    ],
+    "cusip6": [],
+    "leis": [
+      "5493001SK6OL0NWMTW78"
+    ],
+    "candidate_norm_names": [
+      "CLPS",
+      "CLPS INCORPORATION"
+    ]
+  },
+  {
+    "issuer_name": "Deswell Industries, Inc.",
+    "cik": "946936",
+    "matched": true,
+    "panel_rows": 7,
+    "panel_value_converted": 34160.28,
+    "isins": [
+      "VG2506391011"
+    ],
+    "cusip6": [
+      "250639"
+    ],
+    "leis": [
+      "529900C4GZKVGSEF2O27"
+    ],
+    "candidate_norm_names": [
+      "DESWELL INDUSTRIES"
+    ]
+  },
+  {
+    "issuer_name": "Missfresh Limited",
+    "cik": "1851682",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": 33072.69,
+    "isins": [
+      "US60500F1057"
+    ],
+    "cusip6": [
+      "60500F"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "MISSFRESH"
+    ]
+  },
+  {
+    "issuer_name": "Moxian (BVI) Inc",
+    "cik": "1864055",
+    "matched": true,
+    "panel_rows": 4,
+    "panel_value_converted": 29796.559999999998,
+    "isins": [
+      "VGG6S34K1052"
+    ],
+    "cusip6": [],
+    "leis": [],
+    "candidate_norm_names": [
+      "MOXIAN BVI"
+    ]
+  },
+  {
+    "issuer_name": "Antelope Enterprises Holdings Limited",
+    "cik": "1470683",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": 26510.52,
+    "isins": [
+      "VGG041JN1065"
+    ],
+    "cusip6": [],
+    "leis": [],
+    "candidate_norm_names": [
+      "ANTELOPE ENTERPRISE",
+      "ANTELOPE ENTERPRISES"
+    ]
+  },
+  {
+    "issuer_name": "Hudson Capital Inc.",
+    "cik": "1687542",
+    "matched": true,
+    "panel_rows": 6,
+    "panel_value_converted": 21063.8,
+    "isins": [
+      "VGG4645C1095",
+      "VGG4645C1178"
+    ],
+    "cusip6": [],
+    "leis": [],
+    "candidate_norm_names": [
+      "HUDSON CAPITAL"
+    ]
+  },
+  {
+    "issuer_name": "Euro Tech Holdings Company Limited",
+    "cik": "1026662",
+    "matched": true,
+    "panel_rows": 5,
+    "panel_value_converted": 18781.0,
+    "isins": [
+      "VGG320301275"
+    ],
+    "cusip6": [],
+    "leis": [],
+    "candidate_norm_names": [
+      "EURO TECH"
+    ]
+  },
+  {
+    "issuer_name": "ATA Creativity Global",
+    "cik": "1420529",
+    "matched": true,
+    "panel_rows": 3,
+    "panel_value_converted": 15214.079999999998,
+    "isins": [
+      "US00211V1061"
+    ],
+    "cusip6": [
+      "00211V"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "ATA CREATIVITY GLOBAL"
+    ]
+  },
+  {
+    "issuer_name": "Lizhi Inc.",
+    "cik": "1783407",
+    "matched": true,
+    "panel_rows": 4,
+    "panel_value_converted": 14990.949999999999,
+    "isins": [
+      "US53933L1044"
+    ],
+    "cusip6": [
+      "53933L"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "LIZHI"
+    ]
+  },
+  {
+    "issuer_name": "Bit Brother Ltd",
+    "cik": "1543268",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": 10895.36,
+    "isins": [
+      "VGG1144D1096"
+    ],
+    "cusip6": [],
+    "leis": [
+      "529900R0453F7W34PQ67"
+    ],
+    "candidate_norm_names": [
+      "BIT BROTHER"
+    ]
+  },
+  {
+    "issuer_name": "ChinaCache International Holdings Ltd.",
+    "cik": "1498576",
+    "matched": true,
+    "panel_rows": 8,
+    "panel_value_converted": 3414.06,
+    "isins": [
+      "US16950M1071"
+    ],
+    "cusip6": [
+      "16950M"
+    ],
+    "leis": [
+      "529900CT8UU5BF2JPG67",
+      "529900GBX8V1QZY5KJ78"
+    ],
+    "candidate_norm_names": [
+      "CHINACACHE INTERNATIONAL"
+    ]
+  },
+  {
+    "issuer_name": "36Kr Holdings Inc.",
+    "cik": "1779476",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": 1929.62,
+    "isins": [
+      "US88429K1034"
+    ],
+    "cusip6": [
+      "88429K"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "36KR"
+    ]
+  },
+  {
+    "issuer_name": "FingerMotion, Inc.",
+    "cik": "1602409",
+    "matched": true,
+    "panel_rows": 1,
+    "panel_value_converted": 1279.2,
+    "isins": [
+      "US31788K1088"
+    ],
+    "cusip6": [
+      "31788K"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "FINGERMOTION"
+    ]
+  },
+  {
+    "issuer_name": "LAIX Inc.",
+    "cik": "1742056",
+    "matched": true,
+    "panel_rows": 1,
+    "panel_value_converted": -756.48,
+    "isins": [
+      "US50736W2044"
+    ],
+    "cusip6": [
+      "50736W"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "LAIX"
+    ]
+  },
+  {
+    "issuer_name": "LightInTheBox Holding Co., Ltd.",
+    "cik": "1523836",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": -5229.0,
+    "isins": [
+      "US53225G1022"
+    ],
+    "cusip6": [
+      "53225G"
+    ],
+    "leis": [
+      "5493003DZYU05P53HU52"
+    ],
+    "candidate_norm_names": [
+      "LIGHTINTHEBOX"
+    ]
+  },
+  {
+    "issuer_name": "Waterdrop Inc.",
+    "cik": "1823986",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": -6604.0,
+    "isins": [
+      "US94132V1052"
+    ],
+    "cusip6": [
+      "94132V"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "WATERDROP"
+    ]
+  },
+  {
+    "issuer_name": "BlueCity Holdings Limited",
+    "cik": "1791278",
+    "matched": true,
+    "panel_rows": 2,
+    "panel_value_converted": -6875.0,
+    "isins": [
+      "US09610L1061"
+    ],
+    "cusip6": [
+      "09610L"
+    ],
+    "leis": [],
+    "candidate_norm_names": [
+      "BLUECITY"
+    ]
+  }
+]

@@ -2360,3 +2360,116 @@ UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict unchanged. DP2-DP5 untouched, DP6 not
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
 for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
+2026-06-30T20:01:55Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/crosswalk_coverage_prediction.md build/run-ledger.log 2>/dev/null
+git commit -q -m "Pre-register construct-the-crosswalk coverage prediction (BEFORE building)
+
+Falsifiable prior committed before any source is fetched or B recomputed: the
+SEC-HFCAA + XBRL-VIE + GLEIF/QCC route is expected to raise discriminating
+coverage B from the prior 0.287 toward ~0.45-0.65 (tagging the large Chinese
+VIE/ADR equity GLEIF Level-2 missed) but NOT to clear the ~0.80 bar (the prior
+pass's uncovered tail is large/diffuse/non-Chinese Cayman structured credit). If
+B fails to materially exceed 0.287 the free route is not a sufficient substitute
+for the licensed crosswalk. Either outcome reported as found. Anti-planting: CN
+flags trace to HFCAA/XBRL/F-6/GLEIF-QCC, never name-guesses; all join rates
+measured, not asserted.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
+2026-06-30T20:03:53Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/crosswalk/hfcaa
+python3 << 'EOF'
+import re, json
+html = open('hfcaa_landing.html', encoding='utf-8', errors='replace').read()
+# Find the conclusive list table
+idx = html.find('Conclusive list of issuers identified under the HFCAA')
+sub = html[idx:idx+200000]
+# table from first <table> after heading to its </table>
+tstart = sub.find('<table')
+tend = sub.find('</table>', tstart)
+table = sub[tstart:tend]
+rows = re.findall(r'<tr>(.*?)</tr>', table, re.S)
+data=[]
+for r in rows:
+    cells = re.findall(r'<td[^>]*>(.*?)</td>', r, re.S)
+    if not cells: continue
+    clean=[re.sub(r'<[^>]+>',' ', c) for c in cells]
+    clean=[re.sub(r'\s+',' ', c).strip().replace('&amp;','&') for c in clean]
+    data.append(clean)
+print("Conclusive rows parsed:", len(data))
+for d in data[:5]:
+    print(d)
+print("...")
+for d in data[-3:]:
+    print(d)
+# Save structured
+recs=[]
+for d in data:
+    if len(d)>=2 and d[1].strip().isdigit():
+        recs.append({"issuer_name":d[0],"cik":d[1],"date_conclusively_identified":d[2] if len(d)>2 else None,
+                     "current_trading_prohibition":d[3] if len(d)>3 else None,
+                     "prior_trading_prohibition":d[4] if len(d)>4 else None})
+json.dump(recs, open('hfcaa_conclusive.json','w'), indent=1)
+print("Saved conclusive recs:", len(recs))
+print("Distinct CIKs:", len(set(r['cik'] for r in recs)))
+EOF
+2026-06-30T20:50:02Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+cat > /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/diag2.py <<'PY'
+import json, html, re, collections
+import pyarrow.parquet as pq, pyarrow.compute as pc
+PANEL='build/data/nport/us_china_nationality_panel.parquet'
+hf_conc = json.load(open('build/data/crosswalk/hfcaa/hfcaa_conclusive.json'))
+ct = json.load(open('build/data/crosswalk/hfcaa/company_tickers.json'))
+ct_by_cik=collections.defaultdict(set)
+for it in ct.values(): ct_by_cik[int(it['cik_str'])].add(it['title'])
+
+SUFFIX=re.compile(r'\b(INCORPORATED|INC|CORPORATION|CORP|LIMITED|LTD|LLC|LP|PLC|CO|COMPANY|GROUP|HOLDINGS|HOLDING|GMBH|AG|SA|NV|ADR|ADS|SPONSORED|UNSPONSORED|THE)\b')
+def norm(s):
+    if not s: return ''
+    s=html.unescape(s).replace('\xa0',' ').upper()
+    s=re.sub(r'[^A-Z0-9 ]',' ',s); s=SUFFIX.sub(' ',s)
+    return re.sub(r'\s+',' ',s).strip()
+def stem(s):
+    s=html.unescape(s or '').replace('\xa0',' ').upper(); s=re.sub(r'[^A-Z0-9 ]',' ',s)
+    return s.split()[0] if s.split() else ''
+
+t=pq.read_table(PANEL, columns=['issuer_name','cusip','isin','issuer_lei','currency_value','is_haven_resident'])
+t=t.filter(pc.equal(t['is_haven_resident'],True))
+nm=t['issuer_name'].to_pylist(); cu=t['cusip'].to_pylist(); isin=t['isin'].to_pylist(); lei=t['issuer_lei'].to_pylist(); val=t['currency_value'].to_pylist()
+pname_idx=collections.defaultdict(list)
+for i,x in enumerate(nm): pname_idx[norm(x)].append(i)
+
+# candidates = HFCAA decoded name + company_tickers titles sharing HFCAA stem
+hf_norms={}
+for r in hf_conc:
+    cik=int(r['cik']); hstem=stem(r['issuer_name'])
+    cands={norm(r['issuer_name'])}
+    for ttl in ct_by_cik.get(cik,[]):
+        if stem(ttl)==hstem: cands.add(norm(ttl))
+    cands.discard(''); hf_norms[cik]=cands
+matched_rows={}
+for cik,cands in hf_norms.items():
+    rows=[]
+    for c in cands: rows+=pname_idx.get(c,[])
+    matched_rows[cik]=sorted(set(rows))
+prior=json.load(open('build/data/crosswalk/hfcaa/hfcaa_panel_match.json'))
+prior_matched=set(int(x['cik']) for x in prior if x['matched'])
+newly=[c for c in hf_norms if matched_rows[c] and c not in prior_matched]
+print('matched CIKs (restricted):', sum(1 for c in matched_rows if matched_rows[c]))
+print('newly matched:', len(newly))
+tv=0.0; tr=0
+for cik in sorted(newly):
+    rows=matched_rows[cik]; v=sum(val[i] or 0 for i in rows); tv+=v; tr+=len(rows)
+    print(f'  CIK {cik:>9} rows={len(rows):>5} value={v:>16.0f}  hf={[r["issuer_name"] for r in hf_conc if int(r["cik"])==cik][0]!r}')
+print('newly rows',tr,'value',tv)
+# also report identifiers each newly matched CIK resolves to
+print()
+print('=== resolved identifiers for newly matched (CIK -> cusip6/isin/lei) ===')
+for cik in sorted(newly):
+    rows=matched_rows[cik]
+    c6=sorted(set((cu[i] or '')[:6] for i in rows if cu[i]) - {'','000000'})
+    iss=sorted(set(isin[i] for i in rows if isin[i]))
+    le=sorted(set(lei[i] for i in rows if lei[i] and lei[i]!='N/A'))
+    print(f'  CIK {cik}: cusip6={c6} isin={iss} lei={le}')
+PY
+python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/diag2.py

@@ -1,0 +1,205 @@
+{
+  "contract": "construct-the-crosswalk Part 1 — fetch, enumerate real schema, and MEASURE join rate vs panel haven subset",
+  "task_part": "Part 1 (fetch + schema + measured join rates ONLY; does NOT build the joined nationality table (Part 2) or compute coverage B (Part 3))",
+  "fetch_date": "2026-06-30",
+  "fetched_by_env": "Claude Code on the web; outbound HTTPS via agent proxy; SEC/GLEIF reached with curl + descriptive User-Agent (WebFetch returns 403 from sec.gov, curl with UA succeeds)",
+  "SOURCE": "Publishers fetched directly: SEC HFCAA rules page + SEC company_tickers/submissions/Archives; GLEIF isinmapping.gleif.org + mapping.gleif.org; EDGAR Inline-XBRL 20-F/F-6 filings. All match rates MEASURED from the fetched files against build/data/nport/us_china_nationality_panel.parquet (no asserted rates).",
+
+  "panel_reference": {
+    "path": "build/data/nport/us_china_nationality_panel.parquet",
+    "rows_total": 1141109,
+    "haven_subset_definition": "is_haven_resident == True (investment_country_iso3 in {CYM, HKG, VGB})",
+    "haven_rows": 663325,
+    "haven_value_converted_units": 3422538903582.85,
+    "value_note": "currency_value is the prior-pass mixed-currency conversion (USD x1, HKD /7.80, minor at fixed rates). Part 3 handles value; value shares here use this converted column as-is.",
+    "join_keys_present_in_panel": ["isin", "cusip (9-char; cusip6=first6)", "issuer_name", "issuer_lei"],
+    "note_on_key_names": "Task brief said 'identifier_isin'; the actual panel column is 'isin' (and 'cusip'). Used the real columns.",
+    "haven_distinct_keys": {"isin": 20958, "cusip": 19552, "cusip6": 8998, "issuer_lei": 3434, "issuer_name": 23133},
+    "haven_rows_carrying_LEI": 448065,
+    "haven_value_share_carrying_LEI": 0.7933,
+    "haven_issuer_nationality_before_crosswalk": "100% 'UNDETERMINED-NO-PUBLIC-CROSSWALK'"
+  },
+
+  "sources": {
+    "a_SEC_HFCAA_commission_identified_issuers": {
+      "status": "COMPLETE",
+      "description": "SEC Holding Foreign Companies Accountable Act Commission-Identified Issuer (CII) lists — the official Chinese-nationality US-listed universe (issuers using auditors PCAOB cannot inspect, i.e. mainland-China/Hong-Kong located).",
+      "urls_fetched": [
+        "https://www.sec.gov/HFCAA  -> redirects to -> https://www.sec.gov/rules-regulations/holding-foreign-companies-accountable-act (HTTP 200)",
+        "https://www.sec.gov/files/company_tickers.json (HTTP 200, 798068 bytes; CIK->ticker map)"
+      ],
+      "real_schema": {
+        "conclusive_list_html_table_columns": ["Issuer Name", "CIK", "Date conclusively identified", "Current trading prohibition", "Prior trading prohibition"],
+        "provisional_list": "Page text (read 2026-06-30): 'There is currently no issuer on the provisional list.' Provisional HTML <table> body is empty/commented-out.",
+        "publication_form": "HTML tables embedded directly on the rules page (no CSV/XLSX download offered by SEC); CIK is the join handle to EDGAR.",
+        "company_tickers_json_fields": ["cik_str", "ticker", "title"]
+      },
+      "row_counts": {
+        "conclusive_CIIs": 174,
+        "provisional_CIIs": 0,
+        "distinct_CIKs_conclusive": 174,
+        "conclusive_CIKs_present_in_company_tickers_json": "139/174 (rest delisted/trading-prohibited — expected)"
+      },
+      "quoted_real_record": "Conclusive-list row: ['BeiGene, Ltd.', CIK 1651308, 'March 30, 2022', 'Not applicable', 'Not applicable']. Alibaba conclusive-list CIK = 1577552; JD.com CIK = 1549802.",
+      "measured_match_vs_panel_haven": {
+        "method": "Normalized issuer_name (strip Ltd/Inc/Corp/Group/Holdings/punctuation, uppercase) exact-match of each CII against the panel haven subset; resolved each match to its panel ISIN/CUSIP6/LEI set for downstream identifier joins.",
+        "HFCAA_CIIs_matched_to_panel_haven_issuer": "134 of 174",
+        "panel_haven_VALUE_share_covered": 0.1624,
+        "panel_haven_value_covered_converted_units": 555977880166.0,
+        "largest_matches_by_value": [
+          "Alibaba Group Holding Limited 289585916757", "JD.com Inc 52944134299", "Baidu Inc 44434723749",
+          "China Mobile Limited 30487196758", "Trip.com Group Limited 16834763674", "Pinduoduo Inc 12622857250",
+          "BeiGene Ltd 11563880469", "TAL Education Group 11035721516"
+        ],
+        "frictions": [
+          "SEC publishes no machine-readable file — parsed from HTML tables; renumbering/format change is a future friction (recorded the exact heading anchors used).",
+          "Name-based match is the available join (HFCAA carries no CUSIP/ISIN); 40 CIIs did not name-match the haven subset (delisted, never US-fund-held in window, or name-normalization miss).",
+          "Match is residence-agnostic: a CII can appear in the panel under multiple ISINs spanning CYM and HKG (Alibaba resolves both CYM and HKG residence rows).",
+          "company_tickers.json gives ticker not CUSIP; ticker was not the panel join key, so name->panel-identifier resolution was used and the resolved ISIN/CUSIP6/LEI are persisted for Part 2."
+        ]
+      },
+      "artifacts": [
+        "build/data/crosswalk/hfcaa/hfcaa_conclusive.json (174 CIIs: issuer_name, cik, dates, prohibitions)",
+        "build/data/crosswalk/hfcaa/hfcaa_panel_match.json (per-CII matched flag + resolved panel ISINs/CUSIP6/LEIs/value/residences)",
+        "build/data/crosswalk/hfcaa/company_tickers.json (CIK->ticker, committed)",
+        "build/data/crosswalk/hfcaa/hfcaa_landing.html (raw page; gitignored, re-fetchable from URL above)"
+      ]
+    },
+
+    "b_EDGAR_F6_and_VIE_lookthrough_XBRL": {
+      "status": "COMPLETE",
+      "description": "Issuer-nationality provenance read from REAL EDGAR filings: residence/domicile from the Inline-XBRL dei: cover tags + Form F-6 ADR jurisdiction; consolidated operating-entity (OpCo) nationality from the VIE look-through language. Confirms residence KY/HK but OpCo nationality CN. Jurisdictions were READ FROM FILINGS, not guessed from names.",
+      "urls_fetched": [
+        "https://data.sec.gov/submissions/CIK0001577552.json (Alibaba; HTTP 200)",
+        "https://data.sec.gov/submissions/CIK0001549802.json (JD.com; HTTP 200)",
+        "https://www.sec.gov/Archives/edgar/data/1577552/000119312526231755/baba-20260331.htm (Alibaba 20-F FY2026; HTTP 200, 11.7MB)",
+        "https://www.sec.gov/Archives/edgar/data/1549802/000119312526157870/d53690d20f.htm (JD.com 20-F FY2025; HTTP 200, 4.9MB)",
+        "https://www.sec.gov/Archives/edgar/data/1577552/000119380522000150/e621191_f6ef-aghl.htm (Alibaba F-6EF; HTTP 200)"
+      ],
+      "real_schema": {
+        "submissions_json_jurisdiction_fields": ["stateOfIncorporation", "stateOfIncorporationDescription", "filings.recent.{form, accessionNumber, primaryDocument, reportDate}"],
+        "inline_xbrl_tags_read": ["dei:EntityIncorporationStateCountryCode (residence/domicile)", "dei:EntityAddressCountry (principal-office country)", "issuer-specific VIE member tags e.g. baba:ConsolidatedVIEsAndSubsidiariesMember"],
+        "f6_cover_field_read": "'Jurisdiction of incorporation or organization of issuer'"
+      },
+      "confirmed_residence_KY_nationality_CN": [
+        {
+          "issuer": "Alibaba Group Holding Limited", "cik": "1577552",
+          "accession_20F": "0001193125-26-231755", "doc": "baba-20260331.htm", "read_date": "2026-06-30",
+          "residence_domicile_QUOTED": "dei:EntityIncorporationStateCountryCode = \"Cayman Islands\"; dei:EntityAddressCountry = \"Hong Kong\"",
+          "f6_adr_jurisdiction_QUOTED": "F-6EF acc 0001193805-22-000150 cover: \"Cayman Islands (Jurisdiction of incorporation or organization of issuer)\"; \"ADS ... representing the right to receive eight (8) ordinary shares of Alibaba Group Holding Limited\"",
+          "opco_nationality": "CN",
+          "opco_evidence_QUOTED": "20-F FY2026: \"The VIEs are incorporated in the PRC and owned by PRC citizens or by PRC entities owned and/or controlled by PRC citizens, and not by our company.\" Also: \"investors may never hold equity interests in the VIEs under current PRC laws\"; \"A number of our China operating entities enjoy these preferential tax treatments.\" XBRL member: baba:ConsolidatedVIEsAndSubsidiariesMember."
+        },
+        {
+          "issuer": "JD.com, Inc.", "cik": "1549802",
+          "accession_20F": "0001193125-26-157870", "doc": "d53690d20f.htm", "read_date": "2026-06-30",
+          "residence_domicile_QUOTED": "dei:EntityIncorporationStateCountryCode = \"Cayman Islands\"; dei:EntityAddressCountry = \"People's Republic of China\"",
+          "opco_nationality": "CN",
+          "opco_evidence_QUOTED": "20-F FY2025: \"...the Company's subsidiaries and consolidated VIEs incorporated in the PRC ... as determined in accordance with the PRC accounting standards and regulations.\""
+        }
+      ],
+      "measured_match_vs_panel_haven": {
+        "issuer_jurisdiction_rows_confirmed_from_real_filings": 2,
+        "both_present_in_panel_haven_subset": "Yes — Alibaba (panel residence rows CYM and HKG; ISIN US01609W1027 & KYG017191142) and JD.com both appear in build/data/crosswalk/hfcaa/hfcaa_panel_match.json with matched=true",
+        "note": "This source supplies the residence->nationality DISCRIMINATOR (KY/HK domicile, CN OpCo) as provenanced rows; full population tagging of all 134 matched CIIs is Part 2, not Part 1. Two anchor names are read-and-quoted here as the verification requirement."
+      },
+      "frictions": [
+        "20-F filings are 5-12MB Inline-XBRL HTML; jurisdiction lives in dei: tags + free-text VIE risk-factor language, not a single structured field — requires per-filing parse.",
+        "stateOfIncorporation uses ISO-ish codes (E9=Cayman, K3=Hong Kong) needing decode via stateOfIncorporationDescription; Alibaba's domicile reads 'Hong Kong' in stateOfIncorporation but 'Cayman Islands' in the XBRL incorporation tag (dual-primary-listing domicile nuance) — recorded both.",
+        "Not every HFCAA CII files a 20-F with VIE language (some are HK-incorporated operating companies, not VIE structures); per-name reading required for Part 2."
+      ],
+      "artifacts": [
+        "build/data/crosswalk/edgar/edgar_jurisdiction_provenance.json (provenanced issuer->nationality rows)",
+        "build/data/crosswalk/edgar/sub_0001577552.json, sub_0001549802.json (submissions; gitignored, re-fetchable)",
+        "build/data/crosswalk/edgar/alibaba_20f_2026.htm, jd_20f_2026.htm, alibaba_f6ef.htm (raw filings; large ones gitignored, re-fetchable)"
+      ]
+    },
+
+    "c_GLEIF_ISIN_to_LEI": {
+      "status": "COMPLETE",
+      "description": "GLEIF free daily ISIN-to-LEI bulk relationship file. Maps panel identifier ISIN -> LEI.",
+      "urls_fetched": [
+        "https://isinmapping.gleif.org/api/v2/isin-lei (index; latest fileName isin-lei-20260630T071512.zip)",
+        "https://isinmapping.gleif.org/api/v2/isin-lei/d495776d-fd21-45a2-a9a1-08d5d6f68767/download (HTTP 200, 30,951,140 bytes zip)"
+      ],
+      "latest_vintage": "isin-lei-20260630T071512.zip, uploadedAt 2026-06-30T07:15:12Z (daily; same-day available)",
+      "real_schema": {"columns": ["LEI", "ISIN"], "header_quoted": "LEI,ISIN", "first_record_quoted": "00EHHQ2ZHDCFXJCPCL46,US92204Q1031"},
+      "row_counts": {"mapping_rows": 8799961},
+      "measured_match_vs_panel_haven": {
+        "method": "Streamed the full CSV; intersected ISIN column with the panel's distinct cleaned haven ISINs; value share via panel currency_value summed over matched ISINs.",
+        "distinct_haven_ISINs": 20958,
+        "haven_ISINs_mapped_to_LEI": 2534,
+        "ISIN_to_LEI_coverage_pct_by_ISIN_count": 0.1209,
+        "ISIN_to_LEI_coverage_value_share": 0.4149,
+        "example_record": "Alibaba US01609W1027 -> LEI 5493001NTNQJDH60PM02; KYG017191142 -> 5493001NTNQJDH60PM02"
+      },
+      "frictions": [
+        "CRITICAL (matches pre-registration): the LEI returned is the CAYMAN-SHELL's LEI (Alibaba US01609W1027 -> 5493001NTNQJDH60PM02 = the KY-resident entity). ISIN->LEI alone is the Level-2 dead-end that resolves residence (KY), NOT nationality. It is a join bridge, not a nationality source.",
+        "Low ISIN-count coverage (12%) because the haven panel holds many ADRs, bonds, and funds without GLEIF ISIN rows; value coverage (41%) is far higher because mapped names are the large liquid issuers.",
+        "GLEIF ISIN file only covers entities that self-reported ISINs; bond CUSIPs/ISINs of offshore SPV issuers frequently absent."
+      ],
+      "artifacts": [
+        "build/data/crosswalk/gleif/isin_latest.json (API index; committed)",
+        "build/data/crosswalk/gleif/isin_lei_panel_match.json (measured coverage; committed)",
+        "build/data/crosswalk/gleif/isin_lei_SCHEMA_SAMPLE.csv (committed header+rows)",
+        "build/data/crosswalk/gleif/lei-isin-20260630T071512.csv + .zip (286MB/30MB; gitignored, re-fetchable from URL)"
+      ]
+    },
+
+    "d_GLEIF_QCC_and_OpenCorporates_to_LEI": {
+      "status": "COMPLETE",
+      "description": "GLEIF-QCC (Qichacha China entity-code -> LEI, free monthly) and GLEIF-OpenCorporates (OpenCorporatesID -> LEI, CC0) relationship files. Measured incremental yield on the panel's haven LEIs that the ISIN->LEI / Level-2 route leaves as KY shells.",
+      "urls_fetched": [
+        "https://www.gleif.org/en/lei-data/lei-mapping/download-qcc-to-lei-relationship-files (HTTP 200; download link extracted)",
+        "https://mapping.gleif.org/api/v2/qcc-lei/0b89dd1b-7343-4d53-b692-d0ee9302b7c7/download (HTTP 200, 29,701,845 bytes zip)",
+        "https://www.gleif.org/en/lei-data/lei-mapping/download-oc-to-lei-relationship-files (HTTP 200; download link extracted)",
+        "https://mapping.gleif.org/api/v2/oc-lei/0639f982-21ec-470c-bacb-a317a9e2c3e4/download (HTTP 200, 25,181,374 bytes zip)"
+      ],
+      "qcc": {
+        "latest_vintage": "lei-qcc-20250901T000000.csv (monthly; vintage 2025-09-01)",
+        "real_schema": {"columns": ["LEI", "QCC"], "header_quoted": "LEI,QCC", "first_record_quoted": "004L5FPTUREIWK9T2N63,QUSK3505HP"},
+        "row_counts": {"mapping_rows": 1912288, "distinct_LEIs": 1912288},
+        "measured_incremental_vs_panel_haven_LEIs": {
+          "method": "Intersected QCC LEI column with the panel's 3434 distinct haven LEIs; verified hits by literal grep of the raw CSV; value share over panel currency_value.",
+          "distinct_panel_haven_LEIs": 3434,
+          "haven_LEIs_carrying_a_QCC_China_registry_code": 2932,
+          "coverage_of_haven_LEIs": 0.8538,
+          "value_share_of_those_haven_LEIs": 0.4581,
+          "verified_records": "0WKKFB7N1TW1Q5WJ1V86,QBMNFKV0PG and 529900GE9653COPX1I86,QBM0EJS7Q2 (Alibaba secondary LEI) literally present in QCC file; Alibaba PRIMARY LEI 5493001NTNQJDH60PM02 NOT in QCC.",
+          "interpretation": "This is the incremental signal the ISIN->LEI route misses: a haven-resident LEI that ALSO carries a Qichacha China-registry code is independent evidence of a China registration behind the LEI. High haven-LEI hit (85%) reflects the China-linkage concentration of the panel's haven LEI population; it is bounded by the fact that only 79% of haven VALUE carries any LEI at all (215,260 haven rows have no LEI)."
+        }
+      },
+      "opencorporates": {
+        "latest_vintage": "lei-oc-20260303T100055.csv (vintage 2026-03-03)",
+        "real_schema": {"columns": ["LEI", "OpenCorporatesID"], "header_quoted": "LEI,OpenCorporatesID", "first_record_quoted": "004L5FPTUREIWK9T2N63,us_de/4386463"},
+        "row_counts": {"mapping_rows": 1598191},
+        "measured_incremental_vs_panel_haven_LEIs": {
+          "method": "Same intersection on panel haven LEIs; measured OC reach and OC-minus-QCC incremental.",
+          "haven_LEIs_mapped_to_OpenCorporatesID": 263,
+          "coverage_of_haven_LEIs": 0.0766,
+          "value_share": 0.0167,
+          "incremental_over_QCC_haven_LEIs_in_OC_not_QCC": 25,
+          "OC_haven_rows_whose_register_is_China_cn_prefix": 0,
+          "example_record": "0WKKFB7N1TW1Q5WJ1V86 -> bm/29337 (Bermuda register)",
+          "interpretation": "OpenCorporates adds little incremental for the panel's haven LEIs (these resolve to KY/BM/HK company registers, not mainland-CN), and only 25 haven LEIs beyond QCC. QCC is the materially incremental source for the China-nationality route; OC is near-zero incremental here."
+        }
+      },
+      "frictions": [
+        "QCC vintage (2025-09-01) lags the ISIN file (2026-06-30) by ~10 months — monthly cadence; the offered 2025-09 file is the most recent on the page.",
+        "QCC/OC are keyed by LEI, so their reach on the panel is capped by LEI presence: only 448,065/663,325 haven rows (79% of value) carry an LEI; the 21% LEI-less value is unreachable by either source.",
+        "QCC license: GLEIF publishes open-source but with a click-through license on the page (recorded); QCC code is Qichacha's, not a public registry number."
+      ],
+      "artifacts": [
+        "build/data/crosswalk/qcc/qcc_oc_panel_match.json (measured QCC+OC incremental; committed)",
+        "build/data/crosswalk/qcc/qcc_lei_SCHEMA_SAMPLE.csv, build/data/crosswalk/opencorporates/oc_lei_SCHEMA_SAMPLE.csv (committed)",
+        "build/data/crosswalk/qcc/lei-qcc-20250901T000000.csv + zip, build/data/crosswalk/opencorporates/lei-oc-20260303T100055.csv + zip (gitignored, re-fetchable)"
+      ]
+    }
+  },
+
+  "incomplete_sources": [],
+  "integrity_notes": {
+    "answer_integrity_audit": "Every match rate is MEASURED by streaming the fetched file against the panel parquet; none asserted from memory. HFCAA names/CIKs are checkable against the SEC HTML table parsed into hfcaa_conclusive.json. Residence-KY/nationality-CN is QUOTED from the real Alibaba & JD 20-F/F-6 filings (tag + text + accession). QCC's high haven-LEI hit was spot-verified by literal grep before reporting.",
+    "analytical_claim_discipline": "No coverage B computed (Part 3). No joined table built (Part 2). Pre-registration NOT consulted to tune any number (the 0.1624 / 0.4149 / 0.8538 figures were measured first, independent of the 0.45-0.65 prediction). No deferral language. Where the task key name ('identifier_isin') did not exist, the real column was used and the discrepancy recorded rather than smoothed over."
+  }
+}

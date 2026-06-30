@@ -30,3 +30,22 @@ build/data/gcap_products/redrawing_extract/data.zip
 # build/contracts/gcap_route_determination.json. Only the contract + small
 # enumerated-schema evidence (varname listings, zip directory dumps) are committed.
 build/data/gcap_route/
+
+# Part 1 crosswalk: large raw bulk files / zips / full filings are re-fetchable from the
+# URLs recorded in build/contracts/crosswalk_sources.json. Small lists/schemas/evidence/
+# match-result JSON ARE committed.
+build/data/crosswalk/gleif/lei-isin-*.csv
+build/data/crosswalk/gleif/isin_lei_latest.zip
+build/data/crosswalk/qcc/lei-qcc-*.csv
+build/data/crosswalk/qcc/qcc_lei_latest.zip
+build/data/crosswalk/qcc/*_page.html
+build/data/crosswalk/opencorporates/lei-oc-*.csv
+build/data/crosswalk/opencorporates/oc_lei_latest.zip
+build/data/crosswalk/opencorporates/oc_page.html
+build/data/crosswalk/edgar/*_20f_*.htm
+build/data/crosswalk/edgar/sub_*.json
+build/data/crosswalk/hfcaa/hfcaa_landing.html
+
+# Tagged haven panel (11MB) regenerable from build/data/nport/panel_crosswalk_tagged_recompute.py
+# + the panel + crosswalk sources; coverage recompute + verify carry the load-bearing numbers.
+build/data/nport/panel_crosswalk_tagged.parquet

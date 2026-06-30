@@ -1,0 +1,435 @@
+{
+  "what_this_is": "CONSTRUCT-THE-CROSSWALK Parts 3-4 coverage. Re-measures parent-nationality coverage on the crosswalk-tagged haven panel using the SAME statistic and SAME USD-equivalent value treatment as the prior freemap pass, so B is directly comparable to the prior 0.287. Coverage RATIOS only -- does NOT re-tag the operator, re-run separability, or touch DP2-DP6/ledger.",
+  "inputs": {
+    "tagged_panel": "/home/user/dollar-breaking-point/build/data/nport/panel_crosswalk_tagged.parquet",
+    "source_panel_for_ccy_and_quarter": "/home/user/dollar-breaking-point/build/data/nport/us_china_nationality_panel.parquet",
+    "gleif_map": "/home/user/dollar-breaking-point/build/data/gleif/lei_parent_country.csv",
+    "handmap_for_variant_only": "/home/user/dollar-breaking-point/build/audit/china_haven_issuer_handmap.csv",
+    "tagged_haven_rows_total": 663325,
+    "positive_value_haven_rows": 655294,
+    "rows_excluded_nonpositive_or_null": 8031
+  },
+  "value_unit_treatment": {
+    "headline_basis": "USD-EQUIVALENT (matches prior freemap pass; B comparable to 0.287)",
+    "raw_vs_usd_note": "The tagged parquet currency_value is the source panel RAW per-row value in native currency_code (verified byte-identical), NOT USD. The construction verify file's CN-share 0.2090 and HAVEN_VALUE 3.4225e12 are on that RAW mixed-currency denominator. Prior B=0.287 is on the USD-equivalent denominator (1.8772e12). They are different scales; headline numbers here are USD-equivalent. CN-share is reported BOTH ways (see C_cn_share_*).",
+    "USD": "x1",
+    "HKD": "/7.8 (HKMA Linked Exchange Rate System peg midpoint; https://www.hkma.gov.hk/eng/key-functions/monetary-stability/linked-exchange-rate-system/)",
+    "minor_currencies": "fixed representative period rates (units/USD); <=1.4% of value"
+  },
+  "prior_comparison_anchors": {
+    "prior_A_by_value": 0.6858636844496402,
+    "prior_B_by_value": 0.2870821902171556,
+    "source": "build/audit/freemap_coverage.json"
+  },
+  "pooled": {
+    "total_haven_value_usd_equiv": 1879193415969.823,
+    "total_haven_value_raw_mixed_ccy": 3426053142471.776,
+    "total_haven_count": 655294,
+    "A_constr_by_value": 0.2777730134879494,
+    "B_constr_by_value": 0.2777730134879494,
+    "A_constr_by_count": 0.09674283604000647,
+    "B_constr_by_count": 0.09674283604000647,
+    "A_union_by_value": 0.6898024334971655,
+    "B_union_by_value": 0.3425063943037699,
+    "A_union_by_count": 0.6840639468696493,
+    "B_union_by_count": 0.20734204799677702,
+    "A_union_with_handmap_by_value": 0.6898024334971655,
+    "B_union_with_handmap_by_value": 0.3425063943037699,
+    "C_cn_share_of_total_haven_usd_equiv": 0.2777730134879494,
+    "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.22228985019797648,
+    "C_cn_count": 63395,
+    "D_union_uncovered_value_share": 0.3101975665028346,
+    "D_union_uncovered_count_share": 0.31593605313035067,
+    "_cn_value_usd_equiv": 521989218080.65137,
+    "_cn_value_raw": 761576839810.3577
+  },
+  "pooled_vs_prior": {
+    "A_constr_minus_prior_A": -0.40809067096169077,
+    "B_constr_minus_prior_B": -0.00930917672920617,
+    "A_union_minus_prior_A": 0.003938749047525336,
+    "B_union_minus_prior_B": 0.055424204086614304,
+    "B_union_direction_vs_0287": "UP"
+  },
+  "per_fiscal_quarter": {
+    "2019q3": {
+      "total_haven_value_usd_equiv": 181582662778.50293,
+      "total_haven_value_raw_mixed_ccy": 311173040109.2792,
+      "total_haven_count": 61987,
+      "A_constr_by_value": 0.3275769194452008,
+      "B_constr_by_value": 0.3275769194452008,
+      "A_constr_by_count": 0.08906706244857793,
+      "B_constr_by_count": 0.08906706244857793,
+      "A_union_by_value": 0.7434522381760872,
+      "B_union_by_value": 0.3800057798823637,
+      "A_union_by_count": 0.7083420717247165,
+      "B_union_by_count": 0.18678109926274863,
+      "A_union_with_handmap_by_value": 0.7434522381760872,
+      "B_union_with_handmap_by_value": 0.3800057798823637,
+      "C_cn_share_of_total_haven_usd_equiv": 0.3275769194452008,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.20887261474436242,
+      "C_cn_count": 5521,
+      "D_union_uncovered_value_share": 0.25654776182391265,
+      "D_union_uncovered_count_share": 0.29165792827528353,
+      "_cn_value_usd_equiv": 59482289297.63871,
+      "_cn_value_raw": 64995526525.5775
+    },
+    "2019q4": {
+      "total_haven_value_usd_equiv": 250756081763.94916,
+      "total_haven_value_raw_mixed_ccy": 418265738389.01843,
+      "total_haven_count": 76542,
+      "A_constr_by_value": 0.37498152477837277,
+      "B_constr_by_value": 0.37498152477837277,
+      "A_constr_by_count": 0.09218468291918162,
+      "B_constr_by_count": 0.09218468291918162,
+      "A_union_by_value": 0.7684824626948891,
+      "B_union_by_value": 0.4245148330490147,
+      "A_union_by_count": 0.7019152883384285,
+      "B_union_by_count": 0.18905960126466514,
+      "A_union_with_handmap_by_value": 0.7684824626948891,
+      "B_union_with_handmap_by_value": 0.4245148330490147,
+      "C_cn_share_of_total_haven_usd_equiv": 0.37498152477837277,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.24386943361265773,
+      "C_cn_count": 7056,
+      "D_union_uncovered_value_share": 0.2315175373051111,
+      "D_union_uncovered_count_share": 0.2980847116615714,
+      "_cn_value_usd_equiv": 94028897887.29597,
+      "_cn_value_raw": 102002228720.51
+    },
+    "2020q1": {
+      "total_haven_value_usd_equiv": 213344260658.0513,
+      "total_haven_value_raw_mixed_ccy": 394622706840.2109,
+      "total_haven_count": 77639,
+      "A_constr_by_value": 0.33689872277271155,
+      "B_constr_by_value": 0.33689872277271155,
+      "A_constr_by_count": 0.09635621272813921,
+      "B_constr_by_count": 0.09635621272813921,
+      "A_union_by_value": 0.7457350413288885,
+      "B_union_by_value": 0.4006974021566511,
+      "A_union_by_count": 0.7001249372093922,
+      "B_union_by_count": 0.20717680547147696,
+      "A_union_with_handmap_by_value": 0.7457350413288885,
+      "B_union_with_handmap_by_value": 0.4006974021566511,
+      "C_cn_share_of_total_haven_usd_equiv": 0.33689872277271155,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.23214179818776465,
+      "C_cn_count": 7481,
+      "D_union_uncovered_value_share": 0.25426495867111143,
+      "D_union_uncovered_count_share": 0.2998750627906078,
+      "_cn_value_usd_equiv": 71875408926.58594,
+      "_cn_value_raw": 91608424771.60965
+    },
+    "2020q2": {
+      "total_haven_value_usd_equiv": 237350573552.56622,
+      "total_haven_value_raw_mixed_ccy": 436803388244.5575,
+      "total_haven_count": 81460,
+      "A_constr_by_value": 0.32609761376394764,
+      "B_constr_by_value": 0.32609761376394764,
+      "A_constr_by_count": 0.10311809477043948,
+      "B_constr_by_count": 0.10311809477043948,
+      "A_union_by_value": 0.7442456558761407,
+      "B_union_by_value": 0.3906652618458494,
+      "A_union_by_count": 0.7057942548490056,
+      "B_union_by_count": 0.21991161306162535,
+      "A_union_with_handmap_by_value": 0.7442456558761407,
+      "B_union_with_handmap_by_value": 0.3906652618458494,
+      "C_cn_share_of_total_haven_usd_equiv": 0.32609761376394764,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.22449280090589147,
+      "C_cn_count": 8400,
+      "D_union_uncovered_value_share": 0.2557543441238592,
+      "D_union_uncovered_count_share": 0.29420574515099435,
+      "_cn_value_usd_equiv": 77399455660.99619,
+      "_cn_value_raw": 98059216072.20425
+    },
+    "2020q3": {
+      "total_haven_value_usd_equiv": 267338379638.33075,
+      "total_haven_value_raw_mixed_ccy": 486415693732.791,
+      "total_haven_count": 83652,
+      "A_constr_by_value": 0.3622368974524313,
+      "B_constr_by_value": 0.3622368974524313,
+      "A_constr_by_count": 0.10914263855018409,
+      "B_constr_by_count": 0.10914263855018409,
+      "A_union_by_value": 0.7602838378256358,
+      "B_union_by_value": 0.4266526491566547,
+      "A_union_by_count": 0.7138382824080716,
+      "B_union_by_count": 0.22499163199923491,
+      "A_union_with_handmap_by_value": 0.7602838378256358,
+      "B_union_with_handmap_by_value": 0.4266526491566547,
+      "C_cn_share_of_total_haven_usd_equiv": 0.3622368974524313,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.2477642909391371,
+      "C_cn_count": 9130,
+      "D_union_uncovered_value_share": 0.23971616217436426,
+      "D_union_uncovered_count_share": 0.2861617175919285,
+      "_cn_value_usd_equiv": 96839825210.14917,
+      "_cn_value_raw": 120516439459.37344
+    },
+    "2022q1": {
+      "total_haven_value_usd_equiv": 268459311041.41058,
+      "total_haven_value_raw_mixed_ccy": 539116749352.7677,
+      "total_haven_count": 98823,
+      "A_constr_by_value": 0.17862738318271734,
+      "B_constr_by_value": 0.17862738318271734,
+      "A_constr_by_count": 0.09966303390911023,
+      "B_constr_by_count": 0.09966303390911023,
+      "A_union_by_value": 0.6179553678424554,
+      "B_union_by_value": 0.25972576117810015,
+      "A_union_by_count": 0.670107161288364,
+      "B_union_by_count": 0.2231869099298746,
+      "A_union_with_handmap_by_value": 0.6179553678424554,
+      "B_union_with_handmap_by_value": 0.25972576117810015,
+      "C_cn_share_of_total_haven_usd_equiv": 0.17862738318271734,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.20936991142483288,
+      "C_cn_count": 9849,
+      "D_union_uncovered_value_share": 0.3820446321575446,
+      "D_union_uncovered_count_share": 0.32989283871163594,
+      "_cn_value_usd_equiv": 47954184222.36235,
+      "_cn_value_raw": 112874826059.6328
+    },
+    "2022q2": {
+      "total_haven_value_usd_equiv": 228792066517.11844,
+      "total_haven_value_raw_mixed_ccy": 431526475948.2617,
+      "total_haven_count": 92099,
+      "A_constr_by_value": 0.17857376508329345,
+      "B_constr_by_value": 0.17857376508329345,
+      "A_constr_by_count": 0.09520190230078503,
+      "B_constr_by_count": 0.09520190230078503,
+      "A_union_by_value": 0.5862702756985885,
+      "B_union_by_value": 0.24582308853175866,
+      "A_union_by_count": 0.6551536933082878,
+      "B_union_by_count": 0.2103497323532286,
+      "A_union_with_handmap_by_value": 0.5862702756985885,
+      "B_union_with_handmap_by_value": 0.24582308853175866,
+      "C_cn_share_of_total_haven_usd_equiv": 0.17857376508329345,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.20226805016854862,
+      "C_cn_count": 8768,
+      "D_union_uncovered_value_share": 0.41372972430141153,
+      "D_union_uncovered_count_share": 0.3448463066917122,
+      "_cn_value_usd_equiv": 40856260739.149155,
+      "_cn_value_raw": 87284018886.15999
+    },
+    "2024q4": {
+      "total_haven_value_usd_equiv": 231570080019.8938,
+      "total_haven_value_raw_mixed_ccy": 408129349854.8896,
+      "total_haven_count": 83092,
+      "A_constr_by_value": 0.1448930541181806,
+      "B_constr_by_value": 0.1448930541181806,
+      "A_constr_by_count": 0.08653059259615847,
+      "B_constr_by_count": 0.08653059259615847,
+      "A_union_by_value": 0.5594166967320144,
+      "B_union_by_value": 0.21567427593149652,
+      "A_union_by_count": 0.6318658835989024,
+      "B_union_by_count": 0.18740672988976076,
+      "A_union_with_handmap_by_value": 0.5594166967320144,
+      "B_union_with_handmap_by_value": 0.21567427593149652,
+      "C_cn_share_of_total_haven_usd_equiv": 0.1448930541181806,
+      "C_cn_share_of_total_haven_RAW_mixed_ccy": 0.20639574033389213,
+      "C_cn_count": 7190,
+      "D_union_uncovered_value_share": 0.4405833032679856,
+      "D_union_uncovered_count_share": 0.36813411640109756,
+      "_cn_value_usd_equiv": 33552896136.473885,
+      "_cn_value_raw": 84236159315.29001
+    }
+  },
+  "ranges_across_quarters": {
+    "A_constr_by_value": {
+      "min": 0.1448930541181806,
+      "max": 0.37498152477837277
+    },
+    "B_constr_by_value": {
+      "min": 0.1448930541181806,
+      "max": 0.37498152477837277
+    },
+    "A_union_by_value": {
+      "min": 0.5594166967320144,
+      "max": 0.7684824626948891
+    },
+    "B_union_by_value": {
+      "min": 0.21567427593149652,
+      "max": 0.4266526491566547
+    },
+    "C_cn_share_of_total_haven_usd_equiv": {
+      "min": 0.1448930541181806,
+      "max": 0.37498152477837277
+    }
+  },
+  "D_uncovered_tail_union": {
+    "pooled_value_share": 0.3101975665028346,
+    "pooled_count_share": 0.31593605313035067,
+    "residence_split": {
+      "KY": {
+        "value_usd_equiv": 557140889624.4135,
+        "share_of_total_haven_value": 0.2964787365098773,
+        "count": 163091
+      },
+      "HK": {
+        "value_usd_equiv": 12998281647.102434,
+        "share_of_total_haven_value": 0.006916947205455283,
+        "count": 38320
+      },
+      "VG": {
+        "value_usd_equiv": 12782053350.472067,
+        "share_of_total_haven_value": 0.006801882787501916,
+        "count": 5620
+      }
+    },
+    "concentration": {
+      "hhi_by_issuer": 0.0014424446120748793,
+      "top10_issuer_value_share_of_uncovered": 0.0677689330805504,
+      "interpretation": "computed on uncovered USD-equiv value by issuer; higher => concentrated, lower => diffuse."
+    },
+    "top20_untagged_issuers_by_pooled_value": [
+      {
+        "issuer_name": "Madison Park Funding Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 9751516643.58,
+        "share_of_total_haven_value": 0.005189203283019908,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Palmer Square Loan Funding Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 4350429137.37,
+        "share_of_total_haven_value": 0.0023150512876423685,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Carlyle Global Market Strategi",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3563700561.64,
+        "share_of_total_haven_value": 0.0018963990248980456,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Dryden Senior Loan Fund",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3489425700.03,
+        "share_of_total_haven_value": 0.0018568741622741163,
+        "obvious_chinese_name_flag": [
+          "nio"
+        ]
+      },
+      {
+        "issuer_name": "Pagseguro Digital Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3205033222.46,
+        "share_of_total_haven_value": 0.0017055366388701034,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Arbor Realty Collateralized Loan Obligation Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3102797915.27,
+        "share_of_total_haven_value": 0.0016511328152289707,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "OZLM Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3097028141.95,
+        "share_of_total_haven_value": 0.0016480624695844152,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Voya CLO Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3051441091.54,
+        "share_of_total_haven_value": 0.00162380363064714,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Millennium International, Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2964316653.17,
+        "share_of_total_haven_value": 0.0015774409531124083,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Pagseguro Digital Ltd.",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2928260395.63,
+        "share_of_total_haven_value": 0.0015582538608027048,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "ANT INTERNATIONAL",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2899046470.03,
+        "share_of_total_haven_value": 0.0015427078689150507,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Elliott International, Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2671586355.65,
+        "share_of_total_haven_value": 0.001421666515509387,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "N/A",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2632259999.8094873,
+        "share_of_total_haven_value": 0.0014007392626218937,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "TICP CLO Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2566042785.69,
+        "share_of_total_haven_value": 0.0013655022223275004,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Sound Point CLO LTD",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2515309809.68,
+        "share_of_total_haven_value": 0.0013385050140684357,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Palmer Square Loan Funding Ltd.",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2477069842.28,
+        "share_of_total_haven_value": 0.0013181558754033961,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Vibrant CLO Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2297122756.53,
+        "share_of_total_haven_value": 0.0012223982571503904,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "CIFC Funding Ltd",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2295975121.14,
+        "share_of_total_haven_value": 0.0012217875507801745,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Cerberus",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2109405314.42,
+        "share_of_total_haven_value": 0.0011225056965897084,
+        "obvious_chinese_name_flag": null
+      },
+      {
+        "issuer_name": "Carlyle Global Market Strategies",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 2035588917.08,
+        "share_of_total_haven_value": 0.001083224802610041,
+        "obvious_chinese_name_flag": null
+      }
+    ],
+    "obvious_chinese_names_still_in_tail": [
+      {
+        "issuer_name": "Dryden Senior Loan Fund",
+        "residence_iso2": "KY",
+        "pooled_value_usd_equiv": 3489425700.03,
+        "share_of_total_haven_value": 0.0018568741622741163,
+        "obvious_chinese_name_flag": [
+          "nio"
+        ]
+      }
+    ],
+    "obvious_cn_in_tail_note": "Any obvious-CN name here means the construction is INCOMPLETE for that name, not that the tail is non-Chinese. Tencent/Meituan/Xiaomi are HKEX-listed, not SEC HFCAA filers, so they are genuinely unreachable by this free SEC/XBRL route."
+  }
+}

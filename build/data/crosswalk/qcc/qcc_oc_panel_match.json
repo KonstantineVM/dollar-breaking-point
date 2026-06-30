@@ -1,0 +1,11 @@
+{
+ "haven_leis": 3434,
+ "qcc_mapped": 2932,
+ "qcc_cov": 0.8538147932440303,
+ "qcc_value_share": 0.4580671247755302,
+ "oc_mapped": 263,
+ "oc_cov": 0.07658707047175306,
+ "oc_value_share": 0.01668617788707183,
+ "oc_incremental_over_qcc": 25,
+ "oc_china_register_rows": 0
+}
