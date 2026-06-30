@@ -2311,3 +2311,52 @@ for s in d['steps']:
 json.dump(d, open(p,'w'), indent=2)
 json.load(open(p)); print("ledger updated + valid (note appended to DP5)")
 EOF
+2026-06-30T16:29:33Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Marginal-to-FWTW reconstruction: max-entropy and RAS F3 test -> NO-F3 (prediction held)
+
+Tests whether a marginal-recovered US-holder x issuer-nationality interior can
+load F3, by two methods, each measured against a pre-registered falsifiable
+prediction. A TEST, not a confirmation: a negative holder-varying F3 sign would
+have REFUTED the prediction. Does NOT re-tag the operator, re-run separability
+proper, or touch DP2-DP6.
+
+Part 0 (pre-registered FIRST, commit 1c679f7, before any interior existed):
+max-ent -> aggregate ~+0.5 NO-F3; RAS-on-residency -> ~+0.521 NO-F3; either
+returning a negative holder-varying F3 loading refutes.
+
+Part 1 marginals (grounded): ROW = per-US-fund haven (CYM/HKG/VGB) holdings from
+the N-PORT panel; COLUMN = BIS IDS China nationality-basis debt (WS_DEBT_SEC2_PUB,
+nationality confirmed from real ISSUER_NAT labels). DEBT-ONLY; haven equity VIEs
+(Alibaba/Tencent/...) are not in IDS -- a stated HOLE, not assumed zero.
+
+Part 2 (both interiors computed; recompute PASS, byte-identical):
+- Method 1 = independence table p_ij = row_i*col_j/total (numpy.outer); every
+  holder the identical aggregate China fraction (degenerate).
+- Method 2 = RAS/Sinkhorn on the DP2 residency seed; genuinely holder-varying
+  (China-share spread 0.733-0.962). Both satisfy both marginals to ~1e-15.
+
+Part 3 (F3 substitution statistic, same construction as the prior nationality
+test -- q-o-q log-change, 5 contiguous transitions, non-China-haven counter-leg
+since the panel carries no USA leg; recompute PASS 20/20):
+- Method 1 within-holder sign +0.999 (aggregate +0.997).
+- Method 2 within-holder sign +0.956 (per-haven CYM +0.9995 / HKG +0.872 /
+  VGB +0.9996; footprint +0.818).
+Both strongly POSITIVE = common growth, not substitution.
+
+Result: prediction HELD; both methods NO-F3. No negative, correctly-signed,
+holder-varying F3 loading appeared; refutation was genuinely attainable (HKG
++0.872 / footprint +0.818 < 1 => legs not mechanically collinear). Honest
+magnitude caveat: the ~+0.5/+0.521 point targets did not reproduce (both give
++0.997 since the interiors share the BIS China column marginal); the prediction's
+binary NO-F3 content held. Anti-planting: the +0.52 collapse is a measured
+output, never an input (no hardcoded target in either recompute script).
+
+Integrity-critic GATE = PASS; the two read-only-unverifiable items (git commit
+ordering; recompute execution) closed by orchestrator execution. Confirms a
+marginal-recovered nationality interior cannot manufacture F3 identification;
+only a real per-security ultimate-parent crosswalk could. Standing
+UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict unchanged. DP2-DP5 untouched, DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
