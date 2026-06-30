@@ -2693,3 +2693,49 @@ DP2-DP5 untouched, DP6 not begun.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
 for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
+2026-06-30T23:31:40Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/fullpanel_prediction.md build/run-ledger.log 2>/dev/null
+git commit -q -m "Pre-register full-panel CM power rebuild (BEFORE building)
+
+Falsifiable prior committed before the full N-PORT panel is built. POWER rebuild,
+NOT a re-specification: only the quarter count changes (8 -> target ~22,
+2019Q4-latest); the estimator, dependent variable, controls, fund FE, lags,
+robustness set (incl. wild cluster bootstrap seed 42), and decision rule are
+IDENTICAL to cm_regression_prediction.md (quoted verbatim). Primary prediction:
+the leave-one-quarter-out fragility will substantially attenuate (no single
+quarter is >~1/22 of identification; G rises 6-8 -> ~18-22; lag chains stay
+intact). Sign-agnostic on beta: F3-LOADS (negative survives leave-one-out) vs
+NO-SUBSTITUTION (tight null) is left open. Falsifiable commitment: if single-
+quarter leave-one-out STILL collapses beta on the full panel, INSUFFICIENT-POWER
+becomes the TERMINAL answer. Anti-planting: headline = prior spec on more data
+(no spec-search); bootstrap + leave-one-out computed/persisted/reproduced, never
+asserted; beta read from output, never hardcoded; crosswalk R1-R4 reused not
+re-derived.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
+2026-06-30T23:31:55Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== N-PORT panel builder + provenance (download recipe + quarters/URLs) ==="
+ls -la build/data/nport/build_us_china_panel.py build/data/nport/us_china_panel_provenance.json 2>/dev/null
+echo "--- quarters + N-PORT URLs in provenance ---"
+python3 -c "
+import json
+d=json.load(open('build/data/nport/us_china_panel_provenance.json'))
+import json as j
+def find(o,subs):
+  out=[]
+  def rec(o,path):
+    if isinstance(o,dict):
+      for k,v in o.items():
+        if any(s in str(k).lower() for s in subs) and not isinstance(v,(dict,list)): out.append((path+k,str(v)[:160]))
+        rec(v,path+k+'.')
+    elif isinstance(o,list):
+      for i,v in enumerate(o[:30]): rec(v,path+f'[{i}].')
+  rec(o,'')
+  return out
+for k,v in find(d,['quarter','url','zip','nport','accession','source','coverage','identifier']): print(k,'=',v)
+" 2>&1 | head -40
+echo "=== crosswalk tag recompute (R1-R4 rule logic to REUSE) ==="
+ls -la build/data/nport/panel_crosswalk_tagged_recompute.py 2>/dev/null
+grep -nE "def |R1|R2|R3|R4|HFCAA|hfcaa|XBRL|F6|F-6|qcc|nport|zip|download|haven|investment_country" build/data/nport/panel_crosswalk_tagged_recompute.py 2>/dev/null | head -40

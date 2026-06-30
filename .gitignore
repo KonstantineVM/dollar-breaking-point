@@ -49,3 +49,11 @@ build/data/crosswalk/hfcaa/hfcaa_landing.html
 # Tagged haven panel (11MB) regenerable from build/data/nport/panel_crosswalk_tagged_recompute.py
 # + the panel + crosswalk sources; coverage recompute + verify carry the load-bearing numbers.
 build/data/nport/panel_crosswalk_tagged.parquet
+
+# Full-panel power rebuild — large raw N-PORT intermediates (ZIPs 240-720MB each, extracted TSVs,
+# per-quarter haven parquets). Regenerable from build_fullpanel_haven.py + the SEC ZIP URLs in the
+# provenance. The final tagged full panel is also gitignored (large); recompute + verifier carry numbers.
+build/data/nport/work/
+build/data/nport/haven_parts/
+build/data/nport/__pycache__/
+build/data/nport/panel_crosswalk_tagged_full.parquet
