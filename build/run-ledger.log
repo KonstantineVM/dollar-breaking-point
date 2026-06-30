@@ -2092,3 +2092,69 @@ json.dump(d, open(p,'w'), indent=2)
 json.load(open(p))  # validate
 print("ledger updated + valid; DP1 note now", len(d['steps'][[i for i,s in enumerate(d['steps']) if s['id']=='DP1'][0]]['note']),"chars")
 EOF
+2026-06-29T22:56:26Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point; git commit -q -m "Part 0 re-run (anti-cherry-pick): GCAP route determination from opened files
+
+Re-determines the GCAP residence->nationality route by OPENING all five
+candidate files and enumerating their REAL column schemas, replacing a prior
+'route A absent' verdict that rested on an unopened file (the Drive product
+'Public Security-Level Data on U.S. Fund Holdings').
+
+Per-file (grounded in extracted columns, not filenames):
+- #1 public-US-funds-data.zip: N-PORT processing CODE only; no data table.
+- #2 Drive nport.zip: OPENED via HTTP-206 range reads (16.47 GB ZIP64, 26
+  quarterly dta-118 members 2019q3..2025q4). Security ids present
+  (issuer_cusip/identifier_isin/issuer_lei); only geography column is
+  investment_country (issuer RESIDENCE per publisher README); NO nationality
+  /ultimate-parent column among the 41 vars.
+- #3 GCAP_FundHoldingsStatistics.zip: country-level nationality aggregates,
+  no security key.
+- #4 redrawing-the-map.zip: cusip6->ultparent_country crosswalk + residency
+  -vs-nationality masterfile exist by SCHEMA but are MOCK / licensed CMNS
+  placeholders ('Mock Data: String'), not populated.
+- #5 CCDMS_Replication.zip: country x country restated bilateral aggregates,
+  no security key.
+
+Verdict: ROUTE-A-ABSENT-EARNED (route_a_exists=false, incomplete=false): no
+opened FREE file carries both a security id and a populated ultimate-parent
+-nationality column; per-security parent nationality still requires the
+licensed CMNS layer.
+
+File #2 provenance hardened after a first integrity-critic BLOCK: captured
+genuine HTTP/2 206 headers (content-range .../16470969928, filename nport.zip),
+committed raw byte blobs (zip_tail.bin = ZIP64 central directory;
+member0_head.bin = deflate prefix of 2019q3.dta) and a no-network regen script
+that byte-regenerates the 26-member list and 41 varnames. Verifier
+build/results/gcap_route_drive_open_verify.json overall_pass=true (11/11);
+regen script executed -> PASS. Integrity-critic re-adjudication: PASS.
+
+Part-0 schema re-determination ONLY: separability not re-run, DP2-DP5
+untouched, DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+2026-06-29T22:56:32Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point; for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "push attempt $i failed; retrying"; sleep $((2**i)); }; done
+2026-06-30T00:06:46Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== gitignore check on large GLEIF raw ==="; git check-ignore build/data/gleif/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip 2>/dev/null && echo "(ignored OK)" || echo "NOT IGNORED - will add"
+echo "=== append coverage-measurement result to DP1 ledger note ==="
+python3 << 'EOF'
+import json
+p='build/ledger.json'
+d=json.load(open(p))
+add=(" || FREE-MAP COVERAGE MEASUREMENT (2026-06-30, gates whether a free per-security nationality re-tag is worth attempting; symmetric — does NOT re-tag operator, re-run separability, or touch DP2-DP6): "
+     "Assembled FREE per-security ultimate-parent sources — (a) GLEIF Level-2 RR golden copy (real bulk file, 477,383 relationships, publish 2026-06-29 16:00 UTC) + free GLEIF API for parent legal country (field entity.legalAddress.country), built issuer_lei->parent_country for 3,427 of 3,434 distinct non-null haven issuer_leis; (b) a filing-sourced hand-map of 9 SEC 20-F Chinese VIE/ADR issuers (Alibaba/Baidu/JD/NetEase/PDD/TAL/Trip.com/ZTO/HWorld), 70 ISIN rows, each sourced to an EDGAR CIK+20-F. "
+     "MEASURED coverage on the haven subset (CYM/HKG/VGB) of build/data/nport/us_china_nationality_panel.parquet, USD-equivalent (currency_value is mixed HKD/USD, converted; B FX-invariant): "
+     "A coverage-any-nationality = 0.686 by value (pooled), but 58.1% of A is COSMETIC (GLEIF SELF restating residence); "
+     "B nationality!=residence (the DISCRIMINATING share that can break the uniform aggregate reweighting) = 0.287 pooled (0.184-0.360, falling over time); "
+     "C CN-parent share of total haven value = 0.226 pooled (real, non-trivial). "
+     "Uncovered tail = 0.314 of haven value, almost entirely Cayman (KY=0.300), DIFFUSE (issuer HHI 0.0014, top-10=6.7%); top untagged are Cayman CLO/structured-credit + hedge-fund vehicles (Madison Park, Palmer Square, Carlyle, Dryden, Voya CLO...), NOT Chinese operating companies; no large obvious-CN parent (Tencent/Meituan/Xiaomi) sits unflagged at the top of the tail (those are HKEX, not SEC, so unsourceable under the do-not-guess rule; ANT International ~0.15% disclosed, immaterial). "
+     "PRE-REGISTERED RULE applied to B: B=0.287 << 0.80 AND tail large/Cayman-heavy/diffuse => RECOMMEND-NOT-PROCEED: a free-map re-tag would leave ~31% diffuse Cayman value to a RAS/max-entropy fill that would DOMINATE and collapse back to the ~+0.521 aggregate result; the licensed CMNS crosswalk remains the only thing that closes identification. Symmetric: had B>~0.80 with a bound-able tail the same script returns PROCEED. "
+     "Reproducibility: build/audit/freemap_coverage_recompute.py regenerates every number from panel+2 lookups (no network); orchestrator EXECUTED it -> byte-identical to build/audit/freemap_coverage.json (verifier build/results/freemap_coverage_verify.json). Confirmed investment_country is ISO alpha-2 (HK/KY/VG) so B is not inflated by a residence-encoding mismatch. Integrity-critic GATE = PASS (GLEIF really fetched, every hand-map row sourced, coverage recomputed not asserted, symmetric-error clean both directions, NOT-PROCEED earned not planted); two read-only-unverifiable items (recompute reproducibility; alpha-2 encoding) CLOSED by orchestrator execution above. "
+     "Artifacts: build/contracts/gleif_source_contract.json, build/data/gleif/lei_parent_country.csv, build/audit/china_haven_issuer_handmap.csv(+provenance.md), build/audit/freemap_coverage.json, build/audit/freemap_recommendation.md. ADVISORY: whether the re-test runs is the human's call. DP2-DP5 untouched, DP6 NOT begun.")
+for s in d['steps']:
+    if s['id']=='DP1':
+        s['note']=s.get('note','')+add
+        break
+json.dump(d, open(p,'w'), indent=2)
+json.load(open(p))
+print("ledger updated + valid")
+EOF
