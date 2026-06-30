@@ -2644,3 +2644,52 @@ for s in d['steps']:
 json.dump(d, open(p,'w'), indent=2)
 json.load(open(p)); print("ledger updated + valid (DP5 note appended)")
 EOF
+2026-06-30T22:32:20Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Converse-Mallucci weight regression: F3 substitution test -> INSUFFICIENT-POWER
+
+The field-standard estimator (Converse & Mallucci, NBER 32638) that CAN separate
+substitution from co-movement -- unlike every prior within-holder CORRELATION,
+which structurally cannot (why aggregate / marginal-reconstruction /
+per-security-tagged data all returned ~+0.5). A portfolio-weight regression on
+China's GPR index with fund FE + a macro state vector absorbing the common
+component; the substitution parameter is beta on GPRC_China. Does NOT re-tag the
+operator, build a hazard, or touch DP2-DP6.
+
+Part 0 (pre-registered FIRST, commit 8e2ae9f): primary call INSUFFICIENT-POWER,
+sign-agnostic, explicit a-priori power-pessimism (8 non-contiguous quarters, CN
+coverage 0.34).
+
+Spec: w_{f,t}=alpha_f + beta*GPRC_China + g1*w_{t-1} + g2*w_{t-2} + d*rel_returns
++ theta*[logVIX,broad dollar,oil] + eps, fund FE (replacing time FE because GPRC
+is a single national series -- CM's device). Panel: 7,412 funds x 8 quarters,
+37,403 fund-quarter obs (fund-id+quarter re-attached to the crosswalk-tagged
+haven rows, verified byte-identical). Series grounded: GPRC_CHN from
+matteoiacoviello.com; VIX/dollar/oil from FRED; rel_returns=MCHI-ACWX (proxy,
+run with/without).
+
+Result (beta read from estimator, recompute+verifier byte-identical): beta
+NEGATIVE in all 8 specs (headline -0.0383). Classical p=0.362; cluster-quarter
+p=0.029 (G=6-8, over-rejects). Computed wild cluster bootstrap by quarter (G=8,
+Rademacher, null-imposed, 2000 reps, seed 42) p=0.0480 -- on the 5% boundary.
+Leave-one-quarter-out: headline beta collapses to ~0 dropping any of
+2020q1/q2/q3/2022q1/2022q2; no-lags beta flips sign (+0.073) dropping 2024q4.
+Power: only 23.5% of within-fund GPRC variation survives the controls.
+
+Verdict: INSUFFICIENT-POWER (negative directional lean). NOT F3-LOADS (robust
+prong fails -- collapse/flip under leave-one-out; bootstrap only boundary-sig).
+NOT NO-SUBSTITUTION (CI does not exclude a meaningful negative). Prediction HELD.
+
+GATE: integrity-critic initially BLOCKED -- the verdict cited a bootstrap p=0.048
+and a leave-one-out -0.008 that were ASSERTED, not computed on disk. Fix: added
+the wild bootstrap + leave-one-out as real seeded deterministic code, persisted
++ verifier-reproduced; the computed drop-2022q2 is +0.0067 (the asserted -0.008
+was wrong -> verdict corrected, result more fragile than asserted). Critic
+re-adjudication = PASS; orchestrator re-ran the recompute -> verify byte-identical.
+
+Standing UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict unchanged: the best estimator
+on the best free data leans negative but the panel is too thin to resolve F3.
+DP2-DP5 untouched, DP6 not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && echo COMMITTED
+for i in 1 2 3 4; do git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 && { echo "PUSH OK"; break; } || { echo "attempt $i failed"; sleep $((2**i)); }; done
