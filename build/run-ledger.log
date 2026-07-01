@@ -3694,3 +3694,36 @@ json.dump(d, open(p,"w"), indent=2)
 json.load(open(p))
 print("ledger valid; steps:", [s["id"] for s in d["steps"]])
 PY
+2026-07-01T20:08:05Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/ledger.json build/reserve/RD1_result.json build/reserve/RD1_recompute.py build/reserve/RD1_verify.json build/reserve/RD1_verdict.md build/run-ledger.log
+git commit -q -m "RD1 + GATE: reserve-side S1 currency composition -> INSUFFICIENT-POWER
+
+Reserve-side program (new arc, does not touch DP2-DP6). RD0 grounded all
+five surfaces (public/national/primary, IMF COFER excluded); taxonomy on
+the UN ES-11/1 roll-call. RD1 = Surface 1 freeze event-study/DiD on the
+LMW disclosed-currency-composition panel.
+
+Data-integrity check replicates Russia USD 47->13.89%, CNY 0->21.78%
+(2007-2021). Freeze DiD (treated = 9 No/Abstain disclosers with 2022 data
+vs 38 Yes disclosers; country+year FE; no LOQO -- pre-trend is the
+validity check): beta = +0.28pp (p=0.95, CI [-8.2,+8.8]); positive,
+insignificant, wrong sign. Pre-trend window-dependent (primary p=0.088,
+full-sample violated). CI spans both 0 and a +-5pp move.
+
+Verdict: INSUFFICIENT-POWER (not a clean null; not reallocation). Three
+components kept separate: (i) freeze DiD -- underpowered, fragile
+pre-trend, and a WEAK-PROXY treated group (construct validity: the 9 small
+non-aligned disclosers are not Russia/China); (ii) Russia OBSERVED
+pre-freeze diversification, labelled, not the freeze response (post-freeze
+Russia unobserved); (iii) China INFERRED residual, not observed on S1.
+Prediction HELD. beta/leads-lags/pre-trend computed, persisted, and
+byte-reproduced (RD1_verify.json all_pass=true); orchestrator re-ran ->
+byte-identical.
+
+Integrity-critic GATE: PASS on all eight checks. Check-7 (weak-proxy
+adequacy) routed to the human gate; verdict sharpened to state the
+construct-validity limit explicitly. RD2-RD6 not run (each separately
+human-gated). DP2-DP6 untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
