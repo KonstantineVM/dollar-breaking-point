@@ -3304,3 +3304,27 @@ tuned to sign). beta read from estimator; LOQO + bootstrap computed.
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T05:58:21Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+if [ -n "$(git status --porcelain)" ]; then
+  git add build/run-ledger.log 2>/dev/null
+  git diff --cached --quiet || git commit -q -m "chore: run-ledger checkpoint (active-flow estimation in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T06:01:55Z	OUTPUT (not established until verifier runs)	python3 -c "
+import json
+v = json.load(open('build/results/active_flow_verify.json'))
+print('beta_matches:', v['beta_matches'])
+print('bootstrap_p_recomputed_matches:', v['bootstrap_p_recomputed_matches'])
+print('leave_one_out_recomputed_matches:', v['leave_one_out_recomputed_matches'])
+print('merge1_ok:', v['merge1_treatment_ok_22_of_22'])
+print('G:', v['estimation_G'], 'wcb_G:', v['wild_cluster_bootstrap_G'])
+print('bootstrap p in/re:', v['wild_cluster_bootstrap_p_in_result'], v['wild_cluster_bootstrap_p_recomputed'])
+print('n DV1 nonnull:', v['n_cells_DV1_nonnull'])
+print()
+print('DV betas WITH/WITHOUT:')
+for k in ['DV1_without','DV1_with','DV2_without','DV2_with','DV3_without','DV3_with']:
+    print(' ', k, round(v['betas_in_result'][k],6))
+"
