@@ -3337,3 +3337,38 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 fi
 git status --short && echo CLEAN
+2026-07-01T06:09:17Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Parts 2-3 + GATE: active-flow F3 test -> INSUFFICIENT-POWER (leaning NO-F3)
+
+Re-ran the sanctions test with the DV replaced by ACTIVE net flow into
+CN-nationality haven securities (constant-price decomposition; valuation
+removed by construction), across three disclosed normalizations.
+
+Result (coef read from estimator; byte-reproduced, orchestrator re-ran):
+active-flow sanctions beta WITH reg control DV1 -0.0092 / DV2 -0.0049 /
+DV3 -0.0079; WITHOUT control DV1 -0.0017 / DV2 +0.0019 / DV3 -0.0020 --
+sign not stable across normalizations, negative only under the r=0.828
+collinear control, insignificant in all three. Wild bootstrap G=21 p=0.16;
+LOQO flips positive dropping 2022q1/q2.
+
+Key weight->active-flow comparison: the weight sanctions beta +0.0177
+(bootstrap p=0.27) dissolved -- the decomposition moved the estimate
+(2,678 opposite-sign fund-quarters) and flipped the point sign negative
+with control, but revealed no significant, normalization-robust, or
+LOQO-stable negative. Valuation-masking neither confirmed nor proven clean.
+
+Verdict: INSUFFICIENT-POWER (leaning NO-F3) -- honest G=21 bootstrap CI
+does not exclude a modest negative (not clean NO-F3); insignificant and
+unstable (not F3-LOADS). Part-0 prediction HELD.
+
+Integrity-critic GATE: PASS on all seven checks (Part 0 feasibility
+grounded in real downloaded N-PORT data -- branch A, balance populated on
+99.97% of haven-CN value; reconstruction gate exact to 5.96e-08 USD;
+LOQO + bootstrap computed/persisted/reproduced; outlier treatment
+disclosed across DV1/DV2/DV3, not cherry-picked). One phrasing item
+tightened per the critic (a 'substantially valuation artifact' claim over
+two insignificant estimates). Standing UNIDENTIFIABLE-FROM-AVAILABLE-DATA
+verdict unchanged. DP2-DP6 untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
