@@ -146,3 +146,22 @@ gerrymandering an EM set into treated. Broader-set membership is a Part-3 decisi
 Part 1 only: sources grounded and the tonnage panel built. **Did NOT run the DiD or the
 decomposition (Parts 2–3).** Did not touch DP2–DP6, the RD1 currency panel, `build/ledger.json`,
 `build/approvals/`, or the operator. Nothing committed.
+
+## Reconciliation note (orchestrator, post-build)
+
+Two independent data-source fetches ran for this surface and **cross-corroborate the tonnage DV**: one
+via the WGC Central Banks Dashboard API (`fsapi.gold.org/api/cbd/v11`, which republishes IMF IFS gold
+tonnage; 123-country coverage) and one via the IMF IFS SDMX endpoint directly
+(`api.imf.org/.../IMF.STA,IL,13.0.1/{ISO3}.RGV_REVS.FTO.Q`; 39-country coverage). The two routes AGREE on
+the treated-unit tonnage (China, Russia, US anchor) to within rounding — an independent triangulation of the
+DV, not a single-source figure.
+
+**Headline panel = the WGC-cbd 123-country build** (`rd2_build_panel.py` + the committed evidence), chosen
+for its broader control coverage (more Yes-voter controls -> better-powered treated-vs-control DiD). The
+IMF-IFS-direct 39-country build agreed on the treated units and is the corroborating cross-check. A
+concurrent-writer incident (the two fetch agents overwrote each other's parquet mid-run) was resolved by
+standardizing on this single reproducible build: `RD2_gold_panel.parquet` regenerates deterministically from
+`rd2_build_panel.py` + `rd2_evidence/{cbd_quarterly_2019_2025.json, wb_pinksheet_MYFETCH.xlsx}` and the RD0
+ES-11/1 vote file. Valuation caveat carried: national gold *value* uses mixed statutory/market conventions
+(e.g. US books at $42.22/oz), so the tonnage-vs-price decomposition anchors to the market-price columns and
+to a window where both tonnes and price are observed.
