@@ -3466,3 +3466,38 @@ git status --short && echo CLEAN
 # Is the GATE agent done? check for its completion by output file recency + whether a notification is pending
 stat -c '%y' /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/tasks/adf4912ab09d67c8f.output 2>/dev/null | cut -d. -f1
 echo "(waiting for GATE completion notification)"
+2026-07-01T16:46:24Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Parts 0-2 + GATE: DiD reserve-freeze event study -> NOT-IDENTIFIED
+
+Runs the correct estimator for a discrete event (DiD/event study around
+the 2022q1 reserve freeze on valuation-stripped active flow, with a
+pre-trend test) instead of a continuous-shock panel + LOQO (LOQO removes
+the identifying event quarters -- invalid for an event study).
+
+Part 0 feasibility (memory-efficient streaming; treated reconciles to the
+committed active-flow panel to 2.2e-16): built three candidate controls
+(C1 non-CN haven, C2 non-haven EM equity, C3 DM equity) and tested each
+for a parallel pre-trend. Load-bearing catch: the untrimmed test read
+C1/C3 as 'parallel' (p=0.41, 0.61) -- an SE-inflation artifact from
+active-flow-rate outliers (SEs of 27/246); trimming 1% flips every
+candidate to strongly non-parallel (p<=0.001, precisely estimated,
+consistent at 5%). No control has an outlier-robust flat pre-trend.
+
+Verdict: NOT-IDENTIFIED -- the DiD is not identified on this quantity;
+NO beta is estimated or reported. Switching to the event estimator did
+not change the answer: its parallel-control assumption fails on the data,
+so it cannot rescue an effect the continuous-shock test left an
+insignificant near-null. Part-0 prediction HELD.
+
+Pre-trends + 5%-trimmed per-quarter means computed, persisted, and
+byte-reproduced (did_pretrend_verify.json: all_coef_match_1e-6=true,
+branch_match=true, trim5pct self_reproduce=0.0); orchestrator re-ran ->
+byte-identical. Integrity-critic GATE: BLOCKED one checkable-shell gap
+(a corroborating table cited as verifier-reproduced but not persisted);
+fixed by persisting + reproducing it; re-adjudication PASS. Trim-override
+judgment + alternative-normalization scope routed to the human gate.
+Standing UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict unchanged. DP2-DP6
+untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
