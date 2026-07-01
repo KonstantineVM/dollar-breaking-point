@@ -4078,3 +4078,76 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
 EOF
 )" && git log --oneline -1 && git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-07-01T23:49:17Z	OUTPUT (not established until verifier runs)	git add build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+Update run-ledger log (RDT Part 1 grounding in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-07-01T23:50:28Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/reserve && python3 - <<'EOF'
+import json, datetime
+recon = json.load(open("rdt_evidence/gold_history/_recon_tmp.json"))
+manifest = {
+  "artifact": "rdt_k2_gold.csv",
+  "coordinate": "k2 (official gold tonnes, extended history) + total-reserve denominators",
+  "built_utc": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+  "status": "GROUNDED",
+  "routes": {
+    "gold_tonnes_primary": {
+      "source": "WGC Central Banks Dashboard API (fsapi.gold.org cbd v11; republishes IMF IFS official gold holdings)",
+      "url": "https://fsapi.gold.org/api/cbd/v11/charts/getPage?page=date_range&periodicity=QTD_FULL&startDate=2000-01-01&endDate=2026-12-31",
+      "fetched": "2026-07-01", "http": 200, "bytes": 3859095,
+      "raw_file": "rdt_evidence/gold_history/cbd_quarterly_2000_2026.json",
+      "coverage": "123 ISO3 holders, quarterly 2000Q4-2026Q1 (102 quarters); year-end (Q4) values used in CSV",
+      "outcome": "API accepted the earlier window directly; NO fallback needed (IMF IFS route not attempted, WGC historical xlsx not needed)"
+    },
+    "denominators": {
+      "source": "World Bank API, FI.RES.TOTL.CD (total reserves incl. gold, current US$) and FI.RES.XGLD.CD (total reserves minus gold)",
+      "urls": [
+        "https://api.worldbank.org/v2/country/RUS;CHN;IND;TUR;SAU;POL/indicator/FI.RES.TOTL.CD?format=json&date=2010:2026&per_page=300",
+        "https://api.worldbank.org/v2/country/RUS;CHN;IND;TUR;SAU;POL/indicator/FI.RES.XGLD.CD?format=json&date=2010:2026&per_page=300"
+      ],
+      "fetched": "2026-07-01", "http": 200,
+      "raw_files": ["rdt_evidence/gold_history/wb_FI_RES_TOTL_CD.json", "rdt_evidence/gold_history/wb_FI_RES_XGLD_CD.json"],
+      "note_k1_china": "CHN FI.RES.TOTL.CD 2010-2025 present (2025 = 3748.7 $bn) — feeds the pre-registered k1-China residual as R_C,t"
+    }
+  },
+  "csv_schema": ["country","year","gold_tonnes(year-end Q4)","total_reserves_usd_bn","reserves_ex_gold_usd_bn","source"],
+  "coverage": {
+    "countries": ["RUS","CHN","IND","TUR","SAU","POL","USA"],
+    "years": "2010-2025 year-end",
+    "rows": 112,
+    "gold_tonnes": "all 7 countries 2010-2025 complete",
+    "denominators": "six holders 2010-2025 EXCEPT RUS 2025 (World Bank series ends 2024); USA denominators not fetched (out of task scope; US is tonnage stability anchor only)"
+  },
+  "integrity_anchor_russia": {
+    "rule": "2014-2020 accumulation ~1,000t -> ~2,300t must be visible in the built series",
+    "end_2013_tonnes": 1035.21, "end_2014_tonnes": 1208.19,
+    "end_2020_tonnes": 2298.53, "end_2021_tonnes": 2301.64,
+    "verdict": "PASS — end-2013 1035.21t -> end-2020 2298.53t, quoted from rdt_k2_gold.csv"
+  },
+  "usa_stability_anchor": {"end_2010_tonnes": 8133.46, "end_2025_tonnes": 8133.46, "verdict": "flat at 8133.46t across 2010-2025, as expected (~8133.5t)"},
+  "rd2_overlap_reconciliation": {
+    "compared_against": "build/reserve/RD2_gold_panel.parquet (READ-ONLY), column reserve_gold_tonnes",
+    "method": "all overlapping quarters 2019Q1-2025Q4 (28 per country), max |tonnes diff| by country",
+    "per_country_max_abs_tonnes_diff": {k: v["max_abs_tonnes_diff"] for k, v in recon.items()},
+    "n_overlap_quarters": {k: v["n_overlap_quarters"] for k, v in recon.items()},
+    "verdict": "EXACT match (max |diff| = 0.0 t for all 7 countries; same API, same day, no revisions between the RD2 2019-2025 window and this extended fetch)"
+  },
+  "observed_source_features": [
+    "TUR flat at ~116.1t 2010-2016 then rising from 2017 to 614.3t (2025) — as published by the source (WGC/IFS central-bank series); not adjusted",
+    "CHN steps 1054.09t (2010-2014) -> 1762.31t (2015): the 2015 disclosure step is in the source data as published",
+    "SAU essentially flat ~322.9-323.07t across 2010-2025",
+    "RUS tonnage plateau post-2021: 2332.74t 2022-2024, 2326.52t 2025 (matches RD2 opacity caveat)"
+  ],
+  "not_available": [
+    "RUS World Bank denominators for 2025 (FI.RES.TOTL.CD / FI.RES.XGLD.CD end at 2024 for RUS; raw JSON retained shows no 2025 value)",
+    "USA total-reserve denominators (not fetched — outside the six-holder denominator scope)"
+  ],
+  "not_attempted_because_primary_succeeded": ["IMF IFS gold-volume API (time-boxed fallback, unused)", "WGC historical xlsx (login-gated per RD2 log, unused)"]
+}
+json.dump(manifest, open("rdt_k2_manifest.json","w"), indent=1)
+import os; os.remove("rdt_evidence/gold_history/_recon_tmp.json")
+print("manifest written")
+EOF
