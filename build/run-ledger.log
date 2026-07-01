@@ -2800,3 +2800,144 @@ holder-universe caveats carried, not smoothed.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git log --oneline -1
 2026-07-01T00:17:50Z	OUTPUT (not established until verifier runs)	git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+2026-07-01T00:18:19Z	OUTPUT (not established until verifier runs)	git add build/run-ledger.log && git commit -q -m "chore: update run-ledger log (Part 1 checkpoint)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-07-01T00:20:09Z	OUTPUT (not established until verifier runs)	cat >> /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/verify_prior.py <<'PY'
+
+# investigate: try clipping negatives to 0 (long-only value)
+nh['usd_pos']=nh.usd.clip(lower=0)
+nh['cn_usd_pos']=np.where(nh.is_cn, nh.usd_pos, 0.0)
+n['usd_pos']=n.usd.clip(lower=0)
+gh2=nh.groupby(['holder','fiscal_quarter']).agg(cn_haven_usd=('cn_usd_pos','sum'),tot_haven_usd=('usd_pos','sum')).reset_index()
+gf2=n.groupby(['holder','fiscal_quarter']).agg(tot_foreign_usd=('usd_pos','sum')).reset_index()
+m2=gh2.merge(gf2,on=['holder','fiscal_quarter'],how='left')
+m2['w']=np.where(m2.tot_haven_usd!=0,m2.cn_haven_usd/m2.tot_haven_usd,0.0)
+m2['w_alt']=np.where(m2.tot_foreign_usd!=0,m2.cn_haven_usd/m2.tot_foreign_usd,0.0)
+c2=p[['holder','fiscal_quarter','cn_haven_usd','tot_haven_usd','tot_foreign_usd','w','w_alt']].merge(
+    m2,on=['holder','fiscal_quarter'],how='outer',suffixes=('_prior','_new'),indicator=True)
+print('\n--- CLIP NEGATIVES TO 0 ---')
+print('merge indicator:',c2._merge.value_counts().to_dict())
+for c in ['cn_haven_usd','tot_haven_usd','tot_foreign_usd','w','w_alt']:
+    d=np.abs(c2[c+'_prior'].fillna(-999)-c2[c+'_new'].fillna(-999))
+    both=c2._merge=='both'
+    dd=np.abs(c2.loc[both,c+'_prior']-c2.loc[both,c+'_new'])
+    print(f'{c:16s} both-only max diff={dd.max():.6g} n_mismatch={int((dd>1e-3).sum())}')
+PY
+python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/verify_prior.py 2>&1 | tail -12
+2026-07-01T00:21:23Z	OUTPUT (not established until verifier runs)	cat >> /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/verify2.py <<'PY'
+
+# identify the 487 dropped keys
+nh['u']=nh.usd; nh['cu']=nh.cn_usd; n['u']=n.usd
+gh=nh.groupby(['holder','fiscal_quarter']).agg(cn_haven_usd=('cu','sum'),tot_haven_usd=('u','sum')).reset_index()
+gf=n.groupby(['holder','fiscal_quarter']).agg(tot_foreign_usd=('u','sum')).reset_index()
+m=gh.merge(gf,on=['holder','fiscal_quarter'],how='left')
+pk=set(zip(p.holder,p.fiscal_quarter))
+m['inprior']=[ (h,q) in pk for h,q in zip(m.holder,m.fiscal_quarter)]
+dropped=m[~m.inprior]
+print('\nDROPPED 487 characterization:')
+print('tot_haven_usd<=0:', (dropped.tot_haven_usd<=0).sum(), '/', len(dropped))
+print('tot_haven_usd==0 exactly:', (dropped.tot_haven_usd==0).sum())
+print('tot_haven_usd<=0 range:', dropped.tot_haven_usd.min(), dropped.tot_haven_usd.max())
+kept=m[m.inprior]
+print('KEPT: tot_haven_usd<=0 count:', (kept.tot_haven_usd<=0).sum())
+print('KEPT min tot_haven_usd:', kept.tot_haven_usd.min())
+PY
+python3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/verify2.py 2>&1 | tail -8
+2026-07-01T00:24:26Z	OUTPUT (not established until verifier runs)	cd /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad
+python3 <<'PY'
+import pandas as pd, numpy as np
+R='/home/user/dollar-breaking-point/'
+HKD=7.80
+MINOR={"TWD":30.0,"EUR":0.90,"CAD":1.30,"GBP":0.78,"CNY":7.0,"BRL":5.0,"AUD":1.45,"JPY":130.0,"ILS":3.5,"NOK":9.5,"ZAR":16.0,"SGD":1.35,"KRW":1200.0,"KYD":0.82,"RUB":75.0,"IDR":14500.0,"TRY":15.0,"MXN":19.0,"AED":3.67,"INR":80.0}
+def usd(v,c):
+    if c=="USD": return v
+    if c=="HKD": return v/HKD
+    r=MINOR.get(c); return v/r if r is not None else v
+n=pd.read_parquet(R+'build/data/nport/us_china_nationality_panel.parquet')
+t=pd.read_parquet(R+'build/data/nport/panel_crosswalk_tagged.parquet')
+nh=n[n.is_haven_resident].reset_index(drop=True)
+nh['pn']=t.parent_nationality.values; nh['is_cn']=nh.pn=='CN'
+nh['holder']=nh.cik.astype(str)+'|'+nh.series_id.fillna('None').astype(str)
+nh['usd']=[usd(v,c) for v,c in zip(nh.currency_value,nh.currency_code)]
+nh['raw']=nh.currency_value
+def wp(col):
+    nh['cn']=np.where(nh.is_cn,nh[col],0.0)
+    g=nh.groupby(['holder','fiscal_quarter']).agg(cn=('cn','sum'),tot=(col,'sum')).reset_index()
+    g=g[g.tot>0]; g['w']=g.cn/g.tot; return g[['holder','fiscal_quarter','w']]
+m=wp('usd').merge(wp('raw'),on=['holder','fiscal_quarter'],suffixes=('_u','_r'))
+# WITHIN-FUND demean both, compare the within variation (that's what identifies beta)
+for c in ['w_u','w_r']:
+    m[c+'_dm']=m[c]-m.groupby('holder')[c].transform('mean')
+dd=(m.w_u_dm-m.w_r_dm).abs()
+print('within-fund demeaned w: FX vs raw mean abs diff',dd.mean(),'p95',dd.quantile(.95),'max',dd.max())
+print('SD within w_u',m.w_u_dm.std(),'SD within w_r',m.w_r_dm.std())
+print('corr within:',np.corrcoef(m.w_u_dm,m.w_r_dm)[0,1])
+PY
+2026-07-01T00:26:06Z	OUTPUT (not established until verifier runs)	cd /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad
+python3 <<'PY'
+import pandas as pd, json
+S=pd.read_csv('series_full.csv',index_col=0)
+q=list(S.index)
+def qv(col): return {k:round(float(v),10) for k,v in S[col].items()}
+c={
+ "artifact":"cm_sources_full",
+ "generated":"2026-07-01",
+ "purpose":"External series merged into build/data/cm_panel/cm_weight_panel_full.parquet for the FULL-PANEL (22-quarter) Converse-Mallucci F3 weight regression power rebuild. Same series identifiers/publishers as build/contracts/cm_sources.json, fetched over the FULL 2019q3-2024q4 span.",
+ "panel_quarters":q,
+ "n_quarters":len(q),
+ "reproduce_check_vs_prior_8q_contract":"Every series' 8 overlapping-quarter values reproduce build/contracts/cm_sources.json to float precision (GPRC/VIX/dollar/oil |diff|<5e-11; relative_returns |diff|<3e-7, Yahoo adjclose rounding). Confirms the aggregation logic is identical, applied over the full span.",
+ "series":{
+  "GPRC_China":{
+   "status":"FETCHED_FULL_SPAN",
+   "name":"Caldara-Iacoviello country-specific Geopolitical Risk index, China",
+   "url":"https://www.matteoiacoviello.com/gpr_files/data_gpr_export.xls",
+   "column":"GPRC_CHN",
+   "collapse":"BOTH quarter-average (gprc_avg) AND end-of-quarter month (gprc_end)",
+   "coverage":"all 22 quarters non-null",
+   "gprc_avg":qv('gprc_avg'),"gprc_end":qv('gprc_end'),
+   "SOURCE":"Caldara & Iacoviello (2022) AER 112(4); data_gpr_export.xls col GPRC_CHN, fetched 2026-07-01 (2707456 bytes)."
+  },
+  "VIX":{"status":"FETCHED_FULL_SPAN","fred_id":"VIXCLS","url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS","transform":"log_vix=ln(quarterly-avg daily VIXCLS)","coverage":"all 22 quarters non-null","log_vix":qv('log_vix'),"SOURCE":"FRED VIXCLS, fetched 2026-07-01."},
+  "broad_dollar":{"status":"FETCHED_FULL_SPAN","fred_id":"DTWEXBGS","url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS","collapse":"quarterly avg of daily","coverage":"all 22 quarters non-null","broad_dollar":qv('broad_dollar'),"SOURCE":"FRED DTWEXBGS (FRB H.10), fetched 2026-07-01."},
+  "oil":{"status":"FETCHED_FULL_SPAN","fred_id":"DCOILWTICO","url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILWTICO","collapse":"quarterly avg of daily","coverage":"all 22 quarters non-null","oil":qv('oil'),"SOURCE":"FRED DCOILWTICO (EIA), fetched 2026-07-01."},
+  "relative_returns":{"status":"FETCHED_FULL_SPAN_PROXY","construction":"MCHI adj-close TR quarterly return MINUS ACWX adj-close TR quarterly return; quarter return = adjclose_last/adjclose_first-1.","url":["https://query1.finance.yahoo.com/v8/finance/chart/MCHI","https://query1.finance.yahoo.com/v8/finance/chart/ACWX"],"coverage":"all 22 quarters non-null; MCHI n=1414 ACWX n=1414 daily obs 2019-06-03..2025-01-14, adjclose present","relative_returns":qv('relative_returns'),"LIMITATIONS":"Same PROXY caveats as cm_sources.json (MCHI is MSCI-China equity ETF; ACWX ACWI-ex-US; both USD TR ETFs, FX embedded). Regression also run WITHOUT relret.","SOURCE":"Yahoo Finance v8 chart API, MCHI & ACWX adjusted close, fetched 2026-07-01."}
+ },
+ "weight_panel_construction":{
+  "w_definition":"w_{f,t} = (USD-FX'd CN-nationality haven value held by fund f at t) / (fund f total USD-FX'd haven value at t); CN-nationality = parent_nationality=='CN' (R1-R4 tag). holder = cik|series_id (series_id null -> 'None'). Keep tot_haven_usd>0. IDENTICAL to prior build/data/cm_panel/cm_weight_panel.parquet.",
+  "w_alt_definition":"w_ALT_{f,t} = CN-nationality haven USD / tot_foreign_usd, tot_foreign_usd = USD-FX'd value over foreign rows (CN-RESIDENT + haven). IDENTICAL to prior.",
+  "fx_dict":{"USD":1.0,"HKD_per_USD":7.80,"minor_rates_source":"build/audit/freemap_coverage_recompute.py MINOR_RATES","note":"HKMA Linked-Exchange-Rate peg midpoint; identical to prior weight panel."},
+  "byte_identity_check_8q":"On the 8 overlapping quarters the reconstructed w/w_alt reproduce the prior cm_weight_panel.parquet EXACTLY: 37403/37403 rows matched, w max abs diff 1.1e-15, w_alt 1.9e-15, cn_haven_usd/tot_haven_usd/tot_foreign_usd max abs diff <3e-5 (float noise). The 487 nationality-panel cells the prior build dropped are exactly those with tot_haven_usd<=0.",
+  "INCOMPLETE":{
+   "field":"w and w_alt for the 14 NEW quarters (2020q4,2021q1-q4,2022q3-q4,2023q1-q4,2024q1-q3)",
+   "n_fund_quarter_cells_affected":67530,
+   "n_cells_total":105420,
+   "share_affected":0.6406,
+   "reason":"The provided input build/data/nport/panel_crosswalk_tagged_full.parquet carries currency_value in ORIGINAL currency (byte-identical to the raw nationality-panel values on the 8 overlap quarters; its generator build_fullpanel_haven.finalize_haven never FX-converts) but DROPPED the per-row currency_code column. w is a USD ratio; FX does NOT cancel (HKD concentrates in HKG residence; CN-tagged rows carry a different currency mix). MEASURED impact of substituting raw-for-USD: mean |w_raw - w_usd| = 0.042, p95 = 0.37, within-fund-demeaned p95 = 0.15, mean w drifts 0.175 -> 0.135. currency_code is NOT soundly imputable from any column present (within CYM residence the split is 73% USD / 25% HKD). The per-quarter haven parquets were deleted (build/data/nport/haven_parts/ holds only _meta/_tag_summary JSON). Recovering currency_code requires re-parsing the N-PORT ZIPs = rebuilding the panel, which the task scope guard forbids ('Do NOT re-tag or rebuild the panel').",
+   "w_alt_additional_reason":"tot_foreign_usd also requires CN-RESIDENT (non-haven) holdings, which finalize_haven filtered out before persisting; they exist only in the 8-quarter us_china_nationality_panel.parquet. So w_alt is unavailable for the 14 new quarters on TWO independent grounds (no CN-resident rows AND no FX).",
+   "rule_applied":"Task instruction: 'if any is unfetchable, record INCOMPLETE - do not substitute an assumed series.' Recorded INCOMPLETE; raw-value weights NOT substituted."
+  }
+ }
+}
+json.dump(c,open('/home/user/dollar-breaking-point/build/contracts/cm_sources_full.json','w'),indent=2)
+print("wrote cm_sources_full.json; INCOMPLETE cells:",c['weight_panel_construction']['INCOMPLETE']['n_fund_quarter_cells_affected'])
+PY
+2026-07-01T00:49:48Z	OUTPUT (not established until verifier runs)	until grep -q "loqo recompute" /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/run2.out 2>/dev/null; do sleep 3; done
+python3 -c "
+import json
+v=json.load(open('build/results/cm_regression_full_verify.json'))
+print('MATCHES:',v['beta_matches'],v['bootstrap_p_recomputed_matches'],v['leave_one_out_recomputed_matches'],v['aux_dense8_loqo_recomputed_matches'])
+print('cells fx',v['n_cells_fx_applied'],'incomplete14',v['n_cells_w_fx_incomplete_14_new_quarters'],'dropped',v['n_cells_dropped_tot_haven_le_0_within_8q'])
+print('bootstrap_p',v['wild_cluster_bootstrap_p_in_result'],'G_est',v['estimation_quarters_G'],'G_target',v['targeted_quarters_G'])
+"
+2026-07-01T00:55:10Z	OUTPUT (not established until verifier runs)	until grep -q "loqo recompute" /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/repro.out 2>/dev/null; do sleep 3; done
+head -2 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/repro.out
+python3 -c "
+import json,os
+for f in ['build/audit/cm_regression_full_result.json','build/results/cm_regression_full_verify.json']:
+    print('exists',f,os.path.exists(f))
+v=json.load(open('build/results/cm_regression_full_verify.json'))
+print('ALL MATCHES:',all([v['beta_matches'],v['bootstrap_p_recomputed_matches'],v['leave_one_out_recomputed_matches'],v['aux_dense8_loqo_recomputed_matches']]))
+print('bootstrap_p',v['wild_cluster_bootstrap_p_in_result'],'G_est',v['estimation_quarters_G'])
+"
