@@ -3258,3 +3258,49 @@ print('per-quarter active flow:')
 for r in s['per_quarter_active_flow']:
     print(f\"  {r['fiscal_quarter']}: fund_quarters={r['n_fund_quarters']} sumActive={r['sum_cn_active_flow']:.3e} sumPassive={r['sum_cn_passive']:.3e}\")
 "
+2026-07-01T05:55:37Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add .gitignore
+git commit -q -m "Parts 0-1: active-flow decomposition feasibility + panel (branch A)
+
+Part 0 feasibility confirmed from REAL N-PORT data (not schema alone):
+branch A (direct constant-price decomposition). BALANCE/UNIT exist in the
+FUND_REPORTED_HOLDING source and are populated on 99.97% of haven-CN value
+(2 quarters downloaded + measured; median price ~2.1; unit mix NS-dominant).
+
+Part 1: rebuilt all 22 haven quarters extracting BALANCE+UNIT, R1-R4 tagging
+reused verbatim (haven/CN row set + CN currency_value reproduce the committed
+panel exactly; only balance/unit added). Per fund-quarter active flow into
+CN-nationality haven securities via constant-price decomposition:
+  active = (shares_t - shares_{t-1}) * price_{t-1}   [task definition, kept exact]
+  passive = Δvalue - active   [residual; absorbs the Δsh·Δp cross term the
+                               task's two-term split dropped, so it reconstructs]
+Reconstruction gate PASS: active+passive = Δcurrency_value to floating precision
+(max abs 5.96e-08 USD across 203,110 holding-fund-quarter rows). Placeholder
+CUSIPs nulled before keying. Panel: 36,547 fund-quarter rows, 3,161 funds, 22q.
+
+Decomposition is not a relabeling of weight: 2,678 fund-quarters have active
+flow OPPOSITE in sign to the weight change (manager buying while value fell).
+Caveats recorded: splits/ADR-ratio changes booked as active (uncorrected);
+mixed NS/PA unit types aggregate in USD; non-decomposable 0.055% fall back to
+active=Δvalue. Large raw intermediate (haven_bal_parts/) gitignored.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T05:56:57Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/active_flow_prediction.md
+git commit -q -m "Pre-register active-flow F3 test (before Part 2 estimation)
+
+Committed before the active-flow regression runs. DV = active net flow
+into CN-nationality haven securities (constant-price decomposition, F3 =
+negative sanctions coefficient). Symmetric decision rule: F3-LOADS-ON-
+ACTIVE-FLOW / NO-F3-ON-ACTIVE-FLOW / INSUFFICIENT-POWER. Primary prediction
+(sign-agnostic, null-plausible not null-favored): NO-F3-ON-ACTIVE-FLOW or
+INSUFFICIENT-POWER -- the weight nulls were powered, and managers plausibly
+did not actively sell; but the valuation-masking hypothesis is real and if
+true the active-flow beta flips negative where the weight beta was positive.
+Outlier/normalization discipline stated up front (lagged-base rate explodes
+for haven entrants; report across winsorized + average-base variants, not
+tuned to sign). beta read from estimator; LOQO + bootstrap computed.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
