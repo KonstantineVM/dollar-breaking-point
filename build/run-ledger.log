@@ -2784,3 +2784,19 @@ for r in rows: print(r[0], r[1], r[3], r[4], r[5], r[6], r[7])
 json.dump(rows, open('/tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/rows.json','w'))
 print("N quarters:", len(rows))
 PY
+2026-07-01T00:16:46Z	OUTPUT (not established until verifier runs)	git add build/run-ledger.log && git commit -q -m "Part 1: full 22-quarter N-PORT haven panel — provenance + tagging driver
+
+Full-panel power rebuild, Part 1 complete. 22 of 22 contiguous fiscal
+quarters (2019q3->2024q4) achieved, none dropped. 1,911,542 haven rows;
+183,746 CN-tagged; 7,856 funds; 105,420 fund-quarter universe. Every
+quarter passes >99% identifier coverage (min 99.0546%). The 8-quarter
+overlap reproduces the prior tagged panel byte-identical (0 rule
+mismatches, CN rows 64,057=64,057), proving R1-R4 tagging was reused
+verbatim, not re-derived. Panel carries fiscal_quarter, cik, series_id
+for Part 2's fund x quarter weight panel. Large parquet gitignored;
+provenance carries all numbers. RESIDENCE-vs-nationality basis and
+holder-universe caveats carried, not smoothed.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git log --oneline -1
+2026-07-01T00:17:50Z	OUTPUT (not established until verifier runs)	git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
