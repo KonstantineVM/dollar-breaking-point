@@ -2976,3 +2976,39 @@ print('n specs',len(r['specs']),'headline beta',round(r['specs'][0]['beta_GPRC_C
 print('power resid share',round(r['power_diagnostic']['gprc_residual_share_of_within'],4))
 print('8q subset headline',round(r['eight_quarter_subset_corrected_no_fx']['headline_beta'],5),'nolags',round(r['eight_quarter_subset_corrected_no_fx']['nolags_beta'],5))
 "
+2026-07-01T01:46:36Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+grep -q '^\*\*/__pycache__/' .gitignore || printf '\n# Python bytecode caches (any dir)\n**/__pycache__/\n' >> .gitignore
+git add .gitignore
+git commit -q -m "Full-panel CM re-estimation (F3 power test): corrected no-FX result at G=22
+
+Power rebuild of the Converse-Mallucci weight regression at the full 22
+contiguous fiscal quarters (2019q3-2024q4), re-running the IDENTICAL
+pre-registered spec. Only the quarter count changed (8->22).
+
+FX-semantics correction (grounded against the filer's own data): N-PORT
+CURRENCY_VALUE is already USD (valUSD) -- the within-fund implied-net-assets
+ratio (value/(percentage/100)) across CNY/HKD/TWD vs USD holdings is exactly
+1.0000, where native currency would give ~7/~7.8/~30. The earlier FX multiply
+was spurious (in both this pass and the prior 8-quarter pass); the identical
+w = cn_haven_raw/tot_haven_raw needs no conversion. This unblocked the power
+test at G=22.
+
+Result: headline (with-lags) beta = +0.01252 (cluster-quarter p=0.021),
+robust across all 22 leave-one-out drops -- the 8-quarter crisis-quarter
+fragility vanished. No-lags beta = -0.076 but bootstrap-insignificant at G=22
+(p=0.58). Residual GPRC share of within variation rose to 74.5% (from 23.5%).
+Verdict: NO-SUBSTITUTION (F3 not loaded), terminal INSUFFICIENT-POWER on the
+negative sign. Pre-registered fragility-attenuation prediction HELD.
+
+Leave-one-quarter-out (all 22 quarters, both specs) and the G=22 wild cluster
+bootstrap are computed, persisted, and byte-reproduced by the verifier;
+orchestrator independently re-ran the recompute (byte-identical). Integrity-
+critic GATE: PASS. Standing UNIDENTIFIABLE-FROM-AVAILABLE-DATA verdict
+unchanged. DP2-DP6 untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git log --oneline -1
+2026-07-01T01:46:44Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -3
+echo "=== current branch head ==="
+git log --oneline -3
