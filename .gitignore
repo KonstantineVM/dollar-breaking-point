@@ -63,5 +63,10 @@ build/data/nport/panel_crosswalk_tagged_full.parquet
 # active_flow_panel.parquet + active_flow_provenance.md carry the load-bearing numbers.
 build/data/nport/haven_bal_parts/
 
+# DiD F3 Part 0(b) — per-quarter EM/DM-equity re-parse parts (large raw intermediate,
+# ZIPs streamed+deleted per quarter). Regenerable from build_did_controls_reparse.py + SEC
+# ZIP URLs. The did_control_panels.parquet deliverable + did_feasibility.json carry the numbers.
+build/data/nport/did_control_parts/
+
 # Python bytecode caches (any dir)
 **/__pycache__/

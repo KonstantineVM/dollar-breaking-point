@@ -3411,3 +3411,31 @@ no LOQO; pre-trend leads are the robustness check.
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T13:58:30Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git status --short
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A && git commit -q -m "chore: run-ledger checkpoint (DiD Part 0 in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T14:04:19Z	OUTPUT (not established until verifier runs)	python3 -c "import scipy; print('scipy', scipy.__version__)" 2>&1
+python3 -c "
+import sys; sys.path.insert(0,'build/data/nport')
+import build_did_control_panels as B
+import time
+t0=time.time()
+c1, g1, d1 = B.build_C1()
+print('C1 gate:', g1)
+print('C1 drop:', d1)
+print('C1 fund-quarters w/ rate:', int(c1['active_flow_rate'].notna().sum()))
+print('time', round(time.time()-t0,1),'s')
+# quick cross-check treated
+chk = B.build_C1_treated_check()
+import pyarrow.parquet as pq
+tr = pq.read_table('build/data/nport/active_flow_panel.parquet').to_pandas()
+m = tr.merge(chk[['fund_key','fiscal_quarter','active_flow_rate']], on=['fund_key','fiscal_quarter'], how='inner')
+d = (m['active_flow_rate_x'].fillna(-999) - m['active_flow_rate_y'].fillna(-999)).abs()
+print('treated recon matched', len(m), 'max abs rate diff', float(d[m['active_flow_rate_x'].notna()].max()))
+" 2>&1 | tail -25
