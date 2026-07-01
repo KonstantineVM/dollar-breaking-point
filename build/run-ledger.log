@@ -3439,3 +3439,17 @@ m = tr.merge(chk[['fund_key','fiscal_quarter','active_flow_rate']], on=['fund_ke
 d = (m['active_flow_rate_x'].fillna(-999) - m['active_flow_rate_y'].fillna(-999)).abs()
 print('treated recon matched', len(m), 'max abs rate diff', float(d[m['active_flow_rate_x'].notna()].max()))
 " 2>&1 | tail -25
+2026-07-01T16:13:05Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/data/nport/build_did_controls_reparse.py build/data/nport/build_did_control_panels.py .gitignore build/run-ledger.log
+git status --short | grep -v '^??' | head
+git commit -q -m "DiD Part 0 (in progress): non-haven control re-parse scripts
+
+The 22-quarter re-parse of non-haven EM (C2) + DM (C3) equity holdings
+with balance/unit is complete and persisted (did_control_parts/, gitignored).
+build_did_controls_reparse.py = the re-parse; build_did_control_panels.py =
+the first assembly attempt (held all quarters in memory, OOM-prone -- being
+replaced by a streaming rewrite). Feasibility artifacts + pre-trends pending
+the memory-efficient assembly.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
