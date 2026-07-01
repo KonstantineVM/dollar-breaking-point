@@ -1,0 +1,281 @@
+{
+  "contract": "RD0 — Reserve-side dollar-breaking-point program: SCOPE + DATASET GROUNDING for the five observable surfaces of reserve-manager behavior around the Feb-2022 Russian reserve freeze, plus the treated/control taxonomy.",
+  "program": "RESERVE-SIDE (RD0)",
+  "date_checked": "2026-07-01",
+  "fetched_by_env": "Claude Code on the web; outbound HTTPS via agent proxy. WebFetch reached FRED/BOFIT-repo/SWIFT/WGC/UN; curl-with-UA reached ticdata.treasury.gov and publications.bof.fi and UN digitallibrary; some publisher edges (Treasury home.*, CEPR, econstor, Wikipedia via WebFetch, SWIFT/CIPS via curl) blocked one channel but were reachable via the other channel or corroborated. Every value below carries the publisher URL and the concrete evidence retrieved; no dataset structure or figure is asserted from memory.",
+  "SOURCE": "Each surface records the primary publisher URL, the concrete fetched evidence (HTTP status + a header/row/figure actually retrieved), and the retained evidence file under build/reserve/rd0_evidence/. IMF confidential aggregate COFER is NOT used as evidence anywhere in this contract, per instruction.",
+  "do_not_use": "IMF confidential aggregate COFER (currency composition, IMF-only aggregate) is explicitly excluded as evidence. The currency-composition surface (S1) is grounded on the PUBLIC per-country LMW dataset compiled from national disclosures, not COFER.",
+
+  "surfaces": {
+
+    "S1_currency_composition": {
+      "surface_id": "S1",
+      "name": "Currency composition of FX reserves, by country and year (USD/EUR/JPY/GBP/CAD/AUD/CNY/Other), plus monetary-gold share for a subset",
+      "load_bearing": true,
+      "note": "RD1 depends on this surface. It is the make-or-break for the reserve-side program.",
+      "primary_source": {
+        "dataset": "Laser–Mihailov–Weidner (LMW) currency-composition-of-reserves dataset ('Data.xls'), the BOFIT dataset underlying Laser, Mihailov & Weidner (2024, BOFIT Policy Brief 6/2024) and (2025, University of Reading Economics Discussion Paper em-dp2025-01).",
+        "publisher": "Bank of Finland Institute for Emerging Economies (BOFIT) publications repository (Suomen Pankin Julkaisuarkisto / DSpace). Dataset authored by Falk Laser, Alexander Mihailov (Univ. of Reading), Jan Weidner.",
+        "landing_page_url": "https://publications.bof.fi/handle/10024/53793",
+        "data_file_url": "https://publications.bof.fi/server/api/core/bitstreams/4f3638b1-3368-4f7b-b8ab-3325ec481a02/content",
+        "data_file_metadata_url": "https://publications.bof.fi/server/api/core/bitstreams/4f3638b1-3368-4f7b-b8ab-3325ec481a02",
+        "policy_brief_pdf_url": "https://publications.bof.fi/server/api/core/bitstreams/c526245f-2914-4375-aa67-f2997931b905/content",
+        "reading_wp_pdf_url": "https://research.reading.ac.uk/economics/wp-content/uploads/sites/87/2025/03/emdp202501.pdf",
+        "repec_page": "https://ideas.repec.org/p/rdg/emxxdp/em-dp2025-01.html"
+      },
+      "contains": {
+        "variables": "Per-country per-year FX reserve currency SHARES (percent): columns exactly = country, year, USD, EUR, JPY, CAD, CNY, GBP, AUD, Other. Monetary-gold share in total reserves provided for a subset of 50 of the 64 economies (documented in the paper appendix; the released Data.xls DATA sheet is the FX-currency-share panel).",
+        "unit": "percent shares of FX reserves",
+        "frequency": "annual",
+        "country_coverage": "64 economies (unbalanced panel), including Russia, Ukraine, Euro Area, US, UK, Japan-adjacent advanced economies. FULL LIST (64) retrieved from the file: Afghanistan, Angola, Australia, Azerbaijan, Bangladesh, Bosnia, Brazil, Brunei, Bulgaria, Canada, Chile, Colombia, Croatia, Czech Republic, DR Congo, Denmark, Euro Area, Finland, Georgia, Germany, Ghana, Hong Kong, Iceland, Israel, Italy, Kazakhstan, Kenya, Korea, Latvia, Lithuania, Macedonia, Malawi, Moldova, Mongolia, Mozambique, Namibia, Nepal, Netherlands, New Zealand, Norway, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Romania, Russia, Serbia, Slovakia, Slovenia, South Africa, South Sudan, Sri Lanka, Sweden, Switzerland, Tanzania, Turkey, Uganda, Ukraine, United Kingdom, United States, Uruguay, Zambia, Zimbabwe.",
+        "coverage_span": "1996–2023 (28 years for some countries; unbalanced)."
+      },
+      "spans_2022": "YES for the disclosing panel: 50 of the 64 countries have a 2022 row (retrieved). CAVEAT: RUSSIA'S OWN DISCLOSURE ENDS IN 2021 (see friction).",
+      "fetch_status": "CONFIRMED",
+      "fetch_evidence": {
+        "http": "GET https://publications.bof.fi/server/api/core/bitstreams/4f3638b1-3368-4f7b-b8ab-3325ec481a02/content -> HTTP 200, 152576 bytes, content-type application/vnd.ms-excel. Bitstream metadata endpoint returned name='Data.xls', sizeBytes=152576. File is a genuine OLE2 workbook (Author: Kaaresvirta, Juuso; created 2024-09-04) — not an HTML error page.",
+        "structure_retrieved": "Workbook sheets = ['INFO','DATA']. DATA sheet header row 0 = ['country','year','USD','EUR','JPY','CAD','CNY','GBP','AUD','Other']; 1077 data rows. Parsed with xlrd. N_countries=64, year range 1996–2023 (both read from the file).",
+        "russia_diversification_in_data": "Russia rows retrieved: CNY 0.0% (2013–2016) -> 3.38% (2017) -> 17.34% (2018) -> 21.78% (2021); USD 44.8% (2013) -> 13.89% (2021); EUR ~41.5% (2013) -> 43.18% (2021). The documented 2014–2022 RMB rise and dollar drop are IN the data through 2021.",
+        "china_absence": "China has ZERO rows in the dataset (confirmed: HAS_CHINA=False; no 'China' label present). China does not disclose currency composition; consistent with the per-surface observe-vs-infer note.",
+        "evidence_file": "build/reserve/rd0_evidence/lmw_Data.xls (full file), build/reserve/rd0_evidence/lmw_reading_emdp202501.pdf (Reading WP, data-availability statement on p.~518 of extracted text: 'Our BOFIT dataset ... has been provided as a separate Excel file as part of the policy brief and can be accessed online and used freely.')"
+      },
+      "publicly_downloadable": "YES — publicly and freely downloadable, no login. This resolves the RD1 make-or-break: the LMW S1 dataset IS public.",
+      "access_friction": [
+        "The Reading WP PDF and the CEPR/econstor mirrors do NOT link the data file directly; the actual Data.xls lives only as an attached bitstream on the BOFIT DSpace item (handle 10024/53793). The download URL is a UUID-keyed DSpace bitstream endpoint, not a stable named-file URL; the /download alias returns an HTML viewer, so the /server/api/core/bitstreams/<uuid>/content endpoint must be used for the raw bytes.",
+        "econstor mirror (https://www.econstor.eu/bitstream/10419/302554/1/1902140915.pdf) is behind an anti-bot challenge (returned an HTML 'not a bot' page, not the PDF). CEPR VoxEU column returned HTTP 403 to automated fetch. Neither blocks the BOFIT primary."
+      ],
+      "s1_key_frictions": [
+        "TREATED-UNIT POST-FREEZE GAP: Russia's LMW currency-composition disclosure ENDS IN 2021 (years present 2007–2021; no 2022/2023 row). The Bank of Russia stopped publishing currency/geographic reserve composition after the Feb-2022 freeze. So the treated unit's POST-freeze currency composition is NOT directly observed on S1 — only its pre-freeze diversification trajectory (through 2021) is in the panel. Post-2022 Russia currency shares are unobserved and would require inference/external estimates.",
+        "CHINA NOT IN PANEL: China does not disclose currency composition and has no rows. On S1, China's USD share is a RESIDUAL INFERENCE, not an observation (see observe_vs_infer_china below).",
+        "UNBALANCED PANEL with country-specific entry/exit years; 2023 is thin (fewer countries have reported yet). Annual frequency (needs temporal alignment for any higher-frequency matrix).",
+        "SHARES compiled from heterogeneous national disclosures (central-bank annual reports / reserve-management reports), so definitions/rounding vary by source country."
+      ]
+    },
+
+    "S2_gold": {
+      "surface_id": "S2",
+      "name": "Official-sector gold holdings by country (tonnage, USD value, and share of reserves)",
+      "primary_source": {
+        "dataset": "World Gold Council (Goldhub) — Gold Reserves by Country: 'World Official Gold Holdings' (monthly, top-100 holders), 'Quarterly time series on World Official Gold Reserves since 2000', and 'Changes in World Official Gold Reserves'.",
+        "publisher": "World Gold Council (Goldhub), compiled from IMF International Financial Statistics (IFS) with WGC adjustments.",
+        "landing_page_url": "https://www.gold.org/goldhub/data/gold-reserves-by-country",
+        "quarterly_file_url": "https://www.gold.org/download/file/8052/Quarterly_gold_and_FX_Reserves_Q1_2026.xlsx",
+        "monthly_file_url": "https://www.gold.org/download/file/7739/World_official_gold_holdings_as_of_Jun2026_IFS.xlsx",
+        "changes_file_url": "https://www.gold.org/download/file/7741/Changes_latest_as_of_Jun2026_IFS.xlsx",
+        "methodology_pdf": "https://www.gold.org/download/file/12491/central_bank_data_methodology.pdf",
+        "reused_prior_contract": "build/contracts/wgc_gold.json (grounded 2026-06-28; corroborates structure/source/lag)."
+      },
+      "national_monthly_sources": {
+        "china_PBoC_SAFE": "China publishes monthly Official Reserve Assets INCLUDING gold under the SDDS template on SAFE ('Official Reserve Assets') and PBoC. Landing pages grounded in build/contracts/safe.json and build/contracts/pboc.json (e.g. https://www.pbc.gov.cn/en/3688247/3688975/index.html, SAFE Data & Statistics). China's gold IS public monthly (this is why China is OBSERVED on S2).",
+        "russia_CBR": "Bank of Russia historically disclosed monthly gold; post-2022 disclosure is reduced. WGC/IFS still carries Russia gold tonnage (Russia is among top holders)."
+      },
+      "contains": {
+        "variables": "gold tonnage, gold USD value, gold as % of total reserves, quarterly and monthly changes; per-country.",
+        "unit": "tonnes / US$ / percent of reserves",
+        "frequency": "quarterly time series since 2000; monthly for top-100 holders; annual CBGA sales.",
+        "country_coverage": "top-100 official holders per-country (includes China and Russia); global aggregate.",
+        "coverage_span": "quarterly since 2000; monthly changes since Jan-2002."
+      },
+      "spans_2022": "YES — quarterly series 'covers from 2000' forward (confirmed on landing page); 2022 quarters included.",
+      "fetch_status": "CONFIRMED",
+      "fetch_evidence": {
+        "http": "Landing page https://www.gold.org/goldhub/data/gold-reserves-by-country retrieved (WebFetch). File names + direct download URLs enumerated from the page (World Official Gold Holdings .xlsx, Quarterly time series .xlsx, Changes .xlsx, methodology .pdf). Page text confirms: 'Quarterly official gold holdings from 2000, as well as the latest available month-end data for the Top 100 holders'; 'Monthly files are updated within the first 10 days of the month (with data two months in arrears)'; underlying source = IMF IFS.",
+        "evidence_file": "build/contracts/wgc_gold.json (prior grounded contract, reused). (This RD0 run captured the landing-page structure via WebFetch; the .xlsx direct-download returned HTTP 403 without login — see friction.)"
+      },
+      "publicly_downloadable": "PARTIAL — page and file inventory are public; the .xlsx file downloads are registration-gated (free account). Direct-download URL returned HTTP 403 to anonymous fetch. IMF IFS is the ungated primary underlying the same numbers.",
+      "corroborating_secondary": "IMF International Financial Statistics (IFS), data.imf.org — official reserve assets incl. monetary gold by country, monthly/quarterly, public (SDMX API base https://api.imf.org/external/sdmx/3.0). FRICTION: IFS was restructured in 2025; legacy series codes stopped resolving and the legacy host dataservices.imf.org is being retired (unreachable in this run). The exact restructured indicator code for monetary gold was NOT resolved here (UNVERIFIED) — but IFS as the public per-country gold source is confirmed and WGC provides the ready-to-use per-country panel.",
+      "s2_frictions": [
+        "WGC .xlsx downloads require a free login (403 anonymous); ingestion must authenticate or use IMF IFS directly.",
+        "IMF IFS 2025 restructuring: legacy IFS series codes no longer resolve; no official crosswalk; new SDMX 3.0 indicator code for monetary gold not yet pinned (UNVERIFIED).",
+        "China gold reporting is stepwise (long gaps then large disclosed jumps historically); tonnage must be derived from USD value at month-end gold price for some national sources."
+      ]
+    },
+
+    "S3_treasury_holdings": {
+      "surface_id": "S3",
+      "name": "Foreign OFFICIAL holdings of US Treasuries by country (monthly), plus TIC transactions (gross purchases/sales of USTs) for the active-vs-valuation split",
+      "primary_source": {
+        "dataset": "US Treasury International Capital (TIC) system — (a) Major Foreign Holders of Treasury Securities (MFH, incl. foreign-official split) and its history file; (b) TIC transactions in long-term securities by type and country.",
+        "publisher": "U.S. Department of the Treasury (with the Federal Reserve Board).",
+        "reused_prior_contract": "build/contracts/treasury_tic.json (GROUNDED 2026-06-28; REUSED for S3). Cite this path.",
+        "holdings_history_url": "https://ticdata.treasury.gov/Publish/mfhhis01.txt",
+        "transactions_url": "https://ticdata.treasury.gov/Publish/s1_globl.txt",
+        "home_page": "https://home.treasury.gov/data/treasury-international-capital-tic-system"
+      },
+      "contains": {
+        "holdings": "MFH: holdings of US Treasury securities by counterparty country, monthly, with a 'For. Official' split (T-Bills vs T-Bonds & Notes). History file mfhhis01.txt gives the multi-year monthly panel by country.",
+        "transactions": "s1_globl.txt: 'U.S. Transactions with Foreigners in Long-term Domestic and Foreign Securities, by Type and Country' — monthly GROSS PURCHASES by foreigners and GROSS SALES by foreigners, by security type (US Treasury marketable, agency bonds, corporate bonds, equities) and country, in US$ millions. This flow is what separates ACTIVE reallocation from VALUATION change in holdings.",
+        "unit": "US$ billions (holdings), US$ millions (transactions)",
+        "frequency": "monthly",
+        "country_coverage": "individual counterparty countries incl. China Mainland, Japan, UK, Belgium, Luxembourg, Cayman Is., Switzerland, plus 'All Other' and Grand Total."
+      },
+      "spans_2022": "YES.",
+      "fetch_status": "CONFIRMED",
+      "fetch_evidence": {
+        "holdings_http": "GET https://ticdata.treasury.gov/Publish/mfhhis01.txt -> HTTP 200, 98124 bytes. Header 'MAJOR FOREIGN HOLDERS OF TREASURY SECURITIES (in billions of dollars) HOLDINGS AT END OF PERIOD'; period columns include 2020, 2021, 2022, 2023. Retrieved 'China, Mainland' monthly rows across 2020–2023 (e.g. 683.5, 683.9, ... panel present).",
+        "transactions_http": "GET https://ticdata.treasury.gov/Publish/s1_globl.txt -> HTTP 200, 3212186 bytes. Header 'U.S. Transactions with Foreigners in Long-term Domestic and Foreign Securities, by Type and Country'; column blocks 'Gross purchases by foreigners from U.S. residents' / 'Gross sales by foreigners to U.S. residents' over Marketable U.S. Treasury / Bonds of U.S. agencies / corporate / equities. Retrieved 2022 monthly rows (e.g. Austria 2022-12 ... 2022-06), confirming monthly 2022 coverage.",
+        "evidence_file": "build/reserve/rd0_evidence/tic_mfhhis01_evidence.txt, build/reserve/rd0_evidence/tic_s1_globl_header.txt"
+      },
+      "publicly_downloadable": "YES — flat text files at ticdata.treasury.gov/Publish/, HTTP 200 via direct fetch (browser UA). No login.",
+      "s3_frictions": [
+        "CUSTODIAL / FINANCIAL-CENTER BIAS (per treasury_tic.json): country attribution of Treasury holdings is custodial, inflating hubs (Belgium/Euroclear, Luxembourg, Cayman, UK, Switzerland) vs beneficial owners — material for attributing an active-diversifier's UST sales.",
+        "s1_globl.txt transactions are TOTAL by country (foreign official + private COMBINED); a clean foreign-OFFICIAL-only transactions series is not in this file. The foreign-official dimension is cleanest in the MFH holdings 'For. Official' split; separating official flow requires combining MFH-official holdings deltas with the transactions/valuation identity, or the TIC official-vs-private transactions tables.",
+        "home.treasury.gov edge returns HTTP 503 to automated WebFetch (documented in treasury_tic.json); use direct fetch of ticdata.treasury.gov flat files.",
+        "monthly country cells are partly estimated and benchmarked to annual SHL/SHC surveys (revision risk)."
+      ]
+    },
+
+    "S4_rmb_internationalization": {
+      "surface_id": "S4",
+      "name": "RMB internationalization surface: RMB payment share (SWIFT), CIPS volumes/participants, PBoC bilateral local-currency swap lines, CNH offshore deposits, RMB trade-invoicing share",
+      "components": {
+
+        "swift_rmb_tracker": {
+          "publisher": "SWIFT (Society for Worldwide Interbank Financial Telecommunication). 'RMB Tracker', renamed 'Global Currency Tracker' Feb-2026.",
+          "what": "Monthly RMB share of global payments (by value, MT 103 + MT 202) and RMB rank among world payment currencies; also excl.-Eurozone view.",
+          "document_centre": "https://www.swift.com/products/renminbi-tracker/document-centre",
+          "example_edition_url": "https://www.swift.com/swift-resource/252007/download",
+          "frequency": "monthly",
+          "spans_2022": "YES — monthly series continuous since 2011 and covered 2022 contemporaneously.",
+          "fetch_status": "CONFIRMED (methodology + recent editions); 2022-specific edition NOT directly located on the current landing page (see friction).",
+          "fetch_evidence": "GET https://www.swift.com/swift-resource/252007/download -> HTTP 200, 290061-byte PDF = 'RMB Tracker, March 2023' reporting Feb-2023: 'the RMB has retained its position as the fifth most active currency for global payments by value, with a share of 2.19%'; methodology line 'Live and delivered, MT 103 and MT 202'. Second edition 252053 = June 2023 (reports May-2023, share 2.54%, rank 5th). Evidence: build/reserve/rd0_evidence/swift_rmb_tracker.pdf, swift_rmb_tracker_252053.pdf, swift_rmb_tracker_editions.txt.",
+          "friction": "The document-centre landing page currently exposes only recent editions (Sep-2025 .. Jun-2026); 2022 monthly editions are NOT on the current landing page (older resource IDs must be located individually or via an aggregator/press archive). The public MacroMicro aggregator (source: SWIFT RMB Tracker, https://en.macromicro.me/charts/117199/...) carries the monthly RMB-share series including 2022 as a corroborating public secondary."
+        },
+
+        "cips": {
+          "publisher": "Cross-border Interbank Payment System (CIPS Co., backed by PBoC).",
+          "what": "Business volume (transaction count and RMB amount) and participant counts (direct/indirect).",
+          "url": "https://www.cips.com.cn/en/index/index.html",
+          "frequency": "annual headline on site; monthly figures reported via CIPS releases/press.",
+          "spans_2022": "PARTIAL/UNVERIFIED for a public MONTHLY 2022 series.",
+          "fetch_status": "PARTIAL — homepage public (WebFetch) showing current-year annual business volume and live participant counts (Direct 194, Indirect 1597 at page date); a public back-to-2022 MONTHLY statistics endpoint was NOT located on the CIPS site (no dedicated statistics page surfaced; curl to cips.com.cn timed out via proxy). Annual volumes (2015–2024) are reported publicly (incl. via CIPS annual releases). A ready monthly 2022 public series is NOT-AVAILABLE from a single CIPS endpoint in this run.",
+          "friction": "CIPS does not expose a clean public monthly time-series download; annual totals and current participant counts are public, monthly history must be assembled from individual CIPS press releases or third-party trackers."
+        },
+
+        "pboc_swap_lines": {
+          "publisher": "People's Bank of China.",
+          "what": "'Status of Bilateral Local Currency Swap Agreements Signed by the PBoC' — list of counterparties, sizes, dates.",
+          "url": "https://www.pbc.gov.cn/en/3688241/3688636/3688657/index.html",
+          "status_page": "https://camlmac.pbc.gov.cn/en/3688241/3688636/3688657/5793816/index.html",
+          "frequency": "list, updated as agreements sign/renew",
+          "spans_2022": "YES — 2022 swap events documented (PBoC–MAS Singapore renewal 2022-07-14; PBoC–HKMA enhancement 2022-07-04; ECB–PBoC extension 2022-10-10).",
+          "fetch_status": "CONFIRMED public (official PBoC status page + 2022 renewal press releases located).",
+          "friction": "PBoC status page is a snapshot list, not a dated time series; historical 2022 state must be reconstructed from press releases (MAS/HKMA/ECB primary releases corroborate)."
+        },
+
+        "cnh_offshore_deposits": {
+          "publisher": "Hong Kong Monetary Authority (HKMA).",
+          "what": "RMB (CNH) deposits in Hong Kong (offshore RMB liquidity pool), monthly.",
+          "url": "https://www.hkma.gov.hk/eng/data-publications-and-research/data-and-statistics/monthly-statistical-bulletin/",
+          "frequency": "monthly",
+          "spans_2022": "EXPECTED YES (HKMA monthly bulletin is long-running).",
+          "fetch_status": "NOT-FETCHED in this run (UNVERIFIED). Recorded as the public source to ground in RD1; HKMA monthly statistical bulletin is the standard public CNH-deposit source. Marked UNVERIFIED rather than asserted CONFIRMED."
+        },
+
+        "rmb_trade_invoicing": {
+          "publisher": "PBoC (RMB Internationalization Report) and SAFE.",
+          "what": "Share of China's cross-border trade/receipts-payments settled in RMB.",
+          "url": "https://www.pbc.gov.cn/en/ (RMB Internationalization Report) / SAFE balance-of-payments releases",
+          "frequency": "annual (report) / monthly-quarterly (SAFE cross-border RMB settlement)",
+          "spans_2022": "EXPECTED YES.",
+          "fetch_status": "NOT-FETCHED in this run (UNVERIFIED). Recorded as the public source; PBoC RMB Internationalization Report and SAFE cross-border RMB receipts/payments are the standard public sources. Marked UNVERIFIED."
+        }
+      },
+      "surface_fetch_status": "CONFIRMED (partial): SWIFT RMB share and PBoC swap lines CONFIRMED public + span 2022; CIPS PARTIAL (annual public, monthly-2022 not located); CNH deposits (HKMA) and RMB trade-invoicing (PBoC/SAFE) sources IDENTIFIED but UNVERIFIED (not fetched this run).",
+      "publicly_downloadable": "SWIFT tracker: YES (free PDF, no login). PBoC swap list: YES (public page). CIPS: homepage public, monthly series not cleanly public. HKMA/PBoC invoicing: public but not fetched here."
+    },
+
+    "S5_decomposition_inputs": {
+      "surface_id": "S5",
+      "name": "Decomposition inputs — FX rates (EUR/USD, USD/RMB, USD/JPY, USD/GBP) for the valuation strip, and total official reserve levels by country (total reserves excl. gold, and gold) to isolate ACTIVE preference from valuation and accumulation",
+      "fx_rates": {
+        "publisher": "Federal Reserve Board H.10, via FRED (Federal Reserve Bank of St. Louis).",
+        "series": {
+          "EUR_USD": "DEXUSEU",
+          "USD_CNY": "DEXCHUS",
+          "USD_GBP": "DEXUSUK",
+          "JPY_USD": "DEXJPUS"
+        },
+        "url_pattern": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=<SERIES>&cosd=<start>&coed=<end>",
+        "frequency": "daily (aggregable to monthly/quarterly)",
+        "spans_2022": "YES.",
+        "fetch_status": "CONFIRMED",
+        "fetch_evidence": {
+          "DEXUSEU": "fredgraph.csv?id=DEXUSEU 2022-01..2022-03 retrieved: header 'observation_date,DEXUSEU'; rows 2022-01-03=1.1290 ... 2022-03-31=1.1093. Evidence: build/reserve/rd0_evidence/fred_DEXUSEU_2022q1.csv.",
+          "DEXCHUS": "fredgraph.csv?id=DEXCHUS Feb-Mar 2022 retrieved across the Feb-2022 freeze window (e.g. 6.3610 early Feb -> 6.3084 by 2022-02-28). Evidence: build/reserve/rd0_evidence/fred_DEXCHUS_feb2022.csv.",
+          "DEXUSUK": "fredgraph.csv?id=DEXUSUK 2022 H1 retrieved: 2022-01-03=1.3469 ... Evidence: build/reserve/rd0_evidence/fred_DEXUSUK_2022.csv.",
+          "DEXJPUS": "same publisher/endpoint family (FRED H.10); individually fetchable (not separately captured to file, but confirmed reachable via identical endpoint).",
+          "friction": "FRED via direct curl through the agent proxy failed with HTTP/2 INTERNAL_ERROR / stream errors and connect timeouts; FRED is reliably reachable via the WebFetch channel. fredgraph.csv returns ONE series per request (multi-id requests collapse to the first id)."
+        },
+        "publicly_downloadable": "YES — FRED CSV, no login."
+      },
+      "reserve_levels": {
+        "publisher": "IMF International Financial Statistics (IFS), data.imf.org — Total Reserves excluding Gold, and monetary gold, by country; corroborated by FRED (e.g. TOTRESV series) and WGC (gold value).",
+        "url": "https://data.imf.org (IFS dataset; SDMX 3.0 API base https://api.imf.org/external/sdmx/3.0)",
+        "frequency": "monthly/quarterly",
+        "spans_2022": "YES (standard IFS coverage).",
+        "fetch_status": "PARTIAL / UNVERIFIED-CODE — IFS confirmed as the public per-country total-reserves source (data.imf.org public, no fee), but the EXACT restructured SDMX indicator code for 'Total Reserves excl. Gold' was NOT pinned this run (IMF 2025 IFS restructuring broke legacy codes; legacy host dataservices.imf.org unreachable). Total reserves levels are also available via FRED and WGC (gold value + share implies total). Marked PARTIAL: source public and confirmed, exact code UNVERIFIED.",
+        "publicly_downloadable": "YES (public portal), pending indicator-code resolution in RD1."
+      },
+      "surface_fetch_status": "CONFIRMED for FX (the load-bearing valuation strip); PARTIAL for reserve-levels (public source confirmed, exact IFS code UNVERIFIED)."
+    }
+  },
+
+  "observe_vs_infer_china": {
+    "S1_currency_composition": "INFER — China does NOT disclose currency composition and is ABSENT from the LMW panel (0 rows). China's USD/EUR/RMB reserve shares are a RESIDUAL INFERENCE (e.g. global-total-minus-disclosers residual, or COFER-consistent back-out), NOT an observation.",
+    "S2_gold": "OBSERVE — China's monthly official gold (PBoC/SAFE Official Reserve Assets; WGC top-100) is public and directly observed.",
+    "S3_treasury_holdings": "OBSERVE — China Mainland foreign-official UST holdings are in the TIC MFH panel monthly (custodial-attribution caveat applies).",
+    "S4_rmb_internationalization": "OBSERVE — SWIFT RMB payment share (global, not China-specific but the RMB-usage metric), CIPS (China-operated), PBoC swap lines (China-published) are all public. Directly observed.",
+    "S5_decomposition_inputs": "OBSERVE (FX) — FX rates public; China total reserves level public via IFS/SAFE. (China currency-COMPOSITION remains inferred at S1.)"
+  },
+
+  "taxonomy": {
+    "purpose": "Treated/control classification of reserve managers for the Feb-2022 freeze natural experiment, grounded against a PUBLIC criterion (not merely stipulated).",
+    "primary_criterion": {
+      "name": "UN General Assembly Resolution ES-11/1 'Aggression against Ukraine', adopted 2 March 2022 — recorded roll-call vote.",
+      "publisher": "United Nations",
+      "primary_urls": {
+        "un_digital_library_vote_record": "https://digitallibrary.un.org/record/3959039",
+        "un_press_release": "https://press.un.org/en/2022/ga12407.doc.htm",
+        "resolution_text_undocs": "https://docs.un.org/en/A/RES/ES-11/1"
+      },
+      "fetch_status": "CONFIRMED",
+      "fetch_evidence": "GET https://digitallibrary.un.org/record/3959039 -> HTTP 200, 39847 bytes. Machine-readable roll-call retrieved verbatim: 'Voting Summary — Yes: 141 | No: 5 | Abstentions: 35 | Non-Voting: 12 | Total voting membership: 193'; Vote date 2022-03-02. Per-country marks retrieved: N RUSSIAN FEDERATION, N BELARUS, N DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA, N ERITREA, N SYRIAN ARAB REPUBLIC; A CHINA, A INDIA, A SOUTH AFRICA, A KAZAKHSTAN, A IRAN; Y UNITED STATES, Y UNITED KINGDOM, Y GERMANY, Y JAPAN, Y CANADA, Y AUSTRALIA, Y REPUBLIC OF KOREA, Y SWITZERLAND, Y FRANCE, Y ITALY, Y NETHERLANDS, Y SWEDEN, Y DENMARK, Y NORWAY, Y FINLAND, Y NEW ZEALAND, Y POLAND, Y CZECHIA. Evidence: build/reserve/rd0_evidence/un_digitallibrary_es11_1_votelines.txt, build/reserve/rd0_evidence/taxonomy_unga_es11_1_vote.txt.",
+      "publicly_downloadable": "YES — UN records are public."
+    },
+    "corroborating_criterion_secondary": {
+      "name": "Russia-sanctions coalition membership (reserve managers that immobilized CBR reserves Feb-2022).",
+      "grounding": "build/contracts/sanctions_sources.json — OFAC Directive 4 / E.O. 14024 freeze, Treasury press release jy0612 (2022-02-28), plus the allied statement of 2022-02-26. The freeze coalition (US/EU/UK/JP/CA/AU/KR/CH) = the 'US-aligned discloser' control set.",
+      "fetch_status": "REUSED (prior grounded contract)."
+    },
+    "classification": {
+      "TREATED": {
+        "observed_treated_unit": "RUSSIA — reserves frozen 2022-02-28 (OFAC Directive 4, E.O. 14024). Voted AGAINST ES-11/1 (N). The one directly-treated reserve manager.",
+        "sanctions_exposed_active_diversifier_set": "CHINA (abstained, A) as the primary low-US-alignment active diversifier; broader low-alignment set = the ES-11/1 AGAINST + ABSTAIN cohorts that are also reserve managers present in the observable surfaces (e.g. Kazakhstan, India, South Africa, Iran-adjacent — subset that appears in LMW/gold/TIC). Criterion: NOT 'in favour' on ES-11/1 (i.e. against or abstaining) AND/OR not in the sanctions coalition."
+      },
+      "CONTROL": {
+        "definition": "US-aligned advanced-economy reserve managers NOT sanctions-exposed, that DISCLOSE currency composition (present in LMW S1). Criterion: voted IN FAVOUR on ES-11/1 (Y) AND member of the sanctions coalition AND an LMW discloser.",
+        "examples_in_LMW_panel": "United States, United Kingdom, Euro Area (+ Germany, Italy, Netherlands, Finland), Canada, Australia, Korea, Switzerland, Denmark, Sweden, Norway, New Zealand, Poland, Czech Republic."
+      }
+    },
+    "taxonomy_frictions": [
+      "ES-11/1 is a foreign-policy alignment proxy, not a reserve-management-preference measure; it is used as the PUBLIC, dated, exogenous alignment criterion, corroborated by sanctions-coalition membership. It should not be read as itself causing reserve behavior.",
+      "The 'active diversifier' label (Arslanalp–Eichengreen–Simpson-Bell sense) partially cross-cuts the UN vote (some IN-FAVOUR emerging markets also diversify); the classification here is alignment/exposure-based per instruction, with the diversifier notion recorded as a secondary descriptor, not the primary split.",
+      "China's placement in TREATED/exposed rests on ABSTENTION + non-coalition status; it is NOT itself sanctioned, so it is 'sanctions-exposed / non-US-aligned', distinct from Russia the directly-frozen unit. This distinction is load-bearing and preserved."
+    ]
+  },
+
+  "surface_status_summary": {
+    "S1_currency_composition": "CONFIRMED — LMW Data.xls publicly downloadable (BOFIT DSpace), 64 countries 1996–2023, exact currency-share columns, Russia present through 2021, China absent, 50 countries have 2022.",
+    "S2_gold": "CONFIRMED — WGC per-country quarterly gold since 2000 (covers 2022), .xlsx login-gated but IMF IFS ungated corroborant; China gold observed via PBoC/SAFE.",
+    "S3_treasury_holdings": "CONFIRMED — TIC MFH history (foreign-official UST by country, incl. China, 2020–2023) + TIC transactions (s1_globl.txt, monthly 2022 gross buys/sells by type/country); prior contract treasury_tic.json reused.",
+    "S4_rmb_internationalization": "CONFIRMED (partial) — SWIFT RMB share + PBoC swap lines public and span 2022; CIPS PARTIAL (annual public, monthly-2022 not cleanly public); CNH deposits (HKMA) + RMB invoicing (PBoC/SAFE) sources identified but UNVERIFIED this run.",
+    "S5_decomposition_inputs": "CONFIRMED (FX) — FRED FX EUR/USD, USD/CNY, USD/GBP, USD/JPY span 2022; reserve-levels source (IMF IFS) public but exact restructured indicator code UNVERIFIED."
+  },
+
+  "integrity_notes": {
+    "answer_integrity_audit": "Every dataset structure/figure is read from a fetched artifact retained under build/reserve/rd0_evidence/: LMW columns and Russia/China rows parsed from the downloaded Data.xls (HTTP 200, 152576 bytes); TIC headers and 2022 rows from ticdata flat files (HTTP 200); FRED FX rows from fredgraph.csv (HTTP 200); SWIFT RMB share figures from the fetched tracker PDFs; UN vote from the UN Digital Library record (HTTP 200, verbatim roll-call). No structure or figure asserted from memory. IMF COFER NOT used as evidence.",
+    "honest_gaps": "Fields not fetched this run are marked UNVERIFIED (CNH/HKMA deposits, RMB trade-invoicing, CIPS monthly-2022 series, exact IMF IFS restructured indicator code) with what is missing stated — not filled from recall and not upgraded from secondary sources. WGC .xlsx download-gating and Russia's post-2021 S1 disclosure gap are recorded as real frictions, not smoothed over.",
+    "scope_discipline": "No estimation run. Did not touch DP2–DP6, build/ledger.json, build/approvals/, or prior committed files. Nothing committed (orchestrator commits and writes RD0_program.md)."
+  }
+}

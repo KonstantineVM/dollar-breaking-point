@@ -70,3 +70,6 @@ build/data/nport/did_control_parts/
 
 # Python bytecode caches (any dir)
 **/__pycache__/
+
+# Large reference paper (re-fetchable; primary data is lmw_Data.xls)
+build/reserve/rd0_evidence/lmw_reading_emdp202501.pdf
