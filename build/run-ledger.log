@@ -3509,3 +3509,59 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 fi
 git status --short && echo CLEAN
+2026-07-01T19:10:44Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git status --short
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A && git commit -q -m "chore: run-ledger checkpoint (RD0 grounding in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T19:54:15Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git reset -q build/reserve/rd0_evidence/lmw_reading_emdp202501.pdf
+grep -q "lmw_reading_emdp202501.pdf" .gitignore || printf '\n# Large reference paper (re-fetchable; primary data is lmw_Data.xls)\nbuild/reserve/rd0_evidence/lmw_reading_emdp202501.pdf\n' >> .gitignore
+git add .gitignore
+git commit -q -m "RD0: reserve-side program scope + five-surface dataset grounding
+
+Pivots to the reserve-manager side (public/national/primary sources,
+bypassing the confidential IMF COFER aggregate). Grounded all five
+surfaces (data-source-agent, fetch-confirmed, evidence retained):
+- S1 currency composition: LMW 64-economy dataset (BOFIT DSpace, public
+  download confirmed; 1996-2023; Russia diversification USD 47->13.9%,
+  CNY 0->21.8% through 2021 replicates as a data-integrity check; China
+  ABSENT -> residual inference; 50 countries have 2022)
+- S2 gold (WGC + IMF IFS ungated), S3 TIC official UST (prior contract
+  reused + transactions), S4 RMB (SWIFT + PBoC swaps public; CIPS/CNH/
+  invoicing partial/UNVERIFIED), S5 FX (FRED confirmed; IFS reserve-level
+  code UNVERIFIED)
+
+Treated/control taxonomy grounded on the UN GA ES-11/1 roll-call (Russia
+No/frozen = clean treated unit; China Abstain = non-aligned diversifier;
+US-aligned Yes = control disclosers). Load-bearing constraint for RD1:
+Russia's S1 disclosure ENDS 2021 (post-freeze unobserved), so its
+diversification is a pre-freeze case study, and the freeze DiD rests on
+the broader non-aligned discloser set -> INSUFFICIENT-POWER/NOT-IDENTIFIED
+are first-class. Program is multi-stage (RD2-RD6 human-gated, not run here).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T19:55:26Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/reserve/RD1_prediction.md
+git commit -q -m "Pre-register RD1 (S1 currency composition) before panel + estimation
+
+Committed before the S1 panel is assembled or the freeze event-study runs.
+Honest a-priori: Russia (clean treated unit) is unobserved post-2021 on S1,
+China is a residual inference (absent from LMW), so the freeze DiD rests on
+the non-aligned discloser set with 2022 data vs US-aligned disclosers -- an
+indirect, low-power test. DiD/event-study on disclosed USD share with a
+pre-trend test (leads flat; no LOQO); Russia's pre-freeze diversification
+reported as a separate labelled case study, not the freeze response.
+Decision rule: S1-REALLOCATION / S1-NULL / S1-NOT-IDENTIFIED /
+INSUFFICIENT-POWER. Primary prediction (sign-agnostic): INSUFFICIENT-POWER
+or NOT-IDENTIFIED or NULL; the falsifiable REFUTE = a negative significant
+beta with flat leads. Treated set fixed by the ES-11/1 vote, not
+gerrymandered; China residual never sold as observed.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
