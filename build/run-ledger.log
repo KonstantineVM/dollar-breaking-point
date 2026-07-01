@@ -2739,3 +2739,48 @@ for k,v in find(d,['quarter','url','zip','nport','accession','source','coverage'
 echo "=== crosswalk tag recompute (R1-R4 rule logic to REUSE) ==="
 ls -la build/data/nport/panel_crosswalk_tagged_recompute.py 2>/dev/null
 grep -nE "def |R1|R2|R3|R4|HFCAA|hfcaa|XBRL|F6|F-6|qcc|nport|zip|download|haven|investment_country" build/data/nport/panel_crosswalk_tagged_recompute.py 2>/dev/null | head -40
+2026-06-30T23:36:12Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -5
+2026-07-01T00:13:08Z	OUTPUT (not established until verifier runs)	python3 - <<'PY'
+import json
+s=json.load(open('build/data/nport/haven_parts/_tag_summary.json'))
+print("rule set sizes:", s["rule_sets"])
+print("hfcaa matched:", s["hfcaa_matched_count"])
+print("total rows:", s["total_rows"])
+print("quarters:", len(s["per_quarter"]))
+print()
+print(f"{'fq':8} {'haven':>7} {'cn':>6} {'cov%':>8}")
+tot_cn=0
+for q in s["per_quarter"]:
+    tot_cn+=q["cn_tagged_rows"]
+    print(f"{q['fiscal_quarter']:8} {q['haven_rows']:>7} {q['cn_tagged_rows']:>6} {q['identifier_coverage_pct']:>8}")
+print("total CN rows:", tot_cn)
+mincov=min(q["identifier_coverage_pct"] for q in s["per_quarter"])
+print("min per-quarter identifier coverage:", mincov, ">95%:", mincov>95)
+PY
+2026-07-01T00:14:09Z	OUTPUT (not established until verifier runs)	python3 - <<'PY'
+import json
+# combine per-quarter provenance: existing 8 from us_china_panel_provenance.json + new 14 from driver meta
+prov=json.load(open('build/data/nport/us_china_panel_provenance.json'))
+existing={r["fiscal_quarter"]:r for r in prov["per_quarter_rows"]}
+newmeta=json.load(open('build/data/nport/haven_parts/_meta_2021q1.json'))
+new={r["fiscal_quarter"]:r for r in newmeta if "error" not in r}
+tag=json.load(open('build/data/nport/haven_parts/_tag_summary.json'))
+perq={q["fiscal_quarter"]:q for q in tag["per_quarter"]}
+
+def zip_for(fq):
+    y=int(fq[:4]);q=int(fq[5]); return f"{y+1}q1" if q==4 else f"{y}q{q+1}"
+
+order=[q["fiscal_quarter"] for q in tag["per_quarter"]]
+rows=[]
+for fq in order:
+    src = "prior-run (us_china_nationality_panel.parquet, identical parse)" if fq in existing else "this-run download"
+    m = existing.get(fq) or new.get(fq)
+    zurl = m.get("zip_url","")
+    zbytes = m.get("zip_bytes","")
+    tot = m.get("total_holdings_in_quarter","")
+    rows.append((fq, zip_for(fq), zurl, zbytes, tot, perq[fq]["haven_rows"],
+                 perq[fq]["cn_tagged_rows"], perq[fq]["identifier_coverage_pct"], src))
+for r in rows: print(r[0], r[1], r[3], r[4], r[5], r[6], r[7])
+json.dump(rows, open('/tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/rows.json','w'))
+print("N quarters:", len(rows))
+PY
