@@ -3381,3 +3381,33 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 fi
 git status --short && echo CLEAN
+2026-07-01T06:10:37Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git status --short
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A
+  git commit -q -m "chore: run-ledger checkpoint
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T13:57:19Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/did_prediction.md
+git commit -q -m "Pre-register DiD/event-study F3 test (before any control built)
+
+Committed before Part 0 builds or tests any control group. The correct
+estimator for a discrete event (2022q1 reserve freeze): difference-in-
+differences / event study on valuation-stripped active flow, with a
+pre-trend test -- LOQO is invalid for an event study (removes the
+identifying variation). Control-selection rule fixed here: pick the
+candidate (C1 non-CN haven / C2 non-haven EM equity / C3 DM equity) with
+a genuinely flat pre-trend; report ALL candidates' pre-trends; if none
+parallels, NOT-IDENTIFIED. Decision rule: DiD-LOADS / DiD-NULL /
+NOT-IDENTIFIED / INSUFFICIENT-POWER. Primary prediction (sign-agnostic):
+DiD-NULL or NOT-IDENTIFIED, but the DiD is the estimator best matched to
+the event, so a masked effect could surface -- if beta is negative and
+significant with flat leads, that is DiD-LOADS. beta read from estimator;
+no LOQO; pre-trend leads are the robustness check.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
