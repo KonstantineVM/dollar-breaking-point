@@ -3965,3 +3965,82 @@ verdict) not yet run. DP2-DP6 and the RD1 panel untouched.
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T21:42:56Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git status --short
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A && git commit -q -m "chore: run-ledger checkpoint (RD2 Parts 2-3 in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T21:44:42Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== is the committed panel modified/overwritten on disk? ==="
+git status --short build/reserve/
+echo "=== current panel dims on disk ==="
+python3 -c "
+import pyarrow.parquet as pq
+df=pq.read_table('build/reserve/RD2_gold_panel.parquet').to_pandas()
+print('rows:', len(df), '| countries:', df[[c for c in df.columns if 'name' in c.lower() or 'country' in c.lower()][0]].nunique())
+print('cols:', list(df.columns)[:6],'...')
+" 2>&1 | head
+echo "=== did the first agent re-create trimmed evidence? ==="
+ls build/reserve/rd2_evidence/ | grep -iE "imf_il|worldbank_pinksheet_monthly|wgc_cbd_getPage_MYVERIFY|build_rd2_panel" || echo "(none of the first-agent files present)"
+echo "=== estimation-agent (Parts 2-3) still running? RD2_result present? ==="
+ls build/reserve/RD2_result.json 2>/dev/null && echo "RESULT EXISTS" || echo "result pending"
+2026-07-01T21:47:48Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/reserve/RD2_gold_panel.parquet build/reserve/RD2_gold_provenance.md
+git commit -q -m "RD2 Part 1 fix: standardize on the reproducible 123-country WGC panel
+
+A concurrent-writer clobber left the prior commit internally inconsistent:
+the committed panel was a second fetch agent's 39-country IMF-IFS build,
+while the committed build script + evidence + provenance were the WGC-cbd
+123-country build (so rd2_build_panel.py did not regenerate the committed
+panel). Two independent data-source fetches had run -- WGC Central Banks
+Dashboard API (123 countries) and IMF IFS SDMX direct (39 countries) -- and
+overwrote each other's parquet mid-run.
+
+Resolution: standardize on the WGC-cbd 123-country build (broader control
+coverage -> better-powered DiD; reproducible from the committed script +
+evidence). RD2_gold_panel.parquet now regenerates deterministically from
+rd2_build_panel.py (3,444 rows, 123 countries x 28q; treated 24 / control
+90; DV net_gold_purchases_tonnes; US 8133t / China 2022Q4-accumulation /
+Russia-plateau / Turkey-in-control anchors intact). The IMF-IFS-direct
+39-country build AGREES with WGC on the treated-unit tonnage -- an
+independent triangulation of the DV, now documented in the provenance
+reconciliation note. The redundant build/estimation agents were stopped.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T22:00:05Z	OUTPUT (not established until verifier runs)	git commit -q -m "$(cat <<'EOF'
+Reserve-side RD2 (Surface 2: gold): GOLD-NULL
+
+Test the mechanism's primary escape hatch — sanctions shifting reserves
+into gold (which COFER excludes) — on the surface where the treated units
+are directly observed: China and Russia both publish gold tonnage. Two-way
+FE DiD / event study on physical net-purchase TONNES (never USD value or
+share) around the Feb-2022 = 2022Q1 freeze, treated/control fixed
+mechanically by the UN GA ES-11/1 roll-call.
+
+Two confound strips fired as pre-registered: the post-2022 surge is
+UNIVERSAL (both arms buy; country FE absorbs a standing gap; Treated×Post
+β = +0.104 t/qtr, p=0.934, CI [−2.35,+2.56]), and the treated gold-VALUE
+rise is 81.7% price / 12.4% tonnage. Pre-trend flat (Wald p=0.221) so the
+design is valid and the null is IDENTIFIED (CI excludes ±5 t/qtr), not
+underpowered. China's real +358t LAGS the freeze 3 quarters; Russia's
+reported series is a plateau. VERDICT: GOLD-NULL — the escape-hatch
+surface does not load. Sign-agnostic; prediction HELD.
+
+Coefficients read from the numpy estimator, byte-reproduced by
+RD2_verify.json (all_pass=true); orchestrator re-ran independently
+byte-identical. Integrity-critic GATE PASS (DV=tonnes; both confounds
+survived; concurrent-writer resolution legitimate). Reconciliation note
+softened to match on-disk evidence (IMF-direct cross-check artifact not
+retained). No date, no bare probability, no hazard claim. DP2–DP6 and the
+RD1 panel untouched; RD3–RD6 not run.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1
+2026-07-01T22:00:10Z	OUTPUT (not established until verifier runs)	git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -15
