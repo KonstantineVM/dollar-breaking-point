@@ -149,16 +149,25 @@ decomposition (Parts 2–3).** Did not touch DP2–DP6, the RD1 currency panel, 
 
 ## Reconciliation note (orchestrator, post-build)
 
-Two independent data-source fetches ran for this surface and **cross-corroborate the tonnage DV**: one
-via the WGC Central Banks Dashboard API (`fsapi.gold.org/api/cbd/v11`, which republishes IMF IFS gold
-tonnage; 123-country coverage) and one via the IMF IFS SDMX endpoint directly
-(`api.imf.org/.../IMF.STA,IL,13.0.1/{ISO3}.RGV_REVS.FTO.Q`; 39-country coverage). The two routes AGREE on
-the treated-unit tonnage (China, Russia, US anchor) to within rounding — an independent triangulation of the
-DV, not a single-source figure.
+The committed panel is a **single-route WGC build**, cross-checked internally against on-disk evidence.
+The tonnage DV comes from the WGC Central Banks Dashboard API (`fsapi.gold.org/api/cbd/v11`, which
+republishes IMF IFS gold tonnage; 123-country coverage), committed as
+`rd2_evidence/cbd_quarterly_2019_2025.json`. The internal cross-check that the committed files DO support:
+the panel carries two price columns — `gold_usd_price_per_oz_wb` (World Bank Pink Sheet,
+`rd2_evidence/wb_pinksheet_MYFETCH.xlsx`) and `gold_usd_price_per_oz_wgc_implied` (implied from the WGC
+value/tonnage cells) — and these agree, corroborating the value/tonnage reconciliation used in the
+Confound-2 decomposition.
+
+A second fetch route ran during the build — the IMF IFS SDMX endpoint directly
+(`api.imf.org/.../IMF.STA,IL,13.0.1/{ISO3}.RGV_REVS.FTO.Q`, 39-country coverage) — and, in the
+concurrent-writer incident below, its 39-country parquet transiently overwrote the WGC parquet. That IMF
+route's raw artifact was among the un-attributed concurrent-writer files quarantined and removed; **it is
+NOT retained in the committed evidence directory.** Its earlier apparent agreement on the treated-unit
+tonnage is therefore recorded here only as build-time context, **not as a verifiable committed cross-check**
+— the verdict rests solely on the WGC panel, and no claim in this build depends on the IMF-direct route.
 
 **Headline panel = the WGC-cbd 123-country build** (`rd2_build_panel.py` + the committed evidence), chosen
 for its broader control coverage (more Yes-voter controls -> better-powered treated-vs-control DiD). The
-IMF-IFS-direct 39-country build agreed on the treated units and is the corroborating cross-check. A
 concurrent-writer incident (the two fetch agents overwrote each other's parquet mid-run) was resolved by
 standardizing on this single reproducible build: `RD2_gold_panel.parquet` regenerates deterministically from
 `rd2_build_panel.py` + `rd2_evidence/{cbd_quarterly_2019_2025.json, wb_pinksheet_MYFETCH.xlsx}` and the RD0
