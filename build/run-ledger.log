@@ -3727,3 +3727,41 @@ human-gated). DP2-DP6 untouched.
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T20:08:58Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A && git commit -q -m "chore: run-ledger checkpoint (RD0+RD1 stage complete)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T21:15:28Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/reserve/RD2_prediction.md
+git commit -q -m "Pre-register RD2 (S2 gold) before panel + estimation
+
+Committed before the gold panel is built or any estimation runs. Two
+load-bearing confound strips fixed up front: (1) test the treated-vs-
+control DIFFERENTIAL in tonnes, not 'treated bought gold' (universal-trend
+confound, absorbed by quarter FE); (2) dependent variable is physical
+TONNES of net purchases, never USD value or reserve share (valuation
+confound -- a value/share headline is disallowed; any share series is
+decomposed tonnage-vs-price). Treated/control fixed by the ES-11/1 vote.
+
+CONFLICT SURFACED (not silently resolved): the task names Turkey as a
+treated non-aligned buyer, but Turkey voted YES on ES-11/1, so by the
+grounded criterion it is a CONTROL. Including a big buyer as treated
+against its vote would be gerrymandering -> headline treated set excludes
+Turkey; a broader 'large non-Western buyer' set is a labelled robustness
+only, and a differential appearing only under it is reported as
+gerrymander-sensitive, not the finding.
+
+DiD/event-study on gold tonnage around 2022q1 with a pre-trend test (leads
+flat; no LOQO); China+Russia observed national-tonnage case studies (timing
+vs the freeze specifically); tonnage-vs-price decomposition. Decision rule:
+GOLD-REALLOCATION-PRESENT / GOLD-NULL / NOT-IDENTIFIED / INSUFFICIENT-POWER.
+Primary prediction (sign-agnostic): GOLD-NULL or INSUFFICIENT-POWER (the
+surge is likely universal and partly price-driven) -- but the treated units
+are directly observed here, so unlike S1 this surface CAN test the thesis.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
