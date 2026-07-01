@@ -3162,3 +3162,34 @@ s=json.dumps(r)
 for k in r:
     if 'verdict' in k.lower() or 'label' in k.lower(): print('result field',k,'=>',r[k])
 "
+2026-07-01T04:20:17Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Parts 2-3 + GATE: sanctions-shock F3 test -> NO-SANCTIONS-F3 (terminal)
+
+Sanctions-specific shock inside the identical full-panel CM weight
+regression, with a regulatory/delisting-channel control. Load-bearing
+comparison: sanctions beta WITH vs WITHOUT the regulatory control.
+
+Result (coef read from estimator; byte-reproduced, orchestrator re-ran):
+headline sanctions beta (sanc_freeze_post) = +0.0185 without / +0.0177
+with the regulatory control -- positive, does NOT attenuate (opposite of
+F3 substitution); lambda on reg_crackdown = -0.0076 (the mild delisting
+negative sits on the control, not sanctions). LOQO positive across all 22
+quarters both with/without control; wild bootstrap p=0.27 at G=22.
+
+Verdict: NO-SANCTIONS-F3 (F3 not loaded) -- terminal for the F3-LOADS
+question -- with a terminal INSUFFICIENT-POWER caveat on the negative
+(substitution) sign (honest G=22 bootstrap CI [-0.056,+0.244] does not
+exclude a meaningful negative). Structurally parallel to the GPR-China
+pass; the corrected sanctions shock does not change the conclusion.
+Part-0 prediction HELD.
+
+Integrity-critic GATE: first BLOCKED the verdict label (it leaned on a
+lagged CI it elsewhere calls an over-rejecting artifact to claim the
+negative was excluded); relabeled to match the honest G=22 bootstrap and
+the GPR precedent, numbers unchanged. Also fixed a non-blocking provenance
+overclaim (EO 14024 base date now grounded against 86 FR 20249, its own
+FR primary). Critic re-adjudication: PASS. Standing UNIDENTIFIABLE-FROM-
+AVAILABLE-DATA verdict unchanged. DP2-DP6 untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
