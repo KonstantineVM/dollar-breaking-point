@@ -3017,3 +3017,148 @@ git add build/run-ledger.log && git commit -q -m "chore: run-ledger checkpoint (
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-07-01T01:48:26Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/run-ledger.log && git commit -q -m "chore: run-ledger checkpoint
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+git status --short && echo "clean"
+2026-07-01T01:50:35Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+# Reap the two orphaned wait-and-cat loops (their producer agents have completed; targets will never fill)
+kill 12536 22110 2>/dev/null
+sleep 1 2>/dev/null || true
+echo "=== remaining live 'until ... sleep' wait-loops (should be NONE) ==="
+ps -eo pid,args 2>/dev/null | grep -E "until \[ -s .*(run3.out|b8h199x66|tasks/.*output)" | grep -v grep || echo "NONE — all orphaned waiters reaped"
+echo "=== any recompute/estimation python alive? ==="
+ps -eo pid,args 2>/dev/null | grep -E "cm_regression.*recompute|build_fullpanel" | grep -v grep || echo "NONE"
+2026-07-01T03:36:15Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/audit/sanctions_shock_prediction.md
+git commit -q -m "Part 0: pre-register sanctions-shock F3 test (corrected treatment)
+
+Committed BEFORE Part 1 grounding and Part 2 estimation. Replaces the
+generic GPR-China shock with a sanctions-specific treatment (Feb-2022
+reserve freeze + Dec-2023 secondary-sanctions EO) inside the identical
+CM weight regression, adding a regulatory/delisting-channel control
+(HFCAA identification, 2021 crackdown, 2023 outbound EO) so a negative
+loading is attributable to sanctions, not delisting. Decision rule:
+SANCTIONS-F3-LOADS / NO-SANCTIONS-F3 / INSUFFICIENT-POWER. Primary
+prediction (a-priori, confound-and-power-pessimistic): NO-SANCTIONS-F3
+or INSUFFICIENT-POWER -- the powered GPR null plus the 2022 regulatory
+confound make a clean sanctions-F3 hard to isolate; null is first-class.
+Load-bearing test is the sanctions coefficient WITH vs WITHOUT the
+regulatory control. Sign-agnostic; not tuned to.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git log --oneline -1
+2026-07-01T03:36:32Z	OUTPUT (not established until verifier runs)	git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T03:42:57Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/sanctions/evidence
+UA="Mozilla/5.0 (research; dollar-breaking-point academic macro build; contact milevsky@hotmail.com)"
+# SEC press release on first HFCAA provisional identifications (March 2022) + PCAOB Dec 2022 determination
+for url in \
+  "https://www.sec.gov/newsroom/press-releases/2022-40" \
+  "https://pcaobus.org/news-events/news-releases/news-release-detail/pcaob-secures-complete-access-to-inspect-investigate-chinese-firms-for-first-time-in-history" ; do
+  echo "=== $url ==="
+  curl -sS -L -A "$UA" -o /dev/null -w "HTTP %{http_code} bytes=%{size_download} final=%{url_effective}\n" "$url"
+done
+2026-07-01T03:43:09Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/sanctions/evidence
+UA="Mozilla/5.0 (research; dollar-breaking-point academic macro build; contact milevsky@hotmail.com)"
+curl -sS -L -A "$UA" "https://www.sec.gov/newsroom/press-releases/2022-40" -o sec_2022-40_first_hfcaa_cii.html
+curl -sS -L -A "$UA" "https://pcaobus.org/news-events/news-releases/news-release-detail/pcaob-secures-complete-access-to-inspect-investigate-chinese-firms-for-first-time-in-history" -o pcaob_dec2022_access_determination.html
+python3 -c "
+import re,html
+def clean(f):
+    t=open(f,encoding='utf-8',errors='replace').read()
+    txt=re.sub(r'<script.*?</script>','',t,flags=re.S); txt=re.sub(r'<[^>]+>',' ',txt); txt=html.unescape(txt); txt=re.sub(r'\s+',' ',txt)
+    return t,txt
+raw,txt=clean('sec_2022-40_first_hfcaa_cii.html')
+mt=re.search(r'<title>(.*?)</title>',raw,re.S); print('SEC TITLE:', re.sub(r'\s+',' ',mt.group(1)))
+for kw in ['March 8, 2022','Holding Foreign Companies Accountable','provisionally identified','conclusively','first five']:
+    m=re.search(re.escape(kw),txt)
+    if m: print('  ['+kw+']', txt[max(0,m.start()-70):m.start()+150]); 
+print()
+raw2,txt2=clean('pcaob_dec2022_access_determination.html')
+mt2=re.search(r'<title>(.*?)</title>',raw2,re.S); print('PCAOB TITLE:', re.sub(r'\s+',' ',mt2.group(1)))
+for kw in ['December 15, 2022','complete access','2021','determination','first time']:
+    m=re.search(re.escape(kw),txt2)
+    if m: print('  ['+kw+']', txt2[max(0,m.start()-70):m.start()+150]); 
+"
+2026-07-01T03:43:25Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/sanctions/evidence
+UA="Mozilla/5.0 (research; dollar-breaking-point academic macro build; contact milevsky@hotmail.com)"
+python3 -c "
+import re
+t=open('pcaob_dec2022_access_determination.html',encoding='utf-8',errors='replace').read()
+ds=re.findall(r'datetime=\"([^\"]+)\"',t)
+print('PCAOB datetimes:', ds[:5])
+"
+echo "--- search SEC newsroom for HFCAA identification releases ---"
+2026-07-01T03:43:43Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/data/sanctions/evidence
+UA="Mozilla/5.0 (research; dollar-breaking-point academic macro build; contact milevsky@hotmail.com)"
+curl -sS -L -A "$UA" "https://www.sec.gov/rules-regulations/holding-foreign-companies-accountable-act" -o sec_hfcaa_page.html -w "HTTP %{http_code} bytes=%{size_download}\n"
+python3 -c "
+import re,html
+t=open('sec_hfcaa_page.html',encoding='utf-8',errors='replace').read()
+txt=re.sub(r'<[^>]+>',' ',t); txt=html.unescape(txt); txt=re.sub(r'\s+',' ',txt)
+for kw in ['March 8, 2022','2022','provisional','conclusive','Commission-Identified','began','identified']:
+    m=re.search(re.escape(kw),txt)
+    if m: print('['+kw+']', txt[max(0,m.start()-90):m.start()+160]); print()
+" 2>&1 | head -30
+2026-07-01T03:43:53Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 -c "
+import json,datetime
+d=json.load(open('build/data/crosswalk/hfcaa/hfcaa_conclusive.json'))
+def parse(s): return datetime.datetime.strptime(s,'%B %d, %Y')
+dates=sorted(set(x['date_conclusively_identified'] for x in d), key=parse)
+print('n issuers:', len(d))
+print('earliest conclusive identification:', dates[0], '-> fiscal_quarter 2022q1')
+print('latest conclusive identification:', dates[-1])
+# first five earliest
+first=[x['issuer_name'] for x in d if x['date_conclusively_identified']==dates[0]]
+print('first-cohort issuers:', first)
+"
+2026-07-01T03:48:25Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git commit -q -m "Part 1: ground sanctions treatment + regulatory control (22-quarter series)
+
+Grounded against primary publishers (data-source-agent):
+- RCB FX-reserve freeze (OFAC Directive 4, EO 14024): 2022-02-28 -> 2022q1
+  (Treasury jy0612)
+- EO 14114 secondary sanctions: 2023-12-22 -> 2023q4 (Federal Register)
+- HFCAA CII determinations begin 2022q1 (conclusive 2022-03-30), PCAOB
+  access restored 2022q4 -> bounded reg_hfcaa window (SEC/PCAOB)
+- Didi/tech crackdown onset 2021q3 (SEC EDGAR CIK 1764757)
+- CORRECTION surfaced: outbound-investment EO is EO 14105 (2023-08-09,
+  2023q3), NOT Dec-2023; the Dec-2023 event is EO 14114 (secondary
+  sanctions). Grounded against the Federal Register, not silently mapped.
+
+Treatment panel (22 rows keyed by fiscal_quarter, merges cleanly onto the
+full crosswalk panel, 0 orphans): sanc_freeze_post, sanc_eo2023_post,
+sanc_intensity (CMIC additions; flagged survivorship-biased/sparse ->
+INCOMPLETE, event dummies are primary), reg_hfcaa_post, reg_crackdown_post.
+Measured sanctions-vs-regulatory collinearity r=0.828 (freeze vs crackdown);
+separation levers reg_hfcaa (bounded 2022 window) and sanc_eo2023 (distinct
+2023q4). Raw fetched evidence retained under build/data/sanctions/evidence/.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T04:17:16Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== fresh mtimes ==="
+for f in build/audit/sanctions_shock_verdict.md build/audit/sanctions_shock_result.json build/results/sanctions_shock_verify.json build/audit/sanctions_shock_recompute.py build/contracts/sanctions_sources.json; do
+  [ -f "$f" ] && echo "$(stat -c '%y' "$f"|cut -d. -f1)  $(stat -c%s "$f")B  $f"
+done
+echo "=== estimation-agent tail (last 30 lines of its output transcript, plain grep for its final report) ==="
+echo "=== independently re-run recompute, diff verifier (numbers must be unchanged) ==="
+cp build/results/sanctions_shock_verify.json /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/sanc_verify_v2.json
+python3 build/audit/sanctions_shock_recompute.py > /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/sanc_recompute_v2.txt 2>&1
+echo "recompute exit: $?"
+tail -2 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/sanc_recompute_v2.txt
+diff <(python3 -c "import json;print(json.dumps(json.load(open('build/results/sanctions_shock_verify.json')),sort_keys=True,indent=1))") \
+     <(python3 -c "import json;print(json.dumps(json.load(open('/tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/sanc_verify_v2.json')),sort_keys=True,indent=1))") \
+  && echo "BYTE-IDENTICAL: verifier still reproduces"
+echo "=== headline beta still +0.0177 with control? (spot-check result json) ==="
+python3 -c "
+import json; r=json.load(open('build/audit/sanctions_shock_result.json'))
+import re
+s=json.dumps(r)
+# find verdict label field if any
+for k in r:
+    if 'verdict' in k.lower() or 'label' in k.lower(): print('result field',k,'=>',r[k])
+"
