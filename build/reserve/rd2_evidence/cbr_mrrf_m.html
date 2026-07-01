@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="zoom:lang" content="en" />
+    <meta name="zoom:last-modified" content="Sun, 31 May 2026 21:00:00 GMT" />
+<title>International Reserves of the Russian Federation:Monthly values at the end of the reporting date | Bank of Russia</title>
+
+
+
+    <meta property="og:image" content="/common/images/share-1.jpg" />
+
+    
+
+
+            <link rel="stylesheet" type="text/css" href="/common/libs/jquery-ui/jquery-ui.min.css?v=v478607061" media="all">
+
+            <!--[if IE 9]><link rel="stylesheet" type="text/css" href="/common/style/main-ie9.css?v=v1910799576" media="all"><![endif]-->
+
+            <!--[if gt IE 9]><!--><link rel="stylesheet" type="text/css" href="/common/style/main.min.css?v=v1572385387" media="all"><!--<![endif]-->
+
+
+        <script type="text/javascript" src="/common/libs/jquery-3.7.1.min.js?v=v735956814"></script>
+
+
+
+        <script type="text/javascript" src="/common/libs/jquery-ui/jquery-ui.min.js?v=v478607061"></script>
+
+        <script type="text/javascript" src="/common/libs/jquery.inputmask.min.js?v=v478607061"></script>
+
+
+        <script type="text/javascript" src="/common/scripts/vendor.js?v=v4270970564"></script>
+
+        <script type="text/javascript" src="/common/libs/jquery.floatThead.min.js?v=v478607061"></script>
+
+
+
+
+
+
+
+
+        <script type="text/javascript" src="/common/libs/popper.js?v=v478607061"></script>
+
+        <script type="text/javascript" src="/common/libs/tippy.js?v=v478607061"></script>
+
+        <script type="text/javascript" src="/common/scripts/main.min.js?v=v824551275"></script>
+
+
+        <script type="text/javascript" src="/common/libs/localization-en.js?v=v955241707"></script>
+
+        <script type="text/javascript" src="/js/jquery.cookie.min.js?v=v4260771145"></script>
+
+        <script type="text/javascript" src="/js/site.js?v=v2848633841"></script>
+
+
+
+
+
+<script src="/Modules/Queries/Scripts/queries-ui.js?v=v662783731" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function () {
+        var $menu = $('[data-menu]'),
+            $menuItemBtn = $menu.find('[data-menu-item-btn]'),
+            $menuShow = $('[data-menu-show]'),
+            $menuClose = $('[data-menu-close]');
+        var config = $menu.data('config');
+
+        $menuShow.on('click.cms_loadwholesite', function (event) {
+            loadWholeSite(true);
+        });
+        $menuShow.on('mouseenter.cms_loadwholesite', function (event) {
+            loadWholeSite(false);
+        });
+
+        var xhr = null, g_openMenu = false;
+        function loadWholeSite(openmenu) {
+            g_openMenu = g_openMenu || openmenu;
+            $menuShow.off('click.cms_loadwholesite mouseenter.cms_loadwholesite');
+            if (xhr === null) {
+                $('.menu_wrap .networks-circle').html($('.networks-circle.footer_networks').html());
+                $('.menu_wrap .header_search').html($('.header .offsetMenu .header_search').html());
+
+                xhr = $.ajax(config.url, {
+                    dataType: "html",
+                    method: "get",
+                    success: function (html) {
+                        $('[data-cms-wholesite-placeholder]').replaceWith(html);
+
+                        $menu.find('.menu_tab[data-tabs-tab]').each(function () {
+                            var tab = $(this).data('tabs-tab');
+                            $(this).toggle($menu.find('[data-tabs-content="' + tab + '"]').length != 0);
+                        });
+
+                        $menu.trigger('new-html');
+
+                        for (var i in config.catalogPath) {
+                            $menu.find('li[data-catalog-id="' + config.catalogPath[i] + '"]')
+                                .addClass("_active");
+                            $menu.find('li[data-catalog-id="' + config.catalogPath[i] + '"]')
+                                .closest('[data-tabs-content]')
+                                .trigger('open-anchor');
+                        }
+
+                        
+                        xhr = true;
+                    },
+                    error: function () {
+                        xhr = null;
+                    }
+                });
+            }
+        }
+    });
+    </script>
+
+
+<script>
+    if (window.localStorage) {
+        if (localStorage.getItem('vision-impaired'))
+            document.getElementsByTagName('html')[0].className += ' vision-impaired';
+    }
+</script>
+<script>
+    document.documentElement.style.setProperty('--scrollbar-width', '17px');
+    setTimeout(function () {
+        
+        var div = document.createElement('div');
+
+        div.style.overflowY = 'scroll';
+        div.style.width = '50px';
+        div.style.height = '50px';
+
+        
+        div.style.visibility = 'hidden';
+
+        document.body.appendChild(div);
+        var scrollWidth = Math.max(div.offsetWidth - div.clientWidth, 0.15); 
+        document.body.removeChild(div);
+        
+        document.documentElement.style.setProperty('--scrollbar-width', scrollWidth + 'px');
+    }, 0);
+</script>
+
+
+
+
+    
+</head>
+<body class="page-v3 page-v3-inside">
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(5774506, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/5774506" style="position:absolute; left:-9999px;" alt="" /></div></noscript>    
+<!-- /Yandex.Metrika counter -->
+        
+    
+
+    <div class="header-print">
+    <div class="offsetMenu">
+        <div class="header-print_inner">
+            <img class="header-print_logo" alt="cbr" src="/common/images/logo.svg">
+            <ul class="header-print_contacts">
+<li>12&nbsp;Neglinnaya Street, Moscow, 107016 Russia</li>
+
+<li><nobr class="phone">8 800 300-30-00</nobr></li>
+<li>www.cbr.ru</li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
+    <header class="header" id="header">
+        <div class="top-line" data-top-line="">
+            <div class="header_burger-big"></div>
+            <div class="offsetMenu">
+                <div class="col-md-23 header_margin-left">
+                    <div class="top-line_inner header_inner">
+                        
+
+<div class="row">
+    <div class="col-xl-4 col-md-6">
+        <div class="header_left pr-0">
+                <div class="header_menu" data-menu-show=""></div>
+            <a class="header_logo_eng" href="/eng/"></a>
+                <a class="header_search_btn d-flex d-md-none" href="#" data-search-form-show="" aria-label="Search"><div class="header_search_icon"></div></a>
+            <a class="d-flex d-md-none" href="#" data-tooltip="" data-tooltip-content="Mode for visually impaired" data-tooltip-class="mobile-hide"><div class="header_visual-impaired_item"></div></a>
+        </div>
+    </div>
+    <div class="col-xl-17 col-md-13 offset-md-1 header_block">
+        <div class="d-none d-md-block">
+            <div class="header_right">
+                
+                <div class="networks header_networks header_visual-impaired header_visual-impaired_inner"><a href="#" data-tooltip="" data-tooltip-content="Mode for visually impaired" data-tooltip-class="mobile-hide" aria-label="Mode for visually impaired"><div class="header_visual-impaired_item"></div></a></div>
+                <div class="header_lang header_lang_inner header_networks">
+    <a href="/Localization/SwitchLanguage?url=%2Feng%2Fhd_base%2Fmrrf%2Fmrrf_m%2F&amp;from=en-CB&amp;to=ru-RU"><!--noindex-->RU<!--/noindex--></a>
+</div>
+                    <div class="header_networks header_search header_search_inner">
+                        <a class="header_search_btn" href="#" data-search-form-show="" aria-label="Search"><div class="header_search_icon"></div><span aria-hidden="true">Search</span></a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offsetMenu">
+            <div class="col-md-23 offset-md-1 header_margin-left">
+                <div class="header_inner">
+                    
+<div class="row">
+    <div class="col-xl-5 col-md-6">
+        <div class="header_left pr-0">
+            <div class="header_menu" data-menu-show=""></div>
+            <a class="header_logo_eng" href="/eng/"></a>
+            <a class="header_search_btn d-flex d-md-none" href="#" data-search-form-show="" aria-label="Search">
+                <div class="header_search_icon"></div>
+            </a>
+            <a class="d-flex d-md-none" href="#" data-tooltip data-tooltip-content="Mode for visually impaired" data-tooltip-class="mobile-hide">
+                <div class="header_visual-impaired_item"></div>
+            </a>
+        </div>
+    </div>
+    <div class="col-xl-17 col-md-13 offset-md-1 header_block justify-content-end">
+        <div class="d-none d-md-block">
+            <div class="header_right">
+                
+                <div class="networks header_networks header_visual-impaired header_visual-impaired_inner">
+                    <a href="#" data-tooltip data-tooltip-content="Mode for visually impaired" data-tooltip-class="mobile-hide" aria-label="Mode for visually impaired">
+                        <div class="header_visual-impaired_item"></div>
+                    </a>
+                </div>
+                <div class="header_lang header_lang_inner header_networks">
+    <a href="/Localization/SwitchLanguage?url=%2Feng%2Fhd_base%2Fmrrf%2Fmrrf_m%2F&amp;from=en-CB&amp;to=ru-RU"><!--noindex-->RU<!--/noindex--></a>
+</div>
+                <div class="header_networks header_search header_search_inner">
+                    <a class="header_search_btn" href="#" data-search-form-show="" aria-label="Search">
+                        <div class="header_search_icon"></div><span aria-hidden="true">Search</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <form action="/eng/search/" method="get" class="search-form" data-search-form=""
+      data-api-url="/Content/SearchSuggest/Suggest"
+      data-api-top-url="">
+    <div class="offsetMenu">
+        <div class="col-md-23 offset-md-1">
+            <div class="search-form_inner">
+                <div class="search-form_title">What do you want to find?<img class="search-form_title-close" src="/common/images/icons/menu-close-dark-grey.svg"></div>
+                <div class="search-form_content">
+                    <div class="search-form_block">
+                        <div class="search-form_icon"></div>
+                        <div class="search-form_field">
+                            <input name="text" type="text" autocomplete="off" placeholder="Start typing" data-search-form-input="" />
+                        </div>
+                    </div>
+                    <div class="search-form_clear" data-search-form-clear-btn=""><img src="/common/images/icons/menu-close-gray.svg"></div>
+                    <div class="search-form_btn">
+                        <button class="b-btn _blue" data-search-form-btn="">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div class="menu_wrap" data-menu="" data-config="{&quot;catalogPath&quot;:[22230,22229,21244],&quot;url&quot;:&quot;/Catalog/SiteMap/GetWholeSiteHtml?blockId=59192&quot;}">
+    <div class="offsetMenu">
+        <div class="header_menu _close menu_close d-none d-md-block" data-menu-close=""></div>
+        <div class="header_inner top-line_inner d-block d-md-none">
+            <div class="row">
+                <div class="col-xl-5 col-md-9">
+                    <div class="header_left pr-0">
+                        <div class="header_menu _close" role="button" tabindex="0" aria-label="Close menu" data-menu-close=""></div>
+                        <a class="header_logo" href="/eng/"></a>
+                        <a class="header_search_btn" href="#" data-search-form-show="data-search-form-show" aria-label="Search"><div class="header_search_icon"></div></a>
+                        <a href="#" data-tooltip="data-tooltip" data-tooltip-content="Mode for visually impaired" data-tooltip-class="mobile-hide"><div class="header_visual-impaired_item"></div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu row" data-tabs="data-tabs">
+            <div class="menu_quick col-md-7">
+                <div role="tablist" class="menu_quick_tabs">
+    <a role="tab" id="menu_tab_Activity" aria-controls="menu_content_Activity" aria-selected="true" class="menu_tab _active" href="#" data-tabs-tab="Activity">Activity</a>
+    <a role="tab" id="menu_tab_FinancialMarkets" aria-controls="menu_content_FinancialMarkets" aria-selected="false" class="menu_tab" href="#" data-tabs-tab="FinancialMarkets">Financial markets</a>
+    <a role="tab" id="menu_tab_Documents" aria-controls="menu_content_Documents" aria-selected="false" class="menu_tab" href="#" data-tabs-tab="Documents">Documents and data</a>
+    <a role="tab" id="menu_tab_AboutBank" aria-controls="menu_content_AboutBank" aria-selected="false" class="menu_tab" href="#" data-tabs-tab="AboutBank">About Bank of Russia</a>
+    <a role="tab" id="menu_tab_Services" aria-controls="menu_content_Services" aria-selected="false" class="menu_tab" href="#" data-tabs-tab="Services">Services</a>
+</div>
+<div class="menu_quick_links">
+    <div class="phones">
+  <a class="menu_phone_val" href="tel:+74993003000">
+  <div class="plus">+</div>7 499 300-30-00</a>
+  <a class="menu_phone_val" href="tel:88003003000">8 800 300-30-00</a>
+</div>
+<div class="inner_links">
+  <a href="/eng/news/" title="Events">Events</a>
+  <a href="/eng/contacts/" title="Contacts">Contacts</a>
+  <a href="/eng/sitemap" title="site map ">Site map</a>
+  <a href="/eng/about/" title="About the Site ">About the Site </a>
+</div>
+<div class="networks-circle">
+  <a class="networks-circle_item _yt" href="https://www.youtube.com/user/BankofRussia" title="Youtube"></a>
+  <a class="networks-circle_item _tg" href="https://t.me/centralbank_russia" title="Telegram"></a>
+</div>
+
+</div>
+            </div>
+            <div class="d-md-none link-above">
+                <div class="header_right">
+                    <div class="header_link"><a href="/eng/about_br/">About Bank of Russia</a></div>
+                    <div class="header_lang">
+            <div class="header_lang_item"><a href="/Localization/SwitchLanguage?url=%2Feng%2Fhd_base%2Fmrrf%2Fmrrf_m%2F&amp;from=en-CB&amp;to=ru-RU"><!--noindex-->RU<!--/noindex--></a></div>
+            <div class="header_lang_item _active"><span><!--noindex-->EN<!--/noindex--></span></div>
+</div>
+                </div>
+            </div>
+            <div class="menu_content_container col-md with-centered-loader" data-cms-wholesite-placeholder="">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <main id="content">
+        <div class="offsetMenu ">
+            <div class="container-fluid">
+                <div class="col-md-23 offset-md-1">
+                    <div class="breadcrumbs">
+    <div class="breadcrumbs_item"><a class="breadcrumbs_home" href="/eng/"></a></div>
+        <div class="breadcrumbs_item">
+            <a href="/eng/hd_base/"><!--noindex-->Databases<!--/noindex--></a>
+        </div>
+        <div class="breadcrumbs_item">
+            <a href="/eng/hd_base/mrrf/"><!--noindex-->International Reserves of&#160;the&#160;Russian Federation<!--/noindex--></a>
+        </div>
+    </div>
+
+                    <!--index-->
+<h1><span class="referenceable">International Reserves of&nbsp;the&nbsp;Russian Federation:<br/>Monthly values at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;reporting date</span>
+</h1>
+                                        
+
+
+
+
+
+
+                                                                                
+
+<script type="text/javascript">
+<!--
+    var UniDbQuery_Data = {};
+// -->
+</script>
+
+        <!--noindex-->
+<div class="block-part">
+<form action="/eng/hd_base/mrrf/mrrf_m/" data-auto-submit="true" method="get"><input id="UniDbQuery_Posted" name="UniDbQuery.Posted" type="hidden" value="True" />        <div class="block-part vertical" id="UniDbQuery_form">
+
+
+
+
+    <div class="filters_wrapper">
+        <div class="filters">
+
+
+
+    <div class="filter" >
+            <div class="datepicker-filter" data-monthpicker-period-filter
+         data-min-date="01.1993"
+         data-max-date="06.2026"
+         data-default-value-from="06.2025"
+         data-default-value-to="06.2026">
+        <input class="datepicker-filter_input-from" type="hidden" name="UniDbQuery.From" value="06.2025" />
+        <input class="datepicker-filter_input-to" type="hidden" name="UniDbQuery.To" value="06.2026" />
+        <button class="datepicker-filter_button" type="button">
+            June 2025 - June 2026
+        </button>
+        <div class="datepicker-filter_modal">
+            <div class="datepicker-filter_head">
+                <div class="datepicker-filter_close"></div>
+            </div>
+            <div class="datepicker-filter_tabs">
+                <div class="datepicker-filter_tab-from"></div>&nbsp;-&nbsp;
+                <div class="datepicker-filter_tab-to"></div>
+            </div>
+            <div class="datepicker-filter_body">
+                <div class="datepicker-filter_datepicker-from monthpicker-custom"></div>
+                <div class="datepicker-filter_datepicker-to monthpicker-custom"></div>
+            </div>
+            <div class="datepicker-filter_footer">
+                <button class="datepicker-filter_apply-btn" type="button">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+        </div>
+</form></div>        <!--/noindex-->
+<div class="table-wrapper">
+  <div class="table-caption gray">
+		  millions of USD
+		</div>
+  <div class="table">
+    <table class="data spaced">
+      <tr>
+        <th rowspan="3">Date</th>
+        <th rowspan="3">International reserves</th>
+        <th colspan="5">of which:</th>
+      </tr>
+      <tr>
+        <th rowspan="2">foreign exchange reserves</th>
+        <th colspan="3">of which:</th>
+        <th rowspan="2">gold</th>
+      </tr>
+      <tr>
+        <th>foreign exchange</th>
+        <th>SDRs</th>
+        <th>reserve position in IMF</th>
+      </tr>
+      <tr>
+        <td>31.05.2026</td>
+        <td>747,395</td>
+        <td>421,524</td>
+        <td>392,265</td>
+        <td>24,242</td>
+        <td>5,017</td>
+        <td>325,872</td>
+      </tr>
+      <tr>
+        <td>30.04.2026</td>
+        <td>758,678</td>
+        <td>421,157</td>
+        <td>391,732</td>
+        <td>24,377</td>
+        <td>5,049</td>
+        <td>337,521</td>
+      </tr>
+      <tr>
+        <td>31.03.2026</td>
+        <td>748,984</td>
+        <td>415,015</td>
+        <td>385,990</td>
+        <td>24,045</td>
+        <td>4,981</td>
+        <td>333,968</td>
+      </tr>
+      <tr>
+        <td>28.02.2026</td>
+        <td>809,308</td>
+        <td>425,283</td>
+        <td>395,931</td>
+        <td>24,315</td>
+        <td>5,037</td>
+        <td>384,025</td>
+      </tr>
+      <tr>
+        <td>31.01.2026</td>
+        <td>833,572</td>
+        <td>430,867</td>
+        <td>401,252</td>
+        <td>24,528</td>
+        <td>5,086</td>
+        <td>402,706</td>
+      </tr>
+      <tr>
+        <td>31.12.2025</td>
+        <td>754,853</td>
+        <td>428,317</td>
+        <td>399,033</td>
+        <td>24,254</td>
+        <td>5,030</td>
+        <td>326,537</td>
+      </tr>
+      <tr>
+        <td>30.11.2025</td>
+        <td>734,588</td>
+        <td>423,867</td>
+        <td>394,883</td>
+        <td>24,005</td>
+        <td>4,979</td>
+        <td>310,720</td>
+      </tr>
+      <tr>
+        <td>31.10.2025</td>
+        <td>725,841</td>
+        <td>426,020</td>
+        <td>396,929</td>
+        <td>24,091</td>
+        <td>5,001</td>
+        <td>299,821</td>
+      </tr>
+      <tr>
+        <td>30.09.2025</td>
+        <td>713,301</td>
+        <td>431,087</td>
+        <td>401,795</td>
+        <td>24,256</td>
+        <td>5,036</td>
+        <td>282,213</td>
+      </tr>
+      <tr>
+        <td>31.08.2025</td>
+        <td>689,458</td>
+        <td>434,486</td>
+        <td>405,311</td>
+        <td>24,159</td>
+        <td>5,017</td>
+        <td>254,971</td>
+      </tr>
+      <tr>
+        <td>31.07.2025</td>
+        <td>681,489</td>
+        <td>432,970</td>
+        <td>403,974</td>
+        <td>24,006</td>
+        <td>4,990</td>
+        <td>248,519</td>
+      </tr>
+      <tr>
+        <td>30.06.2025</td>
+        <td>688,731</td>
+        <td>440,012</td>
+        <td>410,682</td>
+        <td>24,282</td>
+        <td>5,048</td>
+        <td>248,719</td>
+      </tr>
+      <tr>
+        <td>31.05.2025</td>
+        <td>680,379</td>
+        <td>432,168</td>
+        <td>403,276</td>
+        <td>23,918</td>
+        <td>4,973</td>
+        <td>248,211</td>
+      </tr>
+    </table>
+  </div>
+  <div class="table-caption">
+    <p>Data is available from 31.12.1992 to 31.05.2026, inclusive.</p>
+  </div>
+</div>
+                    
+                    <!--/index-->
+                    
+    <div class="page-info">
+        <!--noindex-->
+        
+
+
+<div class="page-info_helpful"
+     data-page-feedback=""
+     data-feedback-url="/Content/PageInfo/RegisterFeedback">
+    <!--noindex-->
+    <div class="helpful" data-helpful="">
+        Was this page useful?
+        <div class="helpful_btns">
+            <button class="helpful_btn _yes" data-helpful-btn="yes"><i class="helpful_icon"></i><span>Yes</span></button>
+            <button class="helpful_btn _no" data-helpful-btn="no"><i class="helpful_icon"></i><span>No</span></button>
+        </div>
+    </div>
+    <!--/noindex-->
+</div>
+
+            <div class="page-info_last-update">Last updated on: 01.06.2026</div>
+        <!--/noindex-->
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer">
+    <div class="offsetMenu footer_margin-left">
+        <div class="footer_main">
+            <div class="col-md-23 col-xl-22 offset-md-1 offset-xl-2 footer-size">
+                <div class="footer_top">
+                    <a class="footer_logo_eng" href="/eng/"></a>
+                    <div class="footer_up gotoUp">
+                        <div class="footer_up_title">Up</div>
+                        <div class="footer_up_icon"></div>
+                    </div>
+                </div>
+                
+<div class="footer_contacts">
+<div class="footer_address">Bldg V, 12&nbsp;Neglinnaya Street, Bank of&nbsp;Russia, Moscow, 107016 Russia</div>
+<div class="footer_phones">
+
+<div class="footer_phone"><nobr class="phone"><a class="footer_phone_val" href="tel:88003003000">8 800 300-30-00</a></nobr></div>
+
+<div class="footer_phone"><nobr class="phone"><a class="footer_phone_val" href="tel:+74993003000">+7 499 300-30-00</a></nobr></div>
+
+</div>
+</div>
+<div class="footer_main_block">
+<div class="footer_left-menu">
+
+<div class="footer_left-menu_item"><a href="/eng/about_br/irp/">Investor Relations</a></div>
+<div class="footer_left-menu_item"><a href="/eng/other/holidays/">Public Holidays in&nbsp;Russia</a></div>
+
+</div>
+<div class="networks-circle footer_networks">
+<a class="networks-circle_item _yt" href="https://www.youtube.com/user/BankofRussia"></a>
+<a class="networks-circle_item _tg" href="https://t.me/centralbank_russia" title="Telegram"></a></div>
+</div>
+<div class="footer_menu">
+<div class="footer_menu_items">
+<div class="footer_menu_item"><a href="/eng/about/">About the&nbsp;Site</a></div>
+<div class="footer_menu_item"><a href="/eng/contacts/">Contacts</a></div>
+<div class="footer_menu_item"><a href="/eng/development/">Technical resources</a></div>
+
+<!--<div class="footer_menu_item"><a href="/eng/development/">Links</a></div>-->
+</div>
+<a class="footer_menu_item _visually-impaired" href="#" title="Mode for visually impaired">
+	<div class="footer_visually-impaired-icon"></div>
+	<div><span class="visually-impaired-on">Mode for&nbsp;visually impaired</span><span class="visually-impaired-off">Regular version</span></div>
+</a>
+</div>
+
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="col-md-23 col-xl-23 offset-md-1 offset-xl-2 row footer_bottom-container">
+                <div class="footer_bottom_text col-md-11 col-xl-11">&#169; Bank of Russia, 2000–2026.</div>
+<div class="footer_bottom_aic col-md-12 col-xl-11">Design by <a href="https://aic.ru" target="_blank"><img src="/common/images/icons/aic-logo.svg" /></a></div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+
+        <div class="popup-cookies" data-popup-cookies>
+            <div class="popup-cookies_title">
+                The Bank of Russia website uses cookies
+            </div>
+            <div class="popup-cookies_subtitle">
+                By using <a href="/eng/">www.cbr.ru</a>, you accept
+                the  <a href="/eng/user_agreement/">User Agreement.</a>
+            </div>
+            <button class="btn _medium _blue " data-popup-cookies-btn>
+                Accept
+            </button>
+        </div>
+
+    
+<!--[if IE 9]><script>$('body').addClass('ie9')</script><![endif]-->
+<script src="/Modules/Content/Scripts/PageInfo.js?v=v3116962712" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            Content_PageInfo.init($('[data-page-feedback]'));
+        });
+    </script>
+
+
+
+</body>
+</html>

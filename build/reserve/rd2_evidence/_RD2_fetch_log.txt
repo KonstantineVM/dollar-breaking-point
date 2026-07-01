@@ -1,0 +1,51 @@
+RD2 Part 1 fetch log — retrieved 2026-07-01, outbound via agent proxy.
+
+[WGC — PRIMARY tonnage DV]  fsapi.gold.org Central Banks Dashboard API (republishes IMF IFS)
+  Dashboard page: https://www.gold.org/goldhub/data/gold-reserves-by-country  -> HTTP 200
+    (embeds app apps.gold.org/cbd-app/latest/fs/index.js, nid=16034 "Central Banks Dashboard v2",
+     suppliers="cbks,fsl,imf,wb,WGC")
+  Data API (ungated JSON):
+    GET https://fsapi.gold.org/api/cbd/v11/charts/getPage?page=date_range&periodicity=QTD_FULL&startDate=2019-01-01&endDate=2025-12-31
+        -> HTTP 200, application/json, 1,105,202 bytes  [saved: cbd_quarterly_2019_2025.json]
+    GET https://fsapi.gold.org/api/cbd/v11/charts/getPage (snapshot default) -> HTTP 200 [cbd_getPage.json]
+    GET https://fsapi.gold.org/api/cbd/v11/charts/getFilters -> HTTP 200 [cbd_getFilters.json]
+  Structure: chartData.linechart.QTD_FULL.gold_reserves_tns.data = [{name:ISO3, data:[[ts_ms, tonnes],...]}]
+  metrics: gold_reserves(US$M), gold_reserves_tns(TONNES), fx_reserves, total_reserves, holdings_pct(%)
+  coverage: 123 ISO3 holders; 28 quarters Q1-2019..Q4-2025; minDateAvailable 2000-12-31, maxDateAvailable 2026-03-31.
+  Load-bearing cells (gold_reserves_tns, tonnes):
+    CHN: 2021Q4=1948.31  2022Q1=1948.31  2022Q2=1948.31  2023Q4=2235.39  2024Q4=2279.56  2025Q4=2306.30
+    RUS: 2021Q4=2301.64  2022Q1=2304.75  2022Q2=2323.41  2023Q4=2332.74  2024Q4=2332.74  2025Q4=2326.52
+    USA: 2025Q4=8133.46   DEU: 2025Q4=3350.25   header quarters: Q1 19,Q2 19,...,Q4 25
+  WGC login-gated .xlsx (NOT used, recorded as friction):
+    GET https://www.gold.org/download/file/8052/Quarterly_gold_and_FX_Reserves_Q1_2026.xlsx -> HTTP 403
+        (Drupal "Access denied" HTML, og:title="Access denied"; login required). Same 403 for file 7739 and methodology 12491.
+
+[CHINA national — SAFE Official Reserve Assets]  (cross-check, gold VOLUME)
+  Page: https://www.safe.gov.cn/en/2021/0203/2045.html "Official Reserve Assets (2026)" -> HTTP 200
+  File: https://www.safe.gov.cn/en/file/file/20260607/2990f3246e4746ffb39dbc70d1b390f8.xlsx -> HTTP 200 [safe_ora_2026.xlsx]
+  Gold volume row (units: 万盎司 = 10,000 fine troy oz):
+    2026.01=7419万盎司 (74.19M oz)  2026.02=7422 (74.22M)  2026.03=7438 (74.38M)  2026.04=7464万盎司 (74.64M oz)
+    74.64M oz / 32150.746 = 2321.6 tonnes  (consistent with WGC CHN trajectory).
+
+[RUSSIA national — Bank of Russia]  (cross-check; OPACITY caveat)
+  Page: https://www.cbr.ru/eng/hd_base/mrrf/mrrf_m/  -> HTTP 200
+  Monetary gold reported in USD millions ONLY (nested under reserves), monthly, continues to May-2026.
+    cell: gold = 24,282 (US$ millions) as of 2025-06-30.
+  Caveat: CBR public monthly series is USD VALUE (rises with price), NOT tonnes; a direct CBR physical-tonnage
+  series was NOT located this run. WGC/IFS tonnage for RUS is FLAT ~2332.7t Q4-2022..Q4-2024 then -6t by Q4-2025
+  (consistent with halted accumulation / reduced granular disclosure post-freeze).
+
+[GOLD PRICE]  UNVERIFIED as an independent fetched series.
+  FRED LBMA series GOLDPMGBD228NLBM / GOLDAMGBD228NLBM: https://fred.stlouisfed.org/series/GOLDPMGBD228NLBM
+     -> HTTP 301 redirect to news.research.stlouisfed.org/2022/01/ice-benchmark-administration-ltd-iba-data-to-be-removed-from-fred/
+     i.e. ICE Benchmark Administration LBMA gold data was REMOVED from FRED in Jan-2022 (discontinued on FRED).
+  WGC spot API live but SPOT-only: GET https://fsapi.gold.org/api/goldprice/v13/charts/spotprice -> HTTP 200
+     (usd ask 4,031.14 as of 2026-07-01; no history).
+  DERIVED (used in panel): gold_usd_price_per_oz_wgc_implied = median over countries of
+     gold_reserves(US$M)*1e6 / (gold_reserves_tns * 32150.746). Sanity: 2019Q1 $1,295; 2021Q4 $1,806;
+     2022Q1 $1,942; 2024Q4 $2,609; 2025Q4 $4,368 per oz (tracks real LBMA quarter-end). Labelled as WGC-implied.
+
+[IMF IFS — secondary cross-check, TIME-BOXED, 2 attempts]
+  1) GET https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.STA/IFS/+?format=sdmx-json -> HTTP 204 (No Content; endpoint alive, exact monetary-gold indicator code NOT pinned)
+  2) GET https://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/IFS/M.RU.RAFAGOLD_OZT -> HTTP 000 (legacy host unreachable)
+  => 2025 IFS restructuring friction confirmed (matches RD0). NOT used as load-bearing; WGC republishes IFS.
