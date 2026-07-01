@@ -1,0 +1,143 @@
+{
+  "task": "ACTIVE-FLOW F3 TEST Part 0 feasibility",
+  "source": "SEC N-PORT dissemination ZIPs FUND_REPORTED_HOLDING structured data",
+  "tested_zip_quarters": [
+    "2022q2",
+    "2021q4"
+  ],
+  "cn_nationality_set_source": "parent_nationality==CN merged from committed panel_crosswalk_tagged_full.parquet on (cik, series_id, cusip)",
+  "per_quarter_meta": [
+    {
+      "zip_quarter": "2022q2",
+      "fiscal_quarter": "2022q1",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q2_nport.zip",
+      "zip_bytes": 432741571,
+      "total_holdings_in_quarter": 5384188,
+      "target_residence_rows": 178640
+    },
+    {
+      "zip_quarter": "2021q4",
+      "fiscal_quarter": "2021q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2021q4_nport.zip",
+      "zip_bytes": 374616598,
+      "total_holdings_in_quarter": 4500945,
+      "target_residence_rows": 167345
+    }
+  ],
+  "per_quarter_measurements": [
+    {
+      "fiscal_quarter": "2022q1",
+      "haven_all_residence_n": 178640,
+      "haven_cn_nationality_n": 46367,
+      "cn_balance_stats": {
+        "n": 46367,
+        "n_balance_positive": 46194,
+        "frac_balance_positive_by_count": 0.996269,
+        "total_abs_currency_value": 141280450041.23914,
+        "abs_value_balance_positive": 141228252299.95914,
+        "frac_balance_positive_by_value": 0.999631,
+        "n_price_finite_positive": 45387,
+        "abs_value_price_ok": 141222211516.75912,
+        "frac_price_ok_by_value": 0.999588,
+        "price_p50": 2.100057,
+        "price_p05": 0.18967,
+        "price_p95": 41.36
+      },
+      "cn_unit_mix": [
+        {
+          "unit": "NS",
+          "n": 43063,
+          "abs_currency_value": 137121787562.61914
+        },
+        {
+          "unit": "PA",
+          "n": 2135,
+          "abs_currency_value": 4141902437.6800003
+        },
+        {
+          "unit": "OU",
+          "n": 1073,
+          "abs_currency_value": 9657138.13
+        },
+        {
+          "unit": "NC",
+          "n": 96,
+          "abs_currency_value": 7102902.8100000005
+        }
+      ],
+      "all_haven_balance_stats": {
+        "n": 178640,
+        "n_balance_positive": 178019,
+        "frac_balance_positive_by_count": 0.996524,
+        "total_abs_currency_value": 742132609493.9008,
+        "abs_value_balance_positive": 740788082168.9108,
+        "frac_balance_positive_by_value": 0.998188,
+        "n_price_finite_positive": 176136,
+        "abs_value_price_ok": 740692024495.6384,
+        "frac_price_ok_by_value": 0.998059,
+        "price_p50": 1.112667,
+        "price_p05": 0.19459,
+        "price_p95": 34.429368
+      }
+    },
+    {
+      "fiscal_quarter": "2021q3",
+      "haven_all_residence_n": 167345,
+      "haven_cn_nationality_n": 45668,
+      "cn_balance_stats": {
+        "n": 45668,
+        "n_balance_positive": 45513,
+        "frac_balance_positive_by_count": 0.996606,
+        "total_abs_currency_value": 163733387022.50607,
+        "abs_value_balance_positive": 163702823196.91608,
+        "frac_balance_positive_by_value": 0.999813,
+        "n_price_finite_positive": 44103,
+        "abs_value_price_ok": 163691840419.80606,
+        "frac_price_ok_by_value": 0.999746,
+        "price_p50": 2.167542,
+        "price_p05": 0.215809,
+        "price_p95": 63.3
+      },
+      "cn_unit_mix": [
+        {
+          "unit": "NS",
+          "n": 40016,
+          "abs_currency_value": 156531968252.53
+        },
+        {
+          "unit": "PA",
+          "n": 3807,
+          "abs_currency_value": 7182088730.78
+        },
+        {
+          "unit": "OU",
+          "n": 1739,
+          "abs_currency_value": 12276278.51
+        },
+        {
+          "unit": "NC",
+          "n": 106,
+          "abs_currency_value": 7053760.68607
+        }
+      ],
+      "all_haven_balance_stats": {
+        "n": 167345,
+        "n_balance_positive": 166739,
+        "frac_balance_positive_by_count": 0.996379,
+        "total_abs_currency_value": 768909554557.1208,
+        "abs_value_balance_positive": 767617034852.2108,
+        "frac_balance_positive_by_value": 0.998319,
+        "n_price_finite_positive": 164344,
+        "abs_value_price_ok": 767546964827.0083,
+        "frac_price_ok_by_value": 0.998228,
+        "price_p50": 1.13875,
+        "price_p05": 0.24875,
+        "price_p95": 54.32
+      }
+    }
+  ],
+  "aggregate_cn_value_frac_balance_positive": 0.999729,
+  "aggregate_cn_value_frac_price_ok": 0.999673,
+  "branch": "A",
+  "branch_reason": "BALANCE populated+positive for 0.9997 of haven-CN currency_value across tested quarters (>=0.90). Constant-price decomposition buildable DIRECTLY."
+}

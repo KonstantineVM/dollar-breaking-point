@@ -3204,3 +3204,57 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
 fi
 echo "final:"; git status --short && echo "CLEAN"
+2026-07-01T04:57:25Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git status --short
+if [ -n "$(git status --porcelain)" ]; then
+  git add build/run-ledger.log 2>/dev/null
+  git diff --cached --quiet || git commit -q -m "chore: run-ledger checkpoint (active-flow feasibility in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T05:00:30Z	OUTPUT (not established until verifier runs)	python3 -c "
+import json
+d=json.load(open('build/audit/active_flow_feasibility.json'))
+print('branch:', d['branch'])
+print('agg frac balance positive (value):', d['aggregate_cn_value_frac_balance_positive'])
+print('agg frac price ok (value):', d['aggregate_cn_value_frac_price_ok'])
+for q in d['per_quarter_measurements']:
+    s=q['cn_balance_stats']
+    print(f\"  {q['fiscal_quarter']}: cn_n={q['haven_cn_nationality_n']} bal+_bycount={s['frac_balance_positive_by_count']} bal+_byval={s['frac_balance_positive_by_value']} price_p50={s['price_p50']}\")
+    print('     units:', [(u['unit'],u['n']) for u in q['cn_unit_mix']])
+"
+2026-07-01T05:48:53Z	OUTPUT (not established until verifier runs)	python3 -c "
+import sys; sys.path.insert(0,'build/data/nport')
+import numpy as np, pandas as pd
+import build_active_flow as A
+df, per_q, sizes = A.tag_parts()
+agg, hold, drop, gate = A.decompose(df)
+h=hold.copy()
+dcv = np.where(h['decomp_type'].isin(['CONTINUING','CONTINUING_NONDECOMP']), h['currency_value']-h['cv_lag'],
+       np.where(h['decomp_type']=='NEW', h['currency_value'], 0.0-h['cv_lag']))
+h['recon']=h['active_flow']+h['passive']-dcv
+by=h.assign(ae=h['recon'].abs()).groupby('decomp_type')['ae'].agg(['max','mean','count'])
+print(by)
+print('--- worst rows ---')
+w=h.reindex(h['recon'].abs().sort_values(ascending=False).index).head(8)
+print(w[['decomp_type','currency_value','cv_lag','balance','active_flow','passive','recon']].to_string())
+" 2>&1 | tail -30
+2026-07-01T05:50:39Z	OUTPUT (not established until verifier runs)	python3 -c "
+import json
+s=json.load(open('build/data/nport/haven_bal_parts/_active_flow_summary.json'))
+print('rule sizes:', s['rule_set_sizes'])
+print('verify all match:', s['verify_against_committed_all_match'])
+print('gate:', s['reconstruction_gate'])
+print()
+print('drop_report:', s['drop_report'])
+print()
+dv=s['divergence_vs_weight_change']
+print('corr(active_rate, dcv_rate):', dv['corr_active_rate_vs_dcv_rate'])
+print('gap_abs_mean:', dv['gap_abs_mean'], 'gap_abs_p95:', dv['gap_abs_p95'])
+print()
+print('per-quarter active flow:')
+for r in s['per_quarter_active_flow']:
+    print(f\"  {r['fiscal_quarter']}: fund_quarters={r['n_fund_quarters']} sumActive={r['sum_cn_active_flow']:.3e} sumPassive={r['sum_cn_passive']:.3e}\")
+"

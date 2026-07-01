@@ -58,5 +58,10 @@ build/data/nport/haven_parts/
 build/data/nport/__pycache__/
 build/data/nport/panel_crosswalk_tagged_full.parquet
 
+# Active-flow F3 test — per-quarter haven parts WITH balance/unit (large raw intermediate,
+# ZIPs streamed+deleted). Regenerable from build_haven_with_balance.py + the SEC ZIP URLs.
+# active_flow_panel.parquet + active_flow_provenance.md carry the load-bearing numbers.
+build/data/nport/haven_bal_parts/
+
 # Python bytecode caches (any dir)
 **/__pycache__/
