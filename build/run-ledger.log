@@ -2941,3 +2941,38 @@ v=json.load(open('build/results/cm_regression_full_verify.json'))
 print('ALL MATCHES:',all([v['beta_matches'],v['bootstrap_p_recomputed_matches'],v['leave_one_out_recomputed_matches'],v['aux_dense8_loqo_recomputed_matches']]))
 print('bootstrap_p',v['wild_cluster_bootstrap_p_in_result'],'G_est',v['estimation_quarters_G'])
 "
+2026-07-01T01:04:36Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/run-ledger.log && git commit -q -m "chore: run-ledger checkpoint (CM re-estimation in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-07-01T01:26:52Z	OUTPUT (not established until verifier runs)	cd /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/tasks 2>/dev/null
+echo "=== Are these b-task IDs referenced inside the estimation-agent's own transcript? (grep, no dump) ==="
+for id in bn49o7p8f bi35xaas2 bw2pq9yc3 b8qlyo61u; do
+  n=$(grep -c "$id" a3463667611e09d5a.output 2>/dev/null)
+  echo "$id : referenced $n times in estimation-agent transcript"
+done
+echo
+echo "=== first 200 bytes of bn49o7p8f.output (claimed to 'run recompute') ==="
+head -c 200 bn49o7p8f.output 2>/dev/null; echo
+echo "=== does the MAIN transcript show me spawning background bash this turn? check for run_in_background in my recent tool calls ==="
+ls -la bn49o7p8f.output bi35xaas2.output 2>/dev/null | awk '{print $5, $9}'
+2026-07-01T01:28:57Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "now: $(date -u +%H:%M:%S)"
+for f in build/audit/cm_regression_full_result.json build/results/cm_regression_full_verify.json build/audit/cm_regression_full_verdict.md build/contracts/cm_sources_full.json; do
+  [ -f "$f" ] && echo "$(stat -c '%y' "$f" | cut -d. -f1)  $f" || echo "MISSING $f"
+done
+echo "=== estimation-agent transcript last activity ==="
+stat -c '%y' /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/tasks/a3463667611e09d5a.output 2>/dev/null | cut -d. -f1
+2026-07-01T01:35:02Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 -c "
+import json
+v=json.load(open('build/results/cm_regression_full_verify.json'))
+print('MATCHES beta/boot/loqo:',v['beta_matches'],v['bootstrap_p_recomputed_matches'],v['leave_one_out_recomputed_matches'])
+print('G w-specs',v['estimation_quarters_G_w_specs'],'G walt',v['estimation_quarters_G_walt_specs'],'status',v['power_rebuild_status'])
+print('bootstrap p',v['wild_cluster_bootstrap_p_in_result'],'G',v['wild_cluster_bootstrap_G'])
+r=json.load(open('build/audit/cm_regression_full_result.json'))
+print('n specs',len(r['specs']),'headline beta',round(r['specs'][0]['beta_GPRC_China'],5))
+print('power resid share',round(r['power_diagnostic']['gprc_residual_share_of_within'],4))
+print('8q subset headline',round(r['eight_quarter_subset_corrected_no_fx']['headline_beta'],5),'nolags',round(r['eight_quarter_subset_corrected_no_fx']['nolags_beta'],5))
+"
