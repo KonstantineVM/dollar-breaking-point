@@ -4051,3 +4051,30 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
 EOF
 )" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -4 && git status --short && echo "clean" 
+2026-07-01T23:17:35Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDT_prediction.md build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+Pre-register RDT (exit-trajectory model) before any coordinate build
+
+Fixes, before any data exists: the k1-k4 state space with the
+coordinate-applicability matrix (China k1 INFERRED-BOUNDED via a
+residual + SAFE-anchor envelope, never a point; China k3 as the
+custody band with the valuation split; k4 N/A for China); the Russia
+calibration (onset 2014 primary / 2018 alternative, both reported;
+mechanical move-ordering rule; frontier = pre-freeze terminal state);
+the distance metric (per-coordinate path-fraction PRIMARY, one
+pre-registered composite = unweighted mean + three sensitivities;
+recent-3y AND full-window velocities, both always reported); the
+hazard form (conditional kinematics only, every d/v carrying the
+regime-shift caveat; no date, no probability); the binding-mode
+boundary (anticipatory-reallocation regime; a run is a stated,
+unmeasured discontinuity); and the flipped symmetric guard verbatim
+(dramatization AND zeroing vectors both violations). Falsifiable
+expectation stated (Russia ordering; China composite midpoint >= 0.60,
+REFUTED below 0.40). Surfaced, not silently resolved: the COFER public
+world aggregate enters ONLY as the bounding input for the one
+inferred k1-China cell, revisiting RD0's bypass-COFER scoping per this
+stage's explicit instruction.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1 && git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
