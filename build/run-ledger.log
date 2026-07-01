@@ -3565,3 +3565,132 @@ gerrymandered; China residual never sold as observed.
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-01T19:56:42Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git status --short
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A && git commit -q -m "chore: run-ledger checkpoint (RD1 estimation in progress)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+fi
+git status --short && echo CLEAN
+2026-07-01T19:56:54Z	OUTPUT (not established until verifier runs)	python3 << 'EOF'
+import pandas as pd, re
+
+df = pd.read_excel('build/reserve/rd0_evidence/lmw_Data.xls', sheet_name='DATA', engine='xlrd')
+
+# Parse vote lines from the retained UN evidence
+raw = open('build/reserve/rd0_evidence/un_digitallibrary_es11_1_votelines.txt').read()
+# extract the value block after 'Vote' -> the last big <span class='value'> ... contains the marks
+m = re.search(r"Y AFGHANISTAN.*?ZIMBABWE", raw, re.S)
+block = m.group(0)
+# split on <br />
+entries = re.split(r"<br />", block)
+votes = {}
+for e in entries:
+    e = e.strip()
+    if not e: continue
+    # first token is the mark (Y/N/A) or empty (non-voting)
+    mm = re.match(r"^([YNA])\s+(.+)$", e)
+    if mm:
+        votes[mm.group(2).strip().upper()] = mm.group(1)
+    else:
+        # non-voting: no leading mark, just the country name
+        name = e.strip().upper()
+        if name:
+            votes[name] = 'NV'
+
+# LMW country -> UN name mapping
+lmw2un = {
+ 'Afghanistan':'AFGHANISTAN','Angola':'ANGOLA','Australia':'AUSTRALIA','Azerbaijan':'AZERBAIJAN',
+ 'Bangladesh':'BANGLADESH','Bosnia':'BOSNIA AND HERZEGOVINA','Brazil':'BRAZIL','Brunei':'BRUNEI DARUSSALAM',
+ 'Bulgaria':'BULGARIA','Canada':'CANADA','Chile':'CHILE','Colombia':'COLOMBIA','Croatia':'CROATIA',
+ 'Czech Republic':'CZECHIA','Democratic Republic of Congo':'DEMOCRATIC REPUBLIC OF THE CONGO',
+ 'Denmark':'DENMARK','Euro Area':'__EUROAREA__','Finland':'FINLAND','Georgia':'GEORGIA','Germany':'GERMANY',
+ 'Ghana':'GHANA','Hong Kong':'__HONGKONG__','Iceland':'ICELAND','Israel':'ISRAEL','Italy':'ITALY',
+ 'Kazakhstan':'KAZAKHSTAN','Kenya':'KENYA','Korea':'REPUBLIC OF KOREA','Latvia':'LATVIA','Lithuania':'LITHUANIA',
+ 'Macedonia':'NORTH MACEDONIA','Malawi':'MALAWI','Moldova':'REPUBLIC OF MOLDOVA','Mongolia':'MONGOLIA',
+ 'Mozambique':'MOZAMBIQUE','Namibia':'NAMIBIA','Nepal':'NEPAL','Netherlands':'NETHERLANDS','New Zealand':'NEW ZEALAND',
+ 'Norway':'NORWAY','Papua New Guinea':'PAPUA NEW GUINEA','Paraguay':'PARAGUAY','Peru':'PERU','Philippines':'PHILIPPINES',
+ 'Poland':'POLAND','Romania':'ROMANIA','Russia':'RUSSIAN FEDERATION','Serbia':'SERBIA','Slovakia':'SLOVAKIA',
+ 'Slovenia':'SLOVENIA','South Africa':'SOUTH AFRICA','South Sudan':'SOUTH SUDAN','Sri Lanka':'SRI LANKA',
+ 'Sweden':'SWEDEN','Switzerland':'SWITZERLAND','Tanzania':'UNITED REPUBLIC OF TANZANIA','Turkey':'TURKEY',
+ 'Uganda':'UGANDA','Ukraine':'UKRAINE','United Kingdom':'UNITED KINGDOM','United States':'UNITED STATES',
+ 'Uruguay':'URUGUAY','Zambia':'ZAMBIA','Zimbabwe':'ZIMBABWE',
+}
+
+has22 = set(df[df.year==2022].country.unique())
+
+print("VOTE MAPPING (all 64 LMW countries):")
+print(f"{'LMW':<30}{'UN vote':<8}{'has2022':<8}")
+special = {'__EUROAREA__':'Euro Area (not a UN member — aligned aggregate)','__HONGKONG__':'Hong Kong (not a UN member — China SAR)'}
+for lmw in sorted(lmw2un):
+    un = lmw2un[lmw]
+    if un in special:
+        v = 'SPECIAL'
+    else:
+        v = votes.get(un, 'NOTFOUND')
+    print(f"{lmw:<30}{v:<8}{'Y' if lmw in has22 else '-':<8}  {special.get(un,'')}")
+EOF
+2026-07-01T20:02:59Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+echo "=== RD1 pre-registration precedes the result artifacts? ==="
+git log --oneline --diff-filter=A -- build/reserve/RD1_prediction.md | tail -1
+echo "RD1_result.json committed yet? (should be untracked/working-tree, written AFTER the prediction):"
+git ls-files build/reserve/RD1_result.json | grep -q . && echo "tracked" || echo "UNTRACKED (written after prediction commit 587cabd) -> prediction precedes estimation"
+echo "=== recompute stdout tail (from my earlier re-run) ==="
+tail -3 /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/rd1_rc.txt 2>/dev/null
+2026-07-01T20:07:44Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+python3 << 'PY'
+import json
+p='build/ledger.json'
+d=json.load(open(p))
+note=("RESERVE-SIDE DOLLAR-BREAKING-POINT PROGRAM (RD0-RD6), a NEW arc separate from and NOT touching the "
+"DP2-DP6 chain: pivots from the fund-side (US funds holding Chinese securities) to RESERVE MANAGERS' behavior "
+"around the Feb-2022 Russian reserve freeze, measured from PUBLIC/NATIONAL/PRIMARY sources bypassing the "
+"confidential IMF COFER aggregate. Five observable surfaces (S1 currency composition, S2 gold, S3 Treasury "
+"holdings, S4 RMB internationalization, S5 decomposition inputs); the RD6 deliverable is whether they "
+"CORROBORATE or CONTRADICT around the freeze in the sanctions-exposed holders. Symmetric throughout. RD0 "
+"(scope+grounding) + RD1 (S1) run this pass; RD2-RD6 are each separately HUMAN-GATED and NOT run. "
+"RD0 (data-source-agent; build/reserve/RD0_program.md + RD0_sources.json + rd0_evidence/): grounded all 5 "
+"surfaces fetch-confirmed or honestly NOT-AVAILABLE/UNVERIFIED -- S1 LMW currency-composition dataset (BOFIT "
+"DSpace, public download confirmed, 64 economies 1996-2023) CONFIRMED; S2 gold (WGC login-gated, IMF IFS "
+"ungated corroborant) CONFIRMED; S3 TIC official UST + transactions (prior treasury_tic.json reused) CONFIRMED; "
+"S4 RMB (SWIFT + PBoC swaps public; CIPS/CNH/invoicing partial/UNVERIFIED); S5 FX (FRED) CONFIRMED, "
+"reserve-level IFS code UNVERIFIED. Treated/control taxonomy grounded on the UN GA ES-11/1 roll-call (Russia "
+"No/frozen; China Abstain/non-aligned; US-aligned Yes/control). China OBSERVE on S2/S3/S4, INFER on S1 (absent "
+"from LMW). RD1 (S1 disclosed currency composition; pre-registration committed FIRST git 587cabd, ancestor of "
+"the untracked result): data-integrity check REPLICATES Russia USD 47->13.89%, CNY 0->21.78% (2007-2021). "
+"Freeze DiD/event-study on disclosed USD share, treated=No/Abstain disclosers with 2022 data (n=9: Bangladesh/"
+"Mongolia/Mozambique/Namibia/South Africa/Sri Lanka/Tanzania/Uganda/Zimbabwe) vs control=Yes disclosers (n=38), "
+"Post=year>=2022, country+year FE, cluster-by-country SE; NO LOQO (invalid for an event study -- the pre-trend "
+"test is the validity check). RESULT (coef read from numpy estimator; recompute+verifier byte-reproduced, "
+"orchestrator independently re-ran -> byte-identical, all_pass=true): beta (primary 2010-2023) = +0.278pp "
+"(SE 4.34, p=0.949, CI [-8.23,+8.78]); full-sample +0.718 (p=0.863) -- positive, insignificant, wrong sign for "
+"reallocation. Pre-trend joint test: primary-window Wald 17.74 df11 p=0.088 (marginal), full-sample p<1e-16 "
+"(VIOLATED) -- window-dependent, not clean. Power: 9 treated, 2 post-freeze years, CI width ~17pp vs a 5pp "
+"meaningful move -> CI spans both 0 and +-5pp. VERDICT: INSUFFICIENT-POWER (NOT S1-NULL -- CI too wide; NOT "
+"S1-REALLOCATION -- beta ~0 wrong sign insignificant). Three components kept SEPARATE: (i) freeze DiD "
+"underpowered + fragile window-dependent pre-trend + a WEAK-PROXY treated group (construct validity, not just "
+"power: the 9 small non-aligned disclosers are NOT the sanctions-exposed reserve holders Russia/China); (ii) "
+"Russia OBSERVED pre-freeze diversification (USD 47->14, CNY 0->22, 2007-2021, a post-2014-Crimea-sanctions "
+"response PRE-DATING the freeze, NOT the freeze response; post-freeze Russia UNOBSERVED so no synthetic control "
+"possible); (iii) China INFERRED residual, NOT observed on S1. RD1 prediction HELD (INSUFFICIENT-POWER is a "
+"named primary outcome). GATE: integrity-critic PASS on all eight checks (RD0 grounding real; taxonomy "
+"mechanical/grounded not gerrymandered; Russia integrity replicates; event study run-not-asserted with "
+"beta/leads-lags/pre-trend computed+persisted+verifier-reproduced; symmetric both ways; China residual not "
+"sold as observed; Russia pre-freeze not relabeled; scope clean -- only build/reserve/ written, "
+"DP2-DP6/ledger/approvals/operator untouched, RD2-RD6 not run). Check-7 weak-proxy adequacy routed to the "
+"human gate AND the verdict SHARPENED to state the construct-validity limit explicitly. Orchestrator closed "
+"the git-precedence + byte-repro items the read-only critic could not (587cabd precedes the untracked result; "
+"independent recompute byte-identical). No date, no bare probability, no hazard claim; this reserve-side "
+"program characterizes reserve-manager reallocation, NOT a DP-side breaking-point object. RD2-RD6 await "
+"separate human gates.")
+step={"id":"RD1","status":"done","verifier":"build/reserve/RD1_verify.json","gate":"human",
+      "approved_marker":"build/approvals/RD1.approved","note":note}
+# avoid duplicate if re-run
+d["steps"]=[s for s in d["steps"] if s.get("id")!="RD1"]
+d["steps"].append(step)
+json.dump(d, open(p,"w"), indent=2)
+json.load(open(p))
+print("ledger valid; steps:", [s["id"] for s in d["steps"]])
+PY

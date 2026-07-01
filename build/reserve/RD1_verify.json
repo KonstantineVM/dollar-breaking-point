@@ -1,0 +1,11 @@
+{
+  "SOURCE": "Self-check inside RD1_recompute.py; reads lmw_Data.xls + ES-11/1 votelines, recomputes, compares.",
+  "all_pass": true,
+  "all_se_finite": true,
+  "beta_matches": true,
+  "byte_reproducible": true,
+  "contract": "RD1 verifier \u2014 re-runs the estimator and checks the persisted RD1_result.json matches.",
+  "leads_lags_match": true,
+  "pretrend_stat_match": true,
+  "russia_integrity_match": true
+}
