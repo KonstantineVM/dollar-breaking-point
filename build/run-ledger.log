@@ -3935,3 +3935,33 @@ except Exception as e:
 for c in ('CHN','RUS'):
     m=il(c); print(f"  IMF {c}: 2022-Q4={m.get('2022-Q4'):.1f} 2025-Q3={m.get('2025-Q3','NA') if isinstance(m.get('2025-Q3'),float) else m.get('2025-Q3')}")
 PY
+2026-07-01T21:42:24Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point
+git add build/reserve/RD2_gold_panel.parquet build/reserve/RD2_gold_provenance.md build/reserve/rd2_build_panel.py build/reserve/rd2_evidence/ build/run-ledger.log
+git commit -q -m "RD2 Part 1: gold tonnage panel (WGC central-bank-demand, 123 countries x 28q)
+
+Built the gold TONNAGE panel from public/national/primary sources
+(data-source-agent recovered from the login-gated WGC .xlsx / IMF IFS 2025
+API friction by using WGC's ungated Central Banks Dashboard JSON API, which
+republishes IMF IFS gold_reserves_tns in tonnes). Panel: 123 countries x 28
+quarters (2019Q1-2025Q4), 3,444 rows.
+
+DV = net_gold_purchases_tonnes (physical tonnes; within-country q/q first
+difference of reserve_gold_tonnes) -- NOT value/share (Confound-2 discipline).
+Level + gold_share_pct + gold_usd_value + gold price (World Bank Pink Sheet)
+retained for the tonnage-vs-price decomposition. Treated/control assigned
+mechanically from the ES-11/1 vote (treated = No/Abstain incl. China/Russia;
+control = Yes incl. Turkey, despite Turkey being a big buyer -- anti-gerrymander).
+
+Sanity: US 8133t anchor; China observed flat 1948.3t through 2022Q3 then
+accumulation begins 2022Q4 (+62t) -> 2306.3t by 2025Q4 (LAGS the Feb-2022
+freeze ~3q); Russia plateau ~2332t post-2022 with reporting opacity (CBR
+publishes gold in USD only). China SAFE ORA cross-check + CBR national
+retained. Panel regenerable from rd2_build_panel.py + the retained evidence.
+
+Note: two prior fetch agents hit network friction; one recovered and
+completed. A redundant concurrent build agent was stopped; non-load-bearing
+scaffolding/duplicate evidence trimmed. Parts 2-4 (DiD + decomposition +
+verdict) not yet run. DP2-DP6 and the RD1 panel untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
