@@ -4940,3 +4940,33 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T04:08:05Z	OUTPUT (not established until verifier runs)	git add build/reserve/rdtc_safe_totals.csv build/reserve/rdtc_safe_manifest.json build/reserve/rdtc_safe_provenance.md build/reserve/rdtc_evidence/ build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+RDT-C Part 1: ground SAFE totals leg (branch-a closure confirmed by fetch)
+
+Official SAFE monthly series fetched from the publisher, 2021-12..
+2026-05, 54 rows, no gaps; the task's search-summary figure is now
+grounded (it is the end-2022 -> end-2025 reading, +230.2 bn). The
+ex-gold FX-reserves line ROSE over all three pre-registered windows:
+verdict-axis 2023-05 -> 2026-04 +234.0 bn (3176.5 -> 3410.5);
+freeze-era 2022-03 -> 2026-05 +254.2 bn; calendar both readings
+reported (end-2021 -> end-2025 +107.7; end-2022 -> end-2025 +230.2),
+with the 2022 intra-year dip (-197.7 bn to the 2022-10 trough)
+direction-flagged as consistent with rates/USD valuation at zero
+selling. Gold-valuation caveat QUANTIFIED: ~40.5% of the 2021-12 ->
+2026-05 total-reserves rise (+423.7 bn) is pure gold-price valuation
+(+171.6 bn on the initial 62.64 Moz; SAFE-implied price corroborated
+by the WB Pink Sheet within 0.9%), +56.0 bn purchased volume -
+confirming why the closure uses the ex-gold line. Intra-FX-line
+non-USD/bond valuation not decomposable from SAFE data (no published
+composition) - the bounded caveat, stated. Cross-checks: zero diffs
+vs the on-disk safe_ora files on all overlaps; the RDT-B empty-
+2024.12 finding stands as the publisher's own English-file property
+(2024-12 and 2026-05 filled from SAFE's Chinese-language pages,
+which agree exactly on every overlap); gold volume matches on-disk
+tonnage to <=0.02t. Class-flows leg and verdict assembly not
+integrated here.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
