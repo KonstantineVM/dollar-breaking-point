@@ -4293,3 +4293,32 @@ manifest = {
 open('/home/user/dollar-breaking-point/build/reserve/rdt_k4_manifest.json','w').write(json.dumps(manifest, indent=2))
 print('manifest written')
 EOF
+2026-07-02T00:38:07Z	OUTPUT (not established until verifier runs)	git add build/reserve/rdt_k4_rmb.csv build/reserve/rdt_k4_cofer.csv build/reserve/rdt_k4_manifest.json build/reserve/rdt_k4_provenance.md build/reserve/rdt_evidence/rmb/ build/run-ledger.log 2>/dev/null; du -sh build/reserve/rdt_evidence/rmb/ && git commit -q -m "$(cat <<'EOF'
+RDT Part 1(c): ground k4 RMB-adoption + k1-China bounding inputs
+
+Swap lines from the PBoC RMB Internationalization Report 2025 (EN PDF,
+primary): Russia 2014 / 150bn CNY; Turkey 2012 / 10bn amended 2021 to
+35bn; Saudi Arabia 2023 / 50bn; India and Poland grounded as
+NO-swap-line (publisher-primary absence). CIPS: world aggregate 194
+direct / 1,597 indirect (No. 117, Mar-2026); per-country counts
+NOT-AVAILABLE from the publisher. LMW from disk: Russia USD 47.00 ->
+13.89 / CNY 0 -> 21.78 (2007-2021); Turkey and Poland CNY 0.0 all
+years; India and Saudi Arabia ABSENT from the panel (verified).
+
+k1-China bounding inputs: SAFE Annual Report 2018 (primary PDF, boxed
+disclosure, printed p.35): China USD share 1995 = 79%, 2014 = 58%.
+COFER public aggregate 49 quarters 2014Q1-2026Q1 (2026Q1 USD 57.13%
+of allocated, $13,104.9bn) with the 2025Q3 methodology break (IMF
+imputation, 10.65% of total at 2026Q1; TNM/2025/14 retained) flagged
+to travel with the residual route. China's COFER inclusion grounded
+via the published reporter list; the 2015 phase-in note UNVERIFIED
+and not asserted. A units bug in the first COFER csv vintage caught
+by magnitude cross-check and corrected.
+
+All three Part-1 grounding builds now complete; assembly not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
+2026-07-02T00:38:32Z	OUTPUT (not established until verifier runs)	git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
