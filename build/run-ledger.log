@@ -4783,3 +4783,47 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T03:38:05Z	OUTPUT (not established until verifier runs)	python3 -c "import json,os; d=json.load(open('build/ledger.json')); r=[s for s in d['steps'] if s['id']=='RDTB'][0]; print('ledger valid;', [s['id'] for s in d['steps']]); print('RDTB verifier exists:', os.path.exists(r['verifier']))" && git add build/reserve/RDTB_k1_bound.json build/reserve/RDTB_k3_distribution.json build/reserve/RDTB_k3_recompute.py build/reserve/RDTB_k3_panel.parquet build/reserve/RDTB_recompute.py build/reserve/RDTB_verify.json build/reserve/RDT_breaking_point_object.md build/ledger.json build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+RDT-B: k1 counterpart bound STILL-DEGENERATE; k3 differential test DIFFERENTIAL
+
+Part A (bound): the lower bound on China's official USD-asset share
+is NOT-CONSTRUCTIBLE every year 2015-2025 - zero official-attributable
+components ground (no by-country official split exists in TIC SLT /
+SHL / official lines / BIS LBS; total-resident quantities barred from
+the lower bound per the pre-registered bias rule and kept as labelled
+upper-side context). Upper side computed anyway and stated weak
+(2025: 96.25pp incl-gold / 100.00pp ex-gold). Mechanical verdict:
+STILL-DEGENERATE - the pre-registered IF-branch realized; the k1 cell
+stays UNDETERMINED, the residual route's near-uninformativeness is
+corroborated from the counterpart side, and the SAFE-vintage judgment
+returns to the human gate.
+
+Part B (differential test on the live signal): 95-country TIC panel,
+43-country recent-3y universe (verdict axis fixed ex ante). China-
+alone active flow r = -0.1092/yr - the universe minimum, percentile
+0.023; pooled CN+BE+LU -0.0612, percentile 0.098 (both custody
+variants in the tail). Official-aggregate baseline r_off = -0.0036/yr
+(30.6x beyond; the all-foreign total was net buying). ES-11/1 treated
+median -0.0180 vs control +0.1092, rank-sum p_two 0.036 (descriptive,
+N=4). All three pre-registered axes pass -> DIFFERENTIAL - the
+pre-registered REFUTE direction; the object's live k3 signal upgrades
+to sanctions-consistent, with its demotions attached (recent-window-
+specific - full-window percentile 0.405 mid-pack, shown beside the
+verdict; N=4 with the subject in the treated group; 2023-02 basis
+break; baseline transactions-basis).
+
+Part C: object amended via deterministic insert-only marker blocks
+(+22/-0; strip reproduces the pre-amendment sha; RDT_recompute.py and
+all other RDT artifacts untouched); composite NOT recomputed per the
+ONLY-if rule. RDTB_verify.json all_pass=true, independently re-run
+byte-identical. Integrity-critic GATE PASS (bound composition, k3
+mechanics, verdict rules, flipped guard all CLEAN); three non-blocking
+flags routed to the human gate (thin self-referential axis iii;
+BIS sector-G exclusion judgment, verdict-invariant; SAFE vintage).
+Ledger entry added. No date, no probability. DP2-DP6, RD1, RD2, and
+the other RDT artifacts untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
