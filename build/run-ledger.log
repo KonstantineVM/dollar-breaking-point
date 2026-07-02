@@ -6483,3 +6483,22 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
 2026-07-02T19:19:38Z RDT-G: denominators grounded (JP/DE/UK/CA primary; FR alternate-official MEDIUM; AU NOT-GROUNDED drops from Scheme 1; COFER 2021Q4 from committed artifact; FX = H.10 Dec-30-2021); sequencing attestation clean - no discriminator series read; bars step next
+2026-07-02T19:19:39Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTG_denominators.json build/reserve/RDTG_denominators_provenance.md build/reserve/rdtg_evidence/ && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: denominators grounded (JP/DE/UK/CA primary; FR alternate-official MEDIUM; AU NOT-GROUNDED drops from Scheme 1; COFER 2021Q4 from committed artifact; FX = H.10 Dec-30-2021); sequencing attestation clean - no discriminator series read; bars step next" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-G denominators: market outstandings + COFER shares + FX set grounded
+
+Market outstandings (local currency, end-2021, publisher-retained): JGB
+968,112.1 bn yen (MoF suii.xls); Bund EUR 1,589.9bn incl own holdings with
+free float 1,427.2bn both quoted (Finanzagentur); OAT EUR 2,145,121M via
+INSEE BDM SDMX (AFT Cloudflare-blocked from this egress, challenge pages
+retained; MEDIUM, alternate official channel); gilt GBP 2,113.64bn nominal
+incl index uplift (DMO D1A PDF); GoC CAD 1,014,462M marketable bonds
+(StatCan v86822809); AGS NOT-GROUNDED (aofm.gov.au 503/timeouts, Wayback
+egress-blocked, evidence retained) - drops out of Scheme 1 per the
+pre-registration. COFER 2021-Q4 allocated shares read from the committed
+disk artifact (vintage 2026-03-27; post-2025Q3 methodology caveat travels).
+FX set = Fed H.10 release 2022-01-03, Dec 30 2021 rates, retained.
+Sequencing attestation: no discriminator series read, fetched, or opened;
+co-present holdings links seen but not followed - recorded for the gate.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
+2026-07-02T19:20:18Z RDT-G: bars agent launched (disk-only; schemes 1+2 from committed denominators; sequencing constraint enforced); orchestrator holding
