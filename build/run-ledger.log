@@ -6425,3 +6425,25 @@ with open(p, 'w') as f:
 print('RDTF entry appended; steps now:', [s['id'] for s in j['steps']])
 PYEOF
 2026-07-02T17:37:45Z RDT-F: GATE PASS (all six explicit checks verified; 5 non-blocking flags routed to human gate); RDTF ledger entry written (verifier build/reserve/RDTF_verify.json exists, all_pass=true); stage closing, PR retitle next
+2026-07-02T17:37:46Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: GATE PASS (all six explicit checks verified; 5 non-blocking flags routed to human gate); RDTF ledger entry written (verifier build/reserve/RDTF_verify.json exists, all_pass=true); stage closing, PR retitle next" >> build/run-ledger.log && git add build/ledger.json build/run-ledger.log && git commit -m "RDT-F stage close: gate PASS, ledger entry (FORK-REOPENED + PARTIAL)
+
+Integrity-critic gate PASS: center set grounded by verbatim publisher quotes
+(none chosen; exclusions push against the fired branch); verdict rendered on
+gross; threshold substring byte-matched to committed RDTE_prediction.md;
+basis quotes verified verbatim in retained publisher files; LOCO arithmetic
+checked (all drops cap-bound, FORK-REOPENED LOCO-robust); flipped guard
+honored both directions; precedence corroborated from the reflog. Five
+non-blocking flags routed to the human gate and recorded in the ledger note,
+including: stale line-number citations in the grounding docs (quotes remain
+byte-verbatim); ingredients committed before grounding-complete (mitigated,
+verdict-irrelevant); FORK-REOPENED signals VACUITY of the route-robust
+ceiling, not positive evidence of migration; the CARIB-BC group
+operationalization is the one place of real interpretive latitude
+(disclosed, MEDIUM-flagged, verdict-irrelevant). Ledger entry RDTF written
+with verifier build/reserve/RDTF_verify.json (exists, all_pass=true), gate
+human, approved_marker build/approvals/RDTF.approved (human-only). Human
+gate = the PR boundary for this stage.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1 && git status --short
+2026-07-02T17:39:20Z RDT-F: stage closed - PR #9 retitled with newest-stage-leading body; hard stop at the human gate (PR boundary)
