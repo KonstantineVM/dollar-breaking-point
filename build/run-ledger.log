@@ -6268,3 +6268,8 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
 2026-07-02T17:26:32Z RDT-F: assembly agent hit session limit (reset 16:50 UTC), resumed same agent from disk at 17:26; RDTF_recompute.py present, result/verify/amendment pending; orchestrator holding
+2026-07-02T17:26:36Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: assembly agent hit session limit (reset 16:50 UTC), resumed same agent from disk at 17:26; RDTF_recompute.py present, result/verify/amendment pending; orchestrator holding" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-F assembly resumed after session-limit reset)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T17:27:19Z RDT-F: committed in-progress RDTF_recompute.py as WIP to keep tree clean (assembly agent still running; script unverified, outputs not yet generated; final version + verifier land at stage close)
