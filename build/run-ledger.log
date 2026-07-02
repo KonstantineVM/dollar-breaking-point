@@ -6478,3 +6478,8 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T18:51:06Z	OUTPUT (not established until verifier runs)	git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-G Phase 0b holding)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
+2026-07-02T19:19:38Z RDT-G: denominators grounded (JP/DE/UK/CA primary; FR alternate-official MEDIUM; AU NOT-GROUNDED drops from Scheme 1; COFER 2021Q4 from committed artifact; FX = H.10 Dec-30-2021); sequencing attestation clean - no discriminator series read; bars step next
