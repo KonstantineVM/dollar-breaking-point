@@ -6273,3 +6273,40 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
 2026-07-02T17:27:19Z RDT-F: committed in-progress RDTF_recompute.py as WIP to keep tree clean (assembly agent still running; script unverified, outputs not yet generated; final version + verifier land at stage close)
+2026-07-02T17:27:22Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTF_recompute.py && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: committed in-progress RDTF_recompute.py as WIP to keep tree clean (assembly agent still running; script unverified, outputs not yet generated; final version + verifier land at stage close)" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-F WIP: assembly recompute script (in progress, unverified)
+
+Snapshot of the assembly agent's in-flight RDTF_recompute.py to keep the
+tree clean while it completes. NOT ESTABLISHED: no result JSON, no verifier,
+no object amendment yet; the script has not been run or verified. The final
+script, RDTF_result.json, RDTF_verify.json, and the RDTF-AMEND amendment
+land together at stage close after the recompute is independently re-run.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T17:28:00Z	OUTPUT (not established until verifier runs)	python3 - <<'EOF'
+import json
+r = json.load(open('build/reserve/RDTF_result.json'))
+p1 = r['part1_route_robust_ceiling']
+g = p1['global_ceiling']
+print('sum gross:', g['sum_grounded_gross_busd'], '| windownet:', g['sum_grounded_windownet_busd (sensitivity, never the verdict)'])
+print('M_hi_global:', g['M_hi_global_busd'], '| cap_binds:', g['cap_binds'], '| vacuous:', g['ceiling_vacuous'])
+print('branch:', p1['branch']['label'])
+print('without group:', p1['without_group_sensitivity (labelled -- the group is never dropped by choice)'])
+print('interval:', p1['route_robust_interval']['interval_busd'])
+print('relabel:', p1['rdte_nested_route_specific_bound']['label_re_rendered'], p1['rdte_nested_route_specific_bound']['M_hi_busd'], p1['rdte_nested_route_specific_bound']['interval_busd'])
+print('group gross:', p1['carib_bc_group']['verdict_axis']['M_group_gross_busd'], 'net:', p1['carib_bc_group']['verdict_axis']['M_group_windownet_busd (sensitivity, never the verdict)'])
+print('SHL variant:', p1['carib_bc_group']['verdict_axis']['shl_3_3_membership_variant_gross_busd (labelled variant: drops Bahamas; Bonaire/Sint Eustatius/Saba has no line)'])
+print('membership verdict:', p1['carib_bc_membership_comparison']['comparison_verbatim']['verdict'])
+print('LOCO:')
+for row in p1['leave_one_center_out (mandatory)']['table']:
+    print('  ', row['dropped_center'], row['M_center_gross_busd'], row['sum_remaining_gross_busd'], row['M_hi_global_without_it_busd'], row['branch_implied'])
+print(p1['leave_one_center_out (mandatory)']['finding'])
+p2 = r['part2_basis_reconciliation']
+print('P2 verdict:', p2['verdict']['label'], '| residual:', p2['verdict']['residual_busd (official custody change unexplained by the stated valuation adjustment)'])
+print('divergences:', p2['divergences_busd'])
+print('live:', (p2['structurally_live_statement (REQUIRED by the pre-registration for PARTIAL/REAL with a material residual)'] or '')[:120])
+print('thresholds:', r['thresholds_parsed']['minor_threshold_busd'], r['thresholds_parsed']['matched_substring_of_RDTE_prediction_md (exact bytes, for the gate\'s byte-match)'])
+print('self_check:', r['self_check'])
+print('establishment:', r['establishment'][:110])
+EOF
+2026-07-02T17:30:33Z RDT-F: assembly complete (FORK-REOPENED, cap binds 446.493 LOCO-robust; interval [48.484,494.977]; basis PARTIAL residual 73.531); orchestrator re-ran recompute byte-identical (result 6937...f220b, object 7e8a...0007); leak+precedence clean; integrity-critic GATE launched; results held uncommitted pending gate
