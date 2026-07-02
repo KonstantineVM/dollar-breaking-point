@@ -4444,3 +4444,32 @@ EOF
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1) || echo "tree clean"
+2026-07-02T02:54:15Z	OUTPUT (not established until verifier runs)	ls build/data/treasury_tic/current/ 2>/dev/null | head; git add build/reserve/RDTB_prediction.md build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+Pre-register RDT-B (k1 counterpart bound + k3 differential test)
+
+Fixes before any build: the Part-A bound construction (official-
+attributable components only in the lower bound with stated bias
+directions; a total-resident component inside the lower bound is a
+build failure; custody band carried through; ex-gold denominator for
+frontier comparability; NON-DEGENERATE iff the most-conservative
+lower bound >= frontier+5pp, else STILL-DEGENERATE and the k1 cell
+stays UNDETERMINED); the Part-B differential-test rules (exact
+scaling = window net purchases / start holdings, annualized; verdict
+axis fixed ex ante at recent-3y with the full window always shown;
+$10bn floor; ES-11/1 split descriptive with rank-sum normal approx;
+mechanical DIFFERENTIAL / UNIVERSAL-ROLLOFF / MIXED thresholds); the
+Part-C amendment mechanics (deterministic RDTB_recompute.py
+regenerates the amended object; RDT_recompute.py untouched; the RDT
+byte-identity claim becomes historical - surfaced, not silent); the
+flipped guard verbatim (optimistic smuggling / window selection vs
+valid-source discarding / full-decade dilution, both violations);
+and falsifiable expectations for both parts (A: NON-DEGENERATE
+~20-45pp if the official split grounds; B: UNIVERSAL-ROLLOFF or
+MIXED expected, DIFFERENTIAL = the refute that upgrades the live
+signal). Symmetric: degenerate bound and in-pack China are valid,
+reported outcomes.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1 && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
