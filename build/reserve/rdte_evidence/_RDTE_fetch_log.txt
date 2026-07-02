@@ -1,0 +1,6 @@
+2026-07-02T14:35:13Z | https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/methodology-for-estimating-holdings-of-treasury-securities | HTTP 404 99790 bytes | -> method_mfh.html
+2026-07-02T14:35:23Z | https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt | HTTP 200 3801 bytes | -> slt_table5_live.txt
+2026-07-02T14:35:24Z | https://fred.stlouisfed.org/series/WMTSECL1 | HTTP 200 76624 bytes | -> fred_wmtsecl1_page.html
+2026-07-02T14:35:29Z | https://fred.stlouisfed.org/graph/fredgraph.csv?id=WMTSECL1 | HTTP 200 21936 bytes | -> fred_wmtsecl1.csv
+2026-07-02T14:36:16Z | https://www.federalreserve.gov/releases/h41/current/h41.htm | HTTP 200 701152 bytes | -> frb_h41_current.htm
+2026-07-02T14:36:45Z | http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx | HTTP 200 128751 bytes | -> method_mfh_legacy.html
