@@ -6237,3 +6237,25 @@ for path, q in checks:
 print("ALL VERIFIED" if allok else "SOME FAILED")
 EOF
 2026-07-02T16:25:23Z RDT-F: grounding complete - centers BE/LU/CH/UK (HIGH) + Caribbean-banking-centers group (MEDIUM, group-level caveat); basis quotes found (H.4.1 face value; TIC MFH estimated market value, bills at face); official valchg path friction recorded (slt_table3 vs stale slt2d)
+2026-07-02T16:25:24Z	OUTPUT (not established until verifier runs)	git status --short && git add build/reserve/RDTF_centers_manifest.json build/reserve/RDTF_centers_provenance.md build/reserve/RDTF_basis_quotes.md build/reserve/rdtf_evidence/ && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: grounding complete - centers BE/LU/CH/UK (HIGH) + Caribbean-banking-centers group (MEDIUM, group-level caveat); basis quotes found (H.4.1 face value; TIC MFH estimated market value, bills at face); official valchg path friction recorded (slt_table3 vs stale slt2d)" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-F grounding complete: derived center set + valuation-basis quotes
+
+Grounded custody-center set (verbatim publisher lines, quoted per center):
+Belgium, Luxembourg, Switzerland, United Kingdom (SHL 2025 custodial-bias
+passage + ICSD lines + TIC FAQ 7 + MFH methodology note), plus Caribbean
+banking centers as a publisher-named GROUP (MFH methodology note + FAQ 7)
+with the group-level caveat recorded. Ambiguous, not entered: Cayman
+individually, Ireland (publisher's own text places both in the fund subset).
+Rejected: Hong Kong, BVI individually. Basis quotes found in publisher text:
+FRBNY H.4.1 memo line at FACE VALUE (Table 1A footnote, June 2026 release,
+retained; Treasury FAQ 10a concurrence incl. the 2012-11-15 basis change);
+TIC MFH/SLT at ESTIMATED (market) VALUE, hybrid with bills at face (FAQ 10a
++ MFH valuation paragraph); SLT valuation-change column defined in FAQ 2
+(price + exchange-rate changes; series break 2023-02). Input-path friction:
+the pre-registration's slt2d official rows were superseded by the slt_table#
+files per the publisher's 2023-03-31 notice - the official-aggregate valchg
+lives in the SLT tables; disclosed, method unchanged. All quotes verified
+against raw retained publisher bytes.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T16:26:30Z RDT-F: Phase-2 assembly launched (verdicts on grounded set, route-robust interval, LOCO, basis verdict, RDTF-AMEND + verifier); orchestrator holding
