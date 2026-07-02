@@ -6512,3 +6512,24 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
 2026-07-02T19:26:48Z RDT-G: bars committed (byte-verified by orchestrator re-run, sha 65f3...66a2); discriminator phase may now open per sequencing rule
+2026-07-02T19:26:49Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTG_bars.json build/reserve/RDTG_bars_recompute.py && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: bars committed (byte-verified by orchestrator re-run, sha 65f3...66a2); discriminator phase may now open per sequencing rule" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-G magnitude bars: both allocation schemes, committed before any discriminator read
+
+Scheme 1 (market-size-proportional, grounded markets JP/DE/FR/UK/CA; AU
+drops out as pre-registered): uniform 0.8657%-3.0403% of outstanding;
+bar_low/high USD bn: JGB 72.774/255.564, Bund 15.579/54.708 (free-float
+variant carried), OAT 21.019/73.813 (MEDIUM rides), gilt 24.703/86.752,
+GoC 6.874/24.139; sums reproduce 140.949/494.977 exactly. Scheme 2
+(COFER non-USD CNY-excluded renormalized; EUR split DE/FR by outstanding):
+JGB 20.553/72.178, Bund 31.497/110.610, OAT 42.497/149.237, gilt
+18.225/64.000, GoC 9.085/31.905, AGS 7.487/26.293 (% NOT-COMPUTABLE, AU
+outstanding not grounded), CHF remainder 0.606/2.127 no-candidate-leg,
+other remainder 10.999/38.626 unallocated; total reproduces exactly. Mass
+endpoints read from committed fields (RDTD identity 494.977; RDT-E
+positive-months proxy 354.028 -> lower 140.949; RDTF fork context).
+Sequencing attestation: disk-only, no discriminator series read. Orchestrator
+independently re-ran the recompute: byte-identical (sha 65f35309...d866a2).
+Stamped NOT ESTABLISHED pending the RDT-G verifier + gate.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
+2026-07-02T19:27:57Z RDT-G: discriminator phase opened after bars commit 8dee169 (git order held) - I.B parse agent + receiving-legs grounding agent launched in parallel, disjoint namespaces; orchestrator holding
