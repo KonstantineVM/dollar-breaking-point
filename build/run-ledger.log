@@ -6543,3 +6543,25 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
 2026-07-02T19:35:24Z RDT-G: I.B parse landed and byte-verified by orchestrator re-run (Delta verdict-window -18.696, FLAT-side staging; unit finding US$100M corrected; I.A cross-check exact); legs agent still running
+2026-07-02T19:35:25Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTG_ib_series.csv build/reserve/RDTG_ib_staging.json build/reserve/RDTG_ib_recompute.py && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: I.B parse landed and byte-verified by orchestrator re-run (Delta verdict-window -18.696, FLAT-side staging; unit finding US\$100M corrected; I.A cross-check exact); legs agent still running" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-G I.B parse: Section I.B staged from all 132 SDDS templates
+
+Corpus 133 raw files / 132 unique months 2015-06..2026-05, no gaps, vintage
+rule honored (2020-10 raw_075). Unit finding: real headers say US\$100million,
+not USD millions as the task premise stated - corrected and recorded. I.B
+total published every month (level 160.1-210.3 bn, mean 176.4; securities
+carries essentially the whole line). Staged axis numbers (STAGING-ONLY, no
+verdict): Delta I.B verdict window 2022-01->2026-05 = -18.696 bn (2021-12
+base variant -18.740); baseline -8.882; threshold reproduced at run time
+24.74885 from the committed RDTD identity field; staged comparison FLAT-side
+under both endpoint conventions. Sub-line publication: securities 132/132;
+loans 127/132 (blank 2025-11..2026-02, 2026-05 - endpoint delta not
+computable, recorded not interpolated); derivatives 114/132; deposits blank
+131/132; gold/other blank 132/132; the I.B total is never unpublished, so
+SUPPRESSED-CANDIDATE does not attach to the total. I.A cross-check vs
+committed rdtd_sdds_series.csv: all 132 overlapping months, max abs diff
+4.24e-07 bn - PASS. Orchestrator independently re-ran the recompute:
+byte-identical. Stamped NOT ESTABLISHED pending the RDT-G verifier + gate.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
+2026-07-02T19:35:55Z RDT-G: holding for receiving-legs agent (background); nothing further promoted
