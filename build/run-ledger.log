@@ -6132,3 +6132,44 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T16:11:13Z	OUTPUT (not established until verifier runs)	git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-F Phase 1 holding)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T16:20:17Z	OUTPUT (not established until verifier runs)	python3 << 'EOF'
+import json
+d=json.load(open('/home/user/dollar-breaking-point/build/reserve/RDTF_ingredients.json'))
+ta=d['table_A_per_center_ceilings']['verdict_axis']
+rows=[]
+for name,rec in ta.items():
+    g=rec['M_center_gross_busd']
+    if g is None: continue
+    rows.append((g,rec['M_center_windownet_busd'],name,rec['line_type'],rec['is_known_candidate']))
+rows.sort(reverse=True)
+print('lines (country-type only) with gross > 10 or known candidate:')
+for g,n,name,lt,kc in rows:
+    if lt=='country' and (g>10 or kc):
+        print(f'  {name:28s} gross={g:10.3f} net={n:10.3f} {"CANDIDATE" if kc else ""}')
+print()
+print('non-country lines with gross > 10 (aggregates/memo/of-which, for completeness):')
+for g,n,name,lt,kc in rows:
+    if lt!='country' and g>10:
+        print(f'  {name:55s} [{lt}] gross={g:10.3f} net={n:10.3f}')
+print()
+s=d['staging_sum_known_candidate_set']
+print('staging sums:',s['sum_M_center_gross_verdict_axis_busd'], s['sum_M_center_windownet_verdict_axis_busd'])
+pc=d['cross_check']['rdte_capA_reproduction']
+print('capA repro total diff:',pc['total_diff_busd'],'pooled:',pc['computed_pooled_windownet_total_busd'])
+pv=d['cross_check']['pooled_vs_separate']
+print('BE',pv['belgium_M_windownet_busd'],'LU',pv['luxembourg_M_windownet_busd'],'sum',pv['sum_of_separates_busd'],'pooled',pv['pooled_busd'])
+tc=d['table_C_basis_reconciliation_staging']
+print('FRBNY ref chg',tc['frbny_leg']['change_refmonth_2023_04_to_2026_04_busd'],'start chg',tc['frbny_leg']['change_startmonth_2023_05_to_2026_04_busd_context'])
+print('TIC MFH chg',tc['tic_official_mfh_leg']['change_refmonth_2023_04_to_2026_04_busd'])
+sl=tc['tic_official_slt_lt_leg']
+print('SLT LT off: dH',sl['delta_holdings_refmonth_busd'],'cumval',sl['cumulative_stated_valchg_axis_busd'],'txbasis',sl['transactions_basis_change_busd (= delta_holdings - cum_valchg, the pre-registered adjustment)'],'cumnet',sl['cumulative_net_us_sales_axis_busd_context'],'gap',sl['slt_identity_gap_busd_context (= dH - cum_net - cum_valchg; coverage/reclassification gap G)'])
+print('divergences:',json.dumps(tc['divergences'],indent=1))
+xc=d['cross_check']['rdtc_panel_vs_slt1_rederivation']
+print('xchk match:',xc['all_overlaps_match_within_rounding'],{f:xc[f]['max_abs_diff_musd'] for f in ['pos_musd','active_musd','valchg_musd']})
+print('china rooms axis:',json.dumps(d['china_gross_decline_rooms']['verdict_axis'],indent=1))
+EOF
+2026-07-02T16:21:51Z RDT-F: ingredients landed (all-country gross/net tables; RDT-E capA reproduced diff 0.0; recompute byte-verified by orchestrator re-run sha 5376...f2aa); centers grounding still running
