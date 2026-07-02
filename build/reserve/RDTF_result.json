@@ -1,0 +1,510 @@
+{
+ "artifact": "RDTF_result (RDT-F Phase 2 ASSEMBLY: Part 1 route-robust global migration ceiling on the grounded custody-center set, verdict on the overstating-safe GROSS basis; Part 2 custody-basis reconciliation verdict; branch labels rendered mechanically from the pre-registered thresholds)",
+ "constants_read_not_hardcoded": {
+  "cap_446p493": {
+   "SOURCE": {
+    "cross_reads": [
+     {
+      "field": "ledgers.recent_3y_verdict_axis.china_alone.residual_left_us_busd",
+      "file": "build/reserve/RDTC_result.json"
+     },
+     {
+      "field": "identity.china_alone.active_outflow_busd",
+      "file": "build/reserve/RDTD_result.json"
+     },
+     {
+      "field": "cap_constant_446p493.value_busd",
+      "file": "build/reserve/RDTF_ingredients.json"
+     }
+    ],
+    "primary": {
+     "field": "ledgers.recent_3y_verdict_axis.china_alone.residual_left_us_busd",
+     "file": "build/reserve/RDTC_class_flows.json"
+    }
+   },
+   "role": "M_hi_global = min(Sum_grounded-centers M_center(gross), this value) -- the ceiling cannot exceed the net decline it explains",
+   "value_busd": 446.493
+  },
+  "delta_nonus_494p977": {
+   "SOURCE": {
+    "cross_reads": [
+     {
+      "field": "interval_delta_nonus_true_busd.'delta_nonus_busd (read from RDTD_result.json)'",
+      "file": "build/reserve/RDTE_result.json"
+     }
+    ],
+    "primary": {
+     "field": "identity.china_alone.delta_non_us_busd",
+     "file": "build/reserve/RDTD_result.json"
+    }
+   },
+   "role": "DeltaNonUS-true in [494.977 - M_hi_global, 494.977] (pool caveat and k1 wall riding)",
+   "value_busd": 494.977
+  }
+ },
+ "contract": "build/reserve/RDTF_prediction.md (committed 6701b5c; pre-registered constructions, windows, thresholds, branch mapping, flipped guard)",
+ "establishment": "NOT ESTABLISHED -- output of RDTF_recompute.py; every number and label below is an OUTPUT, not established, until build/reserve/RDTF_verify.json exists with all_pass=true AND the human gate reviews this stage",
+ "flipped_guard (carried)": {
+  "DRAMATIZE": "no grounded center is omitted (the without-group figure is a labelled sensitivity, and the branch does not change without the group); the verdict is rendered on gross, never on net",
+  "ZERO": "the min() against China's per-class gross decline zeroes accretion in classes China never sold (honored by construction in every center and in the group construction); beneficial-owner jurisdictions enter only through the publisher-named GROUP, never individually"
+ },
+ "inputs_sha256": {
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTC_result.json": "7785fa6bf11e5ee06e51b42226dec549570637f4839306b8317b4190c9931a44",
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTE_prediction.md": "7d6ab5bbabcc613b5f0c5cb75247196b12a000c56e93323a39c492a2ae19a637",
+  "build/reserve/RDTE_result.json": "67cf45d26dd375c8f67a9ce2e7360a8f71c0ffb05498a78c1b40424b581202c2",
+  "build/reserve/RDTE_verify.json": "6768a95e45d344cf70d2a38d1a8633c8322ac54830b92eed3cda422de5427c3f",
+  "build/reserve/RDTF_basis_quotes.md": "7b7e7bd631ddb8e71f748da2bc06217a3c405616fb3d9477e007d0ea9faa10c1",
+  "build/reserve/RDTF_centers_manifest.json": "fc9147f6f2185fe55050d4ea629d330a9bc351dc172cffe4f5f6753d22c7229f",
+  "build/reserve/RDTF_centers_provenance.md": "02d0b218b07bdaf8335cc0aaca6a6a95c82038c68d2eeb23277dee2885f811de",
+  "build/reserve/RDTF_ingredients.json": "537697007a1249254fe5acf7b5993141100b2e571ea2c916ba88f69f3a99f2aa",
+  "build/reserve/RDTF_ingredients_panel.parquet": "7dc74d94f3174c5b5bfa6b9a0f9b4dfc34e7257518c41b17dad71905f6cb9d80",
+  "build/reserve/RDTF_prediction.md": "3b8ba94ac2dc36e260eb77626f8cdd1bad0cc01aba9e20f27eb5853ad5426b08",
+  "build/reserve/rdtf_evidence/tic_secb_live_extracted.txt": "36a8533a1c26e2fa36ea4ed47a5673e3aaa4e2b906941e647e2bb2487b3990c1"
+ },
+ "no_date_no_probability_no_currency_guess": "no breaking-point date, no probability, no destination-currency guess appears in this artifact or the amendment; the k1 wall stands",
+ "part1_route_robust_ceiling": {
+  "branch": {
+   "label": "FORK-REOPENED",
+   "rule": "MINOR-ROBUST iff M_hi_global <= 111.623; FORK-REOPENED otherwise (threshold parsed from RDTE_prediction.md, restated in RDTF_prediction.md)",
+   "sentence": "FORK-REOPENED -- M_hi_global 446.493 > 111.623: the route-robust gross ceiling does not sustain MINOR; the interval is the deliverable and RDT-E's BE/LU MINOR is re-labelled ROUTE-SPECIFIC (BE/LU only)"
+  },
+  "carib_bc_group": {
+   "full_window_context": {
+    "M_group_gross_busd": 586.174,
+    "M_group_windownet_busd (sensitivity, never the verdict)": 346.213,
+    "construction": "rule (b), GROUP level: per class k, min(ChinaGrossDecline_k, Sum_publisher-members CenterGrossInflow_k); components from RDTF_ingredients.json table_A_per_center_ceilings.full_window.<member>.per_class and china_gross_decline_rooms.full_window",
+    "member_lines_missing_stated": [
+     "Netherlands Antilles: no country line in slt_table1 on the axis (the publisher's 5-16-2016 restatement maps it to Bonaire/Sint Eustatius/Saba, Curacao and Sint Maarten; Curacao has a line and is included; Bonaire/Sint Eustatius/Saba and Sint Maarten have no lines -- stated, not fabricated)"
+    ],
+    "member_lines_used": [
+     "Bahamas",
+     "Bermuda",
+     "British Virgin Islands",
+     "Cayman Islands",
+     "Curacao",
+     "Panama"
+    ],
+    "per_class": {
+     "agency_lt": {
+      "china_gross_decline_busd": 118.803,
+      "china_net_room_busd": 84.85,
+      "group_gross_min_busd": 118.803,
+      "group_windownet_min_busd (sensitivity)": 84.85,
+      "sum_member_gross_inflow_busd": 125.299,
+      "sum_member_net_busd": 109.591
+     },
+     "corp_other_bonds_lt": {
+      "china_gross_decline_busd": 8.107,
+      "china_net_room_busd": 0.0,
+      "group_gross_min_busd": 8.107,
+      "group_windownet_min_busd (sensitivity)": 0.0,
+      "sum_member_gross_inflow_busd": 229.643,
+      "sum_member_net_busd": 187.218
+     },
+     "equity_lt": {
+      "china_gross_decline_busd": 88.305,
+      "china_net_room_busd": 72.108,
+      "group_gross_min_busd": 88.305,
+      "group_windownet_min_busd (sensitivity)": 72.108,
+      "sum_member_gross_inflow_busd": 695.511,
+      "sum_member_net_busd": 451.696
+     },
+     "treasury_lt": {
+      "china_gross_decline_busd": 370.959,
+      "china_net_room_busd": 293.581,
+      "group_gross_min_busd": 370.959,
+      "group_windownet_min_busd (sensitivity)": 189.255,
+      "sum_member_gross_inflow_busd": 377.841,
+      "sum_member_net_busd": 189.255
+     }
+    },
+    "shl_3_3_membership_variant_gross_busd (labelled variant: drops Bahamas; Bonaire/Sint Eustatius/Saba has no line)": 552.618,
+    "slt_total_caribbean_line_context (NOT used -- memberships differ)": {
+     "M_gross_busd": 543.211,
+     "M_windownet_busd": 349.357,
+     "line": "slt_table1 'Total Caribbean' (code 34401), 39 active months"
+    }
+   },
+   "verdict_axis": {
+    "M_group_gross_busd": 565.7,
+    "M_group_windownet_busd (sensitivity, never the verdict)": 346.291,
+    "construction": "rule (b), GROUP level: per class k, min(ChinaGrossDecline_k, Sum_publisher-members CenterGrossInflow_k); components from RDTF_ingredients.json table_A_per_center_ceilings.verdict_axis.<member>.per_class and china_gross_decline_rooms.verdict_axis",
+    "member_lines_missing_stated": [
+     "Netherlands Antilles: no country line in slt_table1 on the axis (the publisher's 5-16-2016 restatement maps it to Bonaire/Sint Eustatius/Saba, Curacao and Sint Maarten; Curacao has a line and is included; Bonaire/Sint Eustatius/Saba and Sint Maarten have no lines -- stated, not fabricated)"
+    ],
+    "member_lines_used": [
+     "Bahamas",
+     "Bermuda",
+     "British Virgin Islands",
+     "Cayman Islands",
+     "Curacao",
+     "Panama"
+    ],
+    "per_class": {
+     "agency_lt": {
+      "china_gross_decline_busd": 116.737,
+      "china_net_room_busd": 93.849,
+      "group_gross_min_busd": 116.737,
+      "group_windownet_min_busd (sensitivity)": 93.849,
+      "sum_member_gross_inflow_busd": 122.523,
+      "sum_member_net_busd": 107.841
+     },
+     "corp_other_bonds_lt": {
+      "china_gross_decline_busd": 7.493,
+      "china_net_room_busd": 0.0,
+      "group_gross_min_busd": 7.493,
+      "group_windownet_min_busd (sensitivity)": 0.0,
+      "sum_member_gross_inflow_busd": 209.909,
+      "sum_member_net_busd": 168.28
+     },
+     "equity_lt": {
+      "china_gross_decline_busd": 85.324,
+      "china_net_room_busd": 69.443,
+      "group_gross_min_busd": 85.324,
+      "group_windownet_min_busd (sensitivity)": 69.443,
+      "sum_member_gross_inflow_busd": 654.514,
+      "sum_member_net_busd": 422.291
+     },
+     "treasury_lt": {
+      "china_gross_decline_busd": 356.146,
+      "china_net_room_busd": 284.774,
+      "group_gross_min_busd": 356.146,
+      "group_windownet_min_busd (sensitivity)": 182.999,
+      "sum_member_gross_inflow_busd": 360.299,
+      "sum_member_net_busd": 182.999
+     }
+    },
+    "shl_3_3_membership_variant_gross_busd (labelled variant: drops Bahamas; Bonaire/Sint Eustatius/Saba has no line)": 529.382,
+    "slt_total_caribbean_line_context (NOT used -- memberships differ)": {
+     "M_gross_busd": 522.769,
+     "M_windownet_busd": 348.969,
+     "line": "slt_table1 'Total Caribbean' (code 34401), 36 active months"
+    }
+   }
+  },
+  "carib_bc_group_confidence_caveat (MEDIUM -- rides the result, reported, never used to drop the group)": "the group's custodial naming is GROUP-LEVEL ONLY and comes from the 2012-era TIC methodology documents (MFH methodology note; TIC FAQ 7), not from the current-vintage SHL 4.3.4 custodial-bias passage (which names only BE/LU/CH/UK); two member jurisdictions (Cayman Islands, British Virgin Islands) carry the pre-registration's beneficial-owner tagging and are NOT individually grounded (the zero-guard forbids admitting them individually); the TIC aggregate line for the group was discontinued after February 2016 data, so the group is operationalized here through publisher-defined member country lines at GROUP level -- see the without-group sensitivity, which the branch does not depend on",
+  "carib_bc_membership_comparison": {
+   "branch_taken": "(b) construct from publisher-defined member lines at GROUP level",
+   "comparison_verbatim": {
+    "in_SLT_TotalCaribbean_but_NOT_publisher_CBC": [
+     "Anguilla",
+     "Aruba",
+     "Barbados",
+     "Cuba",
+     "Jamaica",
+     "Saint Kitts and Nevis",
+     "Trinidad and Tobago"
+    ],
+    "in_publisher_CBC_but_NOT_SLT_TotalCaribbean": [
+     "Panama",
+     "(plus the unpublished-member residual cannot be checked)"
+    ],
+    "plainly": "SLT 'Total Caribbean' contains at least seven published country lines that are NOT Caribbean-banking-centers members (Anguilla, Aruba, Barbados, Cuba, Jamaica, Saint Kitts and Nevis, Trinidad and Tobago) plus an unpublished-member residual, and it EXCLUDES Panama, which IS a publisher-defined member; therefore branch (b) applies: the group ceiling is constructed from the publisher-defined member country lines at GROUP level",
+    "verdict": "MEMBERSHIPS DIFFER"
+   },
+   "publisher_defined_CBC_membership": {
+    "member_names_mfhhis01": [
+     "Bahamas",
+     "Bermuda",
+     "Cayman Islands",
+     "Netherlands Antilles",
+     "Panama",
+     "British Virgin Islands"
+    ],
+    "member_names_securities_b_2016 (post-Netherlands-Antilles-dissolution restatement)": [
+     "Bahamas",
+     "Bermuda",
+     "Bonaire/Sint Eustatius/Saba",
+     "British Virgin Islands",
+     "Cayman Islands",
+     "Curaçao",
+     "Panama",
+     "Sint Maarten"
+    ],
+    "member_names_shl_3_3_variant": [
+     "Bermuda",
+     "Bonaire, Sint Eustatius, and Saba",
+     "British Virgin Islands",
+     "Cayman Islands",
+     "Curacao",
+     "Panama"
+    ],
+    "mfhhis01_footnote4_verbatim": "4/   Caribbean Banking Centers include Bahamas, Bermuda, Cayman Islands, Netherlands Antilles, and Panama. Beginning with new series for June 2006, also includes British Virgin Islands. This aggregate of countries was discontinued after data for February 2016.",
+    "mfhhis01_source_path": "build/reserve/rdt_evidence/tic/mfhhis01.txt (footnote 4, lines 1287-1288)",
+    "securities_b_2016_restatement_verbatim": "Caribbean Banking Centers (Bahamas, Bermuda, Bonaire/Sint Eustatius/Saba, British Virgin Islands, Cayman Islands, Curaçao, Panama, and Sint Maarten)",
+    "securities_b_2016_source_path": "build/reserve/rdtf_evidence/tic_secb_live_extracted.txt (5-16-2016 notice); reading aid of build/reserve/rdtb_evidence/tic_secb_live.html",
+    "shl_3_3_closely_related_grouping_verbatim": "Caribbean financial centers are Bermuda; Bonaire, Sint Eustatius, and Saba; British Virgin Islands; Cayman Islands; Curacao; and Panama.",
+    "shl_3_3_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1739-1740, Section 3.3 Geographical Notes)"
+   },
+   "rule": "tasked MECHANICAL RULE: if the memberships match, the SLT 'Total Caribbean' gross enters as the group ceiling; if they differ, construct the group ceiling from the publisher-defined member country lines at GROUP level",
+   "slt_documentation_finding": "no on-disk SLT documentation or footnote defines 'Total Caribbean' membership (slt_table1.txt's Definitions block defines only the Euro area and the European Union), so per the tasked rule the membership is taken from what the country lines imply",
+   "slt_total_caribbean_membership_implied": {
+    "panama_implied_OUTSIDE": true,
+    "published_country_lines_implied_inside (12)": [
+     "Anguilla",
+     "Aruba",
+     "Bahamas",
+     "Barbados",
+     "Bermuda",
+     "British Virgin Islands",
+     "Cayman Islands",
+     "Cuba",
+     "Curacao",
+     "Jamaica",
+     "Saint Kitts and Nevis",
+     "Trinidad and Tobago"
+    ],
+    "test": "per month over all 76 months with positions (2020-01..2026-04, all four classes summed): Total Caribbean minus the 12 published Caribbean lines is ALWAYS >= 0 (min +16.793, max +33.030 $bn -- a small unpublished-country residual), while adding Panama makes it negative in EVERY month (min -62.471, max -23.992 $bn), which is impossible if Panama were a member",
+    "unpublished_residual_note": "the always-nonnegative residual implies further member countries whose lines slt_table1 does not publish; they cannot be enumerated from the file"
+   }
+  },
+  "caveats_riding_everywhere": "the k1 wall (no destination currency is identified) and the pool caveat (TIC 'China, Mainland' != the SAFE reserve pool; rdtd_pool_determination.md) ride the interval and every label above",
+  "global_ceiling": {
+   "M_hi_global_busd": 446.493,
+   "cap_binds": true,
+   "cap_busd (read from RDTC artifacts)": 446.493,
+   "ceiling_vacuous": true,
+   "sum_grounded_gross_busd": 1712.241,
+   "sum_grounded_windownet_busd (sensitivity, never the verdict)": 901.932,
+   "vacuous_statement": "the grounded gross sum 1712.241 reaches the 446.493 cap, so the ceiling is VACUOUS per the pre-registered rule (the ceiling cannot exceed the net decline it explains) -- computed, not asserted: the BE/LU/CH/UK sum alone is 1146.541 and already exceeds the cap",
+   "windownet_min_vs_cap_busd (sensitivity)": 446.493
+  },
+  "grounded_set (DERIVED, not chosen -- quotes are the audit trail)": [
+   {
+    "code": "BEL",
+    "grounding_quote_verbatim": "Third, chains of foreign financial intermediaries are often involved in the custody or management of securities. This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+    "name": "Belgium",
+    "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2016-2019; Section 4.3.4 'Reporting Basis: Country of Residence')"
+   },
+   {
+    "code": "LUX",
+    "grounding_quote_verbatim": "Third, chains of foreign financial intermediaries are often involved in the custody or management of securities. This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+    "name": "Luxembourg",
+    "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2016-2019)"
+   },
+   {
+    "code": "CHE",
+    "grounding_quote_verbatim": "This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom. For example, a resident of Germany may buy a U.S. security and place it in the custody of a Swiss bank.",
+    "name": "Switzerland",
+    "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2017-2020)"
+   },
+   {
+    "code": "GBR",
+    "grounding_quote_verbatim": "This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+    "name": "United Kingdom",
+    "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2017-2019)"
+   },
+   {
+    "code": "CARIB-BC",
+    "grounding_quote_verbatim": "This “custodial bias” contributes to the large recorded holdings in major custodial centers including Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+    "name": "Caribbean banking centers (TIC publisher grouping, NOT a single jurisdiction)",
+    "quote_source_path": "build/reserve/rdte_evidence/method_mfh_legacy.html; reading-aid extraction build/reserve/rdtf_evidence/method_mfh_legacy_extracted.txt line 339"
+   }
+  ],
+  "leave_one_center_out (mandatory)": {
+   "finding": "FORK-REOPENED is LOCO-ROBUST: the cap still binds after dropping any single grounded center (minimum remaining sum 1146.541 > cap 446.493)",
+   "loco_robust": true,
+   "table": [
+    {
+     "M_center_gross_busd": 111.85,
+     "M_hi_global_without_it_busd": 446.493,
+     "branch_implied": "FORK-REOPENED",
+     "cap_binds": true,
+     "dropped_center": "Belgium",
+     "sum_remaining_gross_busd": 1600.391
+    },
+    {
+     "M_center_gross_busd": 271.472,
+     "M_hi_global_without_it_busd": 446.493,
+     "branch_implied": "FORK-REOPENED",
+     "cap_binds": true,
+     "dropped_center": "Luxembourg",
+     "sum_remaining_gross_busd": 1440.769
+    },
+    {
+     "M_center_gross_busd": 197.519,
+     "M_hi_global_without_it_busd": 446.493,
+     "branch_implied": "FORK-REOPENED",
+     "cap_binds": true,
+     "dropped_center": "Switzerland",
+     "sum_remaining_gross_busd": 1514.722
+    },
+    {
+     "M_center_gross_busd": 565.7,
+     "M_hi_global_without_it_busd": 446.493,
+     "branch_implied": "FORK-REOPENED",
+     "cap_binds": true,
+     "dropped_center": "United Kingdom",
+     "sum_remaining_gross_busd": 1146.541
+    },
+    {
+     "M_center_gross_busd": 565.7,
+     "M_hi_global_without_it_busd": 446.493,
+     "branch_implied": "FORK-REOPENED",
+     "cap_binds": true,
+     "dropped_center": "Caribbean banking centers (GROUP)",
+     "sum_remaining_gross_busd": 1146.541
+    }
+   ]
+  },
+  "membership_variant_sensitivities (labelled)": {
+   "shl_3_3_membership_group_variant": {
+    "M_hi_global_busd": 446.493,
+    "group_gross_busd": 529.382
+   },
+   "slt_total_caribbean_line_as_group_context": {
+    "M_hi_global_busd": 446.493
+   }
+  },
+  "per_center_ceilings_busd (verdict axis 2023-05..2026-04; full window 2023-02..2026-04 as context)": {
+   "Belgium": {
+    "M_gross_busd (VERDICT basis)": 111.85,
+    "M_windownet_busd (tighter, DISPUTED sensitivity)": 18.087,
+    "SOURCE": "build/reserve/RDTF_ingredients.json table_A_per_center_ceilings.{verdict_axis,full_window}.Belgium",
+    "full_window_context": {
+     "M_gross_busd": 114.23,
+     "M_windownet_busd": 16.778
+    }
+   },
+   "Caribbean banking centers (GROUP, constructed -- rule (b))": {
+    "M_gross_busd (VERDICT basis)": 565.7,
+    "M_windownet_busd (tighter, DISPUTED sensitivity)": 346.291,
+    "SOURCE": "constructed at GROUP level from RDTF_ingredients.json table_A per_class member blocks (see carib_bc_group.construction)",
+    "full_window_context": {
+     "M_gross_busd": 586.174,
+     "M_windownet_busd": 346.213
+    }
+   },
+   "Luxembourg": {
+    "M_gross_busd (VERDICT basis)": 271.472,
+    "M_windownet_busd (tighter, DISPUTED sensitivity)": 131.093,
+    "SOURCE": "build/reserve/RDTF_ingredients.json table_A_per_center_ceilings.{verdict_axis,full_window}.Luxembourg",
+    "full_window_context": {
+     "M_gross_busd": 293.269,
+     "M_windownet_busd": 144.215
+    }
+   },
+   "Switzerland": {
+    "M_gross_busd (VERDICT basis)": 197.519,
+    "M_windownet_busd (tighter, DISPUTED sensitivity)": 48.426,
+    "SOURCE": "build/reserve/RDTF_ingredients.json table_A_per_center_ceilings.{verdict_axis,full_window}.Switzerland",
+    "full_window_context": {
+     "M_gross_busd": 204.044,
+     "M_windownet_busd": 46.324
+    }
+   },
+   "United Kingdom": {
+    "M_gross_busd (VERDICT basis)": 565.7,
+    "M_windownet_busd (tighter, DISPUTED sensitivity)": 358.035,
+    "SOURCE": "build/reserve/RDTF_ingredients.json table_A_per_center_ceilings.{verdict_axis,full_window}.United Kingdom",
+    "full_window_context": {
+     "M_gross_busd": 586.174,
+     "M_windownet_busd": 362.805
+    }
+   }
+  },
+  "rdte_nested_route_specific_bound": {
+   "M_hi_busd": 69.521,
+   "SOURCE": "build/reserve/RDTE_result.json combination_mechanical.M_hi_busd; interval_delta_nonus_true_busd.interval",
+   "interval_busd": [
+    425.456,
+    494.977
+   ],
+   "label_re_rendered": "ROUTE-SPECIFIC (BE/LU only)",
+   "re_render_rule": "pre-registered: if FORK-REOPENED, RDT-E's MIGRATION-MINOR is re-labelled ROUTE-SPECIFIC (BE/LU only), not robust",
+   "survives_only_on": "the BE/LU route -- i.e. on the assumption that custody migration ran only through Euroclear/Clearstream"
+  },
+  "route_robust_interval": {
+   "identity": "DeltaNonUS-true in [494.977 - M_hi_global, 494.977] (the 494.977 read from RDTD_result.json identity.china_alone.delta_non_us_busd; cross-read in RDTE_result.json)",
+   "interval_busd": [
+    48.484,
+    494.977
+   ],
+   "plain_statement": "the route-robust interval is NEARLY UNINFORMATIVE: its width is 446.493 $bn of a possible 494.977 $bn -- on the overstating-safe gross basis the grounded custody routes could absorb up to the entire 446.493 $bn US-securities decline, so route-robust data alone cannot separate true departure from custody migration; only the BE/LU-specific bound (nested below) is tight, and it holds only on the assumption that BE/LU is the only migration route",
+   "supersedes": "the RDT-E BE/LU-only interval as the ROUTE-ROBUST bound; the BE/LU figures stay nested below as the route-SPECIFIC bound"
+  },
+  "verdict_basis": "GROSS (overstating-safe, pre-registered); window-net carried alongside as the tighter, DISPUTED sensitivity, never the verdict",
+  "without_group_sensitivity (labelled -- the group is never dropped by choice)": {
+   "M_hi_global_busd": 446.493,
+   "branch_implied": "FORK-REOPENED",
+   "note": "the branch is IDENTICAL with or without the MEDIUM-confidence group entry",
+   "sum_gross_busd": 1146.541
+  }
+ },
+ "part2_basis_reconciliation": {
+  "carried_plainly": {
+   "i_universe_switch": "the adjustment simultaneously switches universe: the raw divergence uses the MFH official leg (+116.8 $bn; total UST INCLUDING bills, hybrid basis) while the adjusted divergence uses the SLT LT-official leg (-109.143 $bn; LONG-TERM only, market value with a stated valchg column) -- the bills gap is a stated limit of the reconciliation; context variants carried: 123.080 (vs SLT delta-holdings) and 191.570 (vs SLT cumulative net sales)",
+   "ii_input_path_friction": "the pre-registration referenced 'the on-disk slt2d/official rows'; the publisher's 03-31-2023 notice superseded the slt2d files -- verbatim: 'The \"slt_table1.html\" (and \"slt_table1.txt\" ) file covers data on foreign holdings and net U.S. sales of U.S. long-term securities. It replaces several old files: slt1d, slt1d_globl, slt2d, slt2d_history.' -- and the official valchg used here is the SLT tables' Of-Which-Foreign-Official line (country code 99990); disclosed, method unchanged",
+   "iii_sign_structure": "FRBNY custody FELL -232.223 while SLT LT-official transactions-basis FELL -305.754 and MFH official ROSE +116.8: what converges under the adjustment is the two DECLINE legs (FRBNY par vs SLT tx-basis); the 73.531 residual and the MFH contrast are STATED, not reconciled"
+  },
+  "divergences_busd": {
+   "basis_adjusted (= |FRBNY_par_change - SLT_LT_official_txbasis_change|)": 73.531,
+   "context_vs_slt_lt_cumulative_net_sales": 191.57,
+   "context_vs_slt_lt_delta_holdings": 123.08,
+   "raw (= |FRBNY_change - MFH_official_delta_holdings|)": 349.023
+  },
+  "legs (staged in RDTF_ingredients.json table_C_basis_reconciliation_staging; reproduced here)": {
+   "SOURCE": "build/reserve/RDTF_ingredients.json table_C_basis_reconciliation_staging.{frbny_leg,tic_official_mfh_leg,tic_official_slt_lt_leg}; quotes from build/reserve/RDTF_basis_quotes.md",
+   "frbny_basis_quote_verbatim (H.4.1 Table 1A footnote 1)": "Includes securities and U.S. Treasury STRIPS at face value, and inflation compensation on TIPS. Does not include securities pledged as collateral to foreign official and international account holders against reverse repurchase agreements with the Federal Reserve presented in tables 1, 5, and 6.",
+   "frbny_face_value_custody_change_busd": -232.223,
+   "mfh_hybrid_basis_quote_verbatim (MFH methodology note)": "Valuation of securities. Although holdings estimates in the Major Foreign Holders tables are still a hybrid of market and face values, the potential distortions caused by differences in market and face values are much reduced in the current methodology. Foreign holdings of long-term Treasury securities are collected at market value in the annual surveys and on the SLT. Transactions in long-term securities on the TIC S are also reported at market value. Foreign holdings of short-term Treasury bills are reported on the TIC form BL-2 at face value, but the differences between market and face values for short-term Treasury securities tends to be limited.",
+   "slt_lt_official_cumulative_stated_valchg_busd": 196.611,
+   "slt_lt_official_delta_holdings_busd": -109.143,
+   "slt_lt_official_transactions_basis_change_busd (= delta_holdings - cum_valchg)": -305.754,
+   "tic_basis_quote_verbatim (TIC FAQ 10a)": "Differences in valuation: The custody holdings at FRBNY are reported at face value.",
+   "tic_mfh_official_delta_holdings_busd (estimated market value, hybrid bills-at-face)": 116.8
+  },
+  "perimeter_fact_riding": "FRBNY custody is a subset of TIC official (officials can custody outside the Fed): a real residual is custody relocation away from the Fed, the migration channel Part 1 bounds",
+  "structurally_live_statement (REQUIRED by the pre-registration for PARTIAL/REAL with a material residual)": "official custody leaving the Fed at scale is structurally live in-window and bears on Part 1's interpretation: 73.531 $bn of the FRBNY official-custody decline is unexplained by the stated valuation adjustment, and since FRBNY custody is a subset of TIC official (officials can custody outside the Fed), a real residual is custody RELOCATION away from the Fed -- exactly the migration channel Part 1 bounds",
+  "verdict": {
+   "label": "PARTIAL",
+   "residual_busd (official custody change unexplained by the stated valuation adjustment)": 73.531,
+   "residual_material": true,
+   "rule": "TENSION-ARTIFACT iff <= 50.000; TENSION-REAL iff >= 150.000; PARTIAL between (thresholds parsed from RDTF_prediction.md)",
+   "sentence": "PARTIAL -- basis-adjusted divergence 73.531 lies between 50.000 and 150.000: the stated valuation adjustment closes most but not all of the raw divergence; the residual is stated"
+  }
+ },
+ "self_check": {
+  "belu4_sum_crossfoots_staging": true,
+  "branch_rendered_mechanically": true,
+  "cap_binds_and_ceiling_vacuous": true,
+  "loco_full_table_present": true,
+  "no_date_no_probability_no_currency_guess": true,
+  "part2_divergences_reproduce_staging": true,
+  "structurally_live_statement_present_iff_required": true,
+  "verdict_on_gross_never_net": true
+ },
+ "thresholds_parsed": {
+  "SOURCE": "build/reserve/RDTE_prediction.md (MINOR multiplier); build/reserve/RDTF_prediction.md (branch mapping + Part-2 thresholds); build/reserve/RDTC_class_flows.json (the 446.493)",
+  "computed_as": "0.25 x 446.493 (446.493 read from RDTC artifacts, never typed) = 111.623",
+  "matched_substring_of_RDTE_prediction_md (exact bytes, for the gate's byte-match)": "M_hi ≤ 0.25 × 446.493",
+  "matched_substring_of_RDTF_prediction_md_restatement": "MINOR-ROBUST** iff M_hi_global ≤ 111.623",
+  "minor_threshold_busd": 111.623,
+  "multiplier_as_parsed": 0.25,
+  "part2_artifact_leq_busd": 50.0,
+  "part2_matched_substrings_of_RDTF_prediction_md": [
+   "TENSION-ARTIFACT** iff the basis-adjusted divergence ≤ 50 $bn",
+   "TENSION-REAL** iff ≥ 150 $bn"
+  ],
+  "part2_real_geq_busd": 150.0,
+  "vacuous_cap_rule_matched_substring_of_RDTF_prediction_md": "if the sum reaches the cap, the ceiling is VACUOUS and the branch is FORK-REOPENED regardless"
+ },
+ "windows": {
+  "full_window": {
+   "end": "2026-04",
+   "n_months": 39,
+   "role": "context -- earliest..latest available on slt_table1's by-country ACTIVE basis (this file's by-country transactions begin 2023-02; positions begin 2020-01)",
+   "start": "2023-02"
+  },
+  "verdict_axis": {
+   "end": "2026-04",
+   "holdings_reference_month": "2023-04",
+   "n_months": 36,
+   "on_active_basis": "VERIFIED from the file: by-country Net U.S. Sales and Valuation Change are non-'n.a.' from 2023-02 through 2026-04 on every net-bearing line, so the verdict axis 2023-05..2026-04 lies fully on the by-country active basis",
+   "role": "VERDICT AXIS (RDT-B/C/D/E lineage, pre-registered)",
+   "start": "2023-05"
+  }
+ }
+}

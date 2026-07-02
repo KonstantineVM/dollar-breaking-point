@@ -6310,3 +6310,8 @@ print('self_check:', r['self_check'])
 print('establishment:', r['establishment'][:110])
 EOF
 2026-07-02T17:30:33Z RDT-F: assembly complete (FORK-REOPENED, cap binds 446.493 LOCO-robust; interval [48.484,494.977]; basis PARTIAL residual 73.531); orchestrator re-ran recompute byte-identical (result 6937...f220b, object 7e8a...0007); leak+precedence clean; integrity-critic GATE launched; results held uncommitted pending gate
+2026-07-02T17:30:35Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: assembly complete (FORK-REOPENED, cap binds 446.493 LOCO-robust; interval [48.484,494.977]; basis PARTIAL residual 73.531); orchestrator re-ran recompute byte-identical (result 6937...f220b, object 7e8a...0007); leak+precedence clean; integrity-critic GATE launched; results held uncommitted pending gate" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-F gate running)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short
+2026-07-02T17:31:29Z RDT-F: result/verifier/amended-object committed pending gate adjudication (all stamped NOT ESTABLISHED; gate BLOCK would be fixed in follow-up commits before stage close)
