@@ -1,0 +1,38 @@
+{
+ "purpose": "verifier artifact for RDT Parts 2-4: records that every output was regenerated from the two committed inputs alone by the same code path and byte-matches what was written; until all_pass=true every number in RDT_calibration.json / RDT_result.json / RDT_breaking_point_object.md is an OUTPUT, not established",
+ "input_basis_disclosed": {
+  "primary": "build/reserve/RDT_coordinates.parquet",
+  "secondary_scan_only": "build/reserve/rd0_evidence/lmw_Data.xls (sheet DATA, engine xlrd)",
+  "cross_check_only": "build/reserve/rd2_evidence/wb_pinksheet_MYFETCH.xlsx (P_ref equality only)",
+  "network": "none"
+ },
+ "input_sha256": {
+  "RDT_coordinates.parquet": "9860a19d3816682366492b62a848e929dc3e660539533287ddabdc016212be30",
+  "lmw_Data.xls": "fd920abddd6d91e4c2c7f745eeb3b9dacd3ef156b6eb9b7f3b199bbda56a4f2d",
+  "wb_pinksheet_MYFETCH.xlsx": "83a320affafc83512d4af4c7198af6ce086326c8b6923d9f64dd905172f86290"
+ },
+ "output_sha256": {
+  "RDT_calibration.json": "fc8f44c0abd61eb887bb9af7997d10c10402f259c4dc34069bae1cb48ecd94dd",
+  "RDT_result.json": "bc4bde447d2cb8823f65124530b3d34d29eae1ac30f7f4098b6d647710eee9de",
+  "RDT_breaking_point_object.md": "44338462325bdbf8431289457f041e20189568864b38a6ca24b1b698ca0b22d9"
+ },
+ "match_flags": {
+  "p_ref_parquet_equals_pinksheet_rederivation": true,
+  "recompute_second_pass_byte_identical_calibration": true,
+  "recompute_second_pass_byte_identical_result": true,
+  "recompute_second_pass_byte_identical_object": true,
+  "anchor_russia_2018_ust_collapse_replicated": true,
+  "anchor_russia_gold_accumulation_replicated": true
+ },
+ "anchor_quotes": {
+  "russia_ust_busd_dec2017_dec2018": [
+   102.5,
+   13.2
+  ],
+  "russia_gold_tonnes_end2013_end2020": [
+   1035.21,
+   2298.53
+  ]
+ },
+ "all_pass": true
+}

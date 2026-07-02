@@ -1,0 +1,5550 @@
+{
+ "_stamp": "OUTPUT \u2014 NOT ESTABLISHED until the verifier artifact build/reserve/RDT_verify.json exists with all_pass=true",
+ "SOURCE": "computed by build/reserve/RDT_recompute.py; INPUT BASIS (disclosed): (1) build/reserve/RDT_coordinates.parquet \u2014 primary, includes the _AGG_COFER/_LMW_PCTL/_PREF/_SAFE_ANCHOR pseudo-holder input rows; (2) build/reserve/rd0_evidence/lmw_Data.xls sheet DATA (engine xlrd) \u2014 used ONLY for the Part-2 secondary-trajectory scan (the full discloser panel is not in the parquet); plus wb_pinksheet_MYFETCH.xlsx as a P_ref cross-check ONLY (equality asserted, no other use); no network",
+ "no_date_no_probability": "this artifact contains NO breaking-point date and NO probability; every tau is a conditional duration under a frozen velocity and carries its caveat",
+ "metric": {
+  "d": "d_k(h,t) = (x_k(h,t) - x_F,k)/(x_k(h,origin) - x_F,k); origin years 2014 (primary) and 2018 (alternative)",
+  "v": "-Delta d / Delta t, path-fractions per year, positive = toward the frontier; recent-3y AND full-window, both always reported",
+  "tau": "d/v IF v>0, with the literal caveat on every tau",
+  "guard": "degeneracy guard per the pre-registration; raw-space distance when it fires",
+  "composite": "unweighted mean of d_k (pre-registered), with S1 median / S2 OBSERVED-only / S3 min computed"
+ },
+ "frontier_echo": {
+  "k1": {
+   "terminal": 13.89,
+   "region_2019_2021": [
+    13.89,
+    30.43
+   ]
+  },
+  "k2": {
+   "terminal": 21.827305,
+   "region_2019_2021": [
+    21.114026,
+    22.838552
+   ]
+  },
+  "k3": {
+   "terminal": 0.618434,
+   "region_2019_2021": [
+    0.618434,
+    1.796538
+   ]
+  },
+  "k4": {
+   "terminal": 21.78,
+   "region_2019_2021": [
+    15.28,
+    21.78
+   ]
+  }
+ },
+ "holders": {
+  "Russia": {
+   "per_coordinate_FIRST": {
+    "k1": {
+     "observability": "OBSERVED",
+     "definition": "USD share of disclosed FX reserves (pp)",
+     "vintage_latest": 2021,
+     "position_raw": {
+      "lower": 13.89,
+      "upper": 13.89,
+      "midpoint": 13.89
+     },
+     "frontier": 13.89,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "share_pp_latest": {
+       "lower": 13.89,
+       "upper": 13.89,
+       "midpoint": 13.89
+      }
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 39.6,
+       "upper": 39.6,
+       "midpoint": 39.6
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 5.142,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0,
+       "raw_space_distance_to_frontier": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "midpoint": 0.0
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2018,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.179308,
+         "upper": 0.179308,
+         "midpoint": 0.179308
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.61,
+         "upper": -4.61,
+         "midpoint": -4.61
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.142857,
+         "upper": 0.142857,
+         "midpoint": 0.142857
+        },
+        "v_raw_units_per_yr": {
+         "lower": -3.672857,
+         "upper": -3.672857,
+         "midpoint": -3.672857
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 27.72,
+       "upper": 27.72,
+       "midpoint": 27.72
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 2.766,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0,
+       "raw_space_distance_to_frontier": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "midpoint": 0.0
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2018,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.333333,
+         "upper": 0.333333,
+         "midpoint": 0.333333
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.61,
+         "upper": -4.61,
+         "midpoint": -4.61
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.333333,
+         "upper": 0.333333,
+         "midpoint": 0.333333
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.61,
+         "upper": -4.61,
+         "midpoint": -4.61
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     }
+    },
+    "k2": {
+     "observability": "OBSERVED",
+     "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+     "vintage_latest": 2024,
+     "position_raw": {
+      "lower": 24.645528,
+      "upper": 24.645528,
+      "midpoint": 24.645528
+     },
+     "frontier": 21.827305,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "gold_tonnes_latest": 2332.74,
+      "reserves_ex_gold_usd_bn_latest": 412.678,
+      "gold_constant_price_usd_bn_latest": 134.970986
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 17.080238,
+       "upper": 17.080238,
+       "midpoint": 17.080238
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.949413,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -0.593677,
+       "upper": -0.593677,
+       "midpoint": -0.593677,
+       "raw_space_distance_to_frontier": {
+        "lower": 2.818223,
+        "upper": 2.818223,
+        "midpoint": 2.818223
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2021,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.247978,
+         "upper": 0.247978,
+         "midpoint": 0.247978
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.177167,
+         "upper": 1.177167,
+         "midpoint": 1.177167
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.159368,
+         "upper": 0.159368,
+         "midpoint": 0.159368
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.756529,
+         "upper": 0.756529,
+         "midpoint": 0.756529
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 24.265684,
+       "upper": 24.265684,
+       "midpoint": 24.265684
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.487676,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.155777,
+       "upper": 1.155777,
+       "midpoint": 1.155777,
+       "raw_space_distance_to_frontier": {
+        "lower": 2.818223,
+        "upper": 2.818223,
+        "midpoint": 2.818223
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2021,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.482766,
+         "upper": -0.482766,
+         "midpoint": -0.482766
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.177167,
+         "upper": 1.177167,
+         "midpoint": 1.177167
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.025963,
+         "upper": -0.025963,
+         "midpoint": -0.025963
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.063307,
+         "upper": 0.063307,
+         "midpoint": 0.063307
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     }
+    },
+    "k3": {
+     "observability": "OBSERVED",
+     "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+     "vintage_latest": 2024,
+     "position_raw": {
+      "lower": 0.006904,
+      "upper": 0.006904,
+      "midpoint": 0.006904
+     },
+     "frontier": 0.618434,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "ust_busd_latest_published": {
+       "lower": 0.026,
+       "upper": 0.026,
+       "midpoint": 0.026
+      },
+      "ust_vintage": "2026-04",
+      "ratio_denominator_year": 2024,
+      "total_reserves_usd_bn": 608.361,
+      "note": "ratio uses the latest year with BOTH numerator and WB denominator"
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 22.267332,
+       "upper": 22.267332,
+       "midpoint": 22.267332
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.32978,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -0.028248,
+       "upper": -0.028248,
+       "midpoint": -0.028248,
+       "raw_space_distance_to_frontier": {
+        "lower": -0.61153,
+        "upper": -0.61153,
+        "midpoint": -0.61153
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2021,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.009416,
+         "upper": 0.009416,
+         "midpoint": 0.009416
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.203843,
+         "upper": -0.203843,
+         "midpoint": -0.203843
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.102825,
+         "upper": 0.102825,
+         "midpoint": 0.102825
+        },
+        "v_raw_units_per_yr": {
+         "lower": -2.226043,
+         "upper": -2.226043,
+         "midpoint": -2.226043
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 2.816631,
+       "upper": 2.816631,
+       "midpoint": 2.816631
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.439639,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -0.278196,
+       "upper": -0.278196,
+       "midpoint": -0.278196,
+       "raw_space_distance_to_frontier": {
+        "lower": -0.61153,
+        "upper": -0.61153,
+        "midpoint": -0.61153
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2021,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.092732,
+         "upper": 0.092732,
+         "midpoint": 0.092732
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.203843,
+         "upper": -0.203843,
+         "midpoint": -0.203843
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2024
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.213033,
+         "upper": 0.213033,
+         "midpoint": 0.213033
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.468288,
+         "upper": -0.468288,
+         "midpoint": -0.468288
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     }
+    },
+    "k4": {
+     "observability": "OBSERVED",
+     "definition": "CNY share of disclosed reserves (pp)",
+     "vintage_latest": 2021,
+     "position_raw": {
+      "lower": 21.78,
+      "upper": 21.78,
+      "midpoint": 21.78
+     },
+     "frontier": 21.78,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "share_pp_latest": {
+       "lower": 21.78,
+       "upper": 21.78,
+       "midpoint": 21.78
+      }
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.356,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -0.0,
+       "upper": -0.0,
+       "midpoint": -0.0,
+       "raw_space_distance_to_frontier": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "midpoint": 0.0
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2018,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.067952,
+         "upper": 0.067952,
+         "midpoint": 0.067952
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.48,
+         "upper": 1.48,
+         "midpoint": 1.48
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.142857,
+         "upper": 0.142857,
+         "midpoint": 0.142857
+        },
+        "v_raw_units_per_yr": {
+         "lower": 3.111429,
+         "upper": 3.111429,
+         "midpoint": 3.111429
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 17.34,
+       "upper": 17.34,
+       "midpoint": 17.34
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.888,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -0.0,
+       "upper": -0.0,
+       "midpoint": -0.0,
+       "raw_space_distance_to_frontier": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "midpoint": 0.0
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2018,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.333333,
+         "upper": 0.333333,
+         "midpoint": 0.333333
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.48,
+         "upper": 1.48,
+         "midpoint": 1.48
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2021
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.333333,
+         "upper": 0.333333,
+         "midpoint": 0.333333
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.48,
+         "upper": 1.48,
+         "midpoint": 1.48
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     }
+    }
+   },
+   "composite_SECOND": {
+    "primary_onset_2014": {
+     "members": [
+      "k1",
+      "k2",
+      "k3",
+      "k4"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": -0.155481,
+      "upper": -0.155481,
+      "midpoint": -0.155481
+     },
+     "S1_median": {
+      "value_of_midpoints": -0.014124,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k2",
+      "d": {
+       "lower": -0.593677,
+       "upper": -0.593677,
+       "midpoint": -0.593677
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k1",
+       "k2",
+       "k3",
+       "k4"
+      ],
+      "value": {
+       "lower": -0.155481,
+       "upper": -0.155481,
+       "midpoint": -0.155481
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    },
+    "alt_onset_2018": {
+     "members": [
+      "k1",
+      "k2",
+      "k3",
+      "k4"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.219395,
+      "upper": 0.219395,
+      "midpoint": 0.219395
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.0,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k3",
+      "d": {
+       "lower": -0.278196,
+       "upper": -0.278196,
+       "midpoint": -0.278196
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k1",
+       "k2",
+       "k3",
+       "k4"
+      ],
+      "value": {
+       "lower": 0.219395,
+       "upper": 0.219395,
+       "midpoint": 0.219395
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    }
+   },
+   "role": "CALIBRANT \u2014 Russia defines the path and the frontier; its position is ~ the frontier BY CONSTRUCTION (d~0 at the 2021 terminal); its post-2021 k2/k3 drift is post-freeze, outside the anticipatory regime, and is NOT read as further exit"
+  },
+  "China": {
+   "per_coordinate_FIRST": {
+    "k1": {
+     "observability": "INFERRED-BOUNDED (never a point)",
+     "definition": "USD share of disclosed FX reserves (pp)",
+     "vintage_latest_both_routes": 2025,
+     "headline_envelope_union_of_routes": {
+      "value_pp": {
+       "lower": 0.0,
+       "upper": 100.0,
+       "midpoint": 50.0
+      },
+      "note": "pre-registered envelope = union(residual route, SAFE-anchor route); the residual route is clipped to [0,100] in every year, so the union is effectively [0,100] \u2014 reported honestly as the headline interval",
+      "residual_raw_endpoints_echo_pp": {
+       "origin_2014": [
+        12.78,
+        152.21
+       ],
+       "latest_2025": [
+        -22.83,
+        153.53
+       ],
+       "note": "raw (unclipped) residual endpoints, echoed from the row sources/manifest"
+      }
+     },
+     "envelope_at_2026_single_route": {
+      "value_pp": {
+       "lower": 33.879,
+       "upper": 82.121,
+       "midpoint": 58.0
+      },
+      "routes": "safe-only",
+      "year": 2026,
+      "note": "at 2026 only the SAFE route grounds (WB China reserves end 2025); the single-route envelope is NOT used as the headline \u2014 that would silently swap the SAFE route in"
+     },
+     "frontier": 13.89,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "primary_onset_2014": {
+      "origin_x_envelope": {
+       "lower": 12.775675,
+       "upper": 100.0,
+       "midpoint": 56.387838
+      },
+      "degeneracy_guard": {
+       "status": "UNVERIFIABLE-INTERVAL-ORIGIN",
+       "threshold_pp": 5.142,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F|"
+      },
+      "d_headline": {
+       "lower": null,
+       "upper": null,
+       "midpoint": null,
+       "flag": "UNBOUNDED-BY-INTERVAL-ARITHMETIC",
+       "reason": "the origin-envelope minus frontier interval spans zero (a direct consequence of the residual route's near-uninformativeness), so the path-fraction is unbounded; reported as such, never collapsed"
+      },
+      "raw_space_distance_to_frontier_pp": {
+       "lower": -13.89,
+       "upper": 86.11,
+       "midpoint": 36.11
+      },
+      "raw_space_note": "with the [0,100] envelope the raw-space distance is itself nearly uninformative; stated, not smoothed",
+      "velocities": {
+       "status": "not computable on the headline envelope (unbounded/near-uninformative d); see SAFE-route sensitivity"
+      },
+      "tau_if_velocity_persists": {
+       "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+       "status": "not computable (unbounded interval input)"
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x_envelope": {
+       "lower": 0.0,
+       "upper": 100.0,
+       "midpoint": 50.0
+      },
+      "degeneracy_guard": {
+       "status": "UNVERIFIABLE-INTERVAL-ORIGIN",
+       "threshold_pp": 2.766,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F|"
+      },
+      "d_headline": {
+       "lower": null,
+       "upper": null,
+       "midpoint": null,
+       "flag": "UNBOUNDED-BY-INTERVAL-ARITHMETIC",
+       "reason": "the origin-envelope minus frontier interval spans zero (a direct consequence of the residual route's near-uninformativeness), so the path-fraction is unbounded; reported as such, never collapsed"
+      },
+      "raw_space_distance_to_frontier_pp": {
+       "lower": -13.89,
+       "upper": 86.11,
+       "midpoint": 36.11
+      },
+      "raw_space_note": "with the [0,100] envelope the raw-space distance is itself nearly uninformative; stated, not smoothed",
+      "velocities": {
+       "status": "not computable on the headline envelope (unbounded/near-uninformative d); see SAFE-route sensitivity"
+      },
+      "tau_if_velocity_persists": {
+       "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+       "status": "not computable (unbounded interval input)"
+      }
+     },
+     "safe_route_sensitivity": {
+      "label": "SENSITIVITY \u2014 SAFE-anchor route only (NOT the headline)",
+      "vintage_latest": 2026,
+      "position_pp": {
+       "lower": 33.879,
+       "upper": 82.121,
+       "midpoint": 58.0
+      },
+      "primary_onset_2014": {
+       "origin_x": {
+        "lower": 58.0,
+        "upper": 58.0,
+        "midpoint": 58.0
+       },
+       "degeneracy_guard": {
+        "status": "CLEARS",
+        "threshold_pp": 5.142
+       },
+       "d": {
+        "lower": 0.453163,
+        "upper": 1.546837,
+        "midpoint": 1.0
+       },
+       "corridor_freeze_note": "the SAFE corridor freezes at [33.879, 82.121] from 2024 (LMW drift input ends 2023), so recent-3y velocity is 0 by construction there",
+       "velocities": {
+        "recent_3y": {
+         "window": [
+          2023,
+          2026
+         ],
+         "v_path_fraction_per_yr": {
+          "lower": -0.364558,
+          "upper": 0.364558,
+          "midpoint": 0.0
+         }
+        },
+        "full_window": {
+         "window": [
+          2014,
+          2026
+         ],
+         "v_path_fraction_per_yr": {
+          "lower": -0.04557,
+          "upper": 0.04557,
+          "midpoint": -0.0
+         }
+        }
+       },
+       "tau_if_velocity_persists": {
+        "recent_3y": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+         "tau_years_lower_bound_at_v_upper": 1.243047
+        },
+        "full_window": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+         "tau_years_lower_bound_at_v_upper": 9.944317
+        }
+       }
+      },
+      "alt_onset_2018": {
+       "origin_x": {
+        "lower": 43.372,
+        "upper": 72.628,
+        "midpoint": 58.0
+       },
+       "degeneracy_guard": {
+        "status": "CLEARS",
+        "threshold_pp": 2.766
+       },
+       "d": {
+        "lower": 0.340308,
+        "upper": 2.314327,
+        "midpoint": 1.327318
+       },
+       "corridor_freeze_note": "the SAFE corridor freezes at [33.879, 82.121] from 2024 (LMW drift input ends 2023), so recent-3y velocity is 0 by construction there",
+       "velocities": {
+        "recent_3y": {
+         "window": [
+          2023,
+          2026
+         ],
+         "v_path_fraction_per_yr": {
+          "lower": -0.658007,
+          "upper": 0.658007,
+          "midpoint": 0.0
+         }
+        },
+        "full_window": {
+         "window": [
+          2018,
+          2026
+         ],
+         "v_path_fraction_per_yr": {
+          "lower": -0.22655,
+          "upper": 0.206503,
+          "midpoint": -0.010024
+         }
+        }
+       },
+       "tau_if_velocity_persists": {
+        "recent_3y": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+         "tau_years_lower_bound_at_v_upper": 0.51718
+        },
+        "full_window": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+         "tau_years_lower_bound_at_v_upper": 1.647956
+        }
+       }
+      }
+     }
+    },
+    "k2": {
+     "observability": "OBSERVED",
+     "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 3.750124,
+      "upper": 3.750124,
+      "midpoint": 3.750124
+     },
+     "frontier": 21.827305,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "gold_tonnes_latest": 2306.3,
+      "reserves_ex_gold_usd_bn_latest": 3424.873,
+      "gold_constant_price_usd_bn_latest": 133.441183
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 1.55578,
+       "upper": 1.55578,
+       "midpoint": 1.55578
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.949413,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.891752,
+       "upper": 0.891752,
+       "midpoint": 0.891752,
+       "raw_space_distance_to_frontier": {
+        "lower": -18.077182,
+        "upper": -18.077182,
+        "midpoint": -18.077182
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.003806,
+         "upper": 0.003806,
+         "midpoint": 0.003806
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.07716,
+         "upper": 0.07716,
+         "midpoint": 0.07716
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.009841,
+         "upper": 0.009841,
+         "midpoint": 0.009841
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.199486,
+         "upper": 0.199486,
+         "midpoint": 0.199486
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 234.301743,
+         "upper": 234.301743,
+         "midpoint_label_only": 234.301743
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 90.616038,
+         "upper": 90.616038,
+         "midpoint_label_only": 90.616038
+        }
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 3.350514,
+       "upper": 3.350514,
+       "midpoint": 3.350514
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.487676,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.978372,
+       "upper": 0.978372,
+       "midpoint": 0.978372,
+       "raw_space_distance_to_frontier": {
+        "lower": -18.077182,
+        "upper": -18.077182,
+        "midpoint": -18.077182
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.004176,
+         "upper": 0.004176,
+         "midpoint": 0.004176
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.07716,
+         "upper": 0.07716,
+         "midpoint": 0.07716
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.00309,
+         "upper": 0.00309,
+         "midpoint": 0.00309
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.057087,
+         "upper": 0.057087,
+         "midpoint": 0.057087
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 234.284564,
+         "upper": 234.284564,
+         "midpoint_label_only": 234.284564
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 316.625352,
+         "upper": 316.625352,
+         "midpoint_label_only": 316.625352
+        }
+       }
+      }
+     }
+    },
+    "k3": {
+     "observability": "INFERRED-BOUNDED (TIC custody band)",
+     "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 18.232769,
+      "upper": 42.547573,
+      "midpoint": 30.390171
+     },
+     "frontier": 0.618434,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "ust_busd_latest_published": {
+       "lower": 651.072,
+       "upper": 1542.09,
+       "midpoint": 1096.581
+      },
+      "ust_vintage": "2026-04",
+      "ratio_denominator_year": 2025,
+      "total_reserves_usd_bn": 3748.745,
+      "note": "ratio uses the latest year with BOTH numerator and WB denominator"
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 31.904809,
+       "upper": 44.909807,
+       "midpoint": 38.407308
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.32978,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.397692,
+       "upper": 1.340172,
+       "midpoint": 0.868932,
+       "raw_space_distance_to_frontier": {
+        "lower": 17.614334,
+        "upper": 41.929139,
+        "midpoint": 29.771736
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.254038,
+         "upper": 0.359466,
+         "midpoint": 0.052714
+        },
+        "v_raw_units_per_yr": {
+         "lower": -9.522404,
+         "upper": 5.442052,
+         "midpoint": -2.040176
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.057618,
+         "upper": 0.092544,
+         "midpoint": 0.017463
+        },
+        "v_raw_units_per_yr": {
+         "lower": -2.425185,
+         "upper": 0.967524,
+         "midpoint": -0.728831
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+        "tau_years_lower_bound_at_v_upper": 1.106342
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+        "tau_years_lower_bound_at_v_upper": 4.297331
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 35.486848,
+       "upper": 48.604641,
+       "midpoint": 42.045744
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.439639,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.367071,
+       "upper": 1.202496,
+       "midpoint": 0.784784,
+       "raw_space_distance_to_frontier": {
+        "lower": 17.614334,
+        "upper": 41.929139,
+        "midpoint": 29.771736
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.222983,
+         "upper": 0.319127,
+         "midpoint": 0.048072
+        },
+        "v_raw_units_per_yr": {
+         "lower": -9.522404,
+         "upper": 5.442052,
+         "midpoint": -2.040176
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.06798,
+         "upper": 0.144163,
+         "midpoint": 0.038091
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.338839,
+         "upper": 1.008675,
+         "midpoint": -1.665082
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+        "tau_years_lower_bound_at_v_upper": 1.150234
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "velocity sign indeterminate within the interval (v spans 0); tau unbounded above; no point tau",
+        "tau_years_lower_bound_at_v_upper": 2.54622
+       }
+      }
+     },
+     "coherent_custody_pairing_sensitivity": {
+      "primary_onset_2014": {
+       "label": "construction sensitivity \u2014 coherent custody pairing: the custody state (China-alone vs China+Belgium+Luxembourg) is held fixed across years instead of treated as independent intervals; both paths reported",
+       "d_china_alone_path": 0.563003,
+       "d_china_plus_bel_lux_path": 0.946666,
+       "v_recent_3y_path_fraction_per_yr": {
+        "window": [
+         2022,
+         2025
+        ],
+        "china_alone": 0.085113,
+        "china_plus_bel_lux": 0.032003
+       },
+       "v_full_window_path_fraction_per_yr": {
+        "window": [
+         2014,
+         2025
+        ],
+        "china_alone": 0.039727,
+        "china_plus_bel_lux": 0.004849
+       },
+       "band_midpoint_v_recent_3y": 0.058558,
+       "tau_recent_3y_years": {
+        "china_alone": 6.614763,
+        "china_plus_bel_lux": 29.580281,
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast"
+       }
+      },
+      "alt_onset_2018": {
+       "label": "construction sensitivity \u2014 coherent custody pairing: the custody state (China-alone vs China+Belgium+Luxembourg) is held fixed across years instead of treated as independent intervals; both paths reported",
+       "d_china_alone_path": 0.505166,
+       "d_china_plus_bel_lux_path": 0.873775,
+       "v_recent_3y_path_fraction_per_yr": {
+        "window": [
+         2022,
+         2025
+        ],
+        "china_alone": 0.076369,
+        "china_plus_bel_lux": 0.029539
+       },
+       "v_full_window_path_fraction_per_yr": {
+        "window": [
+         2018,
+         2025
+        ],
+        "china_alone": 0.070691,
+        "china_plus_bel_lux": 0.018032
+       },
+       "band_midpoint_v_recent_3y": 0.052954,
+       "tau_recent_3y_years": {
+        "china_alone": 6.614763,
+        "china_plus_bel_lux": 29.580281,
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast"
+       }
+      }
+     },
+     "active_basis_PRIMARY_velocity": {
+      "primary_onset_2014": {
+       "construction": "ACTIVE basis (PRIMARY per the pre-registration for China k3 velocity): H_active(t) = H(origin, TIC band) + cumulative net long-term Treasury transactions (band) from the origin year; share coordinate x_active = H_active / WB total reserves (same denominators as the headline ratio); bills are excluded (publisher boundary) and pre-2023-02 transactions are on the Form-S basis (2023-02 basis break marked)",
+       "H_active_latest_busd": {
+        "lower": 130.923,
+        "upper": 1161.725,
+        "midpoint": 646.324
+       },
+       "x_active_latest_pct": {
+        "lower": 3.492449,
+        "upper": 30.989705,
+        "midpoint": 17.241077
+       },
+       "d_active_latest": {
+        "lower": 0.064889,
+        "upper": 0.970751,
+        "midpoint": 0.51782
+       },
+       "v_active_recent_3y_path_fraction_per_yr": {
+        "lower": 0.062877,
+        "upper": 0.1404,
+        "midpoint": 0.101638
+       },
+       "v_active_full_window_path_fraction_per_yr": {
+        "lower": 0.028571,
+        "upper": 0.082558,
+        "midpoint": 0.055565
+       },
+       "velocity_windows": {
+        "recent_3y": [
+         2022,
+         2025
+        ],
+        "full_window": [
+         2014,
+         2025
+        ]
+       },
+       "v_active_raw_busd_per_yr": {
+        "recent_3y": {
+         "lower": -101.560333,
+         "upper": -84.994667,
+         "midpoint": -93.2775
+        },
+        "full_window": {
+         "lower": -101.216091,
+         "upper": -53.615909,
+         "midpoint": -77.416
+        },
+        "note": "= interval mean of net transactions over the window (the cumulative band's shared origin terms cancel exactly; no naive band subtraction)"
+       },
+       "raw_holdings_market_value_v_busd_per_yr_alongside": {
+        "recent_3y": {
+         "china_alone": -61.2,
+         "china_plus_bel_lux": 15.8
+        },
+        "full_window": {
+         "china_alone": -50.981818,
+         "china_plus_bel_lux": -14.227273
+        },
+        "note": "coherent custody pairing (custody state held fixed across years), labelled"
+       },
+       "tau_active_if_velocity_persists": {
+        "recent_3y": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "tau_years": {
+          "lower": 0.462172,
+          "upper": 15.438977,
+          "midpoint_label_only": 5.094741
+         }
+        },
+        "full_window": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "tau_years": {
+          "lower": 0.785978,
+          "upper": 33.97638,
+          "midpoint_label_only": 9.319223
+         }
+        }
+       },
+       "where_the_caveats_bind": "the 2023-02 Form S -> expanded Form SLT basis break sits INSIDE every cumulative-transactions sum that crosses 2023; the valuation term in the split is a RESIDUAL (holdings change minus transactions) and therefore also absorbs coverage/custody reclassification, not only price"
+      },
+      "alt_onset_2018": {
+       "construction": "ACTIVE basis (PRIMARY per the pre-registration for China k3 velocity): H_active(t) = H(origin, TIC band) + cumulative net long-term Treasury transactions (band) from the origin year; share coordinate x_active = H_active / WB total reserves (same denominators as the headline ratio); bills are excluded (publisher boundary) and pre-2023-02 transactions are on the Form-S basis (2023-02 basis break marked)",
+       "H_active_latest_busd": {
+        "lower": 412.805,
+        "upper": 1139.412,
+        "midpoint": 776.1085
+       },
+       "x_active_latest_pct": {
+        "lower": 11.011819,
+        "upper": 30.394492,
+        "midpoint": 20.703155
+       },
+       "d_active_latest": {
+        "lower": 0.216591,
+        "upper": 0.853955,
+        "midpoint": 0.535273
+       },
+       "v_active_recent_3y_path_fraction_per_yr": {
+        "lower": 0.065015,
+        "upper": 0.125216,
+        "midpoint": 0.095116
+       },
+       "v_active_full_window_path_fraction_per_yr": {
+        "lower": 0.048165,
+        "upper": 0.108598,
+        "midpoint": 0.078381
+       },
+       "velocity_windows": {
+        "recent_3y": [
+         2022,
+         2025
+        ],
+        "full_window": [
+         2018,
+         2025
+        ]
+       },
+       "v_active_raw_busd_per_yr": {
+        "recent_3y": {
+         "lower": -101.560333,
+         "upper": -84.994667,
+         "midpoint": -93.2775
+        },
+        "full_window": {
+         "lower": -101.642143,
+         "upper": -57.212571,
+         "midpoint": -79.427357
+        },
+        "note": "= interval mean of net transactions over the window (the cumulative band's shared origin terms cancel exactly; no naive band subtraction)"
+       },
+       "raw_holdings_market_value_v_busd_per_yr_alongside": {
+        "recent_3y": {
+         "china_alone": -61.2,
+         "china_plus_bel_lux": 15.8
+        },
+        "full_window": {
+         "china_alone": -62.971429,
+         "china_plus_bel_lux": 7.871429
+        },
+        "note": "coherent custody pairing (custody state held fixed across years), labelled"
+       },
+       "tau_active_if_velocity_persists": {
+        "recent_3y": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "tau_years": {
+          "lower": 1.729741,
+          "upper": 13.13467,
+          "midpoint_label_only": 5.627604
+         }
+        },
+        "full_window": {
+         "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+         "tau_years": {
+          "lower": 1.994432,
+          "upper": 17.729846,
+          "midpoint_label_only": 6.829088
+         }
+        }
+       },
+       "where_the_caveats_bind": "the 2023-02 Form S -> expanded Form SLT basis break sits INSIDE every cumulative-transactions sum that crosses 2023; the valuation term in the split is a RESIDUAL (holdings change minus transactions) and therefore also absorbs coverage/custody reclassification, not only price"
+      }
+     }
+    },
+    "k4": {
+     "status": "N/A-issuer",
+     "note": "China is the alternative's issuer \u2014 applicability, not a data hole; excluded from China's composite (not an available coordinate)"
+    }
+   },
+   "composite_SECOND": {
+    "primary_onset_2014": {
+     "members": [
+      "k1",
+      "k2",
+      "k3"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": null,
+      "upper": null,
+      "midpoint": null,
+      "flag": "DEGENERATE \u2014 a member d is UNBOUNDED (k1)",
+      "reason": "the headline China k1 envelope makes d_k1 unbounded by interval arithmetic; the composite interval is therefore unbounded and its midpoint degenerate \u2014 reported as such, never collapsed"
+     },
+     "S1_median": {
+      "flag": "DEGENERATE (unbounded member: k1)"
+     },
+     "S3_min": {
+      "flag": "DEGENERATE (unbounded member \u2014 the minimum is unbounded below)"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k2"
+      ],
+      "value": {
+       "lower": 0.891752,
+       "upper": 0.891752,
+       "midpoint": 0.891752
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded; for China this is k2 ALONE"
+     }
+    },
+    "alt_onset_2018": {
+     "members": [
+      "k1",
+      "k2",
+      "k3"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": null,
+      "upper": null,
+      "midpoint": null,
+      "flag": "DEGENERATE \u2014 a member d is UNBOUNDED (k1)",
+      "reason": "the headline China k1 envelope makes d_k1 unbounded by interval arithmetic; the composite interval is therefore unbounded and its midpoint degenerate \u2014 reported as such, never collapsed"
+     },
+     "S1_median": {
+      "flag": "DEGENERATE (unbounded member: k1)"
+     },
+     "S3_min": {
+      "flag": "DEGENERATE (unbounded member \u2014 the minimum is unbounded below)"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k2"
+      ],
+      "value": {
+       "lower": 0.978372,
+       "upper": 0.978372,
+       "midpoint": 0.978372
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded; for China this is k2 ALONE"
+     }
+    },
+    "safe_route_sensitivity_composite": {
+     "primary_onset_2014": {
+      "label": "LABELLED SENSITIVITY \u2014 China composite with k1 = SAFE-anchor route only; NOT the headline (the headline keeps the pre-registered envelope and is degenerate)",
+      "members": [
+       "k1(SAFE-route)",
+       "k2",
+       "k3"
+      ],
+      "C": {
+       "lower": 0.580869,
+       "upper": 1.259587,
+       "midpoint": 0.920228
+      },
+      "S1_median_of_midpoints": 0.891752,
+      "S3_min_of_midpoints": 0.868932
+     },
+     "alt_onset_2018": {
+      "label": "LABELLED SENSITIVITY \u2014 China composite with k1 = SAFE-anchor route only; NOT the headline (the headline keeps the pre-registered envelope and is degenerate)",
+      "members": [
+       "k1(SAFE-route)",
+       "k2",
+       "k3"
+      ],
+      "C": {
+       "lower": 0.561917,
+       "upper": 1.498398,
+       "midpoint": 1.030158
+      },
+      "S1_median_of_midpoints": 0.978372,
+      "S3_min_of_midpoints": 0.784783
+     }
+    }
+   }
+  },
+  "India": {
+   "per_coordinate_FIRST": {
+    "k1": {
+     "status": "NOT-AVAILABLE",
+     "note": "k1 not available for India (see coordinates provenance); excluded from the composite"
+    },
+    "k2": {
+     "observability": "OBSERVED",
+     "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 8.118773,
+      "upper": 8.118773,
+      "midpoint": 8.118773
+     },
+     "frontier": 21.827305,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "gold_tonnes_latest": 880.34,
+      "reserves_ex_gold_usd_bn_latest": 576.449,
+      "gold_constant_price_usd_bn_latest": 50.935963
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 9.612328,
+       "upper": 9.612328,
+       "midpoint": 9.612328
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.949413,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.122272,
+       "upper": 1.122272,
+       "midpoint": 1.122272,
+       "raw_space_distance_to_frontier": {
+        "lower": -13.708532,
+        "upper": -13.708532,
+        "midpoint": -13.708532
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.002287,
+         "upper": 0.002287,
+         "midpoint": 0.002287
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.02794,
+         "upper": 0.02794,
+         "midpoint": 0.02794
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.011116,
+         "upper": -0.011116,
+         "midpoint": -0.011116
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.135778,
+         "upper": -0.135778,
+         "midpoint": -0.135778
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 490.718139,
+         "upper": 490.718139,
+         "midpoint_label_only": 490.718139
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 8.490711,
+       "upper": 8.490711,
+       "midpoint": 8.490711
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.487676,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.027888,
+       "upper": 1.027888,
+       "midpoint": 1.027888,
+       "raw_space_distance_to_frontier": {
+        "lower": -13.708532,
+        "upper": -13.708532,
+        "midpoint": -13.708532
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.002095,
+         "upper": 0.002095,
+         "midpoint": 0.002095
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.02794,
+         "upper": 0.02794,
+         "midpoint": 0.02794
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.003984,
+         "upper": -0.003984,
+         "midpoint": -0.003984
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.053134,
+         "upper": -0.053134,
+         "midpoint": -0.053134
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 490.638895,
+         "upper": 490.638895,
+         "midpoint_label_only": 490.638895
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     }
+    },
+    "k3": {
+     "observability": "OBSERVED",
+     "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 26.12581,
+      "upper": 26.12581,
+      "midpoint": 26.12581
+     },
+     "frontier": 0.618434,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "ust_busd_latest_published": {
+       "lower": 181.008,
+       "upper": 181.008,
+       "midpoint": 181.008
+      },
+      "ust_vintage": "2026-04",
+      "ratio_denominator_year": 2025,
+      "total_reserves_usd_bn": 700.074,
+      "note": "ratio uses the latest year with BOTH numerator and WB denominator"
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 25.532098,
+       "upper": 25.532098,
+       "midpoint": 25.532098
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.32978,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.023831,
+       "upper": 1.023831,
+       "midpoint": 1.023831,
+       "raw_space_distance_to_frontier": {
+        "lower": 25.507375,
+        "upper": 25.507375,
+        "midpoint": 25.507375
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.178981,
+         "upper": 0.178981,
+         "midpoint": 0.178981
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.459079,
+         "upper": -4.459079,
+         "midpoint": -4.459079
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.002166,
+         "upper": -0.002166,
+         "midpoint": -0.002166
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.053974,
+         "upper": 0.053974,
+         "midpoint": 0.053974
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 5.720332,
+         "upper": 5.720332,
+         "midpoint_label_only": 5.720332
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 35.398718,
+       "upper": 35.398718,
+       "midpoint": 35.398718
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.439639,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.733386,
+       "upper": 0.733386,
+       "midpoint": 0.733386,
+       "raw_space_distance_to_frontier": {
+        "lower": 25.507375,
+        "upper": 25.507375,
+        "midpoint": 25.507375
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.128207,
+         "upper": 0.128207,
+         "midpoint": 0.128207
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.459079,
+         "upper": -4.459079,
+         "midpoint": -4.459079
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.038088,
+         "upper": 0.038088,
+         "midpoint": 0.038088
+        },
+        "v_raw_units_per_yr": {
+         "lower": -1.324701,
+         "upper": -1.324701,
+         "midpoint": -1.324701
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 5.720328,
+         "upper": 5.720328,
+         "midpoint_label_only": 5.720328
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 19.255043,
+         "upper": 19.255043,
+         "midpoint_label_only": 19.255043
+        }
+       }
+      }
+     }
+    },
+    "k4": {
+     "status": "NOT-AVAILABLE",
+     "note": "k4 not available for India (see coordinates provenance); excluded from the composite"
+    }
+   },
+   "composite_SECOND": {
+    "primary_onset_2014": {
+     "members": [
+      "k2",
+      "k3"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 1.073052,
+      "upper": 1.073052,
+      "midpoint": 1.073052
+     },
+     "S1_median": {
+      "value_of_midpoints": 1.073052,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k3",
+      "d": {
+       "lower": 1.023831,
+       "upper": 1.023831,
+       "midpoint": 1.023831
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k2",
+       "k3"
+      ],
+      "value": {
+       "lower": 1.073052,
+       "upper": 1.073052,
+       "midpoint": 1.073052
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    },
+    "alt_onset_2018": {
+     "members": [
+      "k2",
+      "k3"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.880637,
+      "upper": 0.880637,
+      "midpoint": 0.880637
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.880637,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k3",
+      "d": {
+       "lower": 0.733386,
+       "upper": 0.733386,
+       "midpoint": 0.733386
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k2",
+       "k3"
+      ],
+      "value": {
+       "lower": 0.880637,
+       "upper": 0.880637,
+       "midpoint": 0.880637
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    }
+   },
+   "coverage_note": "composite over k2,k3 only: k1 and k4_cny are NOT-AVAILABLE (absent from the LMW panel) \u2014 noted, not imputed"
+  },
+  "Turkey": {
+   "per_coordinate_FIRST": {
+    "k1": {
+     "observability": "OBSERVED",
+     "definition": "USD share of disclosed FX reserves (pp)",
+     "vintage_latest": 2023,
+     "position_raw": {
+      "lower": 52.0,
+      "upper": 52.0,
+      "midpoint": 52.0
+     },
+     "frontier": 13.89,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "share_pp_latest": {
+       "lower": 52.0,
+       "upper": 52.0,
+       "midpoint": 52.0
+      }
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 83.42,
+       "upper": 83.42,
+       "midpoint": 83.42
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 5.142,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.548109,
+       "upper": 0.548109,
+       "midpoint": 0.548109,
+       "raw_space_distance_to_frontier": {
+        "lower": 38.11,
+        "upper": 38.11,
+        "midpoint": 38.11
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2020,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.023251,
+         "upper": 0.023251,
+         "midpoint": 0.023251
+        },
+        "v_raw_units_per_yr": {
+         "lower": -1.616667,
+         "upper": -1.616667,
+         "midpoint": -1.616667
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.05021,
+         "upper": 0.05021,
+         "midpoint": 0.05021
+        },
+        "v_raw_units_per_yr": {
+         "lower": -3.491111,
+         "upper": -3.491111,
+         "midpoint": -3.491111
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 23.573555,
+         "upper": 23.573555,
+         "midpoint_label_only": 23.573555
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 10.916326,
+         "upper": 10.916326,
+         "midpoint_label_only": 10.916326
+        }
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 45.57,
+       "upper": 45.57,
+       "midpoint": 45.57
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 2.766,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.202967,
+       "upper": 1.202967,
+       "midpoint": 1.202967,
+       "raw_space_distance_to_frontier": {
+        "lower": 38.11,
+        "upper": 38.11,
+        "midpoint": 38.11
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2020,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.051031,
+         "upper": 0.051031,
+         "midpoint": 0.051031
+        },
+        "v_raw_units_per_yr": {
+         "lower": -1.616667,
+         "upper": -1.616667,
+         "midpoint": -1.616667
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.040593,
+         "upper": -0.040593,
+         "midpoint": -0.040593
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.286,
+         "upper": 1.286,
+         "midpoint": 1.286
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 23.573263,
+         "upper": 23.573263,
+         "midpoint_label_only": 23.573263
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     }
+    },
+    "k2": {
+     "observability": "OBSERVED",
+     "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 33.166948,
+      "upper": 33.166948,
+      "midpoint": 33.166948
+     },
+     "frontier": 21.827305,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "gold_tonnes_latest": 614.3,
+      "reserves_ex_gold_usd_bn_latest": 71.621,
+      "gold_constant_price_usd_bn_latest": 35.543042
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 5.912531,
+       "upper": 5.912531,
+       "midpoint": 5.912531
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.949413,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -0.712523,
+       "upper": -0.712523,
+       "midpoint": -0.712523,
+       "raw_space_distance_to_frontier": {
+        "lower": 11.339643,
+        "upper": 11.339643,
+        "midpoint": 11.339643
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.11994,
+         "upper": 0.11994,
+         "midpoint": 0.11994
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.908822,
+         "upper": 1.908822,
+         "midpoint": 1.908822
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.155684,
+         "upper": 0.155684,
+         "midpoint": 0.155684
+        },
+        "v_raw_units_per_yr": {
+         "lower": 2.477674,
+         "upper": 2.477674,
+         "midpoint": 2.477674
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 16.75447,
+       "upper": 16.75447,
+       "midpoint": 16.75447
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.487676,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": -2.235366,
+       "upper": -2.235366,
+       "midpoint": -2.235366,
+       "raw_space_distance_to_frontier": {
+        "lower": 11.339643,
+        "upper": 11.339643,
+        "midpoint": 11.339643
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.376283,
+         "upper": 0.376283,
+         "midpoint": 0.376283
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.908822,
+         "upper": 1.908822,
+         "midpoint": 1.908822
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.462195,
+         "upper": 0.462195,
+         "midpoint": 0.462195
+        },
+        "v_raw_units_per_yr": {
+         "lower": 2.34464,
+         "upper": 2.34464,
+         "midpoint": 2.34464
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "at or beyond the frontier (d <= 0); no tau"
+       }
+      }
+     }
+    },
+    "k3": {
+     "observability": "OBSERVED",
+     "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 7.546021,
+      "upper": 7.546021,
+      "midpoint": 7.546021
+     },
+     "frontier": 0.618434,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "ust_busd_latest_published": {
+       "lower": 2.61,
+       "upper": 2.61,
+       "midpoint": 2.61
+      },
+      "ust_vintage": "2026-04",
+      "ratio_denominator_year": 2025,
+      "total_reserves_usd_bn": 185.568,
+      "note": "ratio uses the latest year with BOTH numerator and WB denominator"
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 60.429125,
+       "upper": 60.429125,
+       "midpoint": 60.429125
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.32978,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.115825,
+       "upper": 0.115825,
+       "midpoint": 0.115825,
+       "raw_space_distance_to_frontier": {
+        "lower": 6.927587,
+        "upper": 6.927587,
+        "midpoint": 6.927587
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.03328,
+         "upper": -0.03328,
+         "midpoint": -0.03328
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.990489,
+         "upper": 1.990489,
+         "midpoint": 1.990489
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.08038,
+         "upper": 0.08038,
+         "midpoint": 0.08038
+        },
+        "v_raw_units_per_yr": {
+         "lower": -4.807555,
+         "upper": -4.807555,
+         "midpoint": -4.807555
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 1.440971,
+         "upper": 1.440971,
+         "midpoint_label_only": 1.440971
+        }
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 8.002409,
+       "upper": 8.002409,
+       "midpoint": 8.002409
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.439639,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.938192,
+       "upper": 0.938192,
+       "midpoint": 0.938192,
+       "raw_space_distance_to_frontier": {
+        "lower": 6.927587,
+        "upper": 6.927587,
+        "midpoint": 6.927587
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.269569,
+         "upper": -0.269569,
+         "midpoint": -0.269569
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.990489,
+         "upper": 1.990489,
+         "midpoint": 1.990489
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.00883,
+         "upper": 0.00883,
+         "midpoint": 0.00883
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.065198,
+         "upper": -0.065198,
+         "midpoint": -0.065198
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 106.250523,
+         "upper": 106.250523,
+         "midpoint_label_only": 106.250523
+        }
+       }
+      }
+     }
+    },
+    "k4": {
+     "observability": "OBSERVED",
+     "definition": "CNY share of disclosed reserves (pp)",
+     "vintage_latest": 2023,
+     "position_raw": {
+      "lower": 0.0,
+      "upper": 0.0,
+      "midpoint": 0.0
+     },
+     "frontier": 21.78,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "share_pp_latest": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      }
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.356,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.0,
+       "upper": 1.0,
+       "midpoint": 1.0,
+       "raw_space_distance_to_frontier": {
+        "lower": -21.78,
+        "upper": -21.78,
+        "midpoint": -21.78
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2020,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.888,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.0,
+       "upper": 1.0,
+       "midpoint": 1.0,
+       "raw_space_distance_to_frontier": {
+        "lower": -21.78,
+        "upper": -21.78,
+        "midpoint": -21.78
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2020,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2023
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     }
+    }
+   },
+   "composite_SECOND": {
+    "primary_onset_2014": {
+     "members": [
+      "k1",
+      "k2",
+      "k3",
+      "k4"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.237853,
+      "upper": 0.237853,
+      "midpoint": 0.237853
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.331967,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k2",
+      "d": {
+       "lower": -0.712523,
+       "upper": -0.712523,
+       "midpoint": -0.712523
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k1",
+       "k2",
+       "k3",
+       "k4"
+      ],
+      "value": {
+       "lower": 0.237853,
+       "upper": 0.237853,
+       "midpoint": 0.237853
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    },
+    "alt_onset_2018": {
+     "members": [
+      "k1",
+      "k2",
+      "k3",
+      "k4"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.226448,
+      "upper": 0.226448,
+      "midpoint": 0.226448
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.969096,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k2",
+      "d": {
+       "lower": -2.235366,
+       "upper": -2.235366,
+       "midpoint": -2.235366
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k1",
+       "k2",
+       "k3",
+       "k4"
+      ],
+      "value": {
+       "lower": 0.226448,
+       "upper": 0.226448,
+       "midpoint": 0.226448
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    }
+   }
+  },
+  "SaudiArabia": {
+   "per_coordinate_FIRST": {
+    "k1": {
+     "status": "NOT-AVAILABLE",
+     "note": "k1 not available for SaudiArabia (see coordinates provenance); excluded from the composite"
+    },
+    "k2": {
+     "observability": "OBSERVED",
+     "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 3.906601,
+      "upper": 3.906601,
+      "midpoint": 3.906601
+     },
+     "frontier": 21.827305,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "gold_tonnes_latest": 323.07,
+      "reserves_ex_gold_usd_bn_latest": 459.796,
+      "gold_constant_price_usd_bn_latest": 18.692643
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 2.48904,
+       "upper": 2.48904,
+       "midpoint": 2.48904
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.949413,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.926697,
+       "upper": 0.926697,
+       "midpoint": 0.926697,
+       "raw_space_distance_to_frontier": {
+        "lower": -17.920704,
+        "upper": -17.920704,
+        "midpoint": -17.920704
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -5.5e-05,
+         "upper": -5.5e-05,
+         "midpoint": -5.5e-05
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.00106,
+         "upper": -0.00106,
+         "midpoint": -0.00106
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.006664,
+         "upper": 0.006664,
+         "midpoint": 0.006664
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.128869,
+         "upper": 0.128869,
+         "midpoint": 0.128869
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 139.060112,
+         "upper": 139.060112,
+         "midpoint_label_only": 139.060112
+        }
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 3.630707,
+       "upper": 3.630707,
+       "midpoint": 3.630707
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.487676,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.984838,
+       "upper": 0.984838,
+       "midpoint": 0.984838,
+       "raw_space_distance_to_frontier": {
+        "lower": -17.920704,
+        "upper": -17.920704,
+        "midpoint": -17.920704
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -5.8e-05,
+         "upper": -5.8e-05,
+         "midpoint": -5.8e-05
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.00106,
+         "upper": -0.00106,
+         "midpoint": -0.00106
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.002166,
+         "upper": 0.002166,
+         "midpoint": 0.002166
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.039414,
+         "upper": 0.039414,
+         "midpoint": 0.039414
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 454.680571,
+         "upper": 454.680571,
+         "midpoint_label_only": 454.680571
+        }
+       }
+      }
+     }
+    },
+    "k3": {
+     "observability": "OBSERVED",
+     "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 29.59435,
+      "upper": 29.59435,
+      "midpoint": 29.59435
+     },
+     "frontier": 0.618434,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "ust_busd_latest_published": {
+       "lower": 140.12,
+       "upper": 140.12,
+       "midpoint": 140.12
+      },
+      "ust_vintage": "2026-04",
+      "ratio_denominator_year": 2025,
+      "total_reserves_usd_bn": 505.164,
+      "note": "ratio uses the latest year with BOTH numerator and WB denominator"
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 13.150807,
+       "upper": 13.150807,
+       "midpoint": 13.150807
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.32978,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 2.312085,
+       "upper": 2.312085,
+       "midpoint": 2.312085,
+       "raw_space_distance_to_frontier": {
+        "lower": 28.975915,
+        "upper": 28.975915,
+        "midpoint": 28.975915
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.12141,
+         "upper": -0.12141,
+         "midpoint": -0.12141
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.521552,
+         "upper": 1.521552,
+         "midpoint": 1.521552
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.11928,
+         "upper": -0.11928,
+         "midpoint": -0.11928
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.494867,
+         "upper": 1.494867,
+         "midpoint": 1.494867
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 33.799898,
+       "upper": 33.799898,
+       "midpoint": 33.799898
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.439639,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.873256,
+       "upper": 0.873256,
+       "midpoint": 0.873256,
+       "raw_space_distance_to_frontier": {
+        "lower": 28.975915,
+        "upper": 28.975915,
+        "midpoint": 28.975915
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.045855,
+         "upper": -0.045855,
+         "midpoint": -0.045855
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.521552,
+         "upper": 1.521552,
+         "midpoint": 1.521552
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.018106,
+         "upper": 0.018106,
+         "midpoint": 0.018106
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.600793,
+         "upper": -0.600793,
+         "midpoint": -0.600793
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 48.230206,
+         "upper": 48.230206,
+         "midpoint_label_only": 48.230206
+        }
+       }
+      }
+     }
+    },
+    "k4": {
+     "status": "NOT-AVAILABLE",
+     "note": "k4 not available for SaudiArabia (see coordinates provenance); excluded from the composite"
+    }
+   },
+   "composite_SECOND": {
+    "primary_onset_2014": {
+     "members": [
+      "k2",
+      "k3"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 1.619391,
+      "upper": 1.619391,
+      "midpoint": 1.619391
+     },
+     "S1_median": {
+      "value_of_midpoints": 1.619391,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k2",
+      "d": {
+       "lower": 0.926697,
+       "upper": 0.926697,
+       "midpoint": 0.926697
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k2",
+       "k3"
+      ],
+      "value": {
+       "lower": 1.619391,
+       "upper": 1.619391,
+       "midpoint": 1.619391
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    },
+    "alt_onset_2018": {
+     "members": [
+      "k2",
+      "k3"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.929047,
+      "upper": 0.929047,
+      "midpoint": 0.929047
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.929047,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k3",
+      "d": {
+       "lower": 0.873256,
+       "upper": 0.873256,
+       "midpoint": 0.873256
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k2",
+       "k3"
+      ],
+      "value": {
+       "lower": 0.929047,
+       "upper": 0.929047,
+       "midpoint": 0.929047
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    }
+   },
+   "coverage_note": "composite over k2,k3 only: k1 and k4_cny are NOT-AVAILABLE (absent from the LMW panel) \u2014 noted, not imputed"
+  },
+  "Poland": {
+   "per_coordinate_FIRST": {
+    "k1": {
+     "observability": "OBSERVED",
+     "definition": "USD share of disclosed FX reserves (pp)",
+     "vintage_latest": 2022,
+     "position_raw": {
+      "lower": 41.0,
+      "upper": 41.0,
+      "midpoint": 41.0
+     },
+     "frontier": 13.89,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "share_pp_latest": {
+       "lower": 41.0,
+       "upper": 41.0,
+       "midpoint": 41.0
+      }
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 36.0,
+       "upper": 36.0,
+       "midpoint": 36.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 5.142,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.226142,
+       "upper": 1.226142,
+       "midpoint": 1.226142,
+       "raw_space_distance_to_frontier": {
+        "lower": 27.11,
+        "upper": 27.11,
+        "midpoint": 27.11
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2019,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.150761,
+         "upper": 0.150761,
+         "midpoint": 0.150761
+        },
+        "v_raw_units_per_yr": {
+         "lower": -3.333333,
+         "upper": -3.333333,
+         "midpoint": -3.333333
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": -0.028268,
+         "upper": -0.028268,
+         "midpoint": -0.028268
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.625,
+         "upper": 0.625,
+         "midpoint": 0.625
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 8.133019,
+         "upper": 8.133019,
+         "midpoint_label_only": 8.133019
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 44.0,
+       "upper": 44.0,
+       "midpoint": 44.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 2.766,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.900365,
+       "upper": 0.900365,
+       "midpoint": 0.900365,
+       "raw_space_distance_to_frontier": {
+        "lower": 27.11,
+        "upper": 27.11,
+        "midpoint": 27.11
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2019,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.110705,
+         "upper": 0.110705,
+         "midpoint": 0.110705
+        },
+        "v_raw_units_per_yr": {
+         "lower": -3.333333,
+         "upper": -3.333333,
+         "midpoint": -3.333333
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.024909,
+         "upper": 0.024909,
+         "midpoint": 0.024909
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.75,
+         "upper": -0.75,
+         "midpoint": -0.75
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 8.133014,
+         "upper": 8.133014,
+         "midpoint_label_only": 8.133014
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 36.146185,
+         "upper": 36.146185,
+         "midpoint_label_only": 36.146185
+        }
+       }
+      }
+     }
+    },
+    "k2": {
+     "observability": "OBSERVED",
+     "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 14.062947,
+      "upper": 14.062947,
+      "midpoint": 14.062947
+     },
+     "frontier": 21.827305,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "gold_tonnes_latest": 550.21,
+      "reserves_ex_gold_usd_bn_latest": 194.539,
+      "gold_constant_price_usd_bn_latest": 31.834832
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 5.814897,
+       "upper": 5.814897,
+       "midpoint": 5.814897
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.949413,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.484896,
+       "upper": 0.484896,
+       "midpoint": 0.484896,
+       "raw_space_distance_to_frontier": {
+        "lower": -7.764358,
+        "upper": -7.764358,
+        "midpoint": -7.764358
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.1274,
+         "upper": 0.1274,
+         "midpoint": 0.1274
+        },
+        "v_raw_units_per_yr": {
+         "lower": 2.039982,
+         "upper": 2.039982,
+         "midpoint": 2.039982
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.046828,
+         "upper": 0.046828,
+         "midpoint": 0.046828
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.749823,
+         "upper": 0.749823,
+         "midpoint": 0.749823
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 3.806094,
+         "upper": 3.806094,
+         "midpoint_label_only": 3.806094
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 10.354838,
+         "upper": 10.354838,
+         "midpoint_label_only": 10.354838
+        }
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 6.248996,
+       "upper": 6.248996,
+       "midpoint": 6.248996
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.487676,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.498408,
+       "upper": 0.498408,
+       "midpoint": 0.498408,
+       "raw_space_distance_to_frontier": {
+        "lower": -7.764358,
+        "upper": -7.764358,
+        "midpoint": -7.764358
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.13095,
+         "upper": 0.13095,
+         "midpoint": 0.13095
+        },
+        "v_raw_units_per_yr": {
+         "lower": 2.039982,
+         "upper": 2.039982,
+         "midpoint": 2.039982
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.071656,
+         "upper": 0.071656,
+         "midpoint": 0.071656
+        },
+        "v_raw_units_per_yr": {
+         "lower": 1.116279,
+         "upper": 1.116279,
+         "midpoint": 1.116279
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 3.806096,
+         "upper": 3.806096,
+         "midpoint_label_only": 3.806096
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 6.955569,
+         "upper": 6.955569,
+         "midpoint_label_only": 6.955569
+        }
+       }
+      }
+     }
+    },
+    "k3": {
+     "observability": "OBSERVED",
+     "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+     "vintage_latest": 2025,
+     "position_raw": {
+      "lower": 22.258605,
+      "upper": 22.258605,
+      "midpoint": 22.258605
+     },
+     "frontier": 0.618434,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "ust_busd_latest_published": {
+       "lower": 60.5,
+       "upper": 60.5,
+       "midpoint": 60.5
+      },
+      "ust_vintage": "2025-12",
+      "ratio_denominator_year": 2025,
+      "total_reserves_usd_bn": 271.805,
+      "note": "ratio uses the latest year with BOTH numerator and WB denominator"
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 27.575359,
+       "upper": 27.575359,
+       "midpoint": 27.575359
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.32978,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.802768,
+       "upper": 0.802768,
+       "midpoint": 0.802768,
+       "raw_space_distance_to_frontier": {
+        "lower": 21.64017,
+        "upper": 21.64017,
+        "midpoint": 21.64017
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.004473,
+         "upper": 0.004473,
+         "midpoint": 0.004473
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.120586,
+         "upper": -0.120586,
+         "midpoint": -0.120586
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.01793,
+         "upper": 0.01793,
+         "midpoint": 0.01793
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.483341,
+         "upper": -0.483341,
+         "midpoint": -0.483341
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 179.469818,
+         "upper": 179.469818,
+         "midpoint_label_only": 179.469818
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 44.772365,
+         "upper": 44.772365,
+         "midpoint_label_only": 44.772365
+        }
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 33.858598,
+       "upper": 33.858598,
+       "midpoint": 33.858598
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.439639,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 0.651025,
+       "upper": 0.651025,
+       "midpoint": 0.651025,
+       "raw_space_distance_to_frontier": {
+        "lower": 21.64017,
+        "upper": 21.64017,
+        "midpoint": 21.64017
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2022,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.003628,
+         "upper": 0.003628,
+         "midpoint": 0.003628
+        },
+        "v_raw_units_per_yr": {
+         "lower": -0.120586,
+         "upper": -0.120586,
+         "midpoint": -0.120586
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2025
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.049854,
+         "upper": 0.049854,
+         "midpoint": 0.049854
+        },
+        "v_raw_units_per_yr": {
+         "lower": -1.657142,
+         "upper": -1.657142,
+         "midpoint": -1.657142
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 179.444539,
+         "upper": 179.444539,
+         "midpoint_label_only": 179.444539
+        }
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "tau_years": {
+         "lower": 13.058627,
+         "upper": 13.058627,
+         "midpoint_label_only": 13.058627
+        }
+       }
+      }
+     }
+    },
+    "k4": {
+     "observability": "OBSERVED",
+     "definition": "CNY share of disclosed reserves (pp)",
+     "vintage_latest": 2022,
+     "position_raw": {
+      "lower": 0.0,
+      "upper": 0.0,
+      "midpoint": 0.0
+     },
+     "frontier": 21.78,
+     "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+     "raw_beside": {
+      "share_pp_latest": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      }
+     },
+     "primary_onset_2014": {
+      "origin_x": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 4.356,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.0,
+       "upper": 1.0,
+       "midpoint": 1.0,
+       "raw_space_distance_to_frontier": {
+        "lower": -21.78,
+        "upper": -21.78,
+        "midpoint": -21.78
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2019,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       },
+       "full_window": {
+        "window": [
+         2014,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     },
+     "alt_onset_2018": {
+      "origin_x": {
+       "lower": 0.0,
+       "upper": 0.0,
+       "midpoint": 0.0
+      },
+      "degeneracy_guard": {
+       "status": "CLEARS",
+       "threshold_pp": 0.888,
+       "rule": "|x_O(h)-x_F| < 0.20*|x_O(Russia)-x_F| -> path-fraction NOT-MEANINGFUL"
+      },
+      "d": {
+       "lower": 1.0,
+       "upper": 1.0,
+       "midpoint": 1.0,
+       "raw_space_distance_to_frontier": {
+        "lower": -21.78,
+        "upper": -21.78,
+        "midpoint": -21.78
+       }
+      },
+      "velocities": {
+       "recent_3y": {
+        "window": [
+         2019,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       },
+       "full_window": {
+        "window": [
+         2018,
+         2022
+        ],
+        "v_path_fraction_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        },
+        "v_raw_units_per_yr": {
+         "lower": 0.0,
+         "upper": 0.0,
+         "midpoint": 0.0
+        }
+       }
+      },
+      "tau_if_velocity_persists": {
+       "recent_3y": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       },
+       "full_window": {
+        "caveat": "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast",
+        "status": "not approaching at current velocity (v <= 0); no tau"
+       }
+      }
+     }
+    }
+   },
+   "composite_SECOND": {
+    "primary_onset_2014": {
+     "members": [
+      "k1",
+      "k2",
+      "k3",
+      "k4"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.878452,
+      "upper": 0.878452,
+      "midpoint": 0.878452
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.901384,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k2",
+      "d": {
+       "lower": 0.484896,
+       "upper": 0.484896,
+       "midpoint": 0.484896
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k1",
+       "k2",
+       "k3",
+       "k4"
+      ],
+      "value": {
+       "lower": 0.878452,
+       "upper": 0.878452,
+       "midpoint": 0.878452
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    },
+    "alt_onset_2018": {
+     "members": [
+      "k1",
+      "k2",
+      "k3",
+      "k4"
+     ],
+     "label": "pre-registered construction: C(h) = unweighted mean of d_k over applicable AND available coordinates; interval arithmetic; per-coordinate distances come FIRST and no composite is 'the' number",
+     "asynchronous_vintages_note": "each coordinate measured at its own latest vintage",
+     "C": {
+      "lower": 0.76245,
+      "upper": 0.76245,
+      "midpoint": 0.76245
+     },
+     "S1_median": {
+      "value_of_midpoints": 0.775695,
+      "note": "median taken over coordinate d midpoints (labels for intervals)"
+     },
+     "S3_min": {
+      "coordinate": "k2",
+      "d": {
+       "lower": 0.498408,
+       "upper": 0.498408,
+       "midpoint": 0.498408
+      },
+      "note": "nearest-to-frontier coordinate"
+     },
+     "S2_observed_only_mean": {
+      "members": [
+       "k1",
+       "k2",
+       "k3",
+       "k4"
+      ],
+      "value": {
+       "lower": 0.76245,
+       "upper": 0.76245,
+       "midpoint": 0.76245
+      },
+      "label": "LABELLED SENSITIVITY (never the headline): INFERRED-BOUNDED cells excluded"
+     }
+    }
+   }
+  }
+ },
+ "k3_valuation_split": {
+  "Russia": {
+   "table": {
+    "2013": {
+     "delta_holdings_busd": {
+      "lower": -22.9,
+      "upper": -22.9,
+      "midpoint": -22.9
+     },
+     "net_tx_busd": {
+      "lower": 1.098,
+      "upper": 1.098,
+      "midpoint": 1.098
+     },
+     "valuation_residual_busd": {
+      "lower": -23.998,
+      "upper": -23.998,
+      "midpoint": -23.998
+     }
+    },
+    "2014": {
+     "delta_holdings_busd": {
+      "lower": -52.6,
+      "upper": -52.6,
+      "midpoint": -52.6
+     },
+     "net_tx_busd": {
+      "lower": -13.537,
+      "upper": -13.537,
+      "midpoint": -13.537
+     },
+     "valuation_residual_busd": {
+      "lower": -39.063,
+      "upper": -39.063,
+      "midpoint": -39.063
+     }
+    },
+    "2015": {
+     "delta_holdings_busd": {
+      "lower": 6.1,
+      "upper": 6.1,
+      "midpoint": 6.1
+     },
+     "net_tx_busd": {
+      "lower": -13.147,
+      "upper": -13.147,
+      "midpoint": -13.147
+     },
+     "valuation_residual_busd": {
+      "lower": 19.247,
+      "upper": 19.247,
+      "midpoint": 19.247
+     }
+    },
+    "2016": {
+     "delta_holdings_busd": {
+      "lower": -6.0,
+      "upper": -6.0,
+      "midpoint": -6.0
+     },
+     "net_tx_busd": {
+      "lower": -30.565,
+      "upper": -30.565,
+      "midpoint": -30.565
+     },
+     "valuation_residual_busd": {
+      "lower": 24.565,
+      "upper": 24.565,
+      "midpoint": 24.565
+     }
+    },
+    "2017": {
+     "delta_holdings_busd": {
+      "lower": 16.4,
+      "upper": 16.4,
+      "midpoint": 16.4
+     },
+     "net_tx_busd": {
+      "lower": -20.352,
+      "upper": -20.352,
+      "midpoint": -20.352
+     },
+     "valuation_residual_busd": {
+      "lower": 36.752,
+      "upper": 36.752,
+      "midpoint": 36.752
+     }
+    },
+    "2018": {
+     "delta_holdings_busd": {
+      "lower": -89.3,
+      "upper": -89.3,
+      "midpoint": -89.3
+     },
+     "net_tx_busd": {
+      "lower": -37.334,
+      "upper": -37.334,
+      "midpoint": -37.334
+     },
+     "valuation_residual_busd": {
+      "lower": -51.966,
+      "upper": -51.966,
+      "midpoint": -51.966
+     }
+    },
+    "2019": {
+     "delta_holdings_busd": {
+      "lower": -3.226,
+      "upper": -3.226,
+      "midpoint": -3.226
+     },
+     "net_tx_busd": {
+      "lower": -2.457,
+      "upper": -2.457,
+      "midpoint": -2.457
+     },
+     "valuation_residual_busd": {
+      "lower": -0.769,
+      "upper": -0.769,
+      "midpoint": -0.769
+     }
+    },
+    "2020": {
+     "delta_holdings_busd": {
+      "lower": -3.963,
+      "upper": -3.963,
+      "midpoint": -3.963
+     },
+     "net_tx_busd": {
+      "lower": -2.083,
+      "upper": -2.083,
+      "midpoint": -2.083
+     },
+     "valuation_residual_busd": {
+      "lower": -1.88,
+      "upper": -1.88,
+      "midpoint": -1.88
+     }
+    },
+    "2021": {
+     "delta_holdings_busd": {
+      "lower": -2.101,
+      "upper": -2.101,
+      "midpoint": -2.101
+     },
+     "net_tx_busd": {
+      "lower": -1.45,
+      "upper": -1.45,
+      "midpoint": -1.45
+     },
+     "valuation_residual_busd": {
+      "lower": -0.651,
+      "upper": -0.651,
+      "midpoint": -0.651
+     }
+    },
+    "2022": {
+     "delta_holdings_busd": {
+      "lower": -3.281,
+      "upper": -3.281,
+      "midpoint": -3.281
+     },
+     "net_tx_busd": {
+      "lower": -0.051,
+      "upper": -0.051,
+      "midpoint": -0.051
+     },
+     "valuation_residual_busd": {
+      "lower": -3.23,
+      "upper": -3.23,
+      "midpoint": -3.23
+     }
+    },
+    "2023": {
+     "delta_holdings_busd": {
+      "lower": -0.413,
+      "upper": -0.413,
+      "midpoint": -0.413
+     },
+     "net_tx_busd": {
+      "lower": 0.068,
+      "upper": 0.068,
+      "midpoint": 0.068
+     },
+     "valuation_residual_busd": {
+      "lower": -0.481,
+      "upper": -0.481,
+      "midpoint": -0.481
+     },
+     "basis_break": "2023-02 Form S -> expanded Form SLT transactions basis break binds in this row (publisher-documented)"
+    },
+    "2024": {
+     "delta_holdings_busd": {
+      "lower": -0.174,
+      "upper": -0.174,
+      "midpoint": -0.174
+     },
+     "net_tx_busd": {
+      "lower": -0.0,
+      "upper": -0.0,
+      "midpoint": -0.0
+     },
+     "valuation_residual_busd": {
+      "lower": -0.174,
+      "upper": -0.174,
+      "midpoint": -0.174
+     }
+    },
+    "2025": {
+     "delta_holdings_busd": {
+      "lower": -0.013,
+      "upper": -0.013,
+      "midpoint": -0.013
+     },
+     "net_tx_busd": {
+      "lower": 0.021,
+      "upper": 0.021,
+      "midpoint": 0.021
+     },
+     "valuation_residual_busd": {
+      "lower": -0.034,
+      "upper": -0.034,
+      "midpoint": -0.034
+     }
+    },
+    "2026": {
+     "delta_holdings_busd": {
+      "lower": -0.003,
+      "upper": -0.003,
+      "midpoint": -0.003
+     },
+     "net_tx_busd": {
+      "lower": 0.011,
+      "upper": 0.011,
+      "midpoint": 0.011
+     },
+     "valuation_residual_busd": {
+      "lower": -0.014,
+      "upper": -0.014,
+      "midpoint": -0.014
+     },
+     "partial_year": "2026 covers Jan-Apr only (both terms partial)"
+    }
+   },
+   "note": "valuation_residual = Delta holdings (market value) - net transactions (long-term bonds & notes only); it is a RESIDUAL: it absorbs price/valuation AND coverage, custody-reclassification and bills, so it is an upper bound on pure valuation effects; China rows are custody-band intervals (independent-interval arithmetic, conservative)"
+  },
+  "China": {
+   "table": {
+    "2013": {
+     "delta_holdings_busd": {
+      "lower": -243.8,
+      "upper": 441.1,
+      "midpoint": 98.65
+     },
+     "net_tx_busd": {
+      "lower": 8.834,
+      "upper": 81.065,
+      "midpoint": 44.9495
+     },
+     "valuation_residual_busd": {
+      "lower": -324.865,
+      "upper": 432.266,
+      "midpoint": 53.7005
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": 49.7,
+       "net_tx_busd": 81.065,
+       "valuation_residual_busd": -31.365
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 147.6,
+       "net_tx_busd": 8.834,
+       "valuation_residual_busd": 138.766
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2014": {
+     "delta_holdings_busd": {
+      "lower": -417.2,
+      "upper": 481.4,
+      "midpoint": 32.1
+     },
+     "net_tx_busd": {
+      "lower": 125.316,
+      "upper": 185.683,
+      "midpoint": 155.4995
+     },
+     "valuation_residual_busd": {
+      "lower": -602.883,
+      "upper": 356.084,
+      "midpoint": -123.3995
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -25.8,
+       "net_tx_busd": 185.683,
+       "valuation_residual_busd": -211.483
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 90.0,
+       "net_tx_busd": 125.316,
+       "valuation_residual_busd": -35.316
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2015": {
+     "delta_holdings_busd": {
+      "lower": -505.4,
+      "upper": 323.1,
+      "midpoint": -91.15
+     },
+     "net_tx_busd": {
+      "lower": -91.798,
+      "upper": -21.858,
+      "midpoint": -56.828
+     },
+     "valuation_residual_busd": {
+      "lower": -483.542,
+      "upper": 414.898,
+      "midpoint": -34.322
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": 1.8,
+       "net_tx_busd": -21.858,
+       "valuation_residual_busd": 23.658
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": -184.1,
+       "net_tx_busd": -91.798,
+       "valuation_residual_busd": -92.302
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2016": {
+     "delta_holdings_busd": {
+      "lower": -509.0,
+      "upper": 157.0,
+      "midpoint": -176.0
+     },
+     "net_tx_busd": {
+      "lower": -188.36,
+      "upper": -155.203,
+      "midpoint": -171.7815
+     },
+     "valuation_residual_busd": {
+      "lower": -353.797,
+      "upper": 345.36,
+      "midpoint": -4.2185
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -187.7,
+       "net_tx_busd": -155.203,
+       "valuation_residual_busd": -32.497
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": -164.3,
+       "net_tx_busd": -188.36,
+       "valuation_residual_busd": 24.06
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2017": {
+     "delta_holdings_busd": {
+      "lower": -218.2,
+      "upper": 463.3,
+      "midpoint": 122.55
+     },
+     "net_tx_busd": {
+      "lower": -41.008,
+      "upper": 22.489,
+      "midpoint": -9.2595
+     },
+     "valuation_residual_busd": {
+      "lower": -240.689,
+      "upper": 504.308,
+      "midpoint": 131.8095
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": 126.5,
+       "net_tx_busd": 22.489,
+       "valuation_residual_busd": 104.011
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 118.6,
+       "net_tx_busd": -41.008,
+       "valuation_residual_busd": 159.608
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2018": {
+     "delta_holdings_busd": {
+      "lower": -397.4,
+      "upper": 355.0,
+      "midpoint": -21.2
+     },
+     "net_tx_busd": {
+      "lower": -80.716,
+      "upper": -34.715,
+      "midpoint": -57.7155
+     },
+     "valuation_residual_busd": {
+      "lower": -362.685,
+      "upper": 435.716,
+      "midpoint": 36.5155
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -60.6,
+       "net_tx_busd": -34.715,
+       "valuation_residual_busd": -25.885
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 18.2,
+       "net_tx_busd": -80.716,
+       "valuation_residual_busd": 98.916
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2019": {
+     "delta_holdings_busd": {
+      "lower": -470.0,
+      "upper": 407.6,
+      "midpoint": -31.2
+     },
+     "net_tx_busd": {
+      "lower": -160.491,
+      "upper": -119.396,
+      "midpoint": -139.9435
+     },
+     "valuation_residual_busd": {
+      "lower": -350.604,
+      "upper": 568.091,
+      "midpoint": 108.7435
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -54.4,
+       "net_tx_busd": -119.396,
+       "valuation_residual_busd": 64.996
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": -8.0,
+       "net_tx_busd": -160.491,
+       "valuation_residual_busd": 152.491
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2020": {
+     "delta_holdings_busd": {
+      "lower": -459.6,
+      "upper": 543.6,
+      "midpoint": 42.0
+     },
+     "net_tx_busd": {
+      "lower": -117.255,
+      "upper": -33.988,
+      "midpoint": -75.6215
+     },
+     "valuation_residual_busd": {
+      "lower": -425.612,
+      "upper": 660.855,
+      "midpoint": 117.6215
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": 2.4,
+       "net_tx_busd": -33.988,
+       "valuation_residual_busd": 36.388
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 81.6,
+       "net_tx_busd": -117.255,
+       "valuation_residual_busd": 198.855
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2021": {
+     "delta_holdings_busd": {
+      "lower": -573.2,
+      "upper": 567.4,
+      "midpoint": -2.9
+     },
+     "net_tx_busd": {
+      "lower": -42.595,
+      "upper": 20.476,
+      "midpoint": -11.0595
+     },
+     "valuation_residual_busd": {
+      "lower": -593.676,
+      "upper": 609.995,
+      "midpoint": 8.1595
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -32.0,
+       "net_tx_busd": 20.476,
+       "valuation_residual_busd": -52.476
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 26.2,
+       "net_tx_busd": -42.595,
+       "valuation_residual_busd": 68.795
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2022": {
+     "delta_holdings_busd": {
+      "lower": -772.6,
+      "upper": 507.3,
+      "midpoint": -132.65
+     },
+     "net_tx_busd": {
+      "lower": -86.473,
+      "upper": -12.596,
+      "midpoint": -49.5345
+     },
+     "valuation_residual_busd": {
+      "lower": -760.004,
+      "upper": 593.773,
+      "midpoint": -83.1155
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -173.2,
+       "net_tx_busd": -12.596,
+       "valuation_residual_busd": -160.604
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": -92.1,
+       "net_tx_busd": -86.473,
+       "valuation_residual_busd": -5.627
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2023": {
+     "delta_holdings_busd": {
+      "lower": -731.3,
+      "upper": 603.5,
+      "midpoint": -63.9
+     },
+     "net_tx_busd": {
+      "lower": -92.778,
+      "upper": -68.226,
+      "midpoint": -80.502
+     },
+     "valuation_residual_busd": {
+      "lower": -663.074,
+      "upper": 696.278,
+      "midpoint": 16.602
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -50.8,
+       "net_tx_busd": -68.226,
+       "valuation_residual_busd": 17.426
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": -77.0,
+       "net_tx_busd": -92.778,
+       "valuation_residual_busd": 15.778
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     },
+     "basis_break": "2023-02 Form S -> expanded Form SLT transactions basis break binds in this row (publisher-documented)"
+    },
+    "2024": {
+     "delta_holdings_busd": {
+      "lower": -711.6,
+      "upper": 741.2,
+      "midpoint": 14.8
+     },
+     "net_tx_busd": {
+      "lower": -101.791,
+      "upper": -81.386,
+      "midpoint": -91.5885
+     },
+     "valuation_residual_busd": {
+      "lower": -630.214,
+      "upper": 842.991,
+      "midpoint": 106.3885
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -57.3,
+       "net_tx_busd": -101.791,
+       "valuation_residual_busd": 44.491
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 86.9,
+       "net_tx_busd": -81.386,
+       "valuation_residual_busd": 168.286
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2025": {
+     "delta_holdings_busd": {
+      "lower": -874.0,
+      "upper": 836.0,
+      "midpoint": -19.0
+     },
+     "net_tx_busd": {
+      "lower": -110.112,
+      "upper": -105.372,
+      "midpoint": -107.742
+     },
+     "valuation_residual_busd": {
+      "lower": -768.628,
+      "upper": 946.112,
+      "midpoint": 88.742
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -75.5,
+       "net_tx_busd": -110.112,
+       "valuation_residual_busd": 34.612
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": 37.5,
+       "net_tx_busd": -105.372,
+       "valuation_residual_busd": 142.872
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     }
+    },
+    "2026": {
+     "delta_holdings_busd": {
+      "lower": -943.928,
+      "upper": 858.59,
+      "midpoint": -42.669
+     },
+     "net_tx_busd": {
+      "lower": -44.099,
+      "upper": -24.374,
+      "midpoint": -34.2365
+     },
+     "valuation_residual_busd": {
+      "lower": -919.554,
+      "upper": 902.689,
+      "midpoint": -8.4325
+     },
+     "coherent_custody_pairing": {
+      "china_alone": {
+       "delta_holdings_busd": -32.428,
+       "net_tx_busd": -24.374,
+       "valuation_residual_busd": -8.054
+      },
+      "china_plus_bel_lux": {
+       "delta_holdings_busd": -52.91,
+       "net_tx_busd": -44.099,
+       "valuation_residual_busd": -8.811
+      },
+      "label": "custody state held fixed within the year (labelled construction; the independent-interval version above is the conservative mechanical bound)"
+     },
+     "partial_year": "2026 covers Jan-Apr only (both terms partial)"
+    }
+   },
+   "note": "valuation_residual = Delta holdings (market value) - net transactions (long-term bonds & notes only); it is a RESIDUAL: it absorbs price/valuation AND coverage, custody-reclassification and bills, so it is an upper bound on pure valuation effects; China rows are custody-band intervals (independent-interval arithmetic, conservative)"
+  },
+  "India": {
+   "table": {
+    "2013": {
+     "delta_holdings_busd": {
+      "lower": 9.0,
+      "upper": 9.0,
+      "midpoint": 9.0
+     },
+     "net_tx_busd": {
+      "lower": 2.372,
+      "upper": 2.372,
+      "midpoint": 2.372
+     },
+     "valuation_residual_busd": {
+      "lower": 6.628,
+      "upper": 6.628,
+      "midpoint": 6.628
+     }
+    },
+    "2014": {
+     "delta_holdings_busd": {
+      "lower": 14.5,
+      "upper": 14.5,
+      "midpoint": 14.5
+     },
+     "net_tx_busd": {
+      "lower": -7.182,
+      "upper": -7.182,
+      "midpoint": -7.182
+     },
+     "valuation_residual_busd": {
+      "lower": 21.682,
+      "upper": 21.682,
+      "midpoint": 21.682
+     }
+    },
+    "2015": {
+     "delta_holdings_busd": {
+      "lower": 33.8,
+      "upper": 33.8,
+      "midpoint": 33.8
+     },
+     "net_tx_busd": {
+      "lower": -12.353,
+      "upper": -12.353,
+      "midpoint": -12.353
+     },
+     "valuation_residual_busd": {
+      "lower": 46.153,
+      "upper": 46.153,
+      "midpoint": 46.153
+     }
+    },
+    "2016": {
+     "delta_holdings_busd": {
+      "lower": 1.4,
+      "upper": 1.4,
+      "midpoint": 1.4
+     },
+     "net_tx_busd": {
+      "lower": -23.249,
+      "upper": -23.249,
+      "midpoint": -23.249
+     },
+     "valuation_residual_busd": {
+      "lower": 24.649,
+      "upper": 24.649,
+      "midpoint": 24.649
+     }
+    },
+    "2017": {
+     "delta_holdings_busd": {
+      "lower": 26.5,
+      "upper": 26.5,
+      "midpoint": 26.5
+     },
+     "net_tx_busd": {
+      "lower": -18.792,
+      "upper": -18.792,
+      "midpoint": -18.792
+     },
+     "valuation_residual_busd": {
+      "lower": 45.292,
+      "upper": 45.292,
+      "midpoint": 45.292
+     }
+    },
+    "2018": {
+     "delta_holdings_busd": {
+      "lower": -3.4,
+      "upper": -3.4,
+      "midpoint": -3.4
+     },
+     "net_tx_busd": {
+      "lower": -29.231,
+      "upper": -29.231,
+      "midpoint": -29.231
+     },
+     "valuation_residual_busd": {
+      "lower": 25.831,
+      "upper": 25.831,
+      "midpoint": 25.831
+     }
+    },
+    "2019": {
+     "delta_holdings_busd": {
+      "lower": 20.7,
+      "upper": 20.7,
+      "midpoint": 20.7
+     },
+     "net_tx_busd": {
+      "lower": -35.409,
+      "upper": -35.409,
+      "midpoint": -35.409
+     },
+     "valuation_residual_busd": {
+      "lower": 56.109,
+      "upper": 56.109,
+      "midpoint": 56.109
+     }
+    },
+    "2020": {
+     "delta_holdings_busd": {
+      "lower": 54.2,
+      "upper": 54.2,
+      "midpoint": 54.2
+     },
+     "net_tx_busd": {
+      "lower": -35.485,
+      "upper": -35.485,
+      "midpoint": -35.485
+     },
+     "valuation_residual_busd": {
+      "lower": 89.685,
+      "upper": 89.685,
+      "midpoint": 89.685
+     }
+    },
+    "2021": {
+     "delta_holdings_busd": {
+      "lower": -17.3,
+      "upper": -17.3,
+      "midpoint": -17.3
+     },
+     "net_tx_busd": {
+      "lower": -16.713,
+      "upper": -16.713,
+      "midpoint": -16.713
+     },
+     "valuation_residual_busd": {
+      "lower": -0.587,
+      "upper": -0.587,
+      "midpoint": -0.587
+     }
+    },
+    "2022": {
+     "delta_holdings_busd": {
+      "lower": 25.2,
+      "upper": 25.2,
+      "midpoint": 25.2
+     },
+     "net_tx_busd": {
+      "lower": 14.29,
+      "upper": 14.29,
+      "midpoint": 14.29
+     },
+     "valuation_residual_busd": {
+      "lower": 10.91,
+      "upper": 10.91,
+      "midpoint": 10.91
+     }
+    },
+    "2023": {
+     "delta_holdings_busd": {
+      "lower": 9.6,
+      "upper": 9.6,
+      "midpoint": 9.6
+     },
+     "net_tx_busd": {
+      "lower": -5.21,
+      "upper": -5.21,
+      "midpoint": -5.21
+     },
+     "valuation_residual_busd": {
+      "lower": 14.81,
+      "upper": 14.81,
+      "midpoint": 14.81
+     },
+     "basis_break": "2023-02 Form S -> expanded Form SLT transactions basis break binds in this row (publisher-documented)"
+    },
+    "2024": {
+     "delta_holdings_busd": {
+      "lower": -14.6,
+      "upper": -14.6,
+      "midpoint": -14.6
+     },
+     "net_tx_busd": {
+      "lower": -13.422,
+      "upper": -13.422,
+      "midpoint": -13.422
+     },
+     "valuation_residual_busd": {
+      "lower": -1.178,
+      "upper": -1.178,
+      "midpoint": -1.178
+     }
+    },
+    "2025": {
+     "delta_holdings_busd": {
+      "lower": -36.2,
+      "upper": -36.2,
+      "midpoint": -36.2
+     },
+     "net_tx_busd": {
+      "lower": -51.803,
+      "upper": -51.803,
+      "midpoint": -51.803
+     },
+     "valuation_residual_busd": {
+      "lower": 15.603,
+      "upper": 15.603,
+      "midpoint": 15.603
+     }
+    },
+    "2026": {
+     "delta_holdings_busd": {
+      "lower": -1.892,
+      "upper": -1.892,
+      "midpoint": -1.892
+     },
+     "net_tx_busd": {
+      "lower": -0.867,
+      "upper": -0.867,
+      "midpoint": -0.867
+     },
+     "valuation_residual_busd": {
+      "lower": -1.025,
+      "upper": -1.025,
+      "midpoint": -1.025
+     },
+     "partial_year": "2026 covers Jan-Apr only (both terms partial)"
+    }
+   },
+   "note": "valuation_residual = Delta holdings (market value) - net transactions (long-term bonds & notes only); it is a RESIDUAL: it absorbs price/valuation AND coverage, custody-reclassification and bills, so it is an upper bound on pure valuation effects; China rows are custody-band intervals (independent-interval arithmetic, conservative)"
+  },
+  "Turkey": {
+   "table": {
+    "2013": {
+     "delta_holdings_busd": {
+      "lower": -5.4,
+      "upper": -5.4,
+      "midpoint": -5.4
+     },
+     "net_tx_busd": {
+      "lower": 6.795,
+      "upper": 6.795,
+      "midpoint": 6.795
+     },
+     "valuation_residual_busd": {
+      "lower": -12.195,
+      "upper": -12.195,
+      "midpoint": -12.195
+     }
+    },
+    "2014": {
+     "delta_holdings_busd": {
+      "lower": 24.8,
+      "upper": 24.8,
+      "midpoint": 24.8
+     },
+     "net_tx_busd": {
+      "lower": -6.208,
+      "upper": -6.208,
+      "midpoint": -6.208
+     },
+     "valuation_residual_busd": {
+      "lower": 31.008,
+      "upper": 31.008,
+      "midpoint": 31.008
+     }
+    },
+    "2015": {
+     "delta_holdings_busd": {
+      "lower": -12.4,
+      "upper": -12.4,
+      "midpoint": -12.4
+     },
+     "net_tx_busd": {
+      "lower": -3.441,
+      "upper": -3.441,
+      "midpoint": -3.441
+     },
+     "valuation_residual_busd": {
+      "lower": -8.959,
+      "upper": -8.959,
+      "midpoint": -8.959
+     }
+    },
+    "2016": {
+     "delta_holdings_busd": {
+      "lower": -5.5,
+      "upper": -5.5,
+      "midpoint": -5.5
+     },
+     "net_tx_busd": {
+      "lower": -7.773,
+      "upper": -7.773,
+      "midpoint": -7.773
+     },
+     "valuation_residual_busd": {
+      "lower": 2.273,
+      "upper": 2.273,
+      "midpoint": 2.273
+     }
+    },
+    "2017": {
+     "delta_holdings_busd": {
+      "lower": -6.5,
+      "upper": -6.5,
+      "midpoint": -6.5
+     },
+     "net_tx_busd": {
+      "lower": -7.749,
+      "upper": -7.749,
+      "midpoint": -7.749
+     },
+     "valuation_residual_busd": {
+      "lower": 1.249,
+      "upper": 1.249,
+      "midpoint": 1.249
+     }
+    },
+    "2018": {
+     "delta_holdings_busd": {
+      "lower": -45.158,
+      "upper": -45.158,
+      "midpoint": -45.158
+     },
+     "net_tx_busd": {
+      "lower": -13.688,
+      "upper": -13.688,
+      "midpoint": -13.688
+     },
+     "valuation_residual_busd": {
+      "lower": -31.47,
+      "upper": -31.47,
+      "midpoint": -31.47
+     }
+    },
+    "2019": {
+     "delta_holdings_busd": {
+      "lower": -5.453,
+      "upper": -5.453,
+      "midpoint": -5.453
+     },
+     "net_tx_busd": {
+      "lower": 0.201,
+      "upper": 0.201,
+      "midpoint": 0.201
+     },
+     "valuation_residual_busd": {
+      "lower": -5.654,
+      "upper": -5.654,
+      "midpoint": -5.654
+     }
+    },
+    "2020": {
+     "delta_holdings_busd": {
+      "lower": -0.044,
+      "upper": -0.044,
+      "midpoint": -0.044
+     },
+     "net_tx_busd": {
+      "lower": -0.861,
+      "upper": -0.861,
+      "midpoint": -0.861
+     },
+     "valuation_residual_busd": {
+      "lower": 0.817,
+      "upper": 0.817,
+      "midpoint": 0.817
+     }
+    },
+    "2021": {
+     "delta_holdings_busd": {
+      "lower": -0.042,
+      "upper": -0.042,
+      "midpoint": -0.042
+     },
+     "net_tx_busd": {
+      "lower": -0.439,
+      "upper": -0.439,
+      "midpoint": -0.439
+     },
+     "valuation_residual_busd": {
+      "lower": 0.397,
+      "upper": 0.397,
+      "midpoint": 0.397
+     }
+    },
+    "2022": {
+     "delta_holdings_busd": {
+      "lower": 0.124,
+      "upper": 0.124,
+      "midpoint": 0.124
+     },
+     "net_tx_busd": {
+      "lower": -0.443,
+      "upper": -0.443,
+      "midpoint": -0.443
+     },
+     "valuation_residual_busd": {
+      "lower": 0.567,
+      "upper": 0.567,
+      "midpoint": 0.567
+     }
+    },
+    "2023": {
+     "delta_holdings_busd": {
+      "lower": 0.139,
+      "upper": 0.139,
+      "midpoint": 0.139
+     },
+     "net_tx_busd": {
+      "lower": 0.507,
+      "upper": 0.507,
+      "midpoint": 0.507
+     },
+     "valuation_residual_busd": {
+      "lower": -0.368,
+      "upper": -0.368,
+      "midpoint": -0.368
+     },
+     "basis_break": "2023-02 Form S -> expanded Form SLT transactions basis break binds in this row (publisher-documented)"
+    },
+    "2024": {
+     "delta_holdings_busd": {
+      "lower": 10.686,
+      "upper": 10.686,
+      "midpoint": 10.686
+     },
+     "net_tx_busd": {
+      "lower": 7.711,
+      "upper": 7.711,
+      "midpoint": 7.711
+     },
+     "valuation_residual_busd": {
+      "lower": 2.975,
+      "upper": 2.975,
+      "midpoint": 2.975
+     }
+    },
+    "2025": {
+     "delta_holdings_busd": {
+      "lower": 1.151,
+      "upper": 1.151,
+      "midpoint": 1.151
+     },
+     "net_tx_busd": {
+      "lower": -0.987,
+      "upper": -0.987,
+      "midpoint": -0.987
+     },
+     "valuation_residual_busd": {
+      "lower": 2.138,
+      "upper": 2.138,
+      "midpoint": 2.138
+     }
+    },
+    "2026": {
+     "delta_holdings_busd": {
+      "lower": -11.393,
+      "upper": -11.393,
+      "midpoint": -11.393
+     },
+     "net_tx_busd": {
+      "lower": -7.676,
+      "upper": -7.676,
+      "midpoint": -7.676
+     },
+     "valuation_residual_busd": {
+      "lower": -3.717,
+      "upper": -3.717,
+      "midpoint": -3.717
+     },
+     "partial_year": "2026 covers Jan-Apr only (both terms partial)"
+    }
+   },
+   "note": "valuation_residual = Delta holdings (market value) - net transactions (long-term bonds & notes only); it is a RESIDUAL: it absorbs price/valuation AND coverage, custody-reclassification and bills, so it is an upper bound on pure valuation effects; China rows are custody-band intervals (independent-interval arithmetic, conservative)"
+  },
+  "SaudiArabia": {
+   "table": {
+    "2013": {
+     "delta_holdings_busd": {
+      "lower": 0.4,
+      "upper": 0.4,
+      "midpoint": 0.4
+     },
+     "net_tx_busd": {
+      "lower": 4.599,
+      "upper": 4.599,
+      "midpoint": 4.599
+     },
+     "valuation_residual_busd": {
+      "lower": -4.199,
+      "upper": -4.199,
+      "midpoint": -4.199
+     }
+    },
+    "2014": {
+     "delta_holdings_busd": {
+      "lower": 19.9,
+      "upper": 19.9,
+      "midpoint": 19.9
+     },
+     "net_tx_busd": {
+      "lower": 6.177,
+      "upper": 6.177,
+      "midpoint": 6.177
+     },
+     "valuation_residual_busd": {
+      "lower": 13.723,
+      "upper": 13.723,
+      "midpoint": 13.723
+     }
+    },
+    "2015": {
+     "delta_holdings_busd": {
+      "lower": 21.0,
+      "upper": 21.0,
+      "midpoint": 21.0
+     },
+     "net_tx_busd": {
+      "lower": 7.724,
+      "upper": 7.724,
+      "midpoint": 7.724
+     },
+     "valuation_residual_busd": {
+      "lower": 13.276,
+      "upper": 13.276,
+      "midpoint": 13.276
+     }
+    },
+    "2016": {
+     "delta_holdings_busd": {
+      "lower": -16.1,
+      "upper": -16.1,
+      "midpoint": -16.1
+     },
+     "net_tx_busd": {
+      "lower": -0.363,
+      "upper": -0.363,
+      "midpoint": -0.363
+     },
+     "valuation_residual_busd": {
+      "lower": -15.737,
+      "upper": -15.737,
+      "midpoint": -15.737
+     }
+    },
+    "2017": {
+     "delta_holdings_busd": {
+      "lower": 44.6,
+      "upper": 44.6,
+      "midpoint": 44.6
+     },
+     "net_tx_busd": {
+      "lower": -0.108,
+      "upper": -0.108,
+      "midpoint": -0.108
+     },
+     "valuation_residual_busd": {
+      "lower": 44.708,
+      "upper": 44.708,
+      "midpoint": 44.708
+     }
+    },
+    "2018": {
+     "delta_holdings_busd": {
+      "lower": 24.8,
+      "upper": 24.8,
+      "midpoint": 24.8
+     },
+     "net_tx_busd": {
+      "lower": 6.156,
+      "upper": 6.156,
+      "midpoint": 6.156
+     },
+     "valuation_residual_busd": {
+      "lower": 18.644,
+      "upper": 18.644,
+      "midpoint": 18.644
+     }
+    },
+    "2019": {
+     "delta_holdings_busd": {
+      "lower": 7.6,
+      "upper": 7.6,
+      "midpoint": 7.6
+     },
+     "net_tx_busd": {
+      "lower": -27.065,
+      "upper": -27.065,
+      "midpoint": -27.065
+     },
+     "valuation_residual_busd": {
+      "lower": 34.665,
+      "upper": 34.665,
+      "midpoint": 34.665
+     }
+    },
+    "2020": {
+     "delta_holdings_busd": {
+      "lower": -43.4,
+      "upper": -43.4,
+      "midpoint": -43.4
+     },
+     "net_tx_busd": {
+      "lower": -27.477,
+      "upper": -27.477,
+      "midpoint": -27.477
+     },
+     "valuation_residual_busd": {
+      "lower": -15.923,
+      "upper": -15.923,
+      "midpoint": -15.923
+     }
+    },
+    "2021": {
+     "delta_holdings_busd": {
+      "lower": -17.4,
+      "upper": -17.4,
+      "midpoint": -17.4
+     },
+     "net_tx_busd": {
+      "lower": -11.535,
+      "upper": -11.535,
+      "midpoint": -11.535
+     },
+     "valuation_residual_busd": {
+      "lower": -5.865,
+      "upper": -5.865,
+      "midpoint": -5.865
+     }
+    },
+    "2022": {
+     "delta_holdings_busd": {
+      "lower": 0.7,
+      "upper": 0.7,
+      "midpoint": 0.7
+     },
+     "net_tx_busd": {
+      "lower": -8.479,
+      "upper": -8.479,
+      "midpoint": -8.479
+     },
+     "valuation_residual_busd": {
+      "lower": 9.179,
+      "upper": 9.179,
+      "midpoint": 9.179
+     }
+    },
+    "2023": {
+     "delta_holdings_busd": {
+      "lower": 12.3,
+      "upper": 12.3,
+      "midpoint": 12.3
+     },
+     "net_tx_busd": {
+      "lower": 5.183,
+      "upper": 5.183,
+      "midpoint": 5.183
+     },
+     "valuation_residual_busd": {
+      "lower": 7.117,
+      "upper": 7.117,
+      "midpoint": 7.117
+     },
+     "basis_break": "2023-02 Form S -> expanded Form SLT transactions basis break binds in this row (publisher-documented)"
+    },
+    "2024": {
+     "delta_holdings_busd": {
+      "lower": 5.5,
+      "upper": 5.5,
+      "midpoint": 5.5
+     },
+     "net_tx_busd": {
+      "lower": 2.932,
+      "upper": 2.932,
+      "midpoint": 2.932
+     },
+     "valuation_residual_busd": {
+      "lower": 2.568,
+      "upper": 2.568,
+      "midpoint": 2.568
+     }
+    },
+    "2025": {
+     "delta_holdings_busd": {
+      "lower": 12.0,
+      "upper": 12.0,
+      "midpoint": 12.0
+     },
+     "net_tx_busd": {
+      "lower": -7.912,
+      "upper": -7.912,
+      "midpoint": -7.912
+     },
+     "valuation_residual_busd": {
+      "lower": 19.912,
+      "upper": 19.912,
+      "midpoint": 19.912
+     }
+    },
+    "2026": {
+     "delta_holdings_busd": {
+      "lower": -9.38,
+      "upper": -9.38,
+      "midpoint": -9.38
+     },
+     "net_tx_busd": {
+      "lower": 0.535,
+      "upper": 0.535,
+      "midpoint": 0.535
+     },
+     "valuation_residual_busd": {
+      "lower": -9.915,
+      "upper": -9.915,
+      "midpoint": -9.915
+     },
+     "partial_year": "2026 covers Jan-Apr only (both terms partial)"
+    }
+   },
+   "note": "valuation_residual = Delta holdings (market value) - net transactions (long-term bonds & notes only); it is a RESIDUAL: it absorbs price/valuation AND coverage, custody-reclassification and bills, so it is an upper bound on pure valuation effects; China rows are custody-band intervals (independent-interval arithmetic, conservative)"
+  },
+  "Poland": {
+   "table": {
+    "2013": {
+     "delta_holdings_busd": {
+      "lower": -0.6,
+      "upper": -0.6,
+      "midpoint": -0.6
+     },
+     "net_tx_busd": {
+      "lower": 3.295,
+      "upper": 3.295,
+      "midpoint": 3.295
+     },
+     "valuation_residual_busd": {
+      "lower": -3.895,
+      "upper": -3.895,
+      "midpoint": -3.895
+     }
+    },
+    "2014": {
+     "delta_holdings_busd": {
+      "lower": -3.2,
+      "upper": -3.2,
+      "midpoint": -3.2
+     },
+     "net_tx_busd": {
+      "lower": 1.702,
+      "upper": 1.702,
+      "midpoint": 1.702
+     },
+     "valuation_residual_busd": {
+      "lower": -4.902,
+      "upper": -4.902,
+      "midpoint": -4.902
+     }
+    },
+    "2015": {
+     "delta_holdings_busd": {
+      "lower": 2.5,
+      "upper": 2.5,
+      "midpoint": 2.5
+     },
+     "net_tx_busd": {
+      "lower": -8.49,
+      "upper": -8.49,
+      "midpoint": -8.49
+     },
+     "valuation_residual_busd": {
+      "lower": 10.99,
+      "upper": 10.99,
+      "midpoint": 10.99
+     }
+    },
+    "2016": {
+     "delta_holdings_busd": {
+      "lower": 3.8,
+      "upper": 3.8,
+      "midpoint": 3.8
+     },
+     "net_tx_busd": {
+      "lower": -13.612,
+      "upper": -13.612,
+      "midpoint": -13.612
+     },
+     "valuation_residual_busd": {
+      "lower": 17.412,
+      "upper": 17.412,
+      "midpoint": 17.412
+     }
+    },
+    "2017": {
+     "delta_holdings_busd": {
+      "lower": 6.0,
+      "upper": 6.0,
+      "midpoint": 6.0
+     },
+     "net_tx_busd": {
+      "lower": -0.705,
+      "upper": -0.705,
+      "midpoint": -0.705
+     },
+     "valuation_residual_busd": {
+      "lower": 6.705,
+      "upper": 6.705,
+      "midpoint": 6.705
+     }
+    },
+    "2018": {
+     "delta_holdings_busd": {
+      "lower": -0.4,
+      "upper": -0.4,
+      "midpoint": -0.4
+     },
+     "net_tx_busd": {
+      "lower": 1.605,
+      "upper": 1.605,
+      "midpoint": 1.605
+     },
+     "valuation_residual_busd": {
+      "lower": -2.005,
+      "upper": -2.005,
+      "midpoint": -2.005
+     }
+    },
+    "2019": {
+     "delta_holdings_busd": {
+      "lower": -0.8,
+      "upper": -0.8,
+      "midpoint": -0.8
+     },
+     "net_tx_busd": {
+      "lower": -8.696,
+      "upper": -8.696,
+      "midpoint": -8.696
+     },
+     "valuation_residual_busd": {
+      "lower": 7.896,
+      "upper": 7.896,
+      "midpoint": 7.896
+     }
+    },
+    "2020": {
+     "delta_holdings_busd": {
+      "lower": 11.7,
+      "upper": 11.7,
+      "midpoint": 11.7
+     },
+     "net_tx_busd": {
+      "lower": -6.649,
+      "upper": -6.649,
+      "midpoint": -6.649
+     },
+     "valuation_residual_busd": {
+      "lower": 18.349,
+      "upper": 18.349,
+      "midpoint": 18.349
+     }
+    },
+    "2021": {
+     "delta_holdings_busd": {
+      "lower": -8.3,
+      "upper": -8.3,
+      "midpoint": -8.3
+     },
+     "net_tx_busd": {
+      "lower": 1.697,
+      "upper": 1.697,
+      "midpoint": 1.697
+     },
+     "valuation_residual_busd": {
+      "lower": -9.997,
+      "upper": -9.997,
+      "midpoint": -9.997
+     }
+    },
+    "2022": {
+     "delta_holdings_busd": {
+      "lower": -4.5,
+      "upper": -4.5,
+      "midpoint": -4.5
+     },
+     "net_tx_busd": {
+      "lower": -2.065,
+      "upper": -2.065,
+      "midpoint": -2.065
+     },
+     "valuation_residual_busd": {
+      "lower": -2.435,
+      "upper": -2.435,
+      "midpoint": -2.435
+     }
+    },
+    "2023": {
+     "delta_holdings_busd": {
+      "lower": 7.2,
+      "upper": 7.2,
+      "midpoint": 7.2
+     },
+     "net_tx_busd": {
+      "lower": 4.098,
+      "upper": 4.098,
+      "midpoint": 4.098
+     },
+     "valuation_residual_busd": {
+      "lower": 3.102,
+      "upper": 3.102,
+      "midpoint": 3.102
+     },
+     "basis_break": "2023-02 Form S -> expanded Form SLT transactions basis break binds in this row (publisher-documented)"
+    },
+    "2024": {
+     "delta_holdings_busd": {
+      "lower": 7.8,
+      "upper": 7.8,
+      "midpoint": 7.8
+     },
+     "net_tx_busd": {
+      "lower": 3.581,
+      "upper": 3.581,
+      "midpoint": 3.581
+     },
+     "valuation_residual_busd": {
+      "lower": 4.219,
+      "upper": 4.219,
+      "midpoint": 4.219
+     }
+    },
+    "2025": {
+     "delta_holdings_busd": {
+      "lower": 7.8,
+      "upper": 7.8,
+      "midpoint": 7.8
+     },
+     "net_tx_busd": {
+      "lower": 5.487,
+      "upper": 5.487,
+      "midpoint": 5.487
+     },
+     "valuation_residual_busd": {
+      "lower": 2.313,
+      "upper": 2.313,
+      "midpoint": 2.313
+     }
+    }
+   },
+   "note": "valuation_residual = Delta holdings (market value) - net transactions (long-term bonds & notes only); it is a RESIDUAL: it absorbs price/valuation AND coverage, custody-reclassification and bills, so it is an upper bound on pure valuation effects; China rows are custody-band intervals (independent-interval arithmetic, conservative)"
+  }
+ },
+ "expectation_evaluation_mechanical": {
+  "i_russia_ordering": {
+   "verdict": "DIFFERENT",
+   "realized_onsets": {
+    "k1": 2018,
+    "k2": 2014,
+    "k3": 2016,
+    "k4": 2017
+   },
+   "note": "see calibration.move_onset_ordering for the mechanical detail"
+  },
+  "ii_china_position": {
+   "headline_C_midpoint": null,
+   "headline_branch": "UNDETERMINED (midpoint degenerate)",
+   "headline_degeneracy_reason": "DEGENERATE \u2014 a member d is UNBOUNDED (k1)",
+   "SAFE_route_sensitivity_C_midpoint_labelled": 0.920228,
+   "SAFE_route_sensitivity_branch_labelled": ">=0.60: early path \u2014 expectation (ii) consistent",
+   "labelling": "the SAFE-route branch is a LABELLED SENSITIVITY, reported because the headline midpoint is degenerate from the [0,100] k1 envelope; it is NOT swapped in as the headline"
+  },
+  "iii_comparators_dispersion": {
+   "India": 1.073052,
+   "Turkey": 0.237853,
+   "SaudiArabia": 1.619391,
+   "Poland": 0.878452
+  }
+ },
+ "binding_mode_boundary": "this measures the ANTICIPATORY-REALLOCATION regime only; a self-fulfilling RUN \u2014 the old F4, named as such \u2014 is a discontinuity OUTSIDE these kinematics: stated, unmeasured, unpriced, untimed; nothing here bounds, prices, or times it",
+ "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability"
+}
