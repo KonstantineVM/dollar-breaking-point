@@ -5103,3 +5103,31 @@ EOF
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1) || echo "tree clean"
+2026-07-02T04:55:25Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTD_prediction.md build/run-ledger.log 2>/dev/null; git commit -q -m "$(cat <<'EOF'
+Pre-register RDT-D (identity, reconciliation gap, SDDS instrument split)
+
+Fixes before any build: the identity dNonUS = dTotal(ex-gold) + 446.5
+- V_us with every term tracing to a committed number (SAFE +234.039;
+the RDT-C total-US-LT active outflow 446.493 with the custody band in
+parallel; V_us as the residual absorbing the SLT gap) and the meaning
+discipline that dNonUS is non-US-LT-SECURITIES, not non-dollar (the
+k1 wall stands; the short-term US leg is a labelled adjustment);
+the Part-1 fragility rule (G = dH - V_stated - active per class;
+|G_total| > 0.25x|active| flags 446.5-UNRELIABLE and the identity is
+carried as a band); the Part-2 pool caveat as a computed BOUND, never
+a fabricated split; the SDDS verdict axes with the netting rule (the
+SDDS securities line includes US securities - the non-US discriminator
+is dSec_SDDS - dH_us_LT; reading it raw is the named dramatization
+vector) and mechanical 0.5 thresholds (DEPOSITS-SURGE /
+NON-US-SECURITIES / MIXED-COMPOSITION / OTHER-OR-SUPPRESSED, with the
+band-honest rule when the fragility flag trips; a suppressed line is
+a finding about disclosure, not destination); the flipped guard
+verbatim both ways; a symmetric primary expectation (OTHER-OR-
+SUPPRESSED or MIXED) refutable toward every other axis; and the
+established amendment mechanics with assertion-guarded template prose
+from the start (the RDT-C GATE lesson).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1 && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
