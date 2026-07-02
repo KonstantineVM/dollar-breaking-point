@@ -4625,3 +4625,29 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T03:18:08Z	OUTPUT (not established until verifier runs)	git add build/reserve/rdtb_a_components.csv build/reserve/rdtb_a_manifest.json build/reserve/rdtb_a_provenance.md build/reserve/rdtb_evidence/ build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+RDT-B Part A grounding: no by-country official split exists anywhere
+
+The load-bearing schema finding, recorded either-way per the
+pre-registration: TIC SLT by-country tables split by instrument only
+(headers quoted; the official/private split exists only as
+all-country aggregates in slt2d and the MFH 'Of Which: Foreign
+Official' lines); TIC SHL appendix tables A1-A12 across all 11
+fetched vintages (2015-2025) carry no holder-sector dimension and
+the report PDFs publish official data only as aggregates (the
+confidentiality clause is quoted in the manifest); TIC by-country
+official-institution lines do not exist; BIS LBS has official-sector
+codes in its DSD (CL_L_SECTOR M/O) but does NOT publish them for
+China (SDMX error 100 responses retained; published sectors for the
+China counterparty series listed). Total-resident BIS USD
+liabilities to China fetched 2014Q1-2025Q4 (638.8 $bn at 2025Q4) and
+recorded as upper-side-only per the pre-registered bias rule - never
+presented as official-attributable. Lower-bound-eligible components:
+NONE of 131 rows. SHL totals for China/Belgium/Luxembourg 2015-2025
+retained (custody band computable). The Part-B official-aggregate
+baseline was confirmed already on disk. Bound assembly not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
