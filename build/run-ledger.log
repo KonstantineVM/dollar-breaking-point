@@ -4329,3 +4329,28 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
 EOF
 )" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1; fi
+2026-07-02T00:55:18Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDT_coordinates.parquet build/reserve/RDT_coordinates_provenance.md build/reserve/rdt_assembly_manifest.json build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+RDT Part 1(d): assemble RDT_coordinates.parquet (793 rows, flagged)
+
+Long-format holder x coordinate x year with per-cell observability
+(721 OBSERVED / 56 INFERRED-BOUNDED / 16 NOT-AVAILABLE) + pseudo-holder
+input rows (_AGG_COFER with the 2025Q3-break caveat on every row,
+_LMW_PCTL across all disclosers, _PREF = 1799.63 $/oz 2021 Pink Sheet
+mean, _SAFE_ANCHOR 1995=79/2014=58). Both integrity anchors replicate
+in the assembled file: Russia k3 Dec-2017 102.5 -> Dec-2018 13.2 $bn
+(monthly 96.1 -> 48.7 -> 14.9 over 2018-03..05) and Russia k2 end-2013
+1035.21t -> end-2020 2298.53t; RD2 overlap max diff 0.0t. China k3
+carried as the custody band (lower/upper, INFERRED-BOUNDED); China k1
+carried on BOTH pre-registered routes kept distinct: the residual
+route is close to UNINFORMATIVE (raw [-22.8, 153.5] at 2025, clipped
+to [0,100] with raw endpoints preserved - reported, not hidden) and
+the SAFE-anchor route gives [33.9, 82.1] at 2026. Grounded zeros
+(India/Poland no-swap-line; Turkey/Poland CNY 0.0) stored OBSERVED;
+genuine gaps stored NOT-AVAILABLE. No distance, velocity, ordering,
+or composite computed - estimation not begun. Sanity checks 5/5; no
+read-only input modified (48 mtimes checked).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
