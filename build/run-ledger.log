@@ -4573,3 +4573,7 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T03:09:18Z	OUTPUT (not established until verifier runs)	ls -la build/reserve/RDTB_* build/reserve/rdtb_* 2>/dev/null; echo "---evidence---"; ls build/reserve/rdtb_evidence/ 2>/dev/null | head -20; echo "---fetch log tail---"; tail -5 build/reserve/rdtb_evidence/_RDTB_fetch_log.txt 2>/dev/null; git status --porcelain build/run-ledger.log | grep -q . && git add build/run-ledger.log && git commit -q -m "Update run-ledger log (RDT-B builds running)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
