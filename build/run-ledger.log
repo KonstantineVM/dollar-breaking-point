@@ -6315,3 +6315,113 @@ EOF
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short
 2026-07-02T17:31:29Z RDT-F: result/verifier/amended-object committed pending gate adjudication (all stamped NOT ESTABLISHED; gate BLOCK would be fixed in follow-up commits before stage close)
+2026-07-02T17:31:30Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTF_result.json build/reserve/RDTF_verify.json build/reserve/RDT_breaking_point_object.md build/reserve/RDTF_recompute.py && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: result/verifier/amended-object committed pending gate adjudication (all stamped NOT ESTABLISHED; gate BLOCK would be fixed in follow-up commits before stage close)" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-F result + verifier + object amendment (pending gate adjudication)
+
+FORK-REOPENED on the route-robust gross ceiling: grounded set BE/LU/CH/UK +
+Caribbean-banking-centers group (each carried by a verbatim publisher quote);
+Sigma gross 1712.241 (1146.541 without the group) vs the 446.493 cap ->
+M_hi_global = 446.493, VACUOUS per the pre-registered rule; LOCO-robust
+(every single-center drop still cap-bound). Route-robust interval
+[48.484, 494.977] busd - nearly uninformative, stated plainly; RDT-E's BE/LU
+bound (M_hi 69.521, [425.456, 494.977]) nested and re-labelled ROUTE-SPECIFIC
+per the pre-registered mapping. Window-net 901.932/555.641 carried as the
+disputed sensitivity, never the verdict. Basis reconciliation: PARTIAL - raw
+divergence 349.023 collapses to a 73.531 busd residual under the stated
+face-value/transactions-basis adjustment (thresholds ARTIFACT<=50/REAL>=150);
+the structurally-live statement rendered unsmoothed; universe-switch and
+input-path frictions disclosed. Thresholds parsed from committed
+RDTE_prediction.md (substring byte-matched); constants read from committed
+artifacts, not hardcoded. Strip-and-reinsert reproduces the post-RDT-E object
+sha; recompute independently re-run byte-identical by the orchestrator.
+All outputs stamped NOT ESTABLISHED pending the integrity-critic gate
+(running) and the human gate at the PR boundary.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short
+2026-07-02T17:37:29Z	OUTPUT (not established until verifier runs)	python3 - <<'PYEOF'
+import json
+p = 'build/ledger.json'
+j = json.load(open(p))
+assert not any(s['id']=='RDTF' for s in j['steps'])
+note = ("RDT-F -- ROUTE-ROBUST MIGRATION CEILING + CUSTODY-BASIS RECONCILIATION: closes RDT-E's two live items "
+"(migration via custody jurisdictions other than BE/LU was unbounded; the aggregate FRBNY -232.2 vs TIC official +116.8 tension "
+"was unresolved as real-vs-basis-artifact) and resolves the routed net-vs-gross judgment BY CONSTRUCTION -- the branch verdict is "
+"rendered on the OVERSTATING-SAFE (gross) ceiling, window-net carried as the tighter DISPUTED sensitivity, never the verdict. "
+"Symmetric (MINOR-ROBUST / FORK-REOPENED / TENSION-ARTIFACT / TENSION-REAL / PARTIAL, any combination promotable); no date, no "
+"probability, no currency guess (k1 wall stands). PRE-REGISTRATION COMMITTED FIRST (git 6701b5c; the critic independently "
+"corroborated precedence from .git/logs/HEAD): fixes the custody-center DERIVATION RULE (a jurisdiction enters IFF a publisher "
+"document names it a custodial/ICSD/attribution-bias center, quoted verbatim; beneficial-owner jurisdictions excluded by the "
+"zero-guard), the gross construction M_center = sum_k min(ChinaGrossDecline_k, CenterGrossInflow_k) on monthly positive parts, "
+"M_hi_global = min(sum over grounded centers, 446.493) with the vacuous-ceiling->FORK-REOPENED rule, thresholds READ "
+"PROGRAMMATICALLY from committed RDTE_prediction.md (MINOR-ROBUST iff <= 111.623 -- no re-tuning; the substring 'M_hi <= 0.25 x "
+"446.493' byte-matched at line 64 by the gate), mandatory leave-one-center-out, the basis-reconciliation method (FRBNY par change "
+"vs TIC official transactions-basis change = dHoldings - cumulative stated valchg; ARTIFACT <= 50 / REAL >= 150 / PARTIAL "
+"between), and the flipped guard verbatim both directions. GROUNDING (data-source-agent; committed e5e2ff7; every quote "
+"spot-checked byte-verbatim by the gate against raw retained publisher files): grounded set = Belgium, Luxembourg, Switzerland, "
+"United Kingdom (SHL 2025 sec 4.3.4 custodial-bias passage + ICSD lines + TIC FAQ 7 + MFH methodology note; HIGH confidence) plus "
+"Caribbean-banking-centers as a publisher-named GROUP (MFH note + FAQ 7; MEDIUM -- custodial naming exists only at group level, "
+"members individually beneficial-owner-tagged). Ambiguous, NOT entered (publisher's own text places them in the fund subset): "
+"Cayman individually, Ireland; rejected: Hong Kong, BVI individually -- every exclusion pushes AGAINST the fired branch, so none "
+"could have manufactured it. Basis quotes found verbatim and retained: H.4.1 memo line at FACE VALUE (Table 1A footnote 1, "
+"June 2026 release fetched from federalreserve.gov); TIC MFH/SLT at ESTIMATED (market) VALUE, hybrid bills-at-face (FAQ 10a + MFH "
+"valuation paragraph); input-path friction disclosed (the pre-registered slt2d official rows were superseded by the slt_table# "
+"files per the publisher's 2023-03-31 notice -- method unchanged, path corrected). INGREDIENTS (estimation-agent; committed "
+"0f1aa35; recompute independently re-run by the orchestrator, byte-identical): gross and window-net class-matched accretion vs "
+"China's shed classes computed for EVERY SLT Table 1 country line (114 lines, no pre-filter), both windows; verdict-axis "
+"candidates (gross/net busd) UK 565.700/358.035, LU 271.472/131.093, CH 197.519/48.426, BE 111.850/18.087; sanity: pooled BE+LU "
+"window-net reproduces RDT-E capA EXACTLY (2.560/66.961/0/0 total 69.521, diff 0.0; separate-sum 149.180 >= pooled by convexity, "
+"the -64.070/+66.630 knife-edge stated); RDTC panel cross-check max abs diff 0.0. ASSEMBLY (estimation-agent; RDTF_result.json + "
+"RDTF_recompute.py + RDTF_verify.json all_pass=true; orchestrator independently re-ran -> result sha 6937500...86f220b and amended "
+"object sha 7e8a472...94d80007 byte-identical; insert-only RDTF-AMEND blocks strip to the post-RDT-E sha 5f2d18e7...; unfired "
+"branches fail-loud assertion-guarded): CARIB-BC handled by the disclosed mechanical rule -- SLT's 'Total Caribbean' membership "
+"DIFFERS from the publisher's CBC definition (>= 7 non-CBC lines implied; Panama-overshoot test guarded in code), so the group "
+"ceiling was constructed at GROUP level from publisher member lines = 565.700 (SLT-aggregate 522.769 and SHL-variant 529.382 "
+"carried as labelled sensitivities; the choice is VERDICT-IRRELEVANT -- the cap binds either way, and dropping the whole group "
+"still cap-binds). Sum over grounded set (gross) = 1712.241; WITHOUT the group = 1146.541 (BE/LU/CH/UK alone force the branch); "
+"window-net 901.932/555.641 alongside. **M_hi_global = min(1712.241, 446.493) = 446.493 -- the cap BINDS, the ceiling is VACUOUS; "
+"BRANCH: FORK-REOPENED** (446.493 > 111.623). ROUTE-ROBUST INTERVAL: dNonUS-true in [48.484, 494.977] busd -- NEARLY "
+"UNINFORMATIVE, stated plainly in those words; RDT-E's bound (M_hi 69.521, [425.456, 494.977]) NESTED and re-labelled "
+"ROUTE-SPECIFIC (BE/LU only) exactly per the pre-registered mapping, not an editorial demotion. LOCO: all five single-center "
+"drops remain cap-bound (min drop-sum 1146.541 > 446.493) -- FORK-REOPENED is LOCO-ROBUST; full table in result and object body. "
+"Pre-registered primary expectation (FORK-REOPENED + REAL-or-PARTIAL) CONFIRMED on both axes -- and the gate checked the "
+"apparatus was not built to force it (MINOR-ROBUST was reachable; the construction is the task's own specification). BASIS "
+"RECONCILIATION: raw divergence 349.023 collapses under the stated face-value/transactions-basis adjustment to a residual of "
+"**73.531 busd -> PARTIAL** (strictly inside (50,150)); the pre-registered leg yields the LEAST dramatic of the three adjusted "
+"candidates (73.531 vs context variants 123.080/191.570) -- the mid-band was not manufactured; the required statement rendered "
+"unsmoothed: official custody leaving the Fed at scale is STRUCTURALLY LIVE in-window and bears on Part 1's interpretation; "
+"universe switch (MFH incl-bills vs SLT LT-only) and sign structure (the two DECLINE legs converge; the MFH +116.8 contrast "
+"stated, not reconciled) carried as limitations. GATE: integrity-critic PASS -- all six explicit checks verified against the "
+"real files (center set grounded none chosen; verdict on gross; threshold byte-match; basis quotes real; LOCO arithmetic; "
+"flipped guard both ways honored). NON-BLOCKING FLAGS ROUTED TO THE HUMAN GATE: (1) stale line-number CITATIONS in the "
+"grounding docs (quotes byte-verbatim but extraction regenerated after pointers written -- do not navigate by cited line "
+"numbers); (2) commit ordering: the all-country ingredients tables were committed BEFORE the grounding-complete commit, so "
+"per-country numbers were visible before the ambiguous center-set calls finalized -- mitigated (BE/LU/CH/UK fixed by the "
+"pre-registration's known candidate line alone force the branch; every discretionary call verdict-irrelevant with exclusions "
+"pointing against the fired branch) but the derive-then-measure ordering was not honored in commit order; (3) FORK-REOPENED was "
+"near-structurally guaranteed (any major center's 36-month gross inflow exceeds 111.6) -- the artifacts state the deliverable is "
+"the VACUITY of the route-robust ceiling, NOT positive evidence of migration; downstream summaries must not read the label as "
+"migration evidence; (4) unfired-branch narration is fail-loud-guarded rather than fully implemented (guard doctrine; the "
+"docstring slightly overstates); (5) the critic's stated limits: it cannot prove absence of planting in the derivation rule's "
+"design, did not independently recompute the ingredients panel from SLT source (rests on the ingredients verifier + orchestrator "
+"re-run), and flags the one place of real interpretive latitude -- whether operationalizing the discontinued CBC group through "
+"member lines (incl. beneficial-owner-tagged CYM/VGB at group level) respects the zero-guard's SPIRIT: disclosed, "
+"MEDIUM-flagged, verdict-irrelevant, routed to this human gate. NET FOR THE OBJECT: the migration fork RE-OPENS once routes "
+"beyond BE/LU are admitted -- the route-robust ceiling is vacuous (gross custody-center absorption room exceeds China's entire "
+"decline), so the [425.456, 494.977] true-departure reading survives ONLY as a BE/LU-route-specific bound; and the custody "
+"tension is PARTIALLY real: a 73.5 busd residual of official custody leaving the Fed survives the stated basis adjustment, "
+"making large-scale custody relocation structurally live in-window. Scope clean; what follows RDT-F, if anything, is decided at "
+"this gate.")
+j['steps'].append({
+  "id": "RDTF",
+  "status": "done",
+  "verifier": "build/reserve/RDTF_verify.json",
+  "gate": "human",
+  "approved_marker": "build/approvals/RDTF.approved",
+  "note": note
+})
+with open(p, 'w') as f:
+    json.dump(j, f, indent=2)
+    f.write('\n')
+print('RDTF entry appended; steps now:', [s['id'] for s in j['steps']])
+PYEOF
+2026-07-02T17:37:45Z RDT-F: GATE PASS (all six explicit checks verified; 5 non-blocking flags routed to human gate); RDTF ledger entry written (verifier build/reserve/RDTF_verify.json exists, all_pass=true); stage closing, PR retitle next
