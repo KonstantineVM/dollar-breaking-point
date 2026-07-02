@@ -6111,3 +6111,20 @@ EOF
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1) || echo "tree clean"
+2026-07-02T16:08:56Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTF_prediction.md build/run-ledger.log && git commit -m "RDT-F pre-registration: route-robust migration ceiling + custody-basis reconciliation design
+
+Committed BEFORE any RDT-F build. Fixes ex ante: the custody-center derivation
+rule (publisher-quoted lines only; beneficial-owner jurisdictions excluded by
+the zero-guard); the GROSS class-matched ceiling as the verdict basis with
+window-net as the disputed sensitivity; M_hi_global = min(sum over grounded
+centers, 446.493) with the vacuous-ceiling -> FORK-REOPENED rule; branch
+thresholds carried programmatically from committed RDTE_prediction.md
+(MINOR-ROBUST iff <= 111.623); mandatory leave-one-center-out; the basis
+reconciliation method (FRBNY par change vs TIC official transactions-basis
+change; ARTIFACT <= 50 / REAL >= 150 / PARTIAL); the flipped guard verbatim
+both directions; symmetric falsifiable expectation; RDTF-AMEND insert-only
+amendment mechanics.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
+2026-07-02T16:10:38Z RDT-F: pre-registration committed 6701b5c; Phase-1 agents launched (centers grounding + ingredients tables); orchestrator holding
