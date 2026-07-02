@@ -1,0 +1,42 @@
+{
+ "purpose": "verifier artifact for RDT-C Parts 2-3: records that RDTC_result.json and the amended RDT_breaking_point_object.md were regenerated deterministically from the committed inputs by build/reserve/RDTC_recompute.py, and that the unmodified build/reserve/RDTC_class_recompute.py, re-run in a sandbox from the committed inputs alone, byte-reproduces the committed RDTC_class_flows.json; until all_pass=true every number in these outputs is an OUTPUT, not established",
+ "no_date_no_probability_no_currency_guess": "no date, no probability, and no destination-currency guess anywhere in the RDT-C outputs",
+ "network": "none",
+ "inputs_sha256": {
+  "build/data/treasury_tic/current/slt_tables/slt_table1.txt": "d9cc29a1066c0a783561c5bf1683c8719d66b62b48c50e0adb09ccfe2a7f6fee",
+  "build/reserve/rdt_evidence/tic/slt_table3.txt": "d53727506606d107d06bff218e3a3873256d7f0f545e9ad5bd6ea79591211d5f",
+  "build/reserve/rdt_evidence/tic/s1_globl.txt": "6ac22414083e85968d18fc2aea5c5f69fdb8eb4bad522fa17713c9c9190a8733",
+  "build/reserve/rdt_evidence/tic/slt3d_globl.csv": "d6b74f0a24e156f86911a383b1a2ae1fdd444017b4875716ed67a0fdeeba52ae",
+  "build/reserve/rdt_evidence/tic/mfhhis01.csv": "d0f4693d7b346f9993fae472c440f93c9fd3cebafcf31c15d1c8a8fc96950e56",
+  "build/reserve/RDTB_k3_distribution.json": "2806bb37bc823f7d5974f5be5d96a0b38575e54b281ea3d2940fb6ab9801ef6f",
+  "build/reserve/RDTB_k3_panel.parquet": "633880957309c0427f3a8228ea543822b2e158c99b44f09eaa0ca0f0e10222a7",
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTC_class_recompute.py": "639a146394e236c045232ca786ed8017c092075074ea59dc2dc63a690b74934d",
+  "build/reserve/RDTC_class_panel.parquet": "f0bc20d218fd05998ff70a15ef790ba3454592b185c70eda4ebe14c8751d6e93",
+  "build/reserve/rdtc_safe_totals.csv": "1a838d71a113c8f7b0ff84d91c66460fe46f8b89c2896f719d00249e3ad03ee1",
+  "build/reserve/rdtc_safe_manifest.json": "896cd940b16d6562cd4c208ece965fa6f5852870afec8706273ac9ab2a86912f",
+  "build/reserve/RDTC_prediction.md": "fafc54afa33e4bdc3238a3d763d769fd8393cc9f243be805a2cec353d044b458",
+  "build/reserve/RDTB_verify.json": "77cc19d47a91957694f65d56e5164e35dea6a0a27ec07d6ce374095192b81f22"
+ },
+ "outputs_sha256": {
+  "RDTC_result.json": "7785fa6bf11e5ee06e51b42226dec549570637f4839306b8317b4190c9931a44",
+  "RDT_breaking_point_object.md": "c2b53cc9ed197915e4e36221a0f57bc59652804620cd2d88e1e73bf3561e3f25"
+ },
+ "match_flags": {
+  "result_two_pass_payload_identical": true,
+  "result_matches_previous_file": true,
+  "result_byte_reproduction": true,
+  "class_leg_sandbox_rerun_byte_identical": true,
+  "class_leg_rerun_note": "byte-identical",
+  "class_panel_content_sha_matches_committed_json": true,
+  "amended_object_byte_reproduction": true,
+  "stripped_base_matches_post_rdtb_sha256": true,
+  "rule_reapplication_mismatches_zero": true
+ },
+ "post_rdtb_object_sha256": {
+  "stripped_base_recomputed_here": "c829162d0c2bb5988af13cb064592871f58d8226de05c2adfb93038367142b4e",
+  "recorded_in_RDTB_verify_json": "c829162d0c2bb5988af13cb064592871f58d8226de05c2adfb93038367142b4e",
+  "note": "RDTB_verify.json's object sha256 is the RDT-C amendment base; the further-amended object's byte-reproduction is carried here"
+ },
+ "all_pass": true
+}

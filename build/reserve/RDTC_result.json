@@ -1,0 +1,662 @@
+{
+ "artifact": "RDTC_result (RDT-C Parts 2-3: destination result + mechanical verdict)",
+ "establishment": "NOT ESTABLISHED -- output of RDTC_recompute.py; every number and the verdict below are OUTPUTS pending the verifier scenario (RDTC_verify.json all_pass=true and the human gate). Nothing here is a forecast; no date, no probability, no destination-currency guess.",
+ "contract": "build/reserve/RDTC_prediction.md (pre-registered before any RDT-C build)",
+ "inputs_sha256": {
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTC_class_recompute.py": "639a146394e236c045232ca786ed8017c092075074ea59dc2dc63a690b74934d",
+  "build/reserve/RDTC_class_panel.parquet": "f0bc20d218fd05998ff70a15ef790ba3454592b185c70eda4ebe14c8751d6e93",
+  "build/reserve/rdtc_safe_totals.csv": "1a838d71a113c8f7b0ff84d91c66460fe46f8b89c2896f719d00249e3ad03ee1",
+  "build/reserve/rdtc_safe_manifest.json": "896cd940b16d6562cd4c208ece965fa6f5852870afec8706273ac9ab2a86912f",
+  "build/reserve/RDTC_prediction.md": "fafc54afa33e4bdc3238a3d763d769fd8393cc9f243be805a2cec353d044b458",
+  "build/reserve/RDTB_verify.json": "77cc19d47a91957694f65d56e5164e35dea6a0a27ec07d6ce374095192b81f22"
+ },
+ "branch_a_closure_test": {
+  "pre_registered_rule": "branch (a) is closed only pending this fetch; it REOPENS (verdict DRAWDOWN-REOPENED regardless of the ledger) if the fetched ex-gold FX-reserves line FELL roughly in step with the UST outflow over the verdict window",
+  "series": "SAFE foreign-exchange-reserves line (ex-gold), fetched rdtc_safe_totals.csv, read directly",
+  "windows": {
+   "recent_3y_verdict_axis": {
+    "window": "2023-05 -> 2026-04",
+    "label": "VERDICT AXIS (RDT-B recent-3y window verbatim)",
+    "fx_start_bn": 3176.508,
+    "fx_end_bn": 3410.547,
+    "delta_bn": 234.039,
+    "direction": "ROSE",
+    "reference_month_convention": {
+     "window": "2023-04 -> 2026-04",
+     "delta_bn": 205.781,
+     "direction": "ROSE"
+    }
+   },
+   "freeze_era_2022_03": {
+    "window": "2022-03 -> 2026-04",
+    "label": "context (pre-registered, labelled freeze-era; end = TIC latest)",
+    "fx_start_bn": 3187.994,
+    "fx_end_bn": 3410.547,
+    "delta_bn": 222.553,
+    "direction": "ROSE",
+    "reference_month_convention": {
+     "window": "2022-02 -> 2026-04",
+     "delta_bn": 196.72,
+     "direction": "ROSE"
+    }
+   },
+   "freeze_era_to_safe_latest": {
+    "window": "2022-03 -> 2026-05",
+    "label": "context (freeze-era to latest fetched SAFE month)",
+    "fx_start_bn": 3187.994,
+    "fx_end_bn": 3442.238,
+    "delta_bn": 254.244,
+    "direction": "ROSE",
+    "reference_month_convention": {
+     "window": "2022-02 -> 2026-05",
+     "delta_bn": 228.411,
+     "direction": "ROSE"
+    }
+   },
+   "full_2013": {
+    "window": "2013-01 -> 2026-04",
+    "label": "context (pre-registered full window)",
+    "status": "NOT COMPUTABLE from the fetched SAFE series (coverage 2021-12..2026-05); stated, not interpolated"
+   },
+   "calendar_end2021_to_end2025": {
+    "window": "2021-12 -> 2025-12",
+    "label": "context (calendar reading, neither privileged)",
+    "fx_start_bn": 3250.166,
+    "fx_end_bn": 3357.869,
+    "delta_bn": 107.703,
+    "direction": "ROSE"
+   },
+   "calendar_end2022_to_end2025": {
+    "window": "2022-12 -> 2025-12",
+    "label": "context (calendar reading; reproduces the ~+$230bn search figure, now grounded)",
+    "fx_start_bn": 3127.691,
+    "fx_end_bn": 3357.869,
+    "delta_bn": 230.178,
+    "direction": "ROSE",
+    "reference_month_convention": {
+     "window": "2022-11 -> 2025-12",
+     "delta_bn": 240.381,
+     "direction": "ROSE"
+    }
+   }
+  },
+  "intra_2022_dip": {
+   "window": "2021-12 -> 2022-09 (trough, computed as the csv minimum over 2021-12..2022-12)",
+   "fx_start_bn": 3250.166,
+   "fx_trough_bn": 3028.955,
+   "delta_bn": -221.211,
+   "direction": "FELL",
+   "direction_flag": "coincides with the 2022 rates selloff + USD strength; direction consistent with valuation losses at ZERO selling (intra-FX-line valuation is not decomposable from SAFE data); reversed by the 2023-2025 bond rally + partial USD retreat, which flatters the FX-line rise over windows starting in 2022",
+   "manifest_label_discrepancy": "the SAFE manifest labels the trough 2022-10 (3052.427 bn); the csv minimum is 2022-09 (3028.955 bn) -- surfaced, not smoothed; the direction flag and the closure verdict are unaffected"
+  },
+  "verdict_axis_reading": "ex-gold FX line ROSE 234.039 $bn over the verdict axis (3176.508 -> 3410.547); reference-month convention 205.781 $bn, ROSE either way -- while the China-alone UST active flow over the same axis is -284.774 $bn",
+  "all_computable_windows_rose": true,
+  "gold_valuation_quantified": {
+   "window": "2021-12 -> 2026-05",
+   "total_reserves_rise_bn": 423.678,
+   "gold_value_rise_bn": 227.627,
+   "gold_volume_moz": [
+    62.64,
+    74.96
+   ],
+   "implied_price_usd_oz": [
+    1805.95,
+    4545.78
+   ],
+   "valuation_on_initial_holdings_bn": 171.623,
+   "volume_purchases_at_end_price_bn": 56.004,
+   "gold_valuation_share_of_total_reserves_rise": 0.4051,
+   "decomposition_convention": "delta_gold_value = oz_start*(px_end-px_start) + (oz_end-oz_start)*px_end; price = SAFE-implied (gold value / gold volume, same release)",
+   "implication": "40.5% of the 2021-12->2026-05 rise in TOTAL reserves is gold-price valuation on pre-held ounces -- this is why the pre-registered closure test uses the ex-gold FX-reserves line"
+  },
+  "intra_fx_line_caveat": "inside the FX-reserves line, non-USD currency valuation and bond-price valuation are NOT decomposable from SAFE data (no monthly currency/instrument composition is published); bounded by direction statements only -- see intra_2022_dip.direction_flag",
+  "status": "STAYS CLOSED -- confirmed by fetch (the ex-gold FX line ROSE over the verdict axis and every computable pre-registered window)",
+  "reopened": false,
+  "verdict_axis_direction_agrees_across_conventions": true
+ },
+ "safe_manifest_cross_check": {
+  "verdict_axis_delta_abs_diff_bn": 0.0,
+  "gold_valuation_share_abs_diff": 0.0,
+  "gold_purchases_abs_diff_bn": 0.0,
+  "trough_label": "the SAFE manifest labels the trough 2022-10 (3052.427 bn); the csv minimum is 2022-09 (3028.955 bn) -- surfaced, not smoothed; the direction flag and the closure verdict are unaffected"
+ },
+ "ledgers": {
+  "recent_3y_verdict_axis": {
+   "china_alone": {
+    "window": "recent_3y_verdict_axis",
+    "role": "VERDICT AXIS (RDT-B recent-3y window verbatim)",
+    "start": "2023-05",
+    "end": "2026-04",
+    "holdings_reference_month": "2023-04",
+    "variant": "china_alone",
+    "countries": [
+     "China, Mainland"
+    ],
+    "basis_composition": {
+     "form_s_months": 0,
+     "slt_months": 36,
+     "break_at": "none inside window -- uniform SLT basis"
+    },
+    "X_ust_active_busd": -284.774,
+    "A_nonust_active_busd": {
+     "agency_lt": -93.849,
+     "corp_other_bonds_lt": 1.573,
+     "equity_lt": -69.443,
+     "total": -161.719
+    },
+    "A_over_absX": -0.5679,
+    "residual_left_us_busd": 446.493,
+    "ledger_identity": "|UST-active| = A(absorbed within US LT) + residual(left US securities): 284.774 = -161.719 + 446.493 $bn",
+    "branch": "LEFT-US-SECURITIES",
+    "per_class": {
+     "treasury_lt": {
+      "active_cum_busd": -284.774,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": -246.177,
+      "valuation_residual_busd": 38.597,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): 17.154",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 21.443,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "agency_lt": {
+      "active_cum_busd": -93.849,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": -113.735,
+      "valuation_residual_busd": -19.886,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): -1.615",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": -18.271,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "corp_other_bonds_lt": {
+      "active_cum_busd": 1.573,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": -3.255,
+      "valuation_residual_busd": -4.828,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): -5.401",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 0.573,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "equity_lt": {
+      "active_cum_busd": -69.443,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": 102.229,
+      "valuation_residual_busd": 171.672,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): -14.698",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "equity class: the valuation residual moves with the US equity market -- a positive residual is market appreciation (not buying); a negative residual is a market fall (not selling).",
+      "published_valchg_cum_busd_slt_part": 186.37,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     }
+    },
+    "branch_reapplied_here": "LEFT-US-SECURITIES"
+   },
+   "china_belgium_luxembourg": {
+    "window": "recent_3y_verdict_axis",
+    "role": "VERDICT AXIS (RDT-B recent-3y window verbatim)",
+    "start": "2023-05",
+    "end": "2026-04",
+    "holdings_reference_month": "2023-04",
+    "variant": "china_belgium_luxembourg",
+    "countries": [
+     "China, Mainland",
+     "Belgium",
+     "Luxembourg"
+    ],
+    "basis_composition": {
+     "form_s_months": 0,
+     "slt_months": 36,
+     "break_at": "none inside window -- uniform SLT basis"
+    },
+    "X_ust_active_busd": -282.214,
+    "A_nonust_active_busd": {
+     "agency_lt": -26.888,
+     "corp_other_bonds_lt": 97.091,
+     "equity_lt": -114.312,
+     "total": -44.109
+    },
+    "A_over_absX": -0.1563,
+    "residual_left_us_busd": 326.323,
+    "ledger_identity": "|UST-active| = A(absorbed within US LT) + residual(left US securities): 282.214 = -44.109 + 326.323 $bn",
+    "branch": "LEFT-US-SECURITIES",
+    "per_class": {
+     "treasury_lt": {
+      "active_cum_busd": -282.214,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": -52.63,
+      "valuation_residual_busd": 229.584,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): 174.358",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 55.226,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "agency_lt": {
+      "active_cum_busd": -26.888,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": -49.796,
+      "valuation_residual_busd": -22.908,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): 1.118",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": -24.026,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "corp_other_bonds_lt": {
+      "active_cum_busd": 97.091,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": 313.172,
+      "valuation_residual_busd": 216.081,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): 50.969",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 165.112,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "equity_lt": {
+      "active_cum_busd": -114.312,
+      "active_months_nonmissing": "36/36",
+      "delta_holdings_busd": 595.539,
+      "valuation_residual_busd": 709.851,
+      "residual_decomposition": "other_changes_busd (survey benchmark / coverage reattribution; NOT selling and NOT price): -62.579",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "equity class: the valuation residual moves with the US equity market -- a positive residual is market appreciation (not buying); a negative residual is a market fall (not selling).",
+      "published_valchg_cum_busd_slt_part": 772.43,
+      "published_valchg_months": "36/36 (SLT-covered months only; none exist pre-2023-02)"
+     }
+    },
+    "branch_reapplied_here": "LEFT-US-SECURITIES"
+   }
+  },
+  "full_2013": {
+   "china_alone": {
+    "window": "full_2013",
+    "role": "context (pre-registered)",
+    "start": "2013-01",
+    "end": "2026-04",
+    "holdings_reference_month": "2012-12",
+    "variant": "china_alone",
+    "countries": [
+     "China, Mainland"
+    ],
+    "basis_composition": {
+     "form_s_months": 121,
+     "slt_months": 39,
+     "break_at": "2023-02"
+    },
+    "X_ust_active_busd": -372.546,
+    "A_nonust_active_busd": {
+     "agency_lt": 502.018,
+     "corp_other_bonds_lt": 27.438,
+     "equity_lt": -88.848,
+     "total": 440.608
+    },
+    "A_over_absX": 1.1827,
+    "residual_left_us_busd": -68.062,
+    "ledger_identity": "|UST-active| = A(absorbed within US LT) + residual(left US securities): 372.546 = 440.608 + -68.062 $bn",
+    "branch": "WITHIN-US-ROTATION",
+    "per_class": {
+     "treasury_lt": {
+      "active_cum_busd": -372.546,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 28.798,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "agency_lt": {
+      "active_cum_busd": 502.018,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": -22.396,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "corp_other_bonds_lt": {
+      "active_cum_busd": 27.438,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 0.678,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "equity_lt": {
+      "active_cum_busd": -88.848,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "equity class: the valuation residual moves with the US equity market -- a positive residual is market appreciation (not buying); a negative residual is a market fall (not selling).",
+      "published_valchg_cum_busd_slt_part": 192.143,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     }
+    },
+    "branch_reapplied_here": "WITHIN-US-ROTATION"
+   },
+   "china_belgium_luxembourg": {
+    "window": "full_2013",
+    "role": "context (pre-registered)",
+    "start": "2013-01",
+    "end": "2026-04",
+    "holdings_reference_month": "2012-12",
+    "variant": "china_belgium_luxembourg",
+    "countries": [
+     "China, Mainland",
+     "Belgium",
+     "Luxembourg"
+    ],
+    "basis_composition": {
+     "form_s_months": 121,
+     "slt_months": 39,
+     "break_at": "2023-02"
+    },
+    "X_ust_active_busd": -998.181,
+    "A_nonust_active_busd": {
+     "agency_lt": 694.417,
+     "corp_other_bonds_lt": -21.371,
+     "equity_lt": -92.537,
+     "total": 580.509
+    },
+    "A_over_absX": 0.5816,
+    "residual_left_us_busd": 417.672,
+    "ledger_identity": "|UST-active| = A(absorbed within US LT) + residual(left US securities): 998.181 = 580.509 + 417.672 $bn",
+    "branch": "WITHIN-US-ROTATION",
+    "per_class": {
+     "treasury_lt": {
+      "active_cum_busd": -998.181,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 60.592,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "agency_lt": {
+      "active_cum_busd": 694.417,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": -27.617,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "corp_other_bonds_lt": {
+      "active_cum_busd": -21.371,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 166.362,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "equity_lt": {
+      "active_cum_busd": -92.537,
+      "active_months_nonmissing": "160/160",
+      "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+      "valuation_residual_busd": "NOT AVAILABLE (delta holdings unavailable)",
+      "residual_decomposition": "NOT AVAILABLE (delta holdings unavailable)",
+      "valuation_residual_direction": "UNDETERMINED over this window",
+      "direction_rule": "equity class: the valuation residual moves with the US equity market -- a positive residual is market appreciation (not buying); a negative residual is a market fall (not selling).",
+      "published_valchg_cum_busd_slt_part": 779.012,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     }
+    },
+    "branch_reapplied_here": "WITHIN-US-ROTATION"
+   }
+  },
+  "freeze_era_2022_03": {
+   "china_alone": {
+    "window": "freeze_era_2022_03",
+    "role": "context (pre-registered, labelled freeze-era)",
+    "start": "2022-03",
+    "end": "2026-04",
+    "holdings_reference_month": "2022-02",
+    "variant": "china_alone",
+    "countries": [
+     "China, Mainland"
+    ],
+    "basis_composition": {
+     "form_s_months": 11,
+     "slt_months": 39,
+     "break_at": "2023-02"
+    },
+    "X_ust_active_busd": -330.032,
+    "A_nonust_active_busd": {
+     "agency_lt": 13.586,
+     "corp_other_bonds_lt": 3.812,
+     "equity_lt": -76.886,
+     "total": -59.488
+    },
+    "A_over_absX": -0.1802,
+    "residual_left_us_busd": 389.52,
+    "ledger_identity": "|UST-active| = A(absorbed within US LT) + residual(left US securities): 330.032 = -59.488 + 389.520 $bn",
+    "branch": "LEFT-US-SECURITIES",
+    "per_class": {
+     "treasury_lt": {
+      "active_cum_busd": -330.032,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": -413.8,
+      "valuation_residual_busd": -83.768,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 28.798,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "agency_lt": {
+      "active_cum_busd": 13.586,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": -62.565,
+      "valuation_residual_busd": -76.151,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": -22.396,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "corp_other_bonds_lt": {
+      "active_cum_busd": 3.812,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": -2.924,
+      "valuation_residual_busd": -6.736,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 0.678,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "equity_lt": {
+      "active_cum_busd": -76.886,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": 108.953,
+      "valuation_residual_busd": 185.839,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "equity class: the valuation residual moves with the US equity market -- a positive residual is market appreciation (not buying); a negative residual is a market fall (not selling).",
+      "published_valchg_cum_busd_slt_part": 192.143,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     }
+    },
+    "branch_reapplied_here": "LEFT-US-SECURITIES"
+   },
+   "china_belgium_luxembourg": {
+    "window": "freeze_era_2022_03",
+    "role": "context (pre-registered, labelled freeze-era)",
+    "start": "2022-03",
+    "end": "2026-04",
+    "holdings_reference_month": "2022-02",
+    "variant": "china_belgium_luxembourg",
+    "countries": [
+     "China, Mainland",
+     "Belgium",
+     "Luxembourg"
+    ],
+    "basis_composition": {
+     "form_s_months": 11,
+     "slt_months": 39,
+     "break_at": "2023-02"
+    },
+    "X_ust_active_busd": -401.55,
+    "A_nonust_active_busd": {
+     "agency_lt": 99.122,
+     "corp_other_bonds_lt": 89.671,
+     "equity_lt": -107.185,
+     "total": 81.608
+    },
+    "A_over_absX": 0.2032,
+    "residual_left_us_busd": 319.942,
+    "ledger_identity": "|UST-active| = A(absorbed within US LT) + residual(left US securities): 401.550 = 81.608 + 319.942 $bn",
+    "branch": "MIXED",
+    "per_class": {
+     "treasury_lt": {
+      "active_cum_busd": -401.55,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": -124.911,
+      "valuation_residual_busd": 276.639,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 60.592,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "agency_lt": {
+      "active_cum_busd": 99.122,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": 23.119,
+      "valuation_residual_busd": -76.003,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation LOSS over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": -27.617,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "corp_other_bonds_lt": {
+      "active_cum_busd": 89.671,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": 221.072,
+      "valuation_residual_busd": 131.401,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "bond class: the valuation residual is a price effect (rates/credit). The 2022 rates selloff CUT bond values -- a negative residual is a valuation loss, NEVER counted as selling (the false-exit confound, per class).",
+      "published_valchg_cum_busd_slt_part": 166.362,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     },
+     "equity_lt": {
+      "active_cum_busd": -107.185,
+      "active_months_nonmissing": "50/50",
+      "delta_holdings_busd": 452.333,
+      "valuation_residual_busd": 559.518,
+      "residual_decomposition": "other-changes decomposition PARTIAL -- window includes pre-2023-02 months with no published by-country valuation change; not decomposed, not interpolated",
+      "valuation_residual_direction": "valuation GAIN over window",
+      "direction_rule": "equity class: the valuation residual moves with the US equity market -- a positive residual is market appreciation (not buying); a negative residual is a market fall (not selling).",
+      "published_valchg_cum_busd_slt_part": 779.012,
+      "published_valchg_months": "39/39 (SLT-covered months only; none exist pre-2023-02)"
+     }
+    },
+    "branch_reapplied_here": "MIXED"
+   }
+  }
+ },
+ "rule_reapplication": {
+  "mismatches": [],
+  "note": "the pre-registered rule is re-applied here to every carried ledger; the recorded branch is never trusted"
+ },
+ "headline": {
+  "window": "recent_3y_verdict_axis",
+  "start": "2023-05",
+  "end": "2026-04",
+  "china_alone": "LEFT-US-SECURITIES",
+  "china_belgium_luxembourg": "LEFT-US-SECURITIES",
+  "note": "the headline is the VERDICT AXIS only (fixed ex ante = the RDT-B recent-3y window verbatim); full_2013 (WITHIN-US-ROTATION both variants) and freeze_era_2022_03 (china_alone LEFT-US-SECURITIES; 3-ctry MIXED) are pre-registered CONTEXT, reported beside it, never the verdict"
+ },
+ "verdict": {
+  "verdict": "EXIT-CONSISTENT-CURRENCY-UNDETERMINED (c)",
+  "mechanical_basis": "both custody variants on the verdict axis land LEFT-US-SECURITIES with A < 0 -- the stronger form: agencies and equities were sold alongside Treasuries, so the total US LT active outflow exceeds the UST leg alone (china_alone X = -284.774, A = -161.719, A/|X| = -0.568, residual 446.493 $bn; china+BE+LU X = -282.214, A = -44.109, A/|X| = -0.156, residual 326.323 $bn) -- AND branch (a) is closed (SAFE ex-gold FX line ROSE 234.039 $bn over the same axis): the outflow LEFT US SECURITIES while reserves did not fall; the destination currency is UNDETERMINED (the RDT-B k1 wall) -- never guessed",
+  "destination_currency": "UNDETERMINED -- the RDT-B k1 wall; never guessed",
+  "rdtb_reconciliation_carried": {
+   "verdict_axis_china_ust_active_busd_mine": -284.774,
+   "verdict_axis_china_ust_active_busd_rdtb": -284.774,
+   "verdict_axis_abs_diff_busd": 0.0,
+   "monthly_vs_rdtb_panel": {
+    "countries": [
+     "China, Mainland",
+     "Belgium",
+     "Luxembourg"
+    ],
+    "overlapping_nonmissing_months": 480,
+    "max_abs_diff_busd": 0.0,
+    "max_diff_at": {
+     "country": "China, Mainland",
+     "month": "2013-01"
+    }
+   },
+   "slt_table1_vs_slt_table3_lt_treas_net": {
+    "cells_compared": 117,
+    "max_abs_diff_musd": 0.0
+   }
+  }
+ },
+ "expectation_evaluation": {
+  "pre_registered_primary": "MIXED (not favored; symmetric -- no branch privileged; the ledger decides)",
+  "evaluation": "REFUTED toward (c)",
+  "basis": "A <= 0.1|X| on both custody variants -- in fact A < 0 on both (china_alone A = -161.719 $bn, china+BE+LU A = -44.109 $bn)"
+ },
+ "honest_tensions": [
+  {
+   "id": "full-window-rotation",
+   "statement": "the FULL window (2013-01..2026-04) lands WITHIN-US-ROTATION on both variants (china_alone A/|X| = 1.183; pooled 0.582): the rotation-into-agencies story is REAL for 2013-2021 (china_alone cumulative agency active +502.018 $bn over the full window) and REVERSED after (verdict-axis agency active -93.849 $bn). The verdict is about the recent-3y axis, which was fixed ex ante in the pre-registration -- not chosen after seeing this contrast"
+  },
+  {
+   "id": "destination-not-identified",
+   "statement": "the class-leg residual \"left US securities\" is a TIC-measured active outflow from US LT securities. WHERE it went -- non-US bonds, bank deposits, gold purchases (+56.004 $bn of volume-at-end-price per the SAFE decomposition), CIPS-settled assets -- is NOT identified by any artifact here"
+  },
+  {
+   "id": "slt-identity-gap",
+   "statement": "the published SLT identity does not close: dHoldings != net + valchg; max single-month gap 106.965 $bn (Luxembourg, total_lt, 2023-12) -- annual survey benchmark / coverage-custody reattribution, largest in the custody centers; carried as a stated data property, never read as selling or as a price move",
+   "located_from_panel": {
+    "max_abs_gap_busd": 106.965,
+    "country": "Luxembourg",
+    "asset_class": "total_lt",
+    "month": "2023-12"
+   }
+  },
+  {
+   "id": "custody-band",
+   "statement": "the custody-band width persists through every term: China-alone vs China+Belgium+Luxembourg are BOTH carried on every window and the band is never collapsed; on the verdict axis the two variants happen to agree on the branch (both LEFT-US-SECURITIES) but their ledgers differ materially (A/|X| = -0.568 vs -0.156)"
+  }
+ ],
+ "flipped_guard": {
+  "DRAMATIZE": "respected: the ledger is active-basis only; every per-class valuation residual in the carried ledgers has its direction statement, and a class-level valuation loss is never read as selling (see ledgers.*.per_class.*.direction_rule)",
+  "ZERO": "respected: no window beyond the three pre-registered ones is introduced; the verdict axis is the RDT-B recent-3y window verbatim, fixed before any RDT-C data"
+ },
+ "self_check": {
+  "no_date_no_probability_no_currency_guess": "no breaking-point date, no probability, and no destination-currency guess appear in this artifact",
+  "branch_a_all_computable_windows_rose": true,
+  "rule_reapplication_mismatches": 0,
+  "verdict_axis_variants_agree": true,
+  "class_json_headline_matches": true,
+  "double_build_identical": true
+ }
+}

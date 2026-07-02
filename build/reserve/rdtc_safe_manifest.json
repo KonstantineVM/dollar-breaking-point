@@ -145,13 +145,15 @@
       "build/reserve/rdtc_evidence/safe_cn_27116.html",
       "build/reserve/rdtc_evidence/safe_forexreserves_index.html",
       "build/reserve/rdtc_evidence/safe_cn_gfcbzc_index.html",
+      "build/reserve/rdtc_evidence/safe_cn_tjsj.html",
       "build/reserve/rdtc_evidence/safe_ora_page_2021.html",
       "build/reserve/rdtc_evidence/safe_ora_page_2022.html",
       "build/reserve/rdtc_evidence/safe_ora_page_2023.html",
       "build/reserve/rdtc_evidence/safe_ora_page_2024.html",
       "build/reserve/rdtc_evidence/safe_ora_page_2025.html",
       "build/reserve/rdtc_evidence/safe_ora_page_2026.html"
-    ]
+    ],
+    "raw_evidence_note": "safe_cn_tjsj.html added post-audit (2026-07-02) for inventory completeness — the file was fetched and on disk but omitted from this list; no other manifest content altered."
   },
   "confidence": "HIGH — every month fetched directly from the primary publisher (safe.gov.cn) this run, English-xlsx and Chinese-HTML legs agree exactly on all overlaps, zero diffs vs the on-disk soft cross-check, gold volume matches the independent WGC/IFS tonnage to 0.02 t, and SAFE-implied gold price matches the WB Pink Sheet within 0.9%.",
   "publisher_quirks": [
