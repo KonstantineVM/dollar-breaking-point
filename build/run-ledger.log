@@ -5616,3 +5616,54 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T12:30:08Z	OUTPUT (not established until verifier runs)	python3 -c "import json,os; d=json.load(open('build/ledger.json')); r=[s for s in d['steps'] if s['id']=='RDTD'][0]; print('ledger valid;', [s['id'] for s in d['steps']]); print('RDTD verifier exists:', os.path.exists(r['verifier']))" && git add build/reserve/RDTD_prediction.md build/reserve/RDTD_fragility.json build/reserve/RDTD_fragility_recompute.py build/reserve/RDTD_result.json build/reserve/RDTD_recompute.py build/reserve/RDTD_verify.json build/reserve/rdtd_sdds_series.csv build/reserve/rdtd_sdds_manifest.json build/reserve/RDT_breaking_point_object.md build/ledger.json build/run-ledger.log 2>/dev/null; git commit -q -m "$(cat <<'EOF'
+RDT-D: identity closed; instrument split = NON-US-SECURITIES; 446.5 reliable
+
+The identity, every term traced to a committed number (verdict axis,
+China-alone): dTotal(ex-gold) +234.039 + active outflow 446.493 -
+V_us 185.555 -> dNonUS = +494.977 (ST T-bill adjustment +28.329
+labelled beside; pooled variant -572.246 - the custody perimeter's US
+LT holdings rose more than the whole ex-gold line, carried plainly).
+The pool bound stated both directions (TIC-China != SAFE pool;
+unquantifiable; no split fabricated).
+
+Fragility: the 446.5 is RELIABLE-WITHIN-GAP on the pre-registered
+China-alone rule (G_total -4.560, ratio 0.0102 vs 0.25) - and the
+fragility is LOCATED: the CN+BE+LU variant would trip its own
+threshold (0.5022; Belgium systematic +350.7 cumulative), i.e. the
+reconciliation gap lives in the custody-center legs, not the
+China-alone attribution. Mechanism quoted verbatim from retained
+publisher files.
+
+SDDS instrument split (132/132 monthly templates, no suppression of
+any required line - the suppressed branch cannot fire on disclosure
+grounds): dSec +221.791, dDep +12.248 (sum = dTotal exactly). The
+pre-registered NETTED discriminator dSec_SDDS - dH_us_LT = +482.729
+>= the 247.489 threshold -> mechanical verdict NON-US-SECURITIES
+(97.5% absorption; raw dSec alone would NOT clear - the verdict rests
+on the netting rule, earned not steered); deposits fail decisively
+(no CIPS/deposit footprint at reserve level, 0.08-1.36% of the FX
+line across the whole panel); pooled variant OTHER-OR-SUPPRESSED
+(sub-threshold, not suppression). Expectation REFUTED toward
+NON-US-SECURITIES. Destination currency stays UNDETERMINED - the k1
+wall; non-US-issuer never means non-dollar.
+
+Object amended insert-only (+12/-0, strips to the post-RDT-C sha;
+prior recomputes untouched; assertion-guarded templates incl. the
+unfired band branch). GATE: first BLOCKED narrowly on two checkable
+misstatements (the superseded 2020-10 SDDS vintage in the csv vs the
+manifest's stated policy, propagating a stale 0.06% share minimum
+into the object; a stale 'FAQ not on disk' note falsified by the
+later Part-2 fetch) - both FIXED (row rebuilt from the corrected
+vintage, range recomputed to 0.08%-1.36%, note replaced with the
+accurate guarded timeline; verdict and every axis number unchanged,
+guards silent) - RE-ADJUDICATION PASS with the correction scope
+confirmed from the verifier's input hashes. Verifier all_pass=true,
+independently re-run twice. Ledger entry added. No date, no
+probability, no currency guess. DP2-DP6 and prior artifacts otherwise
+untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
