@@ -1,0 +1,381 @@
+{
+ "SOURCE": [
+  "build/reserve/RDTG_denominators.json | committed Phase-0b artifact | market outstandings (JP/DE/UK/CA GROUNDED-PRIMARY; FR GROUNDED-ALTERNATE-OFFICIAL MEDIUM; AU NOT-GROUNDED), COFER 2021-Q4 raw shares, H.10 Dec-30-2021 FX set; upstream publisher SOURCE lines are carried inside that artifact | read 2026-07-02",
+  "build/reserve/RDTD_result.json :: identity.china_alone.delta_non_us_busd = 494.977 | committed RDT-D artifact | upper mass endpoint | read 2026-07-02",
+  "build/reserve/RDTE_result.json :: \"cross_flow_sensitivity_detail (labelled; not caps)\".positive_months_proxy_variant.total_busd = 354.028 | committed RDT-E artifact | cross-flow sensitivity subtracted to form the lower endpoint | read 2026-07-02",
+  "build/reserve/RDTF_result.json :: part1_route_robust_ceiling.route_robust_interval.interval_busd = [48.484, 494.977] | committed RDT-F artifact | fork interval, CONTEXT ONLY | read 2026-07-02",
+  "build/reserve/RDTG_prediction.md (commit 7ad70d2) | committed pre-registration | bar constructions implemented exactly as pre-registered | read 2026-07-02"
+ ],
+ "artifact": "RDTG_bars",
+ "built_utc_date": "2026-07-02",
+ "establishment": "NOT ESTABLISHED -- output of RDTG_bars_recompute.py; every number below is an OUTPUT, not established, until the RDT-G verifier scenario runs (build/reserve/RDTG_verify.json with all_pass=true, byte-reproducing this file from the committed inputs) AND the human gate reviews this stage. Bars are yardsticks for the Part-3 leg tests, never findings.",
+ "fx_set": {
+  "publisher": "Federal Reserve Board, H.10 Foreign Exchange Rates weekly release, Release Date: January 3, 2022",
+  "rate_date": "2021-12-30",
+  "rates": {
+   "cad_per_usd": 1.2777,
+   "chf_per_usd": 0.9146,
+   "jpy_per_usd": 115.17,
+   "usd_per_aud": 0.726,
+   "usd_per_eur": 1.1318,
+   "usd_per_gbp": 1.35
+  },
+  "retained": "build/reserve/rdtg_evidence/denom_fx_fed_h10_20220103.html",
+  "source": "https://www.federalreserve.gov/releases/h10/20220103/"
+ },
+ "inputs_sha256": {
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTE_result.json": "67cf45d26dd375c8f67a9ce2e7360a8f71c0ffb05498a78c1b40424b581202c2",
+  "build/reserve/RDTF_result.json": "693750030ff4dd663be1b88e28987e28d526a06a6f67fd732b1ebd36486f220b",
+  "build/reserve/RDTG_denominators.json": "874a01e5888e12f0a2e428f580a54faa19ad2b0c99d734ce393fd7634c0c14ad",
+  "build/reserve/RDTG_prediction.md": "2a755e8f64d0e7725f2a3fff2c63998463c9f1e464b7f489fe2dbecfe3410e65"
+ },
+ "mass_endpoints_busd": {
+  "cross_flow_sensitivity": 354.028,
+  "fork_interval_context_busd": [
+   48.484,
+   494.977
+  ],
+  "fork_source_field": "build/reserve/RDTF_result.json :: part1_route_robust_ceiling.route_robust_interval.interval_busd (CONTEXT ONLY -- bars use [140.949, 494.977] per the pre-registration)",
+  "generous_to_the_null": "Bars are built on [140.949, 494.977] $bn per the pre-registration; the fork's own lower endpoint (48.484, RDT-F route-robust) is smaller, so bars at 140.949 are GENEROUS to the null -- a leg that fails to see 140.949 would see 48.484 even less. Direction stated; the object's fork interval is unchanged by this choice.",
+  "lower": 140.949,
+  "lower_derivation": "lower = upper - sensitivity = 494.977 - 354.028 = 140.949 (computed at run time; both endpoints READ from the committed artifacts, never hardcoded)",
+  "sensitivity_source_field": "build/reserve/RDTE_result.json :: \"cross_flow_sensitivity_detail (labelled; not caps)\".positive_months_proxy_variant.total_busd",
+  "upper": 494.977,
+  "upper_source_field": "build/reserve/RDTD_result.json :: identity.china_alone.delta_non_us_busd"
+ },
+ "recompute": "build/reserve/RDTG_bars_recompute.py regenerates this file byte-for-byte from the committed inputs (sorted keys, indent=1, 3-decimal $bn / local-bn amounts, 4-decimal percentages, 6-decimal shares); every pin assertion fails loud if a committed input changes.",
+ "scheme1_market_size_proportional": {
+  "au_drop": "AGS_AU DROPS OUT of Scheme 1: its outstanding is NOT-GROUNDED in RDTG_denominators.json (AOFM unreachable from this egress; archive fallback blocked; nothing substituted from memory), per the pre-registered rule in the denominators artifact.",
+  "de_basis": "Germany is computed on BOTH bases quoted in the denominators: incl-own-holdings EUR 1589.9bn (HEADLINE) and free-float EUR 1427.238bn (= outstanding 1589.9bn minus own holdings 162.662bn, both read from the committed quoted_cell). The Part-3 leg test uses whichever basis the leg's own series matches.",
+  "fr_medium": "OAT_FR carries its MEDIUM confidence tag from RDTG_denominators.json through to its bar (GROUNDED-ALTERNATE-OFFICIAL, not the tasked primary publisher).",
+  "markets_headline_de_incl_own_holdings": {
+   "Bund_DE": {
+    "bar_high_local_bn": 48.337,
+    "bar_high_pct_of_outstanding_free_float": 3.3868,
+    "bar_high_pct_of_outstanding_incl_own_holdings": 3.0403,
+    "bar_high_usd_bn": 54.708,
+    "bar_low_local_bn": 13.765,
+    "bar_low_pct_of_outstanding_free_float": 0.9644,
+    "bar_low_pct_of_outstanding_incl_own_holdings": 0.8657,
+    "bar_low_usd_bn": 15.579,
+    "basis_in_this_table": "incl-own-holdings (HEADLINE basis)",
+    "confidence": "HIGH (GROUNDED-PRIMARY, Finanzagentur)",
+    "local_currency": "EUR",
+    "outstanding_local_bn": 1589.9,
+    "outstanding_usd_bn": 1799.449,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "share_of_grounded_usd_total": 0.110527
+   },
+   "GoC_CA": {
+    "bar_high_local_bn": 30.843,
+    "bar_high_pct_of_outstanding": 3.0403,
+    "bar_high_usd_bn": 24.139,
+    "bar_low_local_bn": 8.783,
+    "bar_low_pct_of_outstanding": 0.8657,
+    "bar_low_usd_bn": 6.874,
+    "confidence": "HIGH (GROUNDED-PRIMARY, StatCan table 10-10-0002-01)",
+    "local_currency": "CAD",
+    "outstanding_local_bn": 1014.462,
+    "outstanding_usd_bn": 793.975,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "share_of_grounded_usd_total": 0.048768
+   },
+   "JGB_JP": {
+    "bar_high_local_bn": 29433.342,
+    "bar_high_pct_of_outstanding": 3.0403,
+    "bar_high_usd_bn": 255.564,
+    "bar_low_local_bn": 8381.4,
+    "bar_low_pct_of_outstanding": 0.8657,
+    "bar_low_usd_bn": 72.774,
+    "confidence": "HIGH (GROUNDED-PRIMARY, MoF Japan)",
+    "local_currency": "JPY",
+    "outstanding_local_bn": 968112.1,
+    "outstanding_usd_bn": 8405.94,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "share_of_grounded_usd_total": 0.516316
+   },
+   "OAT_FR": {
+    "bar_high_local_bn": 65.218,
+    "bar_high_pct_of_outstanding": 3.0403,
+    "bar_high_usd_bn": 73.813,
+    "bar_low_local_bn": 18.571,
+    "bar_low_pct_of_outstanding": 0.8657,
+    "bar_low_usd_bn": 21.019,
+    "confidence": "MEDIUM (GROUNDED-ALTERNATE-OFFICIAL: INSEE BDM official-statistics republication of the AFT series; AFT primary unreachable -- tag carried from RDTG_denominators.json onto this bar)",
+    "local_currency": "EUR",
+    "outstanding_local_bn": 2145.121,
+    "outstanding_usd_bn": 2427.848,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "share_of_grounded_usd_total": 0.149125
+   },
+   "gilt_UK": {
+    "bar_high_local_bn": 64.261,
+    "bar_high_pct_of_outstanding": 3.0403,
+    "bar_high_usd_bn": 86.752,
+    "bar_low_local_bn": 18.299,
+    "bar_low_pct_of_outstanding": 0.8657,
+    "bar_low_usd_bn": 24.703,
+    "confidence": "HIGH (GROUNDED-PRIMARY, UK DMO)",
+    "local_currency": "GBP",
+    "outstanding_local_bn": 2113.64,
+    "outstanding_usd_bn": 2853.414,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "share_of_grounded_usd_total": 0.175264
+   }
+  },
+  "rule": "Market-size-proportional (pre-registered Scheme 1): the mass [140.949, 494.977] $bn is allocated across the GROUNDED candidate sovereign markets {JGB_JP, Bund_DE, OAT_FR, gilt_UK, GoC_CA} in proportion to end-2021 outstanding stock converted to USD at the grounded H.10 Dec-30-2021 FX set; each bar is then expressed in local currency at the same FX set and as % of outstanding.",
+  "sanity_headline": {
+   "bar_high_allocations_sum_usd_bn": 494.977,
+   "bar_low_allocations_sum_usd_bn": 140.949,
+   "grounded_usd_total_bn": 16280.626,
+   "shares_sum": 1.0,
+   "uniform_pct_note": "Under proportional allocation the %-of-outstanding is identical across markets by construction (= mass / grounded USD total): bar_low 0.8657%, bar_high 3.0403% -- except where a market's % is also expressed on a second basis (DE free float)."
+  },
+  "variant_de_free_float": {
+   "markets": {
+    "Bund_DE": {
+     "bar_high_local_bn": 43.888,
+     "bar_high_pct_of_outstanding_free_float": 3.0751,
+     "bar_high_pct_of_outstanding_incl_own_holdings": 2.7604,
+     "bar_high_usd_bn": 49.673,
+     "bar_low_local_bn": 12.498,
+     "bar_low_pct_of_outstanding_free_float": 0.8756,
+     "bar_low_pct_of_outstanding_incl_own_holdings": 0.7861,
+     "bar_low_usd_bn": 14.145,
+     "basis_in_this_table": "free-float (variant basis: outstanding minus own holdings)",
+     "confidence": "HIGH (GROUNDED-PRIMARY, Finanzagentur)",
+     "local_currency": "EUR",
+     "outstanding_local_bn": 1427.238,
+     "outstanding_usd_bn": 1615.348,
+     "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+     "share_of_grounded_usd_total": 0.100354
+    },
+    "GoC_CA": {
+     "bar_high_local_bn": 31.195,
+     "bar_high_pct_of_outstanding": 3.0751,
+     "bar_high_usd_bn": 24.415,
+     "bar_low_local_bn": 8.883,
+     "bar_low_pct_of_outstanding": 0.8756,
+     "bar_low_usd_bn": 6.952,
+     "confidence": "HIGH (GROUNDED-PRIMARY, StatCan table 10-10-0002-01)",
+     "local_currency": "CAD",
+     "outstanding_local_bn": 1014.462,
+     "outstanding_usd_bn": 793.975,
+     "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+     "share_of_grounded_usd_total": 0.049326
+    },
+    "JGB_JP": {
+     "bar_high_local_bn": 29769.98,
+     "bar_high_pct_of_outstanding": 3.0751,
+     "bar_high_usd_bn": 258.487,
+     "bar_low_local_bn": 8477.26,
+     "bar_low_pct_of_outstanding": 0.8756,
+     "bar_low_usd_bn": 73.606,
+     "confidence": "HIGH (GROUNDED-PRIMARY, MoF Japan)",
+     "local_currency": "JPY",
+     "outstanding_local_bn": 968112.1,
+     "outstanding_usd_bn": 8405.94,
+     "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+     "share_of_grounded_usd_total": 0.522221
+    },
+    "OAT_FR": {
+     "bar_high_local_bn": 65.964,
+     "bar_high_pct_of_outstanding": 3.0751,
+     "bar_high_usd_bn": 74.658,
+     "bar_low_local_bn": 18.784,
+     "bar_low_pct_of_outstanding": 0.8756,
+     "bar_low_usd_bn": 21.259,
+     "confidence": "MEDIUM (GROUNDED-ALTERNATE-OFFICIAL: INSEE BDM official-statistics republication of the AFT series; AFT primary unreachable -- tag carried from RDTG_denominators.json onto this bar)",
+     "local_currency": "EUR",
+     "outstanding_local_bn": 2145.121,
+     "outstanding_usd_bn": 2427.848,
+     "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+     "share_of_grounded_usd_total": 0.150831
+    },
+    "gilt_UK": {
+     "bar_high_local_bn": 64.996,
+     "bar_high_pct_of_outstanding": 3.0751,
+     "bar_high_usd_bn": 87.744,
+     "bar_low_local_bn": 18.508,
+     "bar_low_pct_of_outstanding": 0.8756,
+     "bar_low_usd_bn": 24.986,
+     "confidence": "HIGH (GROUNDED-PRIMARY, UK DMO)",
+     "local_currency": "GBP",
+     "outstanding_local_bn": 2113.64,
+     "outstanding_usd_bn": 2853.414,
+     "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+     "share_of_grounded_usd_total": 0.177269
+    }
+   },
+   "note": "Full re-allocation with Germany entering the proportional pool at its free-float outstanding; carried alongside, never the headline.",
+   "sanity": {
+    "bar_high_allocations_sum_usd_bn": 494.977,
+    "bar_low_allocations_sum_usd_bn": 140.949,
+    "grounded_usd_total_bn": 16096.525,
+    "shares_sum": 1.0,
+    "uniform_pct_note": "Under proportional allocation the %-of-outstanding is identical across markets by construction (= mass / grounded USD total): bar_low 0.8756%, bar_high 3.0751% -- except where a market's % is also expressed on a second basis (DE free float)."
+   }
+  }
+ },
+ "scheme2_cofer_currency_share_proportional": {
+  "allocations": {
+   "AUD__AGS_AU": {
+    "bar_high_local_bn": 36.217,
+    "bar_high_usd_bn": 26.293,
+    "bar_low_local_bn": 10.313,
+    "bar_low_usd_bn": 7.487,
+    "cofer_currency": "AUD",
+    "confidence": "LOW (denominator NOT-GROUNDED)",
+    "local_currency": "AUD",
+    "market_fraction_of_mass": 0.05312,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "pct_of_outstanding": "NOT-COMPUTABLE -- the AGS outstanding is NOT-GROUNDED in RDTG_denominators.json (AOFM unreachable); the AUD mass is stated in USD and AUD but no %-of-outstanding denominator exists",
+    "renormalized_currency_share": 0.05312
+   },
+   "CAD__GoC_CA": {
+    "bar_high_local_bn": 40.765,
+    "bar_high_pct_of_outstanding": 4.0184,
+    "bar_high_usd_bn": 31.905,
+    "bar_low_local_bn": 11.608,
+    "bar_low_pct_of_outstanding": 1.1443,
+    "bar_low_usd_bn": 9.085,
+    "cofer_currency": "CAD",
+    "confidence": "HIGH (GROUNDED-PRIMARY, StatCan table 10-10-0002-01)",
+    "local_currency": "CAD",
+    "market_fraction_of_mass": 0.064458,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "renormalized_currency_share": 0.064458
+   },
+   "CHF__remainder_no_candidate_leg": {
+    "bar_high_chf_bn": 1.945,
+    "bar_high_usd_bn": 2.127,
+    "bar_low_chf_bn": 0.554,
+    "bar_low_usd_bn": 0.606,
+    "cofer_currency": "CHF",
+    "renormalized_currency_share": 0.004297,
+    "statement": "STATED REMAINDER: CHF has no candidate sovereign-market leg in the pre-registered set; its mass is carried, never allocated."
+   },
+   "EUR__Bund_DE": {
+    "bar_high_local_bn": 97.729,
+    "bar_high_pct_of_outstanding_free_float": 6.8475,
+    "bar_high_pct_of_outstanding_incl_own_holdings": 6.1469,
+    "bar_high_usd_bn": 110.61,
+    "bar_low_local_bn": 27.829,
+    "bar_low_pct_of_outstanding_free_float": 1.9499,
+    "bar_low_pct_of_outstanding_incl_own_holdings": 1.7504,
+    "bar_low_usd_bn": 31.497,
+    "cofer_currency": "EUR",
+    "confidence": "HIGH (GROUNDED-PRIMARY, Finanzagentur)",
+    "eur_split": "EUR mass split DE/FR by relative grounded outstanding (headline incl-own basis): w_DE = 1589.9 / (1589.9 + 2145.121) = 0.425674",
+    "local_currency": "EUR",
+    "market_fraction_of_mass": 0.223465,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "renormalized_currency_share": 0.524969
+   },
+   "EUR__OAT_FR": {
+    "bar_high_local_bn": 131.858,
+    "bar_high_pct_of_outstanding": 6.1469,
+    "bar_high_usd_bn": 149.237,
+    "bar_low_local_bn": 37.548,
+    "bar_low_pct_of_outstanding": 1.7504,
+    "bar_low_usd_bn": 42.497,
+    "cofer_currency": "EUR",
+    "confidence": "MEDIUM (GROUNDED-ALTERNATE-OFFICIAL: INSEE BDM official-statistics republication of the AFT series; AFT primary unreachable -- tag carried from RDTG_denominators.json onto this bar)",
+    "eur_split": "w_FR = 2145.121 / (1589.9 + 2145.121) = 0.574326",
+    "local_currency": "EUR",
+    "market_fraction_of_mass": 0.301503,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "renormalized_currency_share": 0.524969
+   },
+   "GBP__gilt_UK": {
+    "bar_high_local_bn": 47.407,
+    "bar_high_pct_of_outstanding": 2.2429,
+    "bar_high_usd_bn": 64.0,
+    "bar_low_local_bn": 13.5,
+    "bar_low_pct_of_outstanding": 0.6387,
+    "bar_low_usd_bn": 18.225,
+    "cofer_currency": "GBP",
+    "confidence": "HIGH (GROUNDED-PRIMARY, UK DMO)",
+    "local_currency": "GBP",
+    "market_fraction_of_mass": 0.129299,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "renormalized_currency_share": 0.129299
+   },
+   "JPY__JGB_JP": {
+    "bar_high_local_bn": 8312.723,
+    "bar_high_pct_of_outstanding": 0.8587,
+    "bar_high_usd_bn": 72.178,
+    "bar_low_local_bn": 2367.12,
+    "bar_low_pct_of_outstanding": 0.2445,
+    "bar_low_usd_bn": 20.553,
+    "cofer_currency": "JPY",
+    "confidence": "HIGH (GROUNDED-PRIMARY, MoF Japan)",
+    "local_currency": "JPY",
+    "market_fraction_of_mass": 0.145821,
+    "pct_of_nonresident_holdings": "NOT-YET-COMPUTABLE -- no receiving-leg series has been read (pre-registered sequencing rule: bars precede every discriminator); Part 3 computes this column against each grounded leg's own published nonresident denominator",
+    "renormalized_currency_share": 0.145821
+   },
+   "other__remainder_unallocated": {
+    "bar_high_usd_bn": 38.626,
+    "bar_low_usd_bn": 10.999,
+    "cofer_currency": "other",
+    "renormalized_currency_share": 0.078036,
+    "statement": "STATED REMAINDER: COFER 'other currencies' map to no candidate market; their mass is carried unallocated."
+   }
+  },
+  "eur_split_weights": {
+   "headline_incl_own_holdings": {
+    "w_DE": 0.425674,
+    "w_FR": 0.574326
+   },
+   "variant_de_free_float": {
+    "w_DE": 0.399523,
+    "w_FR": 0.600477
+   },
+   "variant_note": "Under the DE free-float basis the EUR mass splits DE 0.399523 / FR 0.600477; DE bars scale by 0.938565 and FR bars by 1.045534 relative to the headline split -- headline remains incl-own-holdings."
+  },
+  "raw_shares_pct_2021Q4": {
+   "AUD": 2.00505886277357,
+   "CAD": 2.43302287383323,
+   "CHF": 0.1622087468745,
+   "CNY": 2.85163846002599,
+   "EUR": 19.8153821960483,
+   "GBP": 4.88048726251867,
+   "JPY": 5.5041200944612,
+   "USD": 59.4025304338252,
+   "other": 2.94555106963941
+  },
+  "renormalization": {
+   "arithmetic": "included_sum_pct = EUR 19.8153821960483 + JPY 5.5041200944612 + GBP 4.88048726251867 + AUD 2.00505886277357 + CAD 2.43302287383323 + CHF 0.1622087468745 + other 2.94555106963941 = 37.74583110614888; cross-check 100 - USD 59.4025304338252 - CNY 2.85163846002599 = 37.74583110614881 (agrees to <1e-9); renormalized_share_c = raw_share_c / included_sum_pct; renormalized shares sum to 1.0.",
+   "excluded": {
+    "CNY": 2.85163846002599,
+    "USD": 59.4025304338252
+   },
+   "included_sum_pct": 37.745831,
+   "renormalized_shares": {
+    "AUD": 0.05312,
+    "CAD": 0.064458,
+    "CHF": 0.004297,
+    "EUR": 0.524969,
+    "GBP": 0.129299,
+    "JPY": 0.145821,
+    "other": 0.078036
+   },
+   "shares_sum_check": 1.0
+  },
+  "rule": "COFER-currency-share-proportional (pre-registered Scheme 2): the raw IMF COFER 2021-Q4 shares of allocated reserves are restricted to non-USD currencies with CNY EXCLUDED (China's own currency is not a reserve asset for itself) and renormalized to 1; each currency's mass maps to its candidate sovereign market (EUR split DE/FR by relative grounded outstanding; CHF and 'other' carried as stated remainders).",
+  "sanity": {
+   "chf_plus_other_remainder_fraction": 0.082334,
+   "cofer_methodology_caveat": "IMF COFER dataset IMF.STA:COFER(7.0.1), PUBLICATION_DATE 2026-03-27 (XML header), fetched 2026-07-01 via api.imf.org SDMX 2.1; post-2025Q3 methodology (unallocated eliminated with revisions back to 2000Q1; missing values imputed by IMF staff per IMF TNM/2025/14) - this caveat travels with any use of these shares",
+   "full_sum_check": "market allocations + CHF remainder + other remainder = 1.0 of the mass (bar_high: 454.224 + 2.127 + 38.626 = 494.977 vs 494.977)",
+   "market_allocations_bar_high_sum_usd_bn": 454.224,
+   "market_allocations_bar_low_sum_usd_bn": 129.344,
+   "market_allocations_fraction_sum": 0.917666
+  }
+ },
+ "sequencing_attestation": "No discriminator series was read, fetched, or opened in this task: no SAFE SDDS template contents (Section I.B or any other), no destination-country bond-holdings, balance-of-payments-by-counterpart, or nonresident-share series. DISK-ONLY: no network access was used. The only data inputs were the committed denominator artifact (build/reserve/RDTG_denominators.json), the three committed mass-endpoint fields named in mass_endpoints_busd (RDTD/RDTE/RDTF result JSONs, read at those field paths only), and the committed pre-registration RDTG_prediction.md. The bars therefore precede every discriminator in git order, as the pre-registration requires; no bar is revised after a discriminator series is seen. The denominators artifact's own sequencing attestation and co-presence register carry forward unchanged.",
+ "stated_limitation": "Pre-committed direction: the candidate set is not the universe of non-US destinations (corporates, equities, deposits, non-candidate sovereigns absorb too), so per-market bars OVERSTATE what any one market should show -- which makes a null WEAKER, never stronger.",
+ "task": "RDT-G Phase 0c MAGNITUDE BARS (pre-registration: build/reserve/RDTG_prediction.md, commit 7ad70d2; denominators: build/reserve/RDTG_denominators.json)",
+ "windows": "Baseline 2015->2021, verdict 2022->2025 (RDT-G freeze-era windows per the pre-registration); the bars state what the mass arriving over the verdict window implies per candidate market."
+}
