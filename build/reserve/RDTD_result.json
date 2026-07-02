@@ -1,0 +1,222 @@
+{
+ "artifact": "RDTD_result (RDT-D Parts 0+4: the identity, the SDDS mechanical verdict, the amendment inputs)",
+ "establishment": "NOT ESTABLISHED -- output of RDTD_recompute.py; every number below is an OUTPUT pending its verifier scenario (orchestrator re-run of build/reserve/RDTD_recompute.py reproducing this file and the amended object byte-for-byte -- RDTD_verify.json all_pass=true -- and the RDT-D human gate).",
+ "contract": "build/reserve/RDTD_prediction.md (pre-registered before this build)",
+ "no_date_no_probability_no_currency_guess": "no breaking-point date, no probability, and no destination-currency guess appear in this artifact",
+ "contract_clauses_found_verbatim": {
+  "verdict_axis": true,
+  "identity_form": true,
+  "threshold_0_5": true,
+  "deposits_positivity_guard": true,
+  "netting_rule": true,
+  "band_rule": true,
+  "band_honest": true,
+  "primary_expectation": true
+ },
+ "verdict_axis": {
+  "start": "2023-05",
+  "end": "2026-04",
+  "holdings_reference_month": "2023-04",
+  "source": "RDTC_class_flows.json windows (RDT-B recent-3y window verbatim)"
+ },
+ "units": "all *_busd fields are billions of USD, 3 decimals",
+ "identity": {
+  "china_alone": {
+   "delta_total_ex_gold_busd": 234.039,
+   "delta_total_source": "build/reserve/rdtc_safe_totals.csv fx_reserves_usd_bn: 3176.508 (2023-05) -> 3410.547 (2026-04); committed RDT-C convention, reconciled to RDTC_result.json branch_a delta_bn",
+   "delta_total_reference_month_convention_busd": 205.781,
+   "active_outflow_busd": 446.493,
+   "active_source": "build/reserve/RDTC_class_panel.parquet active_musd summed over the axis; reconciled exactly to RDTC_class_flows.json residual_left_us_busd",
+   "delta_H_us_LT_busd": -260.938,
+   "delta_H_source": "build/reserve/RDTC_class_panel.parquet pos_musd: 2026-04 minus reference month 2023-04; reconciled exactly to RDTD_fragility.json delta_holdings_busd",
+   "V_us_busd": 185.555,
+   "V_us_definition": "ΔH_us_LT - active (valuation residual); ABSORBS the SLT reconciliation gap G (sized separately in RDTD_fragility.json)",
+   "delta_non_us_busd": 494.977,
+   "identity_check": "ΔNonUS = ΔTotal(ex-gold) - ΔH_us_LT: +234.039 - (-260.938) = +494.977 $bn; equivalently ΔTotal + active - V_us = +234.039 + +446.493 - (+185.555) = +494.977 $bn",
+   "netted_discriminator_busd": 482.729,
+   "meaning_discipline": "ΔNonUS = the change in SAFE ex-gold reserves NOT accounted for by TIC-measured US LT securities; it still includes US T-bills (see the ST adjustment), USD deposits anywhere, and US assets in non-US custody. ΔNonUS != 'non-dollar'.",
+   "st_leg_adjustment": {
+    "delta_us_st_busd": 28.329,
+    "adjusted_delta_non_us_busd": 466.648,
+    "adjusted_netted_discriminator_busd": 454.4,
+    "labelled": "ADJUSTMENT beside the headline (LT-only identity is the headline), never silently added"
+   }
+  },
+  "china_belgium_luxembourg": {
+   "delta_total_ex_gold_busd": 234.039,
+   "delta_total_source": "build/reserve/rdtc_safe_totals.csv fx_reserves_usd_bn: 3176.508 (2023-05) -> 3410.547 (2026-04); committed RDT-C convention, reconciled to RDTC_result.json branch_a delta_bn",
+   "delta_total_reference_month_convention_busd": 205.781,
+   "active_outflow_busd": 326.323,
+   "active_source": "build/reserve/RDTC_class_panel.parquet active_musd summed over the axis; reconciled exactly to RDTC_class_flows.json residual_left_us_busd",
+   "delta_H_us_LT_busd": 806.285,
+   "delta_H_source": "build/reserve/RDTC_class_panel.parquet pos_musd: 2026-04 minus reference month 2023-04; reconciled exactly to RDTD_fragility.json delta_holdings_busd",
+   "V_us_busd": 1132.608,
+   "V_us_definition": "ΔH_us_LT - active (valuation residual); ABSORBS the SLT reconciliation gap G (sized separately in RDTD_fragility.json)",
+   "delta_non_us_busd": -572.246,
+   "identity_check": "ΔNonUS = ΔTotal(ex-gold) - ΔH_us_LT: +234.039 - (+806.285) = -572.246 $bn; equivalently ΔTotal + active - V_us = +234.039 + +326.323 - (+1132.608) = -572.246 $bn",
+   "netted_discriminator_busd": -584.494,
+   "meaning_discipline": "ΔNonUS = the change in SAFE ex-gold reserves NOT accounted for by TIC-measured US LT securities; it still includes US T-bills (see the ST adjustment), USD deposits anywhere, and US assets in non-US custody. ΔNonUS != 'non-dollar'.",
+   "st_leg_adjustment": {
+    "delta_us_st_busd": 56.959,
+    "adjusted_delta_non_us_busd": -629.205,
+    "adjusted_netted_discriminator_busd": -641.453,
+    "labelled": "ADJUSTMENT beside the headline (LT-only identity is the headline), never silently added"
+   }
+  }
+ },
+ "st_leg": {
+  "status": "ON-DISK",
+  "source": "build/reserve/rdt_evidence/tic/slt_table3.txt column for_st_treas_pos (short-term U.S. Treasuries)",
+  "instrument_caveat": "short-term U.S. TREASURY (bill) positions only -- no on-disk by-country position series exists for other US short-term instruments (agency discount notes, CP); bills sit near par so the position change is mostly flow",
+  "convention": "Δposition = pos(2026-04) - pos(2023-04) (reference-month convention, matching ΔH_us_LT)",
+  "delta_us_st_busd": {
+   "china_alone": 28.329,
+   "china_belgium_luxembourg": 56.959
+  },
+  "positions_busd": {
+   "china_alone": {
+    "2023-04": 16.391,
+    "2026-04": 44.72
+   }
+  }
+ },
+ "pool_bound": {
+  "statement": "BOUND, not a number (rdtd_pool_determination.md): TIC 'China, Mainland' and the SAFE reserve pool are different perimeters -- neither contains the other. Direction (i): non-reserve mainland holders (CIC, state banks, private residents) make TIC-China OVERSTATE the reserve pool's US holdings; no on-ledger mitigation. Direction (ii): third-country custody (Euroclear/Belgium, Clearstream/Luxembourg, UK, Switzerland) makes TIC-China UNDERSTATE the pool's US holdings -- the CN+BE+LU custody variant is the on-ledger mitigation. Opposite signs, magnitudes not publicly quantifiable; no split is fabricated. The bound rides ΔH_us_LT, hence ΔNonUS AND the netted non-US-securities discriminator, in every use below.",
+  "source": "build/reserve/rdtd_pool_determination.md (Part 2, committed)"
+ },
+ "fragility_integration": {
+  "flag": "RELIABLE-WITHIN-GAP",
+  "G_total_busd": -4.56,
+  "abs_G_total_busd": 4.56,
+  "active_total_busd": -446.493,
+  "threshold_busd": 111.623,
+  "ratio_absG_over_absActive": 0.0102,
+  "context_cn_be_lu": {
+   "G_total_busd": 163.866,
+   "active_total_busd": -326.323,
+   "ratio_absG_over_absActive": 0.5022,
+   "would_trip_own_threshold": true
+  },
+  "source": "build/reserve/RDTD_fragility.json (Part 1, committed; recomputed values cross-checked here)",
+  "band_override": "NONE -- flag RELIABLE-WITHIN-GAP: the identity is carried in point form; G still reported and absorbed inside V_us"
+ },
+ "sdds_ledger": {
+  "axis_note": "SDDS covers the full verdict axis 2023-05..2026-04 (no truncation needed); latest published template month 2026-05 exceeds the axis end",
+  "delta_securities_busd": 221.791,
+  "delta_dep_cb_bis_imf_busd": -0.009,
+  "delta_dep_banks_hq_in_busd": 3.695,
+  "delta_dep_banks_hq_out_busd": 8.562,
+  "delta_deposits_total_busd": 12.248,
+  "delta_other_reserve_assets_busd": -0.391,
+  "delta_convention": "value(2026-04) - value(2023-05), the RDT-C committed convention; Δsec+Δdep reproduces the committed ΔTotal(ex-gold) +234.039 exactly",
+  "deposits_share_of_fx_line_pct": {
+   "min": 0.08,
+   "min_month": "2022-03",
+   "max": 1.36,
+   "max_month": "2025-02",
+   "n_months": 132
+  },
+  "no_suppression_of_required_lines": true,
+  "blank_of_which_sub_lines": [
+   "(1)(a) of which: issuer headquartered in reporting country but located abroad -- BLANK 2015-06..2026-05 except explicit 0 in 2017-04",
+   "(1)(b)(iii) of which: located in the reporting country -- BLANK except explicit 0 in 2015-07 and 2017-04",
+   "(5) loans to nonbank nonresidents -- BLANK except explicit 0 in 2017-04"
+  ],
+  "manifest_match": true,
+  "source": "build/reserve/rdtd_sdds_series.csv (recomputed here) + rdtd_sdds_manifest.json (cross-checked)"
+ },
+ "netting_rule": "pre-registered: the SDDS securities line INCLUDES US securities; the non-US-securities discriminator is Δsec_SDDS - ΔH_us_LT (per custody variant; the pool caveat rides it). Reading raw Δsec_SDDS as non-US purchases is the named dramatization vector and is not done anywhere here.",
+ "mechanical_verdict": {
+  "rule": "pre-registered 0.5 thresholds on the ΔNonUS midpoint, China-alone headline: DEPOSITS-SURGE iff Δdeposits_total >= 0.5 x ΔNonUS (and ΔNonUS > 0); NON-US-SECURITIES iff (Δsec_SDDS - ΔH_us_LT) >= 0.5 x ΔNonUS; both -> MIXED-COMPOSITION; neither/suppression -> OTHER-OR-SUPPRESSED (stating which)",
+  "headline_variant": "china_alone",
+  "china_alone": {
+   "verdict": "NON-US-SECURITIES",
+   "dep_axis": false,
+   "sec_axis": true,
+   "threshold_busd": 247.4885,
+   "delta_non_us_busd": 494.977,
+   "deposits_total_busd": 12.248,
+   "netted_discriminator_busd": 482.729,
+   "threshold_busd_str": "247.4885",
+   "form": "point (no band override; Part 1 flag RELIABLE-WITHIN-GAP)",
+   "sentence": "**NON-US-SECURITIES** -- the netted discriminator +482.729 $bn >= 0.5 x ΔNonUS (247.4885 $bn) and absorbs 97.5% of ΔNonUS; the deposits axis fails (+12.248 $bn)"
+  },
+  "china_belgium_luxembourg_beside_it": {
+   "verdict": "OTHER-OR-SUPPRESSED",
+   "dep_axis": false,
+   "sec_axis": false,
+   "threshold_busd": -286.123,
+   "delta_non_us_busd": -572.246,
+   "deposits_total_busd": 12.248,
+   "netted_discriminator_busd": -584.494,
+   "threshold_busd_str": "-286.123",
+   "form": "point (no band override; Part 1 flag RELIABLE-WITHIN-GAP)",
+   "sentence": "**OTHER-OR-SUPPRESSED** (sub-threshold, NOT suppression: every required SDDS line is populated in all 132 months; neither deposits +12.248 nor the netted discriminator -584.494 $bn reaches 0.5 x ΔNonUS = -286.123 $bn; ΔNonUS is NEGATIVE (-572.246 $bn) -- this perimeter's US LT holdings rose by more than the entire ex-gold reserve line)"
+  },
+  "st_adjusted_sensitivity_headline": {
+   "verdict_under_st_adjustment": "NON-US-SECURITIES",
+   "axes": {
+    "dep_axis": false,
+    "sec_axis": true
+   },
+   "threshold_busd": 233.324,
+   "labelled": "SENSITIVITY only -- the pre-registered verdict is computed on the LT-only headline identity; the ST leg is reported beside it"
+  },
+  "suppression_note": "the manifest found NO suppression of required Section-I.A lines in any of 132 months; the suppression branch cannot fire on disclosure grounds -- the axes were evaluated numerically"
+ },
+ "expectation_evaluation": {
+  "pre_registered_primary": "OTHER-OR-SUPPRESSED or MIXED-COMPOSITION",
+  "status": "REFUTED toward NON-US-SECURITIES",
+  "statement": "the pre-registered primary expectation is REFUTED: the netted securities move absorb(s) >= half of ΔNonUS on the China-alone headline"
+ },
+ "honest_tensions": [
+  {
+   "id": "pool_bound",
+   "statement": "BOUND, not a number (rdtd_pool_determination.md): TIC 'China, Mainland' and the SAFE reserve pool are different perimeters -- neither contains the other. Direction (i): non-reserve mainland holders (CIC, state banks, private residents) make TIC-China OVERSTATE the reserve pool's US holdings; no on-ledger mitigation. Direction (ii): third-country custody (Euroclear/Belgium, Clearstream/Luxembourg, UK, Switzerland) makes TIC-China UNDERSTATE the pool's US holdings -- the CN+BE+LU custody variant is the on-ledger mitigation. Opposite signs, magnitudes not publicly quantifiable; no split is fabricated. The bound rides ΔH_us_LT, hence ΔNonUS AND the netted non-US-securities discriminator, in every use below."
+  },
+  {
+   "id": "currency_blindness_k1_wall",
+   "statement": "The SDDS securities line is total-of-all-currencies. The netted discriminator therefore identifies NON-US-ISSUER securities, NEVER non-dollar: a non-US issuer can issue USD paper, and US-issuer USD vs non-US-issuer is the ONLY distinction the netting makes. The k1 wall (RDT-B/C) stands; no currency is guessed."
+  },
+  {
+   "id": "deposits_near_absence_is_a_finding",
+   "statement": "Deposits are 0.08%..1.36% of the SDDS FX line in every one of 132 months, and moved +12.248 $bn over the axis. A CIPS/deposit-channel reallocation of reserves would surface on these lines and does not -- at reserve level, per China's own SDDS reporting, the deposit channel has no footprint. This is itself a finding, not a gap."
+  },
+  {
+   "id": "blank_of_which_sub_lines",
+   "statement": "The template's of-which sub-lines are blank across the whole 2015-06..2026-05 panel (structural disclosure state, not interpolated): (1)(a) of which: issuer headquartered in reporting country but located abroad -- BLANK 2015-06..2026-05 except explicit 0 in 2017-04; (1)(b)(iii) of which: located in the reporting country -- BLANK except explicit 0 in 2015-07 and 2017-04; (5) loans to nonbank nonresidents -- BLANK except explicit 0 in 2017-04"
+  },
+  {
+   "id": "V_us_conflation",
+   "statement": "V_us (+185.555 $bn china_alone) conflates true valuation change with the TIC transactions-vs-positions reconciliation gap: small for China-alone (G -4.560 $bn, ratio 0.0102) but 0.5022 for CN+BE+LU (G +163.866 $bn) -- the custody-center contrast that keeps the pooled variant context-only."
+  }
+ ],
+ "reconciliation": {
+  "rdtc_ledgers_exact_3dp": true,
+  "fragility_totals_exact_3dp": true,
+  "safe_delta_matches_committed_rdtc": true,
+  "sdds_deltas_match_committed_manifest": true,
+  "note": "every guard above raises (build fails) rather than writing a mismatched number"
+ },
+ "inputs_sha256": {
+  "build/reserve/RDTD_prediction.md": "dbe00b9cbcf8f1a3bc26f5721004d26bd5964bd8f6ef2800bfaed602db24527d",
+  "build/reserve/RDTD_fragility.json": "02c196c67c508220bdc224219e11892b476d3c4e1b4c4f33854098c937f62bcf",
+  "build/reserve/RDTD_fragility_recompute.py": "9bb5423c300828a9d7791c4c28b6a96eb865e5f8bd91d86eb37d90562a1b4425",
+  "build/reserve/rdtd_sdds_series.csv": "8702e837ddb87231182e97edf5297aea4a4ee641023e1c292d95900d4ddd8dd1",
+  "build/reserve/rdtd_sdds_manifest.json": "bf1c25976c22dd6f9d5b47acaf1b657766753dc474e7516c7f8645f1c8761126",
+  "build/reserve/rdtd_pool_determination.md": "a3f618971203a7177d051ee3bdd0d780c7192ec4a375fe7322abb98ccd9fdc70",
+  "build/reserve/rdtc_safe_totals.csv": "1a838d71a113c8f7b0ff84d91c66460fe46f8b89c2896f719d00249e3ad03ee1",
+  "build/reserve/RDTC_class_panel.parquet": "f0bc20d218fd05998ff70a15ef790ba3454592b185c70eda4ebe14c8751d6e93",
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTC_result.json": "7785fa6bf11e5ee06e51b42226dec549570637f4839306b8317b4190c9931a44",
+  "build/reserve/RDTC_verify.json": "e62bed25ad73df1ff6fcc33e28b4d26ca947bf7c094ba53f32b1355e1b708f90",
+  "build/reserve/rdt_evidence/tic/slt_table3.txt": "d53727506606d107d06bff218e3a3873256d7f0f545e9ad5bd6ea79591211d5f"
+ },
+ "self_check": {
+  "identity_two_forms_agree_within_2musd": true,
+  "delta_sec_plus_dep_equals_delta_total": true,
+  "axis_fully_covered_by_sdds": true,
+  "band_override_used": false,
+  "no_date_no_probability": true
+ }
+}

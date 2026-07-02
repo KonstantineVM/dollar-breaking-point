@@ -1,0 +1,810 @@
+{
+ "artifact": "RDTD_fragility (RDT-D Part 1: fragility of the 446.5 $bn active-outflow figure)",
+ "establishment": "NOT ESTABLISHED -- output of RDTD_fragility_recompute.py; every number below is an OUTPUT pending its verifier scenario (orchestrator re-run of build/reserve/RDTD_fragility_recompute.py reproducing this file byte-for-byte, and the RDT-D gate).",
+ "contract": "build/reserve/RDTD_prediction.md (pre-registered before this build)",
+ "no_date_no_probability": "no breaking-point date and no probability appear in this artifact",
+ "inputs_sha256": {
+  "build/reserve/RDTC_class_panel.parquet": "f0bc20d218fd05998ff70a15ef790ba3454592b185c70eda4ebe14c8751d6e93",
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTD_prediction.md": "dbe00b9cbcf8f1a3bc26f5721004d26bd5964bd8f6ef2800bfaed602db24527d",
+  "build/reserve/rdt_evidence/tic/mfh.txt": "0659fbbfefcbda85ebee582c9f8cacb0a7b6efad4daaeeb24f1a271683c79694",
+  "build/reserve/rdt_evidence/tic/tic_seca_page.html": "949eb71c800d7ce5a8d78f865fa51e06339795d74dac559c881e59d2cd2c3bb6",
+  "build/reserve/rdtb_evidence/shl2025r_extracted.txt": "77cb2fcf75ca1daccac65261c05136e7b033fdb18262416e729ece3fa2305a5f"
+ },
+ "units": "all *_busd fields are billions of USD, rounded to 3 decimals; panel native unit is millions",
+ "class_alias": {
+  "corp_lt": "corp_other_bonds_lt"
+ },
+ "windows": {
+  "recent_3y_verdict_axis": {
+   "start": "2023-05",
+   "end": "2026-04",
+   "role": "VERDICT AXIS (RDT-B recent-3y window verbatim)",
+   "holdings_reference_month": "2023-04"
+  },
+  "freeze_era_2022_03": {
+   "start": "2022-03",
+   "end": "2026-04",
+   "role": "context (pre-registered, labelled freeze-era)",
+   "holdings_reference_month": "2022-02"
+  },
+  "full_2013": {
+   "start": "2013-01",
+   "end": "2026-04",
+   "role": "context (pre-registered)",
+   "holdings_reference_month": "2012-12"
+  }
+ },
+ "identity": "G = dH - V_stated - active, per class, per custody variant (pre-registered Part-1 rule)",
+ "v_stated_property": {
+  "first_published_month_per_country": {
+   "China, Mainland": "2023-02",
+   "Belgium": "2023-02",
+   "Luxembourg": "2023-02"
+  },
+  "starts_2023_02_everywhere": true,
+  "reading": "The SLT stated valuation-change column exists from 2023-02 only (publisher property, verified from the committed panel). The verdict axis (2023-05..2026-04) lies entirely on it; the freeze-era and full context windows do NOT -- their G conflates valuation and gap and is labelled so, per the pre-registration."
+ },
+ "G_tables": {
+  "recent_3y_verdict_axis": {
+   "china_alone": {
+    "treasury_lt": {
+     "active_cum_busd": -284.774,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 21.443,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": -246.177,
+     "dH_minus_active_busd": 38.597,
+     "G_busd": 17.154,
+     "G_sign": "positive",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "agency_lt": {
+     "active_cum_busd": -93.849,
+     "active_months": "36/36",
+     "V_stated_cum_busd": -18.271,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": -113.735,
+     "dH_minus_active_busd": -19.886,
+     "G_busd": -1.615,
+     "G_sign": "negative",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 1.573,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 0.573,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": -3.255,
+     "dH_minus_active_busd": -4.828,
+     "G_busd": -5.401,
+     "G_sign": "negative",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "equity_lt": {
+     "active_cum_busd": -69.443,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 186.37,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": 102.229,
+     "dH_minus_active_busd": 171.672,
+     "G_busd": -14.698,
+     "G_sign": "negative",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "total_lt": {
+     "active_cum_busd": -446.493,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 190.115,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": -260.938,
+     "dH_minus_active_busd": 185.555,
+     "G_busd": -4.56,
+     "G_sign": "negative",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "_G_sum_of_classes_busd": -4.56,
+    "_G_total_minus_sum_busd": 0.0
+   },
+   "china_belgium_luxembourg": {
+    "treasury_lt": {
+     "active_cum_busd": -282.214,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 55.226,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": -52.63,
+     "dH_minus_active_busd": 229.584,
+     "G_busd": 174.358,
+     "G_sign": "positive",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "agency_lt": {
+     "active_cum_busd": -26.888,
+     "active_months": "36/36",
+     "V_stated_cum_busd": -24.026,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": -49.796,
+     "dH_minus_active_busd": -22.908,
+     "G_busd": 1.118,
+     "G_sign": "positive",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 97.091,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 165.112,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": 313.172,
+     "dH_minus_active_busd": 216.081,
+     "G_busd": 50.969,
+     "G_sign": "positive",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "equity_lt": {
+     "active_cum_busd": -114.312,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 772.43,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": 595.539,
+     "dH_minus_active_busd": 709.851,
+     "G_busd": -62.579,
+     "G_sign": "negative",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "total_lt": {
+     "active_cum_busd": -326.323,
+     "active_months": "36/36",
+     "V_stated_cum_busd": 968.742,
+     "V_stated_months_covered": "36/36",
+     "delta_holdings_busd": 806.285,
+     "dH_minus_active_busd": 1132.608,
+     "G_busd": 163.866,
+     "G_sign": "positive",
+     "G_label": "clean: every window month carries the published SLT valuation-change column"
+    },
+    "_G_sum_of_classes_busd": 163.866,
+    "_G_total_minus_sum_busd": 0.0
+   }
+  },
+  "freeze_era_2022_03": {
+   "china_alone": {
+    "treasury_lt": {
+     "active_cum_busd": -330.032,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 28.798,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": -413.8,
+     "dH_minus_active_busd": -83.768,
+     "G_busd": -112.566,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "agency_lt": {
+     "active_cum_busd": 13.586,
+     "active_months": "50/50",
+     "V_stated_cum_busd": -22.396,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": -62.565,
+     "dH_minus_active_busd": -76.151,
+     "G_busd": -53.755,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 3.812,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 0.678,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": -2.924,
+     "dH_minus_active_busd": -6.736,
+     "G_busd": -7.414,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "equity_lt": {
+     "active_cum_busd": -76.886,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 192.143,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": 108.953,
+     "dH_minus_active_busd": 185.839,
+     "G_busd": -6.304,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "total_lt": {
+     "active_cum_busd": -389.52,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 199.223,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": -370.336,
+     "dH_minus_active_busd": 19.184,
+     "G_busd": -180.039,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "_G_sum_of_classes_busd": -180.039,
+    "_G_total_minus_sum_busd": 0.0
+   },
+   "china_belgium_luxembourg": {
+    "treasury_lt": {
+     "active_cum_busd": -401.55,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 60.592,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": -124.911,
+     "dH_minus_active_busd": 276.639,
+     "G_busd": 216.047,
+     "G_sign": "positive",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "agency_lt": {
+     "active_cum_busd": 99.122,
+     "active_months": "50/50",
+     "V_stated_cum_busd": -27.617,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": 23.119,
+     "dH_minus_active_busd": -76.003,
+     "G_busd": -48.386,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 89.671,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 166.362,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": 221.072,
+     "dH_minus_active_busd": 131.401,
+     "G_busd": -34.961,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "equity_lt": {
+     "active_cum_busd": -107.185,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 779.012,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": 452.333,
+     "dH_minus_active_busd": 559.518,
+     "G_busd": -219.494,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "total_lt": {
+     "active_cum_busd": -319.942,
+     "active_months": "50/50",
+     "V_stated_cum_busd": 978.349,
+     "V_stated_months_covered": "39/50",
+     "V_stated_shortfall": "11 months in window have NO published by-country valuation change (2022-03..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": 571.613,
+     "dH_minus_active_busd": 891.555,
+     "G_busd": -86.794,
+     "G_sign": "negative",
+     "G_label": "CONFLATED: G over this window mixes the true reconciliation gap with UNPUBLISHED valuation change for the V_stated-missing months (pre-2023-02); it is NOT a clean gap."
+    },
+    "_G_sum_of_classes_busd": -86.794,
+    "_G_total_minus_sum_busd": 0.0
+   }
+  },
+  "full_2013": {
+   "china_alone": {
+    "treasury_lt": {
+     "active_cum_busd": -372.546,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 28.798,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "agency_lt": {
+     "active_cum_busd": 502.018,
+     "active_months": "160/160",
+     "V_stated_cum_busd": -22.396,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 27.438,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 0.678,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "equity_lt": {
+     "active_cum_busd": -88.848,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 192.143,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "total_lt": {
+     "active_cum_busd": 68.062,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 199.223,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    }
+   },
+   "china_belgium_luxembourg": {
+    "treasury_lt": {
+     "active_cum_busd": -998.181,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 60.592,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "agency_lt": {
+     "active_cum_busd": 694.417,
+     "active_months": "160/160",
+     "V_stated_cum_busd": -27.617,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": -21.371,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 166.362,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "equity_lt": {
+     "active_cum_busd": -92.537,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 779.012,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    },
+    "total_lt": {
+     "active_cum_busd": -417.672,
+     "active_months": "160/160",
+     "V_stated_cum_busd": 978.349,
+     "V_stated_months_covered": "39/160",
+     "V_stated_shortfall": "121 months in window have NO published by-country valuation change (2013-01..2023-01; publisher publishes the column from 2023-02 only). V_stated cumulated on the available span; NOT interpolated.",
+     "delta_holdings_busd": "NOT AVAILABLE -- by-class SLT positions begin 2020-01; reference month 2012-12 precedes coverage",
+     "dH_minus_active_busd": null,
+     "G_busd": null,
+     "G_sign": "NOT AVAILABLE",
+     "G_label": "NOT AVAILABLE (delta holdings unavailable); components reported, G not computed"
+    }
+   }
+  }
+ },
+ "mechanical_flag": {
+  "rule": "pre-registered (RDTD_prediction.md Part 1): flag 446.5-UNRELIABLE iff |G_total| > 0.25 x |active_total|, China-alone variant, verdict axis",
+  "rule_clause_found_in_contract": true,
+  "window": "recent_3y_verdict_axis",
+  "variant_headline": "china_alone",
+  "G_total_busd": -4.56,
+  "abs_G_total_busd": 4.56,
+  "active_total_busd": -446.493,
+  "abs_active_total_busd": 446.493,
+  "threshold_busd": 111.623,
+  "ratio_absG_over_absActive": 0.0102,
+  "flag": "RELIABLE-WITHIN-GAP",
+  "context_variant_cn_be_lu": {
+   "G_total_busd": 163.866,
+   "active_total_busd": -326.323,
+   "threshold_busd_own_active": 81.581,
+   "ratio_absG_over_absActive": 0.5022,
+   "would_trip_own_threshold": true,
+   "note": "CONTEXT ONLY -- the pre-registered headline flag is the China-alone variant."
+  }
+ },
+ "rdtc_reconciliation": {
+  "window": "recent_3y_verdict_axis",
+  "per_variant": {
+   "china_alone": {
+    "treasury_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "agency_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "equity_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "total_lt": {
+     "active_total_vs_ledger_X_plus_A_busd": 0.0,
+     "active_total_vs_minus_residual_left_us_busd": 0.0,
+     "dH_minus_active_vs_sum_of_class_valuation_residuals_busd": 0.0
+    },
+    "_reading": "dH - active (mine) is compared to RDTC's committed valuation_residual (the V_us leg of the identity); V_stated to RDTC's published_valchg; G to RDTC's other_changes. Diffs are rounding-level or the reconciliation fails."
+   },
+   "china_belgium_luxembourg": {
+    "treasury_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "agency_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "corp_other_bonds_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "equity_lt": {
+     "active_cum_busd": 0.0,
+     "delta_holdings_busd": 0.0,
+     "dH_minus_active_vs_valuation_residual_busd": 0.0,
+     "V_stated_vs_published_valchg_busd": 0.0,
+     "G_vs_rdtc_other_changes_busd": 0.0
+    },
+    "total_lt": {
+     "active_total_vs_ledger_X_plus_A_busd": 0.0,
+     "active_total_vs_minus_residual_left_us_busd": 0.0,
+     "dH_minus_active_vs_sum_of_class_valuation_residuals_busd": 0.0
+    },
+    "_reading": "dH - active (mine) is compared to RDTC's committed valuation_residual (the V_us leg of the identity); V_stated to RDTC's published_valchg; G to RDTC's other_changes. Diffs are rounding-level or the reconciliation fails."
+   }
+  },
+  "max_abs_diff_busd": 0.0,
+  "tolerance_busd": 0.005,
+  "reconciled": true
+ },
+ "monthly_gap_distribution": {
+  "definition": "gap_m = dHoldings_m - active_m - V_stated_m (musd; reported busd); computable only on the stated-valuation span",
+  "per_variant": {
+   "china_alone": {
+    "largest_abs_row_any_class": {
+     "asset_class": "total_lt",
+     "month": "2025-05",
+     "gap_busd": -11.628
+    },
+    "by_class": {
+     "treasury_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": 0.413,
+      "mean_abs_busd": 1.267,
+      "median_abs_busd": 0.813,
+      "max_abs_busd": 7.622,
+      "sum_busd": 16.104,
+      "n_abs_gt_10busd": 0,
+      "largest_abs_row": {
+       "month": "2025-08",
+       "gap_busd": 7.622
+      }
+     },
+     "agency_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": -0.042,
+      "mean_abs_busd": 0.088,
+      "median_abs_busd": 0.012,
+      "max_abs_busd": 0.749,
+      "sum_busd": -1.628,
+      "n_abs_gt_10busd": 0,
+      "largest_abs_row": {
+       "month": "2023-06",
+       "gap_busd": -0.749
+      }
+     },
+     "corp_other_bonds_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": -0.14,
+      "mean_abs_busd": 0.191,
+      "median_abs_busd": 0.058,
+      "max_abs_busd": 1.671,
+      "sum_busd": -5.459,
+      "n_abs_gt_10busd": 0,
+      "largest_abs_row": {
+       "month": "2025-06",
+       "gap_busd": -1.671
+      }
+     },
+     "equity_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": -0.36,
+      "mean_abs_busd": 1.582,
+      "median_abs_busd": 0.604,
+      "max_abs_busd": 11.54,
+      "sum_busd": -14.04,
+      "n_abs_gt_10busd": 1,
+      "largest_abs_row": {
+       "month": "2025-05",
+       "gap_busd": -11.54
+      }
+     },
+     "total_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": -0.129,
+      "mean_abs_busd": 2.244,
+      "median_abs_busd": 1.43,
+      "max_abs_busd": 11.628,
+      "sum_busd": -5.023,
+      "n_abs_gt_10busd": 1,
+      "largest_abs_row": {
+       "month": "2025-05",
+       "gap_busd": -11.628
+      }
+     }
+    }
+   },
+   "china_belgium_luxembourg": {
+    "largest_abs_row_any_class": {
+     "asset_class": "total_lt",
+     "month": "2023-12",
+     "gap_busd": -86.586
+    },
+    "by_class": {
+     "treasury_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": 4.313,
+      "mean_abs_busd": 8.821,
+      "median_abs_busd": 6.989,
+      "max_abs_busd": 30.763,
+      "sum_busd": 168.213,
+      "n_abs_gt_10busd": 13,
+      "largest_abs_row": {
+       "month": "2024-02",
+       "gap_busd": 30.763
+      }
+     },
+     "agency_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": 0.038,
+      "mean_abs_busd": 1.068,
+      "median_abs_busd": 0.809,
+      "max_abs_busd": 5.098,
+      "sum_busd": 1.494,
+      "n_abs_gt_10busd": 0,
+      "largest_abs_row": {
+       "month": "2024-05",
+       "gap_busd": 5.098
+      }
+     },
+     "corp_other_bonds_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": 1.334,
+      "mean_abs_busd": 4.093,
+      "median_abs_busd": 3.611,
+      "max_abs_busd": 24.761,
+      "sum_busd": 52.019,
+      "n_abs_gt_10busd": 1,
+      "largest_abs_row": {
+       "month": "2023-12",
+       "gap_busd": -24.761
+      }
+     },
+     "equity_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": -1.816,
+      "mean_abs_busd": 7.441,
+      "median_abs_busd": 3.195,
+      "max_abs_busd": 48.665,
+      "sum_busd": -70.81,
+      "n_abs_gt_10busd": 8,
+      "largest_abs_row": {
+       "month": "2023-12",
+       "gap_busd": -48.665
+      }
+     },
+     "total_lt": {
+      "n_months": 39,
+      "span": "2023-02..2026-04",
+      "mean_busd": 3.87,
+      "mean_abs_busd": 14.535,
+      "median_abs_busd": 11.463,
+      "max_abs_busd": 86.586,
+      "sum_busd": 150.916,
+      "n_abs_gt_10busd": 21,
+      "largest_abs_row": {
+       "month": "2023-12",
+       "gap_busd": -86.586
+      }
+     }
+    }
+   }
+  },
+  "per_country_total_lt": {
+   "China, Mainland": {
+    "n_months": 39,
+    "span": "2023-02..2026-04",
+    "mean_busd": -0.129,
+    "mean_abs_busd": 2.244,
+    "median_abs_busd": 1.43,
+    "max_abs_busd": 11.628,
+    "sum_busd": -5.023,
+    "n_abs_gt_10busd": 1,
+    "largest_abs_row": {
+     "month": "2025-05",
+     "gap_busd": -11.628
+    }
+   },
+   "Belgium": {
+    "n_months": 39,
+    "span": "2023-02..2026-04",
+    "mean_busd": 8.992,
+    "mean_abs_busd": 10.813,
+    "median_abs_busd": 7.886,
+    "max_abs_busd": 37.231,
+    "sum_busd": 350.701,
+    "n_abs_gt_10busd": 16,
+    "largest_abs_row": {
+     "month": "2024-02",
+     "gap_busd": 37.231
+    }
+   },
+   "Luxembourg": {
+    "n_months": 39,
+    "span": "2023-02..2026-04",
+    "mean_busd": -4.994,
+    "mean_abs_busd": 9.483,
+    "median_abs_busd": 4.363,
+    "max_abs_busd": 106.965,
+    "sum_busd": -194.762,
+    "n_abs_gt_10busd": 7,
+    "largest_abs_row": {
+     "month": "2023-12",
+     "gap_busd": -106.965
+    }
+   }
+  }
+ },
+ "monthly_gap_character": "episodic-with-systematic-floor: the single largest monthly |gap| (106.965 $bn, Luxembourg total_lt) dwarfs the median monthly |gap|; large gaps concentrate in the custody centers (Belgium/Luxembourg), consistent with the publisher's documented custody/ICSD attribution and survey-benchmark reattribution rather than with a smooth monthly reporting error. See monthly_gap_distribution for the numbers; this sentence interprets nothing beyond them.",
+ "rdtc_largest_gap_reproduction": {
+  "rdtc_committed_max_abs_gap_busd": 106.965,
+  "rdtc_committed_location": "Luxembourg total_lt 2023-12 (RDTC_class_flows.json self_check)",
+  "my_luxembourg_total_lt_largest_row": {
+   "month": "2023-12",
+   "gap_busd": -106.965
+  },
+  "reproduced": true
+ },
+ "attribution_mechanism": {
+  "status": "ON-DISK (verbatim, composite of retained publisher files)",
+  "statement": "Transactions (the 446.5's substance) are attributed to the country of the counterparty transacting with the U.S. -- for intermediated trades that is the intermediary's country (the classic UK/financial-center effect) -- while holdings are attributed to the (custody-chain-visible) residence of the holder. The publisher states each leg in its own words below; the composite, not memory, is the ground for the mechanism.",
+  "quotes": [
+   {
+    "file": "build/reserve/rdt_evidence/tic/tic_seca_page.html",
+    "role": "transactions side -- the discontinued Form S attributed transactions to the country TRANSACTING with the U.S. (publisher's own contrast, written when the SLT replaced Form S)",
+    "quote": "Note that the new data on purchases and sales of foreign securities show the country that issued the securities, in contrast to the previous data that showed the country doing the transactions with the U.S.",
+    "verbatim_found_in_file": true
+   },
+   {
+    "file": "build/reserve/rdtb_evidence/shl2025r_extracted.txt",
+    "role": "reporting basis -- TIC data attributed to the counterparty's country of legal residence; holdings surveys to the residence of the owner",
+    "quote": "TIC data are reported based on the counterparty’s country of legal residence. In the case of the SHL, the country of holder is recorded based on the residence of the security owner.",
+    "verbatim_found_in_file": true
+   },
+   {
+    "file": "build/reserve/rdtb_evidence/shl2025r_extracted.txt",
+    "role": "intermediary / financial-center (custodial) bias, naming Belgium, Luxembourg, Switzerland and the United Kingdom",
+    "quote": "Third, chains of foreign financial intermediaries are often involved in the custody or management of securities. This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+    "verbatim_found_in_file": true
+   },
+   {
+    "file": "build/reserve/rdtb_evidence/shl2025r_extracted.txt",
+    "role": "ICSD attribution -- Euroclear (Belgium) / Clearstream (Luxembourg): large foreign holdings attributed to the ICSD country",
+    "quote": "Prominent ICSDs are Euroclear in Belgium and Clearstream in Luxembourg. U.S. survey reporters typically report only the country where the ICSD is located and thus large foreign holdings are attributed to these countries.",
+    "verbatim_found_in_file": true
+   },
+   {
+    "file": "build/reserve/rdtb_evidence/shl2025r_extracted.txt",
+    "role": "the transactions-vs-positions gap itself, from the publisher: a non-zero G is a documented property of the system",
+    "quote": "Finally, securities lending and short sales can introduce a difference between reported securities transactions and changes in reported positions.",
+    "verbatim_found_in_file": true
+   },
+   {
+    "file": "build/reserve/rdtb_evidence/shl2025r_extracted.txt",
+    "role": "the transactions-vs-positions gap, continued -- survives valuation adjustment",
+    "quote": "Thus, there will be a difference between reported net transactions and the change in reported positions, even after adjusting for valuation changes.",
+    "verbatim_found_in_file": true
+   },
+   {
+    "file": "build/reserve/rdt_evidence/tic/mfh.txt",
+    "role": "holdings side -- custody-based collection may not attribute to actual owners (MFH footnote 1/)",
+    "quote": "The data in this table are collected primarily from U.S.-based custodians and broker-dealers. Since U.S. securities held in overseas custody accounts may not be attributed to the actual owners, the data may not provide a precise accounting of individual country ownership of Treasury securities",
+    "verbatim_found_in_file": true
+   }
+  ],
+  "tic_faq_note": {
+   "note": "The MFH footnote points to TIC FAQ #7 for the full attribution discussion; the FAQ page was not retained at Part-1 build time and was subsequently fetched by Part 2 as build/reserve/rdtd_evidence/tic_faq2.html (cited in rdtd_pool_determination.md). No language from it is quoted in this Part-1 mechanism composite, which is grounded entirely in the retained files listed (publisher's SECA release-notes page, the publisher's SHL 2025 survey report sections 4.2.4/4.3.4, and the MFH footnote); no sentence is paraphrased from memory.",
+   "tic_faq_file": "build/reserve/rdtd_evidence/tic_faq2.html",
+   "tic_faq_sha256": "31df3e8ba605676e6562e5d999555ee89ec79ab4a61a3d8a1695e92a1131bfe1",
+   "role": "NOT an input to any Part-1 computation (hence not in inputs_sha256); existence and sha recorded only to keep the retention statement accurate"
+  }
+ },
+ "self_check": {
+  "threshold_clause_found_in_prediction": true,
+  "v_stated_starts_2023_02": true,
+  "verdict_axis_v_stated_complete_36_of_36": true,
+  "rdtc_reconciled_within_tolerance": true,
+  "rdtc_max_abs_recon_diff_busd": 0.0,
+  "luxembourg_2023_12_gap_reproduced": true,
+  "mechanism_quotes_all_verbatim_on_disk": true,
+  "class_additivity_max_abs_diff_busd_verdict_axis": 0.0,
+  "no_date_no_probability": true,
+  "double_build_identical": true
+ }
+}

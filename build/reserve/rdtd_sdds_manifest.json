@@ -49,11 +49,12 @@
   "structural_findings": [
    "The (ii) of-which sub-line ('located abroad') EQUALS the full (ii) line in all 132 months (max diff 0): every deposit with Chinese-HQ banks is booked at their offices abroad.",
    "The (5) financial-derivatives sub-line equals the whole 'Other reserve assets' line in all 132 months (goes negative, e.g. -0.491 bn 2020-10): 'other reserve assets' is entirely financial derivatives.",
-   "Deposits are a tiny share of the FX-reserves line throughout: 0.06% (2020-10) to 1.36% (2025-02) — the securities line carries essentially the whole FX-reserves line.",
+   "Deposits are a tiny share of the FX-reserves line throughout: 0.08% (2022-03) to 1.36% (2025-02) — the securities line carries essentially the whole FX-reserves line. [Range restated 2026-07-02 with the 2020-10 row correction noted under publisher_frictions; the superseded raw_074 row had implied a 0.06% minimum at 2020-10.]",
    "No suppression of the required Part-3 lines anywhere in 2015-06..2026-05: securities, all three deposit counterpart lines, and other reserve assets are populated in every month. The OTHER-OR-SUPPRESSED axis, if it triggers, cannot trigger on suppression of these lines."
   ],
   "publisher_frictions": [
    "2020-10 was published twice: file dated 2020-11-30 (deposits with banks HQ outside reporting country = -0.589 bn, a negative deposit line; securities 3126.162 bn, deposits total 1.820 bn) and a corrected file dated 2020-12-31 (securities 3124.692 bn, deposits total 3.290 bn, (iii) = +0.881 bn). Both retained (raw_074_*, raw_075_*); the later-published file is used in the CSV; totals/fx/gold identical across the two.",
+   "CORRECTION (2026-07-02, RDT-D gate): the CSV 2020-10 row initially carried the superseded raw_074 vintage, contradicting the stated policy above; the row was rebuilt by re-parsing raw_075 (securities 3124.69182, dep (i) 1.470163, (ii) 0.939457, (iii) 0.88056 bn; other/IMF/SDR/gold/total identical across vintages). 2020-10 is off the verdict axis: no axis delta and no verdict input changed.",
    "2015-06..2016-03 files carry a single USD column (the SDR column was added from April 2016 per the note inside the files).",
    "Numeric precision varies by vintage: some files carry full float precision, most are rounded to 0.01 亿 (0.001 bn).",
    "One transient fetch failure (2023-12 file, HTTP 000/timeout) succeeded on immediate retry; logged."
