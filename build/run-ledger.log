@@ -5736,3 +5736,15 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T14:35:10Z	OUTPUT (not established until verifier runs)	git status --porcelain build/run-ledger.log | grep -q . && git add build/run-ledger.log && git commit -q -m "Update run-ledger log (RDT-E Phase 1 running)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T14:35:29Z	OUTPUT (not established until verifier runs)	mkdir -p /home/user/dollar-breaking-point/build/reserve/rdte_evidence && cd /home/user/dollar-breaking-point/build/reserve/rdte_evidence && \
+UA="Mozilla/5.0 (X11; Linux x86_64) research-fetch" && \
+for spec in "method_mfh.html|https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/methodology-for-estimating-holdings-of-treasury-securities" "slt_table5_live.txt|https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt" "fred_wmtsecl1_page.html|https://fred.stlouisfed.org/series/WMTSECL1" "fred_wmtsecl1.csv|https://fred.stlouisfed.org/graph/fredgraph.csv?id=WMTSECL1"; do
+  f="${spec%%|*}"; u="${spec#*|}"
+  code=$(curl -sS -A "$UA" -L --max-time 90 -w "%{http_code}" -o "$f" "$u" 2>/dev/null)
+  sz=$(stat -c%s "$f" 2>/dev/null || echo 0)
+  echo "$(date -u +%FT%TZ) | $u | HTTP $code $sz bytes | -> $f" | tee -a _RDTE_fetch_log.txt
+done
