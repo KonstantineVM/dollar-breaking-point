@@ -1,0 +1,49 @@
+RDT-C Part 1 (SAFE totals leg) fetch log — retrieved 2026-07-02, outbound via agent proxy.
+All fetches issued by this agent this run; every file below is retained in this directory.
+
+[SAFE English site — Official Reserve Assets, yearly pages + xlsx]
+  Channel index: https://www.safe.gov.cn/en/ForexReserves/index.html -> HTTP 200, 30,055 B [safe_forexreserves_index.html]
+    (lists "Official Reserve Assets (2020)".."(2026)" article pages)
+  Year pages (each HTTP 200):
+    2026: https://www.safe.gov.cn/en/2021/0203/2045.html  [safe_ora_page_2026.html]
+    2025: https://www.safe.gov.cn/en/2021/0203/2386.html  [safe_ora_page_2025.html]
+    2024: https://www.safe.gov.cn/en/2021/0203/2280.html  [safe_ora_page_2024.html]
+    2023: https://www.safe.gov.cn/en/2021/0203/2174.html  [safe_ora_page_2023.html]
+    2022: https://www.safe.gov.cn/en/2021/0203/2113.html  [safe_ora_page_2022.html]
+    2021: https://www.safe.gov.cn/en/2021/0203/1798.html  [safe_ora_page_2021.html]
+  Data files (xlsx links extracted from those pages; all HTTP 200):
+    https://www.safe.gov.cn/en/file/file/20220128/b62ccc0d28dc401ba16712f592ecd2a0.xlsx -> 14,832 B [safe_ora_2021_MYFETCH.xlsx]
+    https://www.safe.gov.cn/en/file/file/20230131/99ae51feb9114aad94ef12715ab95cda.xlsx -> 14,265 B [safe_ora_2022_MYFETCH.xlsx]
+    https://www.safe.gov.cn/en/file/file/20240124/612f20d0024b41ec9d8ece9250b922cf.xlsx -> 14,398 B [safe_ora_2023_MYFETCH.xlsx]
+    https://www.safe.gov.cn/en/file/file/20250107/cccae56ba9204e43821b62c8441bbea8.xlsx -> 15,065 B [safe_ora_2024_MYFETCH.xlsx]
+    https://www.safe.gov.cn/en/file/file/20260207/532af9a5edf040fb95117264b66a748c.xlsx -> 15,517 B [safe_ora_2025_MYFETCH.xlsx]
+    https://www.safe.gov.cn/en/file/file/20260607/2990f3246e4746ffb39dbc70d1b390f8.xlsx -> 15,616 B [safe_ora_2026_MYFETCH.xlsx]
+  Structure: row "1. 外汇储备 / Foreign currency reserves" (亿美元 = 100 million USD, plus 亿SDR col),
+  rows 2..5 = IMF reserve position, SDRs, Gold (value + volume row in 万盎司 = 10,000 troy oz),
+  Other reserve assets; 合计/Total.
+
+  FRICTIONS FOUND (English xlsx):
+    (1) safe_ora_2024_MYFETCH.xlsx ends at 2024.11 — the 2024.12 column is EMPTY in the
+        publisher's own English-site file (the RDT-B finding on the on-disk copy is a property
+        of the publisher's file, not of the earlier copy). The 2025 file starts at 2025.01,
+        so 2024-12 falls in a seam on the English site.
+    (2) safe_ora_2026_MYFETCH.xlsx (file dated 20260607) ends at 2026.04 — the English file
+        lags the Chinese release by one month.
+
+[SAFE Chinese site — 官方储备资产 (same publisher, fills the two seam months)]
+  Channel: https://www.safe.gov.cn/safe/gfcbzc/index.html -> HTTP 200, 21,175 B [safe_cn_gfcbzc_index.html]
+  官方储备资产（2024）: https://www.safe.gov.cn/safe/2022/0207/23934.html -> HTTP 200, 51,893 B [safe_cn_ora_2024.html]
+    Inline HTML table, months 2024.01..2024.12 ALL POPULATED, incl. 2024.12:
+    FX 32023.57 亿USD; IMF 97.58; SDR 526.88; gold 1913.37 (7329万盎司); other -5.82; total 34555.58.
+  官方储备资产（2026）: https://www.safe.gov.cn/safe/2026/0206/27116.html -> HTTP 200, 43,993 B [safe_cn_27116.html]
+    Inline HTML table, populated through 2026.05 (one month beyond the English xlsx):
+    FX 34422.38 亿USD; IMF 111.85; SDR 560.34; gold 3407.52 (7496万盎司); other 3.77; total 38505.86.
+  Overlap check Chinese-HTML vs English-xlsx (2024.01-2024.11, 2026.01-2026.04, all rows): ZERO diffs.
+
+[Dead ends / probes]
+  https://www.safe.gov.cn/safe/tjsj/index.html -> HTTP 404 (candidate channel URL, wrong guess)
+  Sheet2/Sheet3 of the 2025/2026 English xlsx: empty (0x0).
+  WebSearch used ONLY to locate the Chinese-page URLs (m.safe.gov.cn listing); all data values
+  come from the fetched safe.gov.cn pages/files themselves.
+
+No fallback tier needed: primary publisher (SAFE, safe.gov.cn) reachable for every month.
