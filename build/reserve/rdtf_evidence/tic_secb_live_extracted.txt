@@ -1,0 +1,449 @@
+# RDT-F evidence extraction (plain text derived from a retained publisher file; NOT a new fetch)
+# Source file (raw bytes, on disk): build/reserve/rdtb_evidence/tic_secb_live.html
+# Publisher URL of the source fetch: https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/securities-b-portfolio-holdings-of-us-and-foreign-securities
+# Source fetched (per its stage fetch log): 2026-07-02T02:57:13Z (RDTB fetch log line 2)
+# Extraction: Python stdlib html.unescape + regex tag-strip, whitespace-normalized, 2026-07-02.
+# Quote verification must go to the raw source file; this extraction is a reading aid.
+
+ 
+ Securities (B): Portfolio Holdings of U.S. and Foreign Securities | U.S. Department of the Treasury 
+ Skip to main content
+ An official website of the United States government
+ Here’s how you know
+ Here’s how you know 
+ Official websites use .gov 
+ A .gov website belongs to an official government organization in the United States.
+ Secure .gov websites use HTTPS 
+ A lock 
+ ( Lock A locked padlock )
+ or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+ FREEDOM250 
+ Countdown to America's 250th Anniversary 
+ July 4, 2026 
+ Learn More 
+ MENU 
+ MENU
+ U.S. Department of the Treasury 
+ About Treasury 
+ Enter Search Term(s): 
+ Advanced Search 
+ About Treasury 
+ General Information 
+ Role of the Treasury 
+ Officials 
+ Organizational Chart 
+ Orders and Directives 
+ Offices 
+ Domestic Finance 
+ Economic Policy 
+ General Counsel 
+ International Affairs 
+ Management 
+ Public Affairs 
+ Tax Policy 
+ Terrorism and Financial Intelligence 
+ Tribal and Native Affairs 
+ Inspectors General 
+ Bureaus 
+ Alcohol and Tobacco Tax and Trade Bureau (TTB) 
+ Bureau of Engraving & Printing (BEP) 
+ Financial Crimes Enforcement Network (FinCEN) 
+ Bureau of the Fiscal Service (BFS) 
+ Internal Revenue Service (IRS) 
+ Office of the Comptroller of the Currency (OCC) 
+ U.S. Mint 
+ Office of Inspector General (OIG) 
+ Treasury Inspector General for Tax Administration (TIGTA) 
+ Special Inspector General for Pandemic Recovery (SIGPR) 
+ Budget, Financial Reporting, Planning and Performance 
+ Strategic Plan 
+ Budget Request/Annual Performance Plan and Reports 
+ Agency Financial Report 
+ Inspector General Audits and Investigative Reports 
+ IRS Strategic Operating Plan 
+ History 
+ Curator 
+ History Overview 
+ Prior Secretaries 
+ Prior Treasurers 
+ The Treasury Building 
+ Collections 
+ Freedman's Bank Building 
+ Careers 
+ At Headquarters 
+ At Our Bureaus  
+ Top 10 Reasons to Work Here 
+ Benefits and Growth 
+ Workforce 
+ Veterans Employment 
+ Pathways 
+ How to Apply 
+ Search Jobs 
+ The Fair Chance to Compete Act 
+ Policy Issues 
+ Enter Search Term(s): 
+ Advanced Search 
+ Policy Issues 
+ Tax Policy 
+ Data Transparency 
+ Revenue Proposals 
+ Tax Expenditures 
+ International Tax 
+ Treaties and Related Documents 
+ Foreign Account Tax Compliance Act (FATCA) 
+ Reports 
+ Tax Analysis 
+ Tax Regulatory Process 
+ Economic Policy 
+ Treasury Coupon Issues 
+ Corporate Bond Yield Curve 
+ Economic Policy Reports 
+ Social Security and Medicare 
+ Total Taxable Resources 
+ Terrorism and Illicit Finance 
+ Sanctions 
+ Asset Forfeiture 
+ 311 Actions 
+ Terrorist Finance Tracking Program 
+ Money Laundering 
+ Financial Action Task Force 
+ Protecting Charitable Organizations 
+ Financing the Government 
+ Treasury Quarterly Refunding 
+ Interest Rate Statistics 
+ Treasury Securities 
+ Treasury Investor Data 
+ Debt Management Research 
+ Financial Markets, Financial Institutions, and Fiscal Service 
+ Cash and Debt Forecasting 
+ Debt Limit 
+ Financial Stability Oversight Council 
+ Federal Insurance Office 
+ RESTORE Act 
+ 1603 Program 
+ The Community Development Financial Institution (CDFI) Fund 
+ Making Home Affordable 
+ Office of Capital Access 
+ Financial Sanctions 
+ Specially Designated Nationals List (SDN List) 
+ Consolidated Sanctions List 
+ Search OFAC's Sanctions Lists 
+ Additional Sanctions Lists 
+ OFAC Recent Actions 
+ Sanctions Programs and Country Information 
+ Frequently Asked Questions 
+ OFAC Civil Penalties and Enforcement 
+ Contact OFAC 
+ Consumer Policy 
+ Financial Literacy and Education Commission 
+ Mymoney.gov 
+ Innovations in Financial Services 
+ Featured Research 
+ Student Loans 
+ International 
+ The Committee on Foreign Investment in the United States (CFIUS) 
+ Outbound Investment Security Program  
+ Exchange Stabilization Fund 
+ G-7 and G-20 
+ International Monetary Fund 
+ Multilateral Development Banks 
+ Macroeconomic and Foreign Exchange Policies of Major Trading Partners 
+ Exchange Rate Analysis 
+ U.S.-China Comprehensive Strategic Economic Dialogue (CED) 
+ Small Business Programs 
+ Small and Disadvantaged Business Utilization 
+ Small Business Lending Fund 
+ State Small Business Credit Initiative 
+ Tribal Affairs 
+ Data 
+ Enter Search Term(s): 
+ Advanced Search 
+ Data 
+ Interest Rates 
+ Daily Treasury Par Yield Curve Rates 
+ Daily Treasury Par Real Yield Curve Rates 
+ Daily Treasury Bill Rates 
+ Daily Treasury Long-Term Rates 
+ Daily Treasury Real Long-Term Rates 
+ Treasury Coupon-Issue and Corporate Bond Yield Curve 
+ Treasury Coupon Issues 
+ Corporate Bond Yield Curve 
+ Federal Financial Data
+ Your Guide to America’s Finances 
+ Monthly Treasury Statement 
+ Daily Treasury Statement 
+ How Your Money Is Spent 
+ USAspending.gov 
+ National Debt 
+ National Debt to the Penny 
+ Historical Debt Outstanding 
+ Monthly Statement of the Public Debt  
+ Quarterly Refunding 
+ Debt Management Overview and Quarterly Refunding Process 
+ Most Recent Documents 
+ Archives 
+ Webcasts 
+ Investor Class Auction Allotments 
+ Other Programs 
+ Treasury International Capital (TIC) System 
+ U.S International Portfolio Investment Statistics 
+ Release Dates 
+ Forms and Instructions 
+ TIC Press Releases 
+ U.S. International Reserve Position 
+ Troubled Assets Relief Program 
+ Reports 
+ Office of the Chief Data Officer 
+ Federal CDO Council 
+ Data.gov 
+ Treasury Open Data 
+ Evidence Act H.R.4174 
+ Datafoundation.org 
+ Services 
+ Enter Search Term(s): 
+ Advanced Search 
+ Services 
+ Report Fraud, Waste & Abuse 
+ Report COVID-19 Scam Attempts 
+ Report Scam Attempts 
+ Report Fraud Related to Government Contracts 
+ Inspectors General 
+ Bonds and Securities 
+ Buy, Manage, and Redeem 
+ Treasury Hunt - Search for Matured Bonds 
+ Cashing Savings Bonds in Disaster-Declared Areas 
+ Frequently Asked Questions 
+ Grant Programs 
+ Pay for Results (SIPPRA) 
+ RESTORE Act 
+ Community Development Financial Institution (CDFI) Fund 
+ Treasury Payments 
+ Where is my Refund? 
+ Lost or Expired Check 
+ Direct Express Card 
+ Non-Benefit Federal Payments 
+ Electronic Federal Benefit Payments - GoDirect 
+ Currency and Coins 
+ Shop for Coin Products 
+ Shop for Currency Products  
+ Redeem Damaged Currency 
+ Bureau of Engraving and Printing 
+ U.S Mint 
+ Auctions 
+ IRS Auctions 
+ Real Estate 
+ General Property, Vehicles, Vessels & Aircraft 
+ Kline-Miller Multiemployer Pension Reform Act of 2014 
+ Applications 
+ Frequently Asked Questions 
+ Education 
+ Whistleblowing and Financial Integrity
+ Whistleblower Resources 
+ Taxes 
+ Internal Revenue Service (IRS)  
+ IRS Forms, Instructions & Publications 
+ Refund Status 
+ Foreign Account Tax Compliance Act 
+ Forms 
+ IRS Forms and Instructions 
+ Savings Bonds - Treasury Securities 
+ Bank Secrecy Act - Fincen 114 and more 
+ OFAC License Application 
+ OFAC Reporting 
+ Treasury International Capital (TIC) 
+ Government Shared Services 
+ Treasury Franchise Fund (TFF) 
+ Center for Financial Management (CFM) 
+ Shared Services Program (SSP) 
+ Financial Management (FM) Marketplace Catalog 
+ TreasuryDirect 
+ Invoice Processing Platform 
+ Tours and Library 
+ Historic Treasury Building 
+ Library 
+ Curator 
+ Bureau of Engraving and Printing 
+ U.S. Mint 
+ News 
+ Enter Search Term(s): 
+ Advanced Search 
+ News 
+ Featured Stories 
+ June 23, 2026 
+ Achieving our Objectives, Supporting our Stakeholders: OFAC-OFSI Enhanced Partnership Exchange 2026 
+ February 13, 2026 
+ Treasury Accepting Whistleblower Tips on Fraud, Money Laundering, Sanctions Violations 
+ December 23, 2025 
+ Penny Production Cessation FAQs 
+ View all Featured Stories 
+ Press Releases 
+ July 1, 2026 
+ Treasury Announces Investment Lineup for Trump Accounts 
+ July 1, 2026 
+ Treasury Sanctions Brazilian Criminal Network Exploiting U.S. Financial System to Launder Drug Proceeds 
+ July 1, 2026 
+ Treasury Opens the New Designation Cycle for Opportunity Zones 
+ View All Press Releases 
+ Remarks and Statements 
+ June 24, 2026 
+ Remarks by Treasury Secretary Scott Bessent before the American Academy of Achievement’s International Achievement Summit 
+ June 23, 2026 
+ Remarks from Secretary of the Treasury Scott Bessent at The Economic Club of New York’s America 250 Gala Dinner: American Economic Statecraft in the 21st Century 
+ June 16, 2026 
+ Remarks by Treasury Secretary Scott Bessent before the American Swiss Foundation 
+ View All Remarks and Statements 
+ Press Information 
+ Press Contacts 
+ Weekly Public Schedule Archive 
+ Webcasts 
+ Media Advisories Archive 
+ Subscribe to Press Releases 
+ Twitter 
+ View All Tweets 
+ Whistleblower Resources 
+ Working Families Tax Cuts 
+ Search 
+ Enter Search Term(s): 
+ Advanced Search 
+ Search 
+ The Public
+ General Public 
+ Auctions 
+ Report Scam Attempts 
+ Savings Bonds 
+ Businesses
+ All Businesses 
+ Form 941, employer's quarterly federal tax return 
+ Employer Identification Number (EIN) 
+ Small Businesses 
+ Government Contracting Small Business Contacts 
+ Financial Institutions
+ All Financial Institutions 
+ Specially Designated Nationals list 
+ Interest rate statistics 
+ Quarterly refunding information 
+ Government
+ Federal Government 
+ Budget, Financial Reporting, Planning and Performance 
+ Shared Services 
+ TreasuryDirect for Government 
+ Breadcrumb 
+ Home 
+ TIC Forms & Instructions 
+ Securities (B): Portfolio Holdings of U.S. and Foreign Securities 
+ Contact TIC & Using TIC
+ STATISTICS 
+ [See: (i) the "Article on TIC" dated 04-18-2024 (about valuation-change data); and (ii) the Notices below dated 03-15 and 03-31-2023 (about new files and data)] 
+ Major Foreign Holders of U.S. Treasury Securities (MFH table) ; also in "txt (tab-delimited)" format. (Monthly, in file called Table 5). (See footnote #1 below.) Recent and historical data for more countries holding Treasury securities ; also in "txt (tab-delimited)" format. (Monthly in file called Table 3.) Both formats of this file are easily opened into a spreadsheet program. Data in columns called "Holdings" go back to 2020-01, and do not have a break in the series at 2023-02. The holdings data actually go back to 2011, and the following file shows the 2011 through 2019 data (CSV); (see footnotes #2, #5). Data in columns called "Net U.S. Sales" and "Valuation Change" do have a series break at 2023-02. The series-break marks the beginning of the new transactions and valuation change data collected on the expanded Form SLT. Before the series-break the transactions data were collected on the discontinued Form S. There were no valuation change data before the series-break at 2023-02.
+ Other Historical data: MFH-history tables (was "csv" file before July 2024). It shows the MFH tables for December of each year back to March 2000. Also in "txt(tab-delimited)" format .
+ (5-16-2016) Treasury holdings for twelve oil exporting countries, December 1974 to March 2016 (footnote #3). Also in "CSV" format.
+ (5-16-2016) Total foreign holdings of Treasury securities, 1939-1999 (CSV) (footnote #3).
+ Short-term Treasuries (bills and certificates) held by foreigners are in the banking liabilities data (see column 9 in the files in section B). For example, see col 9 in the country file on line B.3.
+ Holdings of nonmarketable Treasury bonds and notes issued to official institutions and other residents of foreign countries. Also in "CSV" format.
+ Description of methodology. 
+ Comparison with Federal Reserve data on official holdings (FAQ #10.a).
+ Monthly Holdings of U.S. Long-term Securities by Foreign Residents, at Current Market Value (from SLT reports) (footnotes #4, #5) Holdings by country, type, issuer . This file, called Table 1, is a global file (includes a set of rows for each country). Also in "txt (tab-delimited)" format. Both formats are easily opened into a spreadsheet program. The data are in the columns called "Holdings". Grand Totals for all foreign residents, and for each security type, are near the bottom of the file in the row with code=99996. The Holdings data in this table do not have a break in the series at 2023-02. FYI: The data in the columns called "Net U.S. Sales" do have a series break at 2023-02. The series-break marks the beginning of the new transactions data collected on the expanded Form SLT, whereas the data before the series-break were collected on the discontinued Form S. End-FYI
+ This table 1 shows holdings data, including recent revisions, going back to only 2020-01. The data series actually goes back to 2011: see the following two files for the 2011 through 2019 data: by country and type (CSV) and by totals, ABS, issuer (CSV).
+ Monthly Holdings of Foreign Long-term Securities by U.S. Residents, at Current Market Value (from SLT reports)(footnote #5) Holdings by country and by type . This file, called Table 2, is a global file (includes a set of rows for each country). Also in "txt (tab-delimited)" format. Both formats are easily opened into a spreadsheet program. The data are in columns called "Holdings". Grand Totals for all foreign residents, and for each security type, are near the bottom of the file in the row with code=99996. Note that the Holdings data by individual country in this table do have a break in the series at 2023-02, because the new data denotes the country issuing the foreign securities, and no longer denotes the country undertaking transactions as was the case in data before 2023-02. The Holdings data for the worldwide Grand Total (and the associated "of which" rows) in this table do not have a break in the series at 2023-02. FYI: The data in the columns called "Net U.S. Purchases" do have a series break at 2023-02. The series-break marks the beginning of the new transactions data collected on the expanded Form SLT, whereas the data before the series-break were collected on the discontinued Form S. End-FYI
+ This table 2 shows holdings data, including recent revisions, going back to only 2020-01. The data series actually goes back to 2011: see the following file for the 2011 through 2019 data by totals, ABS, issuer (CSV). The following file shows the discontinued data series, ending at 2023-01, that showed the country undertaking transactions: by country and type (CSV).
+ Monthly Holdings of Short-term Debt (from banking liabilities reports) holdings of short-term U.S. securities by foreign residents
+ holdings of short-term foreign securities by U.S. residents.
+ Types of foreign portfolio investment in the United States (quarterly). Total U.S. banking & securities liabilities to foreign residents. Recent data (first released 1-16-2014). Also in ”CSV” format.
+ Historical data to 2012 (first released 1-16-2014). Also in ”CSV” format.
+ ======== Start: How this webpage looked before March 31, 2023, when Form S data were used (data ends at January 2023) ========
+ Major Foreign Holders of U.S. Treasury Securities (MFH table) (monthly). (See footnote #1 below.) Recent data for more countries holding Treasury securities ; also in "CSV" format.(footnotes #2, #5).
+ Historical data: MFH-history tables , History back to March 2000. Also in "CSV" format.
+ More Countries holding Treasury securities since September 2011 (footnote #2).     
+Also in "CSV" and "txt (tab-delimited)" formats.
+ (5-16-2016) Treasury holdings for twelve oil exporting countries, December 1974 to March 2016 (footnote #3). Also in "CSV" format.
+ (5-16-2016) Total foreign holdings of Treasury securities, 1939-1999 (CSV) (footnote #3).
+ Short-term Treasuries (bills and certificates) held by foreigners are in the banking liabilities data (see column 9 in the files in section B). For example, see col 9 in the country file on line B.3.
+ Holdings of nonmarketable Treasury bonds and notes issued to official institutions and other residents of foreign countries. Also in "CSV" format.
+ Description of methodology. 
+ Comparison with Federal Reserve data on official holdings (FAQ #10.a).
+ Monthly Holdings of U.S. Long-term Securities at Current Market Value by Foreign Residents (from SLT reports) (footnotes #4, #5) Total holdings by all foreign countries; by type, holder and issuer. Recent data. Also in "CSV" format.
+ Historical data. Also in "CSV" format. (footnote #4)
+ Holdings by country (files include both recent and historical data): Recent holdings. Also in "CSV" format.
+ Global (includes a set for each country) . Also in "CSV" and "txt (tab-delimited)" formats.
+ Monthly Holdings of Foreign Long-term Securities at Current Market Value by U.S. Residents (from SLT reports)(footnote #5) Total holdings by all U.S. residents; by type, holder and issuer. Recent data. Also in "CSV" format.
+ Historical data. Also in "CSV" format.
+ U.S. holdings by country of issuer (files include both recent and historical data): Recent holdings. Also in "CSV" format.
+ Global (includes a set for each country) . Also in "CSV" and "txt (tab-delimited)" formats.
+ Monthly Holdings of Short-term Debt (from banking liabilities reports) holdings of short-term U.S. securities by foreign residents
+ holdings of short-term foreign securities by U.S. residents.
+ Types of foreign portfolio investment in the United States (quarterly). Total U.S. banking & securities liabilities to foreign residents. Recent data (first released 1-16-2014). Also in ”CSV” format.
+ Historical data to 2012 (first released 1-16-2014). Also in ”CSV” format.
+ ======== End: How this webpage looked before March 31, 2023, when Form S data were used (data ends at January 2023) ========
+ Footnotes and Notices 
+ Notices 
+ (03-31-2023) Notice: Templates of new data files to be released on April 17, 2023 with data for February 2023, appear today on the Securities (A) and Securities (B) webpages. As explained in the notice dated 3-15-2023 (below), the changes are a result of new data from the expanded Form SLT and the discontinuation of the Form S reports. These reporting changes create a series break at February 2023 for all data on cross-border purchases and sales of long-term securities. On the TIC Securities (A) and (B) webpages, the files that used Form S data will be shown separately and designated as “S-form-based data files” ending with data for January 2023. Certain S-form-based files showing data for particular countries or instruments will remain on the website until at least mid-July 2023 before they may be removed. The new files will continue to show all available released monthly data on transactions in long-term securities.     
+The details provided here are in addition to the information in the notice dated 3-15-2023 (below). There are four new files (named “slt_table#”), with each “table” covering different types of Form SLT data. The tables will eventually include data on valuation changes in the relevant columns, but those data are not being released yet so the columns simply show n.a. The new files are formatted in html and tab-delimited-text (txt) formats. While the csv format will not be provided, files in the two formats can be easily loaded into a spreadsheet program.     
+The "slt_table1.html" (and "slt_table1.txt" ) file covers data on foreign holdings and net U.S. sales of U.S. long-term securities. It replaces several old files: slt1d, slt1d_globl, slt2d, slt2d_history.     
+The "slt_table2.html" (and "slt_table2.txt" ) file covers data on U.S. holdings and net U.S. purchases of foreign long-term securities. It replaces several old files: slt1f, slt1f_globl, slt2f, slt2f_history, netfsec. Note that the new data on purchases and sales of foreign securities show the country that issued the securities, in contrast to the previous data that showed the country doing the transactions with the U.S.     
+The "slt_table3.html" (and "slt_table3.txt" ) file covers data on foreign holdings and net U.S. sales of U.S. Treasury securities. It replaces old files: slt3d, slt3d_globl, tressect.     
+The "slt_table4.html" (and "slt_table4.txt" ) file covers data on U.S. sales and purchases of long-term U.S. and foreign securities by type. It replaces old files: snetus, snetusq, snetfor, snetforq, us_abs_net, frgn_abs_net, agnsect, corpsect, sktsect, s1_99996, s1_globl, s1_europ, s1_asia, s1_latam, s1_other.     
+The file “absdata.txt” is dropped because its estimates of unrecorded principal repayments to foreigners on domestic corporate and agency asset-backed securities (ABS) are no longer needed. The S-form data did not collect data on these monthly and quarterly repayments, whereas the expanded SLT form now collects those repayments.     
+ (03-15-2023) Notice: The April 17 Release will begin new data on cross-border transactions in long-term securities (line 2.a above). The changes are related to the discontinuation of TIC Form S, “Purchases and Sales of Long-Term Securities by Foreign-Residents,” and the beginning of the revised and expanded TIC Form SLT, “Aggregate Holdings, Purchases and Sales, and Fair Value Changes of Long-Term Securities by U.S. and Foreign Residents.”     
+There will be several important changes in the data. The new SLT-based data will be presented from the U.S. point of view, not from the foreign point of view of the S data. Thus “net purchases by foreign residents” will become “net sales by U.S. residents” beginning April 17. In addition, there will be an important change in the data on foreign securities -- U.S. purchases and sales of foreign securities for a given country will refer to securities issued by that country, in contrast to the current breakdown showing the amounts of all foreign securities bought and sold in each country, regardless of the country of issuance. Finally, at an undetermined future date when data quality permits, new data are expected on monthly changes in valuation in long-term securities arising from changes in prices.     
+The website has long published “global” files showing data for all available countries and all available dates for particular types of data. Beginning with the April 17 release, the website will cease showing individual country files for that data, which simply repeat data in the global files. The individual country files released today, showing data as-of January 2023, will not be updated again and will be removed from the website with the release on June 15, 2023. The website will continue to publish the global files.     
+TIC reporting and file formats on banking claims and liabilities, derivatives, and claims and liabilities of nonfinancial firms remain unchanged.     
+ (03-15-2021) Starting at 4 PM, all the monthly data in sections B and C above are now as-of the same date as the MFH table in section A. (i.e. the data in B and C are now available one month earlier than they were available before March 15, 2021.)     
+ (07-20-2020) The location of some data was changed on the TIC website. The two data series in the old section D (#1 Semiannual sector data on U.S. private holdings of foreign securities, and #2 End-year data on Collateralized Loan Obligations (CLOs)) were moved to items 3 and 4 in section 2.c on the TIC homepage.     
+ Footnotes 
+ (8-15-2013) Starting with the 8-15-2013 release, the "Major Foreign Holders of Treasury Securities" (MFH) table includes data on holdings of Treasury bonds and notes as reported on TIC Form SLT, "Aggregate Holdings of Long-Term Securities by U.S. and Foreign Residents," for all months, including preliminary SLT data for the most recent month. Previous MFH tables used transactions data from the TIC S Form added to the prior month’s SLT data to estimate holdings for the most recent month. This release completes the transition, which began with the release of February 29, 2012, to using monthly SLT data for Treasury bonds and notes instead of using estimates based on the annual surveys of "Foreign Portfolio Holdings of U.S. Securities" plus monthly transactions data.     
+ (5-15-2015) [This updates the 4-15-2015 announcement.] Starting with the April 15, 2015 release of monthly TIC data, a new data series on foreign holders of U.S. Treasury securities is available (lines A.1 and A.2.b above). The series begin with data for September 2011, the first month of SLT data. These series are not new information; they were created for the convenience of users and combines the SLT data on holdings of long term Treasuries with the banking data on short-term Treasuries. These series cover more countries than are available in the historical series for the "Major Foreign Holders of Treasury Securities" (line A.2.a above.).     
+ (5-16-2016) Several aggregates that were shown in previous Major Foreign Holders of Treasury Securities (MFH) tables are discontinued, and the covered countries are now included separately in the country data. The four aggregates were: Asian Oil Exporters (also called Middle East Oil Exporters; Bahrain, Iran, Iraq, Oman, Kuwait, Qatar, Saudi Arabia, and the United Arab Emirates); African Oil Exporters (Algeria, Gabon, Libya, and Nigeria); Caribbean Banking Centers (Bahamas, Bermuda, Bonaire/Sint Eustatius/Saba, British Virgin Islands, Cayman Islands, Curaçao, Panama, and Sint Maarten); and the United Kingdom (it will no longer include Guernsey, Jersey, and the Isle of Man, which are shown separately). Note that in the Major Foreign Holders table, the line for Oil Exporters included the Asian and African oil exporters, Ecuador, Venezuela, and Indonesia. Countries that do not appear in the Major Foreign Holders table may be found in the file on U.S. Treasury Securities Held by Foreign Residents (line A.1 above). The two new tables on lines A.2.c and A.2.d are one-time tables providing historical data, and are not updated.     
+ (9-14-2018). Notice of a series break in section B. In the data released in line "B.1.historical" on 8-18-2018, a correction for December 2017 moved about $120 billion from privately held U.S. agency bonds to officially held U.S. agency bonds. This resulted in a series break at December 2017 in the split between the portion held by foreign private and the portion held by foreign official. You can see the change in amounts when you move from 2017Nov to 2017Dec in columns I and K.     
+ (9-16-2021). Notice of a series break in the long-term securities data as of June 2021, available on lines A.1, B and C. The release of June data on September 16 includes significant revisions in the data released on August 16, including a net increase in total foreign holdings of U.S. securities (U.S. liabilities) of about $572 billion, and a net increase of total U.S. holdings of foreign securities (U.S. claims) of about $60 billion. On the liabilities side, the revisions are significant for the holdings of U.S. securities by the U.K., France, Canada, Switzerland, and Ireland. On the claims side, the revisions are significant for the U.S. holdings of securities from the Cayman Islands and Hong Kong. On the liabilities side, there were net changes in total Treasury bonds of about plus $295 billion, in total corporate stocks of about plus $201 billion, in total Agency bonds of about plus $116 billion, and in total corporate bonds of about minus $40 billion. On the claims side, there were net increases in total foreign stocks of about $27 billion, in total foreign corporate bonds of more than $23 billion, and in total foreign government bonds of about $9 and 1/2 billion.     
+ References - recommended 
+ Additional information on the data in sections B and C above.     
+-- Data was announced in the May 15, 2012 TIC press release .     
+-- (May 2012) Federal Reserve Bulletin article "Improving the Measurement of Cross-Border Securities Holdings: The Treasury International Capital SLT" (PDF). In the wake of the financial crisis, growing interest in improving the measurement of cross-border securities positions spurred the introduction of a new Treasury International Capital (TIC) reporting form, the TIC SLT. This article reviews the existing structure of TIC cross-border position and flow data, the benefits that the new SLT can provide, and the incoming information from the first two reporting months of SLT data, September and December 2011. The SLT data have already begun to provide timely insights on U.S. and foreign cross-border investment flows that are different from the monthly estimates provided by existing flow data. Source: Federal Reserve Bulletin, Volume 98, May 23, 2012, Board of Governors of the Federal Reserve System.
+ For other articles on TIC data, see the Articles on TIC webpage.
+ Bureaus
+ Alcohol and Tobacco Tax and Trade (TTB) 
+ Bureau of Engraving and Printing (BEP) 
+ Bureau of the Fiscal Service (BFS) 
+ Financial Crimes Enforcement Network (FinCEN) 
+ Internal Revenue Service (IRS) 
+ Office of the Comptroller of the Currency (OCC) 
+ U.S. Mint 
+ Inspector General Sites
+ Office of Inspector General (OIG) 
+ Treasury Inspector General for Tax Administration (TIGTA) 
+ Report Scams, Fraud, Waste & Abuse 
+ Special Inspector General for Pandemic Recovery (SIGPR) 
+ U.S. Government Shared Services
+ Center for Financial Management 
+ Treasury Direct Services for Governments 
+ Financial Management (FM) Marketplace Catalog 
+ Additional Resources
+ Privacy Act 
+ Small Business Contacts 
+ Budget and Performance 
+ TreasuryDirect.gov Securities/Bonds 
+ Freedom of Information Act (FOIA) 
+ No FEAR Act Data 
+ Whistleblower Protection 
+ Other Government Sites
+ USA.gov 
+ USAJOBS.gov 
+ OPM.gov 
+ MyMoney.gov 
+ Data.gov 
+ Forms.gov 
+ Regulations.gov 
+ PaymentAccuracy.gov 
+ my Social Security 
+ Vote.gov 
+ Privacy Policy 
+ Google Privacy 
+ Site Policies and Notices 
+ FAQs 
+ Feedback 
+ Careers 
+ Accessibility 
+ Contact 
+ Required Plug-ins Adobe® Reader® 
+ Twitter 
+ Facebook 

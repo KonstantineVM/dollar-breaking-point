@@ -6173,3 +6173,24 @@ print('xchk match:',xc['all_overlaps_match_within_rounding'],{f:xc[f]['max_abs_d
 print('china rooms axis:',json.dumps(d['china_gross_decline_rooms']['verdict_axis'],indent=1))
 EOF
 2026-07-02T16:21:51Z RDT-F: ingredients landed (all-country gross/net tables; RDT-E capA reproduced diff 0.0; recompute byte-verified by orchestrator re-run sha 5376...f2aa); centers grounding still running
+2026-07-02T16:21:52Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTF_ingredients.json build/reserve/RDTF_ingredients_recompute.py build/reserve/RDTF_ingredients_panel.parquet && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: ingredients landed (all-country gross/net tables; RDT-E capA reproduced diff 0.0; recompute byte-verified by orchestrator re-run sha 5376...f2aa); centers grounding still running" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-F ingredients: all-country gross/window-net class-matched ceiling tables
+
+Per-center gross and window-net accretion vs China's shed classes computed
+for every SLT Table 1 country line (114 lines; no pre-filter), both windows,
+per the committed pre-registration's formulas. Verdict-axis candidates
+(gross/net busd): UK 565.700/358.035, LU 271.472/131.093, CH 197.519/48.426,
+BE 111.850/18.087. Sanity: pooled BE+LU window-net reproduces RDT-E capA
+exactly (2.560/66.961/0/0 total 69.521, diff 0.0); gross >= net everywhere;
+RDTC panel cross-check max abs diff 0.0. Part-2 staging: FRBNY -232.223 and
+MFH official +116.8 reproduce committed values; SLT LT-official
+transactions-basis change -305.754; raw divergence 349.023, basis-adjusted
+73.531. No grounded-set sum, no M_hi_global, no branch or basis verdict --
+those are assembly, on the grounded center set. Input-path finding: the
+by-country table is build/data/treasury_tic/current/slt_tables/slt_table1.txt;
+slt2d.txt is holdings-only. Recompute re-run independently by orchestrator:
+byte-identical (json sha 537697007a12...; parquet 7dc74d94f317...). Outputs
+stamped NOT ESTABLISHED pending verifier + gate.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T16:22:35Z RDT-F: centers grounding artifacts landing (manifest/provenance/evidence); agent still running - basis quotes pending; committed as-is per clean-tree hook, follow-up commits will capture revisions

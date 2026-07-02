@@ -1,0 +1,65 @@
+# RDT-F evidence extraction (plain text derived from the RDT-F fetched publisher file; reading aid only)
+# Source file (raw bytes, on disk): build/reserve/rdtf_evidence/frb_h41_current_20260702.htm
+# Publisher URL: https://www.federalreserve.gov/releases/h41/current/h41.htm (fetched 2026-07-02; release dated June 25, 2026)
+# Extraction: Python stdlib html.unescape + regex tag-strip, table 1A Memorandum Items region, 2026-07-02.
+
+1A. Memorandum Items
+Millions of dollars
+Memorandum item
+Averages of daily figures
+Wednesday
+Jun 24, 2026
+Week ended
+Jun 24, 2026
+Change from week ended
+Jun 17, 2026
+Jun 25, 2025
+Securities held in custody for foreign official and international accounts
+2,924,354
++ 3,835
+- 294,776
+2,920,825
+Marketable U.S. Treasury securities 1
+2,639,690
++ 4,085
+- 233,733
+2,636,947
+Federal agency debt and mortgage-backed securities 2
+209,122
+- 460
+- 52,478
+208,329
+Other securities 3
+75,542
++ 210
+- 8,565
+75,548
+Securities lent to dealers
+33,684
+- 245
++ 8,041
+37,535
+Overnight facility 4
+33,684
+- 245
++ 8,041
+37,535
+U.S. Treasury securities
+33,684
+- 245
++ 8,041
+37,535
+Federal agency debt securities
+0
+0
+0
+0
+Note: Components may not sum to totals because of rounding.
+1.
+Includes securities and U.S. Treasury STRIPS at face value, and inflation compensation on TIPS. Does not include securities pledged as collateral to foreign official and international account holders against reverse repurchase agreements with the Federal Reserve presented in tables 1, 5, and 6.
+2.
+Face value of federal agency securities and current face value of mortgage-backed securities, which is the remaining principal balance of the securities.
+3.
+Includes non-marketable U.S. Treasury securities, supranationals, corporate bonds, asset-backed securities, and commercial paper at face value.
+4.
+Face value. Fully collateralized by U.S. Treasury securities.
