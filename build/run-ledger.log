@@ -5062,3 +5062,40 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T04:31:05Z	OUTPUT (not established until verifier runs)	python3 -c "import json,os; d=json.load(open('build/ledger.json')); r=[s for s in d['steps'] if s['id']=='RDTC'][0]; print('ledger valid;', [s['id'] for s in d['steps']]); print('RDTC verifier exists:', os.path.exists(r['verifier']))" && git add build/reserve/RDTC_result.json build/reserve/RDTC_recompute.py build/reserve/RDTC_verify.json build/reserve/RDTC_class_flows.json build/reserve/RDTC_class_recompute.py build/reserve/RDTC_class_panel.parquet build/reserve/rdtc_safe_manifest.json build/reserve/RDT_breaking_point_object.md build/ledger.json build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+RDT-C: destination of China's UST outflow = EXIT-CONSISTENT-CURRENCY-UNDETERMINED
+
+The mechanical verdict on the pre-registered rules: China's UST-active
+outflow LEFT US SECURITIES entirely on the verdict axis (both custody
+variants, in the stronger A<0 form - agencies -93.8 and equities -69.4
+$bn were sold alongside Treasuries; china-alone A/|X| = -0.568, pooled
+-0.156; total US LT active outflow 446.5 $bn exceeds the UST leg), and
+branch (a) reserve-drawdown stays CLOSED confirmed by fetch (the SAFE
+ex-gold FX line ROSE +234.0 $bn over the verdict axis, robust to month
+convention; gold-valuation 40.5% of the total-reserves rise
+quantified). Destination currency UNDETERMINED per the RDT-B k1 wall -
+never guessed. Pre-registered primary (MIXED) REFUTED toward (c).
+
+Honest tensions stated in the result and the object: the full window
+lands WITHIN-US-ROTATION (the 2013-21 agency accumulation +502 $bn was
+real and reversed; the verdict axis was fixed ex ante); the
+destination beyond left-US-securities is NOT identified here; the SLT
+identity gap (max 107.0 $bn, Luxembourg 2023-12, recomputed from the
+panel) is a stated data property; the custody band stays wide. UST leg
+reconciles to RDT-B exactly (0.000). Per-class valuation directions
+quantified; no valuation loss read as selling, no gain as buying.
+
+Object amended insert-only (+12/-0; strips back to the post-RDT-B
+sha); composite not recomputed (k1 unchanged). Integrity-critic GATE
+PASS (checks 3/4/5/8 all CLEAN; the critic independently recomputed
+all six ledgers and the closure); its two named non-blocking defects
+CORRECTED before promotion: assertion guards added to the recompute's
+template prose (negative-tested, output-neutral) and the SAFE
+manifest inventory completed to 17/17. Verifier all_pass=true,
+independently re-run twice. Ledger entry added. No date, no
+probability. DP2-DP6 and all prior artifacts otherwise untouched.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
