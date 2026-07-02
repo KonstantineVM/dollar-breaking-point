@@ -4831,3 +4831,28 @@ EOF
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1) || echo "tree clean"
+2026-07-02T03:53:20Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTC_prediction.md build/run-ledger.log 2>/dev/null; git commit -q -m "$(cat <<'EOF'
+Pre-register RDT-C (destination of China's UST outflow)
+
+Fixes before any build: the three branches with branch (a) closed
+only PENDING our own fetch of the official SAFE series (tested on the
+ex-gold FX-reserves line; if the fetch contradicts the closure the
+verdict is DRAWDOWN-REOPENED, surfaced not smoothed); the mechanical
+absorption rules (A = active flows into agencies+corporates+equities
+vs |X| = the UST active outflow: >=0.5 -> WITHIN-US-ROTATION which
+DEMOTES the live signal, <=0.1 -> LEFT-US-SECURITIES with the
+destination currency UNDETERMINED per the RDT-B k1 wall, between ->
+MIXED with the ledger; custody-variant disagreement -> MIXED-BY-
+CUSTODY); the verdict axis pinned to the RDT-B recent-3y window with
+the full and freeze-era windows pre-registered as context (no window
+added or stretched later); the active-basis-only ledger with per-class
+valuation direction stated (a class-level valuation loss is never
+read as selling); the flipped guard verbatim; a symmetric MIXED
+primary expectation refutable in both directions; and the RDT-B
+amendment mechanics (insert-only, strip-to-sha byte verifier, prior
+recomputes untouched). No date, no probability, no currency guess.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1 && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
