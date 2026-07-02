@@ -6538,3 +6538,8 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
 2026-07-02T19:28:29Z RDT-G: holding for I.B parse + receiving-legs agents (background); nothing promoted
+2026-07-02T19:28:30Z	OUTPUT (not established until verifier runs)	git status --short; echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: holding for I.B parse + receiving-legs agents (background); nothing promoted" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-G discriminators still running; holding)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
+2026-07-02T19:35:24Z RDT-G: I.B parse landed and byte-verified by orchestrator re-run (Delta verdict-window -18.696, FLAT-side staging; unit finding US$100M corrected; I.A cross-check exact); legs agent still running
