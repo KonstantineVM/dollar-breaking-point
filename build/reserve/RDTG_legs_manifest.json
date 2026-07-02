@@ -1,0 +1,345 @@
+{
+  "task": "RDT-G Part 2 RECEIVING-LEGS grounding",
+  "governing_preregistration": "build/reserve/RDTG_prediction.md (commit 7ad70d2, read first)",
+  "grounded_utc_date": "2026-07-02",
+  "windows_per_preregistration": {
+    "baseline": "calendar 2015->2021",
+    "verdict": "calendar 2022->2025",
+    "rule": "a leg published to an earlier/later boundary uses its nearest published boundary, stated per leg"
+  },
+  "sequencing_note": "This task is the pre-registered receiving-leg grounding phase; the bars (RDTG_bars.json) were committed before any leg series below was read or fetched. Tests/verdicts are the later assembly's; no excess/power computation was performed here.",
+  "legs": {
+    "a_japan_bop_vs_china_portfolio_liabilities": {
+      "status": "GROUNDED-PRIMARY",
+      "publisher": "Bank of Japan / Ministry of Finance Japan (joint compilers of Japan's BOP-related statistics under the FEFTA)",
+      "urls_checked_2026_07_02": [
+        "https://www.mof.go.jp/english/policy/international_policy/reference/balance_of_payments/ebparea.htm",
+        "https://www.mof.go.jp/english/policy/international_policy/reference/balance_of_payments/ebppi.htm",
+        "https://www.boj.or.jp/en/statistics/br/bop_06/index.htm",
+        "https://www.boj.or.jp/en/statistics/outline/exp/faqbpsm6.htm",
+        "https://www.stat-search.boj.or.jp/info/dload_en.html (flat files regbp_q_en.zip, bp_m_en.zip)"
+      ],
+      "series": {
+        "quarterly_regional_bop": {
+          "codes": ["BPBP6QFLCN2 (Portfolio investment/P.R. China/Net(Liabilities))", "BPBP6QFLCN21 (equity)", "BPBP6QFLCN22 (debt securities)"],
+          "frequency": "quarterly",
+          "span_observed": "2014Q1 -> 2025Q4",
+          "unit": "100 million Yen (JPY, nominal transaction values) - LOCAL CURRENCY: yes",
+          "valuation": "transactions valued at transaction price (BoJ BPM6 explanation, retained)",
+          "instrument_split": "portfolio total / equity and investment fund shares / debt securities"
+        },
+        "monthly_country_breakdown": {
+          "codes": ["BPPI6E1N9CN (PI Liabilities/Total/P.R. China/Net)", "BPPI6E2*9CN equity", "BPPI6E3*9CN long-term debt", "short-term debt variants", "gross acquisition/disposition also published"],
+          "frequency": "monthly",
+          "span_observed": "2014-01 -> 2026-04",
+          "unit": "100 million Yen - LOCAL CURRENCY: yes"
+        }
+      },
+      "official_sector_split": "none on the China line (counterparty economy only); dilution caveat applies per pre-registration",
+      "custody_caveat_verbatim": "Transactions under portfolio investment liabilities (i.e., transactions in securities issued by Japanese residents) are classified according to the economy of the transactor. Specifically, when a nonresident investor trades Japanese securities via a foreign securities firm, the economy of the firm -- not of the investor -- is regarded as the economy of the transactor. In addition, when Japanese securities are redeemed via a foreign custodian, the economy of the custodian is reflected in the data.",
+      "custody_caveat_source": "BoJ, FAQs on the Balance of Payments Related Statistics, Q10, https://www.boj.or.jp/en/statistics/outline/exp/faqbpsm6.htm (retained: leg_a_boj_faqbpsm6.html)",
+      "window_boundaries": {
+        "baseline": "2015Q1 -> 2021Q4 (exact calendar match)",
+        "verdict": "2022Q1 -> 2025Q4 (exact; monthly leg reaches 2026-04)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_a_boj_regbp_q_en.zip",
+        "build/reserve/rdtg_evidence/leg_a_boj_bp_m_en.zip",
+        "build/reserve/rdtg_evidence/leg_a_boj_bop06_index.html",
+        "build/reserve/rdtg_evidence/leg_a_boj_exbpsm6_explanation.html",
+        "build/reserve/rdtg_evidence/leg_a_boj_faqbpsm6.html",
+        "build/reserve/rdtg_evidence/leg_a_boj_statsearch_download_page.html",
+        "build/reserve/rdtg_evidence/leg_a_mof_ebparea_index.html",
+        "build/reserve/rdtg_evidence/leg_a_mof_ebppi_index.html",
+        "build/reserve/rdtg_evidence/leg_a_mof_faq_its.html",
+        "build/reserve/rdtg_evidence/leg_a_mof_6a-20_financial_account.csv"
+      ]
+    },
+    "b_euroarea_bop_by_counterpart_china_portfolio_liabilities": {
+      "status": "GROUNDED-PRIMARY",
+      "status_qualifier": "position series only; TRANSACTIONS by counterpart on the liabilities side are structurally absent from both ECB and Eurostat databases (probes retained)",
+      "publisher": "European Central Bank (ECB Data Portal, dataset BP6) / Eurostat (bop_eu6_q)",
+      "urls_checked_2026_07_02": [
+        "https://data-api.ecb.europa.eu/service/data/BP6/Q...CN....L..P...... (serieskeysonly probe: exactly 1 series)",
+        "https://data-api.ecb.europa.eu/service/data/BP6/Q.N.I8.CN.S1.S1.LE.L.FA.P.F._Z.EUR._T.M.N",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_eu6_q (LIAB partner=CN_X_HK: 0 obs; ASS: 130 obs)",
+        "https://www.ecb.europa.eu/pub/pdf/bopips/ecb.bopips202406~c4a2b78133.en.pdf"
+      ],
+      "series": {
+        "key": "BP6.Q.N.I8.CN.S1.S1.LE.L.FA.P.F._Z.EUR._T.M.N",
+        "description_publisher": "Euro area 19 (fixed composition) as of 1 January 2015 vis-a-vis China; Closing balance sheet/Positions/Stocks; Liabilities; Portfolio Investment; Total financial assets/liabilities; Euro; Market value",
+        "frequency": "quarterly (positions only; no flows)",
+        "span_observed": "2008Q1 -> 2022Q3 (series stops at 2022Q3 in the current portal; observed end, stated as-published)",
+        "unit": "EUR, UNIT_MULT=6 (millions) - LOCAL CURRENCY: yes (EUR), but MARKET VALUE, not nominal (stated)",
+        "obs_status_flag": "E (estimated) on every observation",
+        "instrument_split": "none on the China counterpart line (total portfolio only; no debt/equity split)"
+      },
+      "structural_asymmetry_evidence": "Eurostat bop_eu6_q: FA__P__F ASS partner=CN_X_HK returns 130 obs; FA__P__F LIAB/NET/NI/NO return 0 obs; FA__O__F (other investment) has both ASS and LIAB. Probes retained.",
+      "custody_caveat_verbatim": "Portfolio investment liabilities within the euro area (broken down by resident sector) are estimated residually by deducting the euro area holdings of residents from the total securities issued by euro area residents. This method is used to circumvent the difficulty in identifying the residency of end holders of securities issued by euro area residents.",
+      "custody_caveat_source": "ECB, 'Euro area and national balance of payments and international investment position statistics' quality report, June 2024, footnote 8 (retained: leg_b_ecb_bopips202406_quality_report.pdf)",
+      "window_boundaries": {
+        "baseline": "positions 2014Q4 -> 2021Q4 (exact within published span)",
+        "verdict": "2021Q4 -> 2022Q3 (nearest published boundary 2022Q3; verdict window SEVERELY TRUNCATED, stated)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_b_ecb_bp6_ea19_cn_pi_liab_position.csv",
+        "build/reserve/rdtg_evidence/leg_b_ecb_bp6_cn_liab_serieskeys_probe.xml",
+        "build/reserve/rdtg_evidence/leg_b_eurostat_bop_eu6_q_CN_pi_LIAB_empty_probe.json",
+        "build/reserve/rdtg_evidence/leg_b_eurostat_bop_eu6_q_CN_pi_ASS_probe.json",
+        "build/reserve/rdtg_evidence/leg_b_eurostat_bop_eu6_q_constraint.xml",
+        "build/reserve/rdtg_evidence/leg_b_ecb_bopips202406_quality_report.pdf",
+        "build/reserve/rdtg_evidence/leg_b_ecb_dataportal_bop_methodology.html"
+      ]
+    },
+    "c_uk_pinkbook_china_portfolio_liabilities": {
+      "status": "GROUNDED-PRIMARY",
+      "publisher": "Office for National Statistics (UK), Pink Book dataset 10 'Geographical breakdown of the UK international investment position'",
+      "urls_checked_2026_07_02": [
+        "https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/datasets/10geographicalbreakdownoftheukinternationalinvestmentpositionthepinkbook2016",
+        "https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown"
+      ],
+      "series": {
+        "table": "Pink Book table 10.1 'International Investment Position: by type of investment' - column 'Portfolio investment liabilities', row 'China'",
+        "frequency": "annual; each edition publishes ONE reference year (table 10.1 lags one year: PB2025 -> end-2023). Full span requires stitching editions (all retained).",
+        "span_achievable_from_retained_editions": "end-2014 (PB2016) -> end-2023 (PB2025); end-2014 China portfolio-liabilities cell may be '-' (nil/<GBP 1m) in the PB2016 layout - to be parsed by the assembly",
+        "unit": "GBP billion (older editions GBP billion; table 10.3 context GBP million) - LOCAL CURRENCY: yes; balance-sheet positions (market values per IIP convention)",
+        "instrument_split": "portfolio total only on the country row (no debt/equity split by country); table 10.3 gives TOTAL liabilities to China (CDID HFNE, 1999->2024) as a full time series but not portfolio-specific",
+        "vintage_friction": "each year's value comes from a different edition/vintage (mixed-vintage series; latest-year values provisional per ONS notes)"
+      },
+      "official_sector_split": "none",
+      "custody_caveat_verbatim": "Portfolio investment liabilities are derived from the Co-ordinated Portfolio Investment Survey (CPIS) returns of other countries reporting assets held in the UK, and were GBP 2,533.1 billion at the end of 2012.",
+      "custody_caveat_source": "ONS, UK Balance of Payments Pink Book 2014, Part 3 Geographical breakdown (retained: leg_c_ons_pinkbook2014_part3_geographical.html). No ONS sentence using the word 'custody' was found in the retained text; the CPIS-mirror construction statement above is the compiler's own attribution basis and imports the counterpart compilers' custody bias. Stated.",
+      "window_boundaries": {
+        "baseline": "end-2015 (PB2017) -> end-2021 (PB2023)",
+        "verdict": "end-2021 -> end-2023 (nearest published boundary end-2023; PB2025 table 10.1 lags one year)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2016_chapter10.xls",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2017_chapter10.xls",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2018_chapter10.xls",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2019_chapter10.xls",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2020_chapter10.xls",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2021_chapter10.xls",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2022_chapter10.xlsx",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2023_chapter10.xlsx",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2024_chapter10.xlsx",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2025_chapter10.xlsx",
+        "build/reserve/rdtg_evidence/leg_c_ons_dataset10_page.html",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2023_relateddata.html",
+        "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2014_part3_geographical.html"
+      ]
+    },
+    "d_canada_securities_transactions_by_country_china": {
+      "status": "NOT-AVAILABLE",
+      "distinction": "the series EXISTS ONLY WITHOUT a China line - absence by construction, not a fetch failure. StatCan's international-securities geographic tables split only into: United States, United Kingdom, Other EU, Japan, Other OECD, All other countries. China is inside 'All other countries'. The tasked example table 36-10-0473 has a China line but is DIRECT investment, not securities.",
+      "publisher": "Statistics Canada",
+      "urls_checked_2026_07_02": [
+        "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata (productId 36100030, 36100486, 36100473)",
+        "https://www150.statcan.gc.ca/n1/tbl/csv/36100030-eng.zip",
+        "https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=1535"
+      ],
+      "nearest_available_aggregate": {
+        "table": "36-10-0030-01 'International transactions in securities, portfolio transactions in Canadian and foreign securities, by geographic area, monthly' (fetched, retained)",
+        "frequency": "monthly",
+        "span": "1988-01 -> 2026-04 (cube metadata)",
+        "unit": "CAD (StatCan table units) - LOCAL CURRENCY: yes; transactions (net flows, sales, purchases)",
+        "instrument_split": "Canadian debt securities / money market / bonds / equity and investment fund shares",
+        "china_relevant_line": "'All other countries' residual only (contains China plus all non-US/UK/EU/Japan/OECD economies)",
+        "positions_variant": "36-10-0486-01 monthly positions of foreign portfolio investment in Canadian bonds and money market instruments, same 6-region split, book and market value (metadata retained)"
+      },
+      "custody_caveat_verbatim": "In general, it is much more practical to collect these data from the intermediaries who act as brokers or agents for those trading securities, rather than trying to collect the data from the transactors themselves who are ultimately buying or selling the securities.",
+      "custody_caveat_source": "Statistics Canada, IMDB record 1535 'Canada's International Transactions in Securities', Target population section (retained: leg_d_statcan_imdb1535_methodology.html). No sentence using 'custodian' found in the retained text; the intermediary-collection statement above is the compiler's own collection basis. Stated.",
+      "window_boundaries": {
+        "baseline": "2015-01 -> 2021-12 (exact, aggregate table only)",
+        "verdict": "2022-01 -> 2025-12 (exact, aggregate table only; China line NOT-AVAILABLE for both windows)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_d_statcan_36100030_its_by_geography.zip",
+        "build/reserve/rdtg_evidence/leg_d_statcan_36100030_metadata.json",
+        "build/reserve/rdtg_evidence/leg_d_statcan_36100486_metadata.json",
+        "build/reserve/rdtg_evidence/leg_d_statcan_36100473_fdi_metadata.json",
+        "build/reserve/rdtg_evidence/leg_d_statcan_imdb1535_methodology.html"
+      ]
+    },
+    "e_bund_nonresident_official_investor_structure": {
+      "status": "GROUNDED-PRIMARY",
+      "publisher": "Bundesrepublik Deutschland - Finanzagentur GmbH (tasked primary); Deutsche Bundesbank Monthly Report July 2018 retained as methodology/history corroboration",
+      "urls_checked_2026_07_02": [
+        "https://www.deutsche-finanzagentur.de/en/federal-funding/government-as-issuer/investor-structure",
+        "https://www.bundesbank.de/resource/blob/753990/bd4bd347cccf986232b4d4c960a3b39f/mL/2018-07-anleihemarkt-data.pdf"
+      ],
+      "series": {
+        "table": "'Share of German Government Securities held by their total Volume by Investor Group' - groups include 'Central banks and government sector - third countries' (non-euro-area OFFICIAL split exists) and 'Other investors - third countries'",
+        "frequency": "point-in-time table: 2020-12-31, 2021-12-31, 2022-12-31, 2023-12-31, 2024-12-31, 2025-06-30 (six dates on the current page; annual + latest half-year)",
+        "unit": "% shares of total volume of Federal securities - NOT local-currency amounts; conversion to EUR requires the outstanding-volumes denominator (already grounded in RDTG_denominators.json, same publisher)",
+        "instrument_split": "none (all Federal securities combined)",
+        "official_split": "yes - 'Central banks and public investors - euro area' and 'Central banks and government sector - third countries' are separate lines",
+        "methodology_change_friction": "page states '2024 revised model with retrospective new estimates; Differences up to 100% are possible due to rounding' - a model revision rides the series"
+      },
+      "custody_caveat_verbatim": "German Government securities are bearer bonds that are traded daily and a change of ownership is therefore possible at any time. It is not recorded which person or institution the current owner is. However, the investor structure of the Federal government can be estimated from various sources of information. These include public data (e.g. investors' annual reports) and statistics (e.g. aggregate holder data from the ECB's securities holdings statistics), reports on market activity by the Federal government's trading partners, and findings by the Finance Agency, e.g. from its own data, discussions with market participants as well as estimates.",
+      "custody_caveat_source": "Finanzagentur investor-structure page (retained: leg_e_finanzagentur_investor_structure.html). Corroborating Bundesbank custody-channel statement (Monthly Report July 2018, retained): 'It seems most investors from non-euro area countries also trade German government securities via their own branches or authorised financial institutions within the euro area and accordingly hold the securities in safe custody at resident reporting custodians.'",
+      "window_boundaries": {
+        "baseline": "2020-12-31 -> 2021-12-31 ONLY (nearest published boundaries; the 2015-2020 baseline years are NOT on the current page - baseline support is one annual change; likely unpowered, decided by the assembly)",
+        "verdict": "2021-12-31 -> 2025-06-30 (nearest published boundary 2025-06-30)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_e_finanzagentur_investor_structure.html",
+        "build/reserve/rdtg_evidence/leg_e_bundesbank_mr2018-07_holder_structure.pdf"
+      ]
+    },
+    "f_jgb_foreign_holdings_share": {
+      "status": "GROUNDED-PRIMARY",
+      "publisher": "Bank of Japan, Flow of Funds Accounts (2008 SNA)",
+      "urls_checked_2026_07_02": [
+        "https://www.stat-search.boj.or.jp/info/dload_en.html (fof2_en.zip)",
+        "https://www.boj.or.jp/en/statistics/sj/index.htm",
+        "https://www.boj.or.jp/en/statistics/sj/sjpre.xlsx (unit evidence: '(100 million yen)')",
+        "https://www.boj.or.jp/en/statistics/outline/exp/data/exsj01.pdf"
+      ],
+      "series": {
+        "codes": [
+          "FOF_FFAS500A311 Assets/Central government securities and FILP bonds/Overseas/Stock",
+          "FOF_FFAS500A310 Assets/Treasury discount bills/Overseas/Stock",
+          "FOF_FFAF500A311 / FOF_FFAF500A310 (flows), FOF_FFAR500* (reconciliation)",
+          "FOF_FFALC08G500 Total/Holder:Overseas/Amount outstanding/Issuer:Central government and Fiscal Loan Fund (from-whom-to-whom presentation)"
+        ],
+        "frequency": "quarterly (fiscal-year file also retained)",
+        "span_observed": "1997Q4 -> 2026Q1",
+        "unit": "100 million yen (verified from BoJ sjpre.xlsx table header '(100 million yen)') - LOCAL CURRENCY: yes",
+        "share_construction": "foreign-holdings SHARE = Overseas holdings / all-sector total from the same FOF matrix; computed by the assembly, both numerator and denominator in the retained file",
+        "instrument_split": "central government securities and FILP bonds vs Treasury discount bills (separate rows)"
+      },
+      "official_sector_split": "none (Overseas is a single sector)",
+      "custody_caveat_verbatim": "For example, overseas sector in the FFA is defined as \"non-residents\" in the BOP, and the financial surplus or deficit of the \"overseas\" sector is made to equal the sum of the \"current account\" and \"capital account\" in the BOP.",
+      "custody_caveat_source": "BoJ, Guide to Japan's Flow of Funds Accounts (retained: leg_f_boj_exsj01_fof_guide.pdf). The FFA Overseas sector is defined from the BOP/IIP perimeter, so it inherits the same compiler's custodian-attribution caveat quoted verbatim under leg (a) (BoJ FAQ Q10, retained).",
+      "window_boundaries": {
+        "baseline": "2015Q1 -> 2021Q4 (exact)",
+        "verdict": "2022Q1 -> 2025Q4 (exact; published to 2026Q1)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_f_boj_fof2_en.zip",
+        "build/reserve/rdtg_evidence/leg_f_boj_sjpre_units.xlsx",
+        "build/reserve/rdtg_evidence/leg_f_boj_exsj01_fof_guide.pdf",
+        "build/reserve/rdtg_evidence/leg_f_boj_sj_index.html"
+      ]
+    },
+    "g_gilt_overseas_holdings": {
+      "status": "GROUNDED-PRIMARY",
+      "publisher": "Office for National Statistics (UK) - CDID HEWD in dataset UKEA; UK DMO Quarterly Review republishes the same figures ('Source: ONS'), retained as corroboration",
+      "urls_checked_2026_07_02": [
+        "https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/timeseries/hewd/ukea/data",
+        "https://www.dmo.gov.uk/publications/quarterly-reviews/ (jan-mar-2026.pdf)"
+      ],
+      "series": {
+        "code": "HEWD - 'BoP: IIP: Liabs: Overseas holdings of BGS: total: CP NSA: GBP m'",
+        "frequency": "quarterly (annual also published in the same series)",
+        "span_observed": "1966Q4 -> 2026Q1",
+        "unit": "GBP million, current prices (market value), NSA - LOCAL CURRENCY: yes",
+        "instrument_split": "British government stocks (gilts) total; no conventional/index-linked split in this series",
+        "cross_check": "2025Q4 HEWD = 737,355 = DMO Quarterly Review Jan-Mar 2026 'Gilt holdings (GBP mn, market values)' Overseas Q4 2025 = 737,355 (Source: ONS)"
+      },
+      "official_sector_split": "none (overseas aggregate)",
+      "custody_caveat_verbatim": "Source: ONS. These figures can be revised retrospectively.",
+      "custody_caveat_source": "DMO Quarterly Review January-March 2026, gilt holdings table footnote (retained: leg_g_dmo_quarterly_review_jan_mar_2026.pdf). No custody-specific caveat found in the retained ONS text for HEWD; the ONS Pink Book CPIS-mirror statement retained under leg (c) is the same compiler's liabilities-attribution basis. Stated.",
+      "window_boundaries": {
+        "baseline": "2015Q1 -> 2021Q4 (exact)",
+        "verdict": "2022Q1 -> 2025Q4 (exact; published to 2026Q1)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_g_ons_hewd_ukea_overseas_gilt_holdings.csv",
+        "build/reserve/rdtg_evidence/leg_g_ons_hewd_ukea_overseas_gilt_holdings.json",
+        "build/reserve/rdtg_evidence/leg_g_dmo_quarterly_review_jan_mar_2026.pdf"
+      ]
+    },
+    "h_oat_nonresident_share": {
+      "status": "NOT-AVAILABLE",
+      "distinction": "the series EXISTS at the alternate official publisher (Banque de France webstat: DET.Q.FR.1315.F33000.M.Z9.8.F, 'Detention par les non-residents de la Dette Negociable de l'Etat (en %)', quarterly, 1999Q4->2025Q4 per publisher metadata) but its OBSERVATIONS COULD NOT BE FETCHED from this egress: (1) tasked primary aft.gouv.fr is behind a Cloudflare JS challenge - HTTP 403 'Just a moment...' on 3 attempts with backoff (evidence retained), matching the denominators-pass precedent; (2) webstat ODS catalog exposes the series metadata only - CSV/JSON exports return zero records for every dataset on the portal (has_records=false portal-wide, probes retained); (3) the official data API (api.webstat.banque-france.fr) requires registered client credentials - anonymous call returns HTTP 401 'Invalid client id or secret' (retained). A leg that exists but cannot be fetched is NOT-AVAILABLE with the distinction stated - this is a fetch failure, not absence by construction.",
+      "publisher_primary_blocked": "Agence France Tresor (aft.gouv.fr) - Cloudflare-blocked",
+      "publisher_alternate_official": "Banque de France (webstat.banque-france.fr; Stat Info releases on banque-france.fr)",
+      "urls_checked_2026_07_02": [
+        "https://www.aft.gouv.fr/en/oat-holders (403 x3)",
+        "https://webstat.banque-france.fr/api/datasets/1.0/search/?q=detention+non-residents+Etat",
+        "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/det-q-fr-1315-f33000-m-z9-8-f (metadata + empty exports)",
+        "https://api.webstat.banque-france.fr/webstat-en/v1/data/DET/DET.Q.FR.1315.F33000.M.Z9.8.F (401)",
+        "https://www.banque-france.fr/en/statistics/loans/securities-issues-french-residents-2025-q3",
+        "https://www.banque-france.fr/system/files/webstats/Emission_et_detention_de_titres_francais_2025T2_20251010/FR_Stat_Info_Emission_et_detention_de_titres_francais_2025Q2.pdf"
+      ],
+      "series_grounded_from_publisher_metadata": {
+        "key": "DET.Q.FR.1315.F33000.M.Z9.8.F",
+        "title_en_publisher": "Percentage of negotiable debt issued by the state and held by non-residents",
+        "frequency": "quarterly",
+        "span_per_metadata": "1999-12-31 -> 2025-12-31",
+        "unit": "% (UNIT PC, UNIT_MULT 0, 1 decimal) - a SHARE, not a local-currency amount; annual short-term (f33100) and long-term (f33200) variants also listed",
+        "last_two_observations_from_metadata": "56.0, 55.1 (publisher metadata field series_last_two_obs_values; order as published)",
+        "source_agency": "FR2 (Banque de France)"
+      },
+      "partial_compiler_published_data_retained": "BdF Stat Info 'Securities issues by French residents' Q3-2025 HTML embeds the chart series 'Non-resident holdings of long-term debt (by resident issuer sector)' with the General government line Q3-2022 -> Q3-2025 (13 quarters: 48.89 ... 53.83 %) and the Stat Info 'Emission et detention de titres francais' 2025Q2 PDF carries the 'dont Etat' stock and non-resident net-purchase flows - verdict-window-partial material only, perimeter differs from the State-debt share; retained, use decided by the assembly",
+      "custody_caveat_verbatim": "Issuance data is based on issuers' reporting, while holding statistics is calculated using custodian account statements.",
+      "custody_caveat_source": "Banque de France, Stat Info 'Securities issues by French residents', third quarter 2025 (retained: leg_h_bdf_statinfo_securities_issues_2025q3.html). French version (retained PDF): 'les donnees relatives aux emissions sont etablies a partir des declarations des emetteurs et celles relatives aux detenteurs par les declarations des teneurs de compte conservateurs.'",
+      "window_boundaries": {
+        "baseline": "1999Q4->2021Q4 exists AT THE PUBLISHER but is not fetchable from this egress (stated)",
+        "verdict": "2022Q1 -> 2025Q4 exists at the publisher; only Q3-2022 -> Q3-2025 general-government chart values retained (perimeter differs; stated)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_h_aft_oat_holders_cloudflare_403.html",
+        "build/reserve/rdtg_evidence/leg_h_bdf_webstat_DET_Q_FR_1315_F33000_metadata.json",
+        "build/reserve/rdtg_evidence/leg_h_bdf_webstat_DET_csv_export_empty.csv",
+        "build/reserve/rdtg_evidence/leg_h_bdf_webstat_det_search_results.json",
+        "build/reserve/rdtg_evidence/leg_h_bdf_api_401_unauthorized.json",
+        "build/reserve/rdtg_evidence/leg_h_bdf_statinfo_securities_issues_2025q3.html",
+        "build/reserve/rdtg_evidence/leg_h_bdf_statinfo_emission_detention_2025q2.pdf"
+      ]
+    },
+    "i_ags_nonresident_share": {
+      "status": "GROUNDED-ALTERNATE-OFFICIAL",
+      "distinction": "tasked primary AOFM (aofm.gov.au) unreachable from this egress again on 2026-07-02: HTTP/2 stream INTERNAL_ERROR x3 with backoff, HTTP/1.1 50s timeout with 0 bytes (log retained), consistent with the denominators-pass 503 precedent. Alternate OFFICIAL channel used per task: ABS 5302.0 International Investment Position via the ABS SDMX API - GROUNDED-ALTERNATE, stated.",
+      "publisher_primary_blocked": "Australian Office of Financial Management (aofm.gov.au)",
+      "publisher_alternate_official": "Australian Bureau of Statistics (data.api.abs.gov.au, dataflow ABS:IIP 1.0.0, source publication 5302.0)",
+      "urls_checked_2026_07_02": [
+        "https://www.aofm.gov.au/data-hub (unreachable, log retained)",
+        "https://data.api.abs.gov.au/rest/dataflow/ABS/IIP?references=all",
+        "https://data.api.abs.gov.au/rest/data/ABS,IIP,1.0.0/.653B.3000999.....Q?startPeriod=2013-Q1",
+        "https://www.abs.gov.au/methodologies/balance-payments-and-international-investment-position-australia-methodology/dec-2025",
+        "https://www.rba.gov.au/statistics/tables/ (A3.1 probed: it is holdings under RBA operations, NOT the nonresident leg - file retained, marked not-the-leg)"
+      ],
+      "series": {
+        "key": "ABS IIP: DATA_ITEM=653B 'Foreign Liabilities, Portfolio investment, Debt securities' x SECTOR=3000999 'General Government Total', MEASURE 1/6 positions (beginning/end of period) and MEASURE 2 transactions",
+        "frequency": "quarterly",
+        "span_observed": "2013Q1 -> 2026Q1 (end-of-period positions)",
+        "unit": "AUD, UNIT_MULT=6 (millions) - LOCAL CURRENCY: yes; IIP positions (market-value convention per BPM6; ABS methodology retained), transactions measure also retained",
+        "instrument_split": "debt securities total (short/long-term item codes 556A/557A exist in the codelist; not fetched here)",
+        "perimeter_friction": "GENERAL GOVERNMENT total = AGS plus state/territory (semis) issuers - broader than AGS-only; the AOFM AGS-only nonresident split was not obtainable (primary blocked). Dilution stated.",
+        "share_construction": "nonresident SHARE requires an outstandings denominator; the AGS outstanding denominator was NOT-GROUNDED at the denominators pass (AOFM blocked) - the level series above is usable as a local-currency amount leg; share construction is the assembly's decision, stated"
+      },
+      "official_sector_split": "none (all nonresidents combined)",
+      "custody_caveat_verbatim": "The security-by-security collection is a quarterly survey of nominees (Form 85L), in respect of their holdings on behalf of non-residents, of securities issued in Australia (shares, debt securities and all types of derivatives).",
+      "custody_caveat_source": "ABS, Balance of Payments and International Investment Position, Australia methodology, Dec 2025 (retained: leg_i_abs_bop_iip_methodology_dec2025.html)",
+      "window_boundaries": {
+        "baseline": "2015Q1 -> 2021Q4 (exact)",
+        "verdict": "2022Q1 -> 2025Q4 (exact; published to 2026Q1)"
+      },
+      "retained_files": [
+        "build/reserve/rdtg_evidence/leg_i_abs_iip_653B_gg_foreign_liab_debtsec.csv",
+        "build/reserve/rdtg_evidence/leg_i_abs_iip_dataflow_structure.json",
+        "build/reserve/rdtg_evidence/leg_i_abs_bop_iip_methodology_dec2025.html",
+        "build/reserve/rdtg_evidence/leg_i_aofm_retry_failure_log.txt",
+        "build/reserve/rdtg_evidence/leg_i_rba_a03hist_rba_own_holdings_notleg.xlsx"
+      ]
+    }
+  },
+  "m1_external_manager_custodian_grounding": {
+    "status": "GROUNDED (two publisher documents retained; compiler-side corroboration in legs a, b, e, h, i)",
+    "practice_citation": {
+      "quote_1": "External managers may have skills that the reserve management entity lacks, or they may provide a level of safety to foreign operations that the entity is unable to achieve.",
+      "quote_2": "Appointment of external managers can also have implications for the reserve manager's choice of a custodian for its foreign securities.",
+      "source": "IMF, Revised Guidelines for Foreign Exchange Reserve Management (Executive Board endorsed 2013-02-12), https://www.imf.org/external/np/pp/eng/2013/020113.pdf, fetched 2026-07-02 (retained: leg_m1_imf_revised_guidelines_fx_reserve_management_2013.pdf)"
+    },
+    "attribution_consequence_citation": {
+      "quote_1": "if a foreign custodian holds securities on behalf of a third country, the TIC system records the holder country as the custodian's residence, not the country of residence of the custodian's customer.",
+      "quote_2": "This \"custodial bias\" tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+      "quote_3": "As such, some holdings attributed to private intermediaries, especially in major custodial centers, may reflect holdings of foreign official institutions.",
+      "source": "U.S. Department of the Treasury / Federal Reserve, 'Foreign Portfolio Holdings of U.S. Securities as of June 28, 2024', https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2024r.pdf, fetched 2026-07-02 (retained: leg_m1_ustreasury_tic_shl2024r_custodial_bias.pdf)"
+    },
+    "consequence_per_preregistration": "a null on any leg (and on the sweep) is WEAK evidence, not disposal"
+  }
+}

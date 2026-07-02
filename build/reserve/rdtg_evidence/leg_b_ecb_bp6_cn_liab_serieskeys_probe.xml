@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><message:StructureSpecificData xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/structurespecific" xmlns:bop1_15="urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=IMF:BOP1_15(1.0):ObsLevelDim:TIME_PERIOD" xsi:schemaLocation="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message https://data-api.ecb.europa.eu:443/vocabulary/sdmx/2_1/SDMXMessage.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common https://data-api.ecb.europa.eu:443/vocabulary/sdmx/2_1/SDMXCommon.xsd urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=IMF:BOP1_15(1.0):ObsLevelDim:TIME_PERIOD https://data-api.ecb.europa.eu:443/service/schema/datastructure/IMF/BOP1_15/1.0">
+<message:Header>
+<message:ID>68b91c70-c782-4cfb-b1d9-73cd95c2c574</message:ID>
+<message:Test>false</message:Test>
+<message:Prepared>2026-07-02T21:38:57.133+02:00</message:Prepared>
+<message:Sender id="ECB"/>
+<message:Structure structureID="BOP1_15" dimensionAtObservation="TIME_PERIOD" namespace="urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=IMF:BOP1_15(1.0):ObsLevelDim:TIME_PERIOD">
+<common:Structure>
+<URN>urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=IMF:BOP1_15(1.0)</URN>
+</common:Structure>
+</message:Structure>
+</message:Header>
+<message:DataSet data:action="Replace" data:validFromDate="2026-07-02T21:38:57.133+02:00" data:structureRef="BOP1_15" data:dataScope="DataStructure" xsi:type="bop1_15:DataSetType">
+<Series FREQ="Q" ADJUSTMENT="N" REF_AREA="I8" COUNTERPART_AREA="CN" REF_SECTOR="S1" COUNTERPART_SECTOR="S1" FLOW_STOCK_ENTRY="LE" ACCOUNTING_ENTRY="L" INT_ACC_ITEM="FA" FUNCTIONAL_CAT="P" INSTR_ASSET="F" MATURITY="_Z" UNIT_MEASURE="EUR" CURRENCY_DENOM="_T" VALUATION="M" COMP_METHOD="N">
+</Series>
+</message:DataSet>
+</message:StructureSpecificData>

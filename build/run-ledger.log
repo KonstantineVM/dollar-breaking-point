@@ -6565,3 +6565,30 @@ byte-identical. Stamped NOT ESTABLISHED pending the RDT-G verifier + gate.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
 2026-07-02T19:35:55Z RDT-G: holding for receiving-legs agent (background); nothing further promoted
+2026-07-02T19:35:56Z	OUTPUT (not established until verifier runs)	git status --short; echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: holding for receiving-legs agent (background); nothing further promoted" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-G legs agent still running; holding)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
+2026-07-02T19:36:05Z	OUTPUT (not established until verifier runs)	grep -n -i -B3 -A8 'residency of the holder\|residence of the holder\|holders of\|identify the resid' /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad/bopips.txt | head -60
+2026-07-02T19:50:13Z	OUTPUT (not established until verifier runs)	S=/tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad; E=/home/user/dollar-breaking-point/build/reserve/rdtg_evidence; cp $S/finanzagentur_investor_structure.html $E/leg_e_finanzagentur_investor_structure.html; curl -sSL --retry 3 -o $E/leg_e_bundesbank_mr2018-07_holder_structure.pdf "https://www.bundesbank.de/resource/blob/753990/bd4bd347cccf986232b4d4c960a3b39f/mL/2018-07-anleihemarkt-data.pdf" && ls -la $E/leg_e_bundesbank_mr2018-07_holder_structure.pdf && python3 - <<'EOF'
+import fitz,re
+d=fitz.open('/home/user/dollar-breaking-point/build/reserve/rdtg_evidence/leg_e_bundesbank_mr2018-07_holder_structure.pdf')
+t='\n'.join(p.get_text() for p in d)
+print(t[:400])
+for kw in ['estimat','holder structure','securities holdings statistics','custod']:
+    for m in re.finditer(r'[^.]*'+kw+r'[^.]*\.', t, re.I):
+        s=' '.join(m.group(0).split())
+        if len(s)>60: print('*', s[:400]); break
+EOF
+2026-07-02T19:53:01Z	OUTPUT (not established until verifier runs)	cd /tmp/claude-0/-home-user-dollar-breaking-point/060d2c58-c106-5eed-9b8f-e9daf06281e7/scratchpad && curl -sSL --retry 3 -o boj_sjexp.pdf "https://www.boj.or.jp/en/statistics/sj/sjexp.pdf" && python3 - <<'EOF'
+import fitz,re
+d=fitz.open('boj_sjexp.pdf')
+t='\n'.join(p.get_text() for p in d)
+print('pages',d.page_count,'chars',len(t))
+i=t.lower().find('overseas')
+for m in re.finditer(r'[^.]*[Oo]verseas[^.]*\.', t):
+    s=' '.join(m.group(0).split())
+    if any(k in s.lower() for k in ['balance of payments','bop','compil','estimat','source']):
+        print('*', s[:350])
+EOF
+2026-07-02T20:21:26Z RDT-G: receiving legs grounded (a,b,c,e,f,g PRIMARY; i ALTERNATE-OFFICIAL; d NOT-AVAILABLE absent-by-construction; h NOT-AVAILABLE unfetchable, evidence retained; M1 grounded IMF+TIC); assembly next

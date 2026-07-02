@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Geographical Breakdown - Office for National Statistics</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1.0,user-scalable=1" name="viewport">
+        <meta name="theme-color" content="#58595B">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#58595B">
+
+        <meta name="description" content="Inward and outward transactions, providing a net flow of transactions between the UK and the rest of the world and how that flow is funded.">
+
+        
+            <link rel="canonical" href="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown" />
+        
+        <link rel="stylesheet" type="text/css" href="//cdn.ons.gov.uk/sixteens/418c927/css/main.css">
+		
+
+        <script>
+    // extractValue extracts the value from an undecodeable json cookie string
+    function extractValue(key, extractionString) {
+        const extractionRegex = new RegExp(`'${key}':(.*?)[,}]`)
+        const match = extractionString.match(extractionRegex)
+        if (match) {
+            return match[1]
+        }
+        
+        return null
+    }
+
+    // getUsageCookieValue reads the ons_cookie_policy to determine the user's usage preference. 
+    // When no policy is found, the user is opted out by default.
+    function getUsageCookieValue() {
+        // ons_cookie_policy handler
+        var policyCookie = document.cookie.match('(?:^|; )ons_cookie_policy=({.*?})');
+        if (policyCookie) {
+            console.debug('ons_cookie_policy found');
+
+            var usageValue = extractValue("usage", policyCookie[1]);
+            console.debug('usage is', usageValue);
+
+            // this needs to be the inverse - if usage is true the returned value is false and vice versa
+            // user is stating whether they are opting out of usage cookie
+            return (usageValue == "true") ? false : true
+        }
+        console.debug('no cookie found - opting out');
+        return true
+    }
+
+    // unescape html entities
+    function htmlUnescape(str){
+        return str
+                .replace(/&#x3D;/g, "=");
+    }
+
+    
+    var dataLayer = [{
+        contentTitle: htmlUnescape("Geographical Breakdown"),
+        analyticsOptOut: getUsageCookieValue(),
+        "gtm.whitelist": ["google","hjtc","lcl"],
+        "gtm.blacklist": ["customScripts","sp","adm","awct","k","d","j"]
+    }];
+
+    
+    dataLayer[0]["releaseDate"] = "2014/10/31";
+    
+
+    
+
+    
+    
+
+
+    
+    
+        
+            
+                dataLayer[0]["latestRelease"] = "no";
+            
+        
+    
+
+    
+    
+
+    
+    
+
+    
+
+</script>
+
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MBCBVQS');</script>
+        <!-- End Google Tag Manager -->
+
+        
+
+		
+		
+
+	</head>
+	<body class="compendium_chapter">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js' : 'js');</script>
+    <form action="/cookies/accept-all" method="GET" id="global-cookie-message"
+      class="cookies-banner cookies-banner--hidden js-cookies-banner-form clearfix"
+      aria-label="cookie banner">
+    <div class="cookies-banner__wrapper wrapper js-cookies-banner-inform">
+        <div>
+            <div class="cookies-banner__message adjust-font-size--18">
+                <h3 class="cookies-banner__heading">Cookies on ons.gov.uk</h3>
+                <p class="cookies-banner__body">Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p>
+                <p class="cookies-banner__body">We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services.</p>
+            </div>
+            <div class="cookies-banner__buttons">
+                <div class="nojs--hide cookies-banner__button cookies-banner__button--accept">
+                    <button class="btn btn--full-width btn--primary btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap js-accept-cookies" data-gtm-accept-cookies="true" type="submit" data-action="accept" tabindex="0">
+                        Accept additional cookies
+                    </button>
+                </div>
+                <div class="nojs--hide cookies-banner__button cookies-banner__button--reject">
+                    <button class="btn btn--full-width btn--primary btn--focus margin-right--2 font-weight-700 font-size--17 text-wrap js-reject-cookies" data-gtm-accept-cookies="false" type="submit" data-action="reject" tabindex="0">
+                        Reject additional cookies
+                    </button>
+                </div>
+                <div class="cookies-banner__button">
+                    <a href="/cookies">Manage settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden js-cookies-banner-confirmation" tabindex="-1">
+        <div class="cookies-banner__wrapper wrapper">
+            <div class="col">
+                <div class="cookies-banner__message adjust-font-size--18">
+                    <p class="cookies-banner__confirmation-message">
+                        <span class="hidden ons-js-accepted-text">You have accepted all additional cookies.</span>
+                        <span class="hidden ons-js-rejected-text">You have rejected all additional cookies.</span>
+                        <span>You can <a href="/cookies">change your cookie preferences</a> at any time.</span>
+                        <button type="button" class="cookies-banner__button--hide js-hide-cookies-banner">Hide</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+        
+        
+		
+
+		
+
+		
+		 			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<header >
+	
+    <a class="skiplink" href="#main" tabindex="0">
+        Skip to main content
+    </a>
+	
+  
+  
+
+	
+	
+	<div id="pagePath" class="hide">/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown</div>
+	
+		<div class="wrapper">
+			<div class="header col-wrap">
+				<div class="col col--lg-one-third col--md-one-third">
+					<a href="/">
+						<!--[if lte IE 8]>
+							<img class="logo" src="https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.png" alt="Office for National Statistics logo - Homepage">
+						<![endif]-->
+						<img class="logo" src="https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg" alt="Office for National Statistics logo - Homepage">
+					</a>
+				</div>
+				
+                <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container">
+                    
+                    <div class="language">
+                        
+                            <span>English (EN) | </span>
+                            <a href="
+
+
+
+    //cy.ons.gov.uk/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown
+" class="language__link" lang="cy">Cymraeg (CY)</a>
+                        
+                    </div>
+                </div>
+				<div class="secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide">
+					<ul class="secondary-nav__list js-nav-clone__list">
+                        <li class="secondary-nav__item">
+                            <a class="secondary-nav__link  js-nav-clone__link" href="/releasecalendar">Release calendar</a>
+                        </li>
+                        <li class="secondary-nav__item">
+                            <a class="secondary-nav__link  js-nav-clone__link" href="/methodology">Methodology</a>
+                        </li>
+                        <li class="secondary-nav__item">
+                            <a class="secondary-nav__link  js-nav-clone__link" href="/news">Media</a>
+                        </li>
+						<li class="secondary-nav__item">
+							<a class="secondary-nav__link  js-nav-clone__link" href="/aboutus">About</a>
+						</li>
+						<li class="secondary-nav__item">
+							<a class="secondary-nav__link js-nav-clone__link" rel="noopener noreferrer" href="https://blog.ons.gov.uk/">Blog</a>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+	
+
+	
+	
+	<div class="primary-nav print--hide">
+		<nav aria-label="Header links">
+			
+			<ul class="nav--controls">
+				<li class="nav--controls__item">
+					<a href="#nav-primary" id="menu-toggle" aria-controls="nav-primary" aria-expanded="false" class="nav--controls__menu">
+						<span class="nav--controls__text">Menu</span>
+					</a>
+				</li>
+				<li class="nav--controls__item ">
+					<a href="#nav-search" id="search-toggle" aria-controls="nav-search" aria-expanded="false" class="nav--controls__search" aria-label="Search">
+						<span class="nav--controls__text">Search</span>
+					</a>
+				</li>
+			</ul>
+			
+			<ul class="wrapper nav-main--hidden primary-nav__list" id="nav-primary" aria-expanded="false">
+				<li class="primary-nav__item  js-nav hide--sm old-ie--display-block"><a class="primary-nav__link col col--md-7 col--lg-9" href="/">Home</a></li>
+				
+				
+				
+				
+				
+				<li class="primary-nav__item js-nav js-expandable ">
+					<a class="primary-nav__link col col--md-8 col--lg-10" href="/businessindustryandtrade" aria-expanded="false" aria-label="Business, industry and trade sub menu">
+						<span aria-hidden="true" class="expansion-indicator"></span>
+						<span class="submenu-title">
+							Business, industry and trade
+						</span>
+					</a>
+					<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+						
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/business" >Business</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/changestobusiness" >Changes to business</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/constructionindustry" >Construction industry</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/itandinternetindustry" >IT and internet industry</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/internationaltrade" >International trade</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/manufacturingandproductionindustry" >Manufacturing and production industry</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/retailindustry" >Retail industry</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/businessindustryandtrade/tourismindustry" >Tourism industry</a>
+						</li>
+						
+					</ul>
+				</li>
+				
+				
+				
+				
+				
+				<li class="primary-nav__item js-nav js-expandable primary-nav__item--active">
+					<a class="primary-nav__link col col--md-8 col--lg-10" href="/economy" aria-expanded="false" aria-label="Economy sub menu">
+						<span aria-hidden="true" class="expansion-indicator"></span>
+						<span class="submenu-title">
+							Economy
+						</span>
+					</a>
+					<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+						
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/economicoutputandproductivity" >Economic output and productivity</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/environmentalaccounts" >Environmental accounts</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/governmentpublicsectorandtaxes" >Government, public sector and taxes</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/grossdomesticproductgdp" >Gross Domestic Product (GDP)</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/grossvalueaddedgva" >Gross Value Added (GVA)</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/inflationandpriceindices" >Inflation and price indices</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/investmentspensionsandtrusts" >Investments, pensions and trusts</a>
+						</li>
+						
+						<li class="primary-nav__child-item primary-nav__child-item--active js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/nationalaccounts" >National accounts</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/economy/regionalaccounts" >Regional accounts</a>
+						</li>
+						
+					</ul>
+				</li>
+				
+				
+				
+				
+				
+				<li class="primary-nav__item js-nav js-expandable ">
+					<a class="primary-nav__link col col--md-8 col--lg-10" href="/employmentandlabourmarket" aria-expanded="false" aria-label="Employment and labour market sub menu">
+						<span aria-hidden="true" class="expansion-indicator"></span>
+						<span class="submenu-title">
+							Employment and labour market
+						</span>
+					</a>
+					<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+						
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/employmentandlabourmarket/peopleinwork" >People in work</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/employmentandlabourmarket/peoplenotinwork" >People not in work</a>
+						</li>
+						
+					</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<li class="primary-nav__item js-nav js-expandable ">
+					<a class="primary-nav__link col col--md-8 col--lg-10" href="/peoplepopulationandcommunity" aria-expanded="false" aria-label="People, population and community sub menu">
+						<span aria-hidden="true" class="expansion-indicator"></span>
+						<span class="submenu-title">
+							People, population and community
+						</span>
+					</a>
+					<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+						
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/armedforcescommunity" >Armed forces community</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/birthsdeathsandmarriages" >Births, deaths and marriages</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/crimeandjustice" >Crime and justice</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/culturalidentity" >Cultural identity</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/educationandchildcare" >Education and childcare</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/elections" >Elections</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/healthandsocialcare" >Health and social care</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/householdcharacteristics" >Household characteristics</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/housing" >Housing</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/leisureandtourism" >Leisure and tourism</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/wellbeing" >Measuring progress, well-being and beyond GDP</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/personalandhouseholdfinances" >Personal and household finances</a>
+						</li>
+						
+						<li class="primary-nav__child-item  js-expandable__child">
+							<a class="primary-nav__child-link" tabindex="-1" href="/peoplepopulationandcommunity/populationandmigration" >Population and migration</a>
+						</li>
+						
+					</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				<li class="primary-nav__item  js-nav">
+					<a class="primary-nav__link  col col--md-8 col--lg-10" href="/surveys">
+						Taking part in a survey?
+					</a>
+				</li>
+				<li class="hide--md primary-nav__language">
+					
+						<span>English (EN) | </span>
+						<a href="
+
+
+
+    //cy.ons.gov.uk/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown
+" class="language__link">Cymraeg (CY)</a>
+					
+				</li>
+			</ul>
+		</nav>
+	</div>
+	
+	
+		<div class="search nav-search--hidden print--hide" id="searchBar" role="search">
+			<div class="wrapper">
+				<form class="col-wrap search__form" action="/search">
+					<label class="search__label col col--md-23 col--lg-24" for="nav-search">Search for a keyword(s) or time series ID</label>
+					<input type="search" autocomplete="off" class="search__input col col--md-21 col--lg-32" id="nav-search" name="q" value="">
+					<button type="submit" class="search__button col--md-3 col--lg-3" id="nav-search-submit" aria-label="Search">
+						<span class="visuallyhidden">Search</span>
+						<span class="icon icon-search--light"></span>
+					</button>
+				</form>
+			</div>
+		</div>
+	
+	<div class="promo__background--plum-gradient">
+    <div class="wrapper">
+        <div class="banner--half-padding">
+            <p class="margin-top--0 margin-bottom--0 padding-bottom--0 padding-top--0 flex flex-wrap-wrap banner--vertical-center">
+                <a class="flex" href="/census"><img src="https://cdn.ons.gov.uk/assets/images/census-logo/logo-census-2021-white-landscape.svg" title="Census 2021" alt="" class="header__svg-logo margin-right--1" xmlns="http://www.w3.org/2000/svg" focusable="false" width="167" height="32" viewBox="0 0 242 44" aria-labelledby="census-logo-banner" />
+                <a class="margin-top--0 text--white font-size--18 underline-link" href="/census">Data and analysis from Census 2021</a>
+            </p>
+        </div>
+    </div>
+</div>
+	
+</header>
+
+
+
+
+	
+    
+        <div class="page-neutral-intro background--gallery">
+  <div class="wrapper">
+    <div class="col-wrap">
+      <div class="col">
+        <nav aria-label="Breadcrumbs">
+          <div class="breadcrumb print--hide">
+            <ol class="breadcrumb__list">
+              
+                <li class="breadcrumb__item">
+                  <a
+                    class="breadcrumb__link"
+                    href="/"
+                  >Home</a>
+                </li>
+              
+                <li class="breadcrumb__item">
+                  <a
+                    class="breadcrumb__link"
+                    href="/economy"
+                  >Economy</a>
+                </li>
+              
+                <li class="breadcrumb__item">
+                  <a
+                    class="breadcrumb__link"
+                    href="/economy/nationalaccounts"
+                  >National accounts</a>
+                </li>
+              
+                <li class="breadcrumb__item">
+                  <a
+                    class="breadcrumb__link"
+                    href="/economy/nationalaccounts/balanceofpayments"
+                  >Balance of payments</a>
+                </li>
+              
+                <li class="breadcrumb__item">
+                  <a
+                    class="breadcrumb__link"
+                    href="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31"
+                  >United Kingdom Balance of Payments - The Pink Book</a>
+                </li>
+              
+
+              <li class="breadcrumb__item">
+                
+                  Geographical Breakdown
+                
+              </li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+		
+<main id="main" role="main" tabindex="-1">
+
+
+    <div class="page-neutral-intro background--gallery">
+	<div class="wrapper">
+		<div class="col-wrap">
+			<div class="col">
+				
+				<div class="col col--md-47 col--lg-48">
+                    
+                        <h1 class="page-intro__title ">
+    Geographical Breakdown
+</h1>
+
+
+    <p class="page-intro__content">Inward and outward transactions, providing a net flow of transactions between the UK and the rest of the world and how that flow is funded.</p>
+
+                    
+				</div>
+				
+			</div> 
+		</div> 
+	</div> 
+    
+
+
+
+    
+	
+	
+		
+			
+
+
+
+	
+
+
+		
+	
+
+    
+		<div class="meta-wrap">
+            <div class="wrapper">
+                
+                <div class="col-wrap">
+                    
+                        
+<p class="col col--md-16 col--lg-20 meta__item">
+    
+        <a href="https://uksa.statisticsauthority.gov.uk/about-the-authority/uk-statistical-system/types-of-official-statistics/">
+    
+        <img
+            class="meta__image meta__image--logo"
+            src="https://cdn.ons.gov.uk/assets/images/ons-logo/kitemark/v2/uksa-kitemark-en.svg" 
+            alt="These are accredited official statistics. Click for information about types of official statistics."
+            height="58"
+            width="58"
+        />
+    
+</a>
+
+    
+	<span>Contact: </span><br/><a href="mailto:bop@ons.gov.uk">Craig Taylor</a>
+</p>
+
+                    
+
+                    
+                        
+<p class="col col--md-16 col--lg-20 meta__item">
+	<span>Release date: </span><br/>31 October 2014<br/>
+    
+</p>
+                    
+
+                    
+                    
+                        
+<p class="col col--md-16 col--lg-20 meta__item">
+    <span>Next release: </span><br/>30 October 2015
+</p>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    
+
+</div> 
+
+
+<div class="page-content">
+	
+    <div class="wrapper">
+        <div class="col-wrap print--hide">
+    <nav aria-label="Compendium breadcrumbs">
+        <ul class="list--neutral margin-left-md--1">
+        
+            
+        
+        </ul>
+    </nav>
+</div>
+
+
+        <div class="col-wrap border-bottom--iron-md">
+            
+            <div class="col col--md-31 col--lg-41 margin-left-md--1">
+	<div class="table-of-contents print--avoid-break">
+		<h2 class="table-of-contents__title">Table of contents</h2>
+		<ol id="toc" class="table-of-contents__list">
+			
+			<li class="table-of-contents__item">
+				<a href="#correction" class="js-scroll">Correction</a>
+			</li>
+			
+			<li class="table-of-contents__item">
+				<a href="#key-points" class="js-scroll">Key points</a>
+			</li>
+			
+			<li class="table-of-contents__item">
+				<a href="#introduction" class="js-scroll">Introduction</a>
+			</li>
+			
+			<li class="table-of-contents__item">
+				<a href="#chapter-9-geographical-breakdown-of-the-current-account" class="js-scroll">Chapter 9: Geographical breakdown of the current account</a>
+			</li>
+			
+			<li class="table-of-contents__item">
+				<a href="#chapter-10-geographical-breakdown-of-the-uk-international-investment-position" class="js-scroll">Chapter 10: Geographical breakdown of the UK international investment position</a>
+			</li>
+			
+			
+			<li class="table-of-contents__item">
+				<a href="#list-of-contributors-and-contacts" class="js-scroll expand-accordion">List of contributors and contacts</a>
+			</li>
+			
+			<li class="table-of-contents__item">
+				<a href="#background-notes" class="js-scroll expand-accordion">Background notes</a>
+			</li>
+			
+			
+		</ol>
+	</div>
+</div>
+            
+            
+            	
+
+<div class="col col--md-15 col--lg-16 margin-bottom-sm--2 margin-top-md--7 margin-bottom-md--2 margin-left-lg--2 padding-bottom-sm--2 padding-left-sm--1 padding-bottom-md--1 border-top--iron-sm border-right--iron-sm border-bottom--iron-sm border-left--iron-sm border-top--iron-md border-right--iron-md border-bottom--iron-md border-left--iron-md js-print-pdf print--hide">
+    <p class="text-right--md padding-top-md--0 padding-bottom-md--0 height--5 margin-bottom-md--0 print--hide nojs--hide js--show">
+        <a href="" class="link-complex nojs--hide js--show js-print-page">
+            Print this <span class="lowercase">chapter</span>
+        </a>
+        <span class="icon icon-print--dark"></span>
+    </p>
+    <p class="text-right--md padding-top-md--0 padding-bottom-md--0 height--5 margin-top-md--1 print--hide">
+        <a href="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/pdf" class="link-complex js-pdf-dl-link" aria-label="Download Geographical Breakdown as PDF">
+            Download as PDF
+        </a>
+        <span class="icon icon-download--dark"></span>
+    </p>
+</div>
+            
+        </div>
+
+		
+		<div class="hide--md margin-top-sm--1">
+
+
+</div>
+
+        
+        <article class="col col--md-36 col--lg-39 page-content__main-content padding-bottom">
+            
+                <div id="correction" class="section__content--markdown">
+                    <section>
+                        <header>
+                            <h2><span class="section__content-number">1.</span> Correction</h2>
+                        </header>
+                        <h3>Update 20 January 2015</h3><p>Following the announcement on 24 November 2014 that an error had been identified in the geographic data for Trade in Goods, ONS has now corrected the data. Upon further investigation it was found that the error only impacted on tables 9.2, 9.3, 9.4 and 9.8 for the years 2009 to 2012. The corrected data makes the Pink Book 2014 dataset comparable with the <a href="http://www.ons.gov.uk/ons/rel/uktrade/uk-trade/october-2014/stb-uk-trade--october-2014.html" title="UK Trade October 2014">UK Trade October 2014</a> and <a href="http://www.ons.gov.uk/ons/rel/naa1-rd/united-kingdom-economic-accounts/q3-2014/index.html" title="UK Economic Accounts Q3 2014">UK Economic Accounts Q3 2014</a> datasets.</p><p>ONS apologises for any inconvenience caused. </p>
+                        <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+                    </section>
+                </div>
+            
+                <div id="key-points" class="section__content--markdown">
+                    <section>
+                        <header>
+                            <h2><span class="section__content-number">2.</span> Key points</h2>
+                        </header>
+                        <ul>
+  <li><p>The United Kingdom Balance of Payments Pink Book 2014 for the first time reflects the new definitions and methods set out in the Balance of Payments Manual sixth edition (BPM6). Data in the Pink Book 2014 are consistent with the Balance of Payments 2014 Q2 statistical bulletin, published on 30 September 2014. The <a href="http://www.ons.gov.uk/ons/rel/bop/balance-of-payments/q2-2014/index.html" title="Q2 2014">Balance of Payments Q2 2014 statistical bulletin</a> included an annex to explain the impact the changes have on annual data for the period 1997 to 2013.</p></li>
+  <li><p>ONS has produced a <a href="http://www.ons.gov.uk/ons/rel/bop/united-kingdom-balance-of-payments/2014/index.html" title="2014">brief explanatory video</a> to explain how the current account and financial account fit together.</p></li>
+  <li><p>The UK current account has recorded surpluses with the Americas and Australasia &amp; Oceania in all years from 1999.</p></li>
+  <li><p>At the end of 2012, the UK’s IIP showed a net liability position of £247.0 billion, with reported assets totalling £10,595.8 billion and reported liabilities totalling £10,842.8 billion.</p></li>
+</ul>
+                        <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+                    </section>
+                </div>
+            
+                <div id="introduction" class="section__content--markdown">
+                    <section>
+                        <header>
+                            <h2><span class="section__content-number">3.</span> Introduction</h2>
+                        </header>
+                        <p>The balance of payments is one of the UK’s key economic statistical series. It measures the economic transactions between UK residents and the rest of the world. It also draws a series of balances between inward and outward transactions, provides a net flow of transactions between UK residents and the rest of the world and reports how that flow is funded. Economic transactions include:</p>
+<ul>
+  <li><p>exports and imports of goods, such as oil, agricultural products, other raw materials, machinery and transport equipment, computers, white goods and clothing,</p></li>
+  <li><p>exports and imports of services such as international transport, travel, financial and business services,</p></li>
+  <li><p>income flows, such as dividends and interest earned by foreigners on investments in the UK and by UK residents investing abroad,</p></li>
+  <li><p>financial flows, such as direct investment, investment in shares, debt securities, loans and deposits, and</p></li>
+  <li><p>transfers, which are offsetting entries to any one-sided transactions listed above, such as foreign aid and funds brought by migrants to the UK.</p></li>
+</ul><p>Closely related to the balance of payments is the international investment position series of statistics. The international investment position measures the levels of financial investment with the rest of the world, inward and outward.</p><p>More detailed information on the Balance of Payments is available in the <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/economy/balance-of-payments/index.html" title="Balance of Payments">guidance and methodology</a> area of the National Statistics website.</p><p>A printable version of the Pink Book 2014, Part 3: Geographical Breakdown data is <a href="http://www.ons.gov.uk/ons/rel/bop/united-kingdom-balance-of-payments/2014/part-3-reference-tables--pdf-.pdf" title="Part 3: Reference Tables &amp;#40;PDF&amp;#41;">available (277.9 Kb Pdf)</a> .</p>
+                        <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+                    </section>
+                </div>
+            
+                <div id="chapter-9-geographical-breakdown-of-the-current-account" class="section__content--markdown">
+                    <section>
+                        <header>
+                            <h2><span class="section__content-number">4.</span> Chapter 9: Geographical breakdown of the current account</h2>
+                        </header>
+                        <h3>Summary</h3><p>The tables in this chapter show a geographical breakdown of the current account. The data covers 67 individual countries as well as international organisations. These estimates are generally less firmly based than the world totals, and data for earlier years are less reliable than recent figures. In some cases estimates are unavailable for the first few years.</p><p>Changes to the pattern of trading associated with Missing Trader Intra-Community (MTIC) fraud can make it difficult to analyse trade by country. This is because changes in the impact of activity associated with this fraud (which includes carousel fraud) affect both imports and exports. Originally, most carousel chains only involved European Union (EU) member states. From 2004 in particular, some carousel chains included non-EU countries, for example Switzerland. However, the MTIC trade adjustments are added to the EU import estimates, as it is this part of the chain that is not generally recorded. There is more information in the <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/economy/balance-of-payments/index.html" title="Balance  of Payments">methodological notes</a> relating to chapter 2.</p><p>Data are presented as if the EU expanded to 28 countries on 1 January 1999.</p><h3>Current account by region</h3><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 9.1: Current account</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-e69dfa08" data-filename="e69dfa08" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e69dfa08" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e69dfa08&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-e69dfa08" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 9.1: Current account</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="e69dfa08" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e69dfa08" download="Figure 9.1: Current account" data-gtm-title="Figure 9.1: Current account" data-gtm-type="download-chart-image"  aria-label="Download Figure 9.1: Current account as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e69dfa08&format=csv" 
+    data-gtm-title="Figure 9.1: Current account" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 9.1: Current account as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e69dfa08&format=xls" 
+    data-gtm-title="Figure 9.1: Current account" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 9.1: Current account as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>Current account surpluses were recorded with the Americas and Australasia &amp; Oceania in all years from 1999.</p><p>The current account surplus with the Americas increased from £40.1 billion in 2012 to £45.4 billion in 2013. This increase was mainly due to surplus in goods and services increasing by £6.6 billion.</p><p>This was partly offset by a widening of £0.8 billion in the deficit on secondary income and also a widening of £0.5 billion in the deficit on primary income.</p><p>For Australasia and Oceania the current account surplus of £6.8 billion recorded in 2012 rose slightly to £7.6 billion in 2013. This was due to an increase in the primary income surplus of £1.8 billion.</p><p>In contrast, the UK has consistently recorded a current account deficit with Europe, rising to a record £102.3 billion in 2013. The large rise of £10.8 billion in the deficit for Europe has been due to an increase in the trade in goods and services deficit of £10.5 billion.</p><p>The current account with Asia has been in deficit since 1999. This deficit has decreased to £13.5 billion in 2013, from £14.3 billion in 2012.</p><p>The current account deficit with Africa was at a record high in 2013 at £6.5 billion. This deficit follows a surplus of £0.4 billion in 2012. The large 2013 deficit was due to a record trade in goods deficit of £8.2 billion in 2013, when exports were much lower than imports (£11.0 billion and £19.2 billion respectively). The current account with Africa was in surplus in 1999, with the first deficit of £1.4 billion being recorded in 2000. With the exception of small surpluses in 2005, 2010 and 2011 the current account with Africa has been in deficit.</p><p>In 2013, Europe accounted for 51% of the current account credit transactions and 60% of the current account debit transactions. Within Europe, the EU 28 member countries (EU28) accounted for 84% of current account credits and 84% of debits. Within Europe and by component:</p>
+<ul>
+  <li><p>trade in goods accounted for 50% of the value of current account credits and 57% of the value of current account debits,</p></li>
+  <li><p>trade in services accounted for 27% of credits and 17% of debits,</p></li>
+  <li><p>primary income accounted for 21% of credits and 21% of debits, and</p></li>
+  <li><p>secondary income accounted for 2% of credits and 5% of debits.</p></li>
+</ul><h4>Figure 9.2: Proportion of total 2013 credits</h4><p><img src="http://www.ons.gov.uk/ons/resources/chartimage92_tcm77-382376.png" alt="Figure 9.2: Proportion of total 2013 credits" title="Figure 9.2: Proportion of total 2013 credits""/></p><h5>Source: Office for National Statistics</h5><p>The Americas accounted for 25% of total credits and 16% of total debits in 2013. The goods and services transactions together accounted for 67% of credits and 53% of debits. The United States of America (USA) was the most significant country, representing 78% of the total current account credits and 77% of the debits.</p><p>Asia accounted for 18% of UK current account credits and 18% of debits in 2013: The UK’s current account credits in Asia in 2013 were:</p>
+<ul>
+  <li><p>China - 16%,</p></li>
+  <li><p>Hong Kong - 11%,</p></li>
+  <li><p>India - 8%,</p></li>
+  <li><p>Japan - 13%, and</p></li>
+  <li><p>Residual Gulf Arabian countries - 13%.</p></li>
+</ul><p>The UK’s current account debits in Asia in 2013 were:</p>
+<ul>
+  <li><p>China - 27%,</p></li>
+  <li><p>Hong Kong - 9%,</p></li>
+  <li><p>India - 8%,</p></li>
+  <li><p>Japan - 15%, and</p></li>
+  <li><p>Residual Gulf Arabian countries - 8%.</p></li>
+</ul><h4>Figure 9.3: Proportion of total 2013 debits</h4><p><img src="http://www.ons.gov.uk/ons/resources/chartimage93_tcm77-382377.png" alt="Figure 9.3: Proportion of total 2013 debits" title="Figure 9.3: Proportion of total 2013 debits""/></p><h5>Source: Office for National Statistics</h5><h3>Current account with EU28, USA and Japan</h3><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 9.4: Current account balances with the EU28</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-5e45907e" data-filename="5e45907e" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5e45907e" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5e45907e&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-5e45907e" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 9.4: Current account balances with the EU28</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="5e45907e" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5e45907e" download="Figure 9.4: Current account balances with the EU28" data-gtm-title="Figure 9.4: Current account balances with the EU28" data-gtm-type="download-chart-image"  aria-label="Download Figure 9.4: Current account balances with the EU28 as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5e45907e&format=csv" 
+    data-gtm-title="Figure 9.4: Current account balances with the EU28" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 9.4: Current account balances with the EU28 as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5e45907e&format=xls" 
+    data-gtm-title="Figure 9.4: Current account balances with the EU28" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 9.4: Current account balances with the EU28 as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>A current account deficit has been recorded with the EU28 in all years since 1999.</p><p>Trade in services has been in surplus since 2005, growing strongly to record a net surplus of £18.7 billion in 2011. However, decreases can be seen in 2012 and 2013 with surpluses of £17.0 billion and £10.3 billion respectively. In 2013, this is due to a decrease in exports of £4.4 billion alongside an increase in imports of £2.2 billion.</p><p>Trade in goods has been in deficit with the EU28 since 1999, and has generally been rising. There is a record trade in goods deficit in 2013 of £66.4 billion, up by £10.0 billion as a result of imports increasing by £11.7 billion from 2012.</p><p>The combined trade in goods and services deficit with the EU28 increased to £56.2 billion in 2013. This is largely due to increased deficits with Belgium, France, Germany and Spain. However, the Netherlands switched from a small surplus in 2012 to a deficit of £5.8 billion in 2013.</p><p>Primary income has been in deficit since 2006, with the exception of a surplus of £11.3 billion in 2008. 2013 saw a fall in the deficit to £19.3 billion from the record of £26.0 billion in 2012. This fall in the deficit is as a result of an increase in credits of £9.2 billion, offset by an increase in debits of £2.5 billion. The credit increase is largely due to the upwards movement in the Netherlands of £8.0 billion.</p><p>Secondary income has been in deficit since 1999. There was a record high in 2013 of £13.3 billion, increasing from £10.9 billion in 2012. The widening in the deficit is a result of debits increasing by £3.0 billion, with £2.2 billion being attributable to EU Institutions. The main components of secondary income are payments to, and receipts from, EU institutions. <a href="http://www.ons.gov.uk/ons/rel/bop/united-kingdom-balance-of-payments/2014/rft-part-3--chapter-9-tables--geographical-breakdown-of-the-current-account.xls" title="RFT Part 3: Chapter 9 Tables, Geographical breakdown of the current accounts">Table 9.9 (528 Kb Excel sheet)</a> provides a complete picture of UK official transactions with institutions of the EU.</p><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 9.5: Current account balances with the USA</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-2b02f2fd" data-filename="2b02f2fd" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/2b02f2fd" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/2b02f2fd&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-2b02f2fd" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 9.5: Current account balances with the USA</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="2b02f2fd" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/2b02f2fd" download="Figure 9.5: Current account balances with the USA" data-gtm-title="Figure 9.5: Current account balances with the USA" data-gtm-type="download-chart-image"  aria-label="Download Figure 9.5: Current account balances with the USA as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/2b02f2fd&format=csv" 
+    data-gtm-title="Figure 9.5: Current account balances with the USA" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 9.5: Current account balances with the USA as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/2b02f2fd&format=xls" 
+    data-gtm-title="Figure 9.5: Current account balances with the USA" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 9.5: Current account balances with the USA as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>The USA is consistently the single largest counterpart country within the UK’s balance of payments, representing 19% of current account credits and 13% of debits in 2013. There has been a current account surplus with the USA in all years for which data are available.</p><p>Generally the surplus with the USA has increased over time to reach the record surplus of £36.1 billion in 2013.</p><p>The UK has recorded a current account deficit with Japan in every year for which data are available, peaking at £8.0 billion in 2011. In 2012, there was a slight narrowing in the deficit of £0.2 billion, and in 2013 the deficit narrowed further to £5.0 billion. The decrease in the deficit is a result of the trade in goods deficit decreasing by £0.8 billion, and the trade in services surplus increasing by £1.6 billion.</p><p>Similarly, the UK has always recorded a current account deficit with China. This rose to a record £21.3 billion in 2010, before a slight narrowing of the deficit in 2011 to £20.3 billion. The deficit continued to fall in 2012 and 2013, decreasing to £19.0 billion and £17.4 billion respectively. This deficit is almost exclusively due to the trade in goods deficit of £20.7 billion, offset slightly by surpluses on trade in services of £2.9 billion, and primary income of £0.7 billion. </p><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 9.6: Current account: largest five surpluses with individual countries in 2013</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-e841eac9" data-filename="e841eac9" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e841eac9" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e841eac9&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-e841eac9" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 9.6: Current account: largest five surpluses with individual countries in 2013</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="e841eac9" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e841eac9" download="Figure 9.6: Current account: largest five surpluses with individual countries in 2013" data-gtm-title="Figure 9.6: Current account: largest five surpluses with individual countries in 2013" data-gtm-type="download-chart-image"  aria-label="Download Figure 9.6: Current account: largest five surpluses with individual countries in 2013 as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e841eac9&format=csv" 
+    data-gtm-title="Figure 9.6: Current account: largest five surpluses with individual countries in 2013" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 9.6: Current account: largest five surpluses with individual countries in 2013 as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/e841eac9&format=xls" 
+    data-gtm-title="Figure 9.6: Current account: largest five surpluses with individual countries in 2013" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 9.6: Current account: largest five surpluses with individual countries in 2013 as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>When ranking individual countries by the size of the current account balance in 2013, the largest surpluses were recorded with:</p>
+<ul>
+  <li><p>USA (£36.1 billion) due to a surplus on trade in goods and services,</p></li>
+  <li><p>Australia (£6.8 billion) due to surpluses on trade in goods and services and primary income,</p></li>
+  <li><p>Switzerland (£4.3 billion) due to surpluses in trade in services and primary income,</p></li>
+  <li><p>Ireland (£4.1 billion) due to a surplus on trade in goods and services, and</p></li>
+  <li><p>South Korea (£3.9 billion) due to surpluses on trade in goods and services and primary income.</p></li>
+</ul><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 9.7: Current account: largest five deficits with individual countries in 2013</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-3c1731a5" data-filename="3c1731a5" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/3c1731a5" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/3c1731a5&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-3c1731a5" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 9.7: Current account: largest five deficits with individual countries in 2013</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="3c1731a5" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/3c1731a5" download="Figure 9.7: Current account: largest five deficits with individual countries in 2013" data-gtm-title="Figure 9.7: Current account: largest five deficits with individual countries in 2013" data-gtm-type="download-chart-image"  aria-label="Download Figure 9.7: Current account: largest five deficits with individual countries in 2013 as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/3c1731a5&format=csv" 
+    data-gtm-title="Figure 9.7: Current account: largest five deficits with individual countries in 2013" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 9.7: Current account: largest five deficits with individual countries in 2013 as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/3c1731a5&format=xls" 
+    data-gtm-title="Figure 9.7: Current account: largest five deficits with individual countries in 2013" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 9.7: Current account: largest five deficits with individual countries in 2013 as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>When ranking individual countries by the largest current account balance in 2013, deficits were recorded with:</p>
+<ul>
+  <li><p>Germany (£35.1 billion) due to the deficits on trade in goods, primary income and secondary income,</p></li>
+  <li><p>China (£17.4 billion) due to the deficits on trade in goods and secondary income,</p></li>
+  <li><p>Norway (£14.7 billion) due to deficits on trade in goods, primary income and secondary income,</p></li>
+  <li><p>Spain (£9.9 billion) due to the deficits on trade in goods and services, primary income and secondary income, and</p></li>
+  <li><p>France (£7.7 billion) due to the deficits on trade in goods and services, primary income and secondary income.</p></li>
+</ul><h4>2013 Current account balances with the EU28</h4><p><img src="http://www.ons.gov.uk/ons/resources/2013currentaccountbalanceswiththeeu28_tcm77-383164.png" alt="2013 Current account balances with the EU28" title="2013 Current account balances with the EU28""/></p><h5>Source: UNEP (2014): UNEP Environmental Data Explorer</h5><h4>2013 Current account balances by region</h4><p><img src="http://www.ons.gov.uk/ons/resources/2013currentaccountbalancesbyregion_tcm77-383171.png" alt="2013 Current account balances by region" title="2013 Current account balances by region""/></p><h5>Source: UNEP (2014): UNEP Environmental Data Explorer</h5><h4>UK official transactions with institutions of the European Union (EU)</h4><p>In 2013, the UK made a net contribution to the EU of £11.3 billion. This was an increase of £2.7 billion from the net contribution of £8.5 billion paid in 2012. The increase was mainly due to the £3.0 billion increase in the UK’s total Gross National Income (GNI) contribution. The GNI contribution is calculated based on the UK’s estimate of economic activity within a budget year relative to other EU countries and can increase and decrease from one year to the next.</p><p>The UK, like other countries, receives a rebate on its contributions to the EU, and similarly to its GNI contribution, it can increase and decrease from one year to the next. In 2013, the rebate paid to the UK increased by £0.6 billion to £3.7 billion, from £3.1 billion in 2012. </p><p>The reference tables in relation to Chapter 9 are available to <a href="http://www.ons.gov.uk/ons/rel/bop/united-kingdom-balance-of-payments/2014/rft-part-3--chapter-9-tables--geographical-breakdown-of-the-current-account.xls" title="RFT Part 3: Chapter 9 Tables, Geographical breakdown of the current account">download (528 Kb Excel sheet)</a>.</p>
+                        <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+                    </section>
+                </div>
+            
+                <div id="chapter-10-geographical-breakdown-of-the-uk-international-investment-position" class="section__content--markdown">
+                    <section>
+                        <header>
+                            <h2><span class="section__content-number">5.</span> Chapter 10: Geographical breakdown of the UK international investment position</h2>
+                        </header>
+                        <h3>Summary</h3><p>The latest available geographical breakdown of the UK’s international investment position (IIP) is for the end of 2012. The geographical breakdown of IIP lags behind the current account, as much of the data comes from annual surveys which are not available until 12 months after the reference year.</p><p>Direct investment geographical breakdown levels are derived from annual surveys to outward and inward direct investors in the UK. Portfolio investment consists of equity and debt securities holdings, in the form of bonds and notes, and money market instruments.</p><p>Geographical breakdowns of UK banks’ deposits abroad and loans made abroad are derived from banking data supplied by the Bank of England. This information is also used to apportion securities dealers’ deposits abroad. Country breakdowns of UK private sector (excluding banks and securities dealers) deposits with banks abroad are derived from the banking statistics of countries in the Bank for International Settlements (BIS) reporting area. Geographical breakdowns of foreign deposits with UK banks are derived from banking data, with foreign loans made to securities dealers apportioned in the same way. Country breakdowns of UK private sector (excluding banks and securities dealers) loans from abroad are derived from the banking statistics of countries in the BIS reporting area.</p><h3>Geographical international investment position</h3><p>At the end of 2012, the UK’s IIP showed a net liability position of £247.0 billion, with reported assets totalling £10,595.8 billion and reported liabilities totalling £10,842.8 billion. These are equal to 640% and 655% respectively of GDP (GDP at current market prices, as published in the National Accounts Blue Book 2014). In 2012, the UK retained its net asset position with Asia, and Australasia and Oceania, but continued to have a net liability position with Europe, the Americas and Africa.</p><h3>Geographical breakdown of assets</h3><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 10.1: 10 largest counterparts to assets of the UK, 2012</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-5b3bb698" data-filename="5b3bb698" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5b3bb698" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5b3bb698&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-5b3bb698" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 10.1: 10 largest counterparts to assets of the UK, 2012</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="5b3bb698" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5b3bb698" download="Figure 10.1: 10 largest counterparts to assets of the UK, 2012" data-gtm-title="Figure 10.1: 10 largest counterparts to assets of the UK, 2012" data-gtm-type="download-chart-image"  aria-label="Download Figure 10.1: 10 largest counterparts to assets of the UK, 2012 as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5b3bb698&format=csv" 
+    data-gtm-title="Figure 10.1: 10 largest counterparts to assets of the UK, 2012" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 10.1: 10 largest counterparts to assets of the UK, 2012 as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/5b3bb698&format=xls" 
+    data-gtm-title="Figure 10.1: 10 largest counterparts to assets of the UK, 2012" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 10.1: 10 largest counterparts to assets of the UK, 2012 as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>Of the assets held by UK residents at the end of 2012, there were £5,362.6 billion (51%) issued in Europe. In total, £4,655.6 billion (44%) were held in the EU28. Germany became the most popular European destination for UK investors at £1,015.8 billion, or 10%. France and the Netherlands accounted for £939.7 billion (9%) and £706.7 billion (7%) of UK assets respectively at the end of 2012.</p><p>Investments in the Americas amounted to £3,531.3 billion, which represented 33% of UK investment holdings abroad. Most of the investments in the Americas were held in the USA, which at £2,842.7 billion was a decrease of £502.8 billion on the previous year. UK residents held 27% of their total investment in the USA, nearly 3 times the size for the next largest country, Germany.</p><p>An additional £1,180.8 billion (11%) of UK assets were investments held in Asia. Japan, the UK’s main investment partner in this region, at £569.5 billion, represented 5% of total UK assets. Investments in Australasia and Oceania, Africa, and International Organisations accounted for only £371.6 billion (4%) of total assets.</p><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 10.2: 10 largest counterparts to liabilities of the UK</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-624863e9" data-filename="624863e9" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/624863e9" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/624863e9&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-624863e9" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 10.2: 10 largest counterparts to liabilities of the UK</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="624863e9" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/624863e9" download="Figure 10.2: 10 largest counterparts to liabilities of the UK" data-gtm-title="Figure 10.2: 10 largest counterparts to liabilities of the UK" data-gtm-type="download-chart-image"  aria-label="Download Figure 10.2: 10 largest counterparts to liabilities of the UK as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/624863e9&format=csv" 
+    data-gtm-title="Figure 10.2: 10 largest counterparts to liabilities of the UK" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 10.2: 10 largest counterparts to liabilities of the UK as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/624863e9&format=xls" 
+    data-gtm-title="Figure 10.2: 10 largest counterparts to liabilities of the UK" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 10.2: 10 largest counterparts to liabilities of the UK as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>Investments in the UK from Europe amounted to £5,660.3 billion (52%) of total investments. The EU28 accounted for £4,702.2 billion (43%) of total investment.</p><p>Investment in the UK from the Americas was £3,775.2 billion (35%) of total UK liabilities at the end of 2012, while the USA alone accounted for £3,340.9 billion (31%) of total investment into the UK. Investments in the UK from Asia totalled £1,029.4 billion (9%) of UK liabilities. UK liabilities with Australasia and Oceania, Africa, and International Organisations amounted to £377.9 billion (3%) of total investments in the UK.</p><h3>Geographical breakdown of direct investment</h3><p>UK direct investment abroad at £1,398.0 billion contributed 13% to the total stock of UK assets at the end of 2012. Of these investments, 47% were in holdings issued by countries in the EU28 at £661.3 billion and 17% in the USA at £239.6 billion. The country in the EU accounting for the highest level of UK assets was Luxembourg, with total investments in that country amounting to £193.6 billion (14%) of UK direct investment abroad. After growing to £188.7 billion in 2011, holdings within the Netherlands decreased slightly to £170.0 billion in 2012, which was 12% of the total.</p><p>Direct investment in the UK equalled 11% of the total level of UK liabilities in 2012 at £1,204.4 billion. The EU28 accounted for £593.1 billion, 49% of direct investment into the UK and the USA accounted for a further £356.5 billion, 30%. The country in the EU28 with the most significant direct investment into the UK was the Netherlands, with total investments of £177.3 billion, 15% of direct investment. This was followed by France at £103.1 billion, 9%, and Germany at £84.7 billion or 7% of the worth of UK liabilities.</p><h3>Geographical breakdown of portfolio investment</h3><p>UK portfolio investment assets at the end of 2012 stood at £2,356.3 billion (22%) of total UK assets, increasing from £2,138.5 billion at the end of 2011.</p><p>The largest issuer of holdings was the USA, contributing 24% of total investments at £562.9 billion. Residents of the EU28 were the issuers of £963.1 billion (41%) of UK portfolio investment holdings at the end of 2012. Issues by Germany were £200.0 billion (8%), issues by France at £155.6 billion were 7%.</p><p>There were six countries which each reached more than £100 billion:</p>
+<ul>
+  <li><p>USA at £562.9 billion,</p></li>
+  <li><p>Germany at £200.0 billion,</p></li>
+  <li><p>France at £155.6 billion,</p></li>
+  <li><p>The Netherlands at £146.1 billion,</p></li>
+  <li><p>Ireland at £132.5 billion,</p></li>
+  <li><p>Japan at £122.0 billion.</p></li>
+</ul><p>Combined, these countries represent 56% of total portfolio investment assets.</p><p>Portfolio investment liabilities are derived from the Co-ordinated Portfolio Investment Survey (CPIS) returns of other countries reporting assets held in the UK, and were £2,533.1 billion at the end of 2012. The country holding most portfolio investments in the UK was the USA, at £749.3 billion (30%) of the total liabilities. Ireland also reported high levels of investment in the UK, at £237.5 billion (9%) of the total liabilities.</p><h3>Geographical breakdown of other investment</h3><p>The UK’s other investment assets totalled £3,719.6 billion at the end of 2012, which was 35% of total UK assets. £1,579.7 billion was invested in the EU28 countries, 42% of the total other investment assets. Of the EU28 countries, Germany accounted for £344.4 billion (9%) and France accounted for £342.0 billion (9%). The UK’s assets in the USA amounted to £883.3 billion (24%) of total other investment assets. At the end of 2012, a large proportion of UK assets were also held in Japan, at £328.7 billion (9%) of the world total.</p><p>Other investment liabilities totalled £4,073.1 billion at the end of 2012, which was 38% of total UK liabilities. The USA at £1,037.5 billion accounted for 25% of total other investment liabilities. Liabilities with the EU28 accounted for £1,605.5 billion (39%) of the total. Germany at £392.3 billion accounted for 10% of other investment liabilities in the UK and France at £287.1 billion (7%).</p><h3>Geographical breakdown of financial derivatives</h3><p>The UK’s financial derivatives assets totalled £3,060.1 billion at the end of 2012. This was 29% of the total UK assets, decreasing from £3,617.8 billion at the end of 2011. Total Europe accounted for £1,562.0 billion (51%) of the total financial derivatives assets, down from £1,750.3 billion at the end of 2011. The EU28 held £1,451.6 billion, 47% of the total, down from £1,594.9 billion at the end of 2011. Germany accounted for £449.9 billion (15%) and France for £378.5 billion (12%) of the world total. The largest destination country for financial derivatives investment was the USA with £1,156.9 billion (38%), down from £1,459.7 billion at the end of 2011.</p><p>Financial derivatives liabilities totalled £3,032.2 billion at the end of 2012, 28% of the UK’s total liabilities, a decrease on the £3,554.9 billion at the end of 2011. The main countries that accounted for this were:</p>
+<ul>
+  <li><p>the USA at £1,197.6 billion (39%), down from £1,508.7 billion at the end of 2011,</p></li>
+  <li><p>the EU28 at £1,406.0 billion (46%), down from £1,527.3 billion at the end of 2011.</p></li>
+</ul><p>Within the EU 28, Germany at £418.4 billion (14%) was down from £449.9 billion at the end of 2011 and France at £350.7 billion (12%) was down from £364.6 billion at the end of 2011.</p><h3>Time series: comparisons</h3><p>Geographical data prior to 2004 does not include financial derivatives data, so the time series analysis is split where appropriate.</p><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 10.3: IIP total assets</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-059f23c7" data-filename="059f23c7" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/059f23c7" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/059f23c7&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-059f23c7" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 10.3: IIP total assets</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="059f23c7" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/059f23c7" download="Figure 10.3: IIP total assets" data-gtm-title="Figure 10.3: IIP total assets" data-gtm-type="download-chart-image"  aria-label="Download Figure 10.3: IIP total assets as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/059f23c7&format=csv" 
+    data-gtm-title="Figure 10.3: IIP total assets" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 10.3: IIP total assets as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/059f23c7&format=xls" 
+    data-gtm-title="Figure 10.3: IIP total assets" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 10.3: IIP total assets as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>Between 2002 and 2011, total UK IIP assets were increasing steadily from £3,255.7 billion in 2002 to £11,207.9 billion in 2011, with the exception of a large jump in 2008 to £11,332.6 billion. This was a record high which then fell to £8,841.0 billion in 2009. The increase between 2007 and 2008 was mainly due to the USA and Germany, with increases of £1,382.0 billion and £466.0 respectively. UK IIP assets then decreased to £10,595.8 billion in 2012, the small decrease compared with 2011 was mainly due to a drop in the USA of £502.8 billion. Investment in the EU28 increased from £1,510.7 billion in 2002 to £5,122.4 billion in 2008, with UK asset levels decreasing to £4,033.7 billion in 2009. The level of UK assets increased in 2010 and 2011 to reach £4,747.0 billion before decreasing slightly to £4,655.6 billion in 2013.</p><p>In the five broad geographical regions, there was an increase of assets held between 2005 and 2012, ranging from 67% for Europe to 100% for Asia.</p><p>The UK’s assets in the EU28 grew by 72% over the period 2005 to 2012. Of the major countries within the EU28, UK assets in the countries grew by:</p>
+<ul>
+  <li><p>108% in Germany,</p></li>
+  <li><p>114% in France,</p></li>
+  <li><p>71% in The Netherlands,</p></li>
+  <li><p>65% in Ireland.</p></li>
+</ul><p>The USA remained the most important country for UK investment albeit decreasing from £3,345.5 billion in 2011 to £2,842.7 billion in 2012.</p><p>
+
+
+  
+
+    <div class="markdown-chart-container panel--bottom-mar print--avoid-break">
+
+      <h3 class="flush--third--vertical font-size--18 padding-top--0 margin-bottom--1">Figure 10.4: IIP total liabilities</h3>
+        
+
+      <div class="scrollable-container">
+        <div id="chart-55e943d0" data-filename="55e943d0" data-uri="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/55e943d0" class="markdown-chart">
+            <!--[if gt IE 8]><!--><noscript><!--[endif]-->
+            <img src="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/55e943d0&width=&hideSource=true" alt="" />
+            <!--[if gt IE 8]><!--></noscript><!--[endif]-->
+        </div>
+      </div>
+  
+  
+
+
+
+
+
+
+  <h4 class="flush--third--bottom font-size--h6 clear-left">Source: Office for National Statistics</h4>
+      <div id="notes-55e943d0" class="notes-holder-js">
+  
+      </div>
+  
+    <h4 class="print--hide padding-top--0 margin-top--0 font-size--h6 clear-left"><span role="text">Download this chart <span class="visuallyhidden">Figure 10.4: IIP total liabilities</span></span></h4>
+
+    <a class="btn btn--primary print--hide js-chart-image-src" data-filename="55e943d0" href="/chartimage?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/55e943d0" download="Figure 10.4: IIP total liabilities" data-gtm-title="Figure 10.4: IIP total liabilities" data-gtm-type="download-chart-image"  aria-label="Download Figure 10.4: IIP total liabilities as an image">Image</a>
+      
+    <a class="btn btn--primary print--hide" title="Download as csv"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/55e943d0&format=csv" 
+    data-gtm-title="Figure 10.4: IIP total liabilities" 
+    data-gtm-type="download-chart-csv"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="csv"
+    aria-label="Download Figure 10.4: IIP total liabilities as csv"
+>
+    .csv
+</a>
+    <a class="btn btn--primary print--hide" title="Download as xls"
+    href="/generator?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/55e943d0&format=xls" 
+    data-gtm-title="Figure 10.4: IIP total liabilities" 
+    data-gtm-type="download-chart-xls"
+    data-gtm-download-file="timeseries-generated-file"
+    data-gtm-download-type="xls"
+    aria-label="Download Figure 10.4: IIP total liabilities as xls"
+>
+    .xls
+</a>
+
+</div>
+</p><p>IIP liabilities also increased in every year from 2002 to 2008, from £3,354.5 billion to £11,243.7 billion. There was a decrease between 2008 and 2009 to £9,040.0 billion. This recovered during 2010 and 2011 to peak at £11,279.5 billion at the end of 2011. However, it decreased to £10,842.8 billion at the end of 2012. From 2005 to 2012, increases in investments in the UK from the five broad geographical regions ranged from 59% for Africa to 115% for Australasia and Oceania over this period. UK liabilities to the EU28 rose by 85% in the period 2005 to 2012. Within the EU28, liabilities with countries between 2005 and 2012 rose by:</p>
+<ul>
+  <li><p>101% in Ireland,</p></li>
+  <li><p>103% for France,</p></li>
+  <li><p>78% for Germany,</p></li>
+  <li><p>27% for the Netherlands.</p></li>
+</ul><p>Investment by the USA in the UK increased from £1,496.2 billion in 2005 to £3,340.9 billion in 2012, which was a rise of 123%. Within Asia the UK liabilities with China rose by 287% to a record £49.1 billion over the period and for Japan by 106%. In contrast, the UK liabilities for India showed a drop of 48% over the same period.</p><h3>Rates of return</h3><p>Regional rates of return are calculated by dividing income earned and paid on investments by the total value of the investment. Financial derivatives are excluded from this calculation as no investment income accrues from them. Taking the EU28 as an example, the UK earned £49.3 billion from its average investments (excluding financial derivatives) of £3,178.1 billion in 2012, which was equivalent to an annual rate of return of 1.6%. (The average investment in 2012 is calculated by taking the mean of the end-2011 and end-2012 levels excluding financial derivatives). In 2012, the UK earned a 2.2% rate of return on its total external assets and paid out a 2.2% rate of return on external liabilities. Over the last 3 years, the UK has earned a higher rate of returns with its main partners on its external assets than it pays out on liabilities. However, this is not the case with the EU28 or total Europe in 2011 and 2012.</p><h3>Rates of Return</h3><p>
+<div class="markdown-table-container print--avoid-break">
+    <h3 class="font-size--18 margin-top--1">Rates of Return</h3>
+    
+        <div class="scrollable-container">
+            <div class="markdown-table-wrap">
+                <table style="border-collapse:collapse;border-spacing:0;">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr style="height:15.0pt;">
+<td colspan="4" style="white-space:pre-wrap;text-align:left;border-bottom:thin solid black;color: black; ">External assets (per cent)</td><td colspan="4" style="white-space:pre-wrap;text-align:left;border-bottom:thin solid black;color: black; ">External liabilities (per cent)</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;border-top:thin solid black;border-bottom:thin solid black;color: black; ">&nbsp;</td><td style="white-space:pre-wrap;text-align:center;border-top:thin solid black;border-bottom:thin solid black;color: black; ">2010</td><td style="white-space:pre-wrap;text-align:center;border-top:thin solid black;border-bottom:thin solid black;color: black; ">2011</td><td style="white-space:pre-wrap;text-align:center;border-top:thin solid black;border-bottom:thin solid black;color: black; ">2012</td><td style="white-space:pre-wrap;border-top:thin solid black;border-bottom:thin solid black;color: black; ">&nbsp;</td><td style="white-space:pre-wrap;text-align:center;border-top:thin solid black;border-bottom:thin solid black;color: black; ">2010</td><td style="white-space:pre-wrap;text-align:center;border-top:thin solid black;border-bottom:thin solid black;color: black; ">2011</td><td style="white-space:pre-wrap;text-align:center;border-top:thin solid black;border-bottom:thin solid black;color: black; ">2012</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">EU28</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.0</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.3</td><td style="white-space:pre-wrap;text-align:center;color: black; ">1.6</td><td style="white-space:pre-wrap;color: black; ">EU28</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.2</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.7</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.4</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">Total Europe</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.3</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.4</td><td style="white-space:pre-wrap;text-align:center;color: black; ">1.9</td><td style="white-space:pre-wrap;color: black; ">Total Europe</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.3</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.6</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.4</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">USA</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.2</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.6</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.1</td><td style="white-space:pre-wrap;color: black; ">USA</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.1</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.2</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.0</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">Total Asia</td><td style="white-space:pre-wrap;text-align:center;color: black; ">3.4</td><td style="white-space:pre-wrap;text-align:center;color: black; ">3.4</td><td style="white-space:pre-wrap;text-align:center;color: black; ">3.5</td><td style="white-space:pre-wrap;color: black; ">Total Asia</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.0</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.2</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.3</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">Rest of the world</td><td style="white-space:pre-wrap;text-align:center;color: black; ">3.3</td><td style="white-space:pre-wrap;text-align:center;color: black; ">3.4</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.7</td><td style="white-space:pre-wrap;color: black; ">Rest of the world</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.0</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.2</td><td style="white-space:pre-wrap;text-align:center;color: black; ">2.2</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;border-bottom:thin solid black;color: black; ">World Total</td><td style="white-space:pre-wrap;text-align:center;border-bottom:thin solid black;color: black; ">2.5</td><td style="white-space:pre-wrap;text-align:center;border-bottom:thin solid black;color: black; ">2.7</td><td style="white-space:pre-wrap;text-align:center;border-bottom:thin solid black;color: black; ">2.2</td><td style="white-space:pre-wrap;border-bottom:thin solid black;color: black; ">World Total</td><td style="white-space:pre-wrap;text-align:center;border-bottom:thin solid black;color: black; ">2.2</td><td style="white-space:pre-wrap;text-align:center;border-bottom:thin solid black;color: black; ">2.4</td><td style="white-space:pre-wrap;text-align:center;border-bottom:thin solid black;color: black; ">2.2</td>
+</tr>
+<tr style="height:15.0pt;">
+<td colspan="8" style="white-space:pre-wrap;text-align:left;border-top:thin solid black;">Source: Office for National Statistics</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+        </div>
+    
+    <h4 class="print--hide font-size--h6 margin-top--1 padding-top--0"><span role="text">Download this table <span class="visuallyhidden">Rates of Return</span></span></h4>
+    <a href="/file?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/21aa9d80.xls" title="Download as xls" class="btn btn--primary print--hide" data-gtm-title="Rates of Return" data-gtm-type="download-table-xls" aria-label="Download table Rates of Return as xls (18.9 kB)">.xls (18.9 kB)</a>
+</div></p><p>The reference tables in relation to Chapter 10 are available to <a href="http://www.ons.gov.uk/ons/rel/bop/united-kingdom-balance-of-payments/2014/rft-part-3--chapter-10-tables--geographical-breakdown-of-the-uk-international-investment-position.xls" title="RFT part 3: Chapter 10 Tables, Geographical breakdown of the UK international investment positions">download (140.5 Kb Excel sheet)</a> .</p><h3>Notes for Chapter 10: Geographical breakdown of the UK international investment position</h3>
+<ol>
+  <li>Figure 10.1 and 10.2 in Chapter 10 use the following abbreviations for the names of countries.</li>
+</ol><p>
+<div class="markdown-table-container print--avoid-break">
+    <h3 class="font-size--18 margin-top--1">Chapter 10 Abbreviation Table</h3>
+    
+        <div class="scrollable-container">
+            <div class="markdown-table-wrap">
+                <table style="border-collapse:collapse;border-spacing:0;">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;border-top:thin solid black;border-bottom:thin solid black;color: black; ">Abbreviation        </td><td style="white-space:pre-wrap;border-top:thin solid black;border-bottom:thin solid black;color: black; ">Country</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">USA</td><td style="white-space:pre-wrap;color: black; ">United States of America</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">FRA</td><td style="white-space:pre-wrap;color: black; ">France</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">GER</td><td style="white-space:pre-wrap;color: black; ">Germany</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">NDS</td><td style="white-space:pre-wrap;color: black; ">Netherlands</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">JAP</td><td style="white-space:pre-wrap;color: black; ">Japan</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">IRE</td><td style="white-space:pre-wrap;color: black; ">Ireland</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">SUI</td><td style="white-space:pre-wrap;color: black; ">Switzerland</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">LUX</td><td style="white-space:pre-wrap;color: black; ">Luxembourg</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;color: black; ">SPA</td><td style="white-space:pre-wrap;color: black; ">Spain</td>
+</tr>
+<tr style="height:15.0pt;">
+<td style="white-space:pre-wrap;border-bottom:thin solid black;color: black; ">ITA</td><td style="white-space:pre-wrap;border-bottom:thin solid black;color: black; ">Italy</td>
+</tr>
+<tr style="height:15.0pt;">
+<td colspan="2" style="white-space:pre-wrap;text-align:left;border-top:thin solid black;color: black; ">Source: Office for National Statistics</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+        </div>
+    
+    <h4 class="print--hide font-size--h6 margin-top--1 padding-top--0"><span role="text">Download this table <span class="visuallyhidden">Chapter 10 Abbreviation Table</span></span></h4>
+    <a href="/file?uri=/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/part3geographicalbreakdown/dfe5173e.xls" title="Download as xls" class="btn btn--primary print--hide" data-gtm-title="Chapter 10 Abbreviation Table" data-gtm-type="download-table-xls" aria-label="Download table Chapter 10 Abbreviation Table as xls (32.3 kB)">.xls (32.3 kB)</a>
+</div></p>
+                        <a class="print--hide js-scroll" href="#toc">Back to table of contents</a>
+                    </section>
+                </div>
+            
+            <!-- Accordion -->
+            
+                <div class="margin-top--4 margin-bottom--4">
+                    
+                        <div id="list-of-contributors-and-contacts" class="js-show-hide section__content--markdown border-top--iron-sm border-top--iron-md">
+                            <section>
+                                <div class="show-hide show-hide--light">
+                                    <div class="js-show-hide__title">
+                                        <h2 class="show-hide__title flush">
+                                            <span class="section__content-number">
+                                                .</span>List of contributors and contacts
+                                        </h2>
+                                    </div>
+                                    <div class="js-show-hide__content margin-bottom--4">
+                                        <h3>Authors, editor and production team</h3><p>Abbe Williams </br> Craig Taylor </br> Darren Morgan </br> Dominic Hale </br> Emma Davies </br> Jeena O’Neill </br> Jeremy Brocklehurst </br> Jo Wilson </br> John Bundey </br> Katherine Kent </br> Keith Williams </br> Laura Bates </br> Lauren Bowers </br> Marilyn Evans </br> Melanie Edwards </br> Rhiain Hewinson </br> Richard McCrae </br> Russ Pearce </br> Sarah Evans </br> Simon Eddolls </br> Simon Harrington</br></p><h3>Contacts</h3><p>For information regarding specific areas of this publication please contact the following:</p><p><strong>Chapters 2, 3, 5 &amp; 6</strong>:</br> Katherine Kent +44 (0)1633 455829 (<a href="mailto:katherine.kent@ons.gov.uk">katherine.kent@ons.gov.uk</a>) </p><p><strong>Chapters 1, 4, 7, 8, 9 &amp; 10</strong>:</br> Craig Taylor +44 (0)1633 456333 (<a href="mailto:craig.taylor@ons.gov.uk">craig.taylor@ons.gov.uk</a>)</p><p><strong>Other Customer Enquiries</strong>:</br> ONS Customer Contact Centre +44 (0)845 601 3034 (<a href="mailto:info@statistics.gsi.gov.uk">info@statistics.gsi.gov.uk</a>) </p><p><strong>Media Enquiries</strong>:</br> +44 (0)845 604 1858 (<a href="mailto:press.office@ons.gov.uk">press.office@ons.gov.uk</a>) </p>
+                                        <a class="print--hide js-scroll"
+                                           href="#toc">Back to table of contents</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    
+                        <div id="background-notes" class="js-show-hide section__content--markdown border-top--iron-sm border-top--iron-md border-bottom--iron-sm border-bottom--iron-md">
+                            <section>
+                                <div class="show-hide show-hide--light">
+                                    <div class="js-show-hide__title">
+                                        <h2 class="show-hide__title flush">
+                                            <span class="section__content-number">
+                                                .</span>Background notes
+                                        </h2>
+                                    </div>
+                                    <div class="js-show-hide__content margin-bottom--4">
+                                        <ol>
+  <li><p><strong>What’s new</strong></p><p>The United Kingdom Balance of Payments Pink Book 2014 is the first time that ONS presents the annual Balance of Payments and International Investment Position publication using the new definitions and methods set out in the Balance of Payments Manual sixth edition (BPM6). Data in the Pink Book 2014 are consistent with the Balance of Payments 2014 Q2 statistical bulletin, published on 30 September 2014.</p><p>Due to the scale of changes to the methods and definitions with the introduction of BPM6, table 1.1R is not included in Pink Book 2014 as the latest estimates are not directly comparable with previously published data. However, <a href="http://www.ons.gov.uk/ons/rel/bop/balance-of-payments/q2-2014/index.html" title="Balance of Payments Q2 2014">the Balance of Payments Q2 2014 statistical bulletin</a> included an Annex to explain the impact the changes have on annual data for the period 1997 to 2013.</p></li>
+  <li><p><strong>Reliability of estimates</strong> </p><p>All the value estimates are calculated as accurately as possible; however they cannot always be regarded as being absolutely precise to the last digit shown. Similarly, the index numbers are not necessarily absolutely precise to the last digit shown. Some figures are provisional and may be revised later; this applies particularly to many of the detailed figures for the latest years. For example, calendar year date for the International Trade in Services Survey and Foreign Direct Investment Survey are not available until after Pink Book publication. Therefore, the latest Trade in Services and Direct Investment data published in the Pink Book are provisional estimates and subject to annual benchmarking after publication.</p><p>The latest data when available for the <a href="http://www.ons.gov.uk/ons/rel/itis/international-trade-in-services/index.html" title="International Trade in Services">International Trade in Services Survey</a> can be found at its landing page.</p><p>The latest data when available for the <a href="http://www.ons.gov.uk/ons/rel/fdi/foreign-direct-investment/index.html" title="Foreign Direct Investment">Foreign Direct Investment Survey</a> can be found at its landing page.</p></li>
+  <li><p><strong>Rounding</strong> </p><p>As figures have been rounded to the nearest final digit, there may be slight discrepancies between the sums of the constituent items and the totals as shown.</p></li>
+  <li><p><strong>Revisions since ONS Pink Book 2013</strong> </p><p>The data in the Pink Book are subject to revisions following the <a href="http://www.ons.gov.uk/ons/guide-method/revisions/revisions-policies-by-theme/economy/national-accounts-revisions-policy.pdf" title="National Accounts Revisions Policy">ONS National Accounts Revisions Policy</a>.</p><p>With the implementation of new international standards the current account balance is revised from 1955 onwards.</p><p><strong>Trade in goods</strong> - The revisions to trade in goods from 1955 reflect the inclusion of illegal activities relating to drug smuggling. Revisions from 1997 onwards reflect revised data from Her Majesty's Revenue and Customs and other data suppliers and revised estimates of trading associated with VAT MTIC fraud. The revisions are consistent with the 2014 Blue Book.</p><p><strong>Trade in services</strong> - Revisions from 1997 onwards result from a general reassessment of data following the annual supply use balancing process, the incorporation of updated source data from the Bank of England, Chamber of Shipping and Department for Transport. Revisions from 2012 additionally reflect the use of final results from ONS's International Trade in Services Survey for 2012.</p><p><strong>Primary income</strong> - Revisions from 1999 reflect changes to the methodology for the reporting of Monetary Financial Institution earnings from foreign direct investment. Revisions from 2011 reflect the use of annual inquiry results from the ONS direct investment surveys.</p><p><strong>Secondary income</strong> - Revisions to current transfers are attributed to the reclassification of some transactions to primary income, revised source data for transfers involving the UK government and the use of the latest data from various ONS surveys.</p><p><strong>International investment position</strong> - The large revisions to the International Investment Position for the period 2013 are a result of new data being available for direct investment rather than as a result of implementing the new international standards. These new data are sourced from the improved ONS quarterly FDI survey. The methodology within this quarterly survey has now been aligned with the ONS’ annual FDI survey. In addition, the sample size of the quarterly survey has been increased to provide better coverage and higher quality estimates. The increased sample size of the ONS' quarterly FDI survey now allows the opening and closing balances on the different forms of investment as well as the flows of investment to be utilised. This provides a more coherent picture of investment positions of individual businesses and is consistent with the approach used by the ONS' annual FDI survey. Previously, due to the smaller sample size and different methodologies, the ONS' quarterly FDI survey derived the closing balance by carrying forward the closing balance from the last ONS annual FDI survey and applied the flows of investment to calculate the closing balance. This was then carried over to the next quarters opening balance where the flows for the next quarter were then applied to calculate the next quarter's closing balance. The improved ONS quarterly FDI survey will continue to be benchmarked to the ONS annual FDI survey when this is available to do so.</p></li>
+  <li><p><strong>Symbols</strong> </p><p>The following symbols are used throughout:</p><p>.. = not available </br> - = nil or less than a million</p></li>
+  <li><p><strong>Understanding the data</strong> </p><p>At the time of publishing the Pink Book 2014 on 31 October 2014, not all of the following documents were updated with BPM6 definitions. ONS apologises and aims to complete updating them before the end of November 2014.</p><p>A <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/economy/balance-of-payments/an-introduction-to-the-uk-bop.pdf" title="An introduction to the UK BoP">brief introduction to the United Kingdom balance of payments</a> provides an overview of the concepts and coverage of the UK Balance of Payments.</p><p>A <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/economy/balance-of-payments/balance-of-payments-glossary/index.html" title="Balance of Payments Glossary">glossary</a> of terms used in the UK balance of payments is available on the National Statistics website.</p><p>More detailed <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/economy/balance-of-payments/bop-methodological-notes.pdf" title="BoP methodological notes">methodological notes for the UK balance of payments</a> are also available on the website.</p><p>The following <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/economy/balance-of-payments/further-information-on-uk-balance-of-payments/index.html" title="Further information on UK Balance of Payments">webpage</a> contains articles of interest which relate to UK balance of payments statistics.</p></li>
+  <li><p><strong>References</strong> </p><p>The internationally agreed framework for the presentation of the Balance of Payments and the National Accounts are described in the following publications:</p><p>Balance of Payments Manual (6<sup>th</sup> edition), International Monetary Fund (ISBN 978-1-58906-812-4), <a href="https://www.imf.org/external/pubs/ft/bop/2007/pdf/bpm6.pdf">https://www.imf.org/external/pubs/ft/bop/2007/pdf/bpm6.pdf</a></p><p>Balance of Payments and International Investment Position Compilation Guide, International Monetary Fund (ISBN 978-1-48431-275-9), <a href="https://www.imf.org/external/pubs/ft/bop/2007/bop6comp.htm">https://www.imf.org/external/pubs/ft/bop/2007/bop6comp.htm</a> </p><p>European System of Accounts (ESA 2010), Eurostat. <a href="http://epp.eurostat.ec.europa.eu/portal/page/portal/esa_2010/introduction">http://epp.eurostat.ec.europa.eu/portal/page/portal/esa_2010/introduction</a> </p><p>System of National Accounts (2008), (ISBN 978-92-1-161522-7). <a href="http://unstats.un.org/unsd/nationalaccount/docs/SNA2008.pdf">http://unstats.un.org/unsd/nationalaccount/docs/SNA2008.pdf</a> </p><p>Details of the policy governing the release of new data are available by visiting <a href="http://www.statisticsauthority.gov.uk/assessment/code-of-practice/index.html">www.statisticsauthority.gov.uk/assessment/code-of-practice/index.html</a> or from the Media Relations Office email: <a href="mailto:media.relations@ons.gov.uk">media.relations@ons.gov.uk</a></p><p>The United Kingdom Statistics Authority has designated these statistics as National Statistics, in accordance with the Statistics and Registration Service Act 2007 and signifying compliance with the Code of Practice for Official Statistics.</p><p>Designation can be broadly interpreted to mean that the statistics:</p>
+  <ul>
+    <li>meet identified user needs,</li>
+    <li>are well explained and readily accessible,</li>
+    <li>are produced according to sound methods, and</li>
+    <li>are managed impartially and objectively in the public interest.</li>
+  </ul><p>Once statistics have been designated as National Statistics it is a statutory requirement that the Code of Practice shall continue to be observed.</p></li>
+  <li><p>Details of the policy governing the release of new data are available by visiting <a href="http://www.statisticsauthority.gov.uk/assessment/code-of-practice/index.html">www.statisticsauthority.gov.uk/assessment/code-of-practice/index.html</a> or from the Media Relations Office email: <a href="mailto:media.relations@ons.gov.uk">media.relations@ons.gov.uk</a></p><p>The United Kingdom Statistics Authority has designated these statistics as National Statistics, in accordance with the Statistics and Registration Service Act 2007 and signifying compliance with the Code of Practice for Official Statistics. </p><p>Designation can be broadly interpreted to mean that the statistics: </p>
+  <ul>
+    <li>meet identified user needs;</li>
+  </ul>
+  <ul>
+    <li>are well explained and readily accessible;</li>
+  </ul>
+  <ul>
+    <li>are produced according to sound methods; and</li>
+  </ul>
+  <ul>
+    <li>are managed impartially and objectively in the public interest.</li>
+  </ul><p>Once statistics have been designated as National Statistics it is a statutory requirement that the Code of Practice shall continue to be observed.</p></li>
+</ol>
+                                        <a class="print--hide js-scroll"
+                                           href="#toc">Back to table of contents</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    
+                    
+                </div>
+            
+        </article>
+        
+        <div class="col col--md-11 col--lg-20 margin-top-md--3">
+            
+    
+    
+        
+            
+                <a class="btn btn--primary btn--full-width margin-bottom-sm--2 margin-bottom-md--2 border-top--iron-md print--hide" href="/economy/nationalaccounts/balanceofpayments/compendium/unitedkingdombalanceofpaymentsthepinkbook/2014-10-31/unitedkingdombalanceofpaymentsthepinkbook2014referencetables">View all data in this compendium</a>
+            
+        
+    
+    
+    
+
+
+<div class="tiles__item tiles__item--nav-type flush-col">
+	<h3 class="tiles__title-h3 tiles__title-h3--nav">
+		Contact details for this <span class="lowercase">
+
+
+
+
+
+
+Compendium
+
+
+
+
+
+
+
+
+
+
+
+
+
+</span>
+	</h3>
+	<div class="tiles__content--nav">
+		<address>
+			Craig Taylor<br/>
+			<a href="mailto:bop@ons.gov.uk">bop@ons.gov.uk</a><br/>
+			Telephone: +44 (0)1633 456333
+		</address>
+	</div>
+</div>
+    
+    
+
+    
+    
+
+        </div>
+    </div> 
+
+</div>
+
+</main>
+
+
+	<footer class="print--hide">
+	<h2 class="visuallyhidden">Footer links</h2>
+	<div class="footer">
+		<div class="wrapper">
+			<nav aria-label="Footer links">
+                <div class="footer-nav col-wrap">
+                    
+                    <div class="col col--lg-one-third col--md-one-third">
+                        <h3 class="footer-nav__heading">Help</h3>
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item">
+                                <a href="/help/accessibility">Accessibility</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="/cookies">Cookies</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="/help/privacynotice">Privacy</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="/help/termsandconditions">Terms and conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col--lg-one-third col--md-one-third">
+                        <h3 class="footer-nav__heading">About ONS</h3>
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item">
+                                <a href="/aboutus/whatwedo">What we do</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://careers.ons.gov.uk">Careers</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="/aboutus/contactus">Contact us</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="/news">News</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="/aboutus/transparencyandgovernance/freedomofinformationfoi">Freedom of Information</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col col--lg-one-third col--md-one-third">
+                        <h3 class="footer-nav__heading">Connect with us</h3>
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item">
+                                <a href="https://twitter.com/ONS" target="_blank">X</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.instagram.com/officefornationalstatistics" target="_blank">Instagram</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.facebook.com/ONS" target="_blank">Facebook</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.linkedin.com/company/office-for-national-statistics" target="_blank">LinkedIn</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://consultations.ons.gov.uk/" target="_blank">Consultations</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.statsusernetwork.ons.gov.uk/" target="_blank">Discussion forums</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://public.govdelivery.com/accounts/UKONS/subscribers/new" target="_blank">Email alerts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+			</nav>
+		</div>
+		<div class="wrapper">
+			<div class="footer-license">
+				<img class="footer-license__img" alt="OGL" width="60" src="https://cdn.ons.gov.uk/assets/images/logo-ogl-footer.svg">
+				<p class="footer-license__text margin-left-sm--0">
+					All content is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="//cdn.ons.gov.uk/sixteens/418c927/js/main.js"></script>
+        <script src="/js/app.js"></script>
+
+        
+        
+            <script src="/js/third-party/highcharts-annotations-5.0.7.js"></script>
+            <script src="/js/third-party/highcharts-broken-axis-5.0.7.js"></script>
+            <script src="/js/third-party/highcharts-heatmap-5.0.7.js"></script>
+            <script src="/js/third-party/highcharts-exporting-5.0.7.js"></script>
+        
+
+	<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a15024f4eeb9e645',t:'MTc4MzAyMTQ1OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
