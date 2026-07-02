@@ -6474,3 +6474,7 @@ verbatim both directions; RDTG-AMEND insert-only mechanics.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
 2026-07-02T18:50:25Z RDT-G: pre-registration committed 7ad70d2 FIRST; denominators grounding agent launched (market outstandings, COFER shares, FX set only - no discriminator series per sequencing rule); I.B parse and receiving legs held until bars committed; orchestrator holding
+2026-07-02T18:50:29Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: pre-registration committed 7ad70d2 FIRST; denominators grounding agent launched (market outstandings, COFER shares, FX set only - no discriminator series per sequencing rule); I.B parse and receiving legs held until bars committed; orchestrator holding" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-G Phase 0b running)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
