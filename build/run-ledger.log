@@ -4192,3 +4192,104 @@ for mm in list(re.finditer(r'.{150}CIPS[^.]{0,250}', clean)):
     s=mm.group(0)
     if 'participant' in s: print('CIPS>>', s[-350:], '\n--')
 EOF
+2026-07-02T00:32:09Z	OUTPUT (not established until verifier runs)	du -sh build/reserve/rdt_evidence/tic/ build/reserve/rdt_evidence/gold_history/ && git commit -q -m "$(cat <<'EOF'
+RDT Part 1 grounding: k3 TIC-UST and k2 gold-history coordinates
+
+k3 (US Treasury TIC, fetched from publisher pages, no guessed URLs):
+8-country monthly UST positions panel 2013-01..2026-04 (mfhhis01 +
+SLT Table 3 + frozen slt3d vintage cross-checked) and monthly net
+foreign purchases of long-term Treasuries 2013-01..2026-04 with the
+publisher-documented 2023-02 basis break marked row-by-row. INTEGRITY
+ANCHOR REPLICATED from the built series: Russia 2018-03 96.1 ->
+2018-04 48.7 -> 2018-05 14.9 $B (corroborated in the independent
+slt3d vintage). Country-line breaks recorded as found (Russia named
+line 2007-2018; Turkey ends 2017-12 in MFH history; Saudi named from
+2012-01, earlier grouped in Oil Exporters). By-country valuation
+change exists only from 2023-02 per the publisher - the pre-2023
+split will be BOUNDED, as pre-registered.
+
+k2 (WGC CBD v11 API, same publisher route as RD2): quarterly tonnes
+2000Q4-2026Q1, year-end csv for 7 countries 2010-2025 + World Bank
+FI.RES.TOTL.CD / FI.RES.XGLD.CD denominators. INTEGRITY ANCHOR
+REPLICATED: Russia end-2013 1,035.21t -> end-2020 2,298.53t. RD2
+panel overlap reconciles exactly (max diff 0.0t over 28 quarters);
+RD2 panel untouched. Russia WB denominators end 2024 - recorded, not
+substituted.
+
+Pre-registration (7743acf) precedes all of this by construction.
+k4 grounding still in flight; assembly/estimation not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push -u origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2
+2026-07-02T00:35:26Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/reserve && python3 - <<'EOF'
+import json
+manifest = {
+  "artifact": "rdt_k4",
+  "built_utc": "2026-07-02T00:20:00Z",
+  "task": "RDT Part 1(c): k4 (alternative-adoption) + k1-China bounding inputs (SAFE anchor + COFER public world aggregate)",
+  "namespace_files": {
+    "rdt_k4_rmb.csv": "long format (country,item,period,value,tier,source); 142 data rows: PBoC swap lines, CIPS participation, LMW CNY/USD shares, SAFE disclosure, applicability flags",
+    "rdt_k4_cofer.csv": "quarterly COFER world aggregate 2014-Q1..2026-Q1 (49 quarters): usd_share_pct_allocated, allocated_total_usd_bn",
+    "rdt_k4_manifest.json": "this file",
+    "rdt_k4_provenance.md": "SOURCE lines, quotes, verification notes, NOT-AVAILABLE / UNVERIFIED register",
+    "rdt_evidence/rmb/": "raw fetched files + _RDT_fetch_log.txt (append-only)"
+  },
+  "coverage": {
+    "swap_lines": {
+      "status": "GROUNDED-PRIMARY",
+      "source": "PBOC RMB Internationalization Report 2025 (EN PDF), pbc.gov.cn, fetched 2026-07-01",
+      "values": {
+        "Russia": {"year_signed": 2014, "size_bn_cny": 150, "renewals": [2017, 2020]},
+        "Turkey": {"year_signed": 2012, "size_bn_cny_initial": 10, "size_bn_cny_current": 35, "amended": 2021},
+        "Saudi Arabia": {"year_signed": 2023, "size_bn_cny": 50},
+        "India": "NO-SWAP-LINE (zero mentions; absent from all regional enumerations in the report)",
+        "Poland": "NO-SWAP-LINE (Europe list = UK, Switzerland, Russia, Hungary, Turkiye, Iceland + ECB; Poland only via 2016 RMB bond approval)"
+      }
+    },
+    "cips": {
+      "status": "PARTIAL (aggregates grounded; per-country NOT-AVAILABLE)",
+      "world_2026_03": {"direct": 194, "indirect": 1597, "countries_and_regions": 126},
+      "europe_end_2024": {"direct": 29, "indirect": 261},
+      "middle_east_end_2024": {"direct": 12, "indirect": 56},
+      "per_country_five_holders": "NOT-AVAILABLE from cips.com.cn current site (announcements No.44/72/110/116/117 checked EN+CN; participant tables stripped, no attachments)"
+    },
+    "lmw_from_disk": {
+      "status": "GROUNDED (read-only from disk)",
+      "Russia": "USD+CNY shares 2007-2021 (USD 47.00->13.89; CNY 0->21.78)",
+      "Turkey": "USD+CNY shares 2004-2023 (CNY 0.0 throughout)",
+      "Poland": "USD+CNY shares 2004-2022 (CNY 0.0 throughout)",
+      "India": "ABSENT from panel",
+      "Saudi Arabia": "ABSENT from panel"
+    },
+    "safe_anchor": {
+      "status": "GROUNDED-PRIMARY",
+      "edition": "SAFE Annual Report 2018, Box 4, printed p.35 (PDF p.44)",
+      "disclosed": {"1995_usd_share_pct": 79, "2014_usd_share_pct": 58},
+      "note": "one-off disclosure; global comparator in same box: 1995 USD 59%, 2014 USD 65% (COFER basis)"
+    },
+    "cofer": {
+      "status": "GROUNDED-PRIMARY",
+      "span": "2014-Q1..2026-Q1 quarterly",
+      "latest": {"quarter": "2026-Q1", "usd_share_pct_allocated": 57.13, "allocated_total_usd_bn": 13104.9},
+      "methodology_break": "since 2025Q3 release, unallocated eliminated with revisions back to 2000Q1; missing values imputed by IMF staff (TNM/2025/14); imputed share 2026-Q1 = 10.65% (TFXRA_IMP)",
+      "china_inclusion": {
+        "grounded": "China appears as a distinct entry on the IMF's published List of COFER Reporters (data.imf.org/en/Datasets/COFER/List-of-Reporters, fetched 2026-07-01); RMB separately identified in COFER from 2016Q4 survey (IMF PR 17/108; TNM/2025/14)",
+        "unverified": "the specific historical claim that China phased in COFER reporting partially starting 2015 was NOT found on any current IMF page fetched; recorded UNVERIFIED, not asserted"
+      }
+    }
+  },
+  "confidence": {
+    "swap_lines": "HIGH (publisher primary, exact chronology quotes with year headers verified)",
+    "cips_aggregates": "HIGH (publisher primary)",
+    "cips_per_country": "NOT-AVAILABLE",
+    "lmw_shares": "HIGH for what the panel discloses (read from committed file; panel itself is the RD0-vetted secondary-academic source)",
+    "safe_anchor": "HIGH (publisher primary PDF, figures read from positioned text; pairing cross-checked against COFER-consistent global values in the same chart)",
+    "cofer": "HIGH for the series; methodology break 2025Q3 flagged; China phase-in note UNVERIFIED"
+  },
+  "residual_route_caveat": "Per RDT_prediction.md, COFER world aggregate enters ONLY as the bounding input for the k1-China INFERRED-BOUNDED cell. Post-2025Q3 COFER has NO unallocated portion: W_t is now a 100%-coverage imputed share, so the residual bound must carry the imputation caveat (imputed share ~10.65% of total in 2026-Q1), and China's inclusion in the reporter list is grounded but its historical phase-in timing is UNVERIFIED."
+}
+open('/home/user/dollar-breaking-point/build/reserve/rdt_k4_manifest.json','w').write(json.dumps(manifest, indent=2))
+print('manifest written')
+EOF
