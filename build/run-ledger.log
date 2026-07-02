@@ -5829,3 +5829,65 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T14:43:16Z	OUTPUT (not established until verifier runs)	git add build/reserve/rdte_official_series.csv build/reserve/rdte_official_manifest.json build/reserve/rdte_official_provenance.md build/reserve/rdte_methodology_determination.md build/reserve/rdte_evidence/ build/run-ledger.log 2>/dev/null; git commit -q -m "$(cat <<'EOF'
+RDT-E Part 1(iv-v): official series + the methodology determination
+
+Methodology (Cap C condition a): ESTABLISHED as a joint reading of
+three verbatim publisher passages - the SHL 4.3.4 ICSD attribution
+rule (Euroclear/Clearstream holdings recorded at the custodian's
+country, Belgium/Luxembourg), the glossary holder-country-equals-
+custodian-residence rule, and the Exhibit-7 note that custodial-
+center private holdings 'may reflect holdings of foreign official
+institutions' - with the publisher's hedges (typically/some/may)
+documented and the honest caveat that no single sentence joins
+Euroclear+official+private; the assembly gate may downgrade the
+joint reading.
+
+Official series (Cap C condition b): the two legs DIVERGE over the
+verdict axis - TIC foreign-official UST ROSE +116.8 bn (condition
+fails on the TIC leg) while FRBNY H.4.1 custody DECLINED -232.2 bn
+(condition holds on the FRBNY leg); the ~349 bn gap widening is
+consistent with the publisher's own documented comparability
+differences (FAQ 10a, quoted). The grounding call on this mixed
+record is the assembly stage's; either way a 232.2 Cap C cannot bind
+below the 69.5 Cap A. Coverage: TIC official 2013-01..2026-04
+(mfhhis01 + slt_table5, 9-month overlap identical, live refetch
+byte-identical); FRBNY 2013-01..2026-06 (FRED mirror, tier stated,
+latest value verified against the FRB primary H.4.1 to the dollar).
+Bound assembly not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ac/code placeholder
+EOF
+)" 2>&1 | head -3; git log --oneline -1
+2026-07-02T14:43:35Z	OUTPUT (not established until verifier runs)	git commit --amend -q -m "$(cat <<'EOF'
+RDT-E Part 1(iv-v): official series + the methodology determination
+
+Methodology (Cap C condition a): ESTABLISHED as a joint reading of
+three verbatim publisher passages - the SHL 4.3.4 ICSD attribution
+rule (Euroclear/Clearstream holdings recorded at the custodian's
+country, Belgium/Luxembourg), the glossary holder-country-equals-
+custodian-residence rule, and the Exhibit-7 note that custodial-
+center private holdings 'may reflect holdings of foreign official
+institutions' - with the publisher's hedges (typically/some/may)
+documented and the honest caveat that no single sentence joins
+Euroclear+official+private; the assembly gate may downgrade the
+joint reading.
+
+Official series (Cap C condition b): the two legs DIVERGE over the
+verdict axis - TIC foreign-official UST ROSE +116.8 bn (condition
+fails on the TIC leg) while FRBNY H.4.1 custody DECLINED -232.2 bn
+(condition holds on the FRBNY leg); the ~349 bn gap widening is
+consistent with the publisher's own documented comparability
+differences (FAQ 10a, quoted). The grounding call on this mixed
+record is the assembly stage's; either way a 232.2 Cap C cannot bind
+below the 69.5 Cap A. Coverage: TIC official 2013-01..2026-04
+(mfhhis01 + slt_table5, 9-month overlap identical, live refetch
+byte-identical); FRBNY 2013-01..2026-06 (FRED mirror, tier stated,
+latest value verified against the FRB primary H.4.1 to the dollar).
+Bound assembly not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1 && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
