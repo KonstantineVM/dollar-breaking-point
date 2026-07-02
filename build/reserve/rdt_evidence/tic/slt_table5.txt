@@ -1,0 +1,42 @@
+Table 5: Major Foreign Holders of Treasury Securities													
+Holdings at end of time period													
+Billions of dollars													
+Link: https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt													
+													
+Country	2026-04	2026-03	2026-02	2026-01	2025-12	2025-11	2025-10	2025-09	2025-08	2025-07	2025-06	2025-05	2025-04
+Japan	1209.9	1191.6	1239.3	1225.3	1185.5	1202.7	1200.0	1189.3	1180.4	1151.8	1147.9	1135.0	1134.5
+United Kingdom	937.5	926.9	897.3	879.7	863.1	879.8	875.4	862.5	901.4	896.0	855.7	809.4	807.7
+China, Mainland	651.1	652.3	693.3	694.4	683.5	683.9	687.7	699.2	699.7	695.6	731.4	732.7	743.6
+Cayman Islands	471.6	459.4	443.0	432.8	421.2	427.6	418.7	427.0	410.7	436.9	441.0	441.3	446.5
+Belgium	459.9	454.0	454.7	451.0	477.3	481.0	465.5	463.6	451.1	425.4	430.3	415.5	411.1
+Luxembourg	431.1	432.0	445.7	446.0	434.2	424.7	418.0	420.1	409.9	403.8	403.2	412.6	410.9
+Canada	397.1	439.4	446.3	395.8	468.2	472.4	419.4	476.0	443.8	381.6	438.7	430.1	368.4
+France	393.3	393.0	395.1	380.5	368.9	376.1	390.2	375.5	389.1	391.0	373.8	375.1	360.6
+Ireland	345.3	355.2	350.6	342.0	340.7	340.3	339.9	340.0	343.5	323.9	317.3	327.3	339.9
+Taiwan	300.9	300.8	313.5	307.8	310.6	312.9	309.5	312.6	313.5	308.9	307.2	304.8	311.5
+Switzerland	288.6	286.4	286.7	289.2	294.1	300.4	302.0	301.8	302.7	302.8	300.6	303.7	310.9
+Singapore	277.5	274.3	280.0	273.4	278.4	272.2	272.4	258.6	260.7	252.2	253.2	249.3	247.7
+Hong Kong	269.1	278.2	269.2	259.9	267.8	256.6	251.2	238.1	252.0	247.9	242.3	252.6	247.1
+Norway	214.7	217.4	223.0	218.8	208.1	218.9	193.7	215.9	214.9	208.0	195.1	187.3	195.9
+India	181.0	183.0	190.6	190.4	182.9	186.5	190.7	202.7	219.4	219.7	227.4	235.3	232.5
+Brazil	168.6	168.0	170.6	168.0	168.7	168.2	167.8	172.8	184.6	201.8	215.4	212.0	212.0
+Saudi Arabia	140.1	149.6	160.4	134.8	149.5	148.8	134.3	134.2	133.0	131.6	130.5	127.7	133.8
+Korea, South	135.2	136.8	140.9	141.3	140.6	145.1	145.0	142.8	135.8	132.3	126.5	124.2	121.7
+Israel	113.4	104.8	110.8	114.7	105.7	107.9	110.0	105.3	100.0	102.5	101.8	100.8	97.4
+United Arab Emirates	112.5	114.1	119.9	112.4	95.6	103.5	110.7	103.3	108.7	107.7	96.4	103.6	112.9
+All Other	1854.2	1831.4	1856.4	1831.3	1822.8	1840.1	1830.8	1796.3	1793.5	1788.1	1758.2	1743.0	1754.6
+Grand Total	9352.6	9348.7	9487.1	9289.4	9267.2	9349.6	9232.9	9237.5	9248.4	9109.4	9094.0	9023.5	9001.0
+Of Which: Foreign Official	3906.5	3902.2	4010.9	3943.2	3877.6	3912.3	3866.6	3872.6	3919.5	3886.0	3892.5	3877.1	3907.4
+Of Which: Foreign Official Treasury Bills	457.3	441.0	453.1	407.7	388.5	385.6	386.2	371.3	411.3	409.6	402.6	397.6	413.9
+Of Which: Foreign Official T-Bonds & Notes	3449.2	3461.2	3557.7	3535.5	3489.1	3526.8	3480.4	3501.2	3508.2	3476.5	3490.0	3479.5	3493.5
+													
+Notes:													
+The data in this table are collected primarily from U.S.-based custodians and broker-dealers. Since U.S. securities held in													
+overseas custody accounts may not be attributed to the actual owners, the data may not provide a precise accounting of													
+individual country ownership of Treasury securities													
+(see TIC FAQ #7 at: http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/ticfaq1.aspx).													
+													
+Estimated foreign holdings of U.S. Treasury marketable and non-marketable bills, bonds, and notes reported under the Treasury													
+International Capital (TIC) reporting system are based on monthly data on holdings of Treasury bonds and notes													
+as reported on TIC Form SLT, "Aggregate Holdings, Purchases and Sales, and Fair Value Changes of Long-Term Securities by U.S. and Foreign Residents"													
+and on TIC Form BL2, "Report of Customers' U.S. Dollar Liabilities to Foreign Residents."													

@@ -4151,3 +4151,44 @@ json.dump(manifest, open("rdt_k2_manifest.json","w"), indent=1)
 import os; os.remove("rdt_evidence/gold_history/_recon_tmp.json")
 print("manifest written")
 EOF
+2026-07-01T23:52:06Z	OUTPUT (not established until verifier runs)	git add build/run-ledger.log build/reserve/rdt_k2_gold.csv build/reserve/rdt_k2_manifest.json build/reserve/rdt_k2_provenance.md build/reserve/rdt_evidence/gold_history/ && git commit -q -m "$(cat <<'EOF'
+RDT Part 1(b): ground k2 gold history (WGC CBD 2000Q4-2026Q1)
+
+Primary route succeeded: the WGC Central Banks Dashboard API served the
+extended quarterly window directly (123 holders; no IMF fallback
+needed). Integrity anchor replicates from the fetched data: Russia
+end-2013 = 1,035.21t -> end-2020 = 2,298.53t. US stability anchor flat
+at 8,133.46t. RD2-panel overlap reconciles exactly (max diff 0.0t over
+all 28 overlapping quarters, same publisher, RD2 panel untouched).
+World Bank FI.RES.TOTL.CD / FI.RES.XGLD.CD denominators fetched for
+the six holders 2010-2025 (China total-reserves series feeds the
+pre-registered k1-China residual). Honest gaps recorded: Russia WB
+denominators end at 2024.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -2 && git status --short | head -5
+2026-07-01T23:58:31Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/reserve/rdt_evidence/rmb && python3 - <<'EOF'
+import re
+clean=re.sub(r'\s+',' ',open('pbc_rmb2025_extracted.txt').read())
+years = [(m.start(), m.group(1)) for m in re.finditer(r'zh-CN\s+(20\d\d)\s+zh-CN', clean)]
+m = re.search(r'T urkey renew ed zh-CN the bilateral local currency sw ap agreement of RMB 12 billion yuan/Lira 5 billion', clean)
+if m:
+    prior=[y for pos,y in years if pos<m.start()]; print('Turkey 12bn renewal year:', prior[-1] if prior else '?')
+# aggregate total
+for pat in ['trillion yuan','40 ','countries and regions']:
+    for mm in list(re.finditer(r'sw ap agreements with [^.]{0,300}', clean))[:6]:
+        print('>>', mm.group(0)[:350],'\n--')
+    break
+EOF
+2026-07-01T23:58:44Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/reserve/rdt_evidence/rmb && python3 - <<'EOF'
+import re
+clean=re.sub(r'\s+',' ',open('pbc_rmb2025_extracted.txt').read())
+for mm in re.finditer(r'.{200}bilateral (?:local )?currency sw ap agreements? with (?:the )?central banks (?:or monetary authorities )?of \d+[^.]{0,250}', clean):
+    print('>>', mm.group(0)[-420:], '\n--')
+# CIPS aggregate statements
+for mm in list(re.finditer(r'.{150}CIPS[^.]{0,250}', clean)):
+    s=mm.group(0)
+    if 'participant' in s: print('CIPS>>', s[-350:], '\n--')
+EOF

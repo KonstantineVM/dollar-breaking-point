@@ -1,0 +1,64 @@
+{
+  "coordinate": "k3",
+  "status": "GROUNDED",
+  "built_utc": "2026-07-02T00:00:00Z",
+  "fetched_from_publisher": "U.S. Department of the Treasury, TIC system (home.treasury.gov / treasury.gov Documents); fetch dates 2026-07-01 UTC; every raw file retained in build/reserve/rdt_evidence/tic/; append-only log build/reserve/rdt_evidence/tic/_RDT_fetch_log.txt",
+  "files_built": [
+    "build/reserve/rdt_k3_ust.csv",
+    "build/reserve/rdt_k3_transactions.csv",
+    "build/reserve/rdt_k3_manifest.json",
+    "build/reserve/rdt_k3_provenance.md"
+  ],
+  "build_script": "build/reserve/rdt_evidence/tic/_RDT_k3_build.py (rerunnable offline from retained raw files)",
+  "positions": {
+    "units": "USD billions, end of month, total Treasury securities (long-term SLT + short-term bills concept of the MFH table); Table-3/slt3d rows are millions converted /1000",
+    "latest_published_month": "2026-04 (TIC release of 2026-06; slt_table3.txt and slt_table5.txt both end 2026-04)",
+    "source_precedence": "mfhhis01.csv (MFH history, latest revision) > slt_table3.txt (2020-01..2026-04) > slt3d_globl.csv (frozen 2011-09..2023-01 vintage)",
+    "coverage": {
+      "Russia":          {"first": "2007-01", "last": "2026-04", "n": 232, "gaps_2013_on": 0},
+      "China, Mainland": {"first": "2000-03", "last": "2026-04", "n": 314, "gaps_2013_on": 0},
+      "Belgium":         {"first": "2002-01", "last": "2026-04", "n": 292, "gaps_2013_on": 0},
+      "Luxembourg":      {"first": "2002-06", "last": "2026-04", "n": 287, "gaps_2013_on": 0},
+      "India":           {"first": "2002-01", "last": "2026-04", "n": 280, "gaps_2013_on": 0, "pre2013_gap": "2005-01..2005-12 absent from mfhhis01 (India not a named MFH line that year)"},
+      "Turkey":          {"first": "2002-01", "last": "2026-04", "n": 292, "gaps_2013_on": 0},
+      "Saudi Arabia":    {"first": "2011-09", "last": "2026-04", "n": 174, "gaps_2013_on": 0, "pre2013_gap": "2011-10, 2011-11 absent (slt3d n.a.)"},
+      "Poland":          {"first": "2003-01", "last": "2025-12", "n": 264, "gaps_2013_on": 0, "pre2013_gap": "2008-01..2008-12 absent from mfhhis01 (Poland not a named MFH line that year)", "why_ends_2025_12": "Poland total holdings are n.a. in slt_table3.txt/slt3d_globl.csv from 2015-01 onward (short-term component not published) and Poland is not in the top-20 slt_table5.txt; the MFH history (mfhhis01.csv) carries Poland totals only through 2025-12. Long-term-only Poland holdings for 2026-01..2026-04 exist in the retained slt_table3.txt (for_lt_treas_pos) but were NOT mixed into the total series."}
+    }
+  },
+  "integrity_anchor_russia_2018": {
+    "requirement": "~$100B -> ~$15B within months",
+    "built_values_busd": {
+      "2018-01": 96.9, "2018-02": 93.8, "2018-03": 96.1,
+      "2018-04": 48.7, "2018-05": 14.9, "2018-06": 14.9, "2018-12": 13.2
+    },
+    "verdict": "REPLICATED (96.1 in 2018-03 to 14.9 by 2018-05, from mfhhis01.csv; corroborated by slt3d_globl.csv: 96.05 / 48.724 / 14.905)",
+    "form_s_transactions_same_months_busd": {"2018-04": -20.472, "2018-05": -14.155, "note": "Form S net long-term Treasury sales; the remainder of the holdings drop is short-term bills and non-transaction effects, per the data"}
+  },
+  "transactions": {
+    "file": "build/reserve/rdt_k3_transactions.csv",
+    "units": "USD billions, monthly net foreign purchases of long-term U.S. Treasury bonds & notes (positive = foreign position increase); short-term bills NOT included",
+    "coverage": "all 8 countries, 2013-01..2026-04, 160 months each, no gaps",
+    "basis_break_2023_02": "Publisher-documented series break: before 2023-02 transactions are from discontinued TIC Form S (built here as gross purchases minus gross sales of Treasury bonds & notes from s1_globl.txt; Saudi Arabia 2013-01..2014-12 from oilexp_sdata_hist_2003-2014.csv); from 2023-02 they are the expanded Form SLT net figures in slt_table3.txt. The source_file column marks the break row-by-row.",
+    "valuation_change": "slt_table3.txt additionally publishes a monthly by-country Valuation Change column for long-term Treasuries FROM 2023-02 ONLY (publisher states no valuation-change data exist before the break). Raw file retained; not written into the csv (schema fixed), available for the k3 valuation split.",
+    "spot_check": "China, Mainland 2016 annual net purchases sum = -155.2 busd (net selling), read from built csv"
+  },
+  "country_line_breaks_found_in_data": [
+    "Russia: named MFH line exists 2007-01..2018-12 only; after 2018 Russia is below the named-holder cutoff and continues only in the all-countries files (slt3d_globl.csv to 2023-01, slt_table3.txt from 2020-01; 2026-04 value 0.026 busd).",
+    "Turkey: named MFH line ends 2017-12; continues via slt3d_globl.csv / slt_table3.txt (2026-04 value 2.610 busd).",
+    "Saudi Arabia: named line in mfhhis01.csv starts 2012-01. Publisher notice dated 5-16-2016 on the Securities (B) page: before that release the MFH table grouped Saudi Arabia inside the 'Oil Exporters' aggregate; the aggregates were discontinued and one-time historical tables were published (holdings 1974-12..2016-03 in oilexp_hist_to2016mar.csv, retained; Form S transactions 2008-01..2014-12 in oilexp_sdata_hist_2003-2014.csv, retained and used for Saudi 2013-2014 transactions).",
+    "MFH current table (slt_table5.txt) carries only the top-20 named holders + All Other since the 2023 redesign; Russia, Turkey, Poland are not named there.",
+    "MFH methodology note (8-15-2013, Securities (B) page): from that release the MFH table uses Form SLT holdings for all months (previously Form S transactions were added to prior-month SLT for the latest month).",
+    "mfh.txt at the old URL is a frozen pre-redesign snapshot (last data 2023-01, dated March 15, 2023); the live MFH table is slt_table5.txt/html."
+  ],
+  "source_disagreements_gt_1busd": [
+    {"country": "Belgium", "date": "2022-11", "mfhhis01_kept": 334.4, "slt3d_globl": 332.864},
+    {"country": "Belgium", "date": "2022-12", "mfhhis01_kept": 351.2, "slt3d_globl": 354.325},
+    {"note": "frozen slt3d vintage vs revised MFH history; all other overlapping cells agree within rounding (mean abs diff 0.03 busd over 871 mfhhis-slt3d overlap cells; max 0.05 over 360 mfhhis-Table3 cells)"}
+  ],
+  "not_available": [
+    "Poland total UST holdings for 2026-01..2026-04: not published (Table 3 total and short-term columns n.a. for Poland from 2015-01; Poland below top-20 of Table 5; MFH history ends 2025-12). Long-term-only figures exist in retained slt_table3.txt.",
+    "By-country valuation-change data before 2023-02: publisher states none exist (no valuation change data before the series break). Pre-2023 active-vs-valuation split must be bounded from transactions vs holdings changes, as the pre-registration anticipated.",
+    "Saudi Arabia named-line Form S transactions before 2015-01 in s1_globl.txt: not present there; covered 2008-01..2014-12 by the one-time oilexp_sdata_hist_2003-2014.csv instead (so no net gap 2013 onward)."
+  ],
+  "custody_caveat": "Publisher's own note on Table 5: data are collected from U.S.-based custodians/broker-dealers; securities held in overseas custody accounts may not be attributed to the actual owner (basis of the pre-registered China = mainland-alone lower bound / +Belgium+Luxembourg upper band)."
+}
