@@ -1,0 +1,83 @@
+,Total,Equity,Total  Debt,Total  Long-term  Debt,Total  Short-term  Debt
+"21: Mining, quarrying, and oil and gas extraction",289,191,98,97,1
+2111: Oil and gas extraction,98,52,47,46,*
+2122: Metal ore mining,64,54,10,10,0
+213111-213112: Oil and gas well drilling and support,97,64,34,34,*
+213114: Support activities for metal mining,5,2,2,2,0
+9: Other,24,19,5,5,*
+22-23: Utilities and construction,767,473,294,290,4
+2211: Electric power generation and distribution,499,283,215,212,3
+2212: Natural gas distribution,148,95,53,53,1
+"2213: Water, sewage, and other systems",20,14,6,6,*
+23: Construction,102,81,20,20,*
+31: Consumer goods manufacturing,577,393,185,183,2
+311: Food manufacturing,153,83,70,69,1
+3121: Beverage manufacturing,234,164,71,70,*
+3122: Tobacco product manufacturing,97,63,34,34,*
+9: Other,93,83,10,10,*
+325: Chemical manufacturing,1263,1004,259,256,3
+3254: Pharmaceutical and medicine manufacturing,953,771,183,181,1
+9: Other,310,233,77,75,2
+326-333: Other primary and machinery manufacturing,511,430,81,80,1
+331: Primary metal manufacturing,57,48,9,9,0
+333: Machinery manufacturing,321,286,34,34,*
+9: Other,133,95,38,37,*
+334-335: Computer and electronic product manufacturing,3377,3136,241,239,2
+3341: Computer and peripheral equipment manufacturing,970,891,80,80,*
+3342: Communications equipment manufacturing,82,62,19,19,*
+3344: Semiconductor and other electronic component mfg.,1916,1838,79,78,1
+"3345: Navigational, measuring, electromed., control instr. mfg.",319,272,47,46,*
+"335: Electrical equipment, appliance, and component mfg.",90,74,16,16,*
+9: Other,-0,-0,-0,-0,0
+336-339: All other manufacturing,868,741,127,126,1
+3361: Motor vehicle manufacturing,301,284,18,18,0
+3363: Motor vehicle parts manufacturing,28,20,8,8,*
+3364: Aircraft manufacturing,190,145,45,45,*
+"3365-3369: Rail, ship, and other transportation manufacturing",18,15,3,3,*
+3391: Medical equipment and supplies manufacturing,270,231,39,39,*
+9: Other,60,46,14,14,*
+42: Wholesale trade,312,237,75,74,1
+"423: Merchant wholesalers, durable goods",135,111,24,23,*
+"424-425: Merchant wholesalers, nondurable goods",177,126,51,50,1
+44-45: Retail trade,1340,1167,173,171,2
+445: Food and beverage stores,33,22,12,12,*
+9: Other,1307,1146,161,159,2
+48-49: Transportation and cargo,270,162,108,108,1
+481: Air transportation,29,21,7,7,0
+482: Rail transportation,90,61,29,29,0
+483: Water transportation,2,2,*,*,0
+486: Pipeline transportation,61,21,40,39,1
+488: Support activities for transportation,20,13,7,7,0
+9: Other,68,43,25,25,0
+511-516: Publishing and broadcasting,2354,2113,241,241,*
+512: Motion picture and sound recording industries,108,86,21,21,0
+513: Publishing,1890,1784,106,106,*
+516: Broadcasting,358,244,114,114,*
+517-519: Telecommunications and information services,999,778,221,219,2
+5171: Wired telecommunications carriers,327,145,181,181,*
+519: Other information services,520,506,14,14,0
+9: Other,153,126,26,24,2
+5221: Depository credit intermediation (banking),268,16,253,170,82
+5222-5239: Other financial,4408,2148,2260,2216,44
+522292: Real estate credit,1318,2,1316,1316,*
+52239: Other credit intermed,329,2,327,327,*
+5231: Inv. banking,329,150,179,174,5
+9: Other,2432,1994,438,399,38
+524: Insurance,827,606,221,213,8
+"525: Funds, trusts, and other financial vehicles",3633,3550,83,81,3
+53-81: Services,3651,2502,1149,1104,45
+531: Real estate rental and leasing,162,31,131,129,2
+"5413: Architectural, engineering, and related services",30,26,5,5,*
+5415: Computer systems design and related services,1026,952,75,75,*
+"5416: Management, scientific, and technical consulting services",30,13,17,16,1
+5511: Offices of bank and other holding companies,1085,573,511,492,20
+561: Administrative and support services,588,392,196,175,21
+"61-62: Education, health care, and social services",149,78,71,70,*
+"71: Arts, entertainment, and recreation",25,16,9,9,0
+72: Accommodation and food services,241,181,60,59,*
+9: Other,315,240,75,74,1
+92: Government,9102,*,9102,7691,1411
+99999: Industry classification unknown,280,24,256,224,32
+99: All other industries,251,190,61,57,4
+99996: Total,35349,19860,15489,13840,1649
+

@@ -1,0 +1,206 @@
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+Table A4.  Foreign Holdings of U.S. Short-Term Debt Securities, by Country, as of End-June
+
+ Billions of dollars
+                                              June            June            June            June            June            June            June            June
+ Countries and Regions                        2013            2014            2015            2016            2017            2018            2019            2020
+  Afghanistan                                          *               0               0               *               0               0               *               0
+  Albania                                              0               0               *               0               0               0               0               0
+  Algeria                                              1               1               1               1               1               1               1               1
+  Andorra                                              *               *               *               *               *               *               *               *
+  Angola                                               0               0               *               *               0               *               0               0
+  Anguilla                                             1               *               *               2               1               *               *               *
+  Antigua and Barbuda                                  *               *               *               *               *               *               *               *
+  Argentina                                            *               *               *               *               *               2               6               4
+  Armenia                                              0               *               0               0               0               0               *               *
+  Aruba                                                *               *               *               *               *               *               *               *
+  Australia                                           16              14              10               9               8              10               8              11
+  Austria                                              *               *               1               *               *               *               1               1
+  Azerbaijan                                           1               *               1               1               1               1               *               1
+  Bahamas                                              2               3               3               4               5               5               4               4
+  Bahrain                                              *               *               *               *               *               *               1               1
+  Bangladesh                                           1               1               1               *               1               1               1               1
+  Barbados                                             3               4               1               1               1               1               1               1
+  Belarus                                              0               0               0               *               0               0               0               0
+  Belgium                                             13              13              13              61              15              31              27              46
+  Belize                                               *               *               *               *               *               *               *               *
+  Bermuda                                             25              25              22              27              24              21              26              33
+  Bolivia                                              1               2               2               1               1               1               2               1
+  Bonaire, Sint Eustatius & Saba (1)                n.a.               *               *               *               *               *               *               0
+  Botswana                                             *               *               *               *               *               *               *               *
+  Brazil                                              20              26              21              13              18               8               3              16
+  British Indian Ocean Territory                       0               0               0               0               0               *               0               0
+  British Virgin Islands                              11              17              16              14              11              13              14               8
+  Brunei                                               *               *               *               *               *               *               *               *
+  Bulgaria                                             *               0               0               0               0               *               *               *
+  Burkina Faso                                         0               0               0               0               *               *               *               0
+  Burma                                                0               0               0               0               0               0               0               *
+  Cambodia                                             *               0               0               *               *               *               *               0
+  Canada                                              24              24              24              20              13              19              16              29
+  Cape Verde                                           0               *               *               *               *               *               *               *
+  Cayman Islands                                      96              84              97             103             102             115              99             124
+  Chile                                               11              10              10               8               9              10               4               8
+  China, mainland (2)                                  5               9               3               2               3               5               4              34
+  Colombia                                             1               2               1               1               *               2               1               2
+  Cook Islands                                         *               *               0               *               *               0               *               *
+  Costa Rica                                           1               1               *               *               *               *               *               *
+  Croatia                                              1               1               *               *               *               *               *               *
+  Curacao (1)                                       n.a.               *               *               1               1               1               1               1
+  Cyprus                                               *               *               *               *               *               *               *               *
+  Czech Republic                                       *               0               *               *               *               *               *               2
+  Denmark                                              5               1               1               1               1               1               1               4
+  Dominica                                             *               *               *               *               *               *               *               *
+  Dominican Republic                                   *               *               *               *               *               *               *               *
+  East Timor                                           *               0               *               0               *               0               0               0
+  Ecuador                                              *               *               *               *               *               *               *               *
+  Egypt                                                *               1               1               1               6              18              18              15
+  El Salvador                                          *               *               *               *               *               *               1               1
+  Estonia                                              *               *               *               *               *               *               *               *
+  Ethiopia                                             0               0               0               *               0               *               *               0
+  Federated States of Micronesia                       *               *               *               0               *               *               *               0
+  Fiji                                                 *               *               *               *               *               *               *               *
+  Finland                                              1               1               *               *               *               *               *               1
+  France                                              11              12               8              13              16              18              19              25
+  French Polynesia                                     *               *               *               *               *               *               *               *
+  Gabon                                                *               0               0               0               0               0               0               *
+  Gambia                                               *               0               0               0               0               0               *               *
+  Georgia                                              0               *               *               0               0               0               0               0
+  Germany                                              5               5               5              22               5               7              11              12
+  Ghana                                                *               *               *               0               *               *               *               *
+  Gibraltar                                            *               *               0               *               1               *               *               *
+  Greece                                               2               2               3               3               1               *               1               1
+  Grenada                                              0               0               *               *               *               0               *               *
+  Guatemala                                            *               *               *               *               *               *               *               *
+  Guernsey                                             1               2               3               2               1               1               2               2
+  Guinea                                               0               0               0               0               0               0               *               0
+  Guyana                                               *               *               0               0               *               0               *               0
+  Haiti                                                *               *               *               *               *               *               *               *
+  Honduras                                             *               *               *               *               *               *               *               *
+  Hong Kong                                           35              50              59              48              64              42              30              27
+  Hungary                                              1               *               *               *               *               *               *               1
+  Iceland                                              *               *               *               *               *               *               *               *
+  India                                                4               4              16               7              16               6               2              31
+  Indonesia                                            4               4               2               1               3               2               2               2
+  Iraq                                                43              19              18               8              10              16              18              18
+  Ireland                                            114             129             120             115             132             134             105             195
+  Isle of Man                                          *               *               *               *               1               *               *               *
+  Israel                                               9               5               4               2               1               2               2               6
+  Italy                                                2               *               1               1               2               2               6               3
+  Jamaica                                              *               *               0               *               *               *               *               *
+  Japan                                               63              62              75              62              58              65              62              71
+  Jersey                                               2               2               2               5               3               2               1               1
+  Jordan                                               *               0               *               *               0               *               *               *
+  Kazakhstan                                          16              21              20               6              15               8               7               5
+  Kenya                                                0               0               0               0               0               *               *               *
+  Korea, South                                        12              13              13              10              10              17               7               8
+  Kosovo (1)                                        n.a.               0               0               *               0               0               0               0
+  Kuwait                                               8               9              13              11              21              23              25              27
+  Kyrgyzstan                                           0               0               0               0               0               *               *               0
+  Latvia                                               *               *               *               *               *               *               *               *
+  Lebanon                                              *               0               0               0               0               *               *               *
+  Lesotho                                              0               0               0               0               *               *               *               *
+  Liberia                                              *               *               *               *               *               *               *               *
+  Libya                                                0               0               0               0               0               3               5               *
+  Liechtenstein                                        *               0               *               0               *               *               *               *
+  Lithuania                                            0               0               *               *               *               *               *               *
+  Luxembourg                                          80              80              98              94              95             103              89             130
+  Macau                                                *               *               *               *               *               1               *               *
+  Macedonia                                            0               0               0               0               0               0               0               *
+  Madagascar                                           0               0               0               0               0               0               *               *
+  Malaysia                                             *               *               *               *               *               *               *               *
+  Malta                                                *               *               *               *               *               *               *               *
+  Marshall Islands                                     *               *               *               *               *               *               *               *
+  Mauritania                                           0               0               0               0               0               *               0               *
+  Mauritius                                            *               *               *               *               1               *               *               1
+  Mexico                                              11              25              15              18               6               9               9              14
+  Moldova                                              0               0               0               0               0               0               0               *
+  Monaco                                               *               *               *               *               *               *               *               *
+  Mongolia                                             *               0               0               0               0               *               *               0
+  Montenegro (1)                                    n.a.               0               0               0               0               *               0               0
+  Montserrat                                           0               0               0               0               0               0               0               *
+  Morocco                                              *               *               0               *               0               0               *               *
+  Mozambique                                           *               *               *               0               0               0               *               *
+  Namibia                                              0               0               0               0               0               0               *               *
+  Nepal                                                *               *               *               *               *               *               *               *
+  Netherlands                                          6               9               9              10              15               9               3               3
+  Netherlands Antilles (1)                             *            n.a.            n.a.            n.a.            n.a.            n.a.            n.a.            n.a.
+  New Caledonia                                        *               *               *               0               0               0               0               0
+  New Zealand                                          1               *               1               1               *               *               1               3
+  Nicaragua                                            *               *               *               *               *               *               *               *
+  Niger                                                *               0               0               0               0               0               0               0
+  Nigeria                                              *               *               *               *               *               *               *               *
+  Norway                                               2               2               1               1               1               1               1               1
+  Oman                                                 2               4               8               *               0               *               *               *
+  Pakistan                                             1               *               *               1               2               2               *               *
+  Palau                                                0               0               0               0               *               *               *               0
+  Panama                                               *               *               *               1               1               2               3               3
+  Papua New Guinea                                     0               0               0               0               0               *               *               *
+  Paraguay                                             *               *               *               *               *               *               *               *
+  Peru                                                 *               *               1               1               1               1               1               1
+  Philippines                                          1               1               1               1               1               1               4               3
+  Poland                                               1               0               *               *               *               *               4              10
+  Portugal                                             *               *               *               *               *               *               *               1
+  Qatar                                                6               5               5               5               3               5              18              20
+  Romania                                              0               0               0               0               0               *               *               2
+  Russia                                               *               *               *               *               6               6               6               3
+  Saint Kitts and Nevis                                *               *               *               *               *               *               1               *
+  Saint Lucia                                          *               *               *               0               0               *               *               *
+  Saint Martin & Saint Barthelemy (1)               n.a.               0               0               *               *               *               0               *
+  Saint Vincent and the Grenadines                     0               0               0               *               0               0               *               *
+  Samoa                                                *               0               *               *               *               *               0               0
+  Saudi Arabia                                         7               8               5               5              42              54              46              36
+  Serbia and Montenegro (1)                            *               1               1               *               *               *               *               *
+  Seychelles                                           0               0               0               *               0               *               *               *
+  Sierra Leone                                         0               0               0               0               0               *               *               *
+  Singapore                                            5              10              12              14              16              10              12              21
+  Sint Maarten (1)                                  n.a.               *               0               *               *               *               *               *
+  Slovakia                                             *               *               *               *               *               *               *               *
+  Slovenia                                             *               *               *               *               *               *               *               *
+  Solomon Islands                                      0               0               0               0               0               0               *               0
+  South Africa                                         *               *               *               *               *               9               4               4
+  Spain                                                3               2               1               1               1               2               2               3
+  Sri Lanka                                            0               0               0               0               0               0               *               *
+  Sudan                                                0               0               0               0               0               0               *               *
+  Suriname                                             *               *               *               *               *               *               *               *
+  Swaziland                                            0               *               0               0               0               0               0               0
+  Sweden                                               8               5               6               2               *               *               1               1
+  Switzerland                                         32              24              27              32              34              30              41              35
+  Syria                                                *               0               0               0               0               0               0               0
+  Taiwan                                               3               1               2               3               4               2               4               6
+  Tanzania                                             0               0               0               0               0               0               0               *
+  Thailand                                            39              28              19              28              12              16              16              12
+  Tonga                                                0               0               0               0               *               0               0               0
+  Trinidad and Tobago                                  2               1               1               *               *               1               1               1
+  Tunisia                                              *               0               0               0               0               0               0               *
+  Turkey                                              41              28              57              34              36              16               *               1
+  Turks and Caicos Islands                             *               *               *               *               *               *               *               *
+  Uganda                                               *               *               *               *               1               *               1               1
+  Ukraine                                              *               0               0               *               *               *               *               *
+  United Arab Emirates                                15              11              13              11               9              10              13              11
+  United Kingdom                                      30              37              42              40              41              45              58              78
+  Uruguay                                              1               1               1               1               1               2               3               6
+  Vanuatu                                              0               0               *               *               *               *               *               *
+  Venezuela                                            *               *               *               *               *               *               *               *
+  Vietnam                                              *               *               *               *               *               *               *               *
+  Zambia                                               0               0               *               0               0               0               0               0
+  International and regional organizatio               9               8               9              14              15              20              17              29
+  Country Unknown                                      *               *               0               0               0               *               *               *
+  Total                                              878             878             932             909             930             980             913            1228
+
+
+* Greater than zero but less than $500 million.
+n.a. Not available.
+
+1. Separate reporting for certain country groups began with the 2014 survey.
+    Entries for Bonaire, Sint Eustatius, and Saba; Curacao; and Sint Maarten were previously reported together as Netherlands Antilles.
+    Entries for Guadeloupe and for Saint Martin and Saint Barthelemy were previously reported together as Guadeloupe.
+    Entries for Kosovo, Montenegro, and Serbia were previously reported together as Serbia.
+
+2. Excludes Hong Kong and Macau, which are reported separately.
+
+
+

@@ -1,0 +1,259 @@
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+Table A7.  Foreign Holdings of U.S. Securities, by Country, as of End-June
+
+ Billions of dollars
+                                              June            June            June            June            June            June            June            June
+ Countries and Regions                        2012            2013            2014            2015            2016            2017            2018            2019
+  Afghanistan                                          1               1               1               1               1               1               2               2
+  Albania                                              *               1               1               *               *               *               *               *
+  Algeria                                              1               1               1               1               1               1               1               1
+  Andorra                                              1               2               2               2               3               2               2               2
+  Angola                                               1               1               1               1               1               1               1               3
+  Anguilla                                            16              23              17              20              18              17               3               6
+  Antigua and Barbuda                                  *               *               *               *               *               *               *               *
+  Argentina                                            8               8               8               7               7               7              11              19
+  Armenia                                              *               *               *               *               *               1               1               1
+  Aruba                                                1               2               1               1               1               1               1               1
+  Australia                                          161             215             238             242             237             271             303             344
+  Austria                                             13              13              16              18              19              20              23              28
+  Azerbaijan                                           7               5               8               8               7               7               8               7
+  Bahamas                                             29              29              33              37              42              52              36              39
+  Bahrain                                              3               3               3               3               2               2               2               2
+  Bangladesh                                           1               1               1               1               *               1               1               1
+  Barbados                                            14              13              13              16              23              24              21              13
+  Belarus                                              *               *               *               *               *               *               *               *
+  Belgium                                            447             490             713             602             589             691             739             780
+  Belize                                               *               *               1               1               1               1               1               1
+  Benin                                                *               *               *               *               *               *               *               *
+  Bermuda                                            300             325             301             287             307             318             317             349
+  Bhutan                                               *               *               *               *               *               *               *               *
+  Bolivia                                              1               1               3               3               2               2               2               3
+  Bonaire, Sint Eustatius & Saba (1)                n.a.            n.a.               *               *               *               *               *               *
+  Bosnia and Herzegovina                               *               *               *               *               *               *               *               *
+  Botswana                                             3               2               2               2               2               2               2               2
+  Brazil                                             252             261             263             268             259             277             310             322
+  British Indian Ocean Territory                       *               *               *               *               *               *               *               *
+  British Virgin Islands                             131             139             176             173             161             166             175             178
+  Brunei                                               4               3               4               3               3               5               6               4
+  Bulgaria                                             *               *               *               *               *               *               *               *
+  Burkina Faso                                         *               *               *               *               *               *               *               *
+  Burma                                                *               *               *               *               *               *               *               *
+  Burundi                                              *               *               *               *               *               *               *               *
+  Cambodia                                             1               1               *               2               2               2               2               2
+  Cameroon                                             *               *               *               *               *               *               *               *
+  Canada                                             635             814             988             992             951            1061            1210            1262
+  Cape Verde                                           *               *               *               *               *               *               *               *
+  Cayman Islands                                    1031            1168            1409            1506            1525            1687            1757            1877
+  Central African Republic                             *               *               *               *               *               *               *               *
+  Chad                                                 *               *               *               *               *               *               *               *
+  Chile                                               48              55              60              64              59              57              55              56
+  China, mainland (2)                               1592            1735            1817            1844            1630            1541            1607            1543
+  Colombia                                            36              42              48              59              48              45              44              50
+  Comoros                                              *               *               1               1               *               *               *               *
+  Congo (Brazzaville)                                  *               *               *               *               *               *               *               *
+  Congo (Kinshasa)                                     *               *               *               *               *               *               *               *
+  Cook Islands                                         *               *               *               *               *               1               1               *
+  Costa Rica                                           2               3               3               4               3               3               3               4
+  Cote d`Ivoire (Ivory Coast)                          *               *               *               *               *               *               *               *
+  Croatia                                              2               2               2               2               2               2               2               2
+  Cuba                                                 *               *               *               *               *               *               *               *
+  Curacao (1)                                       n.a.            n.a.               4               4               6               6               7               7
+  Cyprus                                               *               1               1               1               *               1               1               1
+  Czech Republic                                       8               8               8               8              11              24              23              27
+  Denmark                                             76              88              98             105             117             125             123             138
+  Djibouti                                             *               *               *               *               *               *               *               *
+  Dominica                                             *               *               *               *               *               *               *               *
+  Dominican Republic                                   1               1               1               2               2               2               3               3
+  East Timor                                          10              12              13              12              11              11              12              11
+  Ecuador                                              1               1               1               1               1               1               1               1
+  Egypt                                                4               2               6               5               3               9              21              20
+  El Salvador                                          1               1               1               1               1               2               2               2
+  Equatorial Guinea                                    *               *               *               *               *               *               *               *
+  Eritrea                                              *               *               *               *               *               *               *               *
+  Estonia                                              *               *               *               1               1               *               1               1
+  Ethiopia                                             *               *               *               *               *               *               *               *
+  Falkland Islands                                     *               *               *               *               *               *               *               *
+  Faroe Islands                                        *               *               *               *               *               *               *               *
+  Federated States of Micronesia                       *               *               *               *               *               *               *               *
+  Fiji                                                 *               *               *               *               *               *               *               *
+  Finland                                             19              22              29              32              37              45              47              51
+  France                                             225             214             269             274             229             292             329             373
+  French Guiana                                        *               *               *               *               *               *               *               *
+  French Polynesia                                     *               *               *               *               *               *               *               *
+  Gabon                                                *               *               *               *               *               *               *               *
+  Gambia                                               *               *               *               *               *               *               *               *
+  Georgia                                              1               1               1               1               1               *               *               *
+  Germany                                            227             265             319             344             373             427             456             396
+  Ghana                                                1               1               1               1               1               1               2               2
+  Gibraltar                                            *               1               1               1               1               1               1               1
+  Greece                                               9               9              10               9               6               4               4               6
+  Greenland                                            *               *               *               *               *               *               *               *
+  Grenada                                              *               *               *               *               *               *               *               *
+  Guadeloupe (1)                                       *               *               *               *               *               *               *               *
+  Guatemala                                            4               4               3               3               3               5               5               9
+  Guernsey                                            30              29              38              40              38              43              43              56
+  Guinea                                               *               *               *               *               *               *               *               *
+  Guinea-Bissau                                        *               *               *               0               0               0               0               0
+  Guyana                                               *               *               *               *               *               *               *               *
+  Haiti                                                1               2               1               1               1               2               2               2
+  Holy See (Vatican)                                   *               *               *               *               *               *               *               *
+  Honduras                                             1               1               1               1               1               1               1               2
+  Hong Kong                                          223             215             263             298             305             350             364             397
+  Hungary                                              3               3               2               2               3               3               3               5
+  Iceland                                              1               2               2               2               3               3               3               3
+  India                                               55              62              75             119             119             133             152             168
+  Indonesia                                           36              26              28              25              25              34              29              30
+  Iran                                                 *               *               *               *               *               *               *               *
+  Iraq                                                49              45              26              30              15              16              26              35
+  Ireland                                            453             575             729             831             931            1068            1149            1081
+  Isle of Man                                          2               2               2               2               2               3               2               3
+  Israel                                              53              61              67              69              76              88              92             114
+  Italy                                               52              63              70              67              78              78              90             101
+  Jamaica                                              *               1               1               1               1               1               1               1
+  Japan                                             1835            1766            1917            1903            1960            1998            2044            2280
+  Jersey                                              28              25              27              27              30              25              25              25
+  Jordan                                               1               1               1               1               *               1               1               1
+  Kazakhstan                                          33              31              43              39              27              29              12               9
+  Kenya                                                *               1               1               1               1               1               3               4
+  Kiribati                                             *               *               *               *               *               *               *               *
+  Korea, South                                       148             155             180             209             236             282             316             366
+  Kosovo (1)                                        n.a.            n.a.               *               *               *               *               *               *
+  Kuwait                                             122             156             187             191             189             230             269             287
+  Kyrgyzstan                                           *               *               *               *               *               *               *               *
+  Laos                                                 *               *               *               *               *               *               *               *
+  Latvia                                               1               1               1               2               2               2               2               2
+  Lebanon                                              3               1               1               *               *               *               *               *
+  Lesotho                                              *               *               *               *               *               *               *               *
+  Liberia                                              1               1               1               1               1               1               1               1
+  Libya                                                4               5               1               *               *               1               4               5
+  Liechtenstein                                        2               3               4               3               3               4               5               2
+  Lithuania                                            *               *               *               *               *               *               3               2
+  Luxembourg                                         837             990            1198            1297            1349            1398            1494            1623
+  Macau                                                1               1               2               3               4               4               5               4
+  Macedonia                                            *               *               *               *               *               *               *               *
+  Madagascar                                           *               *               *               *               *               *               *               1
+  Malawi                                               *               *               *               *               *               *               *               *
+  Malaysia                                            46              43              36              33              36              41              42              41
+  Maldives                                             *               *               *               *               *               *               *               *
+  Mali                                                 *               *               *               *               *               *               *               *
+  Malta                                                2               2               2               2               1               1               2               2
+  Marshall Islands                                     *               1               1               1               1               1               1               1
+  Martinique                                           *               *               *               *               *               *               *               *
+  Mauritania                                           *               *               *               *               *               *               *               *
+  Mauritius                                            2               2               3               8               3               8               3               3
+  Mayotte                                              *               *               *               *               0               0               0               0
+  Mexico                                             122             131             144             157             117              97             117              90
+  Moldova                                              *               *               1               *               *               1               1               1
+  Monaco                                               2               2               3               2               2               2               2               2
+  Mongolia                                             *               *               *               *               *               *               1               *
+  Montenegro (1)                                    n.a.            n.a.               *               *               *               *               *               *
+  Montserrat                                           *               *               *               *               *               *               *               *
+  Morocco                                              1               1               1               2               3               2               3               5
+  Mozambique                                           *               1               1               *               *               *               *               *
+  Namibia                                              *               *               *               1               1               1               1               1
+  Nauru                                                *               *               *               *               *               *               *               *
+  Nepal                                                *               *               *               1               1               1               1               1
+  Netherlands                                        251             270             303             318             350             398             413             421
+  Netherlands Antilles (1)                             7               6            n.a.            n.a.            n.a.            n.a.            n.a.            n.a.
+  New Caledonia                                        *               *               *               *               *               *               *               *
+  New Zealand                                         15              15              19              20              19              27              32              38
+  Nicaragua                                            1               *               *               1               1               *               1               *
+  Niger                                                *               *               *               *               *               *               *               *
+  Nigeria                                              4               4               4               3               3               3               4               6
+  Niue                                                 *               *               *               *               0               0               *               *
+  Norway                                             213             254             297             309             306             340             370             452
+  Oman                                                21              26              28              29              22              23              23              19
+  Pakistan                                             2               2               1               2               2               4               3               1
+  Palau                                                *               *               *               *               *               *               *               *
+  Panama                                              15              15              16              17              19              22              23              28
+  Papua New Guinea                                     *               *               *               *               *               *               *               *
+  Paraguay                                             *               *               *               *               *               *               *               1
+  Peru                                                21              31              26              29              28              29              32              36
+  Philippines                                         37              39              37              42              46              43              36              38
+  Pitcairn Island                                      *               *               *               *               *               *               *               *
+  Poland                                              32              35              33              32              37              36              43              30
+  Portugal                                             5               6               7               6               9               8               7               9
+  Qatar                                                4               8               7               7              10               7              11              33
+  Reunion                                              *               *               *               *               *               *               *               *
+  Romania                                              6               6               7               2               4               3               8               8
+  Russia                                             165             139             115              73              91             103              15              11
+  Rwanda                                               *               *               *               *               *               *               *               *
+  Saint Helena                                         *               0               0               0               0               0               0               0
+  Saint Kitts and Nevis                                2               2               2               2               3               3               4               8
+  Saint Lucia                                          *               *               *               *               *               *               *               *
+  Saint Martin & Saint Barthelemy (1)               n.a.            n.a.               *               *               *               *               *               *
+  Saint Pierre and Miquelon                            *               *               *               0               0               0               0               0
+  Saint Vincent and the Grenadines                     *               *               *               *               *               *               *               *
+  Samoa                                                *               *               *               *               *               *               *               *
+  San Marino                                           *               *               *               *               *               *               *               *
+  Sao Tome and Principe                                0               *               *               0               0               0               *               *
+  Saudi Arabia                                       154             170             194             184             152             202             233             289
+  Senegal                                              *               *               *               *               *               *               *               *
+  Serbia and Montenegro (1)                            2               2               2               2               2               2               2               2
+  Seychelles                                           *               *               *               *               *               *               *               *
+  Sierra Leone                                         *               *               *               *               *               *               *               *
+  Singapore                                          241             272             307             331             321             348             353             363
+  Sint Maarten (1)                                  n.a.            n.a.               *               *               *               *               *               *
+  Slovakia                                             *               *               *               *               *               *               *               1
+  Slovenia                                             1               1               2               2               2               2               2               2
+  Solomon Islands                                      0               *               *               *               *               *               *               *
+  Somalia                                              *               *               *               *               *               *               *               *
+  South Africa                                        17              18              24              21              20              22              39              26
+  South Sudan                                       n.a.            n.a.               *               *               *               *               *               0
+  Spain                                               38              34              37              48              59              60              55              68
+  Sri Lanka                                            1               1               1               *               *               1               3               2
+  Sudan                                                *               *               *               *               *               *               *               *
+  Suriname                                             *               *               *               *               *               *               *               1
+  Swaziland                                            *               *               *               *               *               *               *               *
+  Sweden                                             112             135             157             169             165             180             216             236
+  Switzerland                                        566             581             634             708             742             824             813             813
+  Syria                                                *               *               *               *               *               *               *               *
+  Taiwan                                             369             372             397             454             519             565             577             626
+  Tajikistan                                           *               *               *               *               *               *               *               *
+  Tanzania                                             1               2               2               2               1               2               2               1
+  Thailand                                            57              54              46              37              55              79              77             104
+  Togo                                                 *               *               *               *               *               *               *               *
+  Tokelau                                              0               *               *               *               *               *               *               *
+  Tonga                                                *               *               *               *               *               *               *               *
+  Trinidad and Tobago                                  9              10              10              10               9              10              10              11
+  Tunisia                                              *               1               1               1               1               1               1               1
+  Turkey                                              29              59              53              76              59              59              30               3
+  Turkmenistan                                         *               *               *               *               *               *               *               *
+  Turks and Caicos Islands                             1               *               1               1               1               1               1               1
+  Tuvalu                                               *               0               0               *               0               0               0               0
+  Uganda                                               1               1               1               1               1               1               1               1
+  Ukraine                                              7               6               2               4               6               2               4               4
+  United Arab Emirates                               136             138             155             167             161             147             156             160
+  United Kingdom                                    1008            1116            1289            1448            1427            1493            1598            1776
+  Uruguay                                             12              11              12              12              10              10              11              13
+  Uzbekistan                                           *               *               *               *               *               *               *               *
+  Vanuatu                                              *               *               *               *               *               *               *               *
+  Venezuela                                            9               9               9               6               5               6               6               7
+  Vietnam                                              7              10              14              14              14              14              20              25
+  Wallis and Futuna                                    *               *               *               *               *               *               *               *
+  West Bank and Gaza                                   *               *               *               *               *               *               *               *
+  Western Sahara                                       *               *               *               *               0               0               0               0
+  Yemen                                                1               1               1               1               *               *               *               *
+  Zambia                                               *               *               *               *               *               *               *               *
+  Zimbabwe                                             *               *               *               *               *               *               *               *
+  International and regional organizatio             105              99             110              98              96              88              86              84
+  Country Unknown                                     89              51              85              99              82              64              79              56
+  Total                                            13261           14410           16417           17134           17139           18412           19400           20534
+
+
+* Greater than zero but less than $500 million.
+n.a. Not available.
+
+1. Separate reporting for certain country groups began with the 2014 survey.
+    Entries for Bonaire, Sint Eustatius, and Saba; Curacao; and Sint Maarten were previously reported together as Netherlands Antilles.
+    Entries for Guadeloupe and for Saint Martin and Saint Barthelemy were previously reported together as Guadeloupe.
+    Entries for Kosovo, Montenegro, and Serbia were previously reported together as Serbia.
+
+2. Excludes Hong Kong and Macau, which are reported separately.
+
+
+
