@@ -6447,3 +6447,30 @@ gate = the PR boundary for this stage.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1 && git status --short
 2026-07-02T17:39:20Z RDT-F: stage closed - PR #9 retitled with newest-stage-leading body; hard stop at the human gate (PR boundary)
+2026-07-02T17:39:21Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: stage closed - PR #9 retitled with newest-stage-leading body; hard stop at the human gate (PR boundary)" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-F stage closed, hard stop at PR gate)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
+2026-07-02T18:49:37Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTG_prediction.md && git commit -m "RDT-G pre-registration: receiving-side sweep + SDDS I.B line design
+
+Committed BEFORE any RDT-G build. Fixes ex ante: the I.B axes (SURGE >=
+24.749 = 0.05 x 494.977 / DECLINE / FLAT / SUPPRESSED-as-disclosure-finding);
+the magnitude-bar constructions under two allocation schemes (market-size-
+proportional over six candidate sovereign markets; COFER non-USD shares CNY-
+excluded renormalized) in local currency, with the bar mass [140.949, 494.977]
+traced to committed fields (494.977 from RDTD identity; 140.949 = 494.977 -
+RDT-E's positive-months cross-flow proxy 354.028) and the generous-to-the-null
+direction stated (fork lower endpoint 48.484 is smaller); the sequencing rule
+(denominators -> bars committed BEFORE the I.B parse and any receiving-leg
+read); per-leg mechanical rules (power test vs baseline sigma; leg-CONSISTENT/
+ABSENT at 0.5 x Bar_low; China-attributed legs separate from aggregate legs);
+sweep verdict rules (CONSISTENT / ABSENT-with-masking-caveat-in-sentence /
+UNPOWERED / INDETERMINATE); both masking mechanisms with pre-committed
+consequences (surge = consistency not attribution; null = weak not disposal;
+external-manager practice grounded or marked undocumented); interval endpoints
+change only on construction-grade attribution (none expected); flipped guard
+verbatim both directions; RDTG-AMEND insert-only mechanics.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
+2026-07-02T18:50:25Z RDT-G: pre-registration committed 7ad70d2 FIRST; denominators grounding agent launched (market outstandings, COFER shares, FX set only - no discriminator series per sequencing rule); I.B parse and receiving legs held until bars committed; orchestrator holding
