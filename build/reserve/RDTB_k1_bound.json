@@ -1,0 +1,1727 @@
+{
+ "payload": {
+  "artifact": "RDTB_k1_bound",
+  "contract": "build/reserve/RDTB_prediction.md — Part A(3-4) (pre-registered band logic + mechanical verdict rule)",
+  "establishment": "NOT ESTABLISHED — output of the RDT-B Part-A assembly run; no result herein is established until the verifier scenario (deterministic re-run of build/reserve/RDTB_recompute.py reproducing this JSON, recorded in build/reserve/RDTB_verify.json) has run and its artifact exists",
+  "no_date_no_probability": "no date and no probability is computed anywhere in this artifact",
+  "concept": "bound on China's official USD-asset share of disclosed FX (ex-gold) reserves (the LMW concept; the RDT k1 coordinate and its 13.89pp frontier live on this denominator); incl-gold variant reported alongside, labelled",
+  "inputs_sha256": {
+   "rdtb_a_components.csv": "3195fb0f727240d79f416086e3c86aece2c31e140bbf69a2558589e5668113bb",
+   "rdt_k2_gold.csv": "34276838d8f7f56436ba83dc2df88f6b1d960d9a4ff6743ce09541587cdb0e11",
+   "RDT_coordinates.parquet": "9860a19d3816682366492b62a848e929dc3e660539533287ddabdc016212be30",
+   "safe_ora_2020.xls": "3cf203db18af8c2ea21aff38e8ea569c99afa50a739e61cbeb254f6fc6900313",
+   "safe_ora_2021.xlsx": "43e53115e439ea671c3a00b601e76cf5c4b43ab31a5d629e70d687abf5772cb5",
+   "safe_ora_2022.xlsx": "e5bb7e4b27a0497efc65ff3a30738d9d69b33426246464b7b89867beeb42f7bd",
+   "safe_ora_2023.xlsx": "1f2c86e2f231fa01a649d3f3eede518de472f4d277191388e648fe567f19ab8e",
+   "safe_ora_2024.xlsx": "0a9478dd70508aa2ac9bb7856061f3efcb37109c0e589da800e39b5f0eeebd70",
+   "safe_ora_2025.xlsx": "735f655e309a1815108923e3c231f117877124bbbbeaa7b7b564dc29195b6738"
+  },
+  "p_ref_usd_per_ozt": 1799.629167,
+  "p_ref_source": "RDT_coordinates.parquet _PREF row gold_usd_per_oz_2021mean (2021 mean of WB Pink Sheet monthly gold prices; constant-price rule per RDT_prediction.md); troy-oz conversion 1e6/31.1034768 (same constant as RDT_recompute.py)",
+  "denominators": {
+   "source": "build/reserve/rdt_k2_gold.csv CHN rows (World Bank API FI.RES.TOTL.CD / FI.RES.XGLD.CD; gold tonnes WGC CBD v11 republishing IMF IFS, Q4)",
+   "parquet_crosscheck_max_abs_diff_busd": 0.0,
+   "safe_ora_year_end_crosscheck": {
+    "note": "SAFE ORA December values (100 million USD scaled to $bn) vs WB year-end; SAFE ex-gold = ORA total minus gold line; discrepancies reported, not smoothed (WB ex-gold is the committed denominator per the pre-registration)",
+    "source_files": [
+     "reserve/rd2_evidence/safe_ora_2020.xls",
+     "reserve/rd2_evidence/safe_ora_2021.xlsx",
+     "reserve/rd2_evidence/safe_ora_2022.xlsx",
+     "reserve/rd2_evidence/safe_ora_2023.xlsx",
+     "reserve/rd2_evidence/safe_ora_2024.xlsx",
+     "reserve/rd2_evidence/safe_ora_2025.xlsx"
+    ],
+    "rows": [
+     {
+      "year": 2020,
+      "safe_december_available_in_committed_file": true,
+      "wb_total_reserves_busd": 3357.241,
+      "wb_reserves_ex_gold_busd": 3238.782,
+      "safe_fx_reserves_busd_dec": 3216.522,
+      "safe_gold_busd_dec": 118.246,
+      "safe_total_ora_busd_dec": 3356.529,
+      "safe_ex_gold_busd_dec": 3238.283,
+      "diff_total_busd_safe_minus_wb": -0.712,
+      "diff_ex_gold_busd_safe_minus_wb": -0.499,
+      "diff_ex_gold_pct_of_wb": -0.015407
+     },
+     {
+      "year": 2021,
+      "safe_december_available_in_committed_file": true,
+      "wb_total_reserves_busd": 3427.931,
+      "wb_reserves_ex_gold_busd": 3313.92,
+      "safe_fx_reserves_busd_dec": 3250.166,
+      "safe_gold_busd_dec": 113.125,
+      "safe_total_ora_busd_dec": 3426.908,
+      "safe_ex_gold_busd_dec": 3313.783,
+      "diff_total_busd_safe_minus_wb": -1.023,
+      "diff_ex_gold_busd_safe_minus_wb": -0.137,
+      "diff_ex_gold_pct_of_wb": -0.004134
+     },
+     {
+      "year": 2022,
+      "safe_december_available_in_committed_file": true,
+      "wb_total_reserves_busd": 3306.839,
+      "wb_reserves_ex_gold_busd": 3189.689,
+      "safe_fx_reserves_busd_dec": 3127.691,
+      "safe_gold_busd_dec": 117.235,
+      "safe_total_ora_busd_dec": 3306.53,
+      "safe_ex_gold_busd_dec": 3189.295,
+      "diff_total_busd_safe_minus_wb": -0.309,
+      "diff_ex_gold_busd_safe_minus_wb": -0.394,
+      "diff_ex_gold_pct_of_wb": -0.012352
+     },
+     {
+      "year": 2023,
+      "safe_december_available_in_committed_file": true,
+      "wb_total_reserves_busd": 3449.544,
+      "wb_reserves_ex_gold_busd": 3301.32,
+      "safe_fx_reserves_busd_dec": 3237.977,
+      "safe_gold_busd_dec": 148.226,
+      "safe_total_ora_busd_dec": 3449.691,
+      "safe_ex_gold_busd_dec": 3301.465,
+      "diff_total_busd_safe_minus_wb": 0.147,
+      "diff_ex_gold_busd_safe_minus_wb": 0.145,
+      "diff_ex_gold_pct_of_wb": 0.004392
+     },
+     {
+      "year": 2024,
+      "safe_december_available_in_committed_file": false,
+      "wb_total_reserves_busd": 3456.025,
+      "wb_reserves_ex_gold_busd": 3264.804,
+      "note": "the committed safe_ora_2024 file carries an EMPTY 2024.12 column (its footnote lists USD/SDR conversion rates only through 2024-11): the SAFE year-end value is NOT-AVAILABLE on disk — reported, not smoothed; the 2024.11 values are shown as labelled context only, not compared to the WB year-end denominator",
+      "safe_fx_reserves_busd_nov_CONTEXT": 3265.86,
+      "safe_gold_busd_nov_CONTEXT": 193.431,
+      "safe_total_ora_busd_nov_CONTEXT": 3521.641,
+      "safe_ex_gold_busd_nov_CONTEXT": 3328.21
+     },
+     {
+      "year": 2025,
+      "safe_december_available_in_committed_file": true,
+      "wb_total_reserves_busd": 3748.745,
+      "wb_reserves_ex_gold_busd": 3424.873,
+      "safe_fx_reserves_busd_dec": 3357.869,
+      "safe_gold_busd_dec": 319.45,
+      "safe_total_ora_busd_dec": 3744.307,
+      "safe_ex_gold_busd_dec": 3424.857,
+      "diff_total_busd_safe_minus_wb": -4.438,
+      "diff_ex_gold_busd_safe_minus_wb": -0.016,
+      "diff_ex_gold_pct_of_wb": -0.000467
+     }
+    ]
+   }
+  },
+  "bias_direction_rule": "Pre-registered bias-direction rule (RDTB_prediction.md Part A): only components observed as official-attributable (foreign-OFFICIAL holder sector, China-attributable) may enter the LOWER bound; a TOTAL-RESIDENT (official + private mixed) component OVERSTATES the official quantity and is barred from the lower bound (upper-side information only); an all-countries OFFICIAL aggregate is not China-attributable and is likewise ineligible. A total-resident component inside the lower bound is a build failure.",
+  "component_inventory": [
+   {
+    "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+    "countries": [
+     "China"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "TOTAL_RESIDENT",
+    "bias_direction": "OVERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "bank-liability component attributed by counterparty residence (China residents); no securities custody band applicable; total-resident, upper-side context only",
+    "why_excluded_from_lower_bound": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only",
+    "source": "BIS LBS WS_LBS_D_PUB series Q.S.L.A.USD.A.5J.A.5A.A.CN.N (USD cross-border liabilities of all reporting banks to all sectors resident in China, Q4, USD mn scaled to bn), https://stats.bis.org/api/v2/data/dataflow/BIS/WS_LBS_D_PUB/1.0/ raw bis_lbs_L_USD_CN_A.csv, fetched 2026-07-02"
+   },
+   {
+    "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+    "countries": [
+     "China"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "TOTAL_RESIDENT",
+    "bias_direction": "OVERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "loan-and-deposit subset of the BIS series; counterparty-residence attribution; total-resident, upper-side context only",
+    "why_excluded_from_lower_bound": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only",
+    "source": "BIS LBS WS_LBS_D_PUB series Q.S.L.G.USD.A.5J.A.5A.A.CN.N (USD cross-border loan-and-deposit liabilities of all reporting banks to all sectors resident in China, Q4, USD mn scaled to bn), https://stats.bis.org/api/v2/data/dataflow/BIS/WS_LBS_D_PUB/1.0/ raw bis_lbs_L_loansdep_USD_CN_A.csv, fetched 2026-07-02"
+   },
+   {
+    "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+    "countries": [
+     "ALL"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "OFFICIAL",
+    "bias_direction": "UNDERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "n/a (all-countries aggregate)",
+    "why_excluded_from_lower_bound": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound",
+    "source": "TIC SHL 2025 report Exhibit 7 Official row, all countries, LT securities End-June (billions), https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2025r.pdf p.19, fetched 2026-07-02"
+   },
+   {
+    "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+    "countries": [
+     "ALL"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "OFFICIAL",
+    "bias_direction": "UNDERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "n/a (all-countries aggregate)",
+    "why_excluded_from_lower_bound": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound",
+    "source": "TIC SHL 2025 report Exhibit 7 Treasury-debt Official row, all countries, End-June (billions), https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2025r.pdf p.19, fetched 2026-07-02"
+   },
+   {
+    "component": "SHL_TOTAL_US_SECURITIES",
+    "countries": [
+     "Belgium",
+     "China",
+     "Luxembourg"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "TOTAL_RESIDENT",
+    "bias_direction": "OVERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "US-securities component: China-alone and China+Belgium+Luxembourg custody variants carried (band, never collapsed); since the component is total-resident it appears only in the upper-side context table",
+    "why_excluded_from_lower_bound": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only",
+    "source": "TIC SHL Table A1 (June 2015), shl2015r-appx/shl_app01_2015.csv in https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2015r-appx.zip, fetched 2026-07-02"
+   },
+   {
+    "component": "SHL_US_TREASURIES_LT",
+    "countries": [
+     "Belgium",
+     "China",
+     "Luxembourg"
+    ],
+    "years_covered": "2015-2019",
+    "holder_sector": "TOTAL_RESIDENT",
+    "bias_direction": "OVERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "US-securities component (long-term only, 2015-2019 single-year vintages): custody band carried; total-resident, upper-side context only",
+    "why_excluded_from_lower_bound": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only",
+    "source": "TIC SHL Table A1 LT-Treasury col (June 2015), shl2015r-appx/shl_app01_2015.csv in https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2015r-appx.zip, fetched 2026-07-02"
+   },
+   {
+    "component": "SHL_US_TREASURIES_TOTAL",
+    "countries": [
+     "Belgium",
+     "China",
+     "Luxembourg"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "TOTAL_RESIDENT",
+    "bias_direction": "OVERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "US-securities component: custody band carried (China-alone / China+Belgium+Luxembourg); total-resident, upper-side context only",
+    "why_excluded_from_lower_bound": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only",
+    "source": "TIC SHL 2025 report Exhibit 14 Total Treasuries End-June (billions), https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2025r.pdf p.34, fetched 2026-07-02"
+   },
+   {
+    "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+    "countries": [
+     "ALL"
+    ],
+    "years_covered": "2015-2025",
+    "holder_sector": "OFFICIAL",
+    "bias_direction": "UNDERSTATES_OFFICIAL",
+    "lower_bound_eligible": false,
+    "custody_treatment": "n/a (all-countries aggregate)",
+    "why_excluded_from_lower_bound": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound",
+    "source": "TIC MFH history, For. Official row, Dec 2015 column (billions), on-disk build/reserve/rdt_evidence/tic/mfhhis01.csv (publisher https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.csv, on-disk copy fetched 2026-07-01)"
+   }
+  ],
+  "lower_bound_eligible_components": [],
+  "lower_bound": {
+   "status": "NOT-CONSTRUCTIBLE",
+   "statement": "the LOWER bound is NOT-CONSTRUCTIBLE from official-attributable components: zero lower-bound-eligible components ground (no by-country official split exists in TIC SLT, TIC SHL, the TIC official-institution lines, or BIS LBS — see rdtb_a_manifest.json schema findings); recorded per year with each candidate component, its bias direction, and why it is excluded",
+   "per_year": [
+    {
+     "year": 2015,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 319.136,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 305.244,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5391.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3806.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 602.121,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1844.02,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1296.563,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Belgium",
+       "value_usd_bn": 195.574,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "China",
+       "value_usd_bn": 1267.5,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Luxembourg",
+       "value_usd_bn": 134.794,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 206.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1271.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 4091.6,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2016,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 362.453,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 347.061,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5201.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3761.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 589.298,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1629.572,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1348.523,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Belgium",
+       "value_usd_bn": 95.245,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "China",
+       "value_usd_bn": 1238.077,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Luxembourg",
+       "value_usd_bn": 179.989,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 155.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1240.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3813.4,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2017,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 349.808,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 335.183,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5212.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3663.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 690.855,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1540.549,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1397.779,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Belgium",
+       "value_usd_bn": 84.726,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "China",
+       "value_usd_bn": 1144.081,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Luxembourg",
+       "value_usd_bn": 173.695,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 98.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1146.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 4024.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2018,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 427.556,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 410.122,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5428.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3651.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 738.768,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1606.779,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1493.73,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Belgium",
+       "value_usd_bn": 138.032,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "China",
+       "value_usd_bn": 1187.504,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Luxembourg",
+       "value_usd_bn": 169.447,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 154.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1192.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3956.8,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2019,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 458.02,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 440.247,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5796.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3852.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 780.17,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1543.397,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1623.075,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Belgium",
+       "value_usd_bn": 174.593,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "China",
+       "value_usd_bn": 1108.673,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_LT",
+       "country": "Luxembourg",
+       "value_usd_bn": 183.333,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 199.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1112.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 4076.9,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2020,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 577.558,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 562.464,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5895.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3763.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 852.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1569.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1777.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 217.835,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1074.361,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Luxembourg",
+       "value_usd_bn": 268.668,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 4186.5,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2021,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 632.201,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 614.341,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 6197.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3940.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 925.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1575.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 2301.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 227.007,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 1061.132,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Luxembourg",
+       "value_usd_bn": 301.585,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 4117.7,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2022,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 521.172,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 501.312,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5699.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3607.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 873.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1473.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 1972.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 270.92,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 937.694,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Luxembourg",
+       "value_usd_bn": 303.845,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3667.4,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2023,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 502.752,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 479.586,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 5923.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3544.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 980.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1432.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 2094.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 330.137,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 834.087,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Luxembourg",
+       "value_usd_bn": 329.009,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3796.4,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 507.588,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 483.3,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 6324.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3557.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 1025.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1401.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 2329.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 314.814,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 780.39,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Luxembourg",
+       "value_usd_bn": 369.086,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3792.5,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "L_cons_pp": "NOT-CONSTRUCTIBLE",
+     "official_attributable_components_entering": [],
+     "candidate_components_excluded": [
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR",
+       "country": "China",
+       "value_usd_bn": 638.801,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "BIS_LBS_USD_XB_LIABILITIES_LOANSDEP",
+       "country": "China",
+       "value_usd_bn": 617.273,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_SECURITIES",
+       "country": "ALL",
+       "value_usd_bn": 6502.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_AGG_OFFICIAL_LT_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3500.0,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Belgium",
+       "value_usd_bn": 1181.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "China",
+       "value_usd_bn": 1279.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_TOTAL_US_SECURITIES",
+       "country": "Luxembourg",
+       "value_usd_bn": 2641.0,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Belgium",
+       "value_usd_bn": 429.475,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "China",
+       "value_usd_bn": 731.488,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "SHL_US_TREASURIES_TOTAL",
+       "country": "Luxembourg",
+       "value_usd_bn": 401.651,
+       "holder_sector": "TOTAL_RESIDENT",
+       "bias_direction": "OVERSTATES_OFFICIAL",
+       "why_excluded": "holder sector TOTAL_RESIDENT (official + private mixed): OVERSTATES_OFFICIAL — barred from the lower bound by the pre-registered bias-direction rule; upper-side information only"
+      },
+      {
+       "component": "TIC_MFH_AGG_OFFICIAL_TREASURIES",
+       "country": "ALL",
+       "value_usd_bn": 3877.6,
+       "holder_sector": "OFFICIAL",
+       "bias_direction": "UNDERSTATES_OFFICIAL",
+       "why_excluded": "holder sector OFFICIAL but all-countries aggregate (country=ALL): UNDERSTATES_OFFICIAL for the world total yet NOT attributable to China — ineligible for a China lower bound"
+      }
+     ]
+    }
+   ]
+  },
+  "upper_bound": {
+   "incl_gold_basis": {
+    "formula": "U_incl(y) = 100 - constant-price gold value share(pct, P_ref basis) - any other OBSERVED non-dollar component (none grounded -> 0)",
+    "per_year": [
+     {
+      "year": 2015,
+      "gold_tonnes": 1762.31,
+      "gold_value_constant_price_busd": 101.966237,
+      "gold_share_constant_price_pct": 2.957978,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 97.042022
+     },
+     {
+      "year": 2016,
+      "gold_tonnes": 1842.56,
+      "gold_value_constant_price_busd": 106.609455,
+      "gold_share_constant_price_pct": 3.399119,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.600881
+     },
+     {
+      "year": 2017,
+      "gold_tonnes": 1842.56,
+      "gold_value_constant_price_busd": 106.609455,
+      "gold_share_constant_price_pct": 3.264734,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.735266
+     },
+     {
+      "year": 2018,
+      "gold_tonnes": 1852.51,
+      "gold_value_constant_price_busd": 107.185156,
+      "gold_share_constant_price_pct": 3.350514,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.649486
+     },
+     {
+      "year": 2019,
+      "gold_tonnes": 1948.31,
+      "gold_value_constant_price_busd": 112.728089,
+      "gold_share_constant_price_pct": 3.479024,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.520976
+     },
+     {
+      "year": 2020,
+      "gold_tonnes": 1948.31,
+      "gold_value_constant_price_busd": 112.728089,
+      "gold_share_constant_price_pct": 3.363501,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.636499
+     },
+     {
+      "year": 2021,
+      "gold_tonnes": 1948.31,
+      "gold_value_constant_price_busd": 112.728089,
+      "gold_share_constant_price_pct": 3.289748,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.710252
+     },
+     {
+      "year": 2022,
+      "gold_tonnes": 2010.51,
+      "gold_value_constant_price_busd": 116.326945,
+      "gold_share_constant_price_pct": 3.518644,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.481356
+     },
+     {
+      "year": 2023,
+      "gold_tonnes": 2235.39,
+      "gold_value_constant_price_busd": 129.338372,
+      "gold_share_constant_price_pct": 3.770074,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.229926
+     },
+     {
+      "year": 2024,
+      "gold_tonnes": 2279.56,
+      "gold_value_constant_price_busd": 131.894022,
+      "gold_share_constant_price_pct": 3.883007,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.116993
+     },
+     {
+      "year": 2025,
+      "gold_tonnes": 2306.3,
+      "gold_value_constant_price_busd": 133.441183,
+      "gold_share_constant_price_pct": 3.750124,
+      "other_observed_non_dollar_components_busd": 0.0,
+      "other_observed_non_dollar_components_note": "none grounded (no non-USD component was observed in any inspected source)",
+      "U_incl_gold_pp": 96.249876
+     }
+    ]
+   },
+   "ex_gold_basis": {
+    "formula": "U_ex(y) = 100 - 100*(observed non-USD FX components)/FX-ex-gold; no non-USD FX component is observed in any grounded source -> U_ex = 100pp",
+    "per_year": [
+     {
+      "year": 2015,
+      "fx_ex_gold_usd_bn": 3345.194,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2016,
+      "fx_ex_gold_usd_bn": 3029.775,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2017,
+      "fx_ex_gold_usd_bn": 3158.877,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2018,
+      "fx_ex_gold_usd_bn": 3091.881,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2019,
+      "fx_ex_gold_usd_bn": 3127.494,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2020,
+      "fx_ex_gold_usd_bn": 3238.782,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2021,
+      "fx_ex_gold_usd_bn": 3313.92,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2022,
+      "fx_ex_gold_usd_bn": 3189.689,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2023,
+      "fx_ex_gold_usd_bn": 3301.32,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2024,
+      "fx_ex_gold_usd_bn": 3264.804,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     },
+     {
+      "year": 2025,
+      "fx_ex_gold_usd_bn": 3424.873,
+      "observed_non_usd_fx_components_busd": 0.0,
+      "observed_non_usd_fx_components_note": "none grounded",
+      "U_ex_gold_pp": 100.0
+     }
+    ]
+   },
+   "weakness_statement": "stated plainly, as pre-registered: unobserved non-USD assets make the upper side weak — it sits at ~96pp (incl-gold) / 100pp (ex-gold) and does not materially constrain the USD share"
+  },
+  "context_upper_side_only": {
+   "bis_lbs_usd_deposits_total_resident": {
+    "label": "CONTEXT ONLY — TOTAL-RESIDENT (all sectors resident in China), NEVER official-attributable: BIS LBS publishes no official/central-bank counterparty split for the China key (sectors M and O return no data); this series cannot enter the lower bound and is not an official quantity",
+    "per_year_q4": [
+     {
+      "year": 2015,
+      "usd_xb_liabilities_all_instruments_busd_q4": 319.136,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 305.244,
+      "all_instruments_pct_of_wb_fx_ex_gold": 9.540134
+     },
+     {
+      "year": 2016,
+      "usd_xb_liabilities_all_instruments_busd_q4": 362.453,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 347.061,
+      "all_instruments_pct_of_wb_fx_ex_gold": 11.963034
+     },
+     {
+      "year": 2017,
+      "usd_xb_liabilities_all_instruments_busd_q4": 349.808,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 335.183,
+      "all_instruments_pct_of_wb_fx_ex_gold": 11.073809
+     },
+     {
+      "year": 2018,
+      "usd_xb_liabilities_all_instruments_busd_q4": 427.556,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 410.122,
+      "all_instruments_pct_of_wb_fx_ex_gold": 13.828346
+     },
+     {
+      "year": 2019,
+      "usd_xb_liabilities_all_instruments_busd_q4": 458.02,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 440.247,
+      "all_instruments_pct_of_wb_fx_ex_gold": 14.644952
+     },
+     {
+      "year": 2020,
+      "usd_xb_liabilities_all_instruments_busd_q4": 577.558,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 562.464,
+      "all_instruments_pct_of_wb_fx_ex_gold": 17.832568
+     },
+     {
+      "year": 2021,
+      "usd_xb_liabilities_all_instruments_busd_q4": 632.201,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 614.341,
+      "all_instruments_pct_of_wb_fx_ex_gold": 19.077135
+     },
+     {
+      "year": 2022,
+      "usd_xb_liabilities_all_instruments_busd_q4": 521.172,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 501.312,
+      "all_instruments_pct_of_wb_fx_ex_gold": 16.339273
+     },
+     {
+      "year": 2023,
+      "usd_xb_liabilities_all_instruments_busd_q4": 502.752,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 479.586,
+      "all_instruments_pct_of_wb_fx_ex_gold": 15.228818
+     },
+     {
+      "year": 2024,
+      "usd_xb_liabilities_all_instruments_busd_q4": 507.588,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 483.3,
+      "all_instruments_pct_of_wb_fx_ex_gold": 15.547273
+     },
+     {
+      "year": 2025,
+      "usd_xb_liabilities_all_instruments_busd_q4": 638.801,
+      "usd_xb_liabilities_loans_deposits_busd_q4": 617.273,
+      "all_instruments_pct_of_wb_fx_ex_gold": 18.651816
+     }
+    ]
+   },
+   "shl_total_securities_custody_band": {
+    "label": "CONTEXT ONLY — TOTAL-RESIDENT, not official: TIC SHL by-country holdings have no holder-sector split; the CN+BE+LU pooled variant is the custody upper envelope (Euroclear/Clearstream custody also serves non-China clients) and exceeds China's reserves by construction in recent years; June vintages over WB year-end denominators (vintage mismatch, labelled)",
+    "per_year_june": [
+     {
+      "year": 2015,
+      "china_alone_total_us_securities_busd_june": 1844.02,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 3742.704,
+      "china_alone_pct_of_wb_fx_ex_gold": 55.124456,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 111.883018
+     },
+     {
+      "year": 2016,
+      "china_alone_total_us_securities_busd_june": 1629.572,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 3567.393,
+      "china_alone_pct_of_wb_fx_ex_gold": 53.785248,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 117.744486
+     },
+     {
+      "year": 2017,
+      "china_alone_total_us_securities_busd_june": 1540.549,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 3629.183,
+      "china_alone_pct_of_wb_fx_ex_gold": 48.768882,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 114.888392
+     },
+     {
+      "year": 2018,
+      "china_alone_total_us_securities_busd_june": 1606.779,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 3839.277,
+      "china_alone_pct_of_wb_fx_ex_gold": 51.967686,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 124.172858
+     },
+     {
+      "year": 2019,
+      "china_alone_total_us_securities_busd_june": 1543.397,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 3946.642,
+      "china_alone_pct_of_wb_fx_ex_gold": 49.349319,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 126.191833
+     },
+     {
+      "year": 2020,
+      "china_alone_total_us_securities_busd_june": 1569.0,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 4198.0,
+      "china_alone_pct_of_wb_fx_ex_gold": 48.444137,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 129.616627
+     },
+     {
+      "year": 2021,
+      "china_alone_total_us_securities_busd_june": 1575.0,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 4801.0,
+      "china_alone_pct_of_wb_fx_ex_gold": 47.526796,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 144.873745
+     },
+     {
+      "year": 2022,
+      "china_alone_total_us_securities_busd_june": 1473.0,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 4318.0,
+      "china_alone_pct_of_wb_fx_ex_gold": 46.180051,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 135.373699
+     },
+     {
+      "year": 2023,
+      "china_alone_total_us_securities_busd_june": 1432.0,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 4506.0,
+      "china_alone_pct_of_wb_fx_ex_gold": 43.376589,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 136.490858
+     },
+     {
+      "year": 2024,
+      "china_alone_total_us_securities_busd_june": 1401.0,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 4755.0,
+      "china_alone_pct_of_wb_fx_ex_gold": 42.912224,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 145.644271
+     },
+     {
+      "year": 2025,
+      "china_alone_total_us_securities_busd_june": 1279.0,
+      "cn_be_lu_pooled_total_us_securities_busd_june": 5101.0,
+      "china_alone_pct_of_wb_fx_ex_gold": 37.34445,
+      "cn_be_lu_pooled_pct_of_wb_fx_ex_gold": 148.939829
+     }
+    ]
+   }
+  },
+  "verdict": {
+   "rule_quoted": "NON-DEGENERATE iff L_cons(latest available year) >= 13.89pp + 5pp (i.e., >= 18.89pp); STILL-DEGENERATE otherwise (including: the official split is not published; the components do not ground). (RDTB_prediction.md, Part A, fixed before any component was seen.)",
+   "threshold_pp": 18.89,
+   "L_cons_latest_year": 2025,
+   "L_cons_latest_value": "NOT-CONSTRUCTIBLE (zero official-attributable, China-attributable USD components ground in TIC SLT / TIC SHL / TIC official-institution lines / BIS LBS)",
+   "verdict": "STILL-DEGENERATE",
+   "consequence": "the k1 cell stays UNDETERMINED and the SAFE-vintage judgment returns to the human gate; the composite is NOT recomputed (pre-registered ONLY-if rule: recompute only if k1 became non-degenerate)",
+   "falsifiable_expectation_branch_realized": "the pre-registered IF-branch \"if the split is not published, STILL-DEGENERATE\" is the branch that realized: the by-country official split is not published in any inspected source",
+   "upper_side_statement": "the upper side is WEAK, as pre-registered: with no observed non-USD component, U_incl-gold(y) = 100 - constant-price gold share (~96pp) and U_ex-gold(y) = 100pp; neither constrains the USD share materially"
+  },
+  "SOURCE": [
+   "build/reserve/rdtb_a_components.csv + rdtb_a_manifest.json + rdtb_a_provenance.md (RDT-B Part A(1-2) grounding, fetched 2026-07-02: TIC SLT/SHL/MFH, BIS LBS)",
+   "build/reserve/rdt_k2_gold.csv (WB FI.RES.TOTL.CD / FI.RES.XGLD.CD; WGC CBD v11 gold tonnes)",
+   "build/reserve/RDT_coordinates.parquet (_PREF gold_usd_per_oz_2021mean; CHN k2 input rows, cross-check)",
+   "build/reserve/rd2_evidence/safe_ora_2020.xls .. safe_ora_2025.xlsx (SAFE Official Reserve Assets monthly tables; December columns)",
+   "contract: build/reserve/RDTB_prediction.md Part A (pre-registered 2026-07-02, before any component was seen)"
+  ]
+ },
+ "self_check": {
+  "payload_sha256": "ed90470c5eedaba7a3385e071bfdc40eeb078d952d73792047ad50827c5bd5c5",
+  "byte_reproduction_vs_previous_file": true,
+  "deterministic": true,
+  "note": "re-running this script from the on-disk inputs alone regenerates the payload; payload_sha256 is the hash of the serialized payload object (this self_check block excluded)"
+ }
+}

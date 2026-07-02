@@ -47,11 +47,20 @@ Composite (pre-registered construction): C = -0.155; members k1+k2+k3+k4; S1 med
 | k4 | N/A-issuer | — | — | — | — | — | — |
 
 China k1 (INFERRED-BOUNDED everywhere it appears): headline envelope [0.000, 100.000] (mid 50.000) pp — the union with the [0,100]-clipped residual route is effectively [0,100]; raw residual endpoints (unclipped): 2014 [12.78, 152.21], 2025 [-22.83, 153.53] pp. d is UNBOUNDED by interval arithmetic (the origin envelope straddles the frontier), so China's headline composite is degenerate — reported, not smoothed. SAFE-route SENSITIVITY (labelled, NOT the headline): position [33.879, 82.121] (mid 58.000) pp, d(2014 origin) [0.453, 1.547] (mid 1.000), d(2018 origin) [0.340, 2.314] (mid 1.327).
+<!-- RDTB-AMEND:BEGIN k1-counterpart-bound -->
+**RDT-B amendment (counterpart bound, `RDTB_k1_bound.json`):** the k1 cell is EXPLICITLY RETAINED DEGENERATE. A counterpart-side LOWER bound on China's official USD-asset share is NOT-CONSTRUCTIBLE: no by-country official split is published anywhere — TIC SLT (instrument-only by country), TIC SHL (holder-sector split aggregate-only; by-country official suppressed for confidentiality), TIC official-institution lines (aggregate "Of which" only), BIS LBS (counterparty sectors M/O unpublished for the China key) — so zero lower-bound-eligible components ground. The computed UPPER side is weak by construction (2025: 96.25pp incl-gold basis; 100.00pp ex-gold basis — no non-USD FX component is observed). Verdict per the pre-registered mechanical rule: **STILL-DEGENERATE** — the residual-route near-uninformativeness above is now corroborated from the counterpart side, and the SAFE-vintage judgment returns to the human gate.
+<!-- RDTB-AMEND:END k1-counterpart-bound -->
 
 China k3 (custody BAND, INFERRED-BOUNDED everywhere it appears): ACTIVE-basis (primary) — cumulative net long-term Treasury transactions from 2014 on the TIC band, over WB denominators: H_active(2025) = [130.9, 1161.7] (mid 646.3) $bn, x_active = [3.49, 30.99] (mid 17.24)%, d_active = [0.065, 0.971] (mid 0.518); v_active recent-3y [0.063, 0.140] (mid 0.102) d/yr, full-window [0.029, 0.083] (mid 0.056) d/yr; raw active flow [-101.6, -85.0] (mid -93.3) $bn/yr (recent-3y, = mean net transactions) vs market-value holdings drift -61.2 (China-alone) / 15.8 (China+BEL+LUX) $bn/yr — the valuation confound is why the active basis is primary. Coherent custody-pairing sensitivity: d = 0.563003 (China-alone path) vs 0.946666 (China+BEL+LUX path); both paths approach on recent-3y (0.085113 / 0.032003 d/yr).
+<!-- RDTB-AMEND:BEGIN k3-differential-s2 -->
+**RDT-B annotation (cross-holder differential test, `RDTB_k3_distribution.json`):** recent-3y verdict axis (fixed ex ante): **DIFFERENTIAL** — China-alone r = -0.1092/yr, percentile 0.023 of the 43-country universe (most negative); pooled CN+BE+LU r = -0.0612/yr, percentile 0.098; official-aggregate baseline r_off = -0.0036/yr — China-alone is 30.6x beyond it; ES-11/1 treated median -0.0180 vs control median +0.1092, rank-sum p_two = 0.036 (treated N=4; DESCRIPTIVE, no causal claim). Full-window context BESIDE it: China-alone percentile 0.405 (mid-pack; pooled 0.225) — the differential is recent-window-specific; the verdict axis was fixed ex ante in RDTB_prediction.md.
+<!-- RDTB-AMEND:END k3-differential-s2 -->
 
 Composite (pre-registered construction): C = UNBOUNDED — DEGENERATE — a member d is UNBOUNDED (k1); members k1+k2+k3; S1 median DEGENERATE (unbounded member: k1); S2 OBSERVED-only 0.892 (k2); S3 min DEGENERATE (unbounded member — the minimum is unbounded below). Alt-onset (2018) C = UNBOUNDED — DEGENERATE — a member d is UNBOUNDED (k1).
 SAFE-route sensitivity composite (labelled, NOT the headline): C = [0.581, 1.260] (mid 0.920) (2014 origin); [0.562, 1.498] (mid 1.030) (2018 origin).
+<!-- RDTB-AMEND:BEGIN composite-not-recomputed -->
+**RDT-B:** the composite is NOT recomputed — per the pre-registered ONLY-if rule it is recomputed only if k1 became non-degenerate, and the RDT-B counterpart bound returned **STILL-DEGENERATE** (k1 remains degenerate; `RDTB_k1_bound.json`).
+<!-- RDTB-AMEND:END composite-not-recomputed -->
 
 ### India
 
@@ -130,6 +139,9 @@ For every holder-coordinate with d > 0 and v > 0, tau = d/v — each tau strictl
 | Poland | k4 | 1.000 | 0.000 | not approaching at current velocity (v <= 0); no tau | 0.000 | not approaching at current velocity (v <= 0); no tau |
 
 China k3 ACTIVE-basis kinematics (primary construction for China's k3 velocity): tau recent-3y: {"lower": 0.462172, "upper": 15.438977, "midpoint_label_only": 5.094741}; tau full-window: {"lower": 0.785978, "upper": 33.97638, "midpoint_label_only": 9.319223} — each "if current velocity persists; velocities regime-shift (Russia's own did in 2014 and 2018); kinematic descriptor, not a forecast".
+<!-- RDTB-AMEND:BEGIN k3-differential-s3 -->
+**RDT-B annotation on the live signal (`RDTB_k3_distribution.json`):** the active-basis selling behind these kinematics is not universal on the verdict axis: recent-3y verdict axis (fixed ex ante): **DIFFERENTIAL** — China-alone r = -0.1092/yr, percentile 0.023 of the 43-country universe (most negative); pooled CN+BE+LU r = -0.0612/yr, percentile 0.098; official-aggregate baseline r_off = -0.0036/yr — China-alone is 30.6x beyond it; ES-11/1 treated median -0.0180 vs control median +0.1092, rank-sum p_two = 0.036 (treated N=4; DESCRIPTIVE, no causal claim). Full-window context BESIDE it: China-alone percentile 0.405 (mid-pack; pooled 0.225) — the differential is recent-window-specific; the verdict axis was fixed ex ante in RDTB_prediction.md. Cross-sectional descriptor; not a forecast, no date, no probability.
+<!-- RDTB-AMEND:END k3-differential-s3 -->
 
 **Regime-shift statement:** velocities regime-shift — Russia's own velocity changed discontinuously in 2014 and again in 2018 (phase velocities in section 1) — so every tau above is a kinematic descriptor under a frozen velocity, never a forecast and never a date.
 
@@ -139,10 +151,20 @@ China k3 ACTIVE-basis kinematics (primary construction for China's k3 velocity):
 
 1. **Path calibration rests on Russia (N=1 completed exit).** The scan found 20 USD-share-decline qualifiers, but none is a completed all-coordinate anticipatory exit; Turkey's ordering over its own decline window differs from Russia's (currency first, gold/UST later), so the Russia ordering is not a universal law.
 2. **China k1 is INFERRED-BOUNDED, never a point.** The residual route is nearly uninformative: raw endpoints [12.78, 152.21] pp (2014) and [-22.83, 153.53] pp (2025), clipped to [0,100]; the headline envelope is effectively [0,100] and every downstream headline number carries that width (hence the degenerate headline composite).
+<!-- RDTB-AMEND:BEGIN limitations-k1 -->
+   - **RDT-B update to item 2 (`RDTB_k1_bound.json`):** the counterpart route corroborates the near-uninformativeness — a lower bound from official-attributable USD components is NOT-CONSTRUCTIBLE (no by-country official split exists in TIC SLT / TIC SHL / TIC official-institution lines / BIS LBS; zero eligible components ground), and the computed upper side is weak (2025: 96.25pp incl-gold, 100.00pp ex-gold). k1 is EXPLICITLY RETAINED DEGENERATE; the SAFE-vintage judgment returns to the human gate.
+<!-- RDTB-AMEND:END limitations-k1 -->
 3. **China k3 custody band width**: at the latest published month (2026-04) the band is [651.1, 1542.1] $bn UST — **891.0 $bn wide** (China-alone vs China+Belgium+Luxembourg; Euroclear/Clearstream custody also serves non-China clients, so the band is intentionally wide).
+<!-- RDTB-AMEND:BEGIN limitations-k3 -->
+   - **RDT-B caveats on the k3 DIFFERENTIAL annotation (`RDTB_k3_distribution.json`):** (i) the differential is recent-window-specific — full-window China-alone percentile 0.405, mid-pack; (ii) the ES-11/1 treated group is N=4 (descriptive rank-sum only, no causal claim); (iii) the transactions series carries the publisher's 2023-02 Form S -> SLT basis break for all countries (the recent-3y verdict window lies entirely on the post-break basis); (iv) the official-aggregate baseline r_off is transactions-basis only from 2023-02 (the full-window baseline is holdings-change basis, labelled as such in the artifact).
+<!-- RDTB-AMEND:END limitations-k3 -->
 4. **k4 is coarse**: CIPS per-country participation NOT-AVAILABLE (publisher does not publish it); LMW CNY shares are grounded zeros for Turkey/Poland and NOT-AVAILABLE for India/Saudi Arabia; swap lines are context flags only (India 0, Turkey 35, Saudi 50, Russia 150 bn CNY), never composite inputs.
 5. **COFER 2025Q3 methodology break** (unallocated eliminated; IMF-staff imputation back to 2000Q1, TNM/2025/14) rides every residual-route input; **LMW thins in 2023** (n=31 disclosers vs ~49-56 earlier), so the 2023 percentiles behind the 2024-2026 residual and SAFE corridors rest on a thinner cross-section that freezes after 2023.
 6. **The valuation split is a residual construction**: by-country valuation change exists only from 2023-02 (basis break marked in the 2023 rows); pre-2023 the split is bounded, and the residual absorbs coverage/custody reclassification, not only price — the 2022-2023 rates selloff cut market values with zero selling (the false-positive-exit confound), which is why China's k3 velocity is computed on the active basis.
 7. Russia k2 denominators end 2024 and Poland k3 2026 is unpublished; each coordinate is measured at its own latest vintage, stated per cell.
 
 STATUS: OUTPUT — NOT ESTABLISHED until the verifier artifact exists.
+<!-- RDTB-AMEND:BEGIN provenance -->
+---
+**RDT-B amendment provenance:** this file was amended by RDT-B (pre-registered in `build/reserve/RDTB_prediction.md`). All amendment content is delimited by RDTB-AMEND marker comments and every number in it is computed by `build/reserve/RDTB_recompute.py` from `RDTB_k1_bound.json` and `RDTB_k3_distribution.json` — stripping the marked blocks reproduces the pre-amendment object byte-for-byte (checked against the historical sha256 in `RDT_verify.json`). `RDT_recompute.py` is NOT modified; `RDT_verify.json`'s object byte-identity claim is historical (pre-amendment) per the pre-registration; `RDTB_verify.json` carries the amended object's byte-reproduction.
+<!-- RDTB-AMEND:END provenance -->
