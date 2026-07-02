@@ -5671,3 +5671,36 @@ EOF
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1) || echo "tree clean"
+2026-07-02T14:29:59Z	OUTPUT (not established until verifier runs)	git add build/reserve/RDTE_prediction.md build/run-ledger.log 2>/dev/null; git commit -q -m "$(cat <<'EOF'
+Pre-register RDT-E (the migration bound / perimeter fork)
+
+Fixes before any build: the fork (migration M = the custody-relocation
+share of China's -446.5 US-LT decline; dNonUS-true = 494.977 - M; the
+fork cannot be resolved - beneficial ownership is confidential - only
+bounded); the three caps with exact constructions and named blind
+spots (A = class-matched accretion room, overstating-safe; B =
++/-3-month synchronized-mirror mass with the STAGGERED-migration
+blind spot stated up front; C = conditional official-classification
+cap grounding only if the methodology quote establishes the
+Euroclear-official-classifies-private premise AND the official
+aggregates actually declined, with the other-official netting blind
+spot); the mechanical combination (M_hi = min over GROUNDED caps
+only, each reported separately before the minimum; M_lo = 0 unless a
+publisher-documented event or the strict month+class 10%-tolerance
+mirror rule establishes a floor, and even then labelled
+consistent-with, never established); windows fixed to the RDT-B
+verdict axis + full-window context; classes fixed to the SLT schema
+with the pre-2020 visibility limit stated; the mid-2010s Belgium
+surge checked as the migration template only if the on-disk record
+carries it, never imported; mechanical verdict thresholds
+(DOMINANT iff floor >= half; MINOR iff ceiling <= quarter;
+UNINFORMATIVE-BOUND otherwise); the flipped guard verbatim (no
+window/class selection to shrink M_hi; no attributing the whole
+BE/LU accretion to China); a symmetric UNINFORMATIVE-BOUND primary
+expectation refutable both directions; the established amendment
+mechanics with guarded templates.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git log --oneline -1 && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
