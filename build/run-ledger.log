@@ -5323,3 +5323,44 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T05:22:01Z	OUTPUT (not established until verifier runs)	du -sh build/reserve/rdtd_evidence/ && git add build/reserve/rdtd_sdds_series.csv build/reserve/rdtd_sdds_manifest.json build/reserve/rdtd_sdds_provenance.md build/reserve/rdtd_pool_determination.md build/reserve/rdtd_evidence/ build/run-ledger.log && git commit -q -m "$(cat <<'EOF'
+RDT-D Parts 2-3 grounding: SDDS templates (132/132) + pool determination
+
+SDDS: the monthly SAFE Data Template fetched complete, 2015-06 ->
+2026-05, 132/132 months, no gaps (133 raw .xls retained; data month
+read from each file's header, not link labels). Every required
+Section-I.A line - securities, deposits total and its three
+counterpart lines, other reserve assets, IMF position, SDRs, gold -
+is POPULATED in all 132 months: no suppression of required lines
+anywhere (the suppressed-answer branch does not fire on disclosure
+grounds). Structural findings recorded: the of-which sub-lines blank
+throughout; deposits-(ii) of-which-abroad equals the full line in all
+months; other-reserve-assets is entirely the derivatives sub-line
+(goes negative); deposits are only 0.06-1.36% of the FX line. The
+2020-10 republication caught (both vintages retained, correction
+documented). Reconciliation EXACT: template totals vs the committed
+rdtc_safe_totals.csv max diff 0.000 bn over all 54 overlap months;
+securities+deposits closes to the FX line within 0.001 bn every
+month. Context (not verdict): verdict-axis dSecurities +221.791,
+dDeposits +12.248, reproducing the committed dFX +234.039 exactly.
+
+Pool determination (the pre-registered BOUND, no split fabricated):
+neither perimeter contains the other - TIC "China, Mainland" is
+residence-of-holder via US custody chains (SHL 4.3.4, TIC FAQ #7,
+MFH footnote, retained) and so includes non-reserve mainland holders
+(CIC grounded via its own FAQ as a mainland holder of US Treasury
+bills capitalized FROM reserves; state banks; private residents) ->
+OVERSTATES the reserve pool's US holdings; while reserve securities
+custodied via Euroclear/Clearstream/UK are excluded -> UNDERSTATES,
+mitigated only by the CN+BE+LU variant. The excess is not publicly
+quantifiable (no TIC per-country official split; no SAFE custody
+geography; no CIC US-holdings figure) - NOT-AVAILABLE items recorded;
+the entrusted-state-bank-funds claim left secondary-only and unused.
+
+Fragility (Part 1) computed but uncommitted pending the gate;
+identity assembly and verdict not begun.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
