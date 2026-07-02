@@ -6592,3 +6592,35 @@ for m in re.finditer(r'[^.]*[Oo]verseas[^.]*\.', t):
         print('*', s[:350])
 EOF
 2026-07-02T20:21:26Z RDT-G: receiving legs grounded (a,b,c,e,f,g PRIMARY; i ALTERNATE-OFFICIAL; d NOT-AVAILABLE absent-by-construction; h NOT-AVAILABLE unfetchable, evidence retained; M1 grounded IMF+TIC); assembly next
+2026-07-02T20:21:30Z	OUTPUT (not established until verifier runs)	grep -rliE 'claude-opus|claude-fable|opus-4|fable-5' build/reserve/RDTG_legs_manifest.json build/reserve/RDTG_legs_provenance.md; echo leak=$? && git add build/reserve/RDTG_legs_manifest.json build/reserve/RDTG_legs_provenance.md build/reserve/rdtg_evidence/ && echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: receiving legs grounded (a,b,c,e,f,g PRIMARY; i ALTERNATE-OFFICIAL; d NOT-AVAILABLE absent-by-construction; h NOT-AVAILABLE unfetchable, evidence retained; M1 grounded IMF+TIC); assembly next" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "RDT-G receiving legs: nine legs grounded from publishers + M1 citation
+
+China-attributed: (a) Japan GROUNDED-PRIMARY (BoJ regional-BOP China PI
+liabilities quarterly 2014Q1-2025Q4 + monthly country breakdown, 100mn yen,
+equity/debt split; BoJ FAQ Q10 custody caveat quoted); (b) euro area
+GROUNDED-PRIMARY position-only (EA19 vs CN quarterly to 2022Q3, all obs
+estimate-flagged; the flows liabilities cell structurally ABSENT - probes
+retained; ECB residual-method caveat quoted); (c) UK GROUNDED-PRIMARY (ten
+Pink Book editions 2016-2025, table 10.1 China x portfolio liabilities,
+stitchable end-2014 to end-2023 with mixed-vintage friction stated; ONS
+CPIS-mirror attribution quoted); (d) Canada NOT-AVAILABLE absent by
+construction (StatCan metadata proves no China line; finest split All
+other countries; intermediary-collection statement retained). Aggregate:
+(e) Bund investor structure GROUNDED-PRIMARY (official third-country
+central-bank line 2020-12..2025-06; baseline support only 2020-2021 stated;
+bearer-bond estimation caveat quoted); (f) JGB foreign share
+GROUNDED-PRIMARY (BoJ FOF Overseas JGB stock/flow 1997Q4-2026Q1, unit
+verified); (g) gilt overseas GROUNDED-PRIMARY (ONS HEWD 1966Q4-2026Q1 +
+DMO cross-check identical at 2025Q4); (h) OAT NOT-AVAILABLE exists-but-
+unfetchable (AFT Cloudflare 403 x3; BdF series metadata grounded but obs
+keyed-API-locked; empty-export evidence retained; partial compiler chart
+Q3-2022..Q3-2025 retained as context); (i) AGS GROUNDED-ALTERNATE-OFFICIAL
+(ABS IIP 653B general government quarterly 2013Q1-2026Q1, semis-dilution
+friction stated; nominee-survey caveat quoted; AOFM unreachable again,
+log retained). M1 GROUNDED: IMF Revised Guidelines for FX Reserve
+Management 2013 + TIC SHL2024 custodial-bias passages, PDFs retained,
+quoted verbatim. 58 evidence files under rdtg_evidence/leg_*. No tests or
+verdicts computed - those are the assembly's.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git log --oneline -1
+2026-07-02T20:22:26Z RDT-G: Phase-3 assembly launched (leg tests vs committed bars, I.B + sweep verdicts, RDTG-AMEND + verifier); orchestrator holding
