@@ -1,0 +1,36 @@
+{
+ "purpose": "verifier artifact for RDT-E Parts 2-3: records that RDTE_result.json and the amended RDT_breaking_point_object.md were regenerated deterministically from the committed inputs by build/reserve/RDTE_recompute.py; that the UNMODIFIED RDTE_ingredients_recompute.py, re-run in a sandbox from the committed inputs alone, byte-reproduces the committed RDTE_ingredients.json and RDTE_ingredients_panel.parquet; and that the official-series axis changes recompute from the committed csv and match the committed manifest. Until all_pass=true every number in these outputs is an OUTPUT, not established.",
+ "no_date_no_probability_no_currency_guess": "no date, no probability, and no destination-currency guess anywhere in the RDT-E outputs",
+ "network": "none",
+ "inputs_sha256": {
+  "build/reserve/RDTE_ingredients.json": "db199c4b94a887b4b343bee65d81243d5e9ded6d481f0adb5fbb9d38c96ca209",
+  "build/reserve/RDTE_ingredients_panel.parquet": "a631afd0cc0fbafb93903b74cd7bee3d8f86ffbdca91ab20779d05d50b4e009c",
+  "build/reserve/RDTE_ingredients_recompute.py": "0ca7f5c7bc405f3696571e62de3765fd2d96df6699c47d2a9dbe8813fcfbbacd",
+  "build/reserve/rdte_official_series.csv": "0825430563763c2e4f2e52ff5cf39123d9e323706123e813cd4497a67121add5",
+  "build/reserve/rdte_official_manifest.json": "8c8d4513aeac5e715d4552229e437f9e156ecd27c84e8446d4e58f252aab6c07",
+  "build/reserve/rdte_methodology_determination.md": "c485f0ede17274f453b78409a381808d7a7a84be9fdcf36b673da1de9ff3f0b9",
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTD_verify.json": "f9671be5a5cc2b5a7d1a624a132eb41620f7c47119dbb4cd4c3c67599fdf978b",
+  "build/reserve/RDTE_prediction.md": "7d6ab5bbabcc613b5f0c5cb75247196b12a000c56e93323a39c492a2ae19a637"
+ },
+ "outputs_sha256": {
+  "RDTE_result.json": "67cf45d26dd375c8f67a9ce2e7360a8f71c0ffb05498a78c1b40424b581202c2",
+  "RDT_breaking_point_object.md": "5f2d18e7ed1cd3062187d7021f1ea6415215b7cd045ff04f144a8721c17a8748"
+ },
+ "match_flags": {
+  "result_two_pass_payload_identical": true,
+  "result_byte_reproduction": true,
+  "ingredients_sandbox_rerun_json_byte_identical": true,
+  "ingredients_sandbox_rerun_parquet_byte_identical": true,
+  "ingredients_sandbox_note": "byte-identical (json and parquet)",
+  "official_series_recompute_matches_manifest": true,
+  "amended_object_byte_reproduction": true,
+  "stripped_base_matches_post_rdtd_sha256": true
+ },
+ "post_rdtd_object_sha256": {
+  "stripped_base_recomputed_here": "fae198209c19b13817642d4fce705a6368701baf8f847453cd06d727c93f0fd5",
+  "recorded_in_RDTD_verify_json": "fae198209c19b13817642d4fce705a6368701baf8f847453cd06d727c93f0fd5",
+  "note": "RDTD_verify.json's object sha256 is the RDT-E amendment base; the further-amended object's byte-reproduction is carried here"
+ },
+ "all_pass": true
+}

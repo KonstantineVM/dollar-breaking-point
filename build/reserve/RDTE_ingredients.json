@@ -1,0 +1,1772 @@
+{
+ "artifact": "RDTE_ingredients (RDT-E Part 1(i)-(iii)+(vi): on-disk ingredients for the migration bound -- levels/diffs, capA, capB + candidate floor, class-mix, the mid-2010s Belgium-surge template, reconciliation)",
+ "establishment": "NOT ESTABLISHED -- output of RDTE_ingredients_recompute.py; every number below is an OUTPUT pending its verifier scenario (orchestrator re-run of build/reserve/RDTE_ingredients_recompute.py reproducing this file and the detail parquet deterministically, and the RDT-E human gate). No cap value here is a migration finding; caps bound, they do not establish.",
+ "contract": "build/reserve/RDTE_prediction.md (pre-registered before this build; windows, classes, cap constructions, blind spots and the flipped guard are fixed there and applied exactly)",
+ "no_date_no_probability": "no breaking-point date and no probability appear in this artifact; historical episode months are data description",
+ "flipped_guard (carried from the pre-registration)": {
+  "DRAMATIZE": "windows and classes are the pre-registered ones (verdict axis 2023-05..2026-04; SLT classes); nothing was selected post hoc to shrink M_hi",
+  "ZERO": "capA/capB count class- and month-matched ROOM; nothing here asserts the BE/LU accretion IS China's -- the custody-masking direction is carried, not resolved"
+ },
+ "inputs_sha256": {
+  "build/reserve/RDTC_class_panel.parquet": "f0bc20d218fd05998ff70a15ef790ba3454592b185c70eda4ebe14c8751d6e93",
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTD_fragility.json": "02c196c67c508220bdc224219e11892b476d3c4e1b4c4f33854098c937f62bcf",
+  "build/reserve/rdt_evidence/tic/mfhhis01.csv": "d0f4693d7b346f9993fae472c440f93c9fd3cebafcf31c15d1c8a8fc96950e56",
+  "build/reserve/RDTE_prediction.md": "7d6ab5bbabcc613b5f0c5cb75247196b12a000c56e93323a39c492a2ae19a637"
+ },
+ "units": "all *_busd fields are billions of USD, 3 decimals; panel native unit is millions (musd)",
+ "windows": {
+  "verdict_axis": {
+   "start": "2023-05",
+   "end": "2026-04",
+   "holdings_reference_month": "2023-04",
+   "role": "VERDICT AXIS (RDT-B recent-3y window verbatim)"
+  },
+  "full_window": {
+   "active_from": "2013-01",
+   "positions_from": "2020-01",
+   "end": "2026-04",
+   "role": "context (from each series' start)"
+  }
+ },
+ "panel_schema_verified": {
+  "columns_expected": [
+   "country",
+   "month",
+   "asset_class",
+   "pos_musd",
+   "active_musd",
+   "valchg_musd",
+   "basis",
+   "pos_source",
+   "tx_source"
+  ],
+  "columns_found": [
+   "country",
+   "month",
+   "asset_class",
+   "pos_musd",
+   "active_musd",
+   "valchg_musd",
+   "basis",
+   "pos_source",
+   "tx_source"
+  ],
+  "countries_found": [
+   "Belgium",
+   "China, Mainland",
+   "Luxembourg"
+  ],
+  "classes_found": [
+   "agency_lt",
+   "corp_other_bonds_lt",
+   "equity_lt",
+   "total_lt",
+   "treasury_lt"
+  ],
+  "month_span": [
+   "2013-01",
+   "2026-04"
+  ],
+  "native_unit": "millions of USD (musd); this artifact reports busd = musd/1000",
+  "positions_first_month": "2020-01",
+  "active_first_month": "2013-01"
+ },
+ "series_summaries": {
+  "China, Mainland": {
+   "treasury_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -284.774,
+      "mean_busd": -7.91,
+      "sd_busd": 12.262,
+      "min_busd": -29.997,
+      "min_month": "2026-03",
+      "max_busd": 23.895,
+      "max_month": "2024-04"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -372.546,
+      "mean_busd": -2.328,
+      "sd_busd": 14.247,
+      "min_busd": -37.202,
+      "min_month": "2016-01",
+      "max_busd": 44.49,
+      "max_month": "2013-01"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 829.935,
+      "last_month": "2026-04",
+      "last_busd": 606.352,
+      "delta_first_to_last_busd": -223.583,
+      "reference_month": "2023-04",
+      "reference_level_busd": 852.529,
+      "delta_vs_reference_busd": -246.177
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 606.352,
+      "delta_first_to_last_busd": 606.352
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -246.177,
+      "mean_busd": -6.838,
+      "sd_busd": 13.816,
+      "min_busd": -36.469,
+      "min_month": "2026-03",
+      "max_busd": 25.31,
+      "max_month": "2023-12"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 606.352,
+      "mean_busd": 3.814,
+      "sd_busd": 85.962,
+      "min_busd": -45.397,
+      "min_month": "2022-04",
+      "max_busd": 1073.121,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "agency_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -93.849,
+      "mean_busd": -2.607,
+      "sd_busd": 4.023,
+      "min_busd": -9.112,
+      "min_month": "2025-12",
+      "max_busd": 9.823,
+      "max_month": "2023-06"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 502.018,
+      "mean_busd": 3.138,
+      "sd_busd": 6.483,
+      "min_busd": -9.112,
+      "min_month": "2025-12",
+      "max_busd": 21.979,
+      "max_month": "2022-04"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 263.211,
+      "last_month": "2026-04",
+      "last_busd": 148.707,
+      "delta_first_to_last_busd": -114.504,
+      "reference_month": "2023-04",
+      "reference_level_busd": 262.442,
+      "delta_vs_reference_busd": -113.735
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 148.707,
+      "delta_first_to_last_busd": 148.707
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -113.735,
+      "mean_busd": -3.159,
+      "sd_busd": 5.242,
+      "min_busd": -16.439,
+      "min_month": "2024-04",
+      "max_busd": 9.733,
+      "max_month": "2023-11"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 148.707,
+      "mean_busd": 0.935,
+      "sd_busd": 19.713,
+      "min_busd": -16.439,
+      "min_month": "2024-04",
+      "max_busd": 239.88,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "corp_other_bonds_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 1.573,
+      "mean_busd": 0.044,
+      "sd_busd": 0.796,
+      "min_busd": -2.672,
+      "min_month": "2024-09",
+      "max_busd": 2.382,
+      "max_month": "2024-06"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 27.438,
+      "mean_busd": 0.171,
+      "sd_busd": 0.577,
+      "min_busd": -2.672,
+      "min_month": "2024-09",
+      "max_busd": 2.382,
+      "max_month": "2024-06"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 19.836,
+      "last_month": "2026-04",
+      "last_busd": 16.724,
+      "delta_first_to_last_busd": -3.112,
+      "reference_month": "2023-04",
+      "reference_level_busd": 19.979,
+      "delta_vs_reference_busd": -3.255
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 16.724,
+      "delta_first_to_last_busd": 16.724
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -3.255,
+      "mean_busd": -0.09,
+      "sd_busd": 0.935,
+      "min_busd": -2.644,
+      "min_month": "2024-09",
+      "max_busd": 3.083,
+      "max_month": "2024-06"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 16.724,
+      "mean_busd": 0.105,
+      "sd_busd": 1.518,
+      "min_busd": -2.644,
+      "min_month": "2024-09",
+      "max_busd": 17.344,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "equity_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -69.443,
+      "mean_busd": -1.929,
+      "sd_busd": 3.522,
+      "min_busd": -13.92,
+      "min_month": "2025-01",
+      "max_busd": 4.11,
+      "max_month": "2026-01"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -88.848,
+      "mean_busd": -0.555,
+      "sd_busd": 1.926,
+      "min_busd": -13.92,
+      "min_month": "2025-01",
+      "max_busd": 4.11,
+      "max_month": "2026-01"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 292.165,
+      "last_month": "2026-04",
+      "last_busd": 394.338,
+      "delta_first_to_last_busd": 102.173,
+      "reference_month": "2023-04",
+      "reference_level_busd": 292.109,
+      "delta_vs_reference_busd": 102.229
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 394.338,
+      "delta_first_to_last_busd": 394.338
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 102.229,
+      "mean_busd": 2.84,
+      "sd_busd": 12.053,
+      "min_busd": -17.372,
+      "min_month": "2025-03",
+      "max_busd": 36.148,
+      "max_month": "2026-04"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 394.338,
+      "mean_busd": 2.48,
+      "sd_busd": 18.358,
+      "min_busd": -24.905,
+      "min_month": "2022-09",
+      "max_busd": 204.657,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "total_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -446.493,
+      "mean_busd": -12.403,
+      "sd_busd": 13.959,
+      "min_busd": -40.076,
+      "min_month": "2024-05",
+      "max_busd": 18.079,
+      "max_month": "2023-06"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 68.062,
+      "mean_busd": 0.425,
+      "sd_busd": 16.479,
+      "min_busd": -40.076,
+      "min_month": "2024-05",
+      "max_busd": 49.751,
+      "max_month": "2013-01"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 1405.147,
+      "last_month": "2026-04",
+      "last_busd": 1166.121,
+      "delta_first_to_last_busd": -239.026,
+      "reference_month": "2023-04",
+      "reference_level_busd": 1427.059,
+      "delta_vs_reference_busd": -260.938
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 1166.121,
+      "delta_first_to_last_busd": 1166.121
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -260.938,
+      "mean_busd": -7.248,
+      "sd_busd": 24.722,
+      "min_busd": -48.324,
+      "min_month": "2026-03",
+      "max_busd": 49.02,
+      "max_month": "2023-12"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 1166.121,
+      "mean_busd": 7.334,
+      "sd_busd": 123.099,
+      "min_busd": -66.565,
+      "min_month": "2022-09",
+      "max_busd": 1535.002,
+      "max_month": "2020-01"
+     }
+    }
+   }
+  },
+  "Belgium": {
+   "treasury_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -64.07,
+      "mean_busd": -1.78,
+      "sd_busd": 7.835,
+      "min_busd": -15.476,
+      "min_month": "2025-04",
+      "max_busd": 20.224,
+      "max_month": "2024-09"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -339.088,
+      "mean_busd": -2.119,
+      "sd_busd": 4.151,
+      "min_busd": -15.476,
+      "min_month": "2025-04",
+      "max_busd": 20.224,
+      "max_month": "2024-09"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 263.806,
+      "last_month": "2026-04",
+      "last_busd": 382.579,
+      "delta_first_to_last_busd": 118.773,
+      "reference_month": "2023-04",
+      "reference_level_busd": 260.589,
+      "delta_vs_reference_busd": 121.99
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 382.579,
+      "delta_first_to_last_busd": 382.579
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 121.99,
+      "mean_busd": 3.389,
+      "sd_busd": 11.59,
+      "min_busd": -23.548,
+      "min_month": "2023-10",
+      "max_busd": 29.439,
+      "max_month": "2024-09"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 382.579,
+      "mean_busd": 2.406,
+      "sd_busd": 16.96,
+      "min_busd": -30.964,
+      "min_month": "2022-01",
+      "max_busd": 184.587,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "agency_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 2.498,
+      "mean_busd": 0.069,
+      "sd_busd": 0.185,
+      "min_busd": -0.149,
+      "min_month": "2024-09",
+      "max_busd": 0.696,
+      "max_month": "2023-10"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 2.019,
+      "mean_busd": 0.013,
+      "sd_busd": 0.11,
+      "min_busd": -0.314,
+      "min_month": "2013-12",
+      "max_busd": 0.696,
+      "max_month": "2023-10"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 11.006,
+      "last_month": "2026-04",
+      "last_busd": 12.859,
+      "delta_first_to_last_busd": 1.853,
+      "reference_month": "2023-04",
+      "reference_level_busd": 10.032,
+      "delta_vs_reference_busd": 2.827
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 12.859,
+      "delta_first_to_last_busd": 12.859
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 2.827,
+      "mean_busd": 0.079,
+      "sd_busd": 1.102,
+      "min_busd": -1.842,
+      "min_month": "2023-09",
+      "max_busd": 4.762,
+      "max_month": "2024-05"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 12.859,
+      "mean_busd": 0.081,
+      "sd_busd": 0.835,
+      "min_busd": -1.955,
+      "min_month": "2022-07",
+      "max_busd": 5.778,
+      "max_month": "2020-08"
+     }
+    }
+   },
+   "corp_other_bonds_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -32.696,
+      "mean_busd": -0.908,
+      "sd_busd": 3.153,
+      "min_busd": -5.847,
+      "min_month": "2025-04",
+      "max_busd": 9.956,
+      "max_month": "2026-02"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -183.424,
+      "mean_busd": -1.146,
+      "sd_busd": 2.004,
+      "min_busd": -7.172,
+      "min_month": "2013-05",
+      "max_busd": 9.956,
+      "max_month": "2026-02"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 591.854,
+      "last_month": "2026-04",
+      "last_busd": 701.337,
+      "delta_first_to_last_busd": 109.483,
+      "reference_month": "2023-04",
+      "reference_level_busd": 590.311,
+      "delta_vs_reference_busd": 111.026
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 701.337,
+      "delta_first_to_last_busd": 701.337
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 111.026,
+      "mean_busd": 3.084,
+      "sd_busd": 11.171,
+      "min_busd": -22.192,
+      "min_month": "2024-12",
+      "max_busd": 31.665,
+      "max_month": "2023-11"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 701.337,
+      "mean_busd": 4.411,
+      "sd_busd": 49.262,
+      "min_busd": -36.259,
+      "min_month": "2022-04",
+      "max_busd": 610.651,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "equity_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 15.589,
+      "mean_busd": 0.433,
+      "sd_busd": 0.957,
+      "min_busd": -2.244,
+      "min_month": "2025-03",
+      "max_busd": 2.813,
+      "max_month": "2025-11"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 17.336,
+      "mean_busd": 0.108,
+      "sd_busd": 0.609,
+      "min_busd": -3.075,
+      "min_month": "2023-03",
+      "max_busd": 2.813,
+      "max_month": "2025-11"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 82.811,
+      "last_month": "2026-04",
+      "last_busd": 170.797,
+      "delta_first_to_last_busd": 87.986,
+      "reference_month": "2023-04",
+      "reference_level_busd": 82.902,
+      "delta_vs_reference_busd": 87.895
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 170.797,
+      "delta_first_to_last_busd": 170.797
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 87.895,
+      "mean_busd": 2.442,
+      "sd_busd": 5.552,
+      "min_busd": -9.315,
+      "min_month": "2025-03",
+      "max_busd": 17.128,
+      "max_month": "2026-04"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 170.797,
+      "mean_busd": 1.074,
+      "sd_busd": 6.335,
+      "min_busd": -14.628,
+      "min_month": "2021-06",
+      "max_busd": 58.641,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "total_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -78.679,
+      "mean_busd": -2.186,
+      "sd_busd": 8.261,
+      "min_busd": -21.736,
+      "min_month": "2025-04",
+      "max_busd": 17.984,
+      "max_month": "2024-09"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -503.157,
+      "mean_busd": -3.145,
+      "sd_busd": 4.592,
+      "min_busd": -21.736,
+      "min_month": "2025-04",
+      "max_busd": 17.984,
+      "max_month": "2024-09"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 949.477,
+      "last_month": "2026-04",
+      "last_busd": 1267.572,
+      "delta_first_to_last_busd": 318.095,
+      "reference_month": "2023-04",
+      "reference_level_busd": 943.834,
+      "delta_vs_reference_busd": 323.738
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 1267.572,
+      "delta_first_to_last_busd": 1267.572
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 323.738,
+      "mean_busd": 8.993,
+      "sd_busd": 20.928,
+      "min_busd": -29.269,
+      "min_month": "2023-09",
+      "max_busd": 48.094,
+      "max_month": "2023-11"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 1267.572,
+      "mean_busd": 7.972,
+      "sd_busd": 69.611,
+      "min_busd": -53.155,
+      "min_month": "2022-01",
+      "max_busd": 858.812,
+      "max_month": "2020-01"
+     }
+    }
+   }
+  },
+  "Luxembourg": {
+   "treasury_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 66.63,
+      "mean_busd": 1.851,
+      "sd_busd": 6.561,
+      "min_busd": -16.921,
+      "min_month": "2023-10",
+      "max_busd": 15.139,
+      "max_month": "2025-08"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -286.547,
+      "mean_busd": -1.791,
+      "sd_busd": 4.965,
+      "min_busd": -16.921,
+      "min_month": "2023-10",
+      "max_busd": 15.139,
+      "max_month": "2025-08"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 262.478,
+      "last_month": "2026-04",
+      "last_busd": 336.836,
+      "delta_first_to_last_busd": 74.358,
+      "reference_month": "2023-04",
+      "reference_level_busd": 265.279,
+      "delta_vs_reference_busd": 71.557
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 336.836,
+      "delta_first_to_last_busd": 336.836
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 71.557,
+      "mean_busd": 1.988,
+      "sd_busd": 8.871,
+      "min_busd": -29.926,
+      "min_month": "2023-12",
+      "max_busd": 14.952,
+      "max_month": "2023-07"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 336.836,
+      "mean_busd": 2.118,
+      "sd_busd": 17.637,
+      "min_busd": -29.926,
+      "min_month": "2023-12",
+      "max_busd": 212.181,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "agency_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 64.463,
+      "mean_busd": 1.791,
+      "sd_busd": 2.783,
+      "min_busd": -6.494,
+      "min_month": "2023-05",
+      "max_busd": 7.666,
+      "max_month": "2026-03"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 190.38,
+      "mean_busd": 1.19,
+      "sd_busd": 2.165,
+      "min_busd": -6.494,
+      "min_month": "2023-05",
+      "max_busd": 7.978,
+      "max_month": "2020-08"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 44.69,
+      "last_month": "2026-04",
+      "last_busd": 113.512,
+      "delta_first_to_last_busd": 68.822,
+      "reference_month": "2023-04",
+      "reference_level_busd": 52.4,
+      "delta_vs_reference_busd": 61.112
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 113.512,
+      "delta_first_to_last_busd": 113.512
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 61.112,
+      "mean_busd": 1.698,
+      "sd_busd": 2.692,
+      "min_busd": -7.71,
+      "min_month": "2023-05",
+      "max_busd": 6.594,
+      "max_month": "2025-09"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 113.512,
+      "mean_busd": 0.714,
+      "sd_busd": 3.684,
+      "min_busd": -7.71,
+      "min_month": "2023-05",
+      "max_busd": 39.366,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "corp_other_bonds_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 128.214,
+      "mean_busd": 3.561,
+      "sd_busd": 6.703,
+      "min_busd": -11.481,
+      "min_month": "2024-06",
+      "max_busd": 23.643,
+      "max_month": "2025-03"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 134.615,
+      "mean_busd": 0.841,
+      "sd_busd": 3.709,
+      "min_busd": -11.481,
+      "min_month": "2024-06",
+      "max_busd": 23.643,
+      "max_month": "2025-03"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 613.253,
+      "last_month": "2026-04",
+      "last_busd": 816.613,
+      "delta_first_to_last_busd": 203.36,
+      "reference_month": "2023-04",
+      "reference_level_busd": 611.212,
+      "delta_vs_reference_busd": 205.401
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 816.613,
+      "delta_first_to_last_busd": 816.613
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 205.401,
+      "mean_busd": 5.706,
+      "sd_busd": 9.988,
+      "min_busd": -15.379,
+      "min_month": "2026-03",
+      "max_busd": 31.391,
+      "max_month": "2023-11"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 816.613,
+      "mean_busd": 5.136,
+      "sd_busd": 56.449,
+      "min_busd": -49.07,
+      "min_month": "2022-06",
+      "max_busd": 698.449,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "equity_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -60.458,
+      "mean_busd": -1.679,
+      "sd_busd": 7.838,
+      "min_busd": -35.388,
+      "min_month": "2025-03",
+      "max_busd": 12.015,
+      "max_month": "2025-02"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -21.025,
+      "mean_busd": -0.131,
+      "sd_busd": 4.112,
+      "min_busd": -35.388,
+      "min_month": "2025-03",
+      "max_busd": 12.015,
+      "max_month": "2025-02"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 1012.996,
+      "last_month": "2026-04",
+      "last_busd": 1463.536,
+      "delta_first_to_last_busd": 450.54,
+      "reference_month": "2023-04",
+      "reference_level_busd": 1058.121,
+      "delta_vs_reference_busd": 405.415
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 1463.536,
+      "delta_first_to_last_busd": 1463.536
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 405.415,
+      "mean_busd": 11.262,
+      "sd_busd": 48.289,
+      "min_busd": -98.834,
+      "min_month": "2025-03",
+      "max_busd": 129.828,
+      "max_month": "2026-04"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 1463.536,
+      "mean_busd": 9.205,
+      "sd_busd": 67.911,
+      "min_busd": -112.604,
+      "min_month": "2022-09",
+      "max_busd": 730.144,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "total_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 198.849,
+      "mean_busd": 5.524,
+      "sd_busd": 11.649,
+      "min_busd": -28.602,
+      "min_month": "2023-10",
+      "max_busd": 30.004,
+      "max_month": "2025-08"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 17.423,
+      "mean_busd": 0.109,
+      "sd_busd": 7.551,
+      "min_busd": -28.602,
+      "min_month": "2023-10",
+      "max_busd": 30.004,
+      "max_month": "2025-08"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 1933.417,
+      "last_month": "2026-04",
+      "last_busd": 2730.497,
+      "delta_first_to_last_busd": 797.08,
+      "reference_month": "2023-04",
+      "reference_level_busd": 1987.012,
+      "delta_vs_reference_busd": 743.485
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 2730.497,
+      "delta_first_to_last_busd": 2730.497
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 743.485,
+      "mean_busd": 20.652,
+      "sd_busd": 56.953,
+      "min_busd": -95.311,
+      "min_month": "2026-03",
+      "max_busd": 148.133,
+      "max_month": "2026-04"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 2730.497,
+      "mean_busd": 17.173,
+      "sd_busd": 140.099,
+      "min_busd": -152.325,
+      "min_month": "2022-09",
+      "max_busd": 1680.14,
+      "max_month": "2020-01"
+     }
+    }
+   }
+  },
+  "Belgium+Luxembourg": {
+   "treasury_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 2.56,
+      "mean_busd": 0.071,
+      "sd_busd": 10.838,
+      "min_busd": -30.953,
+      "min_month": "2023-10",
+      "max_busd": 21.36,
+      "max_month": "2024-09"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -625.635,
+      "mean_busd": -3.91,
+      "sd_busd": 6.688,
+      "min_busd": -30.953,
+      "min_month": "2023-10",
+      "max_busd": 21.36,
+      "max_month": "2024-09"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 526.284,
+      "last_month": "2026-04",
+      "last_busd": 719.415,
+      "delta_first_to_last_busd": 193.131,
+      "reference_month": "2023-04",
+      "reference_level_busd": 525.868,
+      "delta_vs_reference_busd": 193.547
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 719.415,
+      "delta_first_to_last_busd": 719.415
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 193.547,
+      "mean_busd": 5.376,
+      "sd_busd": 14.848,
+      "min_busd": -44.012,
+      "min_month": "2023-10",
+      "max_busd": 41.927,
+      "max_month": "2024-09"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 719.415,
+      "mean_busd": 4.525,
+      "sd_busd": 33.278,
+      "min_busd": -47.753,
+      "min_month": "2022-01",
+      "max_busd": 396.768,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "agency_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 66.961,
+      "mean_busd": 1.86,
+      "sd_busd": 2.74,
+      "min_busd": -6.242,
+      "min_month": "2023-05",
+      "max_busd": 7.638,
+      "max_month": "2026-03"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": 192.399,
+      "mean_busd": 1.202,
+      "sd_busd": 2.163,
+      "min_busd": -6.242,
+      "min_month": "2023-05",
+      "max_busd": 7.978,
+      "max_month": "2020-08"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 55.696,
+      "last_month": "2026-04",
+      "last_busd": 126.371,
+      "delta_first_to_last_busd": 70.675,
+      "reference_month": "2023-04",
+      "reference_level_busd": 62.432,
+      "delta_vs_reference_busd": 63.939
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 126.371,
+      "delta_first_to_last_busd": 126.371
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 63.939,
+      "mean_busd": 1.776,
+      "sd_busd": 2.702,
+      "min_busd": -6.736,
+      "min_month": "2023-05",
+      "max_busd": 7.345,
+      "max_month": "2024-05"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 126.371,
+      "mean_busd": 0.795,
+      "sd_busd": 4.064,
+      "min_busd": -6.736,
+      "min_month": "2023-05",
+      "max_busd": 44.3,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "corp_other_bonds_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 95.518,
+      "mean_busd": 2.653,
+      "sd_busd": 7.158,
+      "min_busd": -16.184,
+      "min_month": "2024-06",
+      "max_busd": 18.002,
+      "max_month": "2025-03"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -48.809,
+      "mean_busd": -0.305,
+      "sd_busd": 4.146,
+      "min_busd": -16.184,
+      "min_month": "2024-06",
+      "max_busd": 18.002,
+      "max_month": "2025-03"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 1205.107,
+      "last_month": "2026-04",
+      "last_busd": 1517.95,
+      "delta_first_to_last_busd": 312.843,
+      "reference_month": "2023-04",
+      "reference_level_busd": 1201.523,
+      "delta_vs_reference_busd": 316.427
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 1517.95,
+      "delta_first_to_last_busd": 1517.95
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 316.427,
+      "mean_busd": 8.79,
+      "sd_busd": 18.998,
+      "min_busd": -31.941,
+      "min_month": "2023-09",
+      "max_busd": 63.056,
+      "max_month": "2023-11"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 1517.95,
+      "mean_busd": 9.547,
+      "sd_busd": 105.371,
+      "min_busd": -71.697,
+      "min_month": "2020-03",
+      "max_busd": 1309.1,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "equity_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": -44.869,
+      "mean_busd": -1.246,
+      "sd_busd": 8.184,
+      "min_busd": -37.632,
+      "min_month": "2025-03",
+      "max_busd": 12.369,
+      "max_month": "2025-02"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -3.689,
+      "mean_busd": -0.023,
+      "sd_busd": 4.238,
+      "min_busd": -37.632,
+      "min_month": "2025-03",
+      "max_busd": 12.369,
+      "max_month": "2025-02"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 1095.807,
+      "last_month": "2026-04",
+      "last_busd": 1634.333,
+      "delta_first_to_last_busd": 538.526,
+      "reference_month": "2023-04",
+      "reference_level_busd": 1141.023,
+      "delta_vs_reference_busd": 493.31
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 1634.333,
+      "delta_first_to_last_busd": 1634.333
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 493.31,
+      "mean_busd": 13.703,
+      "sd_busd": 53.264,
+      "min_busd": -108.149,
+      "min_month": "2025-03",
+      "max_busd": 146.956,
+      "max_month": "2026-04"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 1634.333,
+      "mean_busd": 10.279,
+      "sd_busd": 73.551,
+      "min_busd": -119.642,
+      "min_month": "2022-09",
+      "max_busd": 788.785,
+      "max_month": "2020-01"
+     }
+    }
+   },
+   "total_lt": {
+    "active_flows_busd (PRIMARY first-difference basis)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 120.17,
+      "mean_busd": 3.338,
+      "sd_busd": 14.561,
+      "min_busd": -41.39,
+      "min_month": "2023-10",
+      "max_busd": 28.011,
+      "max_month": "2025-08"
+     },
+     "full_window_from_series_start_2013_01": {
+      "n_months": 160,
+      "cum_busd": -485.734,
+      "mean_busd": -3.036,
+      "sd_busd": 9.025,
+      "min_busd": -41.39,
+      "min_month": "2023-10",
+      "max_busd": 28.011,
+      "max_month": "2025-08"
+     }
+    },
+    "holdings_levels_busd (alongside)": {
+     "verdict_axis (reference month 2023-04, committed RDT-D convention)": {
+      "n_months": 36,
+      "first_month": "2023-05",
+      "first_busd": 2882.894,
+      "last_month": "2026-04",
+      "last_busd": 3998.069,
+      "delta_first_to_last_busd": 1115.175,
+      "reference_month": "2023-04",
+      "reference_level_busd": 2930.846,
+      "delta_vs_reference_busd": 1067.223
+     },
+     "full_window_from_series_start_2020_01": {
+      "n_months": 160,
+      "first_month": "2013-01",
+      "first_busd": 0.0,
+      "last_month": "2026-04",
+      "last_busd": 3998.069,
+      "delta_first_to_last_busd": 3998.069
+     }
+    },
+    "holdings_first_differences_busd (alongside)": {
+     "verdict_axis_2023_05_to_2026_04": {
+      "n_months": 36,
+      "cum_busd": 1067.223,
+      "mean_busd": 29.645,
+      "sd_busd": 71.877,
+      "min_busd": -121.554,
+      "min_month": "2026-03",
+      "max_busd": 183.375,
+      "max_month": "2023-11"
+     },
+     "full_window_from_series_start_2020_01_diffs_from_2020_02": {
+      "n_months": 159,
+      "cum_busd": 3998.069,
+      "mean_busd": 25.145,
+      "sd_busd": 208.372,
+      "min_busd": -193.616,
+      "min_month": "2020-03",
+      "max_busd": 2538.952,
+      "max_month": "2020-01"
+     }
+    }
+   }
+  }
+ },
+ "cap_A_class_matched_accretion": {
+  "definition (verbatim construction, pre-registered)": "capA = Sum_c min( max(-DeltaChina_active_c, 0), max(DeltaBELU_active_c, 0) ), active basis, verdict axis 2023-05..2026-04, SLT classes",
+  "per_class": {
+   "treasury_lt": {
+    "china_active_window_sum_busd": -284.774,
+    "belu_active_window_sum_busd": 2.56,
+    "china_decline_room_busd": 284.774,
+    "belu_accretion_room_busd": 2.56,
+    "capA_class_busd": 2.56,
+    "binding": "binds on the BE/LU accretion side (accretion smaller than China's decline)"
+   },
+   "agency_lt": {
+    "china_active_window_sum_busd": -93.849,
+    "belu_active_window_sum_busd": 66.961,
+    "china_decline_room_busd": 93.849,
+    "belu_accretion_room_busd": 66.961,
+    "capA_class_busd": 66.961,
+    "binding": "binds on the BE/LU accretion side (accretion smaller than China's decline)"
+   },
+   "corp_other_bonds_lt": {
+    "china_active_window_sum_busd": 1.573,
+    "belu_active_window_sum_busd": 95.518,
+    "china_decline_room_busd": 0.0,
+    "belu_accretion_room_busd": 95.518,
+    "capA_class_busd": 0.0,
+    "binding": "caps out mechanically: China did NOT actively sell this class over the axis"
+   },
+   "equity_lt": {
+    "china_active_window_sum_busd": -69.443,
+    "belu_active_window_sum_busd": -44.869,
+    "china_decline_room_busd": 69.443,
+    "belu_accretion_room_busd": 0.0,
+    "capA_class_busd": 0.0,
+    "binding": "caps out mechanically: BE/LU had NO net active accretion in this class over the axis"
+   }
+  },
+  "capA_total_busd": 69.521,
+  "blind_spot (quoted from RDTE_prediction.md)": "within-window netting (China sells c while others also feed BE/LU's c-line — capA counts gross room, not China's share of it); direction: capA can only OVERSTATE M's ceiling, which is the safe direction for a cap.",
+  "blind_spot_direction": "OVERSTATING-SAFE: capA counts gross class-matched room, not China's share of it, so it can only OVERSTATE the migration ceiling -- the safe direction for a cap (pre-registered).",
+  "holdings_basis_variant (LABELLED CONTEXT, not the cap -- holdings deltas mix active flows with valuation and the SLT gap G; reference month 2023-04)": {
+   "per_class": {
+    "treasury_lt": {
+     "china_delta_holdings_busd": -246.177,
+     "belu_delta_holdings_busd": 193.547,
+     "capA_holdings_class_busd": 193.547
+    },
+    "agency_lt": {
+     "china_delta_holdings_busd": -113.735,
+     "belu_delta_holdings_busd": 63.939,
+     "capA_holdings_class_busd": 63.939
+    },
+    "corp_other_bonds_lt": {
+     "china_delta_holdings_busd": -3.255,
+     "belu_delta_holdings_busd": 316.427,
+     "capA_holdings_class_busd": 3.255
+    },
+    "equity_lt": {
+     "china_delta_holdings_busd": 102.229,
+     "belu_delta_holdings_busd": 493.31,
+     "capA_holdings_class_busd": 0.0
+    }
+   },
+   "capA_holdings_total_busd": 260.741
+  }
+ },
+ "cap_B_synchronized_mirror_timing": {
+  "matching_procedure": "Per class, per month m in the verdict axis: China decline d_m = max(-active_China_m, 0), BE/LU rise r_m = max(+active_BELU_m, 0) (BELU = Belgium + Luxembourg monthly active, busd). CONTEMPORANEOUS = Sum_m min(d_m, r_m). PLUS-MINUS-3 (THE CAP) = greedy nearest-month matching: iterate distance k = 0,1,2,3; within each k, iterate China months chronologically; within a month, match the rise k months AFTER the decline before the rise k months BEFORE; each match decrements BOTH remaining masses, so no BE/LU rise is double-counted against multiple China declines. Rises are restricted to axis months (window fixed by the pre-registration); edge truncation can only UNDERSTATE capB at the window boundary -- an extended-rise sensitivity (2023-02..2026-04) is reported beside it, labelled, to size that edge effect.",
+  "per_class": {
+   "treasury_lt": {
+    "contemporaneous_busd (context)": 79.979,
+    "pm3_busd (THE CAP)": 143.908,
+    "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 152.986
+   },
+   "agency_lt": {
+    "contemporaneous_busd (context)": 50.186,
+    "pm3_busd (THE CAP)": 66.7,
+    "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 66.7
+   },
+   "corp_other_bonds_lt": {
+    "contemporaneous_busd (context)": 2.06,
+    "pm3_busd (THE CAP)": 7.493,
+    "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 7.493
+   },
+   "equity_lt": {
+    "contemporaneous_busd (context)": 18.087,
+    "pm3_busd (THE CAP)": 58.494,
+    "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 58.494
+   }
+  },
+  "capB_contemporaneous_total_busd (context)": 150.312,
+  "capB_pm3_total_busd (THE CAP)": 276.595,
+  "capB_pm3_extended_rise_sensitivity_busd (labelled, not the cap)": 285.673,
+  "blind_spot (quoted verbatim from RDTE_prediction.md)": "Blind spot, stated up front: STAGGERED migration — sell on the China line and repurchase via Euroclear more than 3 months later, or drip-fed — evades this cap entirely.",
+  "candidate_floor (pre-registered rule)": {
+   "rule": "month+class-matched mirror pairs with |China decline - BE/LU rise| <= 10% of the pair mass, SAME month and class",
+   "pair_mass_operationalization": "PRIMARY: pair mass = min(decline, rise) (the matched mirror mass; the stricter reading). SENSITIVITY: pair mass = (decline + rise)/2. Both reported; the pre-registration fixed the rule but not this arithmetic detail, so the stricter reading is primary.",
+   "qualifying_pairs": [
+    {
+     "month": "2023-08",
+     "class": "agency_lt",
+     "china_decline_busd": 1.34,
+     "belu_rise_busd": 1.399,
+     "matched_mass_busd": 1.34
+    },
+    {
+     "month": "2024-02",
+     "class": "agency_lt",
+     "china_decline_busd": 1.761,
+     "belu_rise_busd": 1.755,
+     "matched_mass_busd": 1.755
+    },
+    {
+     "month": "2025-05",
+     "class": "agency_lt",
+     "china_decline_busd": 5.171,
+     "belu_rise_busd": 4.735,
+     "matched_mass_busd": 4.735
+    },
+    {
+     "month": "2025-09",
+     "class": "agency_lt",
+     "china_decline_busd": 7.415,
+     "belu_rise_busd": 7.08,
+     "matched_mass_busd": 7.08
+    },
+    {
+     "month": "2026-01",
+     "class": "agency_lt",
+     "china_decline_busd": 4.45,
+     "belu_rise_busd": 4.508,
+     "matched_mass_busd": 4.45
+    },
+    {
+     "month": "2024-08",
+     "class": "equity_lt",
+     "china_decline_busd": 1.487,
+     "belu_rise_busd": 1.598,
+     "matched_mass_busd": 1.487
+    }
+   ],
+   "floor_mass_busd_primary": 20.847,
+   "floor_mass_busd_mean_variant": 20.847,
+   "label": "CONSISTENT-WITH-migration, NEVER established beneficial-ownership fact; the headline M_lo stays 0 with this as a labelled sensitivity (pre-registered)."
+  }
+ },
+ "class_mix": {
+  "china_pre_decline_composition (positions at reference month 2023-04, share of the four-class total)": {
+   "treasury_lt": {
+    "position_busd": 852.529,
+    "share": 0.597
+   },
+   "agency_lt": {
+    "position_busd": 262.442,
+    "share": 0.184
+   },
+   "corp_other_bonds_lt": {
+    "position_busd": 19.979,
+    "share": 0.014
+   },
+   "equity_lt": {
+    "position_busd": 292.109,
+    "share": 0.205
+   }
+  },
+  "china_active_decline_composition_over_axis (share of gross decline)": {
+   "treasury_lt": {
+    "decline_busd": 284.774,
+    "share_of_gross_decline": 0.636
+   },
+   "agency_lt": {
+    "decline_busd": 93.849,
+    "share_of_gross_decline": 0.209
+   },
+   "corp_other_bonds_lt": {
+    "decline_busd": 0.0,
+    "share_of_gross_decline": 0.0
+   },
+   "equity_lt": {
+    "decline_busd": 69.443,
+    "share_of_gross_decline": 0.155
+   }
+  },
+  "belu_accretion_composition_over_axis (net active by class; shares over the POSITIVE classes only)": {
+   "treasury_lt": {
+    "net_active_busd": 2.56,
+    "share_of_positive_accretion": 0.016
+   },
+   "agency_lt": {
+    "net_active_busd": 66.961,
+    "share_of_positive_accretion": 0.406
+   },
+   "corp_other_bonds_lt": {
+    "net_active_busd": 95.518,
+    "share_of_positive_accretion": 0.579
+   },
+   "equity_lt": {
+    "net_active_busd": -44.869,
+    "share_of_positive_accretion": null
+   }
+  },
+  "belu_leg_split (net active over axis, busd)": {
+   "treasury_lt": {
+    "Belgium": -64.07,
+    "Luxembourg": 66.63
+   },
+   "agency_lt": {
+    "Belgium": 2.498,
+    "Luxembourg": 64.463
+   },
+   "corp_other_bonds_lt": {
+    "Belgium": -32.696,
+    "Luxembourg": 128.214
+   },
+   "equity_lt": {
+    "Belgium": 15.589,
+    "Luxembourg": -60.458
+   }
+  },
+  "plain_reading": "China's book at 2023-04 was 59.7% Treasury LT and its axis decline was 63.6% Treasury LT (284.8 of 448.1 $bn gross decline), but the BE/LU net active accretion in Treasury LT was only 2.6 $bn (Belgium -64.1, Luxembourg 66.6) -- the BE/LU accretion sits in agency (67.0) and corporate (95.5) with equity net NEGATIVE (-44.9). That mismatch is what makes capA bite: the class where China sold most is the class where BE/LU accreted least."
+ },
+ "belgium_surge_template_mid2010s": {
+  "present": true,
+  "source": "build/reserve/rdt_evidence/tic/mfhhis01.csv (TIC MFH historical, total UST holdings incl. bills, monthly, from 2000)",
+  "episode_detection_rule (mechanical, disclosed)": "search domain 2010-01..2019-12; peak = argmax(Belgium); ramp start = argmin over the 24 months before the peak; reversal end = argmin over the 24 months after the peak; PRESENT iff rise >= 100 $bn and fall >= 100 $bn (disclosed thresholds)",
+  "ramp": {
+   "start_month": "2012-08",
+   "start_level_busd": 130.2,
+   "peak_month": "2014-03",
+   "peak_level_busd": 381.4,
+   "rise_busd": 251.2,
+   "months": 19,
+   "ramp_rate_busd_per_month": 13.221
+  },
+  "reversal": {
+   "trough_month": "2015-08",
+   "trough_level_busd": 110.7,
+   "fall_busd": 270.7,
+   "months": 17,
+   "reversal_rate_busd_per_month": -15.924
+  },
+  "china_mirror (from mfhhis01, pre-registered)": {
+   "china_delta_over_ramp_busd": 116.9,
+   "china_delta_over_reversal_busd": -1.6,
+   "monthly_diff_correlation_full_episode": -0.339,
+   "monthly_diff_correlation_ramp": -0.498,
+   "monthly_diff_correlation_reversal": -0.672,
+   "reading": "computed, not asserted: a NEGATIVE diff-correlation is the mirror signature (China down in the months Belgium is up); a POSITIVE one is co-movement, not mirroring"
+  },
+  "class_signature_extent": "Pre-2020 there is NO by-class POSITION record on disk -- the positions tables begin 2020-01, so the episode's position signature is total-UST timing/magnitude only (this series includes T-bills). The committed panel DOES carry by-class ACTIVE flows from 2013-01 (Form S basis): over the episode months on the panel (2013-01..2015-08), Belgium treasury_lt cumulative active = -76.7 $bn and China treasury_lt cumulative active = 265.7 $bn -- reported as the only class-level trace the on-disk record carries; nothing is imported from memory or literature.",
+  "luxembourg_over_episode_busd": 46.2,
+  "template_vs_current_on_same_series (total UST, mfhhis01; the historical file ends 2025-12, so the current leg is 2023-04..2025-12, 32 months of the 36-month axis -- overlap stated, not extrapolated)": {
+   "template_ramp_rate_busd_per_month": 13.221,
+   "current_belgium_delta_busd": 140.7,
+   "current_belgium_rate_busd_per_month": 4.397,
+   "current_luxembourg_delta_busd": 101.9,
+   "current_luxembourg_rate_busd_per_month": 3.184,
+   "current_china_delta_busd": -185.4
+  }
+ },
+ "reconciliation": {
+  "targets_read_from": [
+   "build/reserve/RDTC_class_flows.json",
+   "build/reserve/RDTD_result.json",
+   "build/reserve/RDTD_fragility.json"
+  ],
+  "axis_totals": {
+   "china_axis_active_total_vs_RDTC_residual": {
+    "computed_busd": -446.493,
+    "target_busd": -446.493,
+    "diff_busd": -0.0
+   },
+   "china_axis_active_total_vs_RDTD": {
+    "computed_busd": -446.493,
+    "target_busd": -446.493,
+    "diff_busd": -0.0
+   },
+   "cn_be_lu_axis_active_total_vs_RDTC_residual": {
+    "computed_busd": -326.323,
+    "target_busd": -326.323,
+    "diff_busd": -0.0
+   },
+   "cn_be_lu_axis_active_total_vs_RDTD": {
+    "computed_busd": -326.323,
+    "target_busd": -326.323,
+    "diff_busd": -0.0
+   }
+  },
+  "per_class_active_diffs": {
+   "treasury_lt": {
+    "china_diff_busd": 0.0,
+    "belu_vs_combined_minus_china_diff_busd": 0.0
+   },
+   "agency_lt": {
+    "china_diff_busd": 0.0,
+    "belu_vs_combined_minus_china_diff_busd": 0.0
+   },
+   "corp_other_bonds_lt": {
+    "china_diff_busd": 0.0,
+    "belu_vs_combined_minus_china_diff_busd": -0.0
+   },
+   "equity_lt": {
+    "china_diff_busd": -0.0,
+    "belu_vs_combined_minus_china_diff_busd": 0.0
+   }
+  },
+  "max_abs_per_class_active_diff_busd": 0.0,
+  "holdings_delta_diffs_vs_RDTD_fragility": {
+   "treasury_lt": {
+    "china_dH_diff_busd": -0.0,
+    "cn_be_lu_dH_diff_busd": -0.0
+   },
+   "agency_lt": {
+    "china_dH_diff_busd": -0.0,
+    "cn_be_lu_dH_diff_busd": -0.0
+   },
+   "corp_other_bonds_lt": {
+    "china_dH_diff_busd": 0.0,
+    "cn_be_lu_dH_diff_busd": -0.0
+   },
+   "equity_lt": {
+    "china_dH_diff_busd": 0.0,
+    "cn_be_lu_dH_diff_busd": 0.0
+   }
+  },
+  "max_abs_holdings_diff_busd": 0.0,
+  "panel_internal": {
+   "max_abs_gap_sum_of_classes_vs_total_lt_active_musd": 0.0,
+   "max_abs_gap_sum_of_classes_vs_total_lt_pos_musd": 1.0,
+   "note": "position gap of up to 1 musd (0.001 busd) is publisher rounding of the class rows vs the total row; caps are computed on the class rows"
+  }
+ },
+ "detail_parquet": "build/reserve/RDTE_ingredients_panel.parquet",
+ "self_check": {
+  "panel_schema_verified": true,
+  "no_nan_active_inside_axis": true,
+  "china_axis_total_reconciles_exactly": true,
+  "cn_be_lu_axis_total_reconciles_exactly": true,
+  "per_class_active_reconciles": true,
+  "holdings_deltas_reconcile": true,
+  "capB_pm3_geq_contemporaneous_every_class": true,
+  "capA_classes_capping_out_have_zero": true,
+  "floor_mass_leq_capB_contemporaneous": true,
+  "belgium_surge_thresholds_met": true,
+  "blind_spots_extracted_verbatim_from_prediction": true,
+  "all_pass": true
+ }
+}
