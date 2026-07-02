@@ -6194,3 +6194,46 @@ stamped NOT ESTABLISHED pending verifier + gate.
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
 2026-07-02T16:22:35Z RDT-F: centers grounding artifacts landing (manifest/provenance/evidence); agent still running - basis quotes pending; committed as-is per clean-tree hook, follow-up commits will capture revisions
+2026-07-02T16:22:37Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-F: centers grounding artifacts landing (manifest/provenance/evidence); agent still running - basis quotes pending; committed as-is per clean-tree hook, follow-up commits will capture revisions" >> build/run-ledger.log && git add build/run-ledger.log build/reserve/RDTF_centers_manifest.json build/reserve/RDTF_centers_provenance.md build/reserve/rdtf_evidence/ && git commit -m "RDT-F grounding (in progress): centers manifest/provenance + retained evidence
+
+Committed as landed while the grounding agent is still running (clean-tree
+discipline); the basis-quotes deliverable is pending and any agent revisions
+land as follow-up commits before the gate.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-02T16:23:07Z	OUTPUT (not established until verifier runs)	cd /home/user/dollar-breaking-point/build/reserve && python3 - <<'EOF'
+import json, pathlib, html, re
+# JSON validity
+m = json.load(open('RDTF_centers_manifest.json'))
+print("JSON OK:", len(m['grounded_centers']), "grounded;", len(m['ambiguous']), "ambiguous;", len(m['rejected_candidates']), "rejected")
+# Verify key quotes exist in RAW publisher bytes (normalize whitespace + entities)
+def norm(s):
+    s = html.unescape(s)
+    s = s.replace('“','"').replace('”','"').replace('’',"'").replace('‘',"'")
+    return re.sub(r'\s+',' ', s)
+checks = [
+ ('rdtb_evidence/shl2025r_extracted.txt', 'custodial bias" tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom'),
+ ('rdtb_evidence/shl2025r_extracted.txt', 'Prominent ICSDs are Euroclear in Belgium and Clearstream in Luxembourg'),
+ ('rdtb_evidence/shl2025r_extracted.txt', 'hubs for offshore debt issuance and securities custody businesses: the United Kingdom, Cayman Islands, Luxembourg, and Belgium'),
+ ('rdtb_evidence/shl2025r_extracted.txt', 'These countries include the Cayman Islands, Ireland, Luxembourg, Switzerland, and the United Kingdom'),
+ ('rdtb_evidence/shl2025r_extracted.txt', 'Caribbean financial centers are Bermuda; Bonaire, Sint Eustatius, and Saba; British Virgin Islands; Cayman Islands; Curacao; and Panama'),
+ ('rdtd_evidence/tic_faq2.html', 'custodial bias" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom'),
+ ('rdtd_evidence/tic_faq2.html', 'The custody holdings at FRBNY are reported at face value. TIC MFH data are reported at estimated value.'),
+ ('rdtd_evidence/tic_faq2.html', 'Valuation changes include both price change and exchange rate changes for non-dollar denominated securities'),
+ ('rdtd_evidence/tic_faq2.html', 'primarily reflects the custodial bias of the United Kingdom'),
+ ('rdte_evidence/method_mfh_legacy.html', 'custodial bias" contributes to the large recorded holdings in major custodial centers including Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom'),
+ ('rdte_evidence/method_mfh_legacy.html', 'Foreign holdings of long-term Treasury securities are collected at market value in the annual surveys and on the SLT'),
+ ('rdtf_evidence/frb_h41_current_20260702.htm', 'Includes securities and U.S. Treasury STRIPS at face value, and inflation compensation on TIPS'),
+ ('rdtb_evidence/tic_secb_live.html', 'There were no valuation change data before the series-break at 2023-02'),
+ ('rdt_evidence/tic/mfhhis01.txt', 'Caribbean Banking Centers include Bahamas, Bermuda, Cayman Islands, Netherlands Antilles, and Panama'),
+]
+allok = True
+for path, q in checks:
+    raw = norm(pathlib.Path(path).read_text(errors='replace'))
+    ok = norm(q) in raw
+    allok &= ok
+    print(("PASS " if ok else "FAIL "), path, "::", q[:70])
+print("ALL VERIFIED" if allok else "SOME FAILED")
+EOF
+2026-07-02T16:25:23Z RDT-F: grounding complete - centers BE/LU/CH/UK (HIGH) + Caribbean-banking-centers group (MEDIUM, group-level caveat); basis quotes found (H.4.1 face value; TIC MFH estimated market value, bills at face); official valchg path friction recorded (slt_table3 vs stale slt2d)
