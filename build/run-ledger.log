@@ -6059,3 +6059,51 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1 || echo "tree clean"
+2026-07-02T15:06:40Z	OUTPUT (not established until verifier runs)	python3 -c "import json,os; d=json.load(open('build/ledger.json')); r=[s for s in d['steps'] if s['id']=='RDTE'][0]; print('ledger valid;', [s['id'] for s in d['steps']]); print('RDTE verifier exists:', os.path.exists(r['verifier']))" && git add build/reserve/RDTE_ingredients.json build/reserve/RDTE_ingredients_recompute.py build/reserve/RDTE_ingredients_panel.parquet build/reserve/RDTE_result.json build/reserve/RDTE_recompute.py build/reserve/RDTE_verify.json build/reserve/RDT_breaking_point_object.md build/ledger.json build/run-ledger.log 2>/dev/null; git commit -q -m "$(cat <<'EOF'
+RDT-E: the migration bound = MIGRATION-MINOR (ceiling 69.5 bn, 15.6%)
+
+The perimeter fork bounded, never resolved. Each cap reported before
+the minimum: Cap A (class-matched accretion) = 69.521 bn - the
+load-bearing class-mix fact is that China's decline was 63.6%
+Treasury while BE/LU NET Treasury accretion was 2.560 bn (Belgium
+-64.070 netted against Luxembourg +66.630); Cap B (+/-3-month
+synchronized mirror) = 276.595 with the staggered blind spot carried
+verbatim; Cap C DOES-NOT-GROUND-ON-MIXED-RECORD (methodology premise
+established as a hedged joint reading of verbatim publisher passages;
+but TIC official ROSE +116.8 while FRBNY custody FELL -232.2 - the
+pre-registered rule presupposes both legs declined, and the exclusion
+is provably verdict-irrelevant, guarded in code). M_hi = 69.521 (Cap
+A binds); M_lo = 0 (the 20.847 candidate floor labelled
+consistent-with only). dNonUS-true in [425.456, 494.977].
+
+Mechanical verdict: MIGRATION-MINOR (69.521 <= 111.623; the
+pre-registered UNINFORMATIVE-BOUND primary REFUTED toward MINOR).
+The honest hard part, surfaced by the build itself and carried
+verdict-relevant in the object body: Cap A is NOT strictly
+overstating-safe under cross-flows - it bounds NET room (the 2.560
+IS the -64/+67 knife-edge), and two labelled sensitivity
+constructions (leg-unnetted 149.2; positive-months proxy 354.0)
+would each flip the branch; the pre-registration's own
+overstating-safe direction claim is superseded (the ingredients
+file's stale line is superseded by result/object - the gate's flag,
+honored). Counterweight stated: the mid-2010s Belgium migration
+template (ramp +13.2 bn/mo, negative China mirror correlations,
+computed from the on-disk record) has NO current-episode analogue -
+Belgium's Treasury active is negative.
+
+GATE PASS: the pre-registered formula unambiguously fixes the pooled
+window-net Cap-A construction (the flip variants are different
+formulas, not readings), so the small ceiling was EARNED and
+MINOR-with-conditionality is the honest landing; git precedence
+corroborated by the critic from the reflog. Routed to the human
+gate: whether a flip-capable ceiling should be promoted as MINOR
+(both flip values and the knife-edge are in the object body).
+Verifier all_pass=true, independently re-run. Ledger entry added.
+No date, no probability, no currency guess. Prior artifacts
+untouched except the tasked insert-only amendment (+12/-0, strips
+to the post-RDT-D sha).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ
+EOF
+)" && git push origin claude/verify-integrity-gates-sbmuob 2>&1 | tail -1
