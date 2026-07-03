@@ -6746,3 +6746,32 @@ with open(p, 'w') as f:
 print('RDTG appended; steps:', [s['id'] for s in j['steps']])
 PYEOF
 2026-07-03T01:16:40Z RDT-G: GATE PASS (nine explicit checks verified; critic limits + 4 non-blocking flags routed to human); RDTG ledger entry written (verifier build/reserve/RDTG_verify.json, all_pass=true); promoting stage artifacts; PR retitle next
+2026-07-03T01:16:41Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: GATE PASS (nine explicit checks verified; critic limits + 4 non-blocking flags routed to human); RDTG ledger entry written (verifier build/reserve/RDTG_verify.json, all_pass=true); promoting stage artifacts; PR retitle next" >> build/run-ledger.log && git add build/reserve/RDTG_result.json build/reserve/RDTG_recompute.py build/reserve/RDTG_verify.json build/reserve/RDT_breaking_point_object.md build/ledger.json build/run-ledger.log && git commit -m "RDT-G stage close: gate PASS, ledger entry (I.B FLAT + DESTINATION-ABSENT masking-capped)
+
+I.B verdict FLAT: Delta I.B_total 2022-01..2026-05 = -18.696 bn, strictly
+inside +/-24.74885 (threshold reproduced at run time from the committed RDTD
+identity constant), both endpoint conventions; the sub-line disclosure
+finding rides (gold/other blank 132/132, deposits 131/132, loans blank
+recent months); SUPPRESSED does not attach to the total. Sweep verdict
+DESTINATION-ABSENT on the pre-registered Scheme-1 headline: 3 of 3 powered
+grounded legs leg-ABSENT (Japan, UK Pink Book China line - which ROSE +8.6
+GBP bn but under half its bar, reported prominently - and JGB overseas) and
+no China-attributed leg CONSISTENT, with the masking caveat carried in the
+verdict sentence itself (null = weak evidence, not disposal). Scheme-2
+variant UNPOWERED, disclosed beside the headline. Unpowered legs (gilt, AGS)
+both FELL - their exclusion made ABSENT harder to reach, verified by the
+gate from the numbers. Fork interval ENDPOINTS UNCHANGED [48.484, 494.977];
+annotation per the pre-committed rule: weight toward RE-PARKING,
+MASKING-CAPPED. Insert-only RDTG-AMEND strips to the post-RDT-F sha
+(checked before amending); verifier all_pass=true; orchestrator
+independently re-ran the recompute byte-identical. Integrity-critic gate
+PASS with the critic's stated limits and four non-blocking flags recorded
+in the ledger note (leg-i yardstick substitution to ratify; knife-edge
+n_powered=3; leg-c near-structural bar; assembly artifacts committed here
+at promotion). Ledger entry RDTG written with verifier
+build/reserve/RDTG_verify.json, gate human, approved_marker
+build/approvals/RDTG.approved (human-only). Human gate = the PR boundary.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN && git log --oneline -1
+2026-07-03T01:18:07Z RDT-G: stage closed - PR #9 retitled with newest-stage-leading body; hard stop at the human gate (PR boundary)
