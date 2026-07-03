@@ -1,0 +1,142 @@
+{
+  "artifact": "sep_data_acquired.json",
+  "task": "TERMINAL separability experiment, Part 1 -- ACQUIRE higher-resolution flow data to test whether Test B's GEOMETRIC_ONLY finding is a property of the semiannual residency panel or of the phenomenon. DATA ACQUISITION ONLY. No separability/identification claim, no operator run, no co-movement computed -- that is Part 2.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "Wrote ONLY this file (build/audit/sep_data_acquired.json) plus raw fetched data under build/data/. Did NOT touch build/model, build/results, build/contracts, or any other build/audit file. DP2/DP3/DP6 NOT started. Makes NO separability or identification claim.",
+  "operator_cells_targeted": {
+    "F3_destination_direction": "US holdings OF CYM/HKG/VGB long-term securities (US claims; the reallocation/destination cells US->CYM, US->HKG, US->VGB).",
+    "F4_run_direction": "Foreign holdings of US long-term securities by holder country (the USA-column cells across CYM/HKG/VGB and the 12-holder block).",
+    "what_part2_needs_from_higher_resolution": "Monthly frequency to expose lead/lag (temporal discriminator) and the substitution SIGN that the semiannual CPIS residency panel could not -- Test B found within-holder US-vs-offshore co-movement +0.4664 (WRONG sign for F3), footprint cosine 0.94, 2022 episode simultaneous across 11/12 holders."
+  },
+
+  "part_a_monthly_tic_slt": {
+    "determination": "OBTAINED",
+    "source_id": "treasury_tic_slt_current",
+    "publisher": "U.S. Department of the Treasury (TIC system), current SLT tables served from ticdata.treasury.gov resource-center Documents path.",
+    "urls_checked": [
+      {"url": "https://home.treasury.gov/data/treasury-international-capital-tic-system", "checked": "2026-06-29", "status": "HTTP 200 (curl, browser UA)", "evidence": "Home page text: monthly securities data are 'Monthly Holdings of Securities (foreign holdings of U.S. securities, and U.S. holdings of foreign securities)'; annual-survey line 1 'U.S. holdings of foreign securities (U.S. claims; on the usual residence-basis)'; line 1.a same 'but on a nationality-basis'. Confirms (i) BOTH directions exist monthly and (ii) monthly/line-1 is RESIDENCE-basis; nationality-basis is ONLY annual-survey line 1.a."},
+      {"url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt", "checked": "2026-06-29", "status": "HTTP 200, 924378 bytes", "evidence": "Table 1: U.S. Long-Term Securities Held by Foreign Residents (F4 direction). Tab-delimited, columns country|country_code|date|holdings|net|valchg by instrument."},
+      {"url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table2.txt", "checked": "2026-06-29", "status": "HTTP 200, 617715 bytes", "evidence": "Table 2: Foreign Long-Term Securities Held by U.S. Residents (F3 direction = US holdings OF foreign countries' securities)."},
+      {"url": "https://www.federalreserve.gov/econres/notes/feds-notes/the-cslt-unifying-u-s-cross-border-securities-holdings-and-transactions-data-20260521.html", "checked": "2026-06-29", "status": "fetched", "evidence": "FRB note confirms monthly cross-border holdings/transactions/valuation 1985-present; footnote that 'Cayman Islands' holdings of U.S. Treasuries are likely mismeasured in the CSLT and SLT' (financial-center mismeasurement, implies residence-based reporting). Did NOT explicitly state residency vs nationality wording (the TIC home page does)."}
+    ],
+    "series_files_persisted": [
+      "build/data/treasury_tic/current/slt_tables/slt_table1.txt (F4: foreign holdings of US LT securities by country)",
+      "build/data/treasury_tic/current/slt_tables/slt_table2.txt (F3: US holdings of foreign LT securities by country)",
+      "build/data/treasury_tic/current/slt_tables/slt_table1.html, slt_table2.html, slt_table3.{html,txt}, slt_table4.html, slt_table5.{html,txt}, slt_table6.html",
+      "build/data/treasury_tic/current/slt_haven_extract.json (clean CYM/HKG/VGB extract, both directions, 76 monthly rows each)",
+      "build/data/treasury_tic/current/tic_home.html (publisher home page, residence-basis statement)",
+      "build/data/treasury_tic/current/slt1d.txt, slt2d.txt (the ARCHIVED/STALE Jan-2023 Publish/ files -- retained to document that the legacy Publish path is stale; the CURRENT data is the resource-center slt_tableN.txt files above)"
+    ],
+    "frequency": {
+      "value": "MONTHLY",
+      "evidence": "date column is YYYY-MM with consecutive months; 76 distinct month labels per country."
+    },
+    "coverage": {
+      "range": "2020-01 to 2026-04",
+      "n_months": 76,
+      "2022_covered": true,
+      "latest_month": "2026-04",
+      "evidence": "From slt_table1.txt and slt_table2.txt: distinct dates 2020-01 ... 2026-04; 2022 (Russia-sanctions episode) fully present (sample rows below include 2022-02 and 2022-03)."
+    },
+    "granularity": {
+      "country_resolution": "Individual counterparty COUNTRIES, NOT aggregated into 'Caribbean Banking Centers' or 'Other'. CYM/HKG/VGB each appear as their own row with stable country_code.",
+      "havens_present": {
+        "CYM": "Cayman Islands, country_code 36137",
+        "HKG": "Hong Kong, country_code 42005",
+        "VGB": "British Virgin Islands, country_code 35807"
+      },
+      "n_countries_table1": 114,
+      "n_countries_table2": 95,
+      "china_also_present": "China, Mainland, country_code 41408 (direct China cell available, but residency-basis -- see basis caveat).",
+      "instruments": "Holdings split by Total / U.S. Treasuries / U.S. Agency Bonds / U.S. Corp. & Other Bonds / U.S. Corp. Equity (Table 1); Total / Foreign Gov't Bonds / Foreign Corp. Bonds / Foreign Corp. Stocks (Table 2); each with Holdings, Net U.S. Sales/Purchases, and Valuation Change."
+    },
+    "resolves_F3_destination_cells": {
+      "resolved": true,
+      "direction": "US holdings OF CYM/HKG/VGB LT securities (Table 2, Foreign Long-Term Securities Held by U.S. Residents).",
+      "granularity": "RESIDENCY basis, MONTHLY.",
+      "sample_rows_total_holdings_usd_mn": {
+        "CYM": {"2020-01": 1951221, "2022-02": 2691643, "2022-03": 2664801, "2026-04": 2962194},
+        "HKG": {"2020-01": 173235, "2022-02": 145899, "2022-03": 142438, "2026-04": 130970},
+        "VGB": {"2020-01": 71543, "2022-02": 78567, "2022-03": 76925, "2026-04": 58439}
+      }
+    },
+    "resolves_F4_run_cells": {
+      "resolved": true,
+      "direction": "Foreign holdings of US LT securities by holder country -- the USA-column cells (Table 1, U.S. Long-Term Securities Held by Foreign Residents).",
+      "granularity": "RESIDENCY basis, MONTHLY.",
+      "sample_rows_total_holdings_usd_mn": {
+        "CYM": {"2020-01": 1741421, "2022-02": 2243746, "2022-03": 2240682, "2026-04": 3363709},
+        "HKG": {"2020-01": 437549, "2022-02": 425500, "2022-03": 422781, "2026-04": 676868},
+        "VGB": {"2020-01": 152156, "2022-02": 189684, "2022-03": 192844, "2026-04": 376784}
+      }
+    },
+    "basis_caveat_CRITICAL": "TIC SLT is RESIDENCY-based: counterparty = country of residence of the foreign issuer (Table 2) or foreign holder (Table 1), NOT nationality. Grounded from the TIC home page ('U.S. claims; on the usual residence-basis'; nationality-basis is ONLY annual-survey line 1.a) and the FRB CSLT note's Cayman-mismeasurement footnote. THEREFORE: monthly TIC SLT resolves the offshore-HAVEN destination cells (US<->CYM/HKG/VGB) at monthly frequency -- which lets Part 2 test the substitution SIGN and lead/lag at residency granularity that the semiannual CPIS could not -- but it does NOT resolve the China-NATIONALITY reallocation fraction f (US holdings of CYM/HKG/VGB reattributed to CHN nationality). Monthly SLT can test sign/lead-lag at residency granularity; it CANNOT pin f. NOT overclaimed as nationality.",
+    "what_it_adds_over_semiannual_cpis": "Monthly frequency (76 months vs the semiannual CPIS panel) and both directions resolved at the haven level, spanning the 2022 episode -- i.e. the temporal resolution to look for lead/lag and recompute the residency-level co-movement sign that Test B found at +0.4664 on semiannual data. (Whether higher resolution MOVES that finding is the Part-2 question; not adjudicated here.)",
+    "confidence": "HIGH",
+    "confidence_reason": "Both directions, monthly frequency, 2020-01..2026-04 coverage incl. 2022, and individual CYM/HKG/VGB country codes were read DIRECTLY from the current publisher data files (slt_table1.txt / slt_table2.txt, HTTP 200, fetched 2026-06-29) -- not from memory and not from the stale Jan-2023 Publish/ files. Residency basis grounded from the publisher's own home-page wording.",
+    "frictions_noted": [
+      "The legacy ticdata.treasury.gov/Publish/slt1d.txt and slt2d.txt are STALE (Jan-2023 vintage, single-direction Table 1D / 2D format) -- they are NOT the current data. The current SLT lives at the resource-center Documents path as slt_table1..6 (html+txt). An ingestion pipeline pointed at the old Publish/ path would silently get Jan-2023 data.",
+      "Custodial / financial-center bias (carried from the TIC contract; FRB CSLT note repeats it for Cayman): haven holdings are custodial-attributed, so CYM/HKG/VGB residency cells over-weight intermediation relative to beneficial owners. This is a residency-basis property, not a defect of acquisition.",
+      "Monthly SLT holdings are partly estimated / benchmarked to annual SHL/SHC surveys (carried from contract)."
+    ]
+  },
+
+  "part_b_post2020_gcap_nationality_restatement": {
+    "determination": "NONE_AT_GRANULARITY",
+    "source_id": "gcap_nationality_restatement",
+    "publisher": "Global Capital Allocation Project (globalcapitalallocation.com) / NBER -- Coppola-Maggiori-Neiman-Schreger (Restated Bilateral External Portfolios, Restatement Matrices); Clayton-Coppola-Dos Santos-Maggiori-Schreger / Florez-Orrego-Maggiori et al. (China in Tax Havens).",
+    "urls_checked": [
+      {"url": "https://www.globalcapitalallocation.com/data", "checked": "2026-06-29", "status": "HTTP 200 (Squarespace JS shell; dataset download links recovered via WebFetch render)", "evidence": "Lists datasets: Restated Bilateral External Portfolios (.dta/.xlsx/README), Restatement Matrices (.dta/.tar.gz/README), China in Tax Havens (China_Tax_Havens_Data.xlsx + README), 'Time Series For Chinese Firms' Presence in Tax Havens'. No version/year metadata rendered in body text; data-years read from the data files themselves (below)."},
+      {"url": "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/Restated_Bilateral_External_Portfolios.xlsx", "checked": "2026-06-29", "status": "HTTP 200, 29659179 bytes (29 MB), parsed", "evidence": "Sheet1, 398332 data rows, columns: Methodology|Year|Investor|Investor_Name|Asset_Class_Code|Asset_Class|Issuer|Issuer_Name|Position_Residency|Restatement_TH_Only|Restatement_Full|Restatement_Ex_Domestic|Restatement_Sales|Restatement_Sales_Ex. FULL-FILE year scan over all 398332 rows: years = {2007,2008,...,2019,2020}. MAX YEAR = 2020. This IS the counterpart x nationality restatement matrix (Investor x Issuer x Restatement_* by year); it provides the cells but ONLY through 2020."},
+      {"url": "https://globalcapitalallocation.s3.us-east-2.amazonaws.com/China_Tax_Havens_Data.xlsx", "checked": "2026-06-29", "status": "HTTP 200, 18726 bytes, parsed", "evidence": "Sheets Summary/Figure_1a..1d. Figure_1a (CYM/BMU/VGB/Other) -> max year 2020; Figure_1b -> max 2019; Figure_1c & 1d (CYM/BMU/VGB/HKG/CHN/Other) -> max year 2020. Header label 'Residency'. These are China-ISSUANCE shares/levels by haven, NOT US-holdings-of-haven reattributed-to-CHN position cells. Max year 2020."},
+      {"url": "https://www.nber.org/papers/w31599", "checked": "2026-06-29", "status": "fetched", "evidence": "'Global Capital Allocation' (Florez-Orrego, Maggiori, Schreger, Sun, Tinda), Aug 2023 -- a survey; abstract discusses tax havens/OFCs intermediating global capital but the page did not enumerate post-2020 restated bilateral position cells. Underlying restated data is the GCAP series above (terminates 2020). No post-2020 nationality-restated US-holdings cell recovered."}
+    ],
+    "data_files_persisted": [
+      "build/data/gcap_post2020_check/Restated_Bilateral_External_Portfolios.xlsx (29 MB, 398332 rows, 2007-2020)",
+      "build/data/gcap_post2020_check/RBEP_Readme.pdf",
+      "build/data/gcap_post2020_check/China_Tax_Havens_Data.xlsx (Figures 1a-1d, max 2020)",
+      "build/data/gcap_post2020_check/China_TH_Readme.pdf"
+    ],
+    "gives_counterpart_x_nationality_cells": {
+      "exists": "YES, but only THROUGH 2020.",
+      "evidence": "Restated_Bilateral_External_Portfolios.xlsx provides exactly Investor x Issuer x Asset_Class x Year with Position_Residency and Restatement_* columns -- i.e. US holdings of haven-issued securities reattributed (Restatement_Full / Restatement_TH_Only). But the full-file year scan returns MAX 2020. There is no row dated 2021 or later in any GCAP file fetched today."
+    },
+    "latest_data_year_by_series": {
+      "Restated_Bilateral_External_Portfolios": 2020,
+      "China_Tax_Havens_Data_Figure_1a": 2020,
+      "China_Tax_Havens_Data_Figure_1b": 2019,
+      "China_Tax_Havens_Data_Figure_1c": 2020,
+      "China_Tax_Havens_Data_Figure_1d": 2020
+    },
+    "coverage": {
+      "2022_covered": false,
+      "post_2020_covered": false,
+      "reason": "Every GCAP nationality-restatement / China-haven file fetched from the publisher today terminates at data-year 2020 (one sub-figure at 2019). The 2022 Russia-sanctions episode and any post-2020 vintage are NOT covered at the nationality-restated cell granularity."
+    },
+    "resolves_F3_destination_cells_nationality": {
+      "resolved_post2020": false,
+      "note": "The F3 nationality-restated destination cell (US holdings of CYM/HKG/VGB reattributed to CHN nationality) exists ONLY through 2020. No post-2020 vintage at this granularity. This re-confirms Test A's vintage_test.json freshly, against the publisher's own current data files (not merely citing Test A): the RBEP and China-Tax-Havens files read on 2026-06-29 both stop at 2020."
+    },
+    "resolves_F4_run_cells_nationality": {
+      "resolved_post2020": false,
+      "note": "Same: no post-2020 nationality-basis USA-column cell from GCAP."
+    },
+    "confidence": "HIGH",
+    "confidence_reason": "Max data-year 2020 was read DIRECTLY from the publisher's current data files fetched today (full-file scan of all 398332 RBEP rows; all China-Tax-Havens sheets), not inferred from Test A or memory. The determination NONE_AT_GRANULARITY post-2020 is grounded, not assumed: the files were actually fetched and parsed, and they actually stop at 2020.",
+    "honest_directional_note": "This records UNAVAILABILITY of the post-2020 nationality CELL. It does NOT manufacture unavailability -- the files were fetched and parsed. (The coarser-granularity directional signals catalogued in vintage_test.json -- Chinese FDI into Cayman, US-listed Chinese firm counts -- are not re-fetched here; this acquisition task targets the cell granularity, which is absent post-2020.)"
+  },
+
+  "unverified": [
+    "Residency-vs-nationality basis of monthly SLT: grounded from the TIC HOME-PAGE wording ('on the usual residence-basis') and the FRB CSLT footnote; the FRB CSLT note did NOT itself state the residency/nationality distinction explicitly (it described 'liability country'/'holder country' without defining basis). The home-page statement is treated as the authoritative publisher source.",
+    "CSLT (Continuous Securities Long-Term) dataset at ticdata.treasury.gov/.../Documents/cslt.zip (announced 05-21-2026) was NOT downloaded/parsed -- it is an alternative unified monthly source (1985-present) that may also carry the same haven cells; its internal structure and basis are UNVERIFIED here. The slt_table1/2.txt files were sufficient to ground Part (a), so cslt.zip was not pulled.",
+    "GCAP Restatement Matrices (.dta/.tar.gz) and the 'Time Series For Chinese Firms' Presence in Tax Havens' README content were NOT separately parsed; the Restated_Bilateral_External_Portfolios.xlsx (the cell-level restatement matrix) and China_Tax_Havens_Data.xlsx were parsed directly and both terminate at 2020, which settles the post-2020 question.",
+    "NBER w31599 full-text PDF was not parsed for an embedded post-2020 figure; the page-level fetch plus the underlying GCAP data files (max 2020) were used. No post-2020 cell was found, but the full PDF was not exhaustively read."
+  ],
+
+  "summary": {
+    "part_a": "OBTAINED -- monthly TIC SLT (current resource-center slt_table1.txt = F4 foreign-holdings-of-US, slt_table2.txt = F3 US-holdings-of-foreign), MONTHLY, 2020-01..2026-04 (2022 covered), CYM/HKG/VGB each individual counterparties. Resolves BOTH operator directions at RESIDENCY granularity, monthly. Does NOT resolve China-nationality f.",
+    "part_b": "NONE_AT_GRANULARITY post-2020 -- GCAP Restated Bilateral External Portfolios (398332 rows) and China-in-Tax-Havens both terminate at data-year 2020 (one sub-figure 2019), read directly from publisher files on 2026-06-29. No post-2020 nationality-restated counterpart cell exists.",
+    "net": "Higher-resolution flow data EXISTS for the residency-level haven cells (monthly, both directions, 2022 covered) but NOT for the nationality-restated cells (frozen at 2020). Whether the residency-monthly data moves Test B's GEOMETRIC_ONLY finding is the Part-2 question and is NOT adjudicated here."
+  }
+}

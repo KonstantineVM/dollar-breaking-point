@@ -1,0 +1,522 @@
+{
+  "headline_check_EFH_common_equity_2020": {
+    "CYM": 0.823155,
+    "HKG": 0.19788,
+    "VGB": 0.027774,
+    "CHN": 0.985846,
+    "BMU": 0.094063,
+    "SGP": 0.03194
+  },
+  "headline_check_FH_common_equity_2020": {
+    "CYM": 0.826124,
+    "HKG": 0.197849,
+    "VGB": 0.02474,
+    "CHN": 0.985845
+  },
+  "part1_calibration_fund_holdings": [
+    {
+      "fiscal_quarter": "2019q3",
+      "gcap_year_used": 2019,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 310646467903.3,
+      "china_nationality_mass_usd": 155836687512.6,
+      "f_china_nationality_fraction_of_haven_pool": 0.501653,
+      "direct_chn_residency_value_usd_separate": 133066146981.0,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 210686342230.1,
+          "cn_mass_usd": 121417713214.6,
+          "haven_f": 0.576296
+        },
+        "HKG": {
+          "haven_value_usd": 91980420554.6,
+          "cn_mass_usd": 30091812464.8,
+          "haven_f": 0.327155
+        },
+        "VGB": {
+          "haven_value_usd": 7979705118.6,
+          "cn_mass_usd": 4327161833.2,
+          "haven_f": 0.542271
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2019q4",
+      "gcap_year_used": 2019,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 417767320838.3,
+      "china_nationality_mass_usd": 219131070673.5,
+      "f_china_nationality_fraction_of_haven_pool": 0.524529,
+      "direct_chn_residency_value_usd_separate": 183459152575.4,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 294210404772.7,
+          "cn_mass_usd": 176324192990.8,
+          "haven_f": 0.599313
+        },
+        "HKG": {
+          "haven_value_usd": 112581403622.0,
+          "cn_mass_usd": 36986994650.3,
+          "haven_f": 0.328536
+        },
+        "VGB": {
+          "haven_value_usd": 10975512443.5,
+          "cn_mass_usd": 5819883032.4,
+          "haven_f": 0.530261
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2020q1",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 394114944614.6,
+      "china_nationality_mass_usd": 165052182738.7,
+      "f_china_nationality_fraction_of_haven_pool": 0.418792,
+      "direct_chn_residency_value_usd_separate": 167523216226.3,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 237254943533.7,
+          "cn_mass_usd": 130419554519.6,
+          "haven_f": 0.549702
+        },
+        "HKG": {
+          "haven_value_usd": 148763472391.6,
+          "cn_mass_usd": 29858270752.1,
+          "haven_f": 0.20071
+        },
+        "VGB": {
+          "haven_value_usd": 8096528689.3,
+          "cn_mass_usd": 4774357467.0,
+          "haven_f": 0.58968
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2020q2",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 436391589179.0,
+      "china_nationality_mass_usd": 184483534711.1,
+      "f_china_nationality_fraction_of_haven_pool": 0.422748,
+      "direct_chn_residency_value_usd_separate": 187477797281.9,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 267856506464.1,
+          "cn_mass_usd": 147343022490.9,
+          "haven_f": 0.550082
+        },
+        "HKG": {
+          "haven_value_usd": 159423786894.7,
+          "cn_mass_usd": 31939839754.9,
+          "haven_f": 0.200346
+        },
+        "VGB": {
+          "haven_value_usd": 9111295820.2,
+          "cn_mass_usd": 5200672465.3,
+          "haven_f": 0.570794
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2020q3",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 485997296267.8,
+      "china_nationality_mass_usd": 218782995648.1,
+      "f_china_nationality_fraction_of_haven_pool": 0.450173,
+      "direct_chn_residency_value_usd_separate": 222706216206.8,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 311916022359.0,
+          "cn_mass_usd": 180508601413.6,
+          "haven_f": 0.578709
+        },
+        "HKG": {
+          "haven_value_usd": 164746497700.0,
+          "cn_mass_usd": 33039754906.3,
+          "haven_f": 0.200549
+        },
+        "VGB": {
+          "haven_value_usd": 9334776208.8,
+          "cn_mass_usd": 5234639328.2,
+          "haven_f": 0.560768
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2022q1",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": true,
+      "haven_pool_value_usd": 538798142423.2,
+      "china_nationality_mass_usd": 191844028348.7,
+      "f_china_nationality_fraction_of_haven_pool": 0.356059,
+      "direct_chn_residency_value_usd_separate": 201794084662.2,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 305235952668.7,
+          "cn_mass_usd": 142338378834.9,
+          "haven_f": 0.466322
+        },
+        "HKG": {
+          "haven_value_usd": 223128922532.7,
+          "cn_mass_usd": 44572420742.4,
+          "haven_f": 0.199761
+        },
+        "VGB": {
+          "haven_value_usd": 10433267221.7,
+          "cn_mass_usd": 4933228771.4,
+          "haven_f": 0.472836
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2022q2",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": true,
+      "haven_pool_value_usd": 431097821262.4,
+      "china_nationality_mass_usd": 160554995014.8,
+      "f_china_nationality_fraction_of_haven_pool": 0.372433,
+      "direct_chn_residency_value_usd_separate": 170289284368.8,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 272290330183.6,
+          "cn_mass_usd": 126929764661.0,
+          "haven_f": 0.466156
+        },
+        "HKG": {
+          "haven_value_usd": 150481000718.3,
+          "cn_mass_usd": 30138043064.6,
+          "haven_f": 0.200278
+        },
+        "VGB": {
+          "haven_value_usd": 8326490360.4,
+          "cn_mass_usd": 3487187289.1,
+          "haven_f": 0.418806
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2024q4",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": true,
+      "haven_pool_value_usd": 407725321094.3,
+      "china_nationality_mass_usd": 154722423349.0,
+      "f_china_nationality_fraction_of_haven_pool": 0.379477,
+      "direct_chn_residency_value_usd_separate": 136269379093.5,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 276000595869.5,
+          "cn_mass_usd": 127776741864.3,
+          "haven_f": 0.462958
+        },
+        "HKG": {
+          "haven_value_usd": 127683401099.7,
+          "cn_mass_usd": 25512396708.5,
+          "haven_f": 0.19981
+        },
+        "VGB": {
+          "haven_value_usd": 4041324125.1,
+          "cn_mass_usd": 1433284776.2,
+          "haven_f": 0.354657
+        }
+      }
+    }
+  ],
+  "part1_calibration_enhanced_fund_holdings_sensitivity": [
+    {
+      "fiscal_quarter": "2019q3",
+      "gcap_year_used": 2019,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 310646467903.3,
+      "china_nationality_mass_usd": 154067529557.7,
+      "f_china_nationality_fraction_of_haven_pool": 0.495958,
+      "direct_chn_residency_value_usd_separate": 133066146981.0,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 210686342230.1,
+          "cn_mass_usd": 120001049443.7,
+          "haven_f": 0.569572
+        },
+        "HKG": {
+          "haven_value_usd": 91980420554.6,
+          "cn_mass_usd": 29892011320.6,
+          "haven_f": 0.324982
+        },
+        "VGB": {
+          "haven_value_usd": 7979705118.6,
+          "cn_mass_usd": 4174468793.4,
+          "haven_f": 0.523136
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2019q4",
+      "gcap_year_used": 2019,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 417767320838.3,
+      "china_nationality_mass_usd": 216731521538.9,
+      "f_china_nationality_fraction_of_haven_pool": 0.518785,
+      "direct_chn_residency_value_usd_separate": 183459152575.4,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 294210404772.7,
+          "cn_mass_usd": 174451547812.6,
+          "haven_f": 0.592948
+        },
+        "HKG": {
+          "haven_value_usd": 112581403622.0,
+          "cn_mass_usd": 36663978696.0,
+          "haven_f": 0.325666
+        },
+        "VGB": {
+          "haven_value_usd": 10975512443.5,
+          "cn_mass_usd": 5615995030.3,
+          "haven_f": 0.511684
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2020q1",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 394114944614.6,
+      "china_nationality_mass_usd": 162821250484.1,
+      "f_china_nationality_fraction_of_haven_pool": 0.413131,
+      "direct_chn_residency_value_usd_separate": 167523216226.3,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 237254943533.7,
+          "cn_mass_usd": 128764262751.1,
+          "haven_f": 0.542725
+        },
+        "HKG": {
+          "haven_value_usd": 148763472391.6,
+          "cn_mass_usd": 29647232278.8,
+          "haven_f": 0.199291
+        },
+        "VGB": {
+          "haven_value_usd": 8096528689.3,
+          "cn_mass_usd": 4409755454.1,
+          "haven_f": 0.544648
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2020q2",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 436391589179.0,
+      "china_nationality_mass_usd": 181942326864.9,
+      "f_china_nationality_fraction_of_haven_pool": 0.416924,
+      "direct_chn_residency_value_usd_separate": 187477797281.9,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 267856506464.1,
+          "cn_mass_usd": 145394208802.8,
+          "haven_f": 0.542806
+        },
+        "HKG": {
+          "haven_value_usd": 159423786894.7,
+          "cn_mass_usd": 31743104542.5,
+          "haven_f": 0.199111
+        },
+        "VGB": {
+          "haven_value_usd": 9111295820.2,
+          "cn_mass_usd": 4805013519.6,
+          "haven_f": 0.527369
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2020q3",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": false,
+      "haven_pool_value_usd": 485997296267.8,
+      "china_nationality_mass_usd": 216010421079.6,
+      "f_china_nationality_fraction_of_haven_pool": 0.444468,
+      "direct_chn_residency_value_usd_separate": 222706216206.8,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 311916022359.0,
+          "cn_mass_usd": 178353727023.5,
+          "haven_f": 0.5718
+        },
+        "HKG": {
+          "haven_value_usd": 164746497700.0,
+          "cn_mass_usd": 32819455305.6,
+          "haven_f": 0.199212
+        },
+        "VGB": {
+          "haven_value_usd": 9334776208.8,
+          "cn_mass_usd": 4837238750.4,
+          "haven_f": 0.518195
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2022q1",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": true,
+      "haven_pool_value_usd": 538798142423.2,
+      "china_nationality_mass_usd": 189047733821.9,
+      "f_china_nationality_fraction_of_haven_pool": 0.350869,
+      "direct_chn_residency_value_usd_separate": 201794084662.2,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 305235952668.7,
+          "cn_mass_usd": 140117427242.7,
+          "haven_f": 0.459046
+        },
+        "HKG": {
+          "haven_value_usd": 223128922532.7,
+          "cn_mass_usd": 44363190120.1,
+          "haven_f": 0.198823
+        },
+        "VGB": {
+          "haven_value_usd": 10433267221.7,
+          "cn_mass_usd": 4567116459.1,
+          "haven_f": 0.437746
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2022q2",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": true,
+      "haven_pool_value_usd": 431097821262.4,
+      "china_nationality_mass_usd": 158183424379.9,
+      "f_china_nationality_fraction_of_haven_pool": 0.366932,
+      "direct_chn_residency_value_usd_separate": 170289284368.8,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 272290330183.6,
+          "cn_mass_usd": 124992657144.4,
+          "haven_f": 0.459042
+        },
+        "HKG": {
+          "haven_value_usd": 150481000718.3,
+          "cn_mass_usd": 29957487727.1,
+          "haven_f": 0.199078
+        },
+        "VGB": {
+          "haven_value_usd": 8326490360.4,
+          "cn_mass_usd": 3233279508.4,
+          "haven_f": 0.388312
+        }
+      }
+    },
+    {
+      "fiscal_quarter": "2024q4",
+      "gcap_year_used": 2020,
+      "extrapolated_post2020": true,
+      "haven_pool_value_usd": 407725321094.3,
+      "china_nationality_mass_usd": 152399745428.6,
+      "f_china_nationality_fraction_of_haven_pool": 0.37378,
+      "direct_chn_residency_value_usd_separate": 136269379093.5,
+      "per_haven": {
+        "CYM": {
+          "haven_value_usd": 276000595869.5,
+          "cn_mass_usd": 125678142780.0,
+          "haven_f": 0.455355
+        },
+        "HKG": {
+          "haven_value_usd": 127683401099.7,
+          "cn_mass_usd": 25389497079.7,
+          "haven_f": 0.198847
+        },
+        "VGB": {
+          "haven_value_usd": 4041324125.1,
+          "cn_mass_usd": 1332105568.9,
+          "haven_f": 0.329621
+        }
+      }
+    }
+  ],
+  "part3_series_used_primary_FH": {
+    "china_nationality_mass_usd_by_q": {
+      "2019q3": 155836687512.6,
+      "2019q4": 219131070673.5,
+      "2020q1": 165052182738.7,
+      "2020q2": 184483534711.1,
+      "2020q3": 218782995648.1,
+      "2022q1": 191844028348.7,
+      "2022q2": 160554995014.8,
+      "2024q4": 154722423349.0
+    },
+    "haven_pool_value_usd_by_q": {
+      "2019q3": 310646467903.3,
+      "2019q4": 417767320838.3,
+      "2020q1": 394114944614.6,
+      "2020q2": 436391589179.0,
+      "2020q3": 485997296267.8,
+      "2022q1": 538798142423.2,
+      "2022q2": 431097821262.4,
+      "2024q4": 407725321094.3
+    },
+    "nonchina_haven_value_usd_by_q": {
+      "2019q3": 154809780390.7,
+      "2019q4": 198636250164.8,
+      "2020q1": 229062761875.9,
+      "2020q2": 251908054467.9,
+      "2020q3": 267214300619.7,
+      "2022q1": 346954114074.5,
+      "2022q2": 270542826247.6,
+      "2024q4": 253002897745.3
+    },
+    "contiguous_transitions": [
+      "2019q3->2019q4",
+      "2019q4->2020q1",
+      "2020q1->2020q2",
+      "2020q2->2020q3",
+      "2022q1->2022q2"
+    ],
+    "cn_nationality_logchange": [
+      0.340861,
+      -0.283408,
+      0.111299,
+      0.17052,
+      -0.178046
+    ],
+    "nonchina_haven_logchange": [
+      0.249278,
+      0.142521,
+      0.095068,
+      0.058987,
+      -0.248762
+    ],
+    "haven_total_logchange": [
+      0.296269,
+      -0.058282,
+      0.101897,
+      0.107663,
+      -0.223006
+    ]
+  },
+  "part3_substitution_sign_cn_nationality_vs_nonchina_haven": 0.520811,
+  "part3_substitution_sign_residence_proxy_chn_vs_haven": 0.981297,
+  "part3_independent_variation_injected": {
+    "corr_cn_nat_logchange_vs_haven_residence_logchange": 0.893776,
+    "interpretation": "near 1.0 => China-nationality series is ~ fixed reweighting of haven-residence series (annual GCAP weights near-constant within window)"
+  },
+  "part3_weight_drift_2019_2020": {
+    "CYM_common_equity_share_2019_2020": {
+      "2019": 0.858805,
+      "2020": 0.826124
+    },
+    "HKG_common_equity_share_2019_2020": {
+      "2019": 0.322882,
+      "2020": 0.197849
+    },
+    "VGB_common_equity_share_2019_2020": {
+      "2019": 0.026364,
+      "2020": 0.02474
+    }
+  },
+  "part3_footprint_cosine_cn_vs_nonchina": -0.143966,
+  "part3_leadlag_quarterly_cn_vs_nonchina": {
+    "-1": -0.450094,
+    "0": 0.520811,
+    "1": -0.130207
+  }
+}

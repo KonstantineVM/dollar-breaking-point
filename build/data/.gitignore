@@ -5,3 +5,12 @@
 # numbers the DP2 artifacts cite.
 ecb_qsa/qsa_lastobs.csv
 fed_z1/fwtw_data.csv
+
+# COVERAGE-MEASUREMENT Part 1 (Deliverable A): GLEIF Level-2 RR golden-copy bulk file.
+# Large; re-fetchable. Source listed by GET https://goldencopy.gleif.org/api/v2/golden-copies/publishes/latest
+# -> data.rr.full_file.csv.url . The vintage committed/used was publish 2026-06-29 16:00 UTC (RR_2.1):
+# https://goldencopy.gleif.org/storage/golden-copy-files/2026/06/29/1245215/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip
+# (The Level-1 lei2 golden copy was NOT downloaded; parent/issuer country came from the free
+#  GLEIF API api.gleif.org/api/v1/lei-records. See build/data/gleif/README.md.)
+gleif/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip
+gleif/*.csv.zip

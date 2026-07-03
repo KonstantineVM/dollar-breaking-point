@@ -1,0 +1,100 @@
+{
+  "artifact": "fwtw_recon_f3test.json",
+  "task": "FWTW-RECONSTRUCTION Part 3 -- run the F3 (substitution) separability statistic on EACH of the two recovered interiors (Method 1 max-entropy independence table; Method 2 RAS on the DP2 residency seed), compare EACH to the PRE-REGISTERED prediction (build/audit/fwtw_recon_prediction.md). This is a TEST: the prediction may be REFUTED. Stats are COMPUTED from the interiors; the +0.5/+0.521 values are OUTPUTS, never inputs.",
+  "generated": "2026-06-30",
+  "checked_on": "2026-06-30",
+  "no_network": true,
+  "scope_limit": "Wrote EXACTLY this file, the recompute script build/audit/fwtw_recon_f3test_recompute.py, and the verify artifact build/results/fwtw_recon_f3test_verify.json. Did NOT re-tag the operator, did NOT rewrite DP2-DP5, did NOT begin DP6, did NOT touch build/ledger.json. No date, no bare probability, no hazard claim, no identification verdict.",
+
+  "inputs": {
+    "interiors": "build/audit/fwtw_recon_interiors.parquet (per holder cik|series_id per quarter: method1_maxent_usd, method2_ras_usd China-nationality mass; row_mass_usd = holder haven pool).",
+    "interiors_provenance": "build/audit/fwtw_recon_interiors_provenance.json (read for context; interiors NOT recomputed here).",
+    "us_leg_source": "build/data/nport/us_china_nationality_panel.parquet (per-haven attribution; SAME panel the prior nationality test ran on).",
+    "prior_tests_cited_for_identical_statistic": [
+      "build/audit/sep_retest_nationality.json + build/audit/sep_retest_nationality_recompute_gcap.py (prior nationality F3 test on THIS panel; +0.521 contemporaneous q-o-q log-change)",
+      "build/audit/sep_definitive_test.json (prior TIC-SLT monthly residence F3 test; +0.362)"
+    ]
+  },
+
+  "STATISTIC_CONSTRUCTION": {
+    "claim": "IDENTICAL statistic to the prior nationality separability test on this panel.",
+    "us_leg_definition": "The US Treasury / dollar leg is NOT in the N-PORT panel: the panel has 0 USA rows -- it is US-fund holdings of FOREIGN issuers only (countries in {CHN,CYM,HKG,VGB}). The prior nationality test (sep_retest_nationality_recompute_gcap.py lines 159-172) DOCUMENTED this and used the NON-CHINA HAVEN LEG = holder haven pool MINUS China-nationality mass as the within-pool substitution counter-leg. We use the IDENTICAL counter-leg, now HOLDER-RESOLVED. (The other prior test sep_definitive_test.py used a genuine TIC Table-1 US-leg, but that series lives in the TIC SLT extract, not in this panel; since the interiors are built on this panel, the panel's own prior nationality construction is the matching one. Documented here, not silently substituted.)",
+    "transform": "q-o-q LOG-CHANGE, contemporaneous, demeaned -- the principled FLOW transform, IDENTICAL to the prior tests.",
+    "window": "5 CONTIGUOUS calendar-quarter transitions (2019q3->q4, 2019q4->2020q1, 2020q1->q2, 2020q2->q3, 2022q1->q2); the two multi-quarter gaps excluded -- IDENTICAL to the prior Part-3.",
+    "F3_sign_convention": "F3 substitution = US-leg / non-China haven leg DOWN while China-nationality exposure UP => NEGATIVE contemporaneous co-movement = F3-LOADING (correct sign). POSITIVE = common growth = NO-F3.",
+    "footprint_cosine": "cosine of the mean per-haven (CYM/HKG/VGB) log-change direction vectors, China leg vs non-China leg -- IDENTICAL construction to part3_footprint_cosine_cn_vs_nonchina.",
+    "leadlag": "xcorr at quarterly k in {-1,0,+1}; with 5 transitions, k=+/-1 use 4 points and are not reliably estimable -- IDENTICAL caveat to the prior Part-3.",
+    "SUBJECT_DRIVER": "Each method's recovered China-nationality interior is the F3 driver; the non-China haven residual is the counter-leg; substitution is a flow concept so the transform is q-o-q log-change.",
+    "BOUNDARIES": "5 quarterly transitions, US-fund holders, haven pool {CYM,HKG,VGB}. Aggregate-level China total per quarter is IDENTICAL across the two methods (both interiors are scaled to the SAME China-nationality column marginal), so the methods can ONLY differ in the HOLDER-VARYING / per-haven dimension -- which is precisely where the refutation criterion lives.",
+    "FALSIFIER": "Recompute a method's within-holder substitution sign and obtain corr < 0 (negative, correctly-signed, holder-varying) -- that would REFUTE the prediction for that method (F3-LOADS).",
+    "SOURCE": "build/audit/fwtw_recon_f3test_recompute.py; interiors parquet + panel US-leg residual."
+  },
+
+  "MEASURED_PER_METHOD": {
+    "n_holders_total": 7023,
+    "n_holder_transition_pairs_pooled": 20549,
+
+    "method1_maxent": {
+      "interior_definition": "independence table p_ij = row_i * col_j / total; every holder carries the IDENTICAL aggregate China fraction (a MEASURED output of the table, not assumed).",
+      "substitution_sign_aggregate_cn_vs_nonchina": 0.996601,
+      "substitution_sign_within_holder_pooled": 0.998692,
+      "per_haven_substitution_sign": {"CYM": 0.995525, "HKG": 0.995291, "VGB": 0.996714},
+      "footprint_cosine_cn_vs_nonchina": 0.998267,
+      "leadlag_quarterly_cn_vs_nonchina": {"-1": -0.685911, "0": 0.996601, "1": -0.753377},
+      "holder_china_fraction_spread": {"min": 0.759225, "max": 0.821072, "std": 0.020592, "mean": 0.804549},
+      "holder_varying_note": "DEGENERATE by construction: the per-holder China fraction varies ONLY through the quarter-level aggregate fraction (the 8 quarterly values 0.759-0.821); within a quarter every holder gets the identical fraction (std 0.0206 is purely the cross-QUARTER aggregate drift, not cross-holder heterogeneity). The pooled/per-haven/within-holder signs all reproduce ~the aggregate co-movement (+0.996/+0.999), which IS the predicted collapse to the aggregate reweighting. This is a MEASURED output (computed from the interior here), not assumed."
+    },
+
+    "method2_ras": {
+      "interior_definition": "RAS/Sinkhorn from the DP2 residency seed (holder-heterogeneous via per-hub residency->China propensities), rescaled to the SAME two marginals as Method 1.",
+      "substitution_sign_aggregate_cn_vs_nonchina": 0.996601,
+      "substitution_sign_within_holder_pooled": 0.956171,
+      "per_haven_substitution_sign": {"CYM": 0.999526, "HKG": 0.871718, "VGB": 0.999571},
+      "footprint_cosine_cn_vs_nonchina": 0.817751,
+      "leadlag_quarterly_cn_vs_nonchina": {"-1": -0.685911, "0": 0.996601, "1": -0.753377},
+      "holder_china_fraction_spread": {"min": 0.732777, "max": 0.961851, "std": 0.076252, "mean": 0.827415},
+      "holder_varying_note": "GENUINELY holder-varying: per-holder China fraction spreads 0.733-0.962 (std 0.0763, ~3.7x Method 1's), because the RAS seed carries each holder's residency->China propensity (CYM 0.046, HKG 0.240). The holder-varying dimension is NON-degenerate, so the within-holder pooled sign (+0.956) and per-haven signs are MEASURED on real cross-holder variation -- and they stay STRONGLY POSITIVE. The footprint cosine (+0.818) is lower than Method 1's (+0.998) but still strongly POSITIVE (collinear), NOT the negative separation an F3 loading requires."
+    },
+
+    "aggregate_sign_identical_note": "The AGGREGATE per-quarter China leg is bit-for-bit identical across the two methods (both summed-over-holders totals equal the BIS China-nationality column marginal per quarter), so the aggregate substitution sign is the same number (+0.996601) for both. The methods diverge ONLY in the holder-varying / per-haven dimension, reported above.",
+    "SOURCE": "build/audit/fwtw_recon_f3test_recompute.py (executed 2026-06-30); reproduced into build/results/fwtw_recon_f3test_verify.json."
+  },
+
+  "COMPARISON_TO_PREDICTION": {
+    "prediction_verbatim": "Method 1 -> aggregate reweighting, sign ~+0.5, NO F3; Method 2 -> residency interaction relabeled to nationality, sign ~+0.521, NO F3; EITHER returning a NEGATIVE, correctly-signed, holder-varying F3 loading REFUTES the prediction and is the finding.",
+    "measured_signs_shown": "Method 1 within-holder pooled +0.998692 (aggregate +0.996601); Method 2 within-holder pooled +0.956171 (aggregate +0.996601). BOTH strongly POSITIVE. No method yields a negative holder-varying substitution sign.",
+
+    "method1_verdict": "NO-F3",
+    "method1_basis": "Method 1's substitution sign is POSITIVE at every construction (aggregate +0.997, within-holder pooled +0.999, all three per-haven +0.995..+0.997, footprint +0.998). Its holder-varying dimension is DEGENERATE (uniform per-quarter fraction by construction), and its sign simply REPRODUCES the aggregate co-movement -- which is the PREDICTED collapse to the aggregate reweighting. Confirmed as a MEASURED output computed from the independence-table interior here, not assumed. The predicted ~+0.5 magnitude did NOT reproduce (the measured aggregate sign is +0.997, not +0.5; the ~+0.5/+0.521 figures were the prior tests' OUTPUTS under a DIFFERENT, share-reweighted construction, and are stated as the prediction's targets, never imported as inputs); but the predicted QUALITATIVE content -- positive sign, NO negative holder-varying F3 loading -- HELD. Prediction HELD for Method 1.",
+
+    "method2_verdict": "NO-F3",
+    "method2_basis": "Method 2's substitution sign is POSITIVE on its GENUINELY holder-varying recovered interior (within-holder pooled +0.956 over 20,549 holder-transition pairs; per-haven CYM +0.9995, HKG +0.872, VGB +0.9996; footprint cosine +0.818, collinear). The RAS interior is non-degenerate in the holder dimension (per-holder China fraction spread 0.733-0.962), so the positive sign is measured on real cross-holder variation -- it is NOT a degenerate artifact. No negative, correctly-signed, holder-varying F3 loading appears. Prediction HELD for Method 2. The measured aggregate +0.997 again exceeds the prediction's ~+0.521 target magnitude (same construction-dependence note as Method 1); the qualitative prediction -- positive, NO F3 -- HELD.",
+
+    "either_method_refuted": false,
+    "refutation_criterion_not_met": "The refutation criterion (a NEGATIVE, correctly-signed, holder-varying substitution sign) is NOT met by either method. The only negative numbers anywhere are the under-identified quarterly k=+/-1 lead/lag terms (-0.686, -0.753) computed on 4 points -- the SAME under-identified off-zero terms the prior Part-3 flagged as not reliably estimable -- and the contemporaneous k=0 term, which is the load-bearing substitution sign, is strongly POSITIVE (+0.997) for both methods.",
+
+    "magnitude_caveat": "HONEST: the predicted point magnitudes (~+0.5 / ~+0.521) do NOT reproduce numerically -- both interiors give an aggregate +0.997 -- because the aggregate per-quarter China leg here equals the BIS column marginal exactly (both interiors share it), whereas the prior +0.521 came from a GCAP-share-reweighted nationality series with modest independent time-variation. This is a measured difference in CONSTRUCTION, disclosed, not tuned. The prediction's binary content (no negative holder-varying F3 loading => NO-F3) is what the test adjudicates, and it HELD for both.",
+
+    "SUBJECT_DRIVER": "Neither recovered interior moves the China-nationality leg OPPOSITE the non-China haven leg; both legs co-move strongly positively (common growth), so neither interior loads F3 in the substitution sense.",
+    "BOUNDARIES": "Scoped to the F3-separability question on the two recovered interiors against the N-PORT panel haven pool, 5 contiguous quarterly transitions. Quarterly resolution; aggregate China total shared across methods so the discriminating dimension is holder-varying/per-haven. Does NOT touch the on-paper operator geometry, DP2-DP5, or DP6.",
+    "FALSIFIER": "A method whose recovered interior yields a negative contemporaneous within-holder substitution sign (China leg up while non-China haven leg down) on this construction -- which neither produced.",
+    "SOURCE": "build/audit/fwtw_recon_f3test_recompute.py measured stats; build/audit/fwtw_recon_prediction.md prediction."
+  },
+
+  "anti_planting_self_check": {
+    "stats_computed_not_assumed": "Every sign/cosine/lead-lag is computed by build/audit/fwtw_recon_f3test_recompute.py from the interiors parquet + panel US-leg residual; none is carried in.",
+    "predicted_values_are_outputs": "The +0.5/+0.521 in the prediction are TARGETS to test; the MEASURED outputs are +0.997 (aggregate, both) / +0.999 (M1 within-holder) / +0.956 (M2 within-holder). The predicted magnitudes were NOT used as inputs and did NOT reproduce -- reported honestly.",
+    "same_statistic_as_prior": "Same within-holder substitution-sign construction, same principled q-o-q log-change flow transform, same footprint-cosine + quarterly lead/lag definitions, same 5 contiguous transitions, same panel haven pool, and the same documented non-China-haven counter-leg as sep_retest_nationality_recompute_gcap.py (which itself documents the panel carries no US Treasury leg).",
+    "did_not_manufacture_F3_LOADS": "No window/transform/asset selection was used to flip a sign negative; the principled log-change contemporaneous sign is positive for both methods, reported as positive.",
+    "did_not_suppress_refutation": "Had either method returned a negative holder-varying sign, it would have been reported as F3-LOADS / prediction REFUTED. Neither did; the NO-F3 result is what the numbers show.",
+    "no_date_no_probability_no_hazard": "This file makes no date, no bare probability, and no hazard/identification verdict; it reports only the F3 separability statistic per interior and the prediction comparison."
+  },
+
+  "VERDICT": {
+    "method1_maxent": "NO-F3",
+    "method2_ras": "NO-F3",
+    "prediction_overall": "HELD",
+    "bottom_line": "The pre-registered prediction HELD. Neither recovered interior loads F3: Method 1 (max-entropy) reproduces the aggregate reweighting with a positive, degenerate-holder substitution sign (+0.997 aggregate, +0.999 within-holder), and Method 2 (RAS) yields a positive sign on its GENUINELY holder-varying interior (+0.956 within-holder pooled, per-haven +0.87..+0.9996, footprint +0.818). No NEGATIVE, correctly-signed, holder-varying F3 loading appeared by either method, so the refutation criterion is NOT met. Measured-magnitude caveat: both interiors give aggregate +0.997 (they share the BIS China column marginal), exceeding the prediction's ~+0.5/+0.521 point targets; that is a disclosed construction difference, and the prediction's binary content (NO-F3) held for both.",
+    "SOURCE": "build/audit/fwtw_recon_f3test_recompute.py (executed); build/results/fwtw_recon_f3test_verify.json (recompute PASS); build/audit/fwtw_recon_prediction.md."
+  }
+}

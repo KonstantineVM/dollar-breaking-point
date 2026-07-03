@@ -1,0 +1,55 @@
+{
+  "test_id": "RESOLUTION TEST C",
+  "title": "Official-sector / central-bank swap-line omission",
+  "date_run": "2026-06-29",
+  "mode": "READ-ONLY on prior artifacts; wrote only this file + raw under build/data/fed_swaps/",
+  "scope_check": "Confirms whether the DP2 matrix / 13 DP1 sources carry any Fed/central-bank swap-line or official-sector cross-border-dollar-liquidity dimension, grounds the missing data against the Fed/FRED publisher, and states the consequence for F4 specification and matrix coverage.",
+
+  "swap_dimension_in_matrix": "absent",
+  "evidence": {
+    "sources_searched": "build/contracts/_manifest.json (13 contracts), all 13 contract files, build/model/matrix_assembled.json",
+    "grep_result": "No 'swap-line', 'central bank liquidity swap', 'official-sector liquidity', 'circuit-breaker' or 'backstop' cell appears in any contract or in the assembled matrix. The only matches for 'swap' in build/ are (i) the BIS claims/liabilities LABEL swap (an unrelated data-labeling finding in build/audit/recompute.py and dp2_residual) and (ii) a passive navigation hyperlink to the H.4.1 release inside an archived Fed Z.1 HTML page (build/data/fed_z1/fwtw.htm) — neither is a matrix cell.",
+    "official_sector_content_that_DOES_exist": [
+      "imf_cofer: currency composition of official reserve ASSETS (World aggregate marginal, USD share 56.77%, USD 7457.8bn 2025-Q4) — a stock of reserves HELD, not Fed dollar provision.",
+      "wgc_gold: official-sector monetary gold holdings by country — a reserve-asset stock, not cross-border dollar liquidity.",
+      "treasury_tic Major Foreign Holders: foreign official + private holdings of US Treasuries (position stock).",
+      "pboc/safe/nbs: China monetary-authority balance sheet and IIP marginals (positions)."
+    ],
+    "conclusion": "Every official-sector cell in the matrix is a HELD-RESERVE POSITION (reserves, gold, Treasury holdings). NONE represents the Federal Reserve's cross-border dollar INJECTION to foreign central banks via central-bank liquidity swap lines. That mechanism — the dollar EXPANSION of opposite sign to a run that historically ARRESTED the 2008 and 2020 stress episodes — has no representation in the 13-source/DP2 matrix. The DP4 operator gives F3 and F4 a draining -USAn block only; there is no offsetting Fed-injection circuit-breaker term."
+  },
+
+  "swap_data_groundable": {
+    "series": "SWPT — 'Central Bank Liquidity Swaps' (Fed H.4.1, factors supplying reserve funds / Federal Reserve System balance-sheet asset line)",
+    "source_url": "https://fred.stlouisfed.org/series/SWPT (data CSV: https://fred.stlouisfed.org/graph/fredgraph.csv?id=SWPT) ; primary release: https://www.federalreserve.gov/releases/h41/current/",
+    "publisher": "Board of Governors of the Federal Reserve System, H.4.1 'Factors Affecting Reserve Balances'; redistributed by FRED (Federal Reserve Bank of St. Louis)",
+    "frequency": "Weekly (H.4.1 is a weekly release; SWPT FRED metadata confirms 'Weekly', units 'Millions of Dollars'). Verified on 2026-06-29 from FRED CSV and from the FRED series-data page text ('Central Bank Liquidity Swaps', 'Weekly', 'H.4.1').",
+    "h41_publisher_confirmation": "Fetched https://www.federalreserve.gov/releases/h41/current/ on 2026-06-29: line item 'Central bank liquidity swaps' present, weekly release ('Week ended Jun 24, 2026'), current value $35 million (near-zero in the current non-stress period).",
+    "covers_2008": true,
+    "covers_2020": true,
+    "peak_values_quoted": {
+      "absolute_max": "$583,135 million (~$583bn) on 2008-12-17 — confirms the ~$580bn Dec-2008 GFC peak",
+      "2020_covid_peak": "$448,946 million (~$449bn) on 2020-05-27 — confirms the ~$450bn 2020 COVID peak",
+      "series_window_pulled": "2007-01-03 to 2021-12-29, 783 weekly observations, baseline 0 pre-Aug-2007",
+      "units": "Millions of US dollars",
+      "raw_persisted": "build/data/fed_swaps/SWPT_2007_2021.csv"
+    },
+    "verified_from_publisher_not_memory": true
+  },
+
+  "consequence": {
+    "mis_specifies_F4": true,
+    "under_covers_matrix_DP1_gap": true,
+    "reasoning": "(a) F4 MIS-SPECIFICATION: The DP4 operator represents a dollar run on F4 purely as a draining -USAn block (private/portfolio dollar liabilities being run from), with NO modeled circuit-breaker. But the two historical realizations of a stressed dollar dash — 2008 and 2020 — were each ARRESTED by a Fed swap-line injection of OPPOSITE SIGN (the dollar supply EXPANDED via the Fed balance sheet: +$583bn in Dec-2008, +$449bn in May-2020). A run model whose only dynamics drain the -USAn block, with no offsetting official backstop, mis-states the F4 mechanism: it models the disease without the intervention that defines the observed episodes. This biases F4's run-feasibility / hazard upward because the equilibrium-restoring official response is structurally absent.\n(b) DP1 SECTOR GAP: The from-whom-to-whom matrix is meant to span the cross-border dollar circuit. The official/central-bank sector's cross-border dollar PROVISION (Fed -> foreign central bank, on-lent to foreign banks) is a real, large, bilateral cross-border dollar position at stress peaks (hundreds of $bn) and is entirely absent from all 13 sources. Every official cell present is a reserve POSITION held, not the Fed-injection leg. This is a genuine coverage hole in the official-sector row/column, independent of the China-nationality reallocation.\n(c) NOT a scope-exclusion: The swap line is NOT merely a flow/backstop with no position counterpart. The H.4.1 carries it as a STOCK (outstanding swap balance) on the Fed balance sheet at each weekly date — it is exactly a position, of the same stock/position type the matrix records. So 'out of scope because it is a flow not a position' does NOT hold: the outstanding swap balance is a weekly position. It is a position the matrix omits.",
+    "scope_caveat": "Two honest qualifications, grounded: (1) at the matrix's current reference snapshot (2025) the swap balance is ~$35mn, i.e. near-zero — so omitting it does NOT distort the present-day LEVEL of the matrix. The defect is a STRUCTURAL/dynamics gap: there is no state dimension along which the backstop can act under the F4 stress operator, so the model cannot represent the very mechanism that arrested the historical runs. (2) The Fed swap line is a USD-vs-foreign-CB bilateral, settling into foreign-bank dollar funding (overlaps conceptually with BIS LBS USD bank liabilities), so wiring it in requires care not to double-count; that is a DP2/DP3 modeling task, not a reason to deem it out of scope."
+  },
+
+  "forces_reopening_independent_of_f": true,
+  "verdict": "GENUINE SEPARATE REOPENING. The official-sector central-bank swap-line dimension is ABSENT from all 13 DP1 sources and from the DP2 matrix; the data IS groundable (FRED SWPT / Fed H.4.1, weekly, with 2008 ~$583bn and 2020 ~$449bn peaks confirmed from the publisher on 2026-06-29). Omitting it (i) mis-specifies F4 — a dollar run modeled with no circuit-breaker, when both historical runs were arrested by opposite-sign Fed injections — and (ii) under-covers the matrix as a DP1 official-sector gap (the Fed cross-border dollar-provision leg is missing while only held-reserve positions are present). The outstanding swap balance is a weekly POSITION on the Fed balance sheet, so it is in-scope for a stock/position matrix and the 'flow not a position' exclusion does NOT apply. This is a DP1 (sector coverage) + DP3 (F4 structural specification) reopening that is INDEPENDENT of the China-nationality fraction f and of the vintage question. Recommendation: route to orchestrator as a DP1+DP3 reopen; do NOT proceed to DP6 on the current operator.",
+
+  "publisher_checks": [
+    { "url": "https://www.federalreserve.gov/releases/h41/current/", "checked": "2026-06-29", "finding": "Line item 'Central bank liquidity swaps' present; weekly release; current $35mn." },
+    { "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SWPT", "checked": "2026-06-29", "finding": "Weekly CSV retrievable 2007-2021; 2008-12-17 peak $583,135mn; 2020-05-27 peak $448,946mn." },
+    { "url": "https://fred.stlouisfed.org/data/SWPT", "checked": "2026-06-29", "finding": "Series text confirms 'Central Bank Liquidity Swaps', 'Weekly', release 'H.4.1'." },
+    { "url": "https://fred.stlouisfed.org/series/SWPT", "checked": "2026-06-29", "finding": "HTML page returned HTTP 403 via proxy; metadata instead confirmed from the /data/ text endpoint and CSV above (UNVERIFIED via this exact URL, but VERIFIED equivalently from publisher-redistributed endpoints)." }
+  ]
+}

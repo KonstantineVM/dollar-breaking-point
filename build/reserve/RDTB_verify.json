@@ -1,0 +1,48 @@
+{
+ "purpose": "verifier artifact for RDT-B Parts A(3-4)+C: records that RDTB_k1_bound.json and the amended RDT_breaking_point_object.md were regenerated deterministically from the committed inputs by build/reserve/RDTB_recompute.py, and that the unmodified build/reserve/RDTB_k3_recompute.py, re-run in a sandbox from the committed inputs alone, byte-reproduces the committed RDTB_k3_distribution.json; until all_pass=true every number in these outputs is an OUTPUT, not established",
+ "no_date_no_probability": "no date and no probability anywhere in the RDT-B outputs",
+ "network": "none",
+ "inputs_sha256": {
+  "rdtb_a_components.csv": "3195fb0f727240d79f416086e3c86aece2c31e140bbf69a2558589e5668113bb",
+  "rdt_k2_gold.csv": "34276838d8f7f56436ba83dc2df88f6b1d960d9a4ff6743ce09541587cdb0e11",
+  "RDT_coordinates.parquet": "9860a19d3816682366492b62a848e929dc3e660539533287ddabdc016212be30",
+  "safe_ora_2020.xls": "3cf203db18af8c2ea21aff38e8ea569c99afa50a739e61cbeb254f6fc6900313",
+  "safe_ora_2021.xlsx": "43e53115e439ea671c3a00b601e76cf5c4b43ab31a5d629e70d687abf5772cb5",
+  "safe_ora_2022.xlsx": "e5bb7e4b27a0497efc65ff3a30738d9d69b33426246464b7b89867beeb42f7bd",
+  "safe_ora_2023.xlsx": "1f2c86e2f231fa01a649d3f3eede518de472f4d277191388e648fe567f19ab8e",
+  "safe_ora_2024.xlsx": "0a9478dd70508aa2ac9bb7856061f3efcb37109c0e589da800e39b5f0eeebd70",
+  "safe_ora_2025.xlsx": "735f655e309a1815108923e3c231f117877124bbbbeaa7b7b564dc29195b6738",
+  "RDTB_k3_recompute.py": "a7cdac73ee37587def01fadff98570602a12750a77e4bc9ff85b0d7244d7dc13",
+  "RDT_verify.json": "25268f9d46ffaf2ada6e2f66197f52aad22fbc5dc4e4a2fb217411c6f5b77c0b",
+  "RDTB_prediction.md": "6f0caffb141916dd30ccf223c6d95eb40b99b228c31f1829c4e75c667a57342a",
+  "mfhhis01.csv": "d0f4693d7b346f9993fae472c440f93c9fd3cebafcf31c15d1c8a8fc96950e56",
+  "slt_table3.txt": "d53727506606d107d06bff218e3a3873256d7f0f545e9ad5bd6ea79591211d5f",
+  "slt3d_globl.csv": "d6b74f0a24e156f86911a383b1a2ae1fdd444017b4875716ed67a0fdeeba52ae",
+  "s1_globl.txt": "6ac22414083e85968d18fc2aea5c5f69fdb8eb4bad522fa17713c9c9190a8733",
+  "oilexp_sdata_hist_2003-2014.csv": "b787d8a82a92dacc2d80de72d8d81a80b45ed942750a0b7d0233096ae74f9b6f",
+  "slt_table5.txt": "273ecb97c9befb35fcc2ac82749f5a63f234b90cbe6e669215cf1b7933ec1511",
+  "un_digitallibrary_es11_1_votelines.txt": "645e4d0bc65668409e14fded929d0687022f296bfa5c2ddd8037c2ae08ff5957",
+  "rdt_k3_ust.csv": "b5d25299606b3eaaaddcac99ec02c587a1d1c4744dfde62d4cbe1bab9f82922d",
+  "rdt_k3_transactions.csv": "4b087804d0ce8a735d27cc9f751a31e67c9f0e5ffd5e9cc15dd04823c9bb13e4"
+ },
+ "outputs_sha256": {
+  "RDTB_k1_bound.json": "4b565085c3a44e2832788cbde8cf62539d16baa0ceeb9347b7ff7a27844881c2",
+  "RDTB_k3_distribution.json": "2806bb37bc823f7d5974f5be5d96a0b38575e54b281ea3d2940fb6ab9801ef6f",
+  "RDT_breaking_point_object.md": "c829162d0c2bb5988af13cb064592871f58d8226de05c2adfb93038367142b4e"
+ },
+ "match_flags": {
+  "k1_bound_byte_reproduction": true,
+  "k1_bound_two_pass_payload_identical": true,
+  "k1_bound_matches_previous_file": true,
+  "k3_distribution_sandbox_rerun_byte_identical": true,
+  "k3_rerun_note": "byte-identical",
+  "amended_object_byte_reproduction": true,
+  "amended_object_base_matches_pre_amendment_sha256_in_RDT_verify": true
+ },
+ "pre_amendment_object_sha256": {
+  "stripped_base_recomputed_here": "44338462325bdbf8431289457f041e20189568864b38a6ca24b1b698ca0b22d9",
+  "historical_in_RDT_verify_json": "44338462325bdbf8431289457f041e20189568864b38a6ca24b1b698ca0b22d9",
+  "note": "RDT_verify.json's object byte-identity claim is historical (pre-amendment) per the pre-registration; the amended object's reproduction is carried here"
+ },
+ "all_pass": true
+}

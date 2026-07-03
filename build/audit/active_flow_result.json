@@ -1,0 +1,1632 @@
+{
+  "artifact": "active_flow_result",
+  "generated_by": "build/audit/active_flow_recompute.py (no network)",
+  "serves_prereg": "build/audit/active_flow_prediction.md",
+  "active_flow_panel_path": "/home/user/dollar-breaking-point/build/data/nport/active_flow_panel.parquet",
+  "treatment_path": "/home/user/dollar-breaking-point/build/data/sanctions/sanctions_treatment_panel.csv",
+  "macro_control_panel_path": "/home/user/dollar-breaking-point/build/data/cm_panel/cm_weight_panel_full.parquet",
+  "merged_panel_path": "/home/user/dollar-breaking-point/build/data/cm_panel/active_flow_cm_panel.parquet",
+  "estimator": "within (fund-demeaned) OLS; fund FE + X_t, NO time FE. Estimator functions REUSED VERBATIM from sanctions_shock_recompute.py; ONLY change is the DEPENDENT VARIABLE (portfolio weight w -> ACTIVE net flow into CN-nationality haven, valuation removed by construction) across three disclosed normalization variants. beta read from the estimator at design position 0, never hardcoded.",
+  "dependent_variable_note": "ACTIVE net flow into CN-nationality haven securities = manager DECISION (constant-price decomposition active=(bal_t-bal_{t-1})*price_{t-1}). Valuation (passive) removed BY CONSTRUCTION, not controlled.",
+  "dv_variants": {
+    "DV1_headline": "active_flow_rate (cn_active_flow / tot_haven_lag) winsorized symmetric 1/99",
+    "DV2_robustness": "cn_active_flow / (0.5*(tot_haven_lag + tot_haven_cv))  (average-base)",
+    "DV3_robustness": "active_flow_rate restricted to tot_haven_lag>=1000000, winsorized 1/99"
+  },
+  "winsor_and_floor_meta": {
+    "DV1_winsor_p1": -0.5670454983996641,
+    "DV1_winsor_p99": 1.6580365090901907,
+    "DV3_lag_floor": 1000000.0,
+    "DV3_winsor_p1": -0.5222607773120936,
+    "DV3_winsor_p99": 1.0589139268644916,
+    "DV1_n_nonnull": 32546,
+    "DV2_n_nonnull": 32547,
+    "DV3_n_nonnull": 28501
+  },
+  "headline_treatment": "sanc_freeze_post",
+  "primary_regulatory_control": "reg_crackdown_post",
+  "sign_convention": "NEGATIVE beta on the sanctions treatment = funds ACTIVELY SOLD CN-nationality haven securities as sanctions risk rose = F3 substitution.",
+  "merge_check": {
+    "merge1_treatment": {
+      "panel_quarters": 22,
+      "treatment_rows": 22,
+      "keys_matched": 22,
+      "orphans_treatment_side": [],
+      "orphans_panel_side": [],
+      "merge_ok_22_of_22": true
+    },
+    "merge2_macro_controls": {
+      "active_flow_rows": 36547,
+      "rows_matched_macro_block": 34315,
+      "rows_matched_relative_returns": 34315,
+      "rows_orphan_no_macro": 2232,
+      "active_flow_holders": 3161,
+      "cm_holders": 7856,
+      "active_flow_holders_matched_in_cm": 3057,
+      "active_flow_holders_NOT_in_cm": 104,
+      "note": "Rows with no relative_returns match drop out of any spec that includes relative_returns (the headline spec does). The macro block (log_vix, broad_dollar, oil) is per-quarter; relative_returns is per holder-quarter."
+    }
+  },
+  "estimation_set_DV1": {
+    "quarters": [
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2020q4",
+      "2021q1",
+      "2021q2",
+      "2021q3",
+      "2021q4",
+      "2022q1",
+      "2022q2",
+      "2022q3",
+      "2022q4",
+      "2023q1",
+      "2023q2",
+      "2023q3",
+      "2023q4",
+      "2024q1",
+      "2024q2",
+      "2024q3",
+      "2024q4"
+    ],
+    "n_cells_DV1_nonnull": 32546,
+    "G": 22
+  },
+  "LOAD_BEARING_with_vs_without_regulatory_control_by_DV": {
+    "DV1_headline_afrate_winsorized": {
+      "WITHOUT_regulatory_control": {
+        "label": "DV1 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+        "status": "OK",
+        "weight_col": "dv1_afrate_wins",
+        "treatment_col": "sanc_freeze_post",
+        "use_lags": true,
+        "controls": [
+          "log_vix",
+          "broad_dollar",
+          "oil",
+          "relative_returns"
+        ],
+        "n_obs": 24360,
+        "n_funds": 2275,
+        "within_dof": 22078,
+        "n_quarter_clusters": 19,
+        "n_fund_clusters": 2275,
+        "beta_treatment": -0.0016975836701874402,
+        "se_classical": {
+          "coef": -0.0016975836701874402,
+          "se": 0.007589248128318936,
+          "t": -0.223682720802471,
+          "p": 0.8230062617118197,
+          "dof": 22078,
+          "ci95": [
+            -0.01657305217669644,
+            0.013177884836321561
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.0016975836701874402,
+          "se": 0.0069577955763130694,
+          "t": -0.24398297586762221,
+          "p": 0.8072660143512579,
+          "dof": 2274,
+          "ci95": [
+            -0.015341874688491502,
+            0.011946707348116623
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.0016975836701874402,
+          "se": 0.017836087257862236,
+          "t": -0.09517690991554983,
+          "p": 0.9252258788236919,
+          "dof": 18,
+          "ci95": [
+            -0.039169812501892554,
+            0.03577464516151767
+          ]
+        }
+      },
+      "WITH_regulatory_control_reg_crackdown": {
+        "label": "DV1 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+        "status": "OK",
+        "weight_col": "dv1_afrate_wins",
+        "treatment_col": "sanc_freeze_post",
+        "use_lags": true,
+        "controls": [
+          "log_vix",
+          "broad_dollar",
+          "oil",
+          "relative_returns",
+          "reg_crackdown_post"
+        ],
+        "n_obs": 24360,
+        "n_funds": 2275,
+        "within_dof": 22077,
+        "n_quarter_clusters": 19,
+        "n_fund_clusters": 2275,
+        "beta_treatment": -0.009210624181125048,
+        "se_classical": {
+          "coef": -0.009210624181125048,
+          "se": 0.007663676841797504,
+          "t": -1.2018544585401267,
+          "p": 0.22943281332860213,
+          "dof": 22077,
+          "ci95": [
+            -0.024231978320534087,
+            0.005810729958283989
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.009210624181125048,
+          "se": 0.006875420383176896,
+          "t": -1.3396452388078028,
+          "p": 0.1804945699792948,
+          "dof": 2274,
+          "ci95": [
+            -0.022693376807633683,
+            0.004272128445383586
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.009210624181125048,
+          "se": 0.009214097745339095,
+          "t": -0.9996230163484207,
+          "p": 0.3307424504428828,
+          "dof": 18,
+          "ci95": [
+            -0.02856872521524321,
+            0.010147476852993114
+          ]
+        },
+        "lambda_reg_crackdown_post": {
+          "se_classical": {
+            "coef": -0.05243902943513197,
+            "se": 0.007804210223266252,
+            "t": -6.719325586437748,
+            "p": 1.870141602240074e-11,
+            "dof": 22077,
+            "ci95": [
+              -0.06773583904259224,
+              -0.0371422198276717
+            ]
+          },
+          "se_cluster_fund": {
+            "coef": -0.05243902943513197,
+            "se": 0.007644090756441065,
+            "t": -6.860074154790193,
+            "p": 8.840117256608096e-12,
+            "dof": 2274,
+            "ci95": [
+              -0.06742915061751908,
+              -0.037448908252744856
+            ]
+          },
+          "se_cluster_quarter": {
+            "coef": -0.05243902943513197,
+            "se": 0.008193873682913069,
+            "t": -6.399784944755086,
+            "p": 5.0220705989008e-06,
+            "dof": 18,
+            "ci95": [
+              -0.06965371925051504,
+              -0.0352243396197489
+            ]
+          }
+        }
+      }
+    },
+    "DV2_avgbase_rate": {
+      "WITHOUT_regulatory_control": {
+        "label": "DV2 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+        "status": "OK",
+        "weight_col": "dv2_avgbase",
+        "treatment_col": "sanc_freeze_post",
+        "use_lags": true,
+        "controls": [
+          "log_vix",
+          "broad_dollar",
+          "oil",
+          "relative_returns"
+        ],
+        "n_obs": 24361,
+        "n_funds": 2275,
+        "within_dof": 22079,
+        "n_quarter_clusters": 19,
+        "n_fund_clusters": 2275,
+        "beta_treatment": 0.0018979407807565264,
+        "se_classical": {
+          "coef": 0.0018979407807565264,
+          "se": 0.007408635777693215,
+          "t": 0.25617952315473086,
+          "p": 0.7978146060237332,
+          "dof": 22079,
+          "ci95": [
+            -0.012623514579542012,
+            0.016419396141055066
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": 0.0018979407807565264,
+          "se": 0.006828008121720885,
+          "t": 0.27796404850763157,
+          "p": 0.7810652262670166,
+          "dof": 2274,
+          "ci95": [
+            -0.011491836033794648,
+            0.0152877175953077
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": 0.0018979407807565264,
+          "se": 0.01625329312011174,
+          "t": 0.11677269133896469,
+          "p": 0.9083332190659031,
+          "dof": 18,
+          "ci95": [
+            -0.032248960961784257,
+            0.036044842523297316
+          ]
+        }
+      },
+      "WITH_regulatory_control_reg_crackdown": {
+        "label": "DV2 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+        "status": "OK",
+        "weight_col": "dv2_avgbase",
+        "treatment_col": "sanc_freeze_post",
+        "use_lags": true,
+        "controls": [
+          "log_vix",
+          "broad_dollar",
+          "oil",
+          "relative_returns",
+          "reg_crackdown_post"
+        ],
+        "n_obs": 24361,
+        "n_funds": 2275,
+        "within_dof": 22078,
+        "n_quarter_clusters": 19,
+        "n_fund_clusters": 2275,
+        "beta_treatment": -0.0048941582645871725,
+        "se_classical": {
+          "coef": -0.0048941582645871725,
+          "se": 0.007482400019610233,
+          "t": -0.6540893632738597,
+          "p": 0.5130610467546518,
+          "dof": 22078,
+          "ci95": [
+            -0.01956019684481065,
+            0.009771880315636305
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.0048941582645871725,
+          "se": 0.006693791999454283,
+          "t": -0.7311488413422724,
+          "p": 0.46476357379200917,
+          "dof": 2274,
+          "ci95": [
+            -0.018020736223772697,
+            0.00823241969459835
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.0048941582645871725,
+          "se": 0.008947850836385515,
+          "t": -0.5469646682849899,
+          "p": 0.5911202296420757,
+          "dof": 18,
+          "ci95": [
+            -0.023692895299538712,
+            0.013904578770364365
+          ]
+        },
+        "lambda_reg_crackdown_post": {
+          "se_classical": {
+            "coef": -0.04739534011562357,
+            "se": 0.007618481808129897,
+            "t": -6.221100385781149,
+            "p": 5.025500890900621e-10,
+            "dof": 22078,
+            "ci95": [
+              -0.06232810872301274,
+              -0.032462571508234395
+            ]
+          },
+          "se_cluster_fund": {
+            "coef": -0.04739534011562357,
+            "se": 0.007640522016826694,
+            "t": -6.203154707393681,
+            "p": 6.554942099129435e-10,
+            "dof": 2274,
+            "ci95": [
+              -0.06237846297198443,
+              -0.0324122172592627
+            ]
+          },
+          "se_cluster_quarter": {
+            "coef": -0.04739534011562357,
+            "se": 0.007771716489362921,
+            "t": -6.09843915182613,
+            "p": 9.218052055035975e-06,
+            "dof": 18,
+            "ci95": [
+              -0.06372311057863084,
+              -0.0310675696526163
+            ]
+          }
+        }
+      }
+    },
+    "DV3_afrate_lagfloor_winsorized": {
+      "WITHOUT_regulatory_control": {
+        "label": "DV3 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+        "status": "OK",
+        "weight_col": "dv3_afrate_floor_wins",
+        "treatment_col": "sanc_freeze_post",
+        "use_lags": true,
+        "controls": [
+          "log_vix",
+          "broad_dollar",
+          "oil",
+          "relative_returns"
+        ],
+        "n_obs": 21128,
+        "n_funds": 1964,
+        "within_dof": 19157,
+        "n_quarter_clusters": 19,
+        "n_fund_clusters": 1964,
+        "beta_treatment": -0.0020118650524630593,
+        "se_classical": {
+          "coef": -0.0020118650524630593,
+          "se": 0.006169948684258797,
+          "t": -0.32607484363619904,
+          "p": 0.7443712913545033,
+          "dof": 19157,
+          "ci95": [
+            -0.014105506351569739,
+            0.01008177624664362
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.0020118650524630593,
+          "se": 0.005955597321259015,
+          "t": -0.33781079276154796,
+          "p": 0.7355418965646225,
+          "dof": 1963,
+          "ci95": [
+            -0.01369182296896592,
+            0.009668092864039801
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.0020118650524630593,
+          "se": 0.01209276714819822,
+          "t": -0.16636928734403195,
+          "p": 0.8697208941910103,
+          "dof": 18,
+          "ci95": [
+            -0.027417826081615467,
+            0.023394095976689348
+          ]
+        }
+      },
+      "WITH_regulatory_control_reg_crackdown": {
+        "label": "DV3 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+        "status": "OK",
+        "weight_col": "dv3_afrate_floor_wins",
+        "treatment_col": "sanc_freeze_post",
+        "use_lags": true,
+        "controls": [
+          "log_vix",
+          "broad_dollar",
+          "oil",
+          "relative_returns",
+          "reg_crackdown_post"
+        ],
+        "n_obs": 21128,
+        "n_funds": 1964,
+        "within_dof": 19156,
+        "n_quarter_clusters": 19,
+        "n_fund_clusters": 1964,
+        "beta_treatment": -0.007895830264757419,
+        "se_classical": {
+          "coef": -0.007895830264757419,
+          "se": 0.006240075116887079,
+          "t": -1.2653421820819888,
+          "p": 0.20576408237979624,
+          "dof": 19156,
+          "ci95": [
+            -0.02012692557103837,
+            0.0043352650415235325
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.007895830264757419,
+          "se": 0.005835930510181673,
+          "t": -1.3529685199270167,
+          "p": 0.17622148662305176,
+          "dof": 1963,
+          "ci95": [
+            -0.01934110083723918,
+            0.0035494403077243435
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.007895830264757419,
+          "se": 0.006137728144417265,
+          "t": -1.2864418362907264,
+          "p": 0.21458969034206068,
+          "dof": 18,
+          "ci95": [
+            -0.02079071860037138,
+            0.0049990580708565435
+          ]
+        },
+        "lambda_reg_crackdown_post": {
+          "se_classical": {
+            "coef": -0.0384263904760567,
+            "se": 0.006335932140818558,
+            "t": -6.064836179115434,
+            "p": 1.3456571518930508e-09,
+            "dof": 19156,
+            "ci95": [
+              -0.05084537396854065,
+              -0.026007406983572748
+            ]
+          },
+          "se_cluster_fund": {
+            "coef": -0.0384263904760567,
+            "se": 0.006118445030806406,
+            "t": -6.280417701324373,
+            "p": 4.1464401673724263e-10,
+            "dof": 1963,
+            "ci95": [
+              -0.05042572095784749,
+              -0.02642705999426591
+            ]
+          },
+          "se_cluster_quarter": {
+            "coef": -0.0384263904760567,
+            "se": 0.005959597883719572,
+            "t": -6.4478159811805265,
+            "p": 4.563817079353252e-06,
+            "dof": 18,
+            "ci95": [
+              -0.050947041020936994,
+              -0.025905739931176404
+            ]
+          }
+        }
+      }
+    }
+  },
+  "robustness_panel": {
+    "r1_DV1_no_control": {
+      "label": "DV1 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 24360,
+      "n_funds": 2275,
+      "within_dof": 22078,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": -0.0016975836701874402,
+      "se_classical": {
+        "coef": -0.0016975836701874402,
+        "se": 0.007589248128318936,
+        "t": -0.223682720802471,
+        "p": 0.8230062617118197,
+        "dof": 22078,
+        "ci95": [
+          -0.01657305217669644,
+          0.013177884836321561
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.0016975836701874402,
+        "se": 0.0069577955763130694,
+        "t": -0.24398297586762221,
+        "p": 0.8072660143512579,
+        "dof": 2274,
+        "ci95": [
+          -0.015341874688491502,
+          0.011946707348116623
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.0016975836701874402,
+        "se": 0.017836087257862236,
+        "t": -0.09517690991554983,
+        "p": 0.9252258788236919,
+        "dof": 18,
+        "ci95": [
+          -0.039169812501892554,
+          0.03577464516151767
+        ]
+      }
+    },
+    "r2_DV1_plus_reg_crackdown": {
+      "label": "DV1 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 24360,
+      "n_funds": 2275,
+      "within_dof": 22077,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": -0.009210624181125048,
+      "se_classical": {
+        "coef": -0.009210624181125048,
+        "se": 0.007663676841797504,
+        "t": -1.2018544585401267,
+        "p": 0.22943281332860213,
+        "dof": 22077,
+        "ci95": [
+          -0.024231978320534087,
+          0.005810729958283989
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.009210624181125048,
+        "se": 0.006875420383176896,
+        "t": -1.3396452388078028,
+        "p": 0.1804945699792948,
+        "dof": 2274,
+        "ci95": [
+          -0.022693376807633683,
+          0.004272128445383586
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.009210624181125048,
+        "se": 0.009214097745339095,
+        "t": -0.9996230163484207,
+        "p": 0.3307424504428828,
+        "dof": 18,
+        "ci95": [
+          -0.02856872521524321,
+          0.010147476852993114
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.05243902943513197,
+          "se": 0.007804210223266252,
+          "t": -6.719325586437748,
+          "p": 1.870141602240074e-11,
+          "dof": 22077,
+          "ci95": [
+            -0.06773583904259224,
+            -0.0371422198276717
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.05243902943513197,
+          "se": 0.007644090756441065,
+          "t": -6.860074154790193,
+          "p": 8.840117256608096e-12,
+          "dof": 2274,
+          "ci95": [
+            -0.06742915061751908,
+            -0.037448908252744856
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.05243902943513197,
+          "se": 0.008193873682913069,
+          "t": -6.399784944755086,
+          "p": 5.0220705989008e-06,
+          "dof": 18,
+          "ci95": [
+            -0.06965371925051504,
+            -0.0352243396197489
+          ]
+        }
+      }
+    },
+    "r3_DV1_plus_reg_hfcaa": {
+      "label": "DV1 activeflow~sanc_freeze+L1+L2+X+relret + reg_hfcaa",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_hfcaa_post"
+      ],
+      "n_obs": 24360,
+      "n_funds": 2275,
+      "within_dof": 22077,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": -0.003600736818972062,
+      "se_classical": {
+        "coef": -0.003600736818972062,
+        "se": 0.007635634936326571,
+        "t": -0.47157005920248213,
+        "p": 0.6372383621351454,
+        "dof": 22077,
+        "ci95": [
+          -0.018567126820211107,
+          0.011365653182266984
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.003600736818972062,
+        "se": 0.0070288322503915335,
+        "t": -0.5122809437899855,
+        "p": 0.6085041496955216,
+        "dof": 2274,
+        "ci95": [
+          -0.01738433130537436,
+          0.010182857667430236
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.003600736818972062,
+        "se": 0.016033370893534273,
+        "t": -0.22457765387465214,
+        "p": 0.8248374523893316,
+        "dof": 18,
+        "ci95": [
+          -0.03728559910855737,
+          0.030084125470613243
+        ]
+      },
+      "lambda_reg_hfcaa_post": {
+        "se_classical": {
+          "coef": 0.023329563630792794,
+          "se": 0.01037847201541097,
+          "t": 2.2478803812498387,
+          "p": 0.02459364655887859,
+          "dof": 22077,
+          "ci95": [
+            0.002987016993235378,
+            0.04367211026835021
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": 0.023329563630792794,
+          "se": 0.009515473701083627,
+          "t": 2.4517501034274325,
+          "p": 0.014291062022372788,
+          "dof": 2274,
+          "ci95": [
+            0.004669645998748528,
+            0.04198948126283706
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": 0.023329563630792794,
+          "se": 0.017539384610389484,
+          "t": 1.3301244113760688,
+          "p": 0.20008605436523363,
+          "dof": 18,
+          "ci95": [
+            -0.013519316069438948,
+            0.06017844333102454
+          ]
+        }
+      }
+    },
+    "r4_DV1_eo2023_second_event_with_controls": {
+      "label": "DV1 activeflow~sanc_eo2023 + sanc_freeze + reg_crackdown +L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_eo2023_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "sanc_freeze_post",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 24360,
+      "n_funds": 2275,
+      "within_dof": 22076,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": -0.0017667875002062873,
+      "se_classical": {
+        "coef": -0.0017667875002062873,
+        "se": 0.00573572771709942,
+        "t": -0.3080319686269485,
+        "p": 0.7580609129445628,
+        "dof": 22076,
+        "ci95": [
+          -0.0130092236412829,
+          0.009475648640870327
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.0017667875002062873,
+        "se": 0.004789342195833788,
+        "t": -0.3688998254798336,
+        "p": 0.7122367359511529,
+        "dof": 2274,
+        "ci95": [
+          -0.011158724643152217,
+          0.007625149642739643
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.0017667875002062873,
+        "se": 0.007612308828504727,
+        "t": -0.23209614060722944,
+        "p": 0.8190816292105961,
+        "dof": 18,
+        "ci95": [
+          -0.017759654895133307,
+          0.014226079894720732
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.05273357224237872,
+          "se": 0.007862730388092752,
+          "t": -6.706776099335412,
+          "p": 2.037817859117639e-11,
+          "dof": 22076,
+          "ci95": [
+            -0.06814508559213334,
+            -0.0373220588926241
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.05273357224237872,
+          "se": 0.007762790512866913,
+          "t": -6.793120612358691,
+          "p": 1.3963061768658055e-11,
+          "dof": 2274,
+          "ci95": [
+            -0.06795646456653232,
+            -0.03751067991822513
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.05273357224237872,
+          "se": 0.008291500304019988,
+          "t": -6.35995541323345,
+          "p": 5.438054464218484e-06,
+          "dof": 18,
+          "ci95": [
+            -0.07015336797775959,
+            -0.03531377650699786
+          ]
+        }
+      }
+    },
+    "r5_DV1_narrow_event_window_2022q1q2_vs_pre": {
+      "label": "DV1 NARROW window (2022q1-q2 vs pre) activeflow~sanc_freeze+reg_crackdown+L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 12702,
+      "n_funds": 1959,
+      "within_dof": 10735,
+      "n_quarter_clusters": 9,
+      "n_fund_clusters": 1959,
+      "beta_treatment": -0.006033978513658038,
+      "se_classical": {
+        "coef": -0.006033978513658038,
+        "se": 0.022777916877813043,
+        "t": -0.26490475604182523,
+        "p": 0.7910879204277856,
+        "dof": 10735,
+        "ci95": [
+          -0.05068290936708679,
+          0.03861495233977072
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.006033978513658038,
+        "se": 0.020864242074244494,
+        "t": -0.2892019030543448,
+        "p": 0.7724574925324074,
+        "dof": 1958,
+        "ci95": [
+          -0.046952435584442384,
+          0.034884478557126314
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.006033978513658038,
+        "se": 0.017608133894084867,
+        "t": -0.34268131705228816,
+        "p": 0.7406682156106903,
+        "dof": 8,
+        "ci95": [
+          -0.04663840808664637,
+          0.0345704510593303
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.034175039398936166,
+          "se": 0.01460002373499501,
+          "t": -2.3407523178898346,
+          "p": 0.019263136560057008,
+          "dof": 10735,
+          "ci95": [
+            -0.06279378683308691,
+            -0.0055562919647854266
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.034175039398936166,
+          "se": 0.01303623507007423,
+          "t": -2.621542125869442,
+          "p": 0.008821074929353028,
+          "dof": 1958,
+          "ci95": [
+            -0.05974139465791584,
+            -0.00860868413995649
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.034175039398936166,
+          "se": 0.009284952631203337,
+          "t": -3.680690764548042,
+          "p": 0.006212965006439811,
+          "dof": 8,
+          "ci95": [
+            -0.05558617856166586,
+            -0.012763900236206473
+          ]
+        }
+      }
+    },
+    "r6_DV1_no_flow_lags_with_control": {
+      "label": "DV1 activeflow~sanc_freeze+reg_crackdown+X+relret (NO active-flow lags)",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 31399,
+      "n_funds": 2769,
+      "within_dof": 28624,
+      "n_quarter_clusters": 21,
+      "n_fund_clusters": 2769,
+      "beta_treatment": -0.012353652549957987,
+      "se_classical": {
+        "coef": -0.012353652549957987,
+        "se": 0.008070857030170051,
+        "t": -1.5306494098183396,
+        "p": 0.12586711400922074,
+        "dof": 28624,
+        "ci95": [
+          -0.028172910569680236,
+          0.0034656054697642606
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.012353652549957987,
+        "se": 0.007480143411835688,
+        "t": -1.6515261633100562,
+        "p": 0.09874461355145195,
+        "dof": 2768,
+        "ci95": [
+          -0.027020877733073295,
+          0.0023135726331573233
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.012353652549957987,
+        "se": 0.008771973974875218,
+        "t": -1.4083093024832782,
+        "p": 0.17439536536337635,
+        "dof": 20,
+        "ci95": [
+          -0.030651669621915137,
+          0.005944364521999165
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.050877143905888364,
+          "se": 0.007833731269715405,
+          "t": -6.494624611719251,
+          "p": 8.460465210768039e-11,
+          "dof": 28624,
+          "ci95": [
+            -0.06623162432222443,
+            -0.03552266348955229
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.050877143905888364,
+          "se": 0.0072689554057715315,
+          "t": -6.9992373134511245,
+          "p": 3.2163051598629725e-12,
+          "dof": 2768,
+          "ci95": [
+            -0.0651302671299403,
+            -0.03662402068183642
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.050877143905888364,
+          "se": 0.010628559601951729,
+          "t": -4.786833382064843,
+          "p": 0.0001123784283033354,
+          "dof": 20,
+          "ci95": [
+            -0.07304793073264629,
+            -0.028706357079130437
+          ]
+        }
+      }
+    },
+    "r6b_DV1_no_flow_lags_no_control": {
+      "label": "DV1 activeflow~sanc_freeze+X+relret (NO active-flow lags, NO regulatory control)",
+      "status": "OK",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 31399,
+      "n_funds": 2769,
+      "within_dof": 28625,
+      "n_quarter_clusters": 21,
+      "n_fund_clusters": 2769,
+      "beta_treatment": -0.010982024624195771,
+      "se_classical": {
+        "coef": -0.010982024624195771,
+        "se": 0.008073894666081976,
+        "t": -1.360189236841385,
+        "p": 0.1737807590531735,
+        "dof": 28625,
+        "ci95": [
+          -0.026807236529286134,
+          0.004843187280894591
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.010982024624195771,
+        "se": 0.007497856707642254,
+        "t": -1.4646885173201898,
+        "p": 0.14311948311761827,
+        "dof": 2768,
+        "ci95": [
+          -0.025683982416570814,
+          0.003719933168179269
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.010982024624195771,
+        "se": 0.017464406172109224,
+        "t": -0.6288232486103157,
+        "p": 0.536581310408233,
+        "dof": 20,
+        "ci95": [
+          -0.04741213752741996,
+          0.02544808827902842
+        ]
+      }
+    },
+    "r7_DV2_no_control": {
+      "label": "DV2 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+      "status": "OK",
+      "weight_col": "dv2_avgbase",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 24361,
+      "n_funds": 2275,
+      "within_dof": 22079,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": 0.0018979407807565264,
+      "se_classical": {
+        "coef": 0.0018979407807565264,
+        "se": 0.007408635777693215,
+        "t": 0.25617952315473086,
+        "p": 0.7978146060237332,
+        "dof": 22079,
+        "ci95": [
+          -0.012623514579542012,
+          0.016419396141055066
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.0018979407807565264,
+        "se": 0.006828008121720885,
+        "t": 0.27796404850763157,
+        "p": 0.7810652262670166,
+        "dof": 2274,
+        "ci95": [
+          -0.011491836033794648,
+          0.0152877175953077
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.0018979407807565264,
+        "se": 0.01625329312011174,
+        "t": 0.11677269133896469,
+        "p": 0.9083332190659031,
+        "dof": 18,
+        "ci95": [
+          -0.032248960961784257,
+          0.036044842523297316
+        ]
+      }
+    },
+    "r8_DV2_plus_reg_crackdown": {
+      "label": "DV2 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+      "status": "OK",
+      "weight_col": "dv2_avgbase",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 24361,
+      "n_funds": 2275,
+      "within_dof": 22078,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": -0.0048941582645871725,
+      "se_classical": {
+        "coef": -0.0048941582645871725,
+        "se": 0.007482400019610233,
+        "t": -0.6540893632738597,
+        "p": 0.5130610467546518,
+        "dof": 22078,
+        "ci95": [
+          -0.01956019684481065,
+          0.009771880315636305
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.0048941582645871725,
+        "se": 0.006693791999454283,
+        "t": -0.7311488413422724,
+        "p": 0.46476357379200917,
+        "dof": 2274,
+        "ci95": [
+          -0.018020736223772697,
+          0.00823241969459835
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.0048941582645871725,
+        "se": 0.008947850836385515,
+        "t": -0.5469646682849899,
+        "p": 0.5911202296420757,
+        "dof": 18,
+        "ci95": [
+          -0.023692895299538712,
+          0.013904578770364365
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.04739534011562357,
+          "se": 0.007618481808129897,
+          "t": -6.221100385781149,
+          "p": 5.025500890900621e-10,
+          "dof": 22078,
+          "ci95": [
+            -0.06232810872301274,
+            -0.032462571508234395
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.04739534011562357,
+          "se": 0.007640522016826694,
+          "t": -6.203154707393681,
+          "p": 6.554942099129435e-10,
+          "dof": 2274,
+          "ci95": [
+            -0.06237846297198443,
+            -0.0324122172592627
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.04739534011562357,
+          "se": 0.007771716489362921,
+          "t": -6.09843915182613,
+          "p": 9.218052055035975e-06,
+          "dof": 18,
+          "ci95": [
+            -0.06372311057863084,
+            -0.0310675696526163
+          ]
+        }
+      }
+    },
+    "r9_DV3_no_control": {
+      "label": "DV3 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+      "status": "OK",
+      "weight_col": "dv3_afrate_floor_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 21128,
+      "n_funds": 1964,
+      "within_dof": 19157,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 1964,
+      "beta_treatment": -0.0020118650524630593,
+      "se_classical": {
+        "coef": -0.0020118650524630593,
+        "se": 0.006169948684258797,
+        "t": -0.32607484363619904,
+        "p": 0.7443712913545033,
+        "dof": 19157,
+        "ci95": [
+          -0.014105506351569739,
+          0.01008177624664362
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.0020118650524630593,
+        "se": 0.005955597321259015,
+        "t": -0.33781079276154796,
+        "p": 0.7355418965646225,
+        "dof": 1963,
+        "ci95": [
+          -0.01369182296896592,
+          0.009668092864039801
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.0020118650524630593,
+        "se": 0.01209276714819822,
+        "t": -0.16636928734403195,
+        "p": 0.8697208941910103,
+        "dof": 18,
+        "ci95": [
+          -0.027417826081615467,
+          0.023394095976689348
+        ]
+      }
+    },
+    "r10_DV3_plus_reg_crackdown": {
+      "label": "DV3 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+      "status": "OK",
+      "weight_col": "dv3_afrate_floor_wins",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 21128,
+      "n_funds": 1964,
+      "within_dof": 19156,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 1964,
+      "beta_treatment": -0.007895830264757419,
+      "se_classical": {
+        "coef": -0.007895830264757419,
+        "se": 0.006240075116887079,
+        "t": -1.2653421820819888,
+        "p": 0.20576408237979624,
+        "dof": 19156,
+        "ci95": [
+          -0.02012692557103837,
+          0.0043352650415235325
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.007895830264757419,
+        "se": 0.005835930510181673,
+        "t": -1.3529685199270167,
+        "p": 0.17622148662305176,
+        "dof": 1963,
+        "ci95": [
+          -0.01934110083723918,
+          0.0035494403077243435
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.007895830264757419,
+        "se": 0.006137728144417265,
+        "t": -1.2864418362907264,
+        "p": 0.21458969034206068,
+        "dof": 18,
+        "ci95": [
+          -0.02079071860037138,
+          0.0049990580708565435
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.0384263904760567,
+          "se": 0.006335932140818558,
+          "t": -6.064836179115434,
+          "p": 1.3456571518930508e-09,
+          "dof": 19156,
+          "ci95": [
+            -0.05084537396854065,
+            -0.026007406983572748
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.0384263904760567,
+          "se": 0.006118445030806406,
+          "t": -6.280417701324373,
+          "p": 4.1464401673724263e-10,
+          "dof": 1963,
+          "ci95": [
+            -0.05042572095784749,
+            -0.02642705999426591
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.0384263904760567,
+          "se": 0.005959597883719572,
+          "t": -6.4478159811805265,
+          "p": 4.563817079353252e-06,
+          "dof": 18,
+          "ci95": [
+            -0.050947041020936994,
+            -0.025905739931176404
+          ]
+        }
+      }
+    },
+    "r11_DV2_plus_reg_hfcaa": {
+      "label": "DV2 activeflow~sanc_freeze+L1+L2+X+relret + reg_hfcaa",
+      "status": "OK",
+      "weight_col": "dv2_avgbase",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_hfcaa_post"
+      ],
+      "n_obs": 24361,
+      "n_funds": 2275,
+      "within_dof": 22078,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": 0.00015063193544001964,
+      "se_classical": {
+        "coef": 0.00015063193544001964,
+        "se": 0.007454014225400445,
+        "t": 0.020208163129971406,
+        "p": 0.9838774985939415,
+        "dof": 22078,
+        "ci95": [
+          -0.014459768460254438,
+          0.014761032331134476
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.00015063193544001964,
+        "se": 0.006804332815146879,
+        "t": 0.022137649573034306,
+        "p": 0.9823400960545416,
+        "dof": 2274,
+        "ci95": [
+          -0.013192717419537174,
+          0.013493981290417211
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.00015063193544001964,
+        "se": 0.014846837165172946,
+        "t": 0.010145725568632582,
+        "p": 0.9920166249680742,
+        "dof": 18,
+        "ci95": [
+          -0.0310414154927416,
+          0.03134267936362164
+        ]
+      },
+      "lambda_reg_hfcaa_post": {
+        "se_classical": {
+          "coef": 0.02141750579198723,
+          "se": 0.01013050824353435,
+          "t": 2.1141590606430474,
+          "p": 0.03451286461873485,
+          "dof": 22078,
+          "ci95": [
+            0.0015609859123288591,
+            0.0412740256716456
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": 0.02141750579198723,
+          "se": 0.008313001500337152,
+          "t": 2.5763866145240795,
+          "p": 0.010046447447101895,
+          "dof": 2274,
+          "ci95": [
+            0.005115645459622849,
+            0.03771936612435161
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": 0.02141750579198723,
+          "se": 0.015637077898603278,
+          "t": 1.3696616420834142,
+          "p": 0.18763842588397783,
+          "dof": 18,
+          "ci95": [
+            -0.011434775810154417,
+            0.054269787394128875
+          ]
+        }
+      }
+    },
+    "r12_DV2_eo2023_second_event_with_controls": {
+      "label": "DV2 activeflow~sanc_eo2023 + sanc_freeze + reg_crackdown +L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "dv2_avgbase",
+      "treatment_col": "sanc_eo2023_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "sanc_freeze_post",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 24361,
+      "n_funds": 2275,
+      "within_dof": 22077,
+      "n_quarter_clusters": 19,
+      "n_fund_clusters": 2275,
+      "beta_treatment": -0.004540608293765341,
+      "se_classical": {
+        "coef": -0.004540608293765341,
+        "se": 0.00559945584857535,
+        "t": -0.8109017048362998,
+        "p": 0.41743086267796936,
+        "dof": 22077,
+        "ci95": [
+          -0.015515941808703488,
+          0.006434725221172807
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.004540608293765341,
+        "se": 0.00462153466776396,
+        "t": -0.9824892855260624,
+        "p": 0.32596337586881613,
+        "dof": 2274,
+        "ci95": [
+          -0.013603473574375784,
+          0.004522256986845102
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.004540608293765341,
+        "se": 0.007133757746495224,
+        "t": -0.6364960032454308,
+        "p": 0.5324645689034931,
+        "dof": 18,
+        "ci95": [
+          -0.0195280771731174,
+          0.010446860585586717
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.048152057481329585,
+          "se": 0.007675479821451361,
+          "t": -6.27349150821225,
+          "p": 3.5959649429514366e-10,
+          "dof": 22077,
+          "ci95": [
+            -0.06319654630412112,
+            -0.03310756865853804
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.048152057481329585,
+          "se": 0.007716796716259563,
+          "t": -6.239902287418237,
+          "p": 5.206374157396185e-10,
+          "dof": 2274,
+          "ci95": [
+            -0.06328475561408096,
+            -0.0330193593485782
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.048152057481329585,
+          "se": 0.007743821857507247,
+          "t": -6.218125670678823,
+          "p": 7.2319795921112654e-06,
+          "dof": 18,
+          "ci95": [
+            -0.06442122349746686,
+            -0.03188289146519231
+          ]
+        }
+      }
+    }
+  },
+  "collinearity_diagnostic": {
+    "across_22q_corr_sanc_freeze_vs_reg_crackdown": 0.8280786712108249,
+    "across_22q_corr_sanc_freeze_vs_reg_hfcaa": 0.4303314829119352,
+    "carried_from_part1_r": 0.828,
+    "vif_sanc_freeze_in_with_control_design_DV1_after_FE": {
+      "r2_treatment_on_others": 0.8175654105116357,
+      "vif": 5.481416669966415,
+      "se_inflation_factor_sqrt_vif": 2.341242548299175
+    },
+    "vif_sanc_freeze_in_no_control_design_DV1_after_FE": {
+      "r2_treatment_on_others": 0.8135975411916716,
+      "vif": 5.364736100548264,
+      "se_inflation_factor_sqrt_vif": 2.3161899966428194
+    },
+    "se_inflation_attributable_to_reg_crackdown_DV1": 0.5165986021557208,
+    "interpretation_note": "r=0.828 (Part-1 across-quarter collinearity) carried; VIF is the sanctions treatment's variance-inflation AFTER fund FE + macro block + active-flow lags + (with-control) reg_crackdown on the DV1 sample."
+  },
+  "power_diagnostic": {
+    "sanc_freeze_cross_quarter_sd_22q": 0.5096471914376255,
+    "within_fund_sd_sanc_freeze_after_FE_DV1": 0.4286137064003542,
+    "residual_sd_sanc_freeze_after_FE_and_macro_controls_NO_reg_DV1": 0.18505118622462077,
+    "residual_sd_sanc_freeze_after_FE_macro_AND_reg_crackdown_DV1": 0.18307103922732224,
+    "residual_share_of_within_NO_reg_DV1": 0.43174351044147535,
+    "residual_share_of_within_WITH_reg_DV1": 0.427123623191652,
+    "n_quarter_clusters_G": 22,
+    "headline_DV1_with_control_beta": -0.009210624181125048,
+    "headline_DV1_with_control_se_cluster_quarter": 0.009214097745339095,
+    "ci95_halfwidth_clustered_quarter_DV1": 0.018059631580864627,
+    "dv_standard_deviations": {
+      "DV1_afrate_wins_sd": 0.26579998361939716,
+      "DV2_avgbase_sd": 0.30025927597633156,
+      "DV3_afrate_floor_wins_sd": 0.19580139513786393
+    },
+    "note": "residual_share_of_within = fraction of the treatment's within-fund variation surviving fund FE + controls (+ reg_crackdown WITH). DV standard deviations give the economic scale of the active-flow rate against which beta is read."
+  },
+  "few_cluster_inference": {
+    "wild_cluster_bootstrap_quarter_headline_DV1_WITH_control": {
+      "spec": "no-lags: dv1_afrate_wins ~ sanc_freeze_post + log_vix + broad_dollar + oil + relative_returns + reg_crackdown_post",
+      "weight_col": "dv1_afrate_wins",
+      "treatment_col": "sanc_freeze_post",
+      "reps": 2000,
+      "seed": 42,
+      "n_quarter_clusters_G": 21,
+      "beta_treatment": -0.012353652549957987,
+      "naive_cluster_quarter_se": 0.008771973974875218,
+      "t_obs": -1.4083093024832782,
+      "bootstrap_p_twosided": 0.1595,
+      "rademacher": true,
+      "null_imposed_restricted_residuals": true
+    },
+    "leave_one_quarter_out_DV1_WITH_control": {
+      "spec": "DV1 activeflow~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control) [lags on contiguous 22q ordinal]",
+      "full_beta": -0.009210624181125048,
+      "beta_dropping_quarter": {
+        "2019q3": -0.009210624181125048,
+        "2019q4": -0.009777017757065742,
+        "2020q1": -0.007794041618063324,
+        "2020q2": -0.007689907468633544,
+        "2020q3": -0.012119169518430884,
+        "2020q4": -0.014030950309738758,
+        "2021q1": -0.010941293025981342,
+        "2021q2": -0.03824996619935064,
+        "2021q3": -0.02626323457273411,
+        "2021q4": -0.010104766197891774,
+        "2022q1": 0.00253049784776812,
+        "2022q2": 0.003772580035343033,
+        "2022q3": -0.009267160948384333,
+        "2022q4": -0.015715828002449455,
+        "2023q1": -0.013883339019982167,
+        "2023q2": -0.00713571131789809,
+        "2023q3": -0.009478225420132338,
+        "2023q4": -0.010396390023731267,
+        "2024q1": -0.008812511024618119,
+        "2024q2": -0.007189141800413534,
+        "2024q3": -0.0074920600251108084,
+        "2024q4": -0.009743346305155422
+      }
+    },
+    "leave_one_quarter_out_DV1_WITHOUT_control": {
+      "spec": "DV1 activeflow~sanc_freeze+L1+L2+X+relret  (NO regulatory control) [lags on contiguous 22q ordinal]",
+      "full_beta": -0.0016975836701874402,
+      "beta_dropping_quarter": {
+        "2019q3": -0.0016975836701874402,
+        "2019q4": -0.002712691511998199,
+        "2020q1": -0.0008292091222814587,
+        "2020q2": 0.0014253665479855848,
+        "2020q3": -0.006616104347155285,
+        "2020q4": -0.006836558650431945,
+        "2021q1": -0.005098535708672868,
+        "2021q2": -0.07649993239870526,
+        "2021q3": -0.05252646914546627,
+        "2021q4": -0.010344315902080013,
+        "2022q1": 0.016590741606646232,
+        "2022q2": 0.021714864116095862,
+        "2022q3": 0.011760475102855139,
+        "2022q4": 0.0018588231684596604,
+        "2023q1": 0.004831633640103684,
+        "2023q2": 0.00286940146035364,
+        "2023q3": -0.0028480390758546014,
+        "2023q4": -0.003923244808289893,
+        "2024q1": -0.001384665133732067,
+        "2024q2": 0.0004489737451497736,
+        "2024q3": 6.355855888722307e-05,
+        "2024q4": -0.0018540971870394782
+      }
+    }
+  },
+  "KEY_weight_vs_active_flow_comparison": {
+    "weight_beta_WITH_control": 0.017660570225023094,
+    "weight_beta_WITHOUT_control": 0.018506876606456533,
+    "weight_bootstrap_p_G22": 0.2655,
+    "weight_sign": "POSITIVE (no substitution on weight; bootstrap-insignificant p=0.27)",
+    "active_flow_DV1_beta_WITH_control": -0.009210624181125048,
+    "active_flow_DV1_beta_WITHOUT_control": -0.0016975836701874402,
+    "active_flow_DV1_bootstrap_p_G22": 0.1595,
+    "note": "F3 substitution on active flow = NEGATIVE beta. The KEY diagnostic is whether moving from weight (DV=w) to active flow (valuation removed by construction) CHANGES the sanctions coefficient's sign/significance. Read from the estimator; interpreted in the verdict."
+  },
+  "weight_based_result_for_comparison": {
+    "source": "build/audit/sanctions_shock_result.json",
+    "weight_beta_with_control": 0.017660570225023094,
+    "weight_beta_without_control": 0.018506876606456533,
+    "weight_bootstrap_p_G22": 0.2655
+  }
+}

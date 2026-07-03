@@ -1,0 +1,110 @@
+{
+  "issuer_nationality_distinct_values": [
+    "UNDETERMINED-NO-PUBLIC-CROSSWALK"
+  ],
+  "part2_residence_per_quarter": [
+    {
+      "fiscal_quarter": "2019q3",
+      "cn_resident_usd_value": 133066146981.0,
+      "cym_resident_usd_value": 210686342230.1,
+      "hkg_resident_usd_value": 91980420554.6,
+      "vgb_resident_usd_value": 7979705118.6,
+      "haven_resident_usd_value": 310646467903.3,
+      "residence_ratio_cn_over_cn_plus_haven": 0.299893
+    },
+    {
+      "fiscal_quarter": "2019q4",
+      "cn_resident_usd_value": 183459152575.4,
+      "cym_resident_usd_value": 294210404772.7,
+      "hkg_resident_usd_value": 112581403622.0,
+      "vgb_resident_usd_value": 10975512443.5,
+      "haven_resident_usd_value": 417767320838.3,
+      "residence_ratio_cn_over_cn_plus_haven": 0.305142
+    },
+    {
+      "fiscal_quarter": "2020q1",
+      "cn_resident_usd_value": 167523216226.3,
+      "cym_resident_usd_value": 237254943533.7,
+      "hkg_resident_usd_value": 148763472391.6,
+      "vgb_resident_usd_value": 8096528689.3,
+      "haven_resident_usd_value": 394114944614.6,
+      "residence_ratio_cn_over_cn_plus_haven": 0.298276
+    },
+    {
+      "fiscal_quarter": "2020q2",
+      "cn_resident_usd_value": 187477797281.9,
+      "cym_resident_usd_value": 267856506464.1,
+      "hkg_resident_usd_value": 159423786894.7,
+      "vgb_resident_usd_value": 9111295820.2,
+      "haven_resident_usd_value": 436391589179.0,
+      "residence_ratio_cn_over_cn_plus_haven": 0.300508
+    },
+    {
+      "fiscal_quarter": "2020q3",
+      "cn_resident_usd_value": 222706216206.8,
+      "cym_resident_usd_value": 311916022359.0,
+      "hkg_resident_usd_value": 164746497700.0,
+      "vgb_resident_usd_value": 9334776208.8,
+      "haven_resident_usd_value": 485997296267.8,
+      "residence_ratio_cn_over_cn_plus_haven": 0.314245
+    },
+    {
+      "fiscal_quarter": "2022q1",
+      "cn_resident_usd_value": 201794084662.2,
+      "cym_resident_usd_value": 305235952668.7,
+      "hkg_resident_usd_value": 223128922532.7,
+      "vgb_resident_usd_value": 10433267221.7,
+      "haven_resident_usd_value": 538798142423.2,
+      "residence_ratio_cn_over_cn_plus_haven": 0.272477
+    },
+    {
+      "fiscal_quarter": "2022q2",
+      "cn_resident_usd_value": 170289284368.8,
+      "cym_resident_usd_value": 272290330183.6,
+      "hkg_resident_usd_value": 150481000718.3,
+      "vgb_resident_usd_value": 8326490360.4,
+      "haven_resident_usd_value": 431097821262.4,
+      "residence_ratio_cn_over_cn_plus_haven": 0.283161
+    },
+    {
+      "fiscal_quarter": "2024q4",
+      "cn_resident_usd_value": 136269379093.5,
+      "cym_resident_usd_value": 276000595869.5,
+      "hkg_resident_usd_value": 127683401099.7,
+      "vgb_resident_usd_value": 4041324125.1,
+      "haven_resident_usd_value": 407725321094.3,
+      "residence_ratio_cn_over_cn_plus_haven": 0.250498
+    }
+  ],
+  "part2_residence_trend_2019q3_to_2024q4": {
+    "first": 0.299893,
+    "last": 0.250498,
+    "delta": -0.049395
+  },
+  "part3_residence_secondary_check": {
+    "contiguous_transitions_used": [
+      "2019q3->2019q4",
+      "2019q4->2020q1",
+      "2020q1->2020q2",
+      "2020q2->2020q3",
+      "2022q1->2022q2"
+    ],
+    "n_contiguous_transitions": 5,
+    "cn_resident_logchange": [
+      0.321146,
+      -0.09087,
+      0.112538,
+      0.172193,
+      -0.169749
+    ],
+    "haven_resident_logchange": [
+      0.296269,
+      -0.058282,
+      0.101897,
+      0.107663,
+      -0.223006
+    ],
+    "residence_logchange_corr_cn_vs_haven": 0.981297,
+    "residence_level_corr_cn_vs_haven_all8q": 0.81855
+  }
+}

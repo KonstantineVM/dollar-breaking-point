@@ -1,0 +1,39 @@
+{
+ "purpose": "verifier artifact for RDT-D Parts 0+4: records that RDTD_result.json and the amended RDT_breaking_point_object.md were regenerated deterministically from the committed inputs by build/reserve/RDTD_recompute.py; that the UNMODIFIED RDTD_fragility_recompute.py, re-run in a sandbox from the committed inputs alone, byte-reproduces the committed RDTD_fragility.json; and that the SDDS verdict-axis deltas recompute from the csv. Until all_pass=true every number in these outputs is an OUTPUT, not established.",
+ "no_date_no_probability_no_currency_guess": "no date, no probability, and no destination-currency guess anywhere in the RDT-D outputs",
+ "network": "none",
+ "inputs_sha256": {
+  "build/reserve/RDTD_prediction.md": "dbe00b9cbcf8f1a3bc26f5721004d26bd5964bd8f6ef2800bfaed602db24527d",
+  "build/reserve/RDTD_fragility.json": "02c196c67c508220bdc224219e11892b476d3c4e1b4c4f33854098c937f62bcf",
+  "build/reserve/RDTD_fragility_recompute.py": "9bb5423c300828a9d7791c4c28b6a96eb865e5f8bd91d86eb37d90562a1b4425",
+  "build/reserve/rdtd_sdds_series.csv": "8702e837ddb87231182e97edf5297aea4a4ee641023e1c292d95900d4ddd8dd1",
+  "build/reserve/rdtd_sdds_manifest.json": "bf1c25976c22dd6f9d5b47acaf1b657766753dc474e7516c7f8645f1c8761126",
+  "build/reserve/rdtd_pool_determination.md": "a3f618971203a7177d051ee3bdd0d780c7192ec4a375fe7322abb98ccd9fdc70",
+  "build/reserve/rdtc_safe_totals.csv": "1a838d71a113c8f7b0ff84d91c66460fe46f8b89c2896f719d00249e3ad03ee1",
+  "build/reserve/RDTC_class_panel.parquet": "f0bc20d218fd05998ff70a15ef790ba3454592b185c70eda4ebe14c8751d6e93",
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTC_result.json": "7785fa6bf11e5ee06e51b42226dec549570637f4839306b8317b4190c9931a44",
+  "build/reserve/RDTC_verify.json": "e62bed25ad73df1ff6fcc33e28b4d26ca947bf7c094ba53f32b1355e1b708f90",
+  "build/reserve/rdt_evidence/tic/slt_table3.txt": "d53727506606d107d06bff218e3a3873256d7f0f545e9ad5bd6ea79591211d5f"
+ },
+ "outputs_sha256": {
+  "RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "RDT_breaking_point_object.md": "fae198209c19b13817642d4fce705a6368701baf8f847453cd06d727c93f0fd5"
+ },
+ "match_flags": {
+  "result_two_pass_payload_identical": true,
+  "result_byte_reproduction": true,
+  "fragility_sandbox_rerun_byte_identical": true,
+  "fragility_sandbox_note": "byte-identical",
+  "sdds_series_recompute_matches_manifest": true,
+  "rdtc_ledger_reconciliation_exact": true,
+  "amended_object_byte_reproduction": true,
+  "stripped_base_matches_post_rdtc_sha256": true
+ },
+ "post_rdtc_object_sha256": {
+  "stripped_base_recomputed_here": "c2b53cc9ed197915e4e36221a0f57bc59652804620cd2d88e1e73bf3561e3f25",
+  "recorded_in_RDTC_verify_json": "c2b53cc9ed197915e4e36221a0f57bc59652804620cd2d88e1e73bf3561e3f25",
+  "note": "RDTC_verify.json's object sha256 is the RDT-D amendment base; the further-amended object's byte-reproduction is carried here"
+ },
+ "all_pass": true
+}

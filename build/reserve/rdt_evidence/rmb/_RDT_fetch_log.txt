@@ -1,0 +1,33 @@
+# RDT k4 fetch log (append-only) — started 2026-07-01T23:48:34Z
+2026-07-01T23:49:14Z GET https://api.imf.org/external/sdmx/2.1/dataflow/IMF.STA/COFER -> HTTP 200 bytes 31680
+2026-07-01T23:49:24Z GET https://api.imf.org/external/sdmx/2.1/datastructure/IMF.STA/DSD_COFER?references=children -> HTTP 200 bytes 108461
+2026-07-01T23:50:07Z GET https://api.imf.org/external/sdmx/2.1/data/IMF.STA,COFER/?startPeriod=2014&dimensionAtObservation=TIME_PERIOD -> HTTP 200 bytes 130175
+2026-07-01T23:51:29Z GET https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_COFER_INDICATOR -> HTTP 200 bytes 28732
+2026-07-01T23:51:29Z GET https://api.imf.org/external/sdmx/2.1/codelist/IMF.STA/CL_INDICATOR -> HTTP 204 bytes 0
+2026-07-01T23:52:13Z GET https://data.imf.org/en/datasets/IMF.STA:COFER -> HTTP 200 bytes 362918
+2026-07-01T23:52:40Z GET https://www.imf.org/en/publications/tnm/issues/2025/11/26/improving-the-analytical-usefulness-of-the-imfs-cofer-data-571706 -> HTTP 200 bytes 217322
+2026-07-01T23:52:50Z GET https://www.imf.org/-/media/files/publications/tnm/2025/english/tnmea2025014.pdf -> HTTP 200 bytes 1494320
+2026-07-01T23:54:10Z GET https://data.imf.org/en/Datasets/COFER/List-of-Reporters -> HTTP 200 bytes 194592
+2026-07-01T23:54:41Z GET https://www.imf.org/external/pubs/ft/bop/2024/pdf/44/BOPCOM%2024-09%20-%20Currency%20Composition%20of%20Foreign%20Exchange%20Reserves-COFER-Data.pdf -> HTTP 200 bytes 323074
+2026-07-01T23:55:17Z GET https://data.imf.org/en/Datasets/COFER/Frequently-Asked-Questions -> HTTP 200 bytes 196868
+2026-07-01T23:55:32Z GET https://www.imf.org/en/News/Articles/2017/03/31/pr17108-IMF-Releases-Data-on-the-Currency-Composition-of-Foreign-Exchange-Reserves -> HTTP 200 bytes 351575
+2026-07-01T23:56:03Z GET http://www.pbc.gov.cn/en/3688006/index.html -> HTTP 200 bytes 107020
+2026-07-01T23:56:27Z GET https://www.pbc.gov.cn/en/3688241/3688636/3828468/index.html -> HTTP 200 bytes 122912
+2026-07-01T23:56:59Z GET https://www.pbc.gov.cn/en/3688241/3688636/3828468/5624529/index.html -> HTTP 200 bytes 122405
+2026-07-01T23:57:02Z GET https://www.pbc.gov.cn/en/3688241/3688636/3828468/5188201/index.html -> HTTP 200 bytes 121952
+2026-07-01T23:57:18Z GET https://www.pbc.gov.cn/en/3688241/3688636/3828468/5624529/2025123116494089198/index.html -> HTTP 200 bytes 119758
+2026-07-01T23:57:29Z GET https://www.pbc.gov.cn/en/3688241/3688636/3828468/5624529/2025123116494089198/2025123116480428858.pdf -> HTTP 200 bytes 2000840
+2026-07-01T23:58:55Z GET https://www.cips.com.cn/en/participants/participants_announcement/index.html -> HTTP 200 bytes 19344
+2026-07-01T23:59:11Z GET https://www.cips.com.cn/en/2026-04/09/article_2026040916303626713.html -> HTTP 200 bytes 13551
+2026-07-01T23:59:47Z GET https://www.cips.com.cn/cips/ywfw/cyzgg/index.html -> HTTP 200 bytes 16976
+2026-07-01T23:59:58Z GET https://www.cips.com.cn/cips/2026-04/09/article_2026040916312154597.html -> HTTP 200 bytes 207234
+2026-07-02T00:00:30Z GET https://www.cips.com.cn/cips/2026-01/16/article_2026011613461736207.html -> HTTP 200 bytes 207680
+2026-07-02T00:00:34Z GET https://www.cips.com.cn/cips/2025-07/07/article_2025070716102367205.html -> HTTP 200 bytes 207363
+2026-07-02T00:01:06Z GET https://www.cips.com.cn/cips/ywfw/cyzgg/index_5.html -> HTTP 404 bytes 146
+2026-07-02T00:01:07Z GET https://www.cips.com.cn/cips/ywfw/cyzgg/index_8.html -> HTTP 404 bytes 146
+2026-07-02T00:01:33Z GET https://www.cips.com.cn/cips/ywfw/cyzgg/ae9dcb25-6.html -> HTTP 200 bytes 17204
+2026-07-02T00:01:35Z GET https://www.cips.com.cn/cips/ywfw/cyzgg/ae9dcb25-9.html -> HTTP 200 bytes 17375
+2026-07-02T00:01:48Z GET https://www.cips.com.cn/cips/2021-12/31/article_2023122305160652035.html -> HTTP 200 bytes 203371
+2026-07-02T00:02:09Z GET https://www.cips.com.cn/cips/2019-07/30/article_2023122305160577373.html -> HTTP 200 bytes 203408
+2026-07-02T00:02:59Z GET https://www.safe.gov.cn/safe/file/file/20190728/108d3e1d09ac4d52b99685e6aaa9c222.pdf -> HTTP 200 bytes 5489161
+2026-07-02T00:37:00Z NOTE deliverables written: rdt_k4_rmb.csv (142 rows), rdt_k4_cofer.csv (49 quarters, unit fix /1e9 applied), rdt_k4_manifest.json, rdt_k4_provenance.md. NOT-AVAILABLE: CIPS per-country counts. UNVERIFIED: IMF China 2015 phase-in note.

@@ -1,0 +1,230 @@
+{
+  "artifact": "fwtw_recon_interiors_verify.json",
+  "recompute_script": "build/audit/fwtw_recon_interiors_recompute.py",
+  "interiors_parquet": "/home/user/dollar-breaking-point/build/audit/fwtw_recon_interiors.parquet",
+  "parquet_sha256": "be65c816f62e2344b0512a70a38852c116278462f5524c6fbc3d968900ccdfff",
+  "shape_rows": 70618,
+  "shape_cols": 6,
+  "columns": [
+    "fiscal_quarter",
+    "holder",
+    "nationality",
+    "method1_maxent_usd",
+    "method2_ras_usd",
+    "row_mass_usd"
+  ],
+  "n_quarters_built": 8,
+  "n_distinct_holders_over_panel": 7023,
+  "per_quarter_china_col_fraction": {
+    "2019q3": 0.8135334293464336,
+    "2019q4": 0.8210719459364602,
+    "2020q1": 0.819204859325457,
+    "2020q2": 0.8189218862521356,
+    "2020q3": 0.8199045355757317,
+    "2022q1": 0.7971185138727689,
+    "2022q2": 0.788222705745979,
+    "2024q4": 0.7592252117443948
+  },
+  "per_quarter_n_holders": {
+    "2019q3": 3703,
+    "2019q4": 4492,
+    "2020q1": 4577,
+    "2020q2": 4508,
+    "2020q3": 4455,
+    "2022q1": 4605,
+    "2022q2": 4585,
+    "2024q4": 4384
+  },
+  "marginal_satisfaction_checks": {
+    "2019q3": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 4.76837158203125e-07,
+        "row_marginal_max_rel_resid": 4.9814452527743506e-17,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 1.52587890625e-05,
+        "row_marginal_max_rel_resid": 1.5940624808877922e-15,
+        "col_china_abs_resid_usd": 0.000274658203125,
+        "col_nonchina_abs_resid_usd": 3.814697265625e-06,
+        "col_china_rel_resid": 1.9975180455550636e-15
+      }
+    },
+    "2019q4": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 9.5367431640625e-07,
+        "row_marginal_max_rel_resid": 7.983113582966954e-17,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 1.33514404296875e-05,
+        "row_marginal_max_rel_resid": 1.1176359016153737e-15,
+        "col_china_abs_resid_usd": 0.000213623046875,
+        "col_nonchina_abs_resid_usd": 0.0001068115234375,
+        "col_china_rel_resid": 1.0989160328444704e-15
+      }
+    },
+    "2020q1": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 9.5367431640625e-07,
+        "row_marginal_max_rel_resid": 1.393441544031106e-16,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 1.33514404296875e-05,
+        "row_marginal_max_rel_resid": 1.9508181616435487e-15,
+        "col_china_abs_resid_usd": 0.00048828125,
+        "col_nonchina_abs_resid_usd": 5.340576171875e-05,
+        "col_china_rel_resid": 2.993968122582841e-15
+      }
+    },
+    "2020q2": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 2.384185791015625e-07,
+        "row_marginal_max_rel_resid": 3.459144940984889e-17,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 9.5367431640625e-07,
+        "row_marginal_max_rel_resid": 1.3836579763939555e-16,
+        "col_china_abs_resid_usd": 6.103515625e-05,
+        "col_nonchina_abs_resid_usd": 0.0001220703125,
+        "col_china_rel_resid": 3.386326035982808e-16
+      }
+    },
+    "2020q3": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 4.76837158203125e-07,
+        "row_marginal_max_rel_resid": 6.24687233398442e-17,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 2.002716064453125e-05,
+        "row_marginal_max_rel_resid": 2.6236863802734564e-15,
+        "col_china_abs_resid_usd": 0.000640869140625,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 3.1362925792252446e-15
+      }
+    },
+    "2022q1": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 1.9073486328125e-06,
+        "row_marginal_max_rel_resid": 1.6995347762064417e-16,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 4.76837158203125e-07,
+        "row_marginal_max_rel_resid": 4.248836940516104e-17,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 1.52587890625e-05,
+        "col_china_rel_resid": 0.0
+      }
+    },
+    "2022q2": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 4.76837158203125e-07,
+        "row_marginal_max_rel_resid": 6.756262553393452e-17,
+        "col_china_abs_resid_usd": 0.0,
+        "col_nonchina_abs_resid_usd": 0.0,
+        "col_china_rel_resid": 0.0
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 5.7220458984375e-06,
+        "row_marginal_max_rel_resid": 8.107515064072141e-16,
+        "col_china_abs_resid_usd": 0.000244140625,
+        "col_nonchina_abs_resid_usd": 4.57763671875e-05,
+        "col_china_rel_resid": 1.4770049789024807e-15
+      }
+    },
+    "2024q4": {
+      "method1": {
+        "row_marginal_max_abs_resid_usd": 2.384185791015625e-07,
+        "row_marginal_max_rel_resid": 3.3340652500705035e-17,
+        "col_china_abs_resid_usd": 3.0517578125e-05,
+        "col_nonchina_abs_resid_usd": 7.62939453125e-06,
+        "col_china_rel_resid": 1.9690498302414918e-16
+      },
+      "method2": {
+        "row_marginal_max_abs_resid_usd": 1.71661376953125e-05,
+        "row_marginal_max_rel_resid": 2.4005269800507625e-15,
+        "col_china_abs_resid_usd": 0.00030517578125,
+        "col_nonchina_abs_resid_usd": 0.00023651123046875,
+        "col_china_rel_resid": 1.969049830241492e-15
+      }
+    }
+  },
+  "ras_residual_logs_tail": {
+    "2019q3": {
+      "pass": 200,
+      "row_resid_L2": 2.955324065580566e-05,
+      "col_resid_L2": 6.209877241554148e-05,
+      "row_resid_Linf": 1.52587890625e-05,
+      "col_resid_Linf": 6.103515625e-05
+    },
+    "2019q4": {
+      "pass": 200,
+      "row_resid_L2": 3.001660727859479e-05,
+      "col_resid_L2": 6.518557544950508e-05,
+      "row_resid_Linf": 1.33514404296875e-05,
+      "col_resid_Linf": 6.103515625e-05
+    },
+    "2020q1": {
+      "pass": 200,
+      "row_resid_L2": 3.462302290818638e-05,
+      "col_resid_L2": 7.62939453125e-06,
+      "row_resid_Linf": 1.33514404296875e-05,
+      "col_resid_Linf": 7.62939453125e-06
+    },
+    "2020q2": {
+      "pass": 200,
+      "row_resid_L2": 3.4776942348605433e-06,
+      "col_resid_L2": 0.0,
+      "row_resid_Linf": 9.5367431640625e-07,
+      "col_resid_Linf": 0.0
+    },
+    "2020q3": {
+      "pass": 200,
+      "row_resid_L2": 5.0511124144435676e-05,
+      "col_resid_L2": 6.291359902370698e-05,
+      "row_resid_Linf": 2.002716064453125e-05,
+      "col_resid_Linf": 6.103515625e-05
+    },
+    "2022q1": {
+      "pass": 200,
+      "row_resid_L2": 9.667542837553214e-07,
+      "col_resid_L2": 0.0,
+      "row_resid_Linf": 4.76837158203125e-07,
+      "col_resid_Linf": 0.0
+    },
+    "2022q2": {
+      "pass": 200,
+      "row_resid_L2": 1.4508316473976546e-05,
+      "col_resid_L2": 3.0517578125e-05,
+      "row_resid_Linf": 5.7220458984375e-06,
+      "col_resid_Linf": 3.0517578125e-05
+    },
+    "2024q4": {
+      "pass": 200,
+      "row_resid_L2": 3.7118662191701605e-05,
+      "col_resid_L2": 0.0002747641465052659,
+      "row_resid_Linf": 1.71661376953125e-05,
+      "col_resid_Linf": 0.000274658203125
+    }
+  },
+  "method1_is_independence_table": "p_ij = row_i * col_j / total, computed via numpy.outer; verified row+col marginals satisfied to tolerance below.",
+  "method2_is_ras_of_dp2_residency_seed": "Sinkhorn from DP2 USA residency split, rescaled to the same two marginals; verified to tolerance.",
+  "tolerance_rel": 1e-06,
+  "PASS": true
+}

@@ -1,0 +1,907 @@
+{
+ "_stamp": "OUTPUT \u2014 NOT ESTABLISHED until the verifier artifact build/reserve/RDT_verify.json exists with all_pass=true",
+ "SOURCE": "computed by build/reserve/RDT_recompute.py from build/reserve/RDT_coordinates.parquet (primary input; includes the _AGG_COFER/_LMW_PCTL/_PREF/_SAFE_ANCHOR pseudo-holder input rows) and build/reserve/rd0_evidence/lmw_Data.xls sheet DATA (secondary-trajectory scan ONLY); build/reserve/rd2_evidence/wb_pinksheet_MYFETCH.xlsx used ONLY to cross-check P_ref; design fixed in build/reserve/RDT_prediction.md",
+ "no_date_no_probability": "this artifact contains NO breaking-point date and NO probability; taus are conditional durations, not forecasts",
+ "p_ref_usd_per_ozt": {
+  "from_parquet_PREF_row": 1799.629167,
+  "rederived_from_wb_pinksheet_xlsx": 1799.629167,
+  "match": true,
+  "ozt_per_tonne_constant": 32150.746569,
+  "constant_note": "exact troy-ounce conversion 1e6/31.1034768; the prediction's tonnes*P_ref formula is dimensional shorthand \u2014 the conversion constant is disclosed here and used everywhere"
+ },
+ "onsets": {
+  "primary": 2014,
+  "primary_origin": "end-2013 values",
+  "alternative": 2018,
+  "alternative_origin": "end-2017 values"
+ },
+ "frontier": {
+  "k1": {
+   "terminal": 13.89,
+   "definition": "Russia LMW USD share, last pre-freeze observation (2021)",
+   "region_2019_2021": [
+    13.89,
+    30.43
+   ]
+  },
+  "k2": {
+   "terminal": 21.827305,
+   "definition": "mean of Russia's 2020-2021 constant-price gold-share plateau",
+   "region_2019_2021": [
+    21.114026,
+    22.838552
+   ]
+  },
+  "k3": {
+   "terminal": 0.618434,
+   "definition": "Russia UST/total reserves at the Dec-2021 snapshot",
+   "region_2019_2021": [
+    0.618434,
+    1.796538
+   ]
+  },
+  "k4": {
+   "terminal": 21.78,
+   "definition": "Russia LMW CNY share, last pre-freeze observation (2021)",
+   "region_2019_2021": [
+    15.28,
+    21.78
+   ]
+  }
+ },
+ "russia_trajectory": {
+  "k1": {
+   "definition": "USD share of disclosed FX reserves (pp)",
+   "raw_series": {
+    "2007": 47.0,
+    "2008": 41.5,
+    "2009": 44.5,
+    "2010": 45.2,
+    "2011": 45.5,
+    "2012": 45.8,
+    "2013": 44.8,
+    "2014": 39.6,
+    "2015": 43.1,
+    "2016": 44.77,
+    "2017": 55.31,
+    "2018": 27.72,
+    "2019": 30.43,
+    "2020": 27.64,
+    "2021": 13.89
+   },
+   "origin_end2013": 44.8,
+   "origin_end2017": 55.31,
+   "metric_origin_x2014": 39.6,
+   "metric_origin_x2018": 27.72,
+   "frontier_terminal": 13.89,
+   "frontier_definition": "Russia LMW USD share, last pre-freeze observation (2021)",
+   "frontier_region_2019_2021": [
+    13.89,
+    30.43
+   ],
+   "d_series_origin2014": {
+    "2007": 1.287826,
+    "2008": 1.073901,
+    "2009": 1.190587,
+    "2010": 1.217814,
+    "2011": 1.229483,
+    "2012": 1.241151,
+    "2013": 1.202256,
+    "2014": 1.0,
+    "2015": 1.136134,
+    "2016": 1.201089,
+    "2017": 1.611046,
+    "2018": 0.537923,
+    "2019": 0.643329,
+    "2020": 0.534811,
+    "2021": 0.0
+   },
+   "onset_primary_rule_origin2013": 2018,
+   "onset_alternative_variant_origin2017": 2018,
+   "onset_detail": {
+    "threshold_abs": 3.091,
+    "sign_required": "-",
+    "per_year": {
+     "2014": {
+      "x": 39.6,
+      "delta_vs_origin": -5.2,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2015": {
+      "x": 43.1,
+      "delta_vs_origin": -1.7,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2016": {
+      "x": 44.77,
+      "delta_vs_origin": -0.03,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2017": {
+      "x": 55.31,
+      "delta_vs_origin": 10.51,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2018": {
+      "x": 27.72,
+      "delta_vs_origin": -17.08,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2019": {
+      "x": 30.43,
+      "delta_vs_origin": -14.37,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2020": {
+      "x": 27.64,
+      "delta_vs_origin": -17.16,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2021": {
+      "x": 13.89,
+      "delta_vs_origin": -30.91,
+      "meets_10pct_threshold_and_sign": true
+     }
+    },
+    "onset_sustained_over_full_available_series": 2018
+   },
+   "velocity_path_fraction_per_yr": {
+    "full_path_2014_2021": 0.142857,
+    "phase_2014_2018": 0.115519,
+    "phase_2018_2021": 0.179308,
+    "alt_origin2018_2018_2021": 0.333333,
+    "note": "positive = toward the frontier; d-space, origin-2014 scaling"
+   },
+   "velocity_raw_units_per_yr": {
+    "full_path_2014_2021": -3.672857,
+    "phase_2014_2018": -2.97,
+    "phase_2018_2021": -4.61
+   },
+   "post_freeze_observations_note": "observations after 2021 are post-freeze and OUTSIDE the anticipatory path (latest available: 2021)",
+   "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability"
+  },
+  "k2": {
+   "definition": "constant-price gold share (%%) = tonnes*P_ref/(tonnes*P_ref+reserves_ex_gold)",
+   "raw_series": {
+    "2010": 9.327001,
+    "2011": 10.115635,
+    "2012": 10.224393,
+    "2013": 11.311934,
+    "2014": 17.080238,
+    "2015": 20.375566,
+    "2016": 22.738629,
+    "2017": 23.004468,
+    "2018": 24.265684,
+    "2019": 22.838552,
+    "2020": 22.540584,
+    "2021": 21.114026,
+    "2022": 23.240607,
+    "2023": 23.371276,
+    "2024": 24.645528
+   },
+   "origin_end2013": 11.311934,
+   "origin_end2017": 23.004468,
+   "metric_origin_x2014": 17.080238,
+   "metric_origin_x2018": 24.265684,
+   "frontier_terminal": 21.827305,
+   "frontier_definition": "mean of Russia's 2020-2021 constant-price gold-share plateau",
+   "frontier_region_2019_2021": [
+    21.114026,
+    22.838552
+   ],
+   "d_series_origin2014": {
+    "2010": 2.633269,
+    "2011": 2.467138,
+    "2012": 2.444227,
+    "2013": 2.21513,
+    "2014": 1.0,
+    "2015": 0.305818,
+    "2016": -0.191976,
+    "2017": -0.247977,
+    "2018": -0.51366,
+    "2019": -0.213026,
+    "2020": -0.150257,
+    "2021": 0.150257,
+    "2022": -0.297721,
+    "2023": -0.325247,
+    "2024": -0.593677
+   },
+   "onset_primary_rule_origin2013": 2014,
+   "onset_alternative_variant_origin2017": 2019,
+   "onset_detail": {
+    "threshold_abs": 1.051537,
+    "sign_required": "+",
+    "per_year": {
+     "2014": {
+      "x": 17.080238,
+      "delta_vs_origin": 5.768304,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2015": {
+      "x": 20.375566,
+      "delta_vs_origin": 9.063632,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2016": {
+      "x": 22.738629,
+      "delta_vs_origin": 11.426695,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2017": {
+      "x": 23.004468,
+      "delta_vs_origin": 11.692534,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2018": {
+      "x": 24.265684,
+      "delta_vs_origin": 12.95375,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2019": {
+      "x": 22.838552,
+      "delta_vs_origin": 11.526618,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2020": {
+      "x": 22.540584,
+      "delta_vs_origin": 11.22865,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2021": {
+      "x": 21.114026,
+      "delta_vs_origin": 9.802092,
+      "meets_10pct_threshold_and_sign": true
+     }
+    },
+    "onset_sustained_over_full_available_series": 2014
+   },
+   "velocity_path_fraction_per_yr": {
+    "full_path_2014_2021": 0.121392,
+    "phase_2014_2018": 0.378415,
+    "phase_2018_2021": -0.221306,
+    "alt_origin2018_2018_2021": 0.430841,
+    "note": "positive = toward the frontier; d-space, origin-2014 scaling"
+   },
+   "velocity_raw_units_per_yr": {
+    "full_path_2014_2021": 0.576255,
+    "phase_2014_2018": 1.796362,
+    "phase_2018_2021": -1.050553
+   },
+   "post_freeze_observations_note": "observations after 2021 are post-freeze and OUTSIDE the anticipatory path (latest available: 2024)",
+   "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+   "raw_inputs": {
+    "gold_tonnes": {
+     "2010": 788.62,
+     "2011": 882.96,
+     "2012": 957.76,
+     "2013": 1035.21,
+     "2014": 1208.19,
+     "2015": 1414.54,
+     "2016": 1615.22,
+     "2017": 1838.76,
+     "2018": 2113.03,
+     "2019": 2271.16,
+     "2020": 2298.53,
+     "2021": 2301.64,
+     "2022": 2332.74,
+     "2023": 2332.74,
+     "2024": 2332.74,
+     "2025": 2326.52
+    },
+    "reserves_ex_gold_usd_bn": {
+     "2010": 443.586,
+     "2011": 453.948,
+     "2012": 486.577,
+     "2013": 469.603,
+     "2014": 339.37,
+     "2015": 319.835,
+     "2016": 317.544,
+     "2017": 356.084,
+     "2018": 381.575,
+     "2019": 443.97,
+     "2020": 457.018,
+     "2021": 497.554,
+     "2022": 445.784,
+     "2023": 442.537,
+     "2024": 412.678
+    },
+    "P_ref_usd_per_ozt": 1799.629167,
+    "ozt_per_tonne": 32150.746569,
+    "denominator_note": "Russia WB denominators end 2024; 2025 share not computable (NOT-AVAILABLE, recorded)"
+   }
+  },
+  "k3": {
+   "definition": "UST / total reserves (%%), TIC December snapshot over WB year-end total",
+   "raw_series": {
+    "2010": 31.509405,
+    "2011": 30.055688,
+    "2012": 30.028857,
+    "2013": 27.192893,
+    "2014": 22.267332,
+    "2015": 25.02425,
+    "2016": 22.835047,
+    "2017": 23.686771,
+    "2018": 2.816631,
+    "2019": 1.796538,
+    "2020": 1.007256,
+    "2021": 0.618434,
+    "2022": 0.108129,
+    "2023": 0.036168,
+    "2024": 0.006904
+   },
+   "origin_end2013": 27.192893,
+   "origin_end2017": 23.686771,
+   "metric_origin_x2014": 22.267332,
+   "metric_origin_x2018": 2.816631,
+   "frontier_terminal": 0.618434,
+   "frontier_definition": "Russia UST/total reserves at the Dec-2021 snapshot",
+   "frontier_region_2019_2021": [
+    0.618434,
+    1.796538
+   ],
+   "d_series_origin2014": {
+    "2010": 1.426907,
+    "2011": 1.359758,
+    "2012": 1.358518,
+    "2013": 1.22752,
+    "2014": 1.0,
+    "2015": 1.127347,
+    "2016": 1.026224,
+    "2017": 1.065566,
+    "2018": 0.101539,
+    "2019": 0.054419,
+    "2020": 0.01796,
+    "2021": 0.0,
+    "2022": -0.023572,
+    "2023": -0.026896,
+    "2024": -0.028248
+   },
+   "onset_primary_rule_origin2013": 2016,
+   "onset_alternative_variant_origin2017": 2018,
+   "onset_detail": {
+    "threshold_abs": 2.657446,
+    "sign_required": "-",
+    "per_year": {
+     "2014": {
+      "x": 22.267332,
+      "delta_vs_origin": -4.925561,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2015": {
+      "x": 25.02425,
+      "delta_vs_origin": -2.168643,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2016": {
+      "x": 22.835047,
+      "delta_vs_origin": -4.357846,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2017": {
+      "x": 23.686771,
+      "delta_vs_origin": -3.506122,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2018": {
+      "x": 2.816631,
+      "delta_vs_origin": -24.376262,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2019": {
+      "x": 1.796538,
+      "delta_vs_origin": -25.396355,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2020": {
+      "x": 1.007256,
+      "delta_vs_origin": -26.185637,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2021": {
+      "x": 0.618434,
+      "delta_vs_origin": -26.574459,
+      "meets_10pct_threshold_and_sign": true
+     }
+    },
+    "onset_sustained_over_full_available_series": 2016
+   },
+   "velocity_path_fraction_per_yr": {
+    "full_path_2014_2021": 0.142857,
+    "phase_2014_2018": 0.224615,
+    "phase_2018_2021": 0.033846,
+    "alt_origin2018_2018_2021": 0.333333,
+    "note": "positive = toward the frontier; d-space, origin-2014 scaling"
+   },
+   "velocity_raw_units_per_yr": {
+    "full_path_2014_2021": -3.0927,
+    "phase_2014_2018": -4.862675,
+    "phase_2018_2021": -0.732732
+   },
+   "post_freeze_observations_note": "observations after 2021 are post-freeze and OUTSIDE the anticipatory path (latest available: 2024)",
+   "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability",
+   "raw_inputs": {
+    "ust_busd_dec": {
+     "2010": 151.0,
+     "2011": 149.5,
+     "2012": 161.5,
+     "2013": 138.6,
+     "2014": 86.0,
+     "2015": 92.1,
+     "2016": 86.1,
+     "2017": 102.5,
+     "2018": 13.2,
+     "2019": 9.974,
+     "2020": 6.011,
+     "2021": 3.91,
+     "2022": 0.629,
+     "2023": 0.216,
+     "2024": 0.042,
+     "2025": 0.029,
+     "2026": 0.026
+    },
+    "total_reserves_usd_bn": {
+     "2010": 479.222,
+     "2011": 497.41,
+     "2012": 537.816,
+     "2013": 509.692,
+     "2014": 386.216,
+     "2015": 368.043,
+     "2016": 377.052,
+     "2017": 432.731,
+     "2018": 468.645,
+     "2019": 555.179,
+     "2020": 596.77,
+     "2021": 632.242,
+     "2022": 581.71,
+     "2023": 597.217,
+     "2024": 608.361
+    }
+   }
+  },
+  "k4": {
+   "definition": "CNY share of disclosed reserves (pp)",
+   "raw_series": {
+    "2007": 0.0,
+    "2008": 0.0,
+    "2009": 0.0,
+    "2010": 0.0,
+    "2011": 0.0,
+    "2012": 0.0,
+    "2013": 0.0,
+    "2014": 0.0,
+    "2015": 0.0,
+    "2016": 0.0,
+    "2017": 3.38,
+    "2018": 17.34,
+    "2019": 15.28,
+    "2020": 16.69,
+    "2021": 21.78
+   },
+   "origin_end2013": 0.0,
+   "origin_end2017": 3.38,
+   "metric_origin_x2014": 0.0,
+   "metric_origin_x2018": 17.34,
+   "frontier_terminal": 21.78,
+   "frontier_definition": "Russia LMW CNY share, last pre-freeze observation (2021)",
+   "frontier_region_2019_2021": [
+    15.28,
+    21.78
+   ],
+   "d_series_origin2014": {
+    "2007": 1.0,
+    "2008": 1.0,
+    "2009": 1.0,
+    "2010": 1.0,
+    "2011": 1.0,
+    "2012": 1.0,
+    "2013": 1.0,
+    "2014": 1.0,
+    "2015": 1.0,
+    "2016": 1.0,
+    "2017": 0.844812,
+    "2018": 0.203857,
+    "2019": 0.298439,
+    "2020": 0.233701,
+    "2021": -0.0
+   },
+   "onset_primary_rule_origin2013": 2017,
+   "onset_alternative_variant_origin2017": 2018,
+   "onset_detail": {
+    "threshold_abs": 2.178,
+    "sign_required": "+",
+    "per_year": {
+     "2014": {
+      "x": 0.0,
+      "delta_vs_origin": 0.0,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2015": {
+      "x": 0.0,
+      "delta_vs_origin": 0.0,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2016": {
+      "x": 0.0,
+      "delta_vs_origin": 0.0,
+      "meets_10pct_threshold_and_sign": false
+     },
+     "2017": {
+      "x": 3.38,
+      "delta_vs_origin": 3.38,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2018": {
+      "x": 17.34,
+      "delta_vs_origin": 17.34,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2019": {
+      "x": 15.28,
+      "delta_vs_origin": 15.28,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2020": {
+      "x": 16.69,
+      "delta_vs_origin": 16.69,
+      "meets_10pct_threshold_and_sign": true
+     },
+     "2021": {
+      "x": 21.78,
+      "delta_vs_origin": 21.78,
+      "meets_10pct_threshold_and_sign": true
+     }
+    },
+    "onset_sustained_over_full_available_series": 2017
+   },
+   "velocity_path_fraction_per_yr": {
+    "full_path_2014_2021": 0.142857,
+    "phase_2014_2018": 0.199036,
+    "phase_2018_2021": 0.067952,
+    "alt_origin2018_2018_2021": 0.333333,
+    "note": "positive = toward the frontier; d-space, origin-2014 scaling"
+   },
+   "velocity_raw_units_per_yr": {
+    "full_path_2014_2021": 3.111429,
+    "phase_2014_2018": 4.335,
+    "phase_2018_2021": 1.48
+   },
+   "post_freeze_observations_note": "observations after 2021 are post-freeze and OUTSIDE the anticipatory path (latest available: 2021)",
+   "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability"
+  }
+ },
+ "move_onset_ordering": {
+  "rule": "onset(k) = first year t>2013 with |x_t - x_2013| >= 0.10*|x_F - x_2013|, sign-matching, sustained for all observed t' in [t, 2021] (the pre-freeze path; full-series sustainment also checked and recorded per coordinate)",
+  "realized_onsets": {
+   "k1": 2018,
+   "k2": 2014,
+   "k3": 2016,
+   "k4": 2017
+  },
+  "realized_order_earliest_first": [
+   "k2",
+   "k3",
+   "k4",
+   "k1"
+  ],
+  "alternative_origin2017_variant_onsets": {
+   "k1": 2018,
+   "k2": 2019,
+   "k3": 2018,
+   "k4": 2018
+  },
+  "expected_pattern": {
+   "k2_onset": 2014,
+   "k3_onset": 2018,
+   "k1_completes_by": 2021
+  },
+  "components": {
+   "gold_k2_moves_from_2014": true,
+   "ust_k3_onset_2018": false,
+   "k3_onset_found": 2016,
+   "currency_k1_completes_by_2021": true,
+   "k1_completion_note": "by construction: the k1 frontier IS Russia's 2021 value, so 'completes by 2021' is tautologically true; the informative part is the k1 onset year found = 2018",
+   "sequence_gold_before_ust_before_currency": true
+  },
+  "verdict_vs_expected": "DIFFERENT",
+  "verdict_note": "the qualitative sequence gold->UST->currency HELD; the mechanical k3 onset year is 2016 (expected 2018): the RATIO coordinate UST/total crossed the 10% threshold before the 2018 raw-dollar dump because Russia's total reserves contracted 2014-2016 while raw UST holdings were roughly flat \u2014 the raw $ collapse (102.5 -> 13.2 busd) is a 2018 event, quoted in the raw series"
+ },
+ "secondary_trajectory_scan": {
+  "rule": "every LMW discloser with a USD-share decline >= 15pp between two observations <= 10 years apart whose final panel value does not recover above (start - 10pp); reported window = the maximum-decline qualifying pair",
+  "n_disclosers_scanned": 64,
+  "n_qualifiers": 20,
+  "qualifiers": [
+   {
+    "window": [
+     1998,
+     2004
+    ],
+    "start_usd_pp": 89.7,
+    "end_usd_pp": 0.0,
+    "decline_pp": 89.7,
+    "final_panel_year": 2010,
+    "final_usd_pp": 0.0,
+    "country": "Lithuania",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2008,
+     2012
+    ],
+    "start_usd_pp": 70.89,
+    "end_usd_pp": 6.19,
+    "decline_pp": 64.7,
+    "final_panel_year": 2023,
+    "final_usd_pp": 17.68,
+    "country": "United Kingdom",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2020,
+     2021
+    ],
+    "start_usd_pp": 84.58,
+    "end_usd_pp": 25.51,
+    "decline_pp": 59.07,
+    "final_panel_year": 2022,
+    "final_usd_pp": 26.49,
+    "country": "Sri Lanka",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     1996,
+     2006
+    ],
+    "start_usd_pp": 84.03,
+    "end_usd_pp": 32.81,
+    "decline_pp": 51.22,
+    "final_panel_year": 2023,
+    "final_usd_pp": 37.33,
+    "country": "Switzerland",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2014,
+     2020
+    ],
+    "start_usd_pp": 93.73,
+    "end_usd_pp": 47.34,
+    "decline_pp": 46.39,
+    "final_panel_year": 2020,
+    "final_usd_pp": 47.34,
+    "country": "South Sudan",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2017,
+     2021
+    ],
+    "start_usd_pp": 55.31,
+    "end_usd_pp": 13.89,
+    "decline_pp": 41.42,
+    "final_panel_year": 2021,
+    "final_usd_pp": 13.89,
+    "country": "Russia",
+    "adapted_onset_rule": "origin=window start year, terminal=window end value, same 10%-threshold + sign + sustained-through-window rule",
+    "onsets_over_window": {
+     "k1": 2018,
+     "k2": 2020,
+     "k3": 2018,
+     "k4": 2018
+    },
+    "russia_realized_ordering": {
+     "k1": 2018,
+     "k2": 2014,
+     "k3": 2016,
+     "k4": 2017
+    }
+   },
+   {
+    "window": [
+     2019,
+     2021
+    ],
+    "start_usd_pp": 91.73,
+    "end_usd_pp": 50.81,
+    "decline_pp": 40.92,
+    "final_panel_year": 2022,
+    "final_usd_pp": 57.9,
+    "country": "Malawi",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2014,
+     2019
+    ],
+    "start_usd_pp": 83.42,
+    "end_usd_pp": 45.04,
+    "decline_pp": 38.38,
+    "final_panel_year": 2023,
+    "final_usd_pp": 52.0,
+    "country": "Turkey",
+    "adapted_onset_rule": "origin=window start year, terminal=window end value, same 10%-threshold + sign + sustained-through-window rule",
+    "onsets_over_window": {
+     "k1": 2016,
+     "k2": 2017,
+     "k3": 2017,
+     "k4": "no terminal movement over the window (|x_t2-x_t1|=0)"
+    },
+    "russia_realized_ordering": {
+     "k1": 2018,
+     "k2": 2014,
+     "k3": 2016,
+     "k4": 2017
+    }
+   },
+   {
+    "window": [
+     2016,
+     2021
+    ],
+    "start_usd_pp": 38.1,
+    "end_usd_pp": 0.0,
+    "decline_pp": 38.1,
+    "final_panel_year": 2022,
+    "final_usd_pp": 0.0,
+    "country": "Macedonia",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2015,
+     2021
+    ],
+    "start_usd_pp": 64.0,
+    "end_usd_pp": 28.65,
+    "decline_pp": 35.35,
+    "final_panel_year": 2023,
+    "final_usd_pp": 36.31,
+    "country": "Namibia",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2005,
+     2015
+    ],
+    "start_usd_pp": 47.93,
+    "end_usd_pp": 14.79,
+    "decline_pp": 33.14,
+    "final_panel_year": 2023,
+    "final_usd_pp": 30.55,
+    "country": "Czech Republic",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2004,
+     2013
+    ],
+    "start_usd_pp": 81.31,
+    "end_usd_pp": 50.05,
+    "decline_pp": 31.26,
+    "final_panel_year": 2023,
+    "final_usd_pp": 67.77,
+    "country": "South Africa",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2012,
+     2014
+    ],
+    "start_usd_pp": 91.56,
+    "end_usd_pp": 60.4,
+    "decline_pp": 31.16,
+    "final_panel_year": 2022,
+    "final_usd_pp": 75.17,
+    "country": "Mongolia",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2020,
+     2023
+    ],
+    "start_usd_pp": 91.71,
+    "end_usd_pp": 64.03,
+    "decline_pp": 27.68,
+    "final_panel_year": 2023,
+    "final_usd_pp": 64.03,
+    "country": "Uganda",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2015,
+     2017
+    ],
+    "start_usd_pp": 34.96,
+    "end_usd_pp": 8.65,
+    "decline_pp": 26.31,
+    "final_panel_year": 2023,
+    "final_usd_pp": 9.76,
+    "country": "Denmark",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2002,
+     2008
+    ],
+    "start_usd_pp": 31.57,
+    "end_usd_pp": 6.46,
+    "decline_pp": 25.11,
+    "final_panel_year": 2008,
+    "final_usd_pp": 6.46,
+    "country": "Slovakia",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2014,
+     2021
+    ],
+    "start_usd_pp": 56.12,
+    "end_usd_pp": 33.93,
+    "decline_pp": 22.19,
+    "final_panel_year": 2023,
+    "final_usd_pp": 35.98,
+    "country": "Iceland",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2008,
+     2016
+    ],
+    "start_usd_pp": 32.55,
+    "end_usd_pp": 11.8,
+    "decline_pp": 20.75,
+    "final_panel_year": 2022,
+    "final_usd_pp": 14.9,
+    "country": "Romania",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2003,
+     2012
+    ],
+    "start_usd_pp": 96.97,
+    "end_usd_pp": 77.25,
+    "decline_pp": 19.72,
+    "final_panel_year": 2022,
+    "final_usd_pp": 77.55,
+    "country": "Peru",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   },
+   {
+    "window": [
+     2001,
+     2006
+    ],
+    "start_usd_pp": 33.36,
+    "end_usd_pp": 14.51,
+    "decline_pp": 18.85,
+    "final_panel_year": 2019,
+    "final_usd_pp": 18.6,
+    "country": "Croatia",
+    "ordering_comparison": "k2/k3 for this discloser are not in the coordinates file (only the six holders were assembled); ordering not computed \u2014 NOT fetched, per the input basis"
+   }
+  ],
+  "n1_statement": "N=1 remains the central limitation for the CALIBRATION even though the scan finds other >=15pp USD-share decliners: Russia is the only qualifier with a completed, sanctions-anticipatory exit across all four coordinates ending at the frontier; other qualifiers inform the k1 margin only, and where their k2/k3 exist (the six holders) their move-ordering is compared above"
+ },
+ "construction_judgments": [
+  "onset/ordering rule origin = end-2013 value (per the calibration design); the path-fraction denominator = x(h, 2014) and x(h, 2018) (per the pre-registered metric formula); both are reported and neither is swapped for the other",
+  "onset sustainment is evaluated on the pre-freeze path (through 2021); a full-series sustainment check is recorded per coordinate and does not change any onset",
+  "k2 frontier region uses the 2019-2021 range of the constant-price share; Russia's post-2021 observations are post-freeze and excluded from the calibrated path",
+  "secondary-scan qualifier window = the maximum-decline qualifying pair; the adapted onset rule for qualifiers uses origin = window start, terminal = window end value"
+ ],
+ "conditionality": "conditional on the Russia-calibrated frontier (N=1 completed anticipatory exit; see secondary-trajectory scan) and on each cell's observability flag; kinematic descriptor, not a forecast; no date, no probability"
+}

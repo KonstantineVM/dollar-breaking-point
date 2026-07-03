@@ -1,0 +1,540 @@
+{
+ "SOURCE": [
+  "build/reserve/RDTG_prediction.md (commit 7ad70d2) | pre-registration | every rule above implemented as committed | read 2026-07-02",
+  "build/reserve/RDTG_bars.json | committed magnitude bars | yardsticks read, never recomputed | read 2026-07-02",
+  "build/reserve/RDTG_ib_series.csv + RDTG_ib_staging.json | committed I.B parse | re-derived and cross-checked here | read 2026-07-02",
+  "build/reserve/RDTG_legs_manifest.json + RDTG_legs_provenance.md + rdtg_evidence/leg_* | committed leg grounding + RAW retained series | all leg tests computed from the raw files | read 2026-07-02",
+  "build/reserve/RDTD_result.json :: identity.china_alone.delta_non_us_busd | upper mass + I.B threshold base | read 2026-07-02",
+  "build/reserve/RDTE_result.json :: cross_flow_sensitivity_detail.positive_months_proxy_variant.total_busd | lower-mass derivation | read 2026-07-02",
+  "build/reserve/RDTF_result.json :: part1_route_robust_ceiling.route_robust_interval.interval_busd | the fork interval annotated | read 2026-07-02"
+ ],
+ "built_utc_date": "2026-07-02",
+ "establishment": "NOT ESTABLISHED -- output of RDTG_recompute.py; every number and every verdict below is an OUTPUT, not established, until the RDT-G verifier scenario runs (build/reserve/RDTG_verify.json with all_pass=true, byte-reproducing this file and the amended object from the committed inputs) AND the human gate reviews this stage.",
+ "inputs_sha256": {
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTE_result.json": "67cf45d26dd375c8f67a9ce2e7360a8f71c0ffb05498a78c1b40424b581202c2",
+  "build/reserve/RDTF_result.json": "693750030ff4dd663be1b88e28987e28d526a06a6f67fd732b1ebd36486f220b",
+  "build/reserve/RDTF_verify.json": "f4bd2f9f700d1ae66284d6571de14cf44a637634c7ac10942b52f8f0bf939af5",
+  "build/reserve/RDTG_bars.json": "65f35309573d0e321cb57a80252f858684c454830f5f4e98c480526251d866a2",
+  "build/reserve/RDTG_denominators.json": "874a01e5888e12f0a2e428f580a54faa19ad2b0c99d734ce393fd7634c0c14ad",
+  "build/reserve/RDTG_ib_series.csv": "1f7a4d39004fe41b3f3651ad32e80860a37cda20fa0b0e5e0bbdaea15c98e45e",
+  "build/reserve/RDTG_ib_staging.json": "79ff1364f4735c91cfb03fe4c2b478ef8b17a992a96b5ffbd7ff09a63e1eeb2d",
+  "build/reserve/RDTG_legs_manifest.json": "8b8d04c7383f4e9ae3d40481add4247138d2571363937f3264a140c13330daf9",
+  "build/reserve/RDTG_legs_provenance.md": "7918eafadfb1fa3830c82b823ba95952a1157d4afabe0ee5f0d0b06c0bd0f26a",
+  "build/reserve/RDTG_prediction.md": "2a755e8f64d0e7725f2a3fff2c63998463c9f1e464b7f489fe2dbecfe3410e65",
+  "build/reserve/rdtg_evidence/leg_a_boj_regbp_q_en.zip": "8f3f992b8936f6a0617cec233dafcdec8919505ad3f206a1505b4809b6b2ea7c",
+  "build/reserve/rdtg_evidence/leg_b_ecb_bp6_ea19_cn_pi_liab_position.csv": "dff4d85544afca200d09cc8c07cd2b16de6a7e4880502073079300cd1fb74715",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2016_chapter10.xls": "163ab2a6df1ce9f701d7be7c50848b198861b95182a953343977598ac0adb592",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2017_chapter10.xls": "321efe938ec3a2d6625ad4cf725b6572d1e9ac0b6888a66c7dd00de4722fc95c",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2018_chapter10.xls": "dda4f29a9c4efb6b1bfc74fb90572772d4a742b72009f736b4ce6763a8e759c6",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2019_chapter10.xls": "9ed6afdd3bdd67521ddb3d6b6c204e0b98356696680513b2f10044dc83de089d",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2020_chapter10.xls": "b1cdbf1e9b72884fac027b6f1b73f24e4b8c6574ff07a13d74d7f77ae38d9e1a",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2021_chapter10.xls": "d7c9babc39a694419930dddcdbe7d3b6bfe30bfcb6b233d6a8de04d3ecb8db0c",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2022_chapter10.xlsx": "616bcf0119a183a13ada1d38b71db9b2376c9c35c6b4a5a4d4785b581eb3deda",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2023_chapter10.xlsx": "d5840e4b8d81e810531d73836e2386ce780569867dccccac434734f217926a6f",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2024_chapter10.xlsx": "5dfe34012e4d5770c8b1a991287a374424ff62b6032e6f182fc486133c6fe610",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2025_chapter10.xlsx": "1c27efd66fc7af5050f3538e6122730fcbbf6932c9124f6b00bf8533a91c8949",
+  "build/reserve/rdtg_evidence/leg_e_finanzagentur_investor_structure.html": "2210e7bf30bb5f62eea695a386121f76d2d330014206352a1d9a9283fcece73f",
+  "build/reserve/rdtg_evidence/leg_f_boj_fof2_en.zip": "f4558e9f52020d6c71cdf17ec059ae422a9d3d3d24ddd620d5d3b25923cf4605",
+  "build/reserve/rdtg_evidence/leg_g_ons_hewd_ukea_overseas_gilt_holdings.csv": "56e9368358467db222d3b0ed314ac2aad452e578218701d102b584e7777968ca",
+  "build/reserve/rdtg_evidence/leg_i_abs_iip_653B_gg_foreign_liab_debtsec.csv": "24f49b33939f81aa2e4b36f2f15c637d2dd5d37bac3fb6ad54ce757bc3af357c"
+ },
+ "masking_mechanisms": {
+  "M1_external_managers_custodians": {
+   "consequence_pre_committed": "a null on any leg (and on the sweep) is WEAK evidence, not disposal.",
+   "grounding": "IMF Revised Guidelines (2013) + US Treasury/TIC SHL2024r 'custodial bias' passages, verbatim in RDTG_legs_manifest.json (retained PDFs in rdtg_evidence/)",
+   "tic_quote": "This \"custodial bias\" tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom."
+  },
+  "M2_counterpart_attribution": {
+   "consequence_pre_committed": "a surge is CONSISTENCY, not attribution; the absence of a China line is not the absence of China.",
+   "grounding": "compiler-side statements retained per leg (BoJ FAQ Q10; ECB quality report fn. 8; ONS CPIS-mirror; StatCan IMDB 1535; ABS Form 85L; BdF custodian statements) -- RDTG_legs_manifest.json"
+  }
+ },
+ "mass_and_bars": {
+  "bars_artifact": "build/reserve/RDTG_bars.json (committed BEFORE any discriminator was read; sequencing attestation carried there)",
+  "mass_endpoints_busd": [
+   140.949,
+   494.977
+  ],
+  "stated_limitation_direction": "Pre-committed direction: the candidate set is not the universe of non-US destinations (corporates, equities, deposits, non-candidate sovereigns absorb too), so per-market bars OVERSTATE what any one market should show -- which makes a null WEAKER, never stronger."
+ },
+ "no_date_no_probability_no_currency_guess": "no breaking-point date, no probability, and no destination-currency guess anywhere in the RDT-G outputs (the k1 wall stands)",
+ "part_a_ib_verdict": {
+  "SOURCE": "build/reserve/RDTG_ib_series.csv | 132 SAFE SDDS templates (RDT-D corpus, disk-only) | re-derived here and cross-checked against RDTG_ib_staging.json | read 2026-07-02",
+  "axis": "I.B (SAFE SDDS Section I.B, 'other foreign currency assets'), monthly, USD bn",
+  "baseline_window_context_usd_bn": {
+   "endpoints": {
+    "2015-06 (data floor)": 188.158,
+    "2021-12": 179.276
+   },
+   "value": -8.882
+  },
+  "delta_verdict_window_usd_bn": {
+   "convention_2021_12_base (sensitivity)": {
+    "endpoints": {
+     "2021-12": 179.276,
+     "2026-05": 160.536
+    },
+    "value": -18.74,
+    "verdict": "FLAT"
+   },
+   "convention_2022_01_base (pre-registered wording)": {
+    "endpoints": {
+     "2022-01": 179.232,
+     "2026-05": 160.536
+    },
+    "value": -18.696,
+    "verdict": "FLAT"
+   }
+  },
+  "disclosure_finding": {
+   "SOURCE": "build/reserve/RDTG_ib_series.csv (re-derived here) cross-checked against build/reserve/RDTG_ib_staging.json; upstream corpus build/reserve/rdtd_evidence/",
+   "blank_months_per_sub_line": {
+    "ib_deposits": 131,
+    "ib_fin_derivatives": 18,
+    "ib_gold": 132,
+    "ib_loans": 5,
+    "ib_other": 132,
+    "ib_securities": 0,
+    "ib_total": 0
+   },
+   "finding": "DISCLOSURE finding riding the I.B verdict (not a SUPPRESSED verdict -- the total is published in all 132 months): gold and 'other' sub-lines are BLANK in 132/132 and 132/132 months; deposits BLANK in 131/132 (single explicit 0 in 2017-04); loans BLANK in 2025-11, 2025-12, 2026-01, 2026-02, 2026-05 (explicit 0.0 in 2026-03..04); securities published in all 132 months and carries essentially the whole line. Blanks are a disclosure state, never interpolated.",
+   "loans_blank_months": [
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-05"
+   ],
+   "months_in_corpus": 132,
+   "sub_lines_reported_wherever_published": {
+    "ib_deposits / ib_gold / ib_other": "no published verdict-window values (see blank counts)",
+    "ib_fin_derivatives": "explicit values (incl. 0.0) most months; verdict-window delta 0.0",
+    "ib_loans_usd_bn": {
+     "2015-06": 11.786,
+     "2021-12": 1.397,
+     "2022-01": 1.345,
+     "last_published": {
+      "month": "2026-04",
+      "value": 0.0
+     },
+     "note": "re-derived from the committed CSV (flags cross-checked against the staging above); latest month BLANK so no verdict-window delta"
+    },
+    "ib_securities_usd_bn": {
+     "2015-06": 176.372,
+     "2021-12": 177.879,
+     "2022-01": 177.887,
+     "2026-05": 160.536,
+     "verdict_window_delta": -17.351
+    }
+   }
+  },
+  "perimeter": "I.B movement is a within-China's-own-books discriminator (re-parking into non-reserve FX assets would surface here); it attributes nothing beyond China's own reporting perimeter (pre-registered).",
+  "threshold_reproduction": {
+   "multiplier_parsed_from_preregistration": 0.05,
+   "parsed_rule_substring": "**SURGE** iff ΔI.B_total ≥ 0.05 × 494.977",
+   "threshold_busd": 24.74885,
+   "upper_mass_busd": 494.977,
+   "upper_mass_busd_read_from": "build/reserve/RDTD_result.json :: identity.china_alone.delta_non_us_busd"
+  },
+  "verdict": "FLAT",
+  "verdict_sentence": "MECHANICAL I.B VERDICT: FLAT -- ΔI.B_total over the verdict window (2022-01 -> 2026-05, latest published) = -18.696 $bn, strictly between -24.749 and +24.749 (threshold reproduced at run time as 0.05 x 494.977, the RDTD upper-mass field); endpoint-convention variant (2021-12 base): -18.740 $bn -- FLAT under BOTH conventions. The sign is NEGATIVE (I.B fell) but does not reach the -24.749 DECLINE bar. SUPPRESSED does not attach to the total (published in all 132 months); the persistent sub-line blanks ride as a DISCLOSURE finding."
+ },
+ "part_b_leg_tests": {
+  "aggregate_legs": {
+   "e_bund_investor_structure_official_split": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_e_finanzagentur_investor_structure.html | Finanzagentur investor-structure table | parsed 2026-07-02",
+    "bar_low_scheme1_eur_bn_context": 13.765,
+    "bar_low_scheme2_eur_bn_context": 27.829,
+    "baseline_single_annual_change_pp": 1,
+    "class": "AGGREGATE (with an OFFICIAL third-country split -- the closest thing to an official split in the sweep)",
+    "construction": "SHARES (% of total volume of Federal securities, whole percent, point-in-time table 2020-12..2025-06). Conversion to EUR amounts per the tasking uses the leg's own publisher denominator: only the end-2021 outstanding (EUR 1589.900 bn incl own holdings, RDTG_denominators.json, same publisher) is grounded, so EUR equivalents are YARDSTICK-ONLY conversions at the CONSTANT end-2021 outstanding, stated; pp moves are the primary numbers.",
+    "custody_caveat": "Finanzagentur estimation-basis statement + Bundesbank 2018 custody-channel corroboration verbatim in RDTG_legs_manifest.json",
+    "excess_pp_mechanical (= verdict pp - single-change baseline x 3.5; power untestable)": -6.5,
+    "powered": "NOT-COMPUTABLE -- excluded from powered counts, exclusion stated",
+    "prominent_context_reading": "The OFFICIAL third-country line -- 'Central banks and government sector - third countries' -- FELL from 17% (2021-12) to 14% (2025-06) of Federal securities (-3 pp, ~-47.697 EUR bn at the constant end-2021 outstanding, yardstick only), while 'Other investors - third countries' ROSE 7% -> 16% (+9 pp). The only official-sector split in the sweep moved AWAY from official third-country holders over the verdict window -- direction ABSENT-side; never counted (power not computable); the publisher's 2024 model revision rides the series.",
+    "shares_pct": {
+     "central_banks_and_government_third_countries": {
+      "2020-12-31": 16,
+      "2021-12-31": 17,
+      "2022-12-31": 15,
+      "2023-12-31": 15,
+      "2024-12-31": 15,
+      "2025-06-30": 14
+     },
+     "other_investors_third_countries": {
+      "2020-12-31": 13,
+      "2021-12-31": 7,
+      "2022-12-31": 5,
+      "2023-12-31": 9,
+      "2024-12-31": 13,
+      "2025-06-30": 16
+     }
+    },
+    "sigma_baseline": "NOT-COMPUTABLE (single baseline annual change)",
+    "status": "GROUNDED-PRIMARY -- POWER NOT-COMPUTABLE: baseline support is the single annual change 2020-12->2021-12, so sigma_baseline cannot be computed from one change and the power test cannot run; the leg is reported with its numbers but EXCLUDED from powered counts (within the pre-registered rule: unpowered/untestable legs report, never count)",
+    "verdict_window_change_eur_bn_at_constant_end2021_outstanding (yardstick only)": -47.697,
+    "verdict_window_change_pp": -3,
+    "windows": "baseline 2020-12-31->2021-12-31 ONLY (nearest published boundaries); verdict 2021-12-31->2025-06-30 (nearest published boundary), 3.5 years"
+   },
+   "f_jgb_overseas_holdings": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_f_boj_fof2_en.zip :: ff_dl_fof_quarterly_en.csv rows FOF_FFAS500A311/310, FOF_FFALC08G500 | BoJ Flow of Funds | parsed 2026-07-02",
+    "bar_low_s1_pct_of_leg_end2021_level": 10.226,
+    "class": "AGGREGATE",
+    "construction": "POSITIONS (stocks), quarterly, unit 100 million yen (verified from the retained BoJ sjpre_units.xlsx header) converted to JPY bn. HEADLINE row: FOF_FFAS500A311 'Central government securities and FILP bonds / Overseas / Stock' -- the perimeter closest to the bar's MoF General-Bonds outstanding denominator (which excludes Treasury discount bills); the T-bill row and the combined sum are carried as stated variants; the from-whom-to-whom Overseas row equals the two stock rows at both window endpoints (guarded cross-check). FILP-bond inclusion in the FOF row vs the General-Bonds denominator is a stated perimeter friction.",
+    "custody_caveat": "BoJ FOF guide (Overseas sector = BOP nonresidents) + BoJ FAQ Q10, verbatim in RDTG_legs_manifest.json",
+    "levels_jpy_bn": {
+     "2021Q4": 81961.6,
+     "2025Q4": 75705.8
+    },
+    "reading": "Overseas holdings of JGBs+FILP bonds FELL 6255.800 JPY bn over the verdict window against a +5866.986/yr baseline mean -- excess -29723.743 JPY bn, deeply below the bar. The combined-incl-bills variant lands the same side. M1/M2 caveats ride (the FOF Overseas sector inherits the BOP custodian-attribution perimeter).",
+    "status": "GROUNDED-PRIMARY -- TESTED",
+    "test": {
+     "bar_high_scheme1_local_bn": 29433.342,
+     "bar_high_scheme2_local_bn": 8312.723,
+     "bar_low_scheme1_local_bn": 8381.4,
+     "bar_low_scheme2_local_bn": 2367.12,
+     "bar_low_used_for_headline_power_test": 8381.4,
+     "baseline_annual_changes": [
+      4601.5,
+      7980.9,
+      4580.0,
+      3826.7,
+      13763.1,
+      -3898.6,
+      10215.3
+     ],
+     "baseline_mean_annual_change": 5866.986,
+     "excess (= verdict change - baseline mean x years)": -29723.743,
+     "half_bar_low_headline": 4190.7,
+     "leg_verdict_headline": "leg-ABSENT",
+     "leg_verdict_scheme2_variant": "UNPOWERED -- reported, never counted",
+     "powered_headline (Bar_low >= sigma_baseline)": true,
+     "powered_scheme2_variant": false,
+     "sigma_baseline (sample stdev, ddof=1 -- larger-sigma convention, conservative for the power test)": 5605.24,
+     "verdict_window_change": -6255.8,
+     "verdict_window_years": 4
+    },
+    "variants": {
+     "combined_incl_t_bills": {
+      "baseline_annual_changes": [
+       14316.1,
+       6284.3,
+       6880.1,
+       13840.8,
+       9066.7,
+       17431.4,
+       12104.3
+      ],
+      "excess": -64675.886,
+      "leg_verdict_if_it_were_the_headline": "leg-ABSENT (powered; excess below 0.5 x Bar_low)",
+      "powered_scheme1": true,
+      "sigma_baseline": 4150.842,
+      "verdict_change": -19005.2
+     },
+     "treasury_discount_bills_row (FOF_FFAS500A310)": {
+      "baseline_annual_changes": [
+       9714.6,
+       -1696.6,
+       2300.1,
+       10014.1,
+       -4696.4,
+       21330.0,
+       1889.0
+      ],
+      "note": "unpowered under the Scheme-1 bar (sigma exceeds it); reported only",
+      "powered_scheme1": false,
+      "sigma_baseline": 8829.375,
+      "verdict_change": -12749.4
+     }
+    },
+    "windows": "baseline Q4/2014->Q4/2021 annual changes; verdict 2021Q4->2025Q4"
+   },
+   "g_gilt_overseas_holdings": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_g_ons_hewd_ukea_overseas_gilt_holdings.csv | ONS UKEA HEWD | parsed 2026-07-02",
+    "bar_low_s1_pct_of_leg_end2021_level": 2.47,
+    "class": "AGGREGATE",
+    "construction": "POSITIONS, GBP bn, ONS CDID HEWD (UKEA), quarterly, MARKET VALUE current prices -- the bars are built on NOMINAL outstandings: a stated basis friction (the tonnage-not-value lesson says flag it and compute on what the leg publishes; the 2022 gilt-price fall moves this series without any tonnage change). Annual rows equal Q4 rows (guarded).",
+    "custody_caveat": "no custody-specific ONS caveat found for HEWD; the same compiler's CPIS-mirror attribution basis (leg c) stated in RDTG_legs_manifest.json; DMO revision note quoted there",
+    "levels_gbp_bn": {
+     "2021Q4": 740.997,
+     "2022Q4 (gilt-price crash year, context)": 587.072,
+     "2025Q4": 737.355
+    },
+    "reading": "Overseas gilt holdings at market value were near-FLAT over the verdict window (-3.642 GBP bn on a 740.997 base) against a +48.764/yr baseline mean -- excess -198.696 GBP bn -- but sigma_baseline 29.873 exceeds Bar_low 18.299, so the leg is UNPOWERED and never counted; the market-value basis makes both the baseline sigma and the verdict change price-contaminated (stated).",
+    "status": "GROUNDED-PRIMARY -- TESTED; UNPOWERED at both bars (sigma_baseline exceeds Bar_low under Scheme 1 and Scheme 2): reported, never counted",
+    "test": {
+     "bar_high_scheme1_local_bn": 64.261,
+     "bar_high_scheme2_local_bn": 47.407,
+     "bar_low_scheme1_local_bn": 18.299,
+     "bar_low_scheme2_local_bn": 13.5,
+     "bar_low_used_for_headline_power_test": 18.299,
+     "baseline_annual_changes": [
+      49.117,
+      75.108,
+      17.327,
+      10.353,
+      68.58,
+      88.104,
+      32.756
+     ],
+     "baseline_mean_annual_change": 48.764,
+     "excess (= verdict change - baseline mean x years)": -198.696,
+     "half_bar_low_headline": 9.149,
+     "leg_verdict_headline": "UNPOWERED -- reported, never counted",
+     "leg_verdict_scheme2_variant": "UNPOWERED -- reported, never counted",
+     "powered_headline (Bar_low >= sigma_baseline)": false,
+     "powered_scheme2_variant": false,
+     "sigma_baseline (sample stdev, ddof=1 -- larger-sigma convention, conservative for the power test)": 29.873,
+     "verdict_window_change": -3.642,
+     "verdict_window_years": 4
+    },
+    "windows": "baseline Q4/2014->Q4/2021 annual changes; verdict 2021Q4->2025Q4"
+   },
+   "h_oat_nonresident_share": {
+    "SOURCE": "build/reserve/RDTG_legs_manifest.json :: legs.h_oat_nonresident_share | grounded 2026-07-02",
+    "class": "AGGREGATE",
+    "context_only_no_test": {
+     "bdf_chart_general_government_nonresident_share_of_long_term_debt_pct": {
+      "2022Q3": 48.89,
+      "2025Q3": 53.83,
+      "note": "compiler chart data, 2022Q3->2025Q3 only (verdict-window-partial; perimeter differs from the State-debt share); CONTEXT ONLY, no baseline exists on disk so no test is run"
+     },
+     "publisher_metadata_last_two_obs_of_the_blocked_series_pct": "56.0, 55.1 (publisher metadata field series_last_two_obs_values; order as published)"
+    },
+    "custody_caveat": "BdF Stat Info holdings-from-custodian-statements sentence verbatim in RDTG_legs_manifest.json",
+    "status": "NOT-AVAILABLE -- the series exists at the publisher but is unfetchable from this egress (AFT Cloudflare-blocked; BdF webstat exports empty portal-wide; BdF API requires credentials -- evidence retained); no baseline -> no test; reported, never counted",
+    "test": "none (observations not obtainable)"
+   },
+   "i_ags_nonresident_gg_debt_securities": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_i_abs_iip_653B_gg_foreign_liab_debtsec.csv | ABS IIP (5302.0) via SDMX | parsed 2026-07-02",
+    "bar_low_s2_pct_of_leg_end2021_level": 2.476,
+    "class": "AGGREGATE",
+    "construction": "HEADLINE: POSITIONS, end-of-period (ABS measure 6, 'Position at end of period'), AUD bn, market-value IIP convention; the leg is GENERAL GOVERNMENT total (AGS plus state/territory issuers -- broader than AGS-only, dilution stated). FLOW-TEST VARIANT: transactions (measure 2, 'Changes in position reflecting - transactions'), both reported. Beginning/end-of-period coherence guarded.",
+    "custody_caveat": "ABS Form-85L nominee-survey sentence verbatim in RDTG_legs_manifest.json",
+    "levels_aud_bn": {
+     "2021Q4": 416.443,
+     "2025Q4": 449.674
+    },
+    "reading": "Nonresident holdings of Australian general-government debt securities rose +33.231 AUD bn over the verdict window, below the baseline-trend expectation (excess -55.191 positions / -15.477 transactions), but sigma_baseline (47.102 positions / 38.669 transactions) exceeds the Scheme-2 bar_low 10.313 -- UNPOWERED both ways, never counted.",
+    "status": "GROUNDED-ALTERNATE-OFFICIAL (ABS 5302.0 IIP; AOFM primary blocked) -- TESTED; UNPOWERED at the Scheme-2 bar in BOTH variants: reported, never counted. Scheme-1 bar NOT-COMPUTABLE for AU (outstanding NOT-GROUNDED) -> the Scheme-2 AUD bar is the power yardstick, stated.",
+    "test": {
+     "bar_high_scheme1_local_bn": "NOT-COMPUTABLE (see bar_low)",
+     "bar_high_scheme2_local_bn": 36.217,
+     "bar_low_scheme1_local_bn": "NOT-COMPUTABLE (AGS outstanding NOT-GROUNDED; Scheme-2 AUD bar used, stated)",
+     "bar_low_scheme2_local_bn": 10.313,
+     "bar_low_used_for_headline_power_test": 10.313,
+     "baseline_annual_changes": [
+      19.744,
+      -1.672,
+      33.934,
+      17.245,
+      37.31,
+      102.633,
+      -54.455
+     ],
+     "baseline_mean_annual_change": 22.106,
+     "excess (= verdict change - baseline mean x years)": -55.191,
+     "half_bar_low_headline": 5.157,
+     "leg_verdict_headline": "UNPOWERED -- reported, never counted",
+     "leg_verdict_scheme2_variant": "UNPOWERED -- reported, never counted",
+     "powered_headline (Bar_low >= sigma_baseline)": false,
+     "powered_scheme2_variant": false,
+     "sigma_baseline (sample stdev, ddof=1 -- larger-sigma convention, conservative for the power test)": 47.102,
+     "verdict_window_change": 33.231,
+     "verdict_window_years": 4
+    },
+    "transactions_variant": {
+     "baseline_annual_flow_sums": [
+      29.976,
+      6.764,
+      35.356,
+      15.042,
+      26.519,
+      99.192,
+      -28.97
+     ],
+     "excess": -15.477,
+     "leg_verdict": "UNPOWERED -- reported, never counted",
+     "powered_at_scheme2_bar": false,
+     "sigma_baseline": 38.669,
+     "verdict_cumulative": 89.597
+    },
+    "windows": "baseline Q4/2014->Q4/2021 annual changes; verdict 2021Q4->2025Q4 (transactions variant: annual sums / cumulative)"
+   }
+  },
+  "china_attributed_legs": {
+   "a_japan_bop_vs_china_pi_liabilities": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_a_boj_regbp_q_en.zip :: regbp_q_en.csv rows BPBP6QFLCN2/BPBP6QFLCN22 | BoJ/MoF regional BOP | parsed 2026-07-02",
+    "class": "CHINA-ATTRIBUTED",
+    "construction": "FLOWS, stated as such (mechanical extension of the pre-registered level-change construction: Japan publishes bilateral vis-a-vis-China portfolio-investment TRANSACTIONS, not positions, in the regional BOP; cumulative net incurrence of liabilities over a window is the level-change equivalent under zero valuation effects -- positions preferred per the pre-registration but not published on this line). Series BPBP6QFLCN2, quarterly, 100 million Yen converted to JPY bn.",
+    "custody_caveat": "BoJ FAQ Q10 verbatim in RDTG_legs_manifest.json (transactor-economy attribution; foreign custodian redemptions attribute to the custodian)",
+    "debt_securities_only_verdict_cum_jpy_bn": -11324.986,
+    "reading": "China's net transactions in Japanese portfolio securities were NEGATIVE over the verdict window (net sales), against a positive baseline mean -- the excess is deeply negative. M2 caveat rides: transactions via non-China intermediaries attribute to the intermediary's economy, so this line's absence is not the absence of China.",
+    "status": "GROUNDED-PRIMARY -- TESTED",
+    "test": {
+     "bar_high_scheme1_local_bn": 29433.342,
+     "bar_high_scheme2_local_bn": 8312.723,
+     "bar_low_scheme1_local_bn": 8381.4,
+     "bar_low_scheme2_local_bn": 2367.12,
+     "bar_low_used_for_headline_power_test": 8381.4,
+     "baseline_annual_changes": [
+      5679.816,
+      11199.975,
+      -4115.664,
+      10555.977,
+      14414.229,
+      16107.447,
+      14614.433
+     ],
+     "baseline_mean_annual_change": 9779.459,
+     "excess (= verdict change - baseline mean x years)": -50453.637,
+     "half_bar_low_headline": 4190.7,
+     "leg_verdict_headline": "leg-ABSENT",
+     "leg_verdict_scheme2_variant": "UNPOWERED -- reported, never counted",
+     "powered_headline (Bar_low >= sigma_baseline)": true,
+     "powered_scheme2_variant": false,
+     "sigma_baseline (sample stdev, ddof=1 -- larger-sigma convention, conservative for the power test)": 7040.405,
+     "verdict_window_change": -11335.801,
+     "verdict_window_years": 4
+    },
+    "windows": "baseline 2015Q1->2021Q4 annual flow sums; verdict 2022Q1->2025Q4 cumulative"
+   },
+   "b_euroarea_bop_china_pi_liabilities": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_b_ecb_bp6_ea19_cn_pi_liab_position.csv | ECB Data Portal BP6 | parsed 2026-07-02",
+    "bar_context_eur_bn (Bund_DE + OAT_FR, S1 low/high; S2 low/high)": [
+     32.336,
+     113.555,
+     65.377,
+     229.587
+    ],
+    "bar_context_s1_pct_of_leg_end2021_level": 3.158,
+    "baseline_annual_changes_eur_bn": [
+     -86.103,
+     -44.978,
+     -18.073,
+     -10.31,
+     34.552,
+     61.392,
+     127.568
+    ],
+    "class": "CHINA-ATTRIBUTED",
+    "construction": "POSITIONS, EUR bn, market value, quarterly (ECB BP6, EA19 vis-a-vis China, PI liabilities; every observation flagged E=estimated)",
+    "custody_caveat": "ECB quality report June 2024 footnote 8 verbatim in RDTG_legs_manifest.json (residual estimation of PI liabilities)",
+    "level_2021Q4_eur_bn": 1023.987,
+    "partial_verdict_change_2021Q4_to_2022Q3_eur_bn (context only)": -87.382,
+    "sigma_baseline_context_eur_bn": 71.321,
+    "status": "NOT-TESTABLE -- the position series ends 2022Q3 (3 verdict quarters of 16); the pre-registered test cannot run; reported, never counted",
+    "structural_absence_finding": "The euro-area flows-by-counterpart LIABILITIES cell does not exist: Eurostat bop_eu6_q returns 130 observations for the China-partner portfolio ASSETS flow and 0 for LIABILITIES (probes retained), and the ECB position series stops at 2022Q3. A China-attributed leg whose absence is itself informative about the compiler perimeter: euro-area compilers estimate portfolio liabilities RESIDUALLY (quality-report footnote, retained) because end-holder residency is not observable -- the cell's absence is a disclosure/methodology fact, not evidence of absence of flows.",
+    "windows": "baseline 2014Q4->2021Q4 (computable, context); verdict window essentially unsupported (published boundary 2022Q3)"
+   },
+   "c_uk_pinkbook_china_pi_liabilities": {
+    "SOURCE": "build/reserve/rdtg_evidence/leg_c_ons_pinkbook{2016..2025}_chapter10.xls[x] :: sheet 10.1 China row | ONS Pink Book | parsed 2026-07-02",
+    "bar_low_s1_pct_of_leg_end2021_level": 98.382,
+    "class": "CHINA-ATTRIBUTED",
+    "construction": "POSITIONS, GBP bn (Pink Book table 10.1, China row, 'Portfolio investment liabilities' column; one reference year per edition, stitched PB2016->PB2025; end-2014 cell is '-' (nil/<GBP 0.05bn))",
+    "custody_caveat": "ONS Pink Book 2014 CPIS-mirror statement verbatim in RDTG_legs_manifest.json",
+    "levels_gbp_bn": {
+     "2015": 8.9,
+     "2016": 11.2,
+     "2017": 12.3,
+     "2018": 12.1,
+     "2019": 13.6,
+     "2020": 16.0,
+     "2021": 18.6,
+     "2022": 25.5,
+     "2023": 27.2
+    },
+    "reading": "The China line ROSE (18.600 -> 27.200 GBP bn, +8.600 over 2 years; excess +5.367 above baseline trend) -- a real, above-trend rise, but below the leg-CONSISTENT bar (0.5 x Bar_low = 9.149): the Scheme-1 bar_low alone (18.299) is 98.382% of the ENTIRE end-2021 China line (18.600), and bar_high (64.261) is a multiple of it. Rendered leg-ABSENT by the pre-registered rule; the rise is reported, not suppressed. M2 caveat rides: the Pink Book China row is a CPIS-mirror construction and center-routed holdings attribute to the center.",
+    "status": "GROUNDED-PRIMARY -- TESTED (verdict window TRUNCATED to end-2023, the nearest published boundary; mixed-vintage friction carried: each year's value comes from a different edition)",
+    "test": {
+     "bar_high_scheme1_local_bn": 64.261,
+     "bar_high_scheme2_local_bn": 47.407,
+     "bar_low_scheme1_local_bn": 18.299,
+     "bar_low_scheme2_local_bn": 13.5,
+     "bar_low_used_for_headline_power_test": 18.299,
+     "baseline_annual_changes": [
+      2.3,
+      1.1,
+      -0.2,
+      1.5,
+      2.4,
+      2.6
+     ],
+     "baseline_mean_annual_change": 1.617,
+     "excess (= verdict change - baseline mean x years)": 5.367,
+     "half_bar_low_headline": 9.149,
+     "leg_verdict_headline": "leg-ABSENT",
+     "leg_verdict_scheme2_variant": "leg-ABSENT",
+     "powered_headline (Bar_low >= sigma_baseline)": true,
+     "powered_scheme2_variant": true,
+     "sigma_baseline (sample stdev, ddof=1 -- larger-sigma convention, conservative for the power test)": 1.061,
+     "verdict_window_change": 8.6,
+     "verdict_window_years": 2
+    },
+    "windows": "baseline end-2015->end-2021 (6 annual changes); verdict end-2021->end-2023"
+   },
+   "d_canada_securities_transactions_china": {
+    "SOURCE": "build/reserve/RDTG_legs_manifest.json :: legs.d_canada_securities_transactions_by_country_china | grounded 2026-07-02",
+    "class": "CHINA-ATTRIBUTED",
+    "custody_caveat": "StatCan IMDB 1535 intermediary-collection statement verbatim in RDTG_legs_manifest.json",
+    "status": "NOT-AVAILABLE -- absence by construction, not a fetch failure: StatCan's international-securities geographic split has no China line (China sits inside 'All other countries'); reported, never counted",
+    "test": "none (no series to test)"
+   }
+  },
+  "rule": "Per grounded leg, local currency: excess = verdict-window change - baseline mean annual change x verdict years; POWERED iff Bar_low >= sigma_baseline; leg-CONSISTENT iff excess >= 0.5 x Bar_low (powered); leg-ABSENT iff excess < 0.5 x Bar_low (powered); unpowered/untestable legs report, never count. Scheme 1 bars = headline; Scheme 2 alongside. China-attributed legs reported separately from aggregate legs."
+ },
+ "part_c_sweep_verdict": {
+  "china_attributed_leg_consistent": false,
+  "excluded_reported_not_counted": {
+   "b": "NOT-TESTABLE",
+   "d": "NOT-AVAILABLE",
+   "e": "POWER NOT-COMPUTABLE",
+   "h": "NOT-AVAILABLE"
+  },
+  "n_leg_absent": 3,
+  "n_leg_consistent": 0,
+  "n_powered": 3,
+  "powered_grounded_legs_headline_scheme1": [
+   "a",
+   "c",
+   "f"
+  ],
+  "preregistered_expectation_check": "Pre-registered primary was 'UNPOWERED or INDETERMINATE on the sweep and FLAT-or-SUPPRESSED on I.B'. I.B landed FLAT (the expected side). The Scheme-1 sweep landed DESTINATION-ABSENT -- the pre-registered primary is REFUTED toward DESTINATION-ABSENT on the pre-stated branch ('REFUTED toward DESTINATION-ABSENT if powered legs sit flat across the sweep'); the Scheme-2 variant lands the expected UNPOWERED. All landings promotable; recorded, not smoothed.",
+  "rule": "DESTINATION-CONSISTENT iff >= half of powered grounded legs are leg-CONSISTENT or any China-attributed leg is; DESTINATION-ABSENT iff >= three-quarters are leg-ABSENT and no China-attributed leg is leg-CONSISTENT (the verdict sentence itself carries the masking caveat); UNPOWERED iff fewer than 3 powered grounded legs; INDETERMINATE otherwise (pre-registered)",
+  "scheme2_variant": {
+   "n_powered": 1,
+   "powered_legs": [
+    "c"
+   ],
+   "statement": "Scheme-2 (COFER-share) bars variant: UNPOWERED -- only 1 powered grounded leg(s) (c) because the JPY bar shrinks to the COFER JPY share; the headline sweep is Scheme 1 (market-size-proportional) as tasked, the variant stated alongside.",
+   "verdict": "UNPOWERED"
+  },
+  "unpowered_reported_not_counted": [
+   "g",
+   "i"
+  ],
+  "verdict": "DESTINATION-ABSENT",
+  "verdict_sentence": "MECHANICAL SWEEP VERDICT: DESTINATION-ABSENT -- 3 of 3 powered grounded legs are leg-ABSENT (>= three-quarters) and no China-attributed leg is leg-CONSISTENT -- AND, per the pre-registration, this verdict sentence carries its own masking caveat: a null on any leg (and on the sweep) is WEAK evidence, not disposal. Reserve assets bought through external managers, custodians or financial centers would NOT appear on these legs (M1: the destination compilers' own 'custodial bias'; M2: a surge is CONSISTENCY, not attribution; the absence of a China line is not the absence of China.) -- so DESTINATION-ABSENT is weak evidence against arrival in these six sovereign markets under these compilers' attribution, not disposal of the true-departure branch."
+ },
+ "part_d_fork_interval_annotation": {
+  "annotation": "weight toward RE-PARKING, MASKING-CAPPED (the pre-committed consequence of DESTINATION-ABSENT: a null is weak evidence, not disposal)",
+  "annotation_with_ib": "Both untried discriminators landed on the same side and neither resolves the fork: the destination sweep is DESTINATION-ABSENT (masking-capped) and China's own I.B line is FLAT (slightly negative) -- no visible arrival in the candidate sovereign markets under their compilers' attribution, and no re-parking surge into China's own disclosed non-reserve FX assets. The pre-committed consequence rule moves weight toward re-parking/masking-capped readings of the fork; the interval's endpoints stand at 48.484..494.977 $bn.",
+  "endpoints": "UNCHANGED -- no leg carried construction-grade attribution (the pre-registration: no receiving leg above can; and no China-attributed leg is leg-CONSISTENT). Expected amendment: annotation only -- met.",
+  "fork_interval_busd (read from RDTF_result.json :: part1_route_robust_ceiling.route_robust_interval.interval_busd)": [
+   48.484,
+   494.977
+  ],
+  "masking_consequences_pre_committed": {
+   "M1": "a null on any leg (and on the sweep) is WEAK evidence, not disposal.",
+   "M2": "a surge is CONSISTENCY, not attribution; the absence of a China line is not the absence of China."
+  }
+ },
+ "task": "RDT-G Phase 3 ASSEMBLY (pre-registration: build/reserve/RDTG_prediction.md, commit 7ad70d2)",
+ "windows": {
+  "baseline": "calendar 2015->2021 (leg-specific nearest published boundaries stated per leg)",
+  "note": "RDT-G freeze-era windows, deliberately distinct from the RDT-B..F monthly verdict axis; both facts stated (pre-registered).",
+  "verdict_ib": "2022-01 -> latest published (2026-05), per the pre-registered I.B wording; both endpoint conventions reported",
+  "verdict_legs": "calendar 2022->2025 (leg-specific truncations stated per leg)"
+ }
+}

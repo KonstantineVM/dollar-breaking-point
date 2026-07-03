@@ -1,0 +1,102 @@
+{
+ "task": "RDT-D Part 3 data leg — SAFE/IMF SDDS Reserves Data Template ingestion (Section I.A instrument split)",
+ "fetch_date": "2026-07-02",
+ "publisher": "State Administration of Foreign Exchange (SAFE), English channel safe.gov.cn/en (ForexReserves + DataTemplateonInternational)",
+ "channel_note": "All 132 monthly files obtained from the SAFE English channel; the Chinese channel was NOT needed (no missing months).",
+ "coverage": {
+  "start": "2015-06",
+  "end": "2026-05",
+  "months_expected": 132,
+  "months_obtained": 132,
+  "gaps": [],
+  "note": "2015-06..2017-12 via 31 monthly article pages under /en/DataTemplateonInternational/; 2018..2026 via direct .xls links on yearly pages. Data month read from the file header (As-at date), never from link labels."
+ },
+ "units": "Template values in 亿美元 (100 million USD); CSV converted to USD bn (/10). A parallel SDR column exists from 2016-04 (publisher note in files); not used.",
+ "line_map_section_IA": {
+  "populated_all_132_months": [
+   "A. Official reserve assets (total)",
+   "(1) Foreign currency reserves",
+   "(1)(a) Securities",
+   "(1)(b) Total currency and deposits",
+   "(1)(b)(i) with other national central banks, BIS and IMF",
+   "(1)(b)(ii) with banks headquartered in the reporting country",
+   "(1)(b)(ii) of which: located abroad",
+   "(1)(b)(iii) with banks headquartered outside the reporting country",
+   "(2) IMF reserve position",
+   "(3) SDRs",
+   "(4) Gold (value)",
+   "(4) Gold volume (million fine troy oz)",
+   "(5) Other reserve assets",
+   "(5) financial derivatives sub-line"
+  ],
+  "blank_or_zero_lines": [
+   {
+    "line": "(1)(a) of which: issuer headquartered in reporting country but located abroad",
+    "status": "BLANK 2015-06..2026-05 except explicit 0 in 2017-04",
+    "finding": "never carries a nonzero value; blank is a disclosure state, not interpolated"
+   },
+   {
+    "line": "(1)(b)(iii) of which: located in the reporting country",
+    "status": "BLANK except explicit 0 in 2015-07 and 2017-04",
+    "finding": "same"
+   },
+   {
+    "line": "(5) loans to nonbank nonresidents",
+    "status": "BLANK except explicit 0 in 2017-04",
+    "finding": "same"
+   }
+  ],
+  "structural_findings": [
+   "The (ii) of-which sub-line ('located abroad') EQUALS the full (ii) line in all 132 months (max diff 0): every deposit with Chinese-HQ banks is booked at their offices abroad.",
+   "The (5) financial-derivatives sub-line equals the whole 'Other reserve assets' line in all 132 months (goes negative, e.g. -0.491 bn 2020-10): 'other reserve assets' is entirely financial derivatives.",
+   "Deposits are a tiny share of the FX-reserves line throughout: 0.08% (2022-03) to 1.36% (2025-02) — the securities line carries essentially the whole FX-reserves line. [Range restated 2026-07-02 with the 2020-10 row correction noted under publisher_frictions; the superseded raw_074 row had implied a 0.06% minimum at 2020-10.]",
+   "No suppression of the required Part-3 lines anywhere in 2015-06..2026-05: securities, all three deposit counterpart lines, and other reserve assets are populated in every month. The OTHER-OR-SUPPRESSED axis, if it triggers, cannot trigger on suppression of these lines."
+  ],
+  "publisher_frictions": [
+   "2020-10 was published twice: file dated 2020-11-30 (deposits with banks HQ outside reporting country = -0.589 bn, a negative deposit line; securities 3126.162 bn, deposits total 1.820 bn) and a corrected file dated 2020-12-31 (securities 3124.692 bn, deposits total 3.290 bn, (iii) = +0.881 bn). Both retained (raw_074_*, raw_075_*); the later-published file is used in the CSV; totals/fx/gold identical across the two.",
+   "CORRECTION (2026-07-02, RDT-D gate): the CSV 2020-10 row initially carried the superseded raw_074 vintage, contradicting the stated policy above; the row was rebuilt by re-parsing raw_075 (securities 3124.69182, dep (i) 1.470163, (ii) 0.939457, (iii) 0.88056 bn; other/IMF/SDR/gold/total identical across vintages). 2020-10 is off the verdict axis: no axis delta and no verdict input changed.",
+   "2015-06..2016-03 files carry a single USD column (the SDR column was added from April 2016 per the note inside the files).",
+   "Numeric precision varies by vintage: some files carry full float precision, most are rounded to 0.01 亿 (0.001 bn).",
+   "One transient fetch failure (2023-12 file, HTTP 000/timeout) succeeded on immediate retry; logged."
+  ]
+ },
+ "reconciliation": {
+  "vs_rdtc_safe_totals_csv": {
+   "max_abs_diff_total_ora_bn": 0.0,
+   "max_abs_diff_imf_bn": 0.0,
+   "max_abs_diff_sdr_bn": 0.0,
+   "max_abs_diff_gold_bn": 0.0,
+   "max_abs_diff_other_bn": 0.0,
+   "max_abs_diff_sdds_components_vs_safe_fx_line_bn": 0.0010000000006584742,
+   "overlap_months": 54,
+   "overlap_span": [
+    "2021-12",
+    "2026-05"
+   ]
+  },
+  "internal_identities_max_abs_diff_bn": {
+   "securities_plus_deposits_vs_fx_line": 0.001,
+   "deposit_components_vs_deposits_total": 0.001,
+   "fx_imf_sdr_gold_other_vs_total_A": 0.002
+  },
+  "verdict": "Template total official reserve assets vs committed rdtc_safe_totals monthly totals: max |diff| = 0.000 bn over all 54 overlap months (2021-12..2026-05) on every shared line — same publisher, exact match."
+ },
+ "context_deltas_NOT_verdict": {
+  "axis": "2023-05 -> 2026-04 (RDT-B/C verdict axis; SDDS fully covers it — latest template month 2026-05)",
+  "delta_securities_bn": 221.791,
+  "delta_dep_cb_bis_imf_bn": -0.009,
+  "delta_dep_banks_hq_in_bn": 3.695,
+  "delta_dep_banks_hq_out_bn": 8.562,
+  "delta_other_reserve_assets_bn": -0.391,
+  "note": "Descriptive context only; RDT-D verdicts (netting rule, thresholds) are computed by the fragility leg per RDTD_prediction.md. Deposits-total delta over the axis = +12.248 bn; securities delta = +221.791 bn; their sum reproduces the committed ΔFX(ex-gold) +234.039 bn to 0.000."
+ },
+ "files": {
+  "raw_template_files": 133,
+  "unique_data_months": 132,
+  "evidence_dir": "build/reserve/rdtd_evidence/",
+  "series_csv": "build/reserve/rdtd_sdds_series.csv",
+  "fetch_log": "build/reserve/rdtd_evidence/_RDTD_fetch_log.txt",
+  "duplicate_note": "raw_074/raw_075 = the two 2020-10 vintages; sample_202605.xls = an early manual fetch of the same URL as raw_004 (identical values)."
+ },
+ "not_available": []
+}

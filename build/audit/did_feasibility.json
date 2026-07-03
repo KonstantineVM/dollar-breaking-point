@@ -1,0 +1,1155 @@
+{
+  "confirmed_quarter_list": {
+    "all": [
+      "2019q3",
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2020q4",
+      "2021q1",
+      "2021q2",
+      "2021q3",
+      "2021q4",
+      "2022q1",
+      "2022q2",
+      "2022q3",
+      "2022q4",
+      "2023q1",
+      "2023q2",
+      "2023q3",
+      "2023q4",
+      "2024q1",
+      "2024q2",
+      "2024q3",
+      "2024q4"
+    ],
+    "pre_freeze": [
+      "2019q3",
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2020q4",
+      "2021q1",
+      "2021q2",
+      "2021q3",
+      "2021q4"
+    ],
+    "pre_freeze_count": 10,
+    "pre_usable_for_rate": [
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2020q4",
+      "2021q1",
+      "2021q2",
+      "2021q3",
+      "2021q4"
+    ],
+    "pre_usable_count": 9,
+    "post_freeze": [
+      "2022q1",
+      "2022q2",
+      "2022q3",
+      "2022q4",
+      "2023q1",
+      "2023q2",
+      "2023q3",
+      "2023q4",
+      "2024q1",
+      "2024q2",
+      "2024q3",
+      "2024q4"
+    ],
+    "post_freeze_count": 12,
+    "freeze_quarter": "2022q1",
+    "note": "10 pre-freeze (2019q3-2021q4) confirmed; 2019q3 is all-NEW (no consecutive lag) so has no active_flow_rate; pre-trend test uses the 9 pre-quarters 2019q4-2021q4."
+  },
+  "normalization": "active_flow_rate = group active flow / fund's lagged total currency_value of that group's universe. Treated & C1 share the total-haven denominator (complementary haven subsets); C2/C3 use their own EM/DM-equity universe.",
+  "decomposition": "constant-price active/passive from build_active_flow.py, applied VERBATIM but STREAMED quarter-by-quarter (bounded memory).",
+  "streaming_peak_rss_gb": 0.886,
+  "treated_recon_crosscheck": {
+    "n_matched_rows": 36547,
+    "max_abs_rate_diff": 2.220446049250313e-16,
+    "max_abs_active_flow_diff": 9.5367431640625e-07,
+    "reproduces_committed_treated": true,
+    "streamed_gate": {
+      "n_rows": 203110,
+      "reconstruction_max_abs_error": 5.960464477539063e-08,
+      "reconstruction_vw_mean_abs_error": 5.1727275367439266e-11,
+      "pass": true
+    },
+    "peak_rss_gb_after_treated_stream": 0.633
+  },
+  "country_sets": {
+    "C2_EM_A2": [
+      "BR",
+      "ID",
+      "IN",
+      "KR",
+      "MX",
+      "MY",
+      "PH",
+      "PL",
+      "TH",
+      "TR",
+      "TW",
+      "ZA"
+    ],
+    "C3_DM_A2": [
+      "AU",
+      "CA",
+      "CH",
+      "DE",
+      "ES",
+      "FR",
+      "GB",
+      "IT",
+      "JP",
+      "NL",
+      "SE"
+    ]
+  },
+  "candidate_controls": {
+    "C1": {
+      "label": "non-CN haven (CYM/HKG/VGB residence, parent!=CN)",
+      "gate": {
+        "n_rows": 1822718,
+        "reconstruction_max_abs_error": 1.1920928955078125e-07,
+        "reconstruction_vw_mean_abs_error": 6.835975227923158e-11,
+        "pass": true
+      },
+      "drop_report": {
+        "dropped_no_security_key_value": 80827192315.92123,
+        "continuing_nondecomp_value": 5202416836.842019,
+        "continuing_nondecomp_value_share": 0.0007036045131468949,
+        "n_closed_events": 187592
+      },
+      "pretrend": {
+        "interaction_coef_trend_x_treated": -22.393364659097127,
+        "interaction_se_cluster_fund": 27.285149982754664,
+        "interaction_t": -0.8207162017892756,
+        "interaction_p": 0.4118313662711224,
+        "n_obs_pre": 53868,
+        "n_fund_fe": 8352,
+        "parallel": true,
+        "parallel_robust": false,
+        "outlier_robustness_variants": {
+          "untrimmed": {
+            "interaction_coef_trend_x_treated": -22.393364659097127,
+            "interaction_se_cluster_fund": 27.285149982754664,
+            "interaction_t": -0.8207162017892756,
+            "interaction_p": 0.4118313662711224,
+            "n_obs_pre": 53868,
+            "n_fund_fe": 8352,
+            "parallel": true
+          },
+          "trim_1pct": {
+            "interaction_coef_trend_x_treated": -0.004263512986352555,
+            "interaction_se_cluster_fund": 0.001262022740511181,
+            "interaction_t": -3.3783170853368483,
+            "interaction_p": 0.0007326626560902378,
+            "n_obs_pre": 52790,
+            "n_fund_fe": 8305,
+            "parallel": false
+          },
+          "trim_5pct": {
+            "interaction_coef_trend_x_treated": -0.004841943711560359,
+            "interaction_se_cluster_fund": 0.0007063982378873329,
+            "interaction_t": -6.854410800968936,
+            "interaction_p": 7.680706425823849e-12,
+            "n_obs_pre": 48480,
+            "n_fund_fe": 8174,
+            "parallel": false
+          }
+        },
+        "outlier_artifact_warning": "UNTRIMMED 'parallel' is driven by SE-inflation from extreme-tail rates (tiny-lagged-denominator fund-quarters); trimming the 1% tails flips it to NON-parallel.",
+        "per_quarter_group_means": [
+          {
+            "fiscal_quarter": "2019q4",
+            "treated_mean_rate": 1.3344911841096203,
+            "treated_n": 1430,
+            "control_mean_rate": 1.2861995047737946,
+            "control_n": 3557
+          },
+          {
+            "fiscal_quarter": "2020q1",
+            "treated_mean_rate": 0.48238298266231866,
+            "treated_n": 1713,
+            "control_mean_rate": 0.1772332727611904,
+            "control_n": 4264
+          },
+          {
+            "fiscal_quarter": "2020q2",
+            "treated_mean_rate": 0.19712775677104044,
+            "treated_n": 1852,
+            "control_mean_rate": 0.36988067760531745,
+            "control_n": 4219
+          },
+          {
+            "fiscal_quarter": "2020q3",
+            "treated_mean_rate": 2.1870919367983213,
+            "treated_n": 1908,
+            "control_mean_rate": 2.1215150561570946,
+            "control_n": 4322
+          },
+          {
+            "fiscal_quarter": "2020q4",
+            "treated_mean_rate": 0.09579469880787471,
+            "treated_n": 1846,
+            "control_mean_rate": 2744.4193222140757,
+            "control_n": 4169
+          },
+          {
+            "fiscal_quarter": "2021q1",
+            "treated_mean_rate": 0.15554013282920148,
+            "treated_n": 1839,
+            "control_mean_rate": -41.89721804830587,
+            "control_n": 4205
+          },
+          {
+            "fiscal_quarter": "2021q2",
+            "treated_mean_rate": 86.412640724504,
+            "treated_n": 1826,
+            "control_mean_rate": 646.6155583509292,
+            "control_n": 4418
+          },
+          {
+            "fiscal_quarter": "2021q3",
+            "treated_mean_rate": 0.11473921754069073,
+            "treated_n": 1774,
+            "control_mean_rate": 0.3231573406083233,
+            "control_n": 4502
+          },
+          {
+            "fiscal_quarter": "2021q4",
+            "treated_mean_rate": 0.025321073858227773,
+            "treated_n": 1627,
+            "control_mean_rate": -0.09983838374906652,
+            "control_n": 4397
+          }
+        ]
+      },
+      "n_fund_quarters": 90557,
+      "per_quarter_fund_counts": {
+        "2019q3": 3777,
+        "2019q4": 4575,
+        "2020q1": 4711,
+        "2020q2": 4618,
+        "2020q3": 4584,
+        "2020q4": 4510,
+        "2021q1": 4706,
+        "2021q2": 4808,
+        "2021q3": 4779,
+        "2021q4": 4711,
+        "2022q1": 4780,
+        "2022q2": 4749,
+        "2022q3": 4677,
+        "2022q4": 4599,
+        "2023q1": 4692,
+        "2023q2": 4689,
+        "2023q3": 4626,
+        "2023q4": 4487,
+        "2024q1": 4576,
+        "2024q2": 4657,
+        "2024q3": 4644,
+        "2024q4": 4562
+      }
+    },
+    "C2": {
+      "label": "non-haven EM equity",
+      "gate": {
+        "n_rows": 3515902,
+        "reconstruction_max_abs_error": 6.105750799179077e-06,
+        "reconstruction_vw_mean_abs_error": 1.9668301501458873e-10,
+        "pass": true
+      },
+      "drop_report": {
+        "dropped_no_security_key_value": 46108373813.82255,
+        "continuing_nondecomp_value": 1262100313.9099998,
+        "continuing_nondecomp_value_share": 8.202978246503284e-05,
+        "n_closed_events": 277264
+      },
+      "pretrend": {
+        "interaction_coef_trend_x_treated": 13.122205300265128,
+        "interaction_se_cluster_fund": 7.850272119674301,
+        "interaction_t": 1.6715605650635144,
+        "interaction_p": 0.09466905402807128,
+        "n_obs_pre": 34531,
+        "n_fund_fe": 5391,
+        "parallel": false,
+        "parallel_robust": false,
+        "outlier_robustness_variants": {
+          "untrimmed": {
+            "interaction_coef_trend_x_treated": 13.122205300265128,
+            "interaction_se_cluster_fund": 7.850272119674301,
+            "interaction_t": 1.6715605650635144,
+            "interaction_p": 0.09466905402807128,
+            "n_obs_pre": 34531,
+            "n_fund_fe": 5391,
+            "parallel": false
+          },
+          "trim_1pct": {
+            "interaction_coef_trend_x_treated": -0.004999623011851905,
+            "interaction_se_cluster_fund": 0.0014696307786984017,
+            "interaction_t": -3.401958562871069,
+            "interaction_p": 0.0006739447178875057,
+            "n_obs_pre": 33839,
+            "n_fund_fe": 5359,
+            "parallel": false
+          },
+          "trim_5pct": {
+            "interaction_coef_trend_x_treated": -0.006172640564658965,
+            "interaction_se_cluster_fund": 0.000787567802664916,
+            "interaction_t": -7.837598926432013,
+            "interaction_p": 5.521139008918266e-15,
+            "n_obs_pre": 31077,
+            "n_fund_fe": 5248,
+            "parallel": false
+          }
+        },
+        "outlier_artifact_warning": null,
+        "per_quarter_group_means": [
+          {
+            "fiscal_quarter": "2019q4",
+            "treated_mean_rate": 1.3344911841096203,
+            "treated_n": 1430,
+            "control_mean_rate": 0.07987516040449189,
+            "control_n": 1699
+          },
+          {
+            "fiscal_quarter": "2020q1",
+            "treated_mean_rate": 0.48238298266231866,
+            "treated_n": 1713,
+            "control_mean_rate": 0.0966133115640735,
+            "control_n": 1995
+          },
+          {
+            "fiscal_quarter": "2020q2",
+            "treated_mean_rate": 0.19712775677104044,
+            "treated_n": 1852,
+            "control_mean_rate": 195.84034193196433,
+            "control_n": 2093
+          },
+          {
+            "fiscal_quarter": "2020q3",
+            "treated_mean_rate": 2.1870919367983213,
+            "treated_n": 1908,
+            "control_mean_rate": 0.10510930638615722,
+            "control_n": 2146
+          },
+          {
+            "fiscal_quarter": "2020q4",
+            "treated_mean_rate": 0.09579469880787471,
+            "treated_n": 1846,
+            "control_mean_rate": 0.6170472625196866,
+            "control_n": 2072
+          },
+          {
+            "fiscal_quarter": "2021q1",
+            "treated_mean_rate": 0.15554013282920148,
+            "treated_n": 1839,
+            "control_mean_rate": 0.2003518120777911,
+            "control_n": 2088
+          },
+          {
+            "fiscal_quarter": "2021q2",
+            "treated_mean_rate": 86.412640724504,
+            "treated_n": 1826,
+            "control_mean_rate": 44.35558160046385,
+            "control_n": 2190
+          },
+          {
+            "fiscal_quarter": "2021q3",
+            "treated_mean_rate": 0.11473921754069073,
+            "treated_n": 1774,
+            "control_mean_rate": 4.519920910246661,
+            "control_n": 2236
+          },
+          {
+            "fiscal_quarter": "2021q4",
+            "treated_mean_rate": 0.025321073858227773,
+            "treated_n": 1627,
+            "control_mean_rate": 7.689517905350195,
+            "control_n": 2197
+          }
+        ]
+      },
+      "n_fund_quarters": 46102,
+      "per_quarter_fund_counts": {
+        "2019q3": 1806,
+        "2019q4": 2144,
+        "2020q1": 2259,
+        "2020q2": 2269,
+        "2020q3": 2284,
+        "2020q4": 2234,
+        "2021q1": 2322,
+        "2021q2": 2404,
+        "2021q3": 2383,
+        "2021q4": 2348,
+        "2022q1": 2409,
+        "2022q2": 2371,
+        "2022q3": 2377,
+        "2022q4": 2352,
+        "2023q1": 2420,
+        "2023q2": 2418,
+        "2023q3": 2410,
+        "2023q4": 2379,
+        "2024q1": 2550,
+        "2024q2": 2626,
+        "2024q3": 2619,
+        "2024q4": 2619
+      }
+    },
+    "C3": {
+      "label": "developed-market non-US equity",
+      "gate": {
+        "n_rows": 8775404,
+        "reconstruction_max_abs_error": 4.76837158203125e-07,
+        "reconstruction_vw_mean_abs_error": 2.0646706899085303e-10,
+        "pass": true
+      },
+      "drop_report": {
+        "dropped_no_security_key_value": 154464592468.37524,
+        "continuing_nondecomp_value": 39678130159.1737,
+        "continuing_nondecomp_value_share": 0.0006805907701463868,
+        "n_closed_events": 740148
+      },
+      "pretrend": {
+        "interaction_coef_trend_x_treated": 125.81006064572362,
+        "interaction_se_cluster_fund": 246.29721128079183,
+        "interaction_t": 0.5108058673969049,
+        "interaction_p": 0.609499163002236,
+        "n_obs_pre": 62280,
+        "n_fund_fe": 9272,
+        "parallel": true,
+        "parallel_robust": false,
+        "outlier_robustness_variants": {
+          "untrimmed": {
+            "interaction_coef_trend_x_treated": 125.81006064572362,
+            "interaction_se_cluster_fund": 246.29721128079183,
+            "interaction_t": 0.5108058673969049,
+            "interaction_p": 0.609499163002236,
+            "n_obs_pre": 62280,
+            "n_fund_fe": 9272,
+            "parallel": true
+          },
+          "trim_1pct": {
+            "interaction_coef_trend_x_treated": -0.006677764318844225,
+            "interaction_se_cluster_fund": 0.001129326760184976,
+            "interaction_t": -5.913048866167355,
+            "interaction_p": 3.477707369921517e-09,
+            "n_obs_pre": 61034,
+            "n_fund_fe": 9222,
+            "parallel": false
+          },
+          "trim_5pct": {
+            "interaction_coef_trend_x_treated": -0.007564695062288458,
+            "interaction_se_cluster_fund": 0.0006514861369621136,
+            "interaction_t": -11.611444408568243,
+            "interaction_p": 5.9580914283854305e-31,
+            "n_obs_pre": 56052,
+            "n_fund_fe": 9089,
+            "parallel": false
+          }
+        },
+        "outlier_artifact_warning": "UNTRIMMED 'parallel' is driven by SE-inflation from extreme-tail rates (tiny-lagged-denominator fund-quarters); trimming the 1% tails flips it to NON-parallel.",
+        "per_quarter_group_means": [
+          {
+            "fiscal_quarter": "2019q4",
+            "treated_mean_rate": 1.3344911841096203,
+            "treated_n": 1430,
+            "control_mean_rate": 5058.312621673674,
+            "control_n": 4292
+          },
+          {
+            "fiscal_quarter": "2020q1",
+            "treated_mean_rate": 0.48238298266231866,
+            "treated_n": 1713,
+            "control_mean_rate": 0.08523422604229282,
+            "control_n": 5040
+          },
+          {
+            "fiscal_quarter": "2020q2",
+            "treated_mean_rate": 0.19712775677104044,
+            "treated_n": 1852,
+            "control_mean_rate": 6.350520303469573,
+            "control_n": 5291
+          },
+          {
+            "fiscal_quarter": "2020q3",
+            "treated_mean_rate": 2.1870919367983213,
+            "treated_n": 1908,
+            "control_mean_rate": 132.03333931370065,
+            "control_n": 5386
+          },
+          {
+            "fiscal_quarter": "2020q4",
+            "treated_mean_rate": 0.09579469880787471,
+            "treated_n": 1846,
+            "control_mean_rate": 0.22674975282192184,
+            "control_n": 5186
+          },
+          {
+            "fiscal_quarter": "2021q1",
+            "treated_mean_rate": 0.15554013282920148,
+            "treated_n": 1839,
+            "control_mean_rate": 4442.3926046106535,
+            "control_n": 5104
+          },
+          {
+            "fiscal_quarter": "2021q2",
+            "treated_mean_rate": 86.412640724504,
+            "treated_n": 1826,
+            "control_mean_rate": 2881.230039390277,
+            "control_n": 5283
+          },
+          {
+            "fiscal_quarter": "2021q3",
+            "treated_mean_rate": 0.11473921754069073,
+            "treated_n": 1774,
+            "control_mean_rate": 13.221298045631901,
+            "control_n": 5473
+          },
+          {
+            "fiscal_quarter": "2021q4",
+            "treated_mean_rate": 0.025321073858227773,
+            "treated_n": 1627,
+            "control_mean_rate": 0.49668052017770625,
+            "control_n": 5410
+          }
+        ]
+      },
+      "n_fund_quarters": 112202,
+      "per_quarter_fund_counts": {
+        "2019q3": 4479,
+        "2019q4": 5318,
+        "2020q1": 5672,
+        "2020q2": 5699,
+        "2020q3": 5628,
+        "2020q4": 5454,
+        "2021q1": 5535,
+        "2021q2": 5704,
+        "2021q3": 5740,
+        "2021q4": 5726,
+        "2022q1": 5834,
+        "2022q2": 5871,
+        "2022q3": 5873,
+        "2022q4": 5777,
+        "2023q1": 5903,
+        "2023q2": 5852,
+        "2023q3": 5792,
+        "2023q4": 5696,
+        "2024q1": 5801,
+        "2024q2": 5839,
+        "2024q3": 5796,
+        "2024q4": 5705
+      }
+    }
+  },
+  "per_quarter_row_counts": {
+    "C1": {
+      "2019q3": {
+        "n_fund_quarters": 3653,
+        "n_rate_nonnull": 0
+      },
+      "2019q4": {
+        "n_fund_quarters": 4598,
+        "n_rate_nonnull": 3557
+      },
+      "2020q1": {
+        "n_fund_quarters": 4828,
+        "n_rate_nonnull": 4264
+      },
+      "2020q2": {
+        "n_fund_quarters": 4909,
+        "n_rate_nonnull": 4219
+      },
+      "2020q3": {
+        "n_fund_quarters": 4680,
+        "n_rate_nonnull": 4322
+      },
+      "2020q4": {
+        "n_fund_quarters": 4696,
+        "n_rate_nonnull": 4169
+      },
+      "2021q1": {
+        "n_fund_quarters": 4768,
+        "n_rate_nonnull": 4205
+      },
+      "2021q2": {
+        "n_fund_quarters": 4868,
+        "n_rate_nonnull": 4418
+      },
+      "2021q3": {
+        "n_fund_quarters": 4861,
+        "n_rate_nonnull": 4502
+      },
+      "2021q4": {
+        "n_fund_quarters": 4878,
+        "n_rate_nonnull": 4397
+      },
+      "2022q1": {
+        "n_fund_quarters": 4866,
+        "n_rate_nonnull": 4428
+      },
+      "2022q2": {
+        "n_fund_quarters": 4893,
+        "n_rate_nonnull": 4459
+      },
+      "2022q3": {
+        "n_fund_quarters": 4777,
+        "n_rate_nonnull": 4480
+      },
+      "2022q4": {
+        "n_fund_quarters": 4794,
+        "n_rate_nonnull": 4373
+      },
+      "2023q1": {
+        "n_fund_quarters": 4787,
+        "n_rate_nonnull": 4393
+      },
+      "2023q2": {
+        "n_fund_quarters": 4826,
+        "n_rate_nonnull": 4459
+      },
+      "2023q3": {
+        "n_fund_quarters": 4800,
+        "n_rate_nonnull": 4390
+      },
+      "2023q4": {
+        "n_fund_quarters": 4752,
+        "n_rate_nonnull": 4229
+      },
+      "2024q1": {
+        "n_fund_quarters": 4715,
+        "n_rate_nonnull": 4218
+      },
+      "2024q2": {
+        "n_fund_quarters": 4747,
+        "n_rate_nonnull": 4386
+      },
+      "2024q3": {
+        "n_fund_quarters": 4771,
+        "n_rate_nonnull": 4388
+      },
+      "2024q4": {
+        "n_fund_quarters": 4763,
+        "n_rate_nonnull": 4301
+      }
+    },
+    "C2": {
+      "2019q3": {
+        "n_fund_quarters": 1779,
+        "n_rate_nonnull": 0
+      },
+      "2019q4": {
+        "n_fund_quarters": 2190,
+        "n_rate_nonnull": 1699
+      },
+      "2020q1": {
+        "n_fund_quarters": 2339,
+        "n_rate_nonnull": 1995
+      },
+      "2020q2": {
+        "n_fund_quarters": 2370,
+        "n_rate_nonnull": 2093
+      },
+      "2020q3": {
+        "n_fund_quarters": 2342,
+        "n_rate_nonnull": 2146
+      },
+      "2020q4": {
+        "n_fund_quarters": 2382,
+        "n_rate_nonnull": 2072
+      },
+      "2021q1": {
+        "n_fund_quarters": 2404,
+        "n_rate_nonnull": 2088
+      },
+      "2021q2": {
+        "n_fund_quarters": 2476,
+        "n_rate_nonnull": 2190
+      },
+      "2021q3": {
+        "n_fund_quarters": 2488,
+        "n_rate_nonnull": 2236
+      },
+      "2021q4": {
+        "n_fund_quarters": 2472,
+        "n_rate_nonnull": 2197
+      },
+      "2022q1": {
+        "n_fund_quarters": 2502,
+        "n_rate_nonnull": 2206
+      },
+      "2022q2": {
+        "n_fund_quarters": 2501,
+        "n_rate_nonnull": 2230
+      },
+      "2022q3": {
+        "n_fund_quarters": 2439,
+        "n_rate_nonnull": 2246
+      },
+      "2022q4": {
+        "n_fund_quarters": 2453,
+        "n_rate_nonnull": 2212
+      },
+      "2023q1": {
+        "n_fund_quarters": 2489,
+        "n_rate_nonnull": 2222
+      },
+      "2023q2": {
+        "n_fund_quarters": 2529,
+        "n_rate_nonnull": 2250
+      },
+      "2023q3": {
+        "n_fund_quarters": 2512,
+        "n_rate_nonnull": 2262
+      },
+      "2023q4": {
+        "n_fund_quarters": 2540,
+        "n_rate_nonnull": 2190
+      },
+      "2024q1": {
+        "n_fund_quarters": 2618,
+        "n_rate_nonnull": 2257
+      },
+      "2024q2": {
+        "n_fund_quarters": 2682,
+        "n_rate_nonnull": 2441
+      },
+      "2024q3": {
+        "n_fund_quarters": 2735,
+        "n_rate_nonnull": 2454
+      },
+      "2024q4": {
+        "n_fund_quarters": 2769,
+        "n_rate_nonnull": 2416
+      }
+    },
+    "C3": {
+      "2019q3": {
+        "n_fund_quarters": 4444,
+        "n_rate_nonnull": 0
+      },
+      "2019q4": {
+        "n_fund_quarters": 5436,
+        "n_rate_nonnull": 4292
+      },
+      "2020q1": {
+        "n_fund_quarters": 5874,
+        "n_rate_nonnull": 5040
+      },
+      "2020q2": {
+        "n_fund_quarters": 5983,
+        "n_rate_nonnull": 5291
+      },
+      "2020q3": {
+        "n_fund_quarters": 5837,
+        "n_rate_nonnull": 5386
+      },
+      "2020q4": {
+        "n_fund_quarters": 5781,
+        "n_rate_nonnull": 5186
+      },
+      "2021q1": {
+        "n_fund_quarters": 5762,
+        "n_rate_nonnull": 5104
+      },
+      "2021q2": {
+        "n_fund_quarters": 5825,
+        "n_rate_nonnull": 5283
+      },
+      "2021q3": {
+        "n_fund_quarters": 5835,
+        "n_rate_nonnull": 5473
+      },
+      "2021q4": {
+        "n_fund_quarters": 5915,
+        "n_rate_nonnull": 5410
+      },
+      "2022q1": {
+        "n_fund_quarters": 5990,
+        "n_rate_nonnull": 5433
+      },
+      "2022q2": {
+        "n_fund_quarters": 5999,
+        "n_rate_nonnull": 5548
+      },
+      "2022q3": {
+        "n_fund_quarters": 5978,
+        "n_rate_nonnull": 5609
+      },
+      "2022q4": {
+        "n_fund_quarters": 5982,
+        "n_rate_nonnull": 5510
+      },
+      "2023q1": {
+        "n_fund_quarters": 6002,
+        "n_rate_nonnull": 5508
+      },
+      "2023q2": {
+        "n_fund_quarters": 5989,
+        "n_rate_nonnull": 5587
+      },
+      "2023q3": {
+        "n_fund_quarters": 5962,
+        "n_rate_nonnull": 5502
+      },
+      "2023q4": {
+        "n_fund_quarters": 5954,
+        "n_rate_nonnull": 5312
+      },
+      "2024q1": {
+        "n_fund_quarters": 5911,
+        "n_rate_nonnull": 5355
+      },
+      "2024q2": {
+        "n_fund_quarters": 5911,
+        "n_rate_nonnull": 5502
+      },
+      "2024q3": {
+        "n_fund_quarters": 5900,
+        "n_rate_nonnull": 5513
+      },
+      "2024q4": {
+        "n_fund_quarters": 5954,
+        "n_rate_nonnull": 5358
+      }
+    },
+    "treated": {
+      "2019q3": {
+        "n_fund_quarters": 1409,
+        "n_rate_nonnull": 0
+      },
+      "2019q4": {
+        "n_fund_quarters": 1765,
+        "n_rate_nonnull": 1430
+      },
+      "2020q1": {
+        "n_fund_quarters": 1868,
+        "n_rate_nonnull": 1713
+      },
+      "2020q2": {
+        "n_fund_quarters": 2028,
+        "n_rate_nonnull": 1852
+      },
+      "2020q3": {
+        "n_fund_quarters": 1998,
+        "n_rate_nonnull": 1908
+      },
+      "2020q4": {
+        "n_fund_quarters": 2019,
+        "n_rate_nonnull": 1846
+      },
+      "2021q1": {
+        "n_fund_quarters": 2010,
+        "n_rate_nonnull": 1839
+      },
+      "2021q2": {
+        "n_fund_quarters": 1947,
+        "n_rate_nonnull": 1826
+      },
+      "2021q3": {
+        "n_fund_quarters": 1860,
+        "n_rate_nonnull": 1774
+      },
+      "2021q4": {
+        "n_fund_quarters": 1754,
+        "n_rate_nonnull": 1627
+      },
+      "2022q1": {
+        "n_fund_quarters": 1676,
+        "n_rate_nonnull": 1566
+      },
+      "2022q2": {
+        "n_fund_quarters": 1651,
+        "n_rate_nonnull": 1574
+      },
+      "2022q3": {
+        "n_fund_quarters": 1539,
+        "n_rate_nonnull": 1482
+      },
+      "2022q4": {
+        "n_fund_quarters": 1549,
+        "n_rate_nonnull": 1444
+      },
+      "2023q1": {
+        "n_fund_quarters": 1528,
+        "n_rate_nonnull": 1425
+      },
+      "2023q2": {
+        "n_fund_quarters": 1541,
+        "n_rate_nonnull": 1460
+      },
+      "2023q3": {
+        "n_fund_quarters": 1451,
+        "n_rate_nonnull": 1368
+      },
+      "2023q4": {
+        "n_fund_quarters": 1409,
+        "n_rate_nonnull": 1271
+      },
+      "2024q1": {
+        "n_fund_quarters": 1370,
+        "n_rate_nonnull": 1242
+      },
+      "2024q2": {
+        "n_fund_quarters": 1377,
+        "n_rate_nonnull": 1302
+      },
+      "2024q3": {
+        "n_fund_quarters": 1391,
+        "n_rate_nonnull": 1321
+      },
+      "2024q4": {
+        "n_fund_quarters": 1407,
+        "n_rate_nonnull": 1276
+      }
+    }
+  },
+  "branch_decision": {
+    "decision": "NOT-IDENTIFIED",
+    "note": "No candidate control has an OUTLIER-ROBUST flat pre-trend. Untrimmed, ['C1', 'C3'] read 'parallel', but this is an SE-inflation artifact of extreme-tail active_flow_rate values (tiny lagged denominators): trimming the 1% rate tails flips EVERY candidate to strongly NON-parallel (interaction p <= 0.001). The DiD is NOT identified on this quantity as normalized; a bare untrimmed 'parallel' verdict would be reporting an artifact as a result.",
+    "parallel_untrimmed": [
+      "C1",
+      "C3"
+    ],
+    "outlier_flipped_to_nonparallel_when_trimmed": [
+      "C1",
+      "C3"
+    ]
+  },
+  "artifacts": {
+    "control_panels_parquet": "/home/user/dollar-breaking-point/build/data/nport/did_control_panels.parquet",
+    "feasibility_json": "/home/user/dollar-breaking-point/build/audit/did_feasibility.json",
+    "provenance_md": "/home/user/dollar-breaking-point/build/data/nport/did_control_panels_provenance.md",
+    "streaming_script": "/home/user/dollar-breaking-point/build/data/nport/build_did_control_panels_streaming.py"
+  },
+  "reparse_per_quarter": [
+    {
+      "zip_quarter": "2019q4",
+      "fiscal_quarter": "2019q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2019q4_nport.zip",
+      "zip_bytes": 240007320,
+      "total_holdings_in_quarter": 2939568,
+      "panel_rows": 436731,
+      "c2_em_rows": 112897,
+      "c3_dm_rows": 323834
+    },
+    {
+      "zip_quarter": "2020q1",
+      "fiscal_quarter": "2019q4",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q1_nport.zip",
+      "zip_bytes": 340462382,
+      "total_holdings_in_quarter": 4355921,
+      "panel_rows": 529732,
+      "c2_em_rows": 140088,
+      "c3_dm_rows": 389644
+    },
+    {
+      "zip_quarter": "2020q2",
+      "fiscal_quarter": "2020q1",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q2_nport.zip",
+      "zip_bytes": 332888140,
+      "total_holdings_in_quarter": 4058607,
+      "panel_rows": 520383,
+      "c2_em_rows": 133651,
+      "c3_dm_rows": 386732
+    },
+    {
+      "zip_quarter": "2020q3",
+      "fiscal_quarter": "2020q2",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q3_nport.zip",
+      "zip_bytes": 371068711,
+      "total_holdings_in_quarter": 4631801,
+      "panel_rows": 519854,
+      "c2_em_rows": 130067,
+      "c3_dm_rows": 389787
+    },
+    {
+      "zip_quarter": "2020q4",
+      "fiscal_quarter": "2020q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2020q4_nport.zip",
+      "zip_bytes": 359205250,
+      "total_holdings_in_quarter": 4408043,
+      "panel_rows": 509391,
+      "c2_em_rows": 128024,
+      "c3_dm_rows": 381367
+    },
+    {
+      "zip_quarter": "2021q1",
+      "fiscal_quarter": "2020q4",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2021q1_nport.zip",
+      "zip_bytes": 342516796,
+      "total_holdings_in_quarter": 4263146,
+      "panel_rows": 471349,
+      "c2_em_rows": 119846,
+      "c3_dm_rows": 351503
+    },
+    {
+      "zip_quarter": "2021q2",
+      "fiscal_quarter": "2021q1",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2021q2_nport.zip",
+      "zip_bytes": 358497137,
+      "total_holdings_in_quarter": 4348390,
+      "panel_rows": 534290,
+      "c2_em_rows": 142511,
+      "c3_dm_rows": 391779
+    },
+    {
+      "zip_quarter": "2021q3",
+      "fiscal_quarter": "2021q2",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2021q3_nport.zip",
+      "zip_bytes": 380417219,
+      "total_holdings_in_quarter": 4609095,
+      "panel_rows": 525576,
+      "c2_em_rows": 138423,
+      "c3_dm_rows": 387153
+    },
+    {
+      "zip_quarter": "2021q4",
+      "fiscal_quarter": "2021q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2021q4_nport.zip",
+      "zip_bytes": 374616598,
+      "total_holdings_in_quarter": 4500945,
+      "panel_rows": 521327,
+      "c2_em_rows": 139784,
+      "c3_dm_rows": 381543
+    },
+    {
+      "zip_quarter": "2022q1",
+      "fiscal_quarter": "2021q4",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q1_nport.zip",
+      "zip_bytes": 482447144,
+      "total_holdings_in_quarter": 6331478,
+      "panel_rows": 503409,
+      "c2_em_rows": 142108,
+      "c3_dm_rows": 361301
+    },
+    {
+      "zip_quarter": "2022q2",
+      "fiscal_quarter": "2022q1",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q2_nport.zip",
+      "zip_bytes": 432741571,
+      "total_holdings_in_quarter": 5384188,
+      "panel_rows": 568179,
+      "c2_em_rows": 165164,
+      "c3_dm_rows": 403015
+    },
+    {
+      "zip_quarter": "2022q3",
+      "fiscal_quarter": "2022q2",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q3_nport.zip",
+      "zip_bytes": 724385184,
+      "total_holdings_in_quarter": 10002036,
+      "panel_rows": 535591,
+      "c2_em_rows": 156433,
+      "c3_dm_rows": 379158
+    },
+    {
+      "zip_quarter": "2022q4",
+      "fiscal_quarter": "2022q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2022q4_nport.zip",
+      "zip_bytes": 422189888,
+      "total_holdings_in_quarter": 5226300,
+      "panel_rows": 535303,
+      "c2_em_rows": 159828,
+      "c3_dm_rows": 375475
+    },
+    {
+      "zip_quarter": "2023q1",
+      "fiscal_quarter": "2022q4",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2023q1_nport.zip",
+      "zip_bytes": 480447687,
+      "total_holdings_in_quarter": 6255353,
+      "panel_rows": 531326,
+      "c2_em_rows": 160527,
+      "c3_dm_rows": 370799
+    },
+    {
+      "zip_quarter": "2023q2",
+      "fiscal_quarter": "2023q1",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2023q2_nport.zip",
+      "zip_bytes": 427953767,
+      "total_holdings_in_quarter": 5399060,
+      "panel_rows": 560358,
+      "c2_em_rows": 166869,
+      "c3_dm_rows": 393489
+    },
+    {
+      "zip_quarter": "2023q3",
+      "fiscal_quarter": "2023q2",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2023q3_nport.zip",
+      "zip_bytes": 457209257,
+      "total_holdings_in_quarter": 5971675,
+      "panel_rows": 545964,
+      "c2_em_rows": 166685,
+      "c3_dm_rows": 379279
+    },
+    {
+      "zip_quarter": "2023q4",
+      "fiscal_quarter": "2023q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2023q4_nport.zip",
+      "zip_bytes": 420320703,
+      "total_holdings_in_quarter": 5201934,
+      "panel_rows": 554009,
+      "c2_em_rows": 167862,
+      "c3_dm_rows": 386147
+    },
+    {
+      "zip_quarter": "2024q1",
+      "fiscal_quarter": "2023q4",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2024q1_nport.zip",
+      "zip_bytes": 446989787,
+      "total_holdings_in_quarter": 6104221,
+      "panel_rows": 520375,
+      "c2_em_rows": 159063,
+      "c3_dm_rows": 361312
+    },
+    {
+      "zip_quarter": "2024q2",
+      "fiscal_quarter": "2024q1",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2024q2_nport.zip",
+      "zip_bytes": 506739574,
+      "total_holdings_in_quarter": 6673064,
+      "panel_rows": 597333,
+      "c2_em_rows": 192958,
+      "c3_dm_rows": 404375
+    },
+    {
+      "zip_quarter": "2024q3",
+      "fiscal_quarter": "2024q2",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2024q3_nport.zip",
+      "zip_bytes": 478076657,
+      "total_holdings_in_quarter": 6107336,
+      "panel_rows": 546388,
+      "c2_em_rows": 172096,
+      "c3_dm_rows": 374292
+    },
+    {
+      "zip_quarter": "2024q4",
+      "fiscal_quarter": "2024q3",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2024q4_nport.zip",
+      "zip_bytes": 406008057,
+      "total_holdings_in_quarter": 5080041,
+      "panel_rows": 537069,
+      "c2_em_rows": 171777,
+      "c3_dm_rows": 365292
+    },
+    {
+      "zip_quarter": "2025q1",
+      "fiscal_quarter": "2024q4",
+      "zip_url": "https://www.sec.gov/files/dera/data/form-n-port-data-sets/2025q1_nport.zip",
+      "zip_bytes": 462120659,
+      "total_holdings_in_quarter": 5948809,
+      "panel_rows": 535723,
+      "c2_em_rows": 173499,
+      "c3_dm_rows": 362224
+    }
+  ],
+  "reparse_skipped": []
+}

@@ -1,0 +1,113 @@
+{
+  "task": "RDT-B Part A grounding — counterpart-side components for a bound on China's official USD-asset share",
+  "date_utc": "2026-07-02",
+  "prediction_contract": "build/reserve/RDTB_prediction.md (Part A; bias-direction rule applied)",
+  "status": "GROUNDED (all targeted sources reached and read; the by-country OFFICIAL split does NOT exist in any of them — recorded as the finding, per the pre-registration)",
+
+  "schema_findings": {
+    "slt_by_country_official_split": {
+      "finding": "NO. No on-disk (or live) SLT table carries a foreign-official vs private split BY COUNTRY. All by-country SLT tables split by instrument only.",
+      "evidence": [
+        {
+          "file": "build/data/treasury_tic/current/slt_tables/slt_table1.txt",
+          "quoted_header": "Country\tCountry Code\tDate\t[Total U.S. Securities | U.S. Treasuries | U.S. Agency Bonds | U.S. Corp. & Other Bonds | U.S. Corp. Equity] x [Holdings, Net U.S. Sales, Valuation Change] — column ids: for_lt_total_pos ... for_lt_eqty_valchg. No holder-sector column."
+        },
+        {
+          "file": "build/reserve/rdt_evidence/tic/slt_table3.txt",
+          "quoted_header": "Country\tCountry Code\tDate\tfor_treas_pos\tfor_treas_net\tfor_lt_treas_pos\tfor_lt_treas_net\tfor_lt_treas_valchg\tfor_st_treas_pos\tfor_st_treas_net — Treasuries by country, monthly, no holder-sector column."
+        },
+        {
+          "file": "build/data/treasury_tic/current/slt1d.txt",
+          "quoted_header": "TABLE 1D: U.S. Long-Term Securities Held by Foreign Residents in January 2023 — columns: Total U.S. Long-Term Securities / U.S. Treasury / U.S. Agency Bonds / U.S. Corporate and Other Bonds / U.S. Corporate Stocks. By-country rows (Belgium 954,505 / 280,233 ...), no official-private split."
+        },
+        {
+          "file": "build/data/treasury_tic/current/slt_tables/slt_table6.html",
+          "quoted_header": "Table 6: U.S. Treasury Securities Held by Foreign Residents — country/country_code/date/for_treas_pos/for_lt_treas_pos/for_st_treas_pos; the only 'Official' rows are the aggregate 'Of Which: Foreign Official' (country code 99990) lines, not by-country."
+        }
+      ]
+    },
+    "slt_aggregate_official_series": {
+      "finding": "YES (aggregate, all countries combined). Two on-disk carriers.",
+      "evidence": [
+        {
+          "file": "build/data/treasury_tic/current/slt2d.txt",
+          "quoted_header": "Table 2D: U.S. Long-Term Securities Held by Foreign Residents — rows: Total / 'Foreign official' / 'Private' for Total, Treasury bonds, Agency bonds, Corporate bonds, ... monthly columns (on-disk snapshot covers 2022-01..2023-01; full history published as slt2d_history.csv, link verified on the live TIC securities(b) page 2026-07-02)."
+        },
+        {
+          "file": "build/reserve/rdt_evidence/tic/mfhhis01.csv",
+          "quoted_header": "MAJOR FOREIGN HOLDERS OF TREASURY SECURITIES (in billions of dollars), one 12-month grid per year 2000-2025, each grid ends with: 'Of which:' / 'For. Official' / 'Treasury Bills' / 'T-Bonds & Notes' (26 'For. Official' rows counted = one per year grid)."
+        },
+        {
+          "file": "build/data/treasury_tic/current/slt_tables/slt_table5.txt (identical copy in build/reserve/rdt_evidence/tic/slt_table5.txt)",
+          "quoted_header": "Table 5: Major Foreign Holders of Treasury Securities, Billions of dollars, columns 2025-04..2026-04, rows incl. 'Of Which: Foreign Official 3906.5 ...', 'Of Which: Foreign Official Treasury Bills', 'Of Which: Foreign Official T-Bonds & Notes'."
+        }
+      ]
+    },
+    "shl_by_country_official_split": {
+      "finding": "NOT-AVAILABLE. The TIC annual SHL reports publish the foreign-official holder-sector split only at the AGGREGATE level (all countries; and AFE/EME groups). No by-country official holdings for any country, any vintage inspected (2015-2025 appendix tables A1-A12 and the 2018 and 2025 full report PDFs).",
+      "evidence": [
+        {
+          "file": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (from shl2025r.pdf)",
+          "quote": "Exhibit 7: U.S. Long-Term Securities by Foreign Holder Sector ... Total foreign / Private / Official — annual columns 2008-2025, all-countries aggregate only. Exhibit 5: Foreign Holdings of U.S. Securities by Type of Economy and Sector of Holder — AFE vs EME only. A search of the whole 137-page report for lines containing both a country name (China/Belgium/Luxembourg) and 'official' returned zero data lines."
+        },
+        {
+          "file": "build/reserve/rdtb_evidence/shla2018r_extracted.txt (from shla2018r.pdf)",
+          "quote": "Exhibit 9: Value of long-term securities held by foreign official institutions ... (aggregate); country+official grep hits: 0."
+        },
+        {
+          "file": "shl2025r.pdf p.2 (form instructions, I.C)",
+          "quote": "'The results of this survey will be made available to the general public at an aggregated level so that neither the U.S. persons or organizations providing information, nor individual or organizational ownership of U.S. securities can be identified.'"
+        }
+      ]
+    },
+    "tic_by_country_official_institution_lines": {
+      "finding": "NOT-AVAILABLE. TIC publishes no by-country foreign-official holdings series: MFH by-country rows are total-resident; official lines are aggregate 'Of which' only; SLT official rows are aggregate table 2D only. Tried: on-disk slt1d/slt2d/slt_table1-6/slt3d_globl/mfh.txt/mfhhis01.csv; live TIC securities(b) page document list (no by-country official file exists among slt*/mfh*/oilexp*/totalticliabs*/treas_nonmkt links)."
+    },
+    "bis_lbs_official_sector_split_for_china": {
+      "finding": "NOT-AVAILABLE in published data. The LBS DSD codelist CL_L_SECTOR contains official codes — 'M = Banks, central banks', 'O = Official sector', 'G = General government' — but for USD cross-border liabilities to China counterparties (key Q.S.L.A.USD.A.5J.A.5A.{sector}.CN.N) the API returns 'No results for query' (code 100) for M and O. The availability endpoint lists published L_CP_SECTOR values for that key as A,B,C,F,G,H,I,K,N,P,U,X (no M, no O).",
+      "dsd_sector_codelist_quoted": "CL_L_SECTOR: A=All sectors; B=Banks, total; C=Non-financial corporations; F=Non-bank financial institutions; G=General government; H=Households and NPISHs; I=Banks, related offices; J=Banks, unrelated banks; K=Unallocated non-financial sectors; L=Unallocated non-financial private sector; M=Banks, central banks; N=Non-banks, total; O=Official sector; P=Non-financial sectors; R=Non-bank private sector; S=Non-financial private sector; U=Unallocated by sector; Y=Residual non-bank private sector; Z=Residual non-financial private sector; X=Residual by sector",
+      "note": "G (general government) IS published for China but is negligible (2014-Q1 value 41.32 USD mn) and excludes the central bank (reserves holder), so it is not a reserves-attributable component; recorded here, not placed in the CSV. Total-resident series (sector A) fetched 2014-Q1..2025-Q4 and recorded as UPPER-side-only per the pre-registered rule."
+    }
+  },
+
+  "components_grounded": [
+    {"component": "SHL_TOTAL_US_SECURITIES", "countries": ["China","Belgium","Luxembourg"], "coverage": "June 2015-2025 (11 yrs each)", "holder_sector": "TOTAL_RESIDENT", "lower_bound_eligible": false},
+    {"component": "SHL_US_TREASURIES_TOTAL", "countries": ["China","Belgium","Luxembourg"], "coverage": "China/Belgium June 2015-2025; Luxembourg June 2020-2025 (total incl. short-term not published by country pre-2020 vintages in the tables retained; LT-only carried separately)", "holder_sector": "TOTAL_RESIDENT", "lower_bound_eligible": false},
+    {"component": "SHL_US_TREASURIES_LT", "countries": ["China","Belgium","Luxembourg"], "coverage": "June 2015-2019 (from single-year Table A1 vintages)", "holder_sector": "TOTAL_RESIDENT", "lower_bound_eligible": false},
+    {"component": "SHL_AGG_OFFICIAL_LT_SECURITIES / SHL_AGG_OFFICIAL_LT_TREASURIES", "countries": ["ALL"], "coverage": "June 2015-2025", "holder_sector": "OFFICIAL", "lower_bound_eligible": false, "reason_not_eligible": "all-countries aggregate, not attributable to China"},
+    {"component": "TIC_MFH_AGG_OFFICIAL_TREASURIES", "countries": ["ALL"], "coverage": "Dec 2015-2025 in CSV; monthly 2000-01..2025-12 on disk + 2026-01..2026-04 in slt_table5", "holder_sector": "OFFICIAL", "lower_bound_eligible": false, "reason_not_eligible": "aggregate"},
+    {"component": "BIS_LBS_USD_XB_LIABILITIES_ALLINSTR / _LOANSDEP", "countries": ["China"], "coverage": "Q4 2015-2025 in CSV; quarterly 2014-Q1..2025-Q4 raw", "holder_sector": "TOTAL_RESIDENT", "lower_bound_eligible": false, "note": "no official/central-bank counterparty split published; upper-side information only, per the pre-registered rule"}
+  ],
+  "lower_bound_eligible_components": [],
+  "lower_bound_consequence": "No official-attributable, China-attributable USD component grounds anywhere in TIC SLT, TIC SHL, TIC MFH, or BIS LBS. Per the pre-registered verdict rule, L_cons is not constructible from counterpart data alone; the pre-registered STILL-DEGENERATE branch ('the official split is not published') is the applicable branch unless the assembly stage finds another official-attributable source. This is a finding, not a failure to look.",
+
+  "part_b_baseline_availability": {
+    "finding": "AVAILABLE ON DISK — no fetch needed.",
+    "series": "Aggregate foreign-OFFICIAL holdings of U.S. Treasury securities (bills + bonds & notes), monthly.",
+    "files": [
+      "build/reserve/rdt_evidence/tic/mfhhis01.csv — 'For. Official' row in each annual grid, monthly 2000-01..2025-12",
+      "build/data/treasury_tic/current/slt_tables/slt_table5.txt — 'Of Which: Foreign Official' rows, monthly 2025-04..2026-04"
+    ],
+    "requested_window_2012_2026": "fully covered (2012-01..2026-04)"
+  },
+
+  "coverage_summary": {
+    "csv_rows": 131,
+    "years": "2015-2025 for every component present; BIS raw extends 2014-Q1..2025-Q4; MFH raw extends 2000-2026",
+    "custody_band_support": "Belgium and Luxembourg rows present for every SHL component, so the China-alone vs China+BE+LU custody variants are computable at assembly"
+  },
+
+  "not_available": [
+    "TIC SHL by-country foreign-official holdings (any country, any year 2015-2025) — aggregate-only publication; confidentiality statement quoted above",
+    "TIC by-country official-institution holdings lines (MFH/SLT) — only aggregate 'Of which: Foreign Official' rows exist",
+    "BIS LBS USD liabilities to China, counterparty sector M (central banks) or O (official sector) — codes exist in the DSD but return 'No results for query'; availability endpoint confirms not published for the China key"
+  ],
+
+  "files_fetched": "see build/reserve/rdtb_evidence/_RDTB_fetch_log.txt (all URLs + timestamps + byte sizes)",
+  "outputs": [
+    "build/reserve/rdtb_a_components.csv",
+    "build/reserve/rdtb_a_manifest.json",
+    "build/reserve/rdtb_a_provenance.md",
+    "build/reserve/rdtb_evidence/ (raw files + _RDTB_fetch_log.txt)"
+  ]
+}

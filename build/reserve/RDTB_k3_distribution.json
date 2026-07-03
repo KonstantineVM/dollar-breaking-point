@@ -1,0 +1,2201 @@
+{
+ "payload": {
+  "artifact": "RDTB_k3_distribution",
+  "contract": "build/reserve/RDTB_prediction.md — Part B (pre-registered, mechanical)",
+  "establishment": "NOT ESTABLISHED — output of the RDT-B Part-B estimation run; no result herein is established until the verifier scenario (deterministic re-run of build/reserve/RDTB_k3_recompute.py reproducing this JSON, recorded in build/reserve/RDTB_verify.json) has run and its artifact exists",
+  "no_date_no_probability": "no date and no event-probability is computed; the rank-sum normal-approximation p is a pre-registered DESCRIPTIVE statistic with a small-N caveat",
+  "inputs_sha256": {
+   "mfhhis01.csv": "d0f4693d7b346f9993fae472c440f93c9fd3cebafcf31c15d1c8a8fc96950e56",
+   "oilexp_sdata_hist_2003-2014.csv": "b787d8a82a92dacc2d80de72d8d81a80b45ed942750a0b7d0233096ae74f9b6f",
+   "rdt_k3_transactions.csv": "4b087804d0ce8a735d27cc9f751a31e67c9f0e5ffd5e9cc15dd04823c9bb13e4",
+   "rdt_k3_ust.csv": "b5d25299606b3eaaaddcac99ec02c587a1d1c4744dfde62d4cbe1bab9f82922d",
+   "s1_globl.txt": "6ac22414083e85968d18fc2aea5c5f69fdb8eb4bad522fa17713c9c9190a8733",
+   "slt3d_globl.csv": "d6b74f0a24e156f86911a383b1a2ae1fdd444017b4875716ed67a0fdeeba52ae",
+   "slt_table3.txt": "d53727506606d107d06bff218e3a3873256d7f0f545e9ad5bd6ea79591211d5f",
+   "slt_table5.txt": "273ecb97c9befb35fcc2ac82749f5a63f234b90cbe6e669215cf1b7933ec1511",
+   "un_digitallibrary_es11_1_votelines.txt": "645e4d0bc65668409e14fded929d0687022f296bfa5c2ddd8037c2ae08ff5957"
+  },
+  "scaling": "r_c = [sum of monthly net purchases of long-term Treasuries over window] / H_c(month immediately preceding window) / (window years); holdings = total Treasury holdings (MFH concept, bills included); transactions = long-term Treasury bonds & notes only (bills not published in the transactions data)",
+  "basis_break": "publisher basis break at 2023-02 carried for ALL countries: transactions before 2023-02 are Form S (s1_globl.txt / oilexp_sdata), from 2023-02 expanded Form SLT (slt_table3.txt); recent-3y window lies entirely on the post-break SLT basis (uniform basis on the verdict axis)",
+  "custody_caveat": "TIC custodial attribution (TIC FAQ #7, printed on Table 5): overseas-custody holdings may not be attributed to actual owners; hence the China-alone AND China+Belgium+Luxembourg custody band, never collapsed",
+  "panel": {
+   "countries_in_panel": 96,
+   "holdings_cells": 16066,
+   "transactions_cells": 11457,
+   "latest_published_tx_month": "2026-04",
+   "mfh_year_blocks_parsed": 26,
+   "non_country_rows_excluded_from_panel": [
+    "All Countries",
+    "All Other",
+    "Belgium and Luxembourg",
+    "Belgium-Luxembourg",
+    "British West Indies",
+    "Carib Bnkng Ctrs",
+    "Channel Islands and Isle of Man",
+    "Country Unknown",
+    "For. Official",
+    "Grand Total",
+    "International",
+    "Memo: Euro Area",
+    "Memo: European Union",
+    "Of Which: Foreign Non-Official",
+    "Of Which: Foreign Official",
+    "Of which Foreign Official",
+    "Of which:",
+    "Oil Exporters",
+    "T-Bonds & Notes",
+    "Total Africa",
+    "Total Asia",
+    "Total Caribbean",
+    "Total Europe",
+    "Total IROs",
+    "Total Latin America",
+    "Total Latin America and Caribbean",
+    "Total Other",
+    "Total Regional Orgs.",
+    "Treasury Bills"
+   ],
+   "positions_precedence": "mfhhis01.csv > slt_table3.txt > slt3d_globl.csv"
+  },
+  "crosscheck_vs_committed_8country_build": {
+   "rdt_k3_ust.csv": {
+    "rows_compared": 2135,
+    "rows_missing_in_panel": 0,
+    "max_abs_diff_busd": 0.0,
+    "worst_cell": null
+   },
+   "rdt_k3_transactions.csv": {
+    "rows_compared": 1280,
+    "rows_missing_in_panel": 0,
+    "max_abs_diff_busd": 0.0,
+    "worst_cell": null
+   },
+   "pass_exact_after_rounding": true
+  },
+  "es11_1_vote_parse": {
+   "counts": {
+    "Y": 141,
+    "N": 5,
+    "A": 35,
+    "NV": 12
+   },
+   "matches_published_tally_141_5_35_12": true,
+   "alias_table_tic_to_un": {
+    "CHINA, MAINLAND": "CHINA",
+    "KOREA, SOUTH": "REPUBLIC OF KOREA",
+    "RUSSIA": "RUSSIAN FEDERATION",
+    "CZECH REPUBLIC": "CZECHIA",
+    "SYRIA": "SYRIAN ARAB REPUBLIC",
+    "VENEZUELA": "VENEZUELA (BOLIVARIAN REPUBLIC OF)",
+    "VIETNAM": "VIET NAM",
+    "BOLIVIA": "BOLIVIA (PLURINATIONAL STATE OF)",
+    "IRAN": "IRAN (ISLAMIC REPUBLIC OF)",
+    "TANZANIA": "UNITED REPUBLIC OF TANZANIA",
+    "MOLDOVA": "REPUBLIC OF MOLDOVA",
+    "BRUNEI": "BRUNEI DARUSSALAM",
+    "LAOS": "LAO PEOPLE'S DEMOCRATIC REPUBLIC",
+    "CAPE VERDE": "CABO VERDE",
+    "COTE D'IVOIRE": "CÔTE D'IVOIRE",
+    "MICRONESIA": "MICRONESIA (FEDERATED STATES OF)",
+    "NORTH KOREA": "DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA"
+   }
+  },
+  "recent_3y_window": {
+   "role": "VERDICT axis (fixed ex ante)",
+   "months": [
+    "2023-05",
+    "2026-04"
+   ],
+   "holdings_reference_month": "2023-04",
+   "universe_rule": "H_c(start) >= $10bn AND >= 30/36 non-missing tx months",
+   "universe_n": 43,
+   "distribution_r_all_countries": [
+    {
+     "country": "China, Mainland",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 868.9,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": -284.774,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.109247
+    },
+    {
+     "country": "India",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 238.7,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": -75.063,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.104822
+    },
+    {
+     "country": "Brazil",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 229.8,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": -63.588,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.092237
+    },
+    {
+     "country": "Chile",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 37.4,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": -9.696,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.086417
+    },
+    {
+     "country": "Belgium",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 336.6,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": -64.07,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.063448
+    },
+    {
+     "country": "Denmark",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 14.684,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": -2.308,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.052393
+    },
+    {
+     "country": "Japan",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 1125.8,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 14.947,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.004426
+    },
+    {
+     "country": "Saudi Arabia",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 113.3,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 2.899,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.008529
+    },
+    {
+     "country": "Ireland",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 234.4,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 6.714,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.009548
+    },
+    {
+     "country": "Netherlands",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 74.5,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 2.451,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.010966
+    },
+    {
+     "country": "Colombia",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 39.7,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 3.324,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.027909
+    },
+    {
+     "country": "Switzerland",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 298.3,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 35.281,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.039425
+    },
+    {
+     "country": "Bermuda",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 75.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 14.628,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.064927
+    },
+    {
+     "country": "Korea, South",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 111.5,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 21.771,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.065085
+    },
+    {
+     "country": "Luxembourg",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 332.3,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 66.63,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.066837
+    },
+    {
+     "country": "Kazakhstan",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 13.783,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 2.846,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.068829
+    },
+    {
+     "country": "South Africa",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 14.306,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 3.035,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.070716
+    },
+    {
+     "country": "United Arab Emirates",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 70.2,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 15.989,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.075921
+    },
+    {
+     "country": "Taiwan",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 244.5,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 55.906,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.076218
+    },
+    {
+     "country": "Germany",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 79.5,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 20.557,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.086193
+    },
+    {
+     "country": "Philippines",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 50.0,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 13.508,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.090053
+    },
+    {
+     "country": "Sweden",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 39.6,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 10.917,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.091894
+    },
+    {
+     "country": "Cayman Islands",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 285.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 87.685,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.10252
+    },
+    {
+     "country": "Poland",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 43.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 14.049,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.108654
+    },
+    {
+     "country": "Thailand",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 65.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 21.421,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.109683
+    },
+    {
+     "country": "Australia",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 59.0,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 21.602,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.122045
+    },
+    {
+     "country": "Singapore",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 201.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 74.161,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.122926
+    },
+    {
+     "country": "Uruguay",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 16.512,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 7.001,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.141332
+    },
+    {
+     "country": "Canada",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 247.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 105.032,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.141686
+    },
+    {
+     "country": "Spain",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 54.7,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 24.646,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.150189
+    },
+    {
+     "country": "Italy",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 43.0,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 19.655,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.152364
+    },
+    {
+     "country": "Mexico",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 68.5,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 32.73,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.15927
+    },
+    {
+     "country": "Kuwait",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 41.4,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 21.14,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.170209
+    },
+    {
+     "country": "Hong Kong",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 222.2,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 116.471,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.174724
+    },
+    {
+     "country": "Norway",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 122.8,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 67.807,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.184058
+    },
+    {
+     "country": "United Kingdom",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 625.1,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 350.984,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.187162
+    },
+    {
+     "country": "Peru",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 32.2,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 18.197,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.188375
+    },
+    {
+     "country": "Malaysia",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 11.514,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 7.96,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.230444
+    },
+    {
+     "country": "British Virgin Islands",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 56.746,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 40.522,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.238031
+    },
+    {
+     "country": "France",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 187.3,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 216.599,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.385476
+    },
+    {
+     "country": "Israel",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 48.3,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 57.078,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.393913
+    },
+    {
+     "country": "Bahamas",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 28.038,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 35.394,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.420786
+    },
+    {
+     "country": "Indonesia",
+     "window_start": "2023-05",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 11.766,
+     "n_months": 36,
+     "n_tx_months_nonmissing": 36,
+     "sum_net_purchases_busd": 16.319,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": 0.462321
+    }
+   ],
+   "exclusions": [
+    {
+     "country": "Algeria",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Anguilla",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Argentina",
+     "reason": "holdings at window start (2023-04) = 8.056 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Aruba",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Austria",
+     "reason": "holdings at window start (2023-04) = 5.085 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Bahrain",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Barbados",
+     "reason": "holdings at window start (2023-04) = 2.976 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Belize",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Bolivia",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Bulgaria",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Costa Rica",
+     "reason": "holdings at window start (2023-04) = 3.719 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Cuba",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Curacao",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Cyprus",
+     "reason": "holdings at window start (2023-04) = 0.362 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Czech Republic",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Dominican Republic",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Ecuador",
+     "reason": "holdings at window start (2023-04) = 0.833 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Egypt",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "El Salvador",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Finland",
+     "reason": "holdings at window start (2023-04) = 6.824 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "German Democratic Republic",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Greece",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Guatemala",
+     "reason": "holdings at window start (2023-04) = 9.14 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Guernsey",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Haiti",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Honduras",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Hungary",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Iraq",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Jamaica",
+     "reason": "holdings at window start (2023-04) = 1.114 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Jersey",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Kenya",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Lebanon",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Liberia",
+     "reason": "holdings at window start (2023-04) = 0.087 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Mauritius",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Monaco",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Morocco",
+     "reason": "holdings at window start (2023-04) = 3.861 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Netherlands Antilles",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "New Zealand",
+     "reason": "holdings at window start (2023-04) = 4.937 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Oman",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Pakistan",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Panama",
+     "reason": "holdings at window start (2023-04) = 8.249 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Paraguay",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Portugal",
+     "reason": "holdings at window start (2023-04) = 5.059 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Romania",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Russia",
+     "reason": "holdings at window start (2023-04) = 0.035 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Saint Kitts and Nevis",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Serbia",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Syria",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Trinidad and Tobago",
+     "reason": "holdings at window start (2023-04) = 3.491 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Turkey",
+     "reason": "holdings at window start (2023-04) = 2.126 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Ukraine",
+     "reason": "no holdings observation at window start (2023-04)"
+    },
+    {
+     "country": "Venezuela",
+     "reason": "holdings at window start (2023-04) = 0.652 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Vietnam",
+     "reason": "only 0 of 36 transaction months non-missing (< 30 required)"
+    }
+   ],
+   "china": {
+    "china_alone": {
+     "r": -0.109247,
+     "percentile_frac_of_universe_with_r_le_china": 0.023256,
+     "universe_n": 43
+    },
+    "china_pooled_cn_be_lu": {
+     "holdings_at_start_busd": 1537.8,
+     "n_months": 36,
+     "n_tx_months_nonmissing_all3": 36,
+     "sum_net_purchases_busd": -282.214,
+     "window_years": 3.0,
+     "r_annualized_active_flow_rate": -0.061173,
+     "r": -0.061173,
+     "percentile_frac_of_universe_with_r_le_pooled": 0.097561,
+     "universe_n_with_pool_replacing_components": 41,
+     "note": "pooled holder replaces China/Belgium/Luxembourg individual entries in its universe (no double counting); labelled synthetic"
+    }
+   },
+   "es11_1_split": {
+    "treated_no_abstain": {
+     "n": 4,
+     "members": [
+      "China, Mainland",
+      "India",
+      "Kazakhstan",
+      "South Africa"
+     ],
+     "median_r": -0.017996,
+     "mean_r": -0.018631
+    },
+    "control_yes": {
+     "n": 34,
+     "members": [
+      "Australia",
+      "Bahamas",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "Colombia",
+      "Denmark",
+      "France",
+      "Germany",
+      "Indonesia",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Korea, South",
+      "Kuwait",
+      "Luxembourg",
+      "Malaysia",
+      "Mexico",
+      "Netherlands",
+      "Norway",
+      "Peru",
+      "Philippines",
+      "Poland",
+      "Saudi Arabia",
+      "Singapore",
+      "Spain",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "United Arab Emirates",
+      "United Kingdom",
+      "Uruguay"
+     ],
+     "median_r": 0.109169,
+     "mean_r": 0.120976
+    },
+    "out_of_split": [
+     {
+      "country": "Bermuda",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "Taiwan",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "Cayman Islands",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "Hong Kong",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "British Virgin Islands",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     }
+    ],
+    "mapping": [
+     {
+      "country": "China, Mainland",
+      "un_name_matched": "CHINA",
+      "vote": "A"
+     },
+     {
+      "country": "India",
+      "un_name_matched": "INDIA",
+      "vote": "A"
+     },
+     {
+      "country": "Brazil",
+      "un_name_matched": "BRAZIL",
+      "vote": "Y"
+     },
+     {
+      "country": "Chile",
+      "un_name_matched": "CHILE",
+      "vote": "Y"
+     },
+     {
+      "country": "Belgium",
+      "un_name_matched": "BELGIUM",
+      "vote": "Y"
+     },
+     {
+      "country": "Denmark",
+      "un_name_matched": "DENMARK",
+      "vote": "Y"
+     },
+     {
+      "country": "Japan",
+      "un_name_matched": "JAPAN",
+      "vote": "Y"
+     },
+     {
+      "country": "Saudi Arabia",
+      "un_name_matched": "SAUDI ARABIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Ireland",
+      "un_name_matched": "IRELAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Netherlands",
+      "un_name_matched": "NETHERLANDS",
+      "vote": "Y"
+     },
+     {
+      "country": "Colombia",
+      "un_name_matched": "COLOMBIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Switzerland",
+      "un_name_matched": "SWITZERLAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Bermuda",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Korea, South",
+      "un_name_matched": "REPUBLIC OF KOREA",
+      "vote": "Y"
+     },
+     {
+      "country": "Luxembourg",
+      "un_name_matched": "LUXEMBOURG",
+      "vote": "Y"
+     },
+     {
+      "country": "Kazakhstan",
+      "un_name_matched": "KAZAKHSTAN",
+      "vote": "A"
+     },
+     {
+      "country": "South Africa",
+      "un_name_matched": "SOUTH AFRICA",
+      "vote": "A"
+     },
+     {
+      "country": "United Arab Emirates",
+      "un_name_matched": "UNITED ARAB EMIRATES",
+      "vote": "Y"
+     },
+     {
+      "country": "Taiwan",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Germany",
+      "un_name_matched": "GERMANY",
+      "vote": "Y"
+     },
+     {
+      "country": "Philippines",
+      "un_name_matched": "PHILIPPINES",
+      "vote": "Y"
+     },
+     {
+      "country": "Sweden",
+      "un_name_matched": "SWEDEN",
+      "vote": "Y"
+     },
+     {
+      "country": "Cayman Islands",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Poland",
+      "un_name_matched": "POLAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Thailand",
+      "un_name_matched": "THAILAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Australia",
+      "un_name_matched": "AUSTRALIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Singapore",
+      "un_name_matched": "SINGAPORE",
+      "vote": "Y"
+     },
+     {
+      "country": "Uruguay",
+      "un_name_matched": "URUGUAY",
+      "vote": "Y"
+     },
+     {
+      "country": "Canada",
+      "un_name_matched": "CANADA",
+      "vote": "Y"
+     },
+     {
+      "country": "Spain",
+      "un_name_matched": "SPAIN",
+      "vote": "Y"
+     },
+     {
+      "country": "Italy",
+      "un_name_matched": "ITALY",
+      "vote": "Y"
+     },
+     {
+      "country": "Mexico",
+      "un_name_matched": "MEXICO",
+      "vote": "Y"
+     },
+     {
+      "country": "Kuwait",
+      "un_name_matched": "KUWAIT",
+      "vote": "Y"
+     },
+     {
+      "country": "Hong Kong",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Norway",
+      "un_name_matched": "NORWAY",
+      "vote": "Y"
+     },
+     {
+      "country": "United Kingdom",
+      "un_name_matched": "UNITED KINGDOM",
+      "vote": "Y"
+     },
+     {
+      "country": "Peru",
+      "un_name_matched": "PERU",
+      "vote": "Y"
+     },
+     {
+      "country": "Malaysia",
+      "un_name_matched": "MALAYSIA",
+      "vote": "Y"
+     },
+     {
+      "country": "British Virgin Islands",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "France",
+      "un_name_matched": "FRANCE",
+      "vote": "Y"
+     },
+     {
+      "country": "Israel",
+      "un_name_matched": "ISRAEL",
+      "vote": "Y"
+     },
+     {
+      "country": "Bahamas",
+      "un_name_matched": "BAHAMAS",
+      "vote": "Y"
+     },
+     {
+      "country": "Indonesia",
+      "un_name_matched": "INDONESIA",
+      "vote": "Y"
+     }
+    ],
+    "rank_sum_normal_approx": {
+     "rank_sum_W_treated": 34.0,
+     "expected_W_under_H0": 78.0,
+     "z_normal_approx": -2.092867,
+     "p_two_sided": 0.036361,
+     "p_one_sided_treated_more_negative": 0.018181,
+     "n_treated": 4,
+     "n_control": 34,
+     "label": "DESCRIPTIVE statistic (pre-registered): Wilcoxon rank-sum, tie-corrected normal approximation; small treated N — no causal claim, not a probability of any event"
+    }
+   },
+   "baseline_official": {
+    "status": "ON-DISK",
+    "series": "slt_table3.txt row 'Of Which: Foreign Official' net LT Treasury purchases (2023-02..latest, expanded-SLT basis) scaled by mfhhis01.csv 'For. Official' total Treasury holdings at window start — same transactions-over-starting-holdings scaling as the country rates",
+    "window": [
+     "2023-05",
+     "2026-04"
+    ],
+    "holdings_official_total_at_start_busd": 3789.7,
+    "n_tx_months_nonmissing": 36,
+    "n_months": 36,
+    "sum_official_net_lt_purchases_busd": -40.653,
+    "r_off_primary_tx_basis": -0.003576,
+    "variants": {
+     "r_off_lt_holdings_denominator": -0.003808,
+     "r_off_holdings_change_basis": 0.010274,
+     "holdings_change_note": "holdings-change variant includes valuation change and bills; shown for context only"
+    }
+   },
+   "context_all_foreign": {
+    "r_all_foreign_tx_basis_recent": 0.058599,
+    "sum_net_lt_purchases_busd": 1319.529,
+    "holdings_at_start_busd": 7506.0,
+    "note": "Grand Total (official + private) context number, same scaling"
+   }
+  },
+  "full_window": {
+   "role": "context, always shown (never the verdict axis)",
+   "months": [
+    "2013-01",
+    "2026-04"
+   ],
+   "universe_rule": "H_c(start) >= $10bn AND non-missing tx months >= 30/36 of window months (proportional); window start = 2013-01 or first coverage",
+   "universe_n": 42,
+   "distribution_r_all_countries": [
+    {
+     "country": "India",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 59.5,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -233.054,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.293766
+    },
+    {
+     "country": "Belgium",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 138.8,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -339.088,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.183225
+    },
+    {
+     "country": "South Africa",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 13.1,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -25.997,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.148838
+    },
+    {
+     "country": "Luxembourg",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 154.7,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -286.547,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.138921
+    },
+    {
+     "country": "Ireland",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 103.1,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -176.529,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.128416
+    },
+    {
+     "country": "Denmark",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 13.8,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -13.838,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.075207
+    },
+    {
+     "country": "Netherlands",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 32.0,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -30.74,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.072047
+    },
+    {
+     "country": "Colombia",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 30.2,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -24.887,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.061805
+    },
+    {
+     "country": "Russia",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 161.5,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -119.778,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.055624
+    },
+    {
+     "country": "Italy",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 27.5,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -18.769,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.051188
+    },
+    {
+     "country": "Saudi Arabia",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 77.6,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -49.633,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.04797
+    },
+    {
+     "country": "Turkey",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 57.6,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -34.051,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.044337
+    },
+    {
+     "country": "Brazil",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 253.3,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -142.119,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.04208
+    },
+    {
+     "country": "Poland",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 31.5,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -14.979,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.035664
+    },
+    {
+     "country": "Cayman Islands",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 142.1,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -58.974,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.031126
+    },
+    {
+     "country": "Bermuda",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 98.7,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -34.551,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.026255
+    },
+    {
+     "country": "China, Mainland",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 1220.4,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -372.546,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.022895
+    },
+    {
+     "country": "Sweden",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 27.8,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -7.696,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.020763
+    },
+    {
+     "country": "Japan",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 1111.2,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -233.727,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.015775
+    },
+    {
+     "country": "Indonesia",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 26.0,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -2.731,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.007878
+    },
+    {
+     "country": "Taiwan",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 195.4,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": -10.027,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.003849
+    },
+    {
+     "country": "Malaysia",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 19.3,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 3.433,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.013341
+    },
+    {
+     "country": "Spain",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 27.4,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 7.852,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.021493
+    },
+    {
+     "country": "Switzerland",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 195.4,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 60.845,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.023354
+    },
+    {
+     "country": "United Arab Emirates",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 43.7,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 21.016,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.036069
+    },
+    {
+     "country": "Chile",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 33.0,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 16.263,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.036961
+    },
+    {
+     "country": "Philippines",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 36.8,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 18.171,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.037033
+    },
+    {
+     "country": "Hong Kong",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 141.9,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 71.439,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.037758
+    },
+    {
+     "country": "Mexico",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 61.1,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 34.113,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.041874
+    },
+    {
+     "country": "Thailand",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 53.6,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 34.456,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.048213
+    },
+    {
+     "country": "Korea, South",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 47.6,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 30.866,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.048633
+    },
+    {
+     "country": "Kuwait",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 28.0,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 18.643,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.049937
+    },
+    {
+     "country": "Australia",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 27.4,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 24.895,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.068143
+    },
+    {
+     "country": "Norway",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 75.1,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 78.484,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.078379
+    },
+    {
+     "country": "Singapore",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 99.3,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 130.897,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.098865
+    },
+    {
+     "country": "Peru",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 14.5,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 24.508,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.126766
+    },
+    {
+     "country": "Germany",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 63.2,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 134.459,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.159564
+    },
+    {
+     "country": "Israel",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 24.1,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 68.317,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.212605
+    },
+    {
+     "country": "British Virgin Islands",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 19.16,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 78.6,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.307672
+    },
+    {
+     "country": "Canada",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 66.2,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 319.189,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 0.361619
+    },
+    {
+     "country": "United Kingdom",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 123.0,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 1735.511,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 1.058238
+    },
+    {
+     "country": "France",
+     "window_start": "2013-01",
+     "window_end": "2026-04",
+     "holdings_at_start_busd": 51.4,
+     "n_months": 160,
+     "n_tx_months_nonmissing": 160,
+     "sum_net_purchases_busd": 780.913,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": 1.139464
+    }
+   ],
+   "exclusions": [
+    {
+     "country": "Algeria",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Anguilla",
+     "reason": "no holdings observation at window start (2012-12)"
+    },
+    {
+     "country": "Argentina",
+     "reason": "holdings at window start (2012-12) = 1.899 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Aruba",
+     "reason": "holdings at window start (2014-12) = 0.148 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Austria",
+     "reason": "holdings at window start (2012-12) = 3.686 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Bahamas",
+     "reason": "holdings at window start (2012-12) = 5.014 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Bahrain",
+     "reason": "holdings at window start (2012-12) = 0.839 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Barbados",
+     "reason": "holdings at window start (2012-12) = 5.41 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Belize",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Bolivia",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Bulgaria",
+     "reason": "no holdings observation at window start (2012-12)"
+    },
+    {
+     "country": "Costa Rica",
+     "reason": "holdings at window start (2012-12) = 1.457 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Cuba",
+     "reason": "no holdings observation at window start (2012-12)"
+    },
+    {
+     "country": "Curacao",
+     "reason": "no holdings observation at window start (2014-12)"
+    },
+    {
+     "country": "Cyprus",
+     "reason": "holdings at window start (2012-12) = 0.072 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Czech Republic",
+     "reason": "holdings at window start (2012-12) = 6.649 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Dominican Republic",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Ecuador",
+     "reason": "holdings at window start (2023-01) = 0.291 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Egypt",
+     "reason": "holdings at window start (2012-12) = 1.272 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "El Salvador",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Finland",
+     "reason": "holdings at window start (2012-12) = 3.467 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "German Democratic Republic",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Greece",
+     "reason": "holdings at window start (2012-12) = 2.882 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Guatemala",
+     "reason": "holdings at window start (2012-12) = 3.517 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Guernsey",
+     "reason": "no holdings observation at window start (2014-12)"
+    },
+    {
+     "country": "Haiti",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Honduras",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Hungary",
+     "reason": "holdings at window start (2012-12) = 1.681 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Iraq",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Jamaica",
+     "reason": "holdings at window start (2023-01) = 0.958 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Jersey",
+     "reason": "no holdings observation at window start (2014-12)"
+    },
+    {
+     "country": "Kazakhstan",
+     "reason": "only 63 of 160 transaction months non-missing (< 134 required)"
+    },
+    {
+     "country": "Kenya",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Lebanon",
+     "reason": "no holdings observation at window start (2012-12)"
+    },
+    {
+     "country": "Liberia",
+     "reason": "holdings at window start (2012-12) = 0.275 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Mauritius",
+     "reason": "no holdings observation at window start (2014-12)"
+    },
+    {
+     "country": "Monaco",
+     "reason": "holdings at window start (2012-12) = 0.198 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Morocco",
+     "reason": "holdings at window start (2012-12) = 1.149 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Netherlands Antilles",
+     "reason": "holdings at window start (2012-12) = 2.412 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "New Zealand",
+     "reason": "holdings at window start (2012-12) = 4.702 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Oman",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Pakistan",
+     "reason": "holdings at window start (2012-12) = 2.713 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Panama",
+     "reason": "holdings at window start (2012-12) = 0.875 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Paraguay",
+     "reason": "no transactions data in any source"
+    },
+    {
+     "country": "Portugal",
+     "reason": "holdings at window start (2012-12) = 3.243 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Romania",
+     "reason": "holdings at window start (2012-12) = 5.215 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Saint Kitts and Nevis",
+     "reason": "no holdings observation at window start (2014-12)"
+    },
+    {
+     "country": "Serbia",
+     "reason": "no holdings observation at window start (2012-12)"
+    },
+    {
+     "country": "Syria",
+     "reason": "no holdings observation at window start (2012-12)"
+    },
+    {
+     "country": "Trinidad and Tobago",
+     "reason": "holdings at window start (2012-12) = 4.858 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Ukraine",
+     "reason": "holdings at window start (2012-12) = 6.145 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Uruguay",
+     "reason": "holdings at window start (2012-12) = 8.765 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Venezuela",
+     "reason": "holdings at window start (2012-12) = 4.333 $bn < $10bn small-denominator guard"
+    },
+    {
+     "country": "Vietnam",
+     "reason": "no transactions data in any source"
+    }
+   ],
+   "china": {
+    "china_alone": {
+     "r": -0.022895,
+     "percentile_frac_of_universe_with_r_le_china": 0.404762,
+     "universe_n": 42
+    },
+    "china_pooled_cn_be_lu": {
+     "holdings_at_start_busd": 1513.9,
+     "n_months": 160,
+     "n_tx_months_nonmissing_all3": 160,
+     "sum_net_purchases_busd": -998.181,
+     "window_years": 13.333333,
+     "r_annualized_active_flow_rate": -0.049451,
+     "r": -0.049451,
+     "percentile_frac_of_universe_with_r_le_pooled": 0.225,
+     "universe_n_with_pool_replacing_components": 40,
+     "note": "pooled holder replaces China/Belgium/Luxembourg individual entries in its universe (no double counting); labelled synthetic"
+    }
+   },
+   "es11_1_split": {
+    "treated_no_abstain": {
+     "n": 4,
+     "members": [
+      "China, Mainland",
+      "India",
+      "Russia",
+      "South Africa"
+     ],
+     "median_r": -0.102231,
+     "mean_r": -0.130281
+    },
+    "control_yes": {
+     "n": 33,
+     "members": [
+      "Australia",
+      "Belgium",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "Colombia",
+      "Denmark",
+      "France",
+      "Germany",
+      "Indonesia",
+      "Ireland",
+      "Israel",
+      "Italy",
+      "Japan",
+      "Korea, South",
+      "Kuwait",
+      "Luxembourg",
+      "Malaysia",
+      "Mexico",
+      "Netherlands",
+      "Norway",
+      "Peru",
+      "Philippines",
+      "Poland",
+      "Saudi Arabia",
+      "Singapore",
+      "Spain",
+      "Sweden",
+      "Switzerland",
+      "Thailand",
+      "Turkey",
+      "United Arab Emirates",
+      "United Kingdom"
+     ],
+     "median_r": 0.023354,
+     "mean_r": 0.082887
+    },
+    "out_of_split": [
+     {
+      "country": "Cayman Islands",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "Bermuda",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "Taiwan",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "Hong Kong",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     },
+     {
+      "country": "British Virgin Islands",
+      "reason": "not matched to a UN member (non-UN entity or unmapped name)"
+     }
+    ],
+    "mapping": [
+     {
+      "country": "India",
+      "un_name_matched": "INDIA",
+      "vote": "A"
+     },
+     {
+      "country": "Belgium",
+      "un_name_matched": "BELGIUM",
+      "vote": "Y"
+     },
+     {
+      "country": "South Africa",
+      "un_name_matched": "SOUTH AFRICA",
+      "vote": "A"
+     },
+     {
+      "country": "Luxembourg",
+      "un_name_matched": "LUXEMBOURG",
+      "vote": "Y"
+     },
+     {
+      "country": "Ireland",
+      "un_name_matched": "IRELAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Denmark",
+      "un_name_matched": "DENMARK",
+      "vote": "Y"
+     },
+     {
+      "country": "Netherlands",
+      "un_name_matched": "NETHERLANDS",
+      "vote": "Y"
+     },
+     {
+      "country": "Colombia",
+      "un_name_matched": "COLOMBIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Russia",
+      "un_name_matched": "RUSSIAN FEDERATION",
+      "vote": "N"
+     },
+     {
+      "country": "Italy",
+      "un_name_matched": "ITALY",
+      "vote": "Y"
+     },
+     {
+      "country": "Saudi Arabia",
+      "un_name_matched": "SAUDI ARABIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Turkey",
+      "un_name_matched": "TURKEY",
+      "vote": "Y"
+     },
+     {
+      "country": "Brazil",
+      "un_name_matched": "BRAZIL",
+      "vote": "Y"
+     },
+     {
+      "country": "Poland",
+      "un_name_matched": "POLAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Cayman Islands",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Bermuda",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "China, Mainland",
+      "un_name_matched": "CHINA",
+      "vote": "A"
+     },
+     {
+      "country": "Sweden",
+      "un_name_matched": "SWEDEN",
+      "vote": "Y"
+     },
+     {
+      "country": "Japan",
+      "un_name_matched": "JAPAN",
+      "vote": "Y"
+     },
+     {
+      "country": "Indonesia",
+      "un_name_matched": "INDONESIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Taiwan",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Malaysia",
+      "un_name_matched": "MALAYSIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Spain",
+      "un_name_matched": "SPAIN",
+      "vote": "Y"
+     },
+     {
+      "country": "Switzerland",
+      "un_name_matched": "SWITZERLAND",
+      "vote": "Y"
+     },
+     {
+      "country": "United Arab Emirates",
+      "un_name_matched": "UNITED ARAB EMIRATES",
+      "vote": "Y"
+     },
+     {
+      "country": "Chile",
+      "un_name_matched": "CHILE",
+      "vote": "Y"
+     },
+     {
+      "country": "Philippines",
+      "un_name_matched": "PHILIPPINES",
+      "vote": "Y"
+     },
+     {
+      "country": "Hong Kong",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Mexico",
+      "un_name_matched": "MEXICO",
+      "vote": "Y"
+     },
+     {
+      "country": "Thailand",
+      "un_name_matched": "THAILAND",
+      "vote": "Y"
+     },
+     {
+      "country": "Korea, South",
+      "un_name_matched": "REPUBLIC OF KOREA",
+      "vote": "Y"
+     },
+     {
+      "country": "Kuwait",
+      "un_name_matched": "KUWAIT",
+      "vote": "Y"
+     },
+     {
+      "country": "Australia",
+      "un_name_matched": "AUSTRALIA",
+      "vote": "Y"
+     },
+     {
+      "country": "Norway",
+      "un_name_matched": "NORWAY",
+      "vote": "Y"
+     },
+     {
+      "country": "Singapore",
+      "un_name_matched": "SINGAPORE",
+      "vote": "Y"
+     },
+     {
+      "country": "Peru",
+      "un_name_matched": "PERU",
+      "vote": "Y"
+     },
+     {
+      "country": "Germany",
+      "un_name_matched": "GERMANY",
+      "vote": "Y"
+     },
+     {
+      "country": "Israel",
+      "un_name_matched": "ISRAEL",
+      "vote": "Y"
+     },
+     {
+      "country": "British Virgin Islands",
+      "un_name_matched": null,
+      "vote": "UNMAPPED"
+     },
+     {
+      "country": "Canada",
+      "un_name_matched": "CANADA",
+      "vote": "Y"
+     },
+     {
+      "country": "United Kingdom",
+      "un_name_matched": "UNITED KINGDOM",
+      "vote": "Y"
+     },
+     {
+      "country": "France",
+      "un_name_matched": "FRANCE",
+      "vote": "Y"
+     }
+    ],
+    "rank_sum_normal_approx": {
+     "rank_sum_W_treated": 28.0,
+     "expected_W_under_H0": 76.0,
+     "z_normal_approx": -2.347757,
+     "p_two_sided": 0.018887,
+     "p_one_sided_treated_more_negative": 0.009443,
+     "n_treated": 4,
+     "n_control": 33,
+     "label": "DESCRIPTIVE statistic (pre-registered): Wilcoxon rank-sum, tie-corrected normal approximation; small treated N — no causal claim, not a probability of any event"
+    }
+   },
+   "baseline_official": {
+    "status": "ON-DISK (holdings basis)",
+    "basis_note": "official-sector TRANSACTIONS are not published before the 2023-02 Form S -> SLT break (verified: slt_table3 net columns n.a. pre-2023-02; s1_globl.txt carries no official-sector line), so the full-window baseline is the HOLDINGS-change rolloff (includes valuation change), labelled as such; the verdict axis is recent-3y, where the tx-basis baseline exists",
+    "window": [
+     "2013-01",
+     "2026-04"
+    ],
+    "holdings_official_total_at_start_busd": 4032.8,
+    "holdings_official_total_at_end_busd": 3906.503,
+    "r_off_holdings_change_basis": -0.002349,
+    "r_off_lt_holdings_change_basis": -0.004321
+   }
+  },
+  "verdict_recent_3y": {
+   "verdict_axis": "recent-3y window (fixed ex ante in RDTB_prediction.md)",
+   "axis_i_percentile_tail": {
+    "value": 0.023256,
+    "threshold": 0.1,
+    "pass": true
+   },
+   "axis_ii_beyond_baseline": {
+    "r_china_alone": -0.109247,
+    "r_off": -0.003576,
+    "ratio_r_cn_over_r_off": 30.550056,
+    "rule": "r_off >= 0 OR (both negative AND ratio > 2)",
+    "pass": true,
+    "baseline_comparable_band_0p5_to_2": false
+   },
+   "axis_iii_treated_control": {
+    "treated_median": -0.017996,
+    "control_median": 0.109169,
+    "p_two_sided": 0.036361,
+    "p_one_sided_treated_more_negative": 0.018181,
+    "p_used_for_verdict": "two-sided (standard rank-sum default; the direction requirement is carried separately by the median condition; one-sided reported beside it)",
+    "pass_two_sided": true,
+    "pass_one_sided": true,
+    "sidedness_outcome_relevant": false
+   },
+   "verdict": "DIFFERENTIAL"
+  }
+ },
+ "self_check": {
+  "payload_sha256": "7798fb986b9f277b1009cdb2cd9846d983f00c20f864697294113479bebdba5a",
+  "byte_reproduction_vs_previous_file": true,
+  "deterministic": true,
+  "note": "re-running this script from the on-disk inputs alone regenerates the payload; payload_sha256 is the hash of the serialized payload object (this self_check block excluded)"
+ }
+}

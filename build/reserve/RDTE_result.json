@@ -1,0 +1,340 @@
+{
+ "artifact": "RDTE_result (RDT-E Parts 2-3: the migration bound -- cap combination, mechanical verdict, expectation evaluation, honest tensions -- and the object amendment inputs)",
+ "establishment": "NOT ESTABLISHED -- output of RDTE_recompute.py; every number below is an OUTPUT pending its verifier scenario (orchestrator re-run of build/reserve/RDTE_recompute.py reproducing RDTE_result.json and the amended RDT_breaking_point_object.md byte-for-byte -- RDTE_verify.json all_pass=true -- and the RDT-E human gate). The bound BOUNDS the perimeter fork; it does not resolve beneficial ownership.",
+ "contract": "build/reserve/RDTE_prediction.md (pre-registered before the build; cap constructions, combination rule, M_lo discipline, verdict thresholds and the flipped guard fixed there and applied exactly; every clause used here was matched verbatim in the contract text)",
+ "no_date_no_probability_no_currency_guess": "no breaking-point date, no probability, and no destination-currency guess appear in this artifact; historical episode months are data description",
+ "flipped_guard (applied)": {
+  "DRAMATIZE": "windows and classes are the pre-registered ones; nothing was selected post hoc to shrink M_hi -- and the cross-flow sensitivity ladder that would ENLARGE the ceiling (leg-unnetted, positive-months) is computed and reported beside the verdict, with its branch consequence stated",
+  "ZERO": "nothing here asserts the BE/LU accretion IS China's -- the caps count class- and month-matched ROOM; the pool determination's custody-masking direction is carried, not resolved"
+ },
+ "windows": {
+  "verdict_axis": {
+   "start": "2023-05",
+   "end": "2026-04",
+   "holdings_reference_month": "2023-04",
+   "role": "VERDICT AXIS (RDT-B recent-3y window verbatim)"
+  },
+  "full_window": {
+   "active_from": "2013-01",
+   "positions_from": "2020-01",
+   "end": "2026-04",
+   "role": "context (from each series' start)"
+  }
+ },
+ "caps_each_reported_separately_BEFORE_the_minimum": {
+  "cap_A_class_matched_accretion": {
+   "value_busd": 69.521,
+   "grounding": "GROUNDED (the SLT class data exist and reconcile exactly to the RDT-C/D ledgers)",
+   "per_class (committed ingredients, echoed)": {
+    "treasury_lt": {
+     "china_active_window_sum_busd": -284.774,
+     "belu_active_window_sum_busd": 2.56,
+     "china_decline_room_busd": 284.774,
+     "belu_accretion_room_busd": 2.56,
+     "capA_class_busd": 2.56,
+     "binding": "binds on the BE/LU accretion side (accretion smaller than China's decline)"
+    },
+    "agency_lt": {
+     "china_active_window_sum_busd": -93.849,
+     "belu_active_window_sum_busd": 66.961,
+     "china_decline_room_busd": 93.849,
+     "belu_accretion_room_busd": 66.961,
+     "capA_class_busd": 66.961,
+     "binding": "binds on the BE/LU accretion side (accretion smaller than China's decline)"
+    },
+    "corp_other_bonds_lt": {
+     "china_active_window_sum_busd": 1.573,
+     "belu_active_window_sum_busd": 95.518,
+     "china_decline_room_busd": 0.0,
+     "belu_accretion_room_busd": 95.518,
+     "capA_class_busd": 0.0,
+     "binding": "caps out mechanically: China did NOT actively sell this class over the axis"
+    },
+    "equity_lt": {
+     "china_active_window_sum_busd": -69.443,
+     "belu_active_window_sum_busd": -44.869,
+     "china_decline_room_busd": 69.443,
+     "belu_accretion_room_busd": 0.0,
+     "capA_class_busd": 0.0,
+     "binding": "caps out mechanically: BE/LU had NO net active accretion in this class over the axis"
+    }
+   },
+   "load_bearing_class_mix_fact": "China's axis decline was 63.6% Treasury LT (284.774 $bn of the gross decline), but the BE/LU net active Treasury accretion was only 2.560 $bn (Belgium -64.070, Luxembourg +66.630) -- the class where China sold most is the class where BE/LU accreted least; that mismatch, not any aggregate, is what makes capA bind at 69.521 $bn.",
+   "blind_spot": "within-window netting (China sells c while others also feed BE/LU's c-line — capA counts gross room, not China's share of it); direction: capA can only OVERSTATE M's ceiling, which is the safe direction for a cap.",
+   "blind_spot_direction_honest_reassessment": "The pre-registered direction claim ('capA can only OVERSTATE M's ceiling') holds ONLY against cross-flows that FEED BE/LU lines. Cross-flows that DRAIN BE/LU lines in the same class and window can net true landings away, so capA is NOT strictly overstating-safe under general cross-flows -- see honest_tensions (ii) for the quantified sensitivity ladder and its branch consequence."
+  },
+  "cap_B_synchronized_mirror_pm3": {
+   "value_busd (THE CAP, +-3 months)": 276.595,
+   "contemporaneous_busd (context)": 150.312,
+   "grounding": "GROUNDED",
+   "blind_spot (verbatim, pre-registered)": "Blind spot, stated up front: STAGGERED migration — sell on the China line and repurchase via Euroclear more than 3 months later, or drip-fed — evades this cap entirely.",
+   "per_class (committed ingredients, echoed)": {
+    "treasury_lt": {
+     "contemporaneous_busd (context)": 79.979,
+     "pm3_busd (THE CAP)": 143.908,
+     "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 152.986
+    },
+    "agency_lt": {
+     "contemporaneous_busd (context)": 50.186,
+     "pm3_busd (THE CAP)": 66.7,
+     "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 66.7
+    },
+    "corp_other_bonds_lt": {
+     "contemporaneous_busd (context)": 2.06,
+     "pm3_busd (THE CAP)": 7.493,
+     "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 7.493
+    },
+    "equity_lt": {
+     "contemporaneous_busd (context)": 18.087,
+     "pm3_busd (THE CAP)": 58.494,
+     "pm3_extended_rise_window_busd (labelled sensitivity, rises 2023-02..2026-04)": 58.494
+    }
+   }
+  },
+  "cap_C_official_classification": {
+   "condition_a_methodology": "ESTABLISHED-as-joint-reading (rdte_methodology_determination.md): the publisher states the residency rule (holder country = custodian's residence), names Euroclear/Clearstream as Belgium/Luxembourg attributions, and states that official money behind custodial-center intermediary chains lands in the PRIVATE attribution -- but no single sentence joins all three; publisher hedges ('typically', 'some', 'may') are carried; downgradeable at the gate.",
+   "condition_b_axis_record": {
+    "tic_official_change_busd (refmonth 2023-04 -> 2026-04)": 116.8,
+    "tic_direction": "ROSE",
+    "frbny_custody_change_busd (refmonth 2023-04 -> 2026-04)": -232.223,
+    "frbny_direction": "DECLINED",
+    "verdict": "SPLIT -- one leg rose, one fell"
+   },
+   "grounding_call": "DOES-NOT-GROUND-ON-MIXED-RECORD -- condition (b) is SPLIT: the TIC foreign-official aggregate ROSE (+116.8 $bn) while the FRBNY custody series DECLINED (-232.223 $bn). The pre-registered condition reads on the official aggregates jointly ('if official aggregates rose, capC is uninformative and does not ground') and its value rule ('the cap value = the LARGER decline (conservative-high)') presupposes both legs declined, so with the TIC leg risen, grounding capC on the FRBNY leg alone would be a post-hoc leg selection the pre-registration does not authorize -- capC is excluded from the minimum (never zero-filled).",
+   "grounding_call_basis_one_sentence": "The pre-registered rule reads the cap value off DECLINES and declares a risen aggregate uninformative; with the TIC leg risen and only the FRBNY leg fallen, grounding on the FRBNY leg alone would be a post-hoc leg selection the pre-registration does not authorize, so capC is recorded DOES-NOT-GROUND-ON-MIXED-RECORD.",
+   "verdict_irrelevance (explicit)": "Either call gives the same M_hi and the same verdict: the would-be FRBNY-leg value 232.223 $bn exceeds capA 69.521 $bn, so capC CANNOT BIND the minimum whether grounded or not.",
+   "blind_spot (pre-registered)": "other countries' official net purchases can mask a China-migration drain of the official aggregate -- capC is a soft cap; the observed other-official context is the risen TIC aggregate itself"
+  }
+ },
+ "combination_mechanical": {
+  "rule (pre-registered, quoted)": "M_hi = min over the caps that GROUND (a cap that does not ground is excluded, never zero-filled)",
+  "grounded_caps_busd": {
+   "cap_A": 69.521,
+   "cap_B_pm3": 276.595
+  },
+  "excluded_caps": [
+   "cap_C (DOES-NOT-GROUND-ON-MIXED-RECORD)"
+  ],
+  "M_hi_busd": 69.521,
+  "binding_cap": "cap_A",
+  "M_lo_busd (headline)": 0.0,
+  "M_lo_discipline": "pre-registered: headline M_lo stays 0 -- no publisher-documented reclassification/custody event is on disk, and the mechanical synchronized-floor mass is a labelled sensitivity only",
+  "candidate_floor_busd (labelled CONSISTENT-WITH sensitivity, never established)": 20.847,
+  "candidate_floor_pairs (echoed)": [
+   {
+    "month": "2023-08",
+    "class": "agency_lt",
+    "china_decline_busd": 1.34,
+    "belu_rise_busd": 1.399,
+    "matched_mass_busd": 1.34
+   },
+   {
+    "month": "2024-02",
+    "class": "agency_lt",
+    "china_decline_busd": 1.761,
+    "belu_rise_busd": 1.755,
+    "matched_mass_busd": 1.755
+   },
+   {
+    "month": "2025-05",
+    "class": "agency_lt",
+    "china_decline_busd": 5.171,
+    "belu_rise_busd": 4.735,
+    "matched_mass_busd": 4.735
+   },
+   {
+    "month": "2025-09",
+    "class": "agency_lt",
+    "china_decline_busd": 7.415,
+    "belu_rise_busd": 7.08,
+    "matched_mass_busd": 7.08
+   },
+   {
+    "month": "2026-01",
+    "class": "agency_lt",
+    "china_decline_busd": 4.45,
+    "belu_rise_busd": 4.508,
+    "matched_mass_busd": 4.45
+   },
+   {
+    "month": "2024-08",
+    "class": "equity_lt",
+    "china_decline_busd": 1.487,
+    "belu_rise_busd": 1.598,
+    "matched_mass_busd": 1.487
+   }
+  ]
+ },
+ "interval_delta_nonus_true_busd": {
+  "identity": "DeltaNonUS-true = DeltaNonUS - M, DeltaNonUS = +494.977 (RDTD_result.json, china-alone headline)",
+  "delta_nonus_busd (read from RDTD_result.json)": 494.977,
+  "interval": [
+   425.456,
+   494.977
+  ],
+  "computed_as": "[494.977 - 69.521, 494.977 - 0.000]",
+  "pool_caveat_riding": "BOUND, not a number (rdtd_pool_determination.md): TIC 'China, Mainland' and the SAFE reserve pool are different perimeters -- neither contains the other. Direction (i): non-reserve mainland holders (CIC, state banks, private residents) make TIC-China OVERSTATE the reserve pool's US holdings; no on-ledger mitigation. Direction (ii): third-country custody (Euroclear/Belgium, Clearstream/Luxembourg, UK, Switzerland) makes TIC-China UNDERSTATE the pool's US holdings -- the CN+BE+LU custody variant is the on-ledger mitigation. Opposite signs, magnitudes not publicly quantifiable; no split is fabricated. The bound rides ΔH_us_LT, hence ΔNonUS AND the netted non-US-securities discriminator, in every use below.",
+  "k1_wall_riding": "non-US-issuer securities are NEVER read as non-dollar; the destination currency stays UNDETERMINED (the RDT-B k1 wall)"
+ },
+ "mechanical_verdict": {
+  "rule (pre-registered)": "MIGRATION-DOMINANT iff M_lo >= 0.5 x active decline (ESTABLISHED floor); MIGRATION-MINOR iff M_hi <= 0.25 x active decline; UNINFORMATIVE-BOUND otherwise; computed on the verdict axis",
+  "active_decline_busd (read from RDTD_result.json)": 446.493,
+  "threshold_quarter_busd": 111.623,
+  "threshold_half_busd": 223.246,
+  "M_hi_busd": 69.521,
+  "M_lo_busd": 0.0,
+  "verdict": "MIGRATION-MINOR",
+  "sentence": "**MIGRATION-MINOR** -- M_hi 69.521 $bn <= 0.25 x 446.493 = 111.623 $bn: migration cannot exceed a quarter of the US-securities decline under the pre-registered grounded caps; DeltaNonUS-true >= 425.456 $bn, the non-US reading survives, and the currency stays k1-walled.",
+  "migration_share_ceiling_pct_of_active_decline": 15.6,
+  "unfired_branches": {
+   "MIGRATION-DOMINANT": "cannot fire: M_lo = 0.000 < 223.246; even the labelled CONSISTENT-WITH candidate floor 20.847 $bn is far below it and is never promoted to an established floor",
+   "UNINFORMATIVE-BOUND": "does not fire on the pre-registered caps: M_hi = 69.521 <= 111.623; but see honest_tensions (ii) -- the cross-flow sensitivity ladder would land this branch, a stated fragility of the verdict, carried in the object"
+  }
+ },
+ "expectation_evaluation": {
+  "pre_registered_primary": "UNINFORMATIVE-BOUND (quoted from RDTE_prediction.md, committed before the build)",
+  "status": "REFUTED toward MIGRATION-MINOR",
+  "statement": "the grounded minimum 69.521 $bn landed <= the pre-registered ~111.6 $bn line (exactly 111.623), so the primary expectation is REFUTED toward MIGRATION-MINOR; the pre-registration declared any landing promotable"
+ },
+ "honest_tensions": [
+  {
+   "id": "i_capA_within_window_netting_blind_spot",
+   "statement": "capA's own named blind spot (within-window netting: others feeding BE/LU's class lines inflate the accretion, so capA counts gross room, not China's share of it) runs in the OVERSTATING direction -- against that channel the MINOR verdict is conservative-robust: the true migration ceiling would be smaller than capA, not larger."
+  },
+  {
+   "id": "ii_capA_cross_flow_fragility (the honest reassessment -- capA is NOT strictly overstating-safe)",
+   "statement": "The staggered blind spot is capB's, and staggered landings still accrete on BE/LU lines within the window in the matching class -- which capA's NET accretion measures -- SO LONG AS no third party simultaneously drains those same lines. That proviso fails in general: migration into BE/LU in a class where OTHERS were selling out nets the accretion down, so capA bounds NET room, not gross landings, and is NOT strictly overstating-safe under cross-flows. The record shows the knife-edge concretely: pooled BE/LU Treasury net accretion is 2.560 $bn, the netting of Belgium -64.070 against Luxembourg +66.630. Quantified sensitivity ladder (labelled SENSITIVITIES, not caps -- the caps were fixed ex ante): leg-unnetted class-matched room 149.180 $bn; positive-months proxy 354.028 $bn (at which point capB +-3 = 276.595 $bn becomes the binding grounded cap); each exceeds the quarter threshold 111.623 $bn, so under either sensitivity the mechanical branch would read UNINFORMATIVE-BOUND, not MIGRATION-MINOR. The MINOR verdict therefore rests on the pre-registered window-net pooled-leg capA construction; this fragility is carried in the object, not smoothed over. Gross per-line landings are not observable at all (TIC nets purchases against sales within each month and line), so even the proxy understates gross flows."
+  },
+  {
+   "id": "iii_capB_staggered_residual",
+   "statement": "Blind spot, stated up front: STAGGERED migration — sell on the China line and repurchase via Euroclear more than 3 months later, or drip-fed — evades this cap entirely. A small capB therefore does NOT prove small migration on its own; the minimum rests on capA, subject to tension (ii)."
+  },
+  {
+   "id": "iv_capC_mixed_record",
+   "statement": "The TIC-official RISE (+116.8 $bn) cuts AGAINST large official-money migration-with-reclassification (a China official custody relocation would drain the official aggregate unless other officials' purchases masked it -- the stated soft-cap blind spot); the FRBNY custody DECLINE (-232.223 $bn) is ambiguous between selling and custody relocation -- perimeter and valuation differences per TIC FAQ 10a (TIC official includes FOI positions at US private custodians and is valuation-hybrid; FRBNY custody is face-value, FRBNY-custodied-only, includes international accounts); the TIC-minus-FRBNY gap widened ~349 $bn over the axis (rdte_official_manifest.json cross-checks)."
+  },
+  {
+   "id": "v_belgium_template_vs_current",
+   "statement": "The mid-2010s Belgium surge is the on-record template of synchronized custody relocation: total-UST ramp +13.221 $bn/mo over 19 months with NEGATIVE China mirror diff-correlations (ramp -0.498, reversal -0.672). The current axis shows NO such Belgium ramp: Belgium total-UST +4.397 $bn/mo on the same series, and Belgium's treasury_lt ACTIVE flow is NEGATIVE (-64.070 $bn) -- the single strongest plain fact for MINOR on the Treasury class."
+  },
+  {
+   "id": "vi_beneficial_ownership_confidential",
+   "statement": "Beneficial ownership inside Euroclear/Clearstream is confidential (SHL 4.3.4; FAQ 7); the bound is a bound, not a resolution -- the fork is BOUNDED, never RESOLVED, exactly as pre-registered."
+  }
+ ],
+ "windows_context (pre-registered: the verdict axis is the verdict; full window is context)": {
+  "capA_full_window_2013_01_to_2026_04_busd": 0.0,
+  "capA_full_window_note": "long-window netting drives every class-matched room to zero (BE/LU full-window treasury net is deeply negative; China has no full-window decline in agency/corporate) -- an illustration of the netting sensitivity in honest_tensions (ii), reported as context, never the verdict",
+  "capB_full_window_contemporaneous_busd": 193.316,
+  "capB_full_window_pm3_busd": 369.284,
+  "official_series_full_window": {
+   "tic_2013_01_to_2026_04_busd": -142.4,
+   "frbny_2013_01_to_2026_04_busd": -173.07,
+   "note": "both legs DECLINED on the full window -- condition (b) would hold there; context only, the verdict axis is the verdict"
+  }
+ },
+ "cross_flow_sensitivity_detail (labelled; not caps)": {
+  "leg_unnetted_window_variant": {
+   "per_class": {
+    "treasury_lt": {
+     "china_decline_busd": 284.774,
+     "leg_unnetted_room_busd": 66.63,
+     "capA_variant_class_busd": 66.63
+    },
+    "agency_lt": {
+     "china_decline_busd": 93.849,
+     "leg_unnetted_room_busd": 66.961,
+     "capA_variant_class_busd": 66.961
+    },
+    "corp_other_bonds_lt": {
+     "china_decline_busd": 0.0,
+     "leg_unnetted_room_busd": 128.214,
+     "capA_variant_class_busd": 0.0
+    },
+    "equity_lt": {
+     "china_decline_busd": 69.443,
+     "leg_unnetted_room_busd": 15.589,
+     "capA_variant_class_busd": 15.589
+    }
+   },
+   "total_busd": 149.18
+  },
+  "positive_months_proxy_variant": {
+   "per_class": {
+    "treasury_lt": {
+     "china_decline_busd": 284.774,
+     "positive_months_room_busd": 205.262,
+     "capA_variant_class_busd": 205.262
+    },
+    "agency_lt": {
+     "china_decline_busd": 93.849,
+     "positive_months_room_busd": 79.323,
+     "capA_variant_class_busd": 79.323
+    },
+    "corp_other_bonds_lt": {
+     "china_decline_busd": 0.0,
+     "positive_months_room_busd": 192.55,
+     "capA_variant_class_busd": 0.0
+    },
+    "equity_lt": {
+     "china_decline_busd": 69.443,
+     "positive_months_room_busd": 83.751,
+     "capA_variant_class_busd": 69.443
+    }
+   },
+   "total_busd": 354.028
+  },
+  "construction_note": "leg-unnetted = Sum_c min(China decline_c, max(BE window net_c,0) + max(LU window net_c,0)); positive-months proxy = Sum_c min(China decline_c, Sum_m max(BE_m,0)+max(LU_m,0)); both computed from the committed RDTE_ingredients_panel.parquet; both still net within month and line, so they UNDERSTATE gross landings"
+ },
+ "official_series_recompute_from_csv": {
+  "changes_busd": {
+   "tic_official_ust_busd": {
+    "verdict_axis_refmonth_2023_04_to_2026_04": 116.8,
+    "verdict_axis_startmonth_2023_05_to_2026_04": 123.8,
+    "full_window_2013_01_to_2026_04": -142.4
+   },
+   "frbny_custody_ust_busd": {
+    "verdict_axis_refmonth_2023_04_to_2026_04": -232.223,
+    "verdict_axis_startmonth_2023_05_to_2026_04": -241.23,
+    "full_window_2013_01_to_2026_06": -271.161,
+    "full_window_2013_01_to_2026_04_tic_aligned": -173.07
+   }
+  },
+  "matches_manifest": {
+   "tic_official_ust_busd.verdict_axis_refmonth_2023_04_to_2026_04": true,
+   "tic_official_ust_busd.verdict_axis_startmonth_2023_05_to_2026_04": true,
+   "tic_official_ust_busd.full_window_2013_01_to_2026_04": true,
+   "frbny_custody_ust_busd.verdict_axis_refmonth_2023_04_to_2026_04": true,
+   "frbny_custody_ust_busd.verdict_axis_startmonth_2023_05_to_2026_04": true,
+   "frbny_custody_ust_busd.full_window_2013_01_to_2026_06": true,
+   "frbny_custody_ust_busd.full_window_2013_01_to_2026_04_tic_aligned": true,
+   "direction_words_match": true
+  },
+  "all_match": true
+ },
+ "reconciliation": {
+  "ingredients_self_check_all_pass": true,
+  "ingredients_reconciliation_exact": true,
+  "panel_cross_check_here": "per-class China and BE/LU axis sums recomputed from RDTE_ingredients_panel.parquet match the committed capA legs at 3dp (guarded; the build fails on any mismatch)",
+  "delta_nonus_and_active_read_from": "build/reserve/RDTD_result.json (identity, china_alone headline)"
+ },
+ "inputs_sha256": {
+  "build/reserve/RDTE_ingredients.json": "db199c4b94a887b4b343bee65d81243d5e9ded6d481f0adb5fbb9d38c96ca209",
+  "build/reserve/RDTE_ingredients_panel.parquet": "a631afd0cc0fbafb93903b74cd7bee3d8f86ffbdca91ab20779d05d50b4e009c",
+  "build/reserve/RDTE_ingredients_recompute.py": "0ca7f5c7bc405f3696571e62de3765fd2d96df6699c47d2a9dbe8813fcfbbacd",
+  "build/reserve/rdte_official_series.csv": "0825430563763c2e4f2e52ff5cf39123d9e323706123e813cd4497a67121add5",
+  "build/reserve/rdte_official_manifest.json": "8c8d4513aeac5e715d4552229e437f9e156ecd27c84e8446d4e58f252aab6c07",
+  "build/reserve/rdte_methodology_determination.md": "c485f0ede17274f453b78409a381808d7a7a84be9fdcf36b673da1de9ff3f0b9",
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTD_verify.json": "f9671be5a5cc2b5a7d1a624a132eb41620f7c47119dbb4cd4c3c67599fdf978b",
+  "build/reserve/RDTE_prediction.md": "7d6ab5bbabcc613b5f0c5cb75247196b12a000c56e93323a39c492a2ae19a637"
+ },
+ "self_check": {
+  "contract_clauses_matched_verbatim": true,
+  "capA_binds_the_minimum": true,
+  "capC_cannot_bind_either_way": true,
+  "interval_arithmetic": true,
+  "verdict_threshold_arithmetic": true,
+  "no_date_no_probability_no_currency_guess": true
+ }
+}

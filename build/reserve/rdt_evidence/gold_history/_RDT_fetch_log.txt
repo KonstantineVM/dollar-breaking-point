@@ -1,0 +1,7 @@
+RDT k2 fetch log — official gold tonnes extended history + WB reserve denominators. Started 2026-07-01T23:48:22Z. Outbound via agent proxy.
+[WGC CBD extended] GET https://fsapi.gold.org/api/cbd/v11/charts/getPage?page=date_range&periodicity=QTD_FULL&startDate=2000-01-01&endDate=2026-12-31 -> 2026-07-01T23:48:35Z 3859095 bytes
+[World Bank] GET https://api.worldbank.org/v2/country/RUS;CHN;IND;TUR;SAU;POL/indicator/FI.RES.TOTL.CD?format=json&date=2010:2026&per_page=300 -> 2026-07-01T23:48:59Z 22615 bytes
+[World Bank] GET https://api.worldbank.org/v2/country/RUS;CHN;IND;TUR;SAU;POL/indicator/FI.RES.XGLD.CD?format=json&date=2010:2026&per_page=300 -> 2026-07-01T23:49:00Z 22231 bytes
+[BUILD] rdt_k2_gold.csv (112 rows, 7 countries, 2010-2025 year-end) written 2026-07-01T23:51:06Z; anchor RUS 1035.21t(2013)->2298.53t(2020) PASS; RD2 overlap max|diff|=0.0t all 7 countries.
+[NOT-AVAILABLE] RUS WB denominators 2025 (series ends 2024 in fetched JSON); USA denominators out of scope.
+[NOT-ATTEMPTED] IMF IFS fallback and WGC historical xlsx — primary WGC CBD route accepted the 2000-2026 window.

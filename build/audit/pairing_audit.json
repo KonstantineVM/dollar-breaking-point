@@ -1,0 +1,74 @@
+{
+  "artifact": "pairing_audit.json",
+  "task": "TEST 2 of the FINAL read-only ratification. Confirm against the RAW SLT tables (slt_table1.txt, slt_table2.txt) that the verdict's within-holder pairing is correct: that Table 1 is the US-leg (F4) direction and Table 2 is the offshore-exposure (F3) direction, that the CYM/HKG/VGB rows used carry the right country codes, that slt_haven_extract.json values match the raw rows, and that the 76 monthly observations align period-to-period across the two directions. Verification of the cells the load-bearing number is computed from -- NOT a re-fetch.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "READ-ONLY on all prior artifacts. Wrote EXACTLY this file plus build/audit/transform_robustness.json (Test 1) and build/audit/transform_robustness.py. Did NOT modify the operator, contracts, dp3/dp4/dp5 artifacts, sep_*_*.json, geo_vs_emp_test.json, or any prior verdict file. DP6 NOT started. NO hazard, NO date. Does NOT declare the build complete.",
+
+  "read_only_inputs": [
+    "build/data/treasury_tic/current/slt_tables/slt_table1.txt (raw Table 1)",
+    "build/data/treasury_tic/current/slt_tables/slt_table2.txt (raw Table 2)",
+    "build/data/treasury_tic/current/slt_haven_extract.json (the parsed extract under audit)"
+  ],
+
+  "table_titles_quoted_from_raw": {
+    "slt_table1_line1": "Table 1: U.S. Long-Term Securities Held by Foreign Residents",
+    "slt_table1_holdings_column_header": "for_lt_total_pos (Holdings of Total U.S. Securities), positive number = increase in a FOREIGN position in U.S. securities",
+    "slt_table1_direction": "US-leg = foreign residents' holdings OF U.S. long-term securities = the F4 / US-leg direction. This is the run direction (a foreign holder cutting U.S. holdings).",
+    "slt_table2_line1": "Table 2: Foreign Long-Term Securities Held by U.S. Residents",
+    "slt_table2_holdings_column_header": "us_lt_total_pos (Holdings of Total Foreign Securities), positive number = increase in a U.S. position in foreign securities",
+    "slt_table2_direction": "offshore-exposure = U.S. residents' holdings OF foreign (CYM/HKG/VGB) long-term securities = the F3 / offshore-exposure direction.",
+    "mapping_in_extract": "slt_haven_extract.json key F4_foreign_holdings_of_us_table1 <- Table 1 (US-leg, correct); key F3_us_holdings_of_foreign_table2 <- Table 2 (offshore-exposure, correct). The naming and the table-to-direction assignment are CONSISTENT with the raw titles."
+  },
+
+  "country_codes_confirmed": {
+    "CYM": {"code_in_extract": "36137", "code_in_raw": "36137 (row label 'Cayman Islands')", "match": true},
+    "HKG": {"code_in_extract": "42005", "code_in_raw": "42005 (row label 'Hong Kong')", "match": true},
+    "VGB": {"code_in_extract": "35807", "code_in_raw": "35807 (row label 'British Virgin Islands')", "match": true}
+  },
+
+  "value_spot_checks": {
+    "convention": "raw column 4 (for_lt_total_pos in Table 1 / us_lt_total_pos in Table 2) = total_holdings in the extract. F4[h] from Table 1, F3[h] from Table 2.",
+    "checks": [
+      {"haven": "CYM", "month": "2020-01", "direction": "F4_table1", "raw": 1741421, "extract": 1741421, "match": true},
+      {"haven": "CYM", "month": "2020-01", "direction": "F3_table2", "raw": 1951221, "extract": 1951221, "match": true},
+      {"haven": "CYM", "month": "2020-03", "direction": "F4_table1", "raw": 1524987, "extract": 1524987, "match": true},
+      {"haven": "CYM", "month": "2020-03", "direction": "F3_table2", "raw": 1838065, "extract": 1838065, "match": true},
+      {"haven": "CYM", "month": "2022-10", "direction": "F4_table1", "raw": 2009417, "extract": 2009417, "match": true},
+      {"haven": "CYM", "month": "2022-10", "direction": "F3_table2", "raw": 2358803, "extract": 2358803, "match": true},
+      {"haven": "CYM", "month": "2026-04", "direction": "F4_table1", "raw": 3363709, "extract": 3363709, "match": true},
+      {"haven": "CYM", "month": "2026-04", "direction": "F3_table2", "raw": 2962194, "extract": 2962194, "match": true},
+      {"haven": "HKG", "month": "2020-01", "direction": "F4_table1", "raw": 437549, "extract": 437549, "match": true},
+      {"haven": "HKG", "month": "2020-01", "direction": "F3_table2", "raw": 173235, "extract": 173235, "match": true},
+      {"haven": "HKG", "month": "2022-10", "direction": "F4_table1", "raw": 358789, "extract": 358789, "match": true},
+      {"haven": "HKG", "month": "2022-10", "direction": "F3_table2", "raw": 96292, "extract": 96292, "match": true},
+      {"haven": "HKG", "month": "2026-04", "direction": "F4_table1", "raw": 676868, "extract": 676868, "match": true},
+      {"haven": "HKG", "month": "2026-04", "direction": "F3_table2", "raw": 130970, "extract": 130970, "match": true},
+      {"haven": "VGB", "month": "2020-01", "direction": "F4_table1", "raw": 152156, "extract": 152156, "match": true},
+      {"haven": "VGB", "month": "2020-01", "direction": "F3_table2", "raw": 71543, "extract": 71543, "match": true},
+      {"haven": "VGB", "month": "2022-10", "direction": "F4_table1", "raw": 185055, "extract": 185055, "match": true},
+      {"haven": "VGB", "month": "2022-10", "direction": "F3_table2", "raw": 61890, "extract": 61890, "match": true},
+      {"haven": "VGB", "month": "2026-04", "direction": "F4_table1", "raw": 376784, "extract": 376784, "match": true},
+      {"haven": "VGB", "month": "2026-04", "direction": "F3_table2", "raw": 58439, "extract": 58439, "match": true}
+    ],
+    "all_spot_checks_match": true,
+    "spot_check_note": "20 spot-checks across all 3 havens, both directions, and 4 months (2020-01 sample start, 2020-03 COVID stress, 2022-10 the 2022-episode trough, 2026-04 sample end). Every raw value equals the extract value exactly. Direction-to-table assignment confirmed: Table 1 -> F4, Table 2 -> F3."
+  },
+
+  "period_alignment": {
+    "n_months_each_series": 76,
+    "date_grid_identical_across_directions": true,
+    "first_month": "2020-01",
+    "last_month": "2026-04",
+    "check": "The recompute script (transform_robustness.py / sep_definitive_test.py) asserts [r['date'] for r in F3[c]['series']] == [r['date'] for r in F4[c]['series']] == the 76-month reference grid for every haven c, and the assertion passes. The 76 monthly observations align period-to-period across both directions (same labels, same ordering, 2020-01..2026-04).",
+    "aligned": true
+  },
+
+  "pairing_correct": "yes",
+  "pairing_correct_basis": "Traced to the raw tables with quoted titles: Table 1 ('U.S. Long-Term Securities Held by Foreign Residents') is the US-leg/F4 direction and Table 2 ('Foreign Long-Term Securities Held by U.S. Residents') is the offshore-exposure/F3 direction; the extract's F4_foreign_holdings_of_us_table1 / F3_us_holdings_of_foreign_table2 keys map to these correctly. Country codes CYM 36137, HKG 42005, VGB 35807 match. All 20 spot-checked values (3 havens x both directions x 4 months) equal the raw table rows exactly. The 76 monthly observations align period-to-period across the two directions. The within-holder pairing US-leg=F4[h] vs offshore=F3[h] that the load-bearing +0.362091 is computed from is correct.",
+
+  "coverage_limit": "TIC SLT carries ONLY US<->foreign legs. It records (Table 1) foreign residents' holdings of U.S. securities and (Table 2) U.S. residents' holdings of foreign securities. It therefore tests RESIDENCY co-movement between a haven's US-leg and the US's exposure to that haven. It CANNOT observe a foreign<->foreign reallocation (e.g. a haven holder's offshore-China-conduit exposure routed outside the United States, or a German holder's claim on Cayman) and it CANNOT observe a nationality-basis reallocation. In particular the China-NATIONALITY reallocation fraction f is invisible to this dataset (post-2020 nationality cells are NONE_AT_GRANULARITY per the acquisition record). This audit verifies the cells the load-bearing number is computed from; it does not -- and the underlying dataset cannot -- observe the nationality-basis or foreign-foreign reallocation that a true F3 substitution could in principle route around the US.",
+
+  "no_hazard_no_date": "This artifact makes NO hazard claim and NO date. It verifies a pairing and restates a coverage limit.",
+  "reproducibility": "Raw-table values quoted directly from slt_table1.txt / slt_table2.txt rows (country codes 36137/42005/35807); extract values from slt_haven_extract.json; period alignment from the recompute script's assertion over the 76-month grid."
+}

@@ -1,0 +1,101 @@
+{
+  "artifact": "sep_retest_nationality.json",
+  "task": "DP1-REOPEN CORRECTED Part 3 (OVERWRITE of the prior OPEN version) -- re-run the F3 (substitution) separability test driving the F3 direction with the NATIONALITY-RESOLVED series from the GCAP route-B calibration (Parts 1-2), NOT the residence proxy. OPEN-for-access is NO LONGER available (access is open; a nationality-weighted series CAN be computed). Verdict is F3-LOADS / STILL-GEOMETRIC-ONLY / (OPEN only for a different stated reason).",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "replaces": "Prior sep_retest_nationality.json returned OPEN on the grounds that nationality was a commercially-gated HOLE and the nationality F3 test could not run. That access framing was the Part-0 error. The nationality-resolved F3 driver IS computable from the free GCAP route-B shares, so OPEN-for-access is RETIRED; this re-runs the test with the GCAP-calibrated China-nationality series.",
+  "scope_limit": "Wrote build/audit/f_calibrated_gcap.json (Part 1), build/audit/f_measured_quarterly.json (Part 2 overwrite), this file (Part 3 overwrite), and build/audit/sep_retest_nationality_recompute_gcap.py. Did NOT modify the operator, dp3/dp4/dp5/geo_vs_emp/sep_definitive_test/china_fraction_bound/f_pin artifacts, the contracts, or the panel. DP6 NOT started. No hazard, no date, no bare probability, no identification verdict.",
+
+  "read_only_inputs": [
+    "build/audit/f_calibrated_gcap.json + build/audit/f_measured_quarterly.json (Parts 1-2: the GCAP-calibrated China-nationality series)",
+    "build/results/dp4_inputs.json (operator recipe DESTn/USAn/tau)",
+    "build/model/dp3_spec.json (F4 official_sector_respec backstop)",
+    "build/audit/sep_definitive_test.json + build/audit/geo_vs_emp_test.json (prior RESIDENCE GEOMETRIC_ONLY: +0.362 monthly TIC, +0.4664 CPIS, +0.981 quarterly N-PORT residence)",
+    "build/audit/f_pin_test.json (pinned f, operator geometry)"
+  ],
+
+  "TEST_DESIGN": {
+    "claim": "The nationality analog of the prior within-holder residence test: F3 substitution = the China-NATIONALITY leg of the haven pool RISES while the non-China haven leg FALLS (negative co-movement between the two), on the principled q-o-q log-change transform.",
+    "F3_driver_is_nationality_resolved": "The F3 direction is driven by the GCAP-calibrated China-nationality mass per quarter (Part 1, Fund Holdings primary), NOT the residence proxy. The within-pool pairing is: china_nationality_leg = calibrated China-nationality mass; nonchina_haven_leg = haven-pool value MINUS china-nationality mass. F3 (substitution) predicts these two move OPPOSITE (holder rotates from genuine-haven into China-conduit). Common growth predicts they move TOGETHER (positive).",
+    "transform": "q-o-q LOG-CHANGE over the 5 CONTIGUOUS calendar-quarter transitions (2019q3->q4, 2019q4->2020q1, 2020q1->q2, 2020q2->q3, 2022q1->q2); the two multi-quarter gaps (2020q3->2022q1, 2022q2->2024q4) are excluded.",
+    "SUBJECT_DRIVER": "Substitution is a flow concept; the principled transform is q-o-q log-change. The nationality-resolved leg replaces the residence leg as the F3 driver, exactly as the reopening required.",
+    "BOUNDARIES": "5 contiguous transitions, quarterly (coarser than the monthly residence test). GCAP shares are annual + frozen at 2020 for post-2020, so the nationality WEIGHTS are near-constant within the window -- the independent time-variation the calibration injects is quantified below.",
+    "FALSIFIER": "Recompute the cn-nationality-vs-nonchina-haven log-change correlation and obtain a different sign.",
+    "SOURCE": "build/audit/f_calibrated_gcap.json part1 series; build/audit/sep_retest_nationality_recompute_gcap.py (part3 blocks)."
+  },
+
+  "A_SUBSTITUTION_SIGN": {
+    "claim": "The within-pool substitution sign of the China-nationality-weighted series is POSITIVE (+0.521) -- the wrong sign for F3 substitution -- but markedly LESS positive than the residence proxy (+0.981).",
+    "cn_nationality_vs_nonchina_haven_logchange_corr": 0.520811,
+    "residence_proxy_chn_vs_haven_logchange_corr": 0.981297,
+    "per_transition_series": {
+      "transitions": ["2019q3->2019q4", "2019q4->2020q1", "2020q1->2020q2", "2020q2->2020q3", "2022q1->2022q2"],
+      "cn_nationality_logchange": [0.340861, -0.283408, 0.111299, 0.170520, -0.178046],
+      "nonchina_haven_logchange": [0.249278, 0.142521, 0.095068, 0.058987, -0.248762]
+    },
+    "SUBJECT_DRIVER": "The China-nationality leg and the non-China haven leg still co-move POSITIVELY (+0.52): both rise into 2019q4, both fall in the 2022 transition. The nationality weighting DID move the sign substantially DOWN from the residence proxy's +0.98 -- the single transition that separates them is 2019q4->2020q1, where the China-nationality leg falls (-0.283, driven by the HKG 2019->2020 share drop from 0.323 to 0.198 re-weighting Hong Kong down) while the non-China leg rises (+0.143). That one transition pulls the correlation from +0.98 toward +0.52. But the contemporaneous sign does NOT turn NEGATIVE: across the 5 transitions the two legs are positively correlated.",
+    "BOUNDARIES": "5 quarterly transitions, China-nationality leg via Fund-Holdings calibration. The one sign-separating transition (2019q4->2020q1) is partly a GCAP-vintage artifact (the HKG share step between the 2019 and 2020 GCAP vintages), not purely a holder reallocation -- noted honestly, not suppressed.",
+    "FALSIFIER": "Recompute and obtain corr < 0 (true negative substitution) for the cn-nationality-vs-nonchina-haven pair.",
+    "SOURCE": "build/audit/sep_retest_nationality_recompute_gcap.py part3_substitution_sign_cn_nationality_vs_nonchina_haven (+0.520811) and part3_substitution_sign_residence_proxy_chn_vs_haven (+0.981297)."
+  },
+
+  "B_FOOTPRINT_COSINE": {
+    "claim": "The footprint cosine between the China-nationality and non-China haven directions across the haven block is NEGATIVE (-0.144), well separated -- but, as in the prior residence test, footprint separation of average drift directions does NOT by itself establish substitution given the contemporaneous co-movement stays positive.",
+    "footprint_cosine_cn_vs_nonchina": -0.143966,
+    "SUBJECT_DRIVER": "The mean per-haven log-change direction of the China-nationality leg points differently from the non-China leg (cosine -0.14), echoing the prior monthly residence footprint drop (sep_definitive_test mean-direction -0.047). This reflects average-drift-direction divergence (the China-nationality mass and the non-China residual grow at different average rates across CYM/HKG/VGB), not a period-by-period substitution: the within-pool contemporaneous co-movement (part A) remains POSITIVE (+0.52).",
+    "BOUNDARIES": "Mean-direction footprint over 3 havens x 5 transitions; VGB China-mass is small so its leg is noisy. Read as average-drift divergence, not substitution.",
+    "FALSIFIER": "A footprint cosine near +0.94 (collinear, as Test B residence panel) under the nationality weighting.",
+    "SOURCE": "build/audit/sep_retest_nationality_recompute_gcap.py part3_footprint_cosine_cn_vs_nonchina."
+  },
+
+  "C_LEADLAG_QUARTERLY": {
+    "claim": "At quarterly resolution the lead/lag profile is dominated by a POSITIVE contemporaneous term (k=0: +0.521); a negative term appears only at k=-1 (-0.450), but with only 5 transitions no lead/lag is reliably estimable.",
+    "leadlag_cn_vs_nonchina": {"-1": -0.450094, "0": 0.520811, "1": -0.130207},
+    "resolution_note": "QUARTERLY -- COARSER than the prior monthly residence lead/lag test (sep_definitive_test peaked at k=0 monthly). With 5 contiguous transitions, the k=+/-1 correlations use 4 points and are not reliably estimable; the contemporaneous-positive (k=0 +0.52) reading is what the quarterly panel supports.",
+    "SUBJECT_DRIVER": "The contemporaneous term is positive (+0.52); the k=-1 negative (-0.45) would, if real, suggest the China-nationality leg leads the non-China leg downward, but it rests on 4 points and is not separable from noise at this resolution. No robust negative substitution lead/lag is established.",
+    "BOUNDARIES": "5 transitions; k=+/-1 on 4 points. Coarser than monthly.",
+    "FALSIFIER": "A robust negative correlation at a well-identified lead/lag with adequate n.",
+    "SOURCE": "build/audit/sep_retest_nationality_recompute_gcap.py part3_leadlag_quarterly_cn_vs_nonchina."
+  },
+
+  "INDEPENDENT_VARIATION_INJECTED": {
+    "claim": "The China-nationality series is LARGELY (but not entirely) a near-fixed reweighting of the haven-residence series: corr(cn-nationality log-change, haven-residence log-change) = +0.894.",
+    "corr_cn_nationality_vs_haven_residence_logchange": 0.893776,
+    "weight_drift_2019_to_2020_common_equity": {"CYM": {"2019": 0.858805, "2020": 0.826124}, "HKG": {"2019": 0.322882, "2020": 0.197849}, "VGB": {"2019": 0.026364, "2020": 0.024740}},
+    "SUBJECT_DRIVER": "Because GCAP shares are annual and frozen at 2020 for the post-2020 window, the per-haven nationality WEIGHTS barely move within the sample. The only real weight movement is the 2019->2020 vintage step (notably HKG 0.323->0.198). So the China-nationality series is ~0.89-correlated with the raw haven-residence series -- it is mostly a fixed reweighting (heavily Cayman-weighted), with the limited independent variation coming from (i) the 2019->2020 HKG share step and (ii) the differential per-haven asset mix the shares apply. The calibration injects MODEST independent time-variation: enough to pull the substitution sign from +0.98 (residence) to +0.52 (nationality), but NOT enough to flip it negative.",
+    "BOUNDARIES": "The 0.894 is the headline measure of how much the nationality weighting departs from residence; the residual ~0.11 of independent variation is concentrated in the 2019->2020 transition.",
+    "FALSIFIER": "Show corr(cn-nationality, haven-residence) near 1.0 (pure reweighting, no independent variation) or near 0 (fully independent).",
+    "SOURCE": "build/audit/sep_retest_nationality_recompute_gcap.py part3_independent_variation_injected + part3_weight_drift_2019_2020."
+  },
+
+  "OPERATOR_GEOMETRY_UNCHANGED": {
+    "claim": "The structurally-complete operator (F4 backstop respec, pinned f) is geometrically non-degenerate on the pinned rectangle, unchanged by this re-test (geometry is on paper; the empirical loading is what parts A-C test).",
+    "min_pinned_margin_base": 0.220969,
+    "min_pinned_margin_backstop_stress": 0.224911,
+    "SUBJECT_DRIVER": "The DP4 operator min pinned margin is 0.221 (base) / 0.225 (backstop-stress), >= tau 0.10, reproduced from sep_definitive_test.json. The F3-exclusive direction f*DESTn exists ON PAPER; this re-test asks only whether the nationality-resolved DATA move along it in the substitution sense -- they do not (positive contemporaneous sign).",
+    "BOUNDARIES": "Geometry carried forward from sep_definitive_test.json, not recomputed here; the empirical loading is the new content.",
+    "FALSIFIER": "A min pinned margin below tau under the backstop respec.",
+    "SOURCE": "build/audit/sep_definitive_test.json operator_with_backstop (base 0.220969, backstop-stress 0.224911)."
+  },
+
+  "VERDICT": {
+    "verdict": "STILL-GEOMETRIC-ONLY",
+    "verdict_SUBJECT_DRIVER": "Even with the F3 direction driven by the NATIONALITY-RESOLVED GCAP-calibrated China series (not residence), the within-pool substitution sign stays POSITIVE (+0.521 contemporaneous q-o-q log-change) -- the wrong sign for F3 substitution. The China-nationality leg and the non-China haven leg co-move positively (common growth), not oppositely (substitution). The footprint cosine separates (-0.144) and a k=-1 negative term appears (-0.450), but both are average-drift / under-identified signatures, not a robust negative contemporaneous substitution sign; REAL separability would require the negative contemporaneous sign, which FAILS. So nationality-resolved-via-calibration data do NOT load F3.",
+    "honest_note_on_calibration_residual": "This STILL-GEOMETRIC-ONLY is partly because the route-B calibration is LARGELY a near-fixed reweighting of the haven-residence series (corr +0.894): the annual, 2020-frozen GCAP shares inject only modest independent time-variation, concentrated in the 2019->2020 HKG-share step. The nationality weighting DID move the substitution sign from +0.981 (residence) to +0.521 (nationality) -- a material move in the right direction -- but not across zero. The residual that route-A PER-SECURITY tagging could still differ on is the WITHIN-HAVEN heterogeneity (which specific Cayman securities are China-parent and whether THOSE were sold while genuine-haven held); route B applies one share to all Cayman equity and so cannot see an intra-Cayman China-vs-nonChina rotation. That intra-haven substitution remains untestable by route B and is the honest residual; it is NOT a reason to reopen as OPEN-for-access (access is open and the nationality-weighted series WAS computed).",
+    "why_not_F3_LOADS": "The contemporaneous substitution sign is positive (+0.521), not negative; no negative sign was manufactured by methodology/asset/window selection (Fund Holdings is the principled panel-matched choice; EFH sensitivity agrees; the sign is positive under the principled log-change transform).",
+    "why_not_OPEN": "OPEN-for-access is NOT available: GCAP route-B access is open and a nationality-weighted China series WAS computed and DID drive the test (parts A-C). The test ran; it returned a determinate positive sign. The only residual route B cannot resolve (intra-haven per-security heterogeneity) is a GRANULARITY limit recorded as the honest residual, not an access HOLE, and it does not make the computed test indeterminate.",
+    "BOUNDARIES": "Scoped to the F3-separability question driven by the route-B-calibrated nationality series against the N-PORT quarterly panel (5 contiguous transitions, US-fund holders). Quarterly resolution is coarser than the monthly residence test. Does not reopen or close the on-paper geometric non-degeneracy.",
+    "FALSIFIER": "A route-A per-security nationality tag applied to this panel that yields a NEGATIVE contemporaneous within-pool substitution sign (China-parent haven securities sold while genuine-haven held), which would flip the verdict to F3-LOADS.",
+    "SOURCE": "build/audit/sep_retest_nationality_recompute_gcap.py (substitution sign +0.520811, residence proxy +0.981297, footprint -0.143966, leadlag, independent-variation +0.893776); build/audit/sep_definitive_test.json (operator geometry, prior residence GEOMETRIC_ONLY)."
+  },
+
+  "symmetric_error_self_check": {
+    "did_not_manufacture_F3_LOADS": "No methodology/asset-mapping/window was cherry-picked to flip the sign negative. Fund Holdings is the principled panel-matched methodology (only one covering all asset classes); Enhanced Fund Holdings sensitivity agrees; the principled log-change transform gives +0.521. The sign is reported as positive.",
+    "did_not_fall_back_to_residence": "The F3 driver is the GCAP-CALIBRATED China-NATIONALITY series, not the residence proxy. The residence proxy (+0.981) is reported ONLY as the comparison baseline to show the nationality weighting moved the sign (to +0.521); the verdict is read off the nationality series.",
+    "did_not_relapse_to_OPEN_for_access": "Access is open; the nationality-weighted series was computed and drove the test. OPEN-for-access is explicitly retired. The only residual (intra-haven per-security heterogeneity) is recorded as a route-B granularity limit, not an access HOLE.",
+    "every_number_from_disk": "All numbers are regenerated from the panel + Restatement_Matrices.dta by build/audit/sep_retest_nationality_recompute_gcap.py; the headline check (CYM->CHN=0.823155) passes exactly.",
+    "transcription_correction_crosscheck": "2026-06-29: the orchestrator executed the recompute script -> build/results/dp1reopen_corrected_verify.json, which reproduces the substitution sign +0.520811, residence proxy +0.981297, footprint -0.143966, and indep-variation +0.893776 from disk. This re-confirms the +0.521 sign uses the CORRECT 2022q2 china-nationality mass (160554995014.8), independent of the display-table transcription error that affected the 2022q2/2024q4 FH rows in f_calibrated_gcap.json / f_measured_quarterly.json (now corrected). The Part-3 statistic was always computed by the script from the correct mass, so the STILL-GEOMETRIC-ONLY verdict is unaffected by that correction."
+  },
+
+  "verdict_part3": "STILL-GEOMETRIC-ONLY. Driving the F3 direction with the GCAP-route-B-calibrated China-NATIONALITY series (not residence), the within-pool substitution sign is +0.521 (q-o-q log-change, contemporaneous) -- POSITIVE, the wrong sign for F3 substitution -- with footprint cosine -0.144 (average-drift separation) and an under-identified k=-1 negative term (-0.450) on 4 points. Nationality-resolved-via-calibration data do NOT load F3. The nationality weighting MOVED the sign materially from the residence proxy (+0.981 -> +0.521) but not across zero, and the China-nationality series is LARGELY a near-fixed reweighting of the haven-residence series (corr +0.894; GCAP shares annual/2020-frozen, modest independent variation concentrated in the 2019->2020 HKG-share step). The honest residual route B cannot resolve is INTRA-HAVEN per-security heterogeneity (which specific Cayman securities are China-parent), which route-A per-security tagging could still differ on -- recorded as a granularity limit, NOT an access HOLE. OPEN-for-access is retired (access open, nationality series computed and drove the test). Verdict is NOT F3-LOADS (positive sign, not manufactured) and NOT OPEN."
+}

@@ -1,0 +1,354 @@
+{
+  "artifact": "panel_crosswalk_tagged_verify",
+  "generated_by": "build/data/nport/panel_crosswalk_tagged_recompute.py (no network)",
+  "tagged_panel_path": "/home/user/dollar-breaking-point/build/data/nport/panel_crosswalk_tagged.parquet",
+  "shape": {
+    "rows": 663325,
+    "cols": 9,
+    "columns": [
+      "cusip",
+      "isin",
+      "cusip6",
+      "issuer_name",
+      "issuer_lei",
+      "residence_iso3",
+      "parent_nationality",
+      "rules_fired",
+      "currency_value"
+    ]
+  },
+  "panel_haven": {
+    "rows": 663325,
+    "value_converted": 3422538903582.471
+  },
+  "marginal_row_check": {
+    "haven_rows_expected": 663325,
+    "haven_rows_in_output": 663325,
+    "rows_match": true,
+    "value_in_output": 3422538903582.471,
+    "value_matches_panel_haven": true
+  },
+  "per_rule_counts": {
+    "R4_QCC_CN_segment": 8805,
+    "R1_HFCAA": 56041,
+    "R2_XBRL_VIE_CN": 12861,
+    "R3_F6_20F_CN": 9347
+  },
+  "per_rule_value": {
+    "R4_QCC_CN_segment": 111667034179.18796,
+    "R1_HFCAA": 661063837959.5797,
+    "R2_XBRL_VIE_CN": 353365687790.94183,
+    "R3_F6_20F_CN": 299864516177.22595
+  },
+  "per_rule_value_share_of_haven": {
+    "R4_QCC_CN_segment": 0.03262695832684409,
+    "R1_HFCAA": 0.19315013111103718,
+    "R2_XBRL_VIE_CN": 0.1032466533604815,
+    "R3_F6_20F_CN": 0.08761464065853247
+  },
+  "cn_tagged_total": {
+    "rows": 64057,
+    "value": 760982259508.255,
+    "value_share_of_haven": 0.2223443709322669
+  },
+  "hfcaa_reconciliation": {
+    "note": "Part-1 reported 134 HFCAA names matched (16.24% of haven value, 555,977,880,166). Part-4 LEAK FIX (HTML-entity decode) recovers the issuers whose conclusive-list name carried an undecoded '&nbsp;' and so never name-matched (NetEase, ZTO Express, VNET, Youdao, MINISO, Chindata, China Southern Air, +others). Match is now re-derived from real SEC files.",
+    "hfcaa_CIIs_matched_to_panel": 148,
+    "hfcaa_value_resolved": 623076735598.6586,
+    "hfcaa_value_share_of_haven": 0.18205103087256833,
+    "R1_rows_tagged_in_panel": 56041,
+    "R1_value_tagged_in_panel": 661063837959.5797,
+    "R1_value_share_of_haven": 0.19315013111103718,
+    "name_only_matches_not_driving_flag": 0,
+    "leak_fix_delta_vs_prior_match_file": {
+      "prior_matched_CII_count": 134,
+      "corrected_matched_CII_count": 148,
+      "regressions_prior_matched_now_unmatched": [],
+      "newly_matched_CII_count": 14,
+      "newly_matched_rows": 3918,
+      "newly_matched_value": 45474840119.96762,
+      "newly_matched_detail": [
+        {
+          "cik": 1026662,
+          "hfcaa_name": "Euro Tech Holdings Company Limited",
+          "rows": 5,
+          "value": 18781.0,
+          "cusip6": [],
+          "isin": [
+            "VGG320301275"
+          ],
+          "lei": []
+        },
+        {
+          "cik": 1041668,
+          "hfcaa_name": "China Southern Airlines Company Limited&nbsp;",
+          "rows": 62,
+          "value": 235464504.01411906,
+          "cusip6": [
+            "601369"
+          ],
+          "isin": [
+            "CNE1000002T6"
+          ],
+          "lei": [
+            "529900AJQ1Q18ABYVX84"
+          ]
+        },
+        {
+          "cik": 1110646,
+          "hfcaa_name": "NetEase,&nbsp;Inc.",
+          "rows": 2409,
+          "value": 32796255839.913437,
+          "cusip6": [
+            "64110W",
+            "BM93SF",
+            "G6427A"
+          ],
+          "isin": [
+            "KYG6427A1022",
+            "US64110W1027"
+          ],
+          "lei": [
+            "5299004AF4DSJDB0PA32"
+          ]
+        },
+        {
+          "cik": 1381074,
+          "hfcaa_name": "Fuwei Films (Holdings) Co., Ltd.",
+          "rows": 6,
+          "value": 124339.56,
+          "cusip6": [],
+          "isin": [
+            "KYG3704F1101"
+          ],
+          "lei": [
+            "529900XXKPHF6K3K8P23"
+          ]
+        },
+        {
+          "cik": 1470683,
+          "hfcaa_name": "Antelope Enterprises Holdings Limited",
+          "rows": 2,
+          "value": 26510.52,
+          "cusip6": [],
+          "isin": [
+            "VGG041JN1065"
+          ],
+          "lei": []
+        },
+        {
+          "cik": 1508475,
+          "hfcaa_name": "VNET Group,&nbsp;Inc.",
+          "rows": 143,
+          "value": 234573733.47000006,
+          "cusip6": [
+            "90138A",
+            "90138V"
+          ],
+          "isin": [
+            "US90138A1034",
+            "US90138VAB36"
+          ],
+          "lei": [
+            "529900672GYJQ3T38I58"
+          ]
+        },
+        {
+          "cik": 1597095,
+          "hfcaa_name": "Tuniu Corporation",
+          "rows": 70,
+          "value": 4265104.499999999,
+          "cusip6": [
+            "89977P"
+          ],
+          "isin": [
+            "US89977P1066"
+          ],
+          "lei": [
+            "529900H3I6TN4LFDZP44"
+          ]
+        },
+        {
+          "cik": 1677250,
+          "hfcaa_name": "ZTO Express (Cayman) Inc.&nbsp;",
+          "rows": 984,
+          "value": 11911644599.14999,
+          "cusip6": [
+            "98980A",
+            "BMZ1C8",
+            "G9897K"
+          ],
+          "isin": [
+            "KYG9897K1058",
+            "US98980A1051",
+            "US98980AAB17"
+          ],
+          "lei": [
+            "549300SCJPK3YZJTJR78"
+          ]
+        },
+        {
+          "cik": 1724542,
+          "hfcaa_name": "CLPS Incorporation",
+          "rows": 6,
+          "value": 34281.0,
+          "cusip6": [],
+          "isin": [
+            "KYG316421042"
+          ],
+          "lei": [
+            "5493001SK6OL0NWMTW78"
+          ]
+        },
+        {
+          "cik": 1734262,
+          "hfcaa_name": "CooTek (Cayman) Inc.",
+          "rows": 8,
+          "value": 241178.82,
+          "cusip6": [
+            "21718L"
+          ],
+          "isin": [
+            "US21718L1026",
+            "US21718L2016"
+          ],
+          "lei": [
+            "549300KWTVBL1XCBM775"
+          ]
+        },
+        {
+          "cik": 1781753,
+          "hfcaa_name": "Youdao,&nbsp;Inc.",
+          "rows": 34,
+          "value": 12914402.94,
+          "cusip6": [
+            "98741T"
+          ],
+          "isin": [
+            "US98741T1043"
+          ],
+          "lei": []
+        },
+        {
+          "cik": 1807192,
+          "hfcaa_name": "Chindata Group Holdings Limited&nbsp;",
+          "rows": 93,
+          "value": 95807593.59999998,
+          "cusip6": [
+            "16955F"
+          ],
+          "isin": [
+            "US16955F1075"
+          ],
+          "lei": [
+            "655600DHYORMZZMVIW64"
+          ]
+        },
+        {
+          "cik": 1815846,
+          "hfcaa_name": "MINISO Group Holding Limited&nbsp;",
+          "rows": 92,
+          "value": 183439454.9199999,
+          "cusip6": [
+            "66981J",
+            "G6180F"
+          ],
+          "isin": [
+            "KYG6180F1081",
+            "US66981J1025"
+          ],
+          "lei": [
+            "2549006PIKT2YKNBL092"
+          ]
+        },
+        {
+          "cik": 1864055,
+          "hfcaa_name": "Moxian (BVI) Inc",
+          "rows": 4,
+          "value": 29796.559999999998,
+          "cusip6": [],
+          "isin": [
+            "VGG6S34K1052"
+          ],
+          "lei": []
+        }
+      ]
+    }
+  },
+  "qcc_sanity_check": {
+    "gleif_doc_quote": "QCC = 'QCC Global Enterprise Identifier' assigned by Qichacha, a database of 'more than 500 million legal entities in over 200 countries and regions' -- NOT a Chinese registration-authority code.",
+    "haven_leis_total": 3434,
+    "haven_leis_carrying_any_qcc": 2932,
+    "haven_leis_qcc_country_segment_dist": {
+      "BM": 87,
+      "KY": 1993,
+      "HK": 195,
+      "JE": 22,
+      "GB": 25,
+      "VG": 305,
+      "US": 89,
+      "CN": 155,
+      "AU": 6,
+      "RU": 1,
+      "MT": 1,
+      "MY": 2,
+      "SG": 3,
+      "NO": 1,
+      "IN": 2,
+      "JP": 3,
+      "DE": 3,
+      "IE": 7,
+      "LU": 7,
+      "HU": 1,
+      "TW": 1,
+      "TH": 3,
+      "CA": 2,
+      "BR": 3,
+      "AE": 2,
+      "MH": 1,
+      "CY": 1,
+      "SE": 1,
+      "CH": 3,
+      "ES": 1,
+      "SA": 1,
+      "KR": 1,
+      "NL": 1,
+      "NZ": 1,
+      "FR": 2
+    },
+    "haven_leis_qcc_CN_segment": 155,
+    "verdict": "'carries any QCC code' is SPURIOUS: 85% of haven LEIs carry one and the segment is mostly KY/VG/HK, not CN. R4 RESTRICTED to QCC CN-segment (155 haven LEIs), which are genuine China H-share/red-chip names."
+  },
+  "clo_cross_check": {
+    "clo_tokens": [
+      "MADISON PARK",
+      "PALMER SQUARE",
+      "CARLYLE",
+      "DRYDEN",
+      "VOYA",
+      "TICP",
+      "SOUND POINT",
+      "CIFC",
+      "CERBERUS",
+      "MILLENNIUM",
+      "ELLIOTT"
+    ],
+    "distinct_clo_leis_in_haven": 178,
+    "clo_leis_carrying_any_qcc": 175,
+    "clo_qcc_country_segment_dist": {
+      "KY": 166,
+      "IE": 4,
+      "VG": 1,
+      "US": 3,
+      "JE": 1
+    },
+    "clo_leis_with_qcc_CN_segment": 0,
+    "outcome": "Non-Chinese CLO/hedge-fund LEIs DO carry QCC codes (would be spuriously China-tagged by 'any QCC'), but their QCC segment is QKY/QVG/QJE/QUS, NOT QCN -- so the restricted R4 (CN-segment only) does NOT tag them. Spurious-tag count under restricted R4 = 0."
+  },
+  "caveats": {
+    "equity_lei_reach": "R4 reach is capped by LEI presence: 79% of haven value carries an LEI; the 21% LEI-less value is unreachable by QCC/OC.",
+    "opencorporates": "OC adds 0 China-register rows for haven LEIs; not used for R4.",
+    "name_only_hfcaa": "HFCAA matches with no resolved identifier are recorded as name-only and do NOT drive the CN flag; count=0",
+    "residence_retained": "residence_iso3 retained beside parent_nationality for audit."
+  }
+}

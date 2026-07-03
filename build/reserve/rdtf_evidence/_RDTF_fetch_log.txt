@@ -1,0 +1,32 @@
+RDT-F Phase 1 grounding — fetch and retention log
+Date: 2026-07-02
+
+FETCHES (new, this stage):
+2026-07-02 | https://www.federalreserve.gov/releases/h41/current/h41.htm | HTTP 200, 701152 bytes | -> frb_h41_current_20260702.htm
+    Release identity: Federal Reserve statistical release H.4.1, "Factors Affecting Reserve Balances of Depository
+    Institutions and Condition Statement of Federal Reserve Banks", release dated June 25, 2026 (week ended June 24, 2026).
+    sha256: 40a9e2f3f69ac286a001cfb342ea62a66dd92dfa8f4ba551a50580f6e1fb61d4
+    Note: byte-identical in size (701152) to the earlier same-day RDT-E fetch build/reserve/rdte_evidence/frb_h41_current.htm
+    but different sha256 (e828e2f6...) — the publisher page embeds request-varying content; the quoted footnote text and all
+    memo-table figures were verified identical in both copies.
+
+EXTRACTIONS (derived locally from retained publisher files; NOT fetches — reading aids only, quotes verified against raw sources):
+frb_h41_table1A_memo_extract.txt      <- rdtf_evidence/frb_h41_current_20260702.htm (Table 1A Memorandum Items region)
+tic_faq2_extracted.txt                <- build/reserve/rdtd_evidence/tic_faq2.html
+    (publisher URL https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/frequently-asked-questions-regarding-the/ticfaq2 , fetched 2026-07-02 per RDTD fetch log line 197)
+tic_secb_live_extracted.txt           <- build/reserve/rdtb_evidence/tic_secb_live.html
+    (publisher URL https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/securities-b-portfolio-holdings-of-us-and-foreign-securities , fetched 2026-07-02T02:57:13Z per RDTB fetch log line 2)
+method_mfh_legacy_extracted.txt       <- build/reserve/rdte_evidence/method_mfh_legacy.html
+    (publisher URL http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx , fetched 2026-07-02T14:36:45Z per RDTE fetch log line 6)
+
+RETAINED PUBLISHER FILES RELIED ON, ALREADY ON DISK FROM PRIOR STAGES (read-only in this stage):
+build/reserve/rdtb_evidence/shl2025r.pdf                and its extraction build/reserve/rdtb_evidence/shl2025r_extracted.txt
+    (https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2025r.pdf , fetched 2026-07-02T02:59:34Z per RDTB fetch log)
+build/reserve/rdtd_evidence/tic_faq2.html               (URL and date above)
+build/reserve/rdtb_evidence/tic_secb_live.html          (URL and date above)
+build/reserve/rdte_evidence/method_mfh_legacy.html      (URL and date above)
+build/reserve/rdte_evidence/frb_h41_current.htm         (https://www.federalreserve.gov/releases/h41/current/h41.htm , fetched 2026-07-02T14:36:16Z per RDTE fetch log)
+build/reserve/rdt_evidence/tic/mfhhis01.txt             (https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.txt , fetched 2026-07-01T23:50:58Z per RDT fetch log)
+build/reserve/rdt_evidence/tic/slt_table3.txt           (https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt , fetched 2026-07-01T23:52:49Z per RDT fetch log)
+build/reserve/rdte_evidence/slt_table5_live.txt         (https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt , fetched 2026-07-02T14:35:23Z per RDTE fetch log)
+build/data/treasury_tic/current/slt2d.txt               (TIC Table 2D snapshot, on-disk copy 2026-06-29 per rdtb_a_provenance.md)

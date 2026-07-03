@@ -1,0 +1,171 @@
+{
+  "artifact": "cm_sources",
+  "generated": "2026-06-30",
+  "purpose": "External series merged into build/data/cm_panel/cm_weight_panel.parquet for the Converse-Mallucci F3 weight regression.",
+  "panel_quarters": [
+    "2019q3",
+    "2019q4",
+    "2020q1",
+    "2020q2",
+    "2020q3",
+    "2022q1",
+    "2022q2",
+    "2024q4"
+  ],
+  "series": {
+    "GPRC_China": {
+      "status": "FETCHED",
+      "name": "Caldara-Iacoviello country-specific Geopolitical Risk index, China",
+      "url": "https://www.matteoiacoviello.com/gpr_files/data_gpr_export.xls",
+      "source_page": "https://www.matteoiacoviello.com/gpr_country.htm",
+      "real_schema_confirmed": {
+        "column_header": "GPRC_CHN",
+        "also_present": "GPRHC_CHN (historical variant)",
+        "file_shape": "1517 rows x 115 cols",
+        "month_col": "month (monthly, 1900-2026)",
+        "GPRC_CHN_nonnull_range": "1985-01 to 2026-05 (n=497)",
+        "sample_monthly_values_confirmed": {
+          "2019-07": 0.75657,
+          "2019-08": 1.216707,
+          "2020-01": 1.257445,
+          "2022-q1_spike": "2.47 end-Mar-2022",
+          "2024-12": 0.841505
+        }
+      },
+      "collapse_monthly_to_quarterly": "BOTH: quarter-average (gprc_avg) AND end-of-quarter month (gprc_end)",
+      "quarterly_values": {
+        "2019q3": {
+          "gprc_avg": 0.8998717864,
+          "gprc_end": 0.726338625
+        },
+        "2019q4": {
+          "gprc_avg": 0.6258469423,
+          "gprc_end": 0.6018832922
+        },
+        "2020q1": {
+          "gprc_avg": 0.9341865182,
+          "gprc_end": 0.6712844372
+        },
+        "2020q2": {
+          "gprc_avg": 0.7118718624,
+          "gprc_end": 0.7705795765
+        },
+        "2020q3": {
+          "gprc_avg": 0.8169782956,
+          "gprc_end": 0.8603692651
+        },
+        "2022q1": {
+          "gprc_avg": 1.5899364352,
+          "gprc_end": 2.4747231007
+        },
+        "2022q2": {
+          "gprc_avg": 0.995490253,
+          "gprc_end": 0.8535436988
+        },
+        "2024q4": {
+          "gprc_avg": 0.9419582486,
+          "gprc_end": 0.8415049911
+        }
+      },
+      "SOURCE": "Caldara, Dario and Matteo Iacoviello (2022), 'Measuring Geopolitical Risk', American Economic Review 112(4). Country file data_gpr_export.xls, column GPRC_CHN. Fetched 2026-06-30."
+    },
+    "VIX": {
+      "status": "FETCHED",
+      "name": "CBOE Volatility Index (control: log VIX)",
+      "fred_id": "VIXCLS",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS",
+      "real_schema_confirmed": {
+        "header": "observation_date,VIXCLS",
+        "first_obs": "2019-01-02,23.22"
+      },
+      "collapse": "quarterly average of daily; log taken for regressor log_vix",
+      "quarterly_values": {
+        "2019q3": 2.7700953821,
+        "2019q4": 2.6380411885,
+        "2020q1": 3.4412035596,
+        "2020q2": 3.5407752721,
+        "2020q3": 3.2507196358,
+        "2022q1": 3.2336818025,
+        "2022q2": 3.3104859862,
+        "2024q4": 2.8543547961
+      },
+      "transform": "log_vix = ln(quarterly-avg VIXCLS)",
+      "SOURCE": "FRED VIXCLS (CBOE via St. Louis Fed). Fetched 2026-06-30."
+    },
+    "broad_dollar": {
+      "status": "FETCHED",
+      "name": "Nominal Broad US Dollar Index",
+      "fred_id": "DTWEXBGS",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS",
+      "real_schema_confirmed": {
+        "header": "observation_date,DTWEXBGS",
+        "first_obs": "2019-01-02,115.7689"
+      },
+      "collapse": "quarterly average of daily",
+      "quarterly_values": {
+        "2019q3": 116.4749046875,
+        "2019q4": 116.4137672131,
+        "2020q1": 117.7559306452,
+        "2020q2": 121.8336421875,
+        "2020q3": 117.3474875,
+        "2022q1": 115.4901935484,
+        "2022q2": 118.9635650794,
+        "2024q4": 125.7758580645
+      },
+      "SOURCE": "FRED DTWEXBGS (Federal Reserve Board H.10). Fetched 2026-06-30."
+    },
+    "oil": {
+      "status": "FETCHED",
+      "name": "WTI Crude Oil spot price",
+      "fred_id": "DCOILWTICO",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DCOILWTICO",
+      "real_schema_confirmed": {
+        "header": "observation_date,DCOILWTICO",
+        "first_obs": "2019-01-02,46.31"
+      },
+      "collapse": "quarterly average of daily",
+      "quarterly_values": {
+        "2019q3": 56.3363492063,
+        "2019q4": 56.8449206349,
+        "2020q1": 45.3351612903,
+        "2020q2": 27.9604761905,
+        "2020q3": 40.89171875,
+        "2022q1": 95.1803225806,
+        "2022q2": 108.8343548387,
+        "2024q4": 70.7290322581
+      },
+      "SOURCE": "FRED DCOILWTICO (EIA via St. Louis Fed). Fetched 2026-06-30."
+    },
+    "relative_returns": {
+      "status": "FETCHED_PROXY",
+      "name": "CM valuation control: return on CN-nationality holdings relative to rest of foreign portfolio",
+      "construction": "MCHI (iShares MSCI China ETF, adjusted-close = total return incl. dividends) quarterly return MINUS ACWX (iShares MSCI ACWI ex-US ETF, adjusted-close TR) quarterly return. Quarter return = adjclose_last/adjclose_first - 1 within each fiscal quarter.",
+      "url": [
+        "https://query1.finance.yahoo.com/v8/finance/chart/MCHI",
+        "https://query1.finance.yahoo.com/v8/finance/chart/ACWX"
+      ],
+      "real_schema_confirmed": {
+        "MCHI": "chart.result[0].indicators.adjclose present, n=1569 daily obs from 2019",
+        "ACWX": "adjclose present"
+      },
+      "quarterly_values": {
+        "2019q3": -0.0529049305,
+        "2019q4": 0.0662868107,
+        "2020q1": 0.1071714842,
+        "2020q2": -0.0304607802,
+        "2020q3": 0.0655495152,
+        "2022q1": -0.0919940508,
+        "2022q2": 0.157805913,
+        "2024q4": -0.024989857
+      },
+      "LIMITATIONS": "(1) MCHI is an MSCI China equity ETF, a PROXY for CN-nationality haven exposure (which spans ADRs/H-shares/red-chips; MCHI covers most but not all). (2) ACWX (ACWI ex-US) is a broad-foreign proxy, not the exact non-China-haven portfolio composition. (3) Both are USD-denominated TR ETFs, so FX is embedded. This is the best available FREE relative-valuation proxy; the regression is also run WITHOUT relative_returns as a robustness check.",
+      "SOURCE": "Yahoo Finance v8 chart API, MCHI and ACWX adjusted close. Fetched 2026-06-30."
+    }
+  },
+  "fx_dict_used": {
+    "USD": 1.0,
+    "HKD_per_USD": 7.8,
+    "note": "HKMA Linked-Exchange-Rate peg midpoint; minor-currency fixed rates per build/audit/freemap_coverage_recompute.py MINOR_RATES (TWD30,EUR0.90,...). Identical to the FX dict used in panel_crosswalk_tagged construction."
+  },
+  "alignment_verification": "cm_weight_panel re-attaches holder=cik|series_id and fiscal_quarter from the SOURCE panel haven subset by the documented positional alignment; verified currency_value byte-identical row-for-row (max abs diff 0.0) AND issuer_name/cusip/isin identical before trusting."
+}

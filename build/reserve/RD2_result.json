@@ -1,0 +1,1194 @@
+{
+  "SOURCE": "build/reserve/RD2_gold_panel.parquet (3,444 rows = 123 countries x 28 quarters, 2019Q1-2025Q4; DV=net_gold_purchases_tonnes). Treated/control from the panel's ES-11/1-vote-based treated flag. Coefficients read from the numpy estimator in RD2_recompute.py; NOT hardcoded.",
+  "china_case": {
+    "accum_2022Q3_to_2025Q4_tonnes": 357.99000000000024,
+    "accum_2022Q4_to_2025Q4_tonnes": 295.7900000000002,
+    "first_material_buy_quarter": "2022Q4",
+    "first_material_buy_tonnes": 62.200000000000045,
+    "flat_through_2022Q3": true,
+    "freeze_quarter": "2022Q1",
+    "gold_tonnes_2021Q4": 1948.31,
+    "gold_tonnes_2022Q3_prebuy": 1948.31,
+    "gold_tonnes_2022Q4": 2010.51,
+    "gold_tonnes_2025Q4": 2306.3,
+    "lag_quarters_freeze_to_first_buy": 3,
+    "observed": true,
+    "timing_note": "PBoC gold reserve flat at 1948.31t from 2021Q4 through 2022Q3 (2 quarters AFTER the Feb-2022 freeze), then +62.2t in 2022Q4. Accumulation LAGS the freeze by ~3 quarters; it is not contemporaneous with 2022Q1."
+  },
+  "confound1_per_quarter_means": {
+    "note": "Raw treated-mean vs control-mean net tonnage per quarter (no FE). Shows whether the post-2022 surge is universal (both arms up) or treated-concentrated. The DiD (quarter FE) adjudicates the DIFFERENTIAL.",
+    "quarters": {
+      "2019Q1": {
+        "control_mean_tonnes": null,
+        "control_sum_tonnes": null,
+        "n_control": 0,
+        "n_treated": 0,
+        "post_freeze": 0,
+        "treated_mean_tonnes": null,
+        "treated_sum_tonnes": null
+      },
+      "2019Q2": {
+        "control_mean_tonnes": 1.2295294117647109,
+        "control_sum_tonnes": 104.51000000000043,
+        "n_control": 85,
+        "n_treated": 22,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 4.839090909090884,
+        "treated_sum_tonnes": 106.45999999999944
+      },
+      "2019Q3": {
+        "control_mean_tonnes": 0.7894047619047629,
+        "control_sum_tonnes": 66.31000000000009,
+        "n_control": 84,
+        "n_treated": 22,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 2.646818181818198,
+        "treated_sum_tonnes": 58.23000000000036
+      },
+      "2019Q4": {
+        "control_mean_tonnes": 0.6670238095238064,
+        "control_sum_tonnes": 56.02999999999973,
+        "n_control": 84,
+        "n_treated": 22,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 2.5590909090908998,
+        "treated_sum_tonnes": 56.2999999999998
+      },
+      "2020Q1": {
+        "control_mean_tonnes": 0.8405882352941189,
+        "control_sum_tonnes": 71.4500000000001,
+        "n_control": 85,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 1.2655000000000092,
+        "treated_sum_tonnes": 25.310000000000183
+      },
+      "2020Q2": {
+        "control_mean_tonnes": 0.4602352941176487,
+        "control_sum_tonnes": 39.12000000000014,
+        "n_control": 85,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 0.02599999999999003,
+        "treated_sum_tonnes": 0.5199999999998006
+      },
+      "2020Q3": {
+        "control_mean_tonnes": -0.06658823529412367,
+        "control_sum_tonnes": -5.660000000000512,
+        "n_control": 85,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 0.34750000000000975,
+        "treated_sum_tonnes": 6.950000000000195
+      },
+      "2020Q4": {
+        "control_mean_tonnes": -0.11635294117646913,
+        "control_sum_tonnes": -9.889999999999876,
+        "n_control": 85,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 0.4690000000000059,
+        "treated_sum_tonnes": 9.380000000000118
+      },
+      "2021Q1": {
+        "control_mean_tonnes": 1.5287058823529405,
+        "control_sum_tonnes": 129.93999999999994,
+        "n_control": 85,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 0.6954999999999922,
+        "treated_sum_tonnes": 13.909999999999844
+      },
+      "2021Q2": {
+        "control_mean_tonnes": 2.053571428571432,
+        "control_sum_tonnes": 172.50000000000028,
+        "n_control": 84,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": -0.385000000000003,
+        "treated_sum_tonnes": -7.700000000000061
+      },
+      "2021Q3": {
+        "control_mean_tonnes": -0.030833333333330857,
+        "control_sum_tonnes": -2.589999999999792,
+        "n_control": 84,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 3.158000000000014,
+        "treated_sum_tonnes": 63.16000000000028
+      },
+      "2021Q4": {
+        "control_mean_tonnes": 0.003690476190475086,
+        "control_sum_tonnes": 0.30999999999990724,
+        "n_control": 84,
+        "n_treated": 20,
+        "post_freeze": 0,
+        "treated_mean_tonnes": 0.41949999999998094,
+        "treated_sum_tonnes": 8.389999999999619
+      },
+      "2022Q1": {
+        "control_mean_tonnes": 0.9340476190476195,
+        "control_sum_tonnes": 78.46000000000004,
+        "n_control": 84,
+        "n_treated": 20,
+        "post_freeze": 1,
+        "treated_mean_tonnes": -1.4649999999999963,
+        "treated_sum_tonnes": -29.299999999999926
+      },
+      "2022Q2": {
+        "control_mean_tonnes": 0.43285714285714233,
+        "control_sum_tonnes": 36.35999999999996,
+        "n_control": 84,
+        "n_treated": 20,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 3.9519999999999937,
+        "treated_sum_tonnes": 79.03999999999988
+      },
+      "2022Q3": {
+        "control_mean_tonnes": 0.9513095238095182,
+        "control_sum_tonnes": 79.90999999999953,
+        "n_control": 84,
+        "n_treated": 20,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 1.134000000000011,
+        "treated_sum_tonnes": 22.68000000000022
+      },
+      "2022Q4": {
+        "control_mean_tonnes": 0.8292771084337365,
+        "control_sum_tonnes": 68.83000000000013,
+        "n_control": 83,
+        "n_treated": 20,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 2.2489999999999895,
+        "treated_sum_tonnes": 44.97999999999979
+      },
+      "2023Q1": {
+        "control_mean_tonnes": 1.079397590361446,
+        "control_sum_tonnes": 89.59000000000002,
+        "n_control": 83,
+        "n_treated": 19,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 1.9536842105263303,
+        "treated_sum_tonnes": 37.120000000000275
+      },
+      "2023Q2": {
+        "control_mean_tonnes": -0.41493975903614055,
+        "control_sum_tonnes": -34.439999999999664,
+        "n_control": 83,
+        "n_treated": 18,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 2.0561111111111106,
+        "treated_sum_tonnes": 37.00999999999999
+      },
+      "2023Q3": {
+        "control_mean_tonnes": 1.4559036144578286,
+        "control_sum_tonnes": 120.83999999999976,
+        "n_control": 83,
+        "n_treated": 18,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 5.046666666666661,
+        "treated_sum_tonnes": 90.83999999999989
+      },
+      "2023Q4": {
+        "control_mean_tonnes": 1.0010843373493976,
+        "control_sum_tonnes": 83.09,
+        "n_control": 83,
+        "n_treated": 19,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 0.9878947368420938,
+        "treated_sum_tonnes": 18.769999999999783
+      },
+      "2024Q1": {
+        "control_mean_tonnes": 0.258192771084335,
+        "control_sum_tonnes": 21.429999999999808,
+        "n_control": 83,
+        "n_treated": 18,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 3.7738888888888846,
+        "treated_sum_tonnes": 67.92999999999992
+      },
+      "2024Q2": {
+        "control_mean_tonnes": -0.024578313253009042,
+        "control_sum_tonnes": -2.0399999999997505,
+        "n_control": 83,
+        "n_treated": 18,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 1.0783333333333573,
+        "treated_sum_tonnes": 19.410000000000434
+      },
+      "2024Q3": {
+        "control_mean_tonnes": 0.9700000000000043,
+        "control_sum_tonnes": 80.51000000000036,
+        "n_control": 83,
+        "n_treated": 17,
+        "post_freeze": 1,
+        "treated_mean_tonnes": -0.1770588235294196,
+        "treated_sum_tonnes": -3.010000000000133
+      },
+      "2024Q4": {
+        "control_mean_tonnes": 0.7115662650602405,
+        "control_sum_tonnes": 59.05999999999996,
+        "n_control": 83,
+        "n_treated": 18,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 3.192222222222208,
+        "treated_sum_tonnes": 57.45999999999974
+      },
+      "2025Q1": {
+        "control_mean_tonnes": 0.7779518072289151,
+        "control_sum_tonnes": 64.56999999999995,
+        "n_control": 83,
+        "n_treated": 17,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 0.9088235294117891,
+        "treated_sum_tonnes": 15.450000000000415
+      },
+      "2025Q2": {
+        "control_mean_tonnes": 0.4257499999999981,
+        "control_sum_tonnes": 34.059999999999846,
+        "n_control": 80,
+        "n_treated": 17,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 1.7452941176470746,
+        "treated_sum_tonnes": 29.670000000000268
+      },
+      "2025Q3": {
+        "control_mean_tonnes": 0.5783544303797469,
+        "control_sum_tonnes": 45.690000000000005,
+        "n_control": 79,
+        "n_treated": 15,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 2.1046666666666627,
+        "treated_sum_tonnes": 31.56999999999994
+      },
+      "2025Q4": {
+        "control_mean_tonnes": 0.6483783783783781,
+        "control_sum_tonnes": 47.979999999999976,
+        "n_control": 74,
+        "n_treated": 13,
+        "post_freeze": 1,
+        "treated_mean_tonnes": 1.683846153846147,
+        "treated_sum_tonnes": 21.88999999999991
+      }
+    }
+  },
+  "contract": "RD2 \u2014 Surface 2 (gold): Feb-2022 freeze DiD / event-study on net gold purchases (physical TONNES).",
+  "date": "2026-07-01",
+  "decision": {
+    "inputs": {
+      "beta_headline": 0.10394568824722938,
+      "beta_positive_and_significant": false,
+      "beta_robust": 0.34338300533038435,
+      "beta_robust_positive_and_significant": false,
+      "ci95_headline": [
+        -2.352772513551069,
+        2.560663890045528
+      ],
+      "ci_contains_meaningful_move": false,
+      "ci_contains_zero": true,
+      "gerrymander_sensitive": false,
+      "meaningful_move_tonnes_per_qtr": 5.0,
+      "p_headline": 0.9339078765869677,
+      "p_robust": 0.7755829216278498,
+      "pretrend_p_headline": 0.220999251594801,
+      "pretrend_violated": false,
+      "price_dominates_treated_value_rise": true,
+      "underpowered": false
+    },
+    "note": "Verdict computed mechanically from the estimator; sign-agnostic. beta reported at whatever sign.",
+    "reason": "Headline Treated x Post beta not positive-significant (0.104 t/qtr, p=0.9339) with a flat pre-trend; no treated-vs-control tonnage differential once the universal surge (quarter FE) is stripped.",
+    "verdict": "GOLD-NULL"
+  },
+  "decomposition_confound2": {
+    "china": {
+      "dValue_musd": 81919.50141344663,
+      "d_tonnes": 331.25,
+      "interaction_musd": 9133.157857612501,
+      "note": "China added real tonnes over the window; both tonnage and price contribute.",
+      "price_driven_musd": 53718.40840925287,
+      "price_share_of_dValue": 0.655746281195448,
+      "tonnage_driven_musd": 19067.93514658125,
+      "tonnage_share_of_dValue": 0.23276429687170136,
+      "tonnes_q0": 1948.31,
+      "tonnes_q1": 2279.56,
+      "window": [
+        "2021Q4",
+        "2024Q4"
+      ]
+    },
+    "price_dominates_treated_value_rise": true,
+    "treated_aggregate": {
+      "aggregate_dValue_musd": 202709.70992756967,
+      "interaction_musd": 12033.710934203697,
+      "interaction_share_of_dValue": 0.059364255113893996,
+      "method": "gold value = tonnes * price_per_oz_wb * 32150.7 troy-oz/tonne (price fully observed; raw value column has 2025 NaNs). dV decomposed as (t1-t0)*p0 [tonnage] + t0*(p1-p0) [price] + (t1-t0)*(p1-p0) [interaction].",
+      "n_treated_units_included": 18,
+      "note": "Denominator caveat: gold_share_pct = gold_value / total_reserves; this decomposition is of the gold-VALUE numerator (the tonnes-vs-price question). A share rise whose value increase is mostly price is a NULL for accumulation.",
+      "price_driven_musd": 165552.3754621195,
+      "price_per_oz_wb_q0": 1790.43,
+      "price_per_oz_wb_q1": 2648.01,
+      "price_share_of_dValue": 0.8166968199070144,
+      "tonnage_driven_musd": 25123.62353124644,
+      "tonnage_share_of_dValue": 0.12393892497909142,
+      "units_excluded_missing_tonnage": [
+        "BDI",
+        "COG",
+        "ERI",
+        "LAO",
+        "SYR",
+        "TJK"
+      ],
+      "units_included": [
+        "ARM",
+        "BGD",
+        "BLR",
+        "BOL",
+        "CHN",
+        "DZA",
+        "IND",
+        "IRQ",
+        "KAZ",
+        "KGZ",
+        "LKA",
+        "MNG",
+        "MOZ",
+        "NIC",
+        "PAK",
+        "RUS",
+        "SLV",
+        "ZAF"
+      ],
+      "window": [
+        "2021Q4",
+        "2024Q4"
+      ]
+    },
+    "treated_gold_share_pp_change": {
+      "ARM": {
+        "d_share_pp": 0.0,
+        "share_q0": 0.0,
+        "share_q1": 0.0
+      },
+      "BGD": {
+        "d_share_pp": 3.84,
+        "share_q0": 1.76,
+        "share_q1": 5.6
+      },
+      "BLR": {
+        "d_share_pp": 13.829999999999998,
+        "share_q0": 36.89,
+        "share_q1": 50.72
+      },
+      "BOL": {
+        "d_share_pp": 43.190000000000005,
+        "share_q0": 52.4,
+        "share_q1": 95.59
+      },
+      "CHN": {
+        "d_share_pp": 2.2300000000000004,
+        "share_q0": 3.3,
+        "share_q1": 5.53
+      },
+      "DZA": {
+        "d_share_pp": -0.41000000000000014,
+        "share_q0": 17.95,
+        "share_q1": 17.54
+      },
+      "IND": {
+        "d_share_pp": 4.569999999999999,
+        "share_q0": 6.86,
+        "share_q1": 11.43
+      },
+      "IRQ": {
+        "d_share_pp": 4.83,
+        "share_q0": 8.72,
+        "share_q1": 13.55
+      },
+      "KAZ": {
+        "d_share_pp": -16.29999999999999,
+        "share_q0": 68.32,
+        "share_q1": 52.02
+      },
+      "KGZ": {
+        "d_share_pp": 42.980000000000004,
+        "share_q0": 19.87,
+        "share_q1": 62.85
+      },
+      "LKA": {
+        "d_share_pp": -4.869999999999999,
+        "share_q0": 5.52,
+        "share_q1": 0.65
+      },
+      "MNG": {
+        "d_share_pp": -1.6400000000000006,
+        "share_q0": 12.83,
+        "share_q1": 11.19
+      },
+      "MOZ": {
+        "d_share_pp": 2.54,
+        "share_q0": 6.05,
+        "share_q1": 8.59
+      },
+      "NIC": {
+        "d_share_pp": 0.0,
+        "share_q0": 0.0,
+        "share_q1": 0.0
+      },
+      "PAK": {
+        "d_share_pp": 13.02,
+        "share_q0": 16.48,
+        "share_q1": 29.5
+      },
+      "RUS": {
+        "d_share_pp": 11.0,
+        "share_q0": 21.17,
+        "share_q1": 32.17
+      },
+      "SLV": {
+        "d_share_pp": 0.7799999999999998,
+        "share_q0": 2.33,
+        "share_q1": 3.11
+      },
+      "ZAF": {
+        "d_share_pp": 3.429999999999998,
+        "share_q0": 12.65,
+        "share_q1": 16.08
+      }
+    }
+  },
+  "did": {
+    "gerrymander_sensitive": false,
+    "headline_turkey_excluded": {
+      "beta": 0.10394568824722938,
+      "ci95": [
+        -2.352772513551069,
+        2.560663890045528
+      ],
+      "n_control": 90,
+      "n_countries": 108,
+      "n_obs": 2758,
+      "n_treated": 24,
+      "p": 0.9339078765869677,
+      "se": 1.2534276539787237,
+      "z": 0.08292914865670724
+    },
+    "interpretation": "GOLD-REALLOCATION = POSITIVE beta (treated accumulate differentially MORE tonnes post-freeze). Sign reported as estimated, not favored. If beta is positive-significant ONLY under the Turkey-included robustness set, that is flagged gerrymander_sensitive, not the finding.",
+    "robustness_turkey_included": {
+      "beta": 0.34338300533038435,
+      "ci95": [
+        -2.0174662448433276,
+        2.7042322555040963
+      ],
+      "n_control": 89,
+      "n_countries": 108,
+      "n_obs": 2758,
+      "n_treated": 25,
+      "p": 0.7755829216278498,
+      "se": 1.2045149235580164,
+      "z": 0.28507990944277
+    }
+  },
+  "dv": "net_gold_purchases_tonnes (physical tonnes; a value/share headline is DISALLOWED \u2014 Confound 2).",
+  "event_study": {
+    "headline_turkey_excluded": {
+      "base_quarter": "2021Q4",
+      "coefs": {
+        "2019Q2": {
+          "ci95": [
+            -2.113762714305728,
+            9.15627207394244
+          ],
+          "coef": 3.5212546798183553,
+          "kind": "lead",
+          "p": 0.22065795066094585,
+          "se": 2.8750088745531035,
+          "z": 1.2247804558049253
+        },
+        "2019Q3": {
+          "ci95": [
+            -2.272656874194505,
+            5.824430303095392
+          ],
+          "coef": 1.7758867144504435,
+          "kind": "lead",
+          "p": 0.3899265109978991,
+          "se": 2.0655834635943613,
+          "z": 0.8597506446726627
+        },
+        "2019Q4": {
+          "ci95": [
+            -1.0019577224257015,
+            4.623038510633934
+          ],
+          "coef": 1.810540394104116,
+          "kind": "lead",
+          "p": 0.20704008053827794,
+          "se": 1.434948018637662,
+          "z": 1.2617463284997885
+        },
+        "2020Q1": {
+          "ci95": [
+            -3.304089869016203,
+            3.3064692311776995
+          ],
+          "coef": 0.0011896810807483504,
+          "kind": "lead",
+          "p": 0.9994371165815084,
+          "se": 1.6863671173964037,
+          "z": 0.0007054698045732231
+        },
+        "2020Q2": {
+          "ci95": [
+            -2.1869487918368784,
+            0.4710340363512793
+          ],
+          "coef": -0.8579573777427996,
+          "kind": "lead",
+          "p": 0.20575743687406245,
+          "se": 0.6780568439255504,
+          "z": -1.2653177759783838
+        },
+        "2020Q3": {
+          "ci95": [
+            -1.3552577968267339,
+            1.3359901001646963
+          ],
+          "coef": -0.009633848331018768,
+          "kind": "lead",
+          "p": 0.9888041266419585,
+          "se": 0.6865428308651608,
+          "z": -0.014032406862188745
+        },
+        "2020Q4": {
+          "ci95": [
+            -1.2773146130301367,
+            1.6005763281327827
+          ],
+          "coef": 0.161630857551323,
+          "kind": "lead",
+          "p": 0.8257474969885166,
+          "se": 0.7341558523374795,
+          "z": 0.22015878104997239
+        },
+        "2021Q1": {
+          "ci95": [
+            -4.223635902161648,
+            1.7097799702054544
+          ],
+          "coef": -1.2569279659780968,
+          "kind": "lead",
+          "p": 0.4063079898088857,
+          "se": 1.5136264980528322,
+          "z": -0.8304082728434267
+        },
+        "2021Q2": {
+          "ci95": [
+            -6.192217659212263,
+            0.4834557544501781
+          ],
+          "coef": -2.8543809523810424,
+          "kind": "lead",
+          "p": 0.09371634420781172,
+          "se": 1.702977911648582,
+          "z": -1.6761115530957387
+        },
+        "2021Q3": {
+          "ci95": [
+            -0.19663863126569314,
+            5.742686250313162
+          ],
+          "coef": 2.7730238095237345,
+          "kind": "lead",
+          "p": 0.06721749756556705,
+          "se": 1.515133898361953,
+          "z": 1.8302169943671092
+        },
+        "2022Q1": {
+          "ci95": [
+            -7.007551455477709,
+            1.377837169763267
+          ],
+          "coef": -2.814857142857221,
+          "kind": "lag",
+          "p": 0.18821132743837365,
+          "se": 2.139129751336984,
+          "z": -1.3158889221646788
+        },
+        "2022Q2": {
+          "ci95": [
+            -0.6599556066376868,
+            6.866622273304171
+          ],
+          "coef": 3.103333333333242,
+          "kind": "lag",
+          "p": 0.10603351988814147,
+          "se": 1.9200453775361883,
+          "z": 1.616281245037789
+        },
+        "2022Q3": {
+          "ci95": [
+            -1.9076138219986212,
+            1.4413757267603873
+          ],
+          "coef": -0.23311904761911695,
+          "kind": "lag",
+          "p": 0.7849559282848064,
+          "se": 0.8543340685609716,
+          "z": -0.27286638353516607
+        },
+        "2022Q4": {
+          "ci95": [
+            -6.408397138191977,
+            8.432962571694446
+          ],
+          "coef": 1.0122827167512343,
+          "kind": "lag",
+          "p": 0.7891835741735345,
+          "se": 3.7860611504812303,
+          "z": 0.26737093684357616
+        },
+        "2023Q1": {
+          "ci95": [
+            -6.645070409296691,
+            7.334022949119246
+          ],
+          "coef": 0.34447626991127756,
+          "kind": "lag",
+          "p": 0.9230459562871998,
+          "se": 3.566095244493862,
+          "z": 0.09659760782978451
+        },
+        "2023Q2": {
+          "ci95": [
+            -4.910781575012897,
+            8.47991925808222
+          ],
+          "coef": 1.7845688415346608,
+          "kind": "lag",
+          "p": 0.6013810565288873,
+          "se": 3.415995110483448,
+          "z": 0.5224155140204811
+        },
+        "2023Q3": {
+          "ci95": [
+            -5.842106428108218,
+            11.650668475300751
+          ],
+          "coef": 2.9042810235962664,
+          "kind": "lag",
+          "p": 0.5151577481922973,
+          "se": 4.462442577400247,
+          "z": 0.6508276517225814
+        },
+        "2023Q4": {
+          "ci95": [
+            -6.392948224905796,
+            5.306948323383983
+          ],
+          "coef": -0.5429999507609065,
+          "kind": "lag",
+          "p": 0.8556378198773698,
+          "se": 2.984667486808617,
+          "z": -0.18192979725909572
+        },
+        "2024Q1": {
+          "ci95": [
+            -0.43758294070297543,
+            6.0960111190870006
+          ],
+          "coef": 2.8292140891920123,
+          "kind": "lag",
+          "p": 0.08960959265601409,
+          "se": 1.666733178517851,
+          "z": 1.6974607127626162
+        },
+        "2024Q2": {
+          "ci95": [
+            -1.9695751617329402,
+            2.8024343976805546
+          ],
+          "coef": 0.4164296179738072,
+          "kind": "lag",
+          "p": 0.7322914652912873,
+          "se": 1.2173493774014017,
+          "z": 0.3420789673895698
+        },
+        "2024Q3": {
+          "ci95": [
+            -4.473865527840254,
+            0.5697471282562931
+          ],
+          "coef": -1.9520591997919805,
+          "kind": "lag",
+          "p": 0.12922105355740077,
+          "se": 1.2866358816572825,
+          "z": -1.5171807561262658
+        },
+        "2024Q4": {
+          "ci95": [
+            -0.9953840656916695,
+            4.690615253764936
+          ],
+          "coef": 1.8476155940366334,
+          "kind": "lag",
+          "p": 0.20274507878230952,
+          "se": 1.450510030473624,
+          "z": 1.2737696087722645
+        },
+        "2025Q1": {
+          "ci95": [
+            -2.964931931132741,
+            1.6166746229733708
+          ],
+          "coef": -0.6741286540796851,
+          "kind": "lag",
+          "p": 0.5640873009089349,
+          "se": 1.1687771821699264,
+          "z": -0.5767811558642105
+        },
+        "2025Q2": {
+          "ci95": [
+            -1.6700604232483691,
+            2.7431673117652746
+          ],
+          "coef": 0.5365534442584527,
+          "kind": "lag",
+          "p": 0.6336558332332574,
+          "se": 1.1258234017891948,
+          "z": 0.47658757439732086
+        },
+        "2025Q3": {
+          "ci95": [
+            -2.2658204552209353,
+            3.1242250668080276
+          ],
+          "coef": 0.4292023057935461,
+          "kind": "lag",
+          "p": 0.7549307123496076,
+          "se": 1.3750116127624905,
+          "z": 0.3121444952244803
+        },
+        "2025Q4": {
+          "ci95": [
+            -3.5906355484769397,
+            3.2546515183418205
+          ],
+          "coef": -0.16799201506755956,
+          "kind": "lag",
+          "p": 0.9233603289000205,
+          "se": 1.7462467007190716,
+          "z": -0.09620176519067071
+        }
+      },
+      "lag_quarters": [
+        "2022Q1",
+        "2022Q2",
+        "2022Q3",
+        "2022Q4",
+        "2023Q1",
+        "2023Q2",
+        "2023Q3",
+        "2023Q4",
+        "2024Q1",
+        "2024Q2",
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2",
+        "2025Q3",
+        "2025Q4"
+      ],
+      "lead_quarters": [
+        "2019Q2",
+        "2019Q3",
+        "2019Q4",
+        "2020Q1",
+        "2020Q2",
+        "2020Q3",
+        "2020Q4",
+        "2021Q1",
+        "2021Q2",
+        "2021Q3"
+      ],
+      "n_countries": 108,
+      "n_obs": 2758,
+      "pretrend_df": 10,
+      "pretrend_joint_wald": 13.04802175087913,
+      "pretrend_p": 0.220999251594801
+    },
+    "pretrend_rule": "Leads (pre-2022Q1) jointly ~0 for a valid parallel pre-trend. Significant leads -> NOT-IDENTIFIED. Timing check: is the differential loaded on lags (2022Q1+) or pre-existing/lagged?",
+    "robustness_turkey_included": {
+      "base_quarter": "2021Q4",
+      "coefs": {
+        "2019Q2": {
+          "ci95": [
+            -1.2661444583422687,
+            9.820126363412005
+          ],
+          "coef": 4.276990952534868,
+          "kind": "lead",
+          "p": 0.13045670850919855,
+          "se": 2.828130311672009,
+          "z": 1.5123033528134295
+        },
+        "2019Q3": {
+          "ci95": [
+            -1.1059138377631124,
+            9.331231520727194
+          ],
+          "coef": 4.112658841482041,
+          "kind": "lead",
+          "p": 0.1224335866277011,
+          "se": 2.6625370812475273,
+          "z": 1.5446390851972893
+        },
+        "2019Q4": {
+          "ci95": [
+            -0.20479309139931434,
+            7.507187778030176
+          ],
+          "coef": 3.651197343315431,
+          "kind": "lead",
+          "p": 0.063467290030633,
+          "se": 1.9673420585279313,
+          "z": 1.8559036683470533
+        },
+        "2020Q1": {
+          "ci95": [
+            -2.7056203806121806,
+            9.566957610552521
+          ],
+          "coef": 3.4306686149701697,
+          "kind": "lead",
+          "p": 0.2731688048706302,
+          "se": 3.130759691623648,
+          "z": 1.095794296875908
+        },
+        "2020Q2": {
+          "ci95": [
+            -2.1359306419709996,
+            4.106077395720773
+          ],
+          "coef": 0.9850733768748867,
+          "kind": "lead",
+          "p": 0.5361607456208821,
+          "se": 1.5923489892070848,
+          "z": 0.618629071611624
+        },
+        "2020Q3": {
+          "ci95": [
+            -5.625759273164441,
+            1.3756679316762397
+          ],
+          "coef": -2.1250456707441003,
+          "kind": "lead",
+          "p": 0.23413169490592423,
+          "se": 1.7860783685818062,
+          "z": -1.1897829950381422
+        },
+        "2020Q4": {
+          "ci95": [
+            -6.327677812563392,
+            1.7323483758370752
+          ],
+          "coef": -2.2976647183631584,
+          "kind": "lead",
+          "p": 0.2637929833304564,
+          "se": 2.0561291296939967,
+          "z": -1.117471021241311
+        },
+        "2021Q1": {
+          "ci95": [
+            -4.0050641056375635,
+            1.9511632403397718
+          ],
+          "coef": -1.0269504326488956,
+          "kind": "lead",
+          "p": 0.49912208625642807,
+          "se": 1.5194457515248303,
+          "z": -0.675871732582954
+        },
+        "2021Q2": {
+          "ci95": [
+            -5.846564626979861,
+            0.8750672087358335
+          ],
+          "coef": -2.4857487091220136,
+          "kind": "lead",
+          "p": 0.14715110846999324,
+          "se": 1.7147019989070649,
+          "z": -1.4496680535197408
+        },
+        "2021Q3": {
+          "ci95": [
+            -1.4316866568296605,
+            5.029173748052079
+          ],
+          "coef": 1.7987435456112095,
+          "kind": "lead",
+          "p": 0.27511790400049985,
+          "se": 1.6481786747147296,
+          "z": 1.0913522746085402
+        },
+        "2022Q1": {
+          "ci95": [
+            -5.897873675610414,
+            4.722451988863776
+          ],
+          "coef": -0.5877108433733191,
+          "kind": "lag",
+          "p": 0.8282658871971886,
+          "se": 2.7092667511413753,
+          "z": -0.2169261639245102
+        },
+        "2022Q2": {
+          "ci95": [
+            0.3553059106843941,
+            8.5750670095684
+          ],
+          "coef": 4.465186460126397,
+          "kind": "lag",
+          "p": 0.0332174431349368,
+          "se": 2.0968778313479604,
+          "z": 2.1294452129602557
+        },
+        "2022Q3": {
+          "ci95": [
+            -1.623756981776003,
+            4.683665186021981
+          ],
+          "coef": 1.5299541021229892,
+          "kind": "lag",
+          "p": 0.34167990583294716,
+          "se": 1.6090362672954042,
+          "z": 0.9508512226978311
+        },
+        "2022Q4": {
+          "ci95": [
+            -4.39616421867308,
+            12.448188077133844
+          ],
+          "coef": 4.026011929230382,
+          "kind": "lag",
+          "p": 0.3487949399380246,
+          "se": 4.297028646889522,
+          "z": 0.9369292737074677
+        },
+        "2023Q1": {
+          "ci95": [
+            -5.113991606678694,
+            9.210754605673792
+          ],
+          "coef": 2.048381499497548,
+          "kind": "lag",
+          "p": 0.575108201393784,
+          "se": 3.6542719929470624,
+          "z": 0.5605443446604501
+        },
+        "2023Q2": {
+          "ci95": [
+            -22.19718170483338,
+            8.204793079746647
+          ],
+          "coef": -6.996194312543366,
+          "kind": "lag",
+          "p": 0.36701317910982967,
+          "se": 7.755605812392864,
+          "z": -0.9020822462848722
+        },
+        "2023Q3": {
+          "ci95": [
+            -3.864852599194755,
+            13.980538428536818
+          ],
+          "coef": 5.057842914671031,
+          "kind": "lag",
+          "p": 0.2665559324703062,
+          "se": 4.552395670339687,
+          "z": 1.1110288474318029
+        },
+        "2023Q4": {
+          "ci95": [
+            -4.821546202377368,
+            11.099187250152864
+          ],
+          "coef": 3.1388205238877482,
+          "kind": "lag",
+          "p": 0.4396171959157722,
+          "se": 4.061411595033222,
+          "z": 0.772839799769684
+        },
+        "2024Q1": {
+          "ci95": [
+            0.5105482817218885,
+            8.437050256220893
+          ],
+          "coef": 4.473799268971391,
+          "kind": "lag",
+          "p": 0.026932941511279562,
+          "se": 2.022066830229338,
+          "z": 2.212488332279296
+        },
+        "2024Q2": {
+          "ci95": [
+            -3.6887504457282008,
+            2.2047828732730865
+          ],
+          "coef": -0.7419837862275571,
+          "kind": "lag",
+          "p": 0.6216452263215135,
+          "se": 1.5034523772962467,
+          "z": -0.4935199793703565
+        },
+        "2024Q3": {
+          "ci95": [
+            -3.9702453384107286,
+            1.2155290277220572
+          ],
+          "coef": -1.3773581553443357,
+          "kind": "lag",
+          "p": 0.2977992269771095,
+          "se": 1.3229016240134657,
+          "z": -1.0411644602609662
+        },
+        "2024Q4": {
+          "ci95": [
+            -0.21256109278876645,
+            6.263569771646614
+          ],
+          "coef": 3.025504339428924,
+          "kind": "lag",
+          "p": 0.0670502826696211,
+          "se": 1.6520742001110664,
+          "z": 1.8313368365812648
+        },
+        "2025Q1": {
+          "ci95": [
+            -2.6873466126312433,
+            1.8142563182028066
+          ],
+          "coef": -0.43654514721421833,
+          "kind": "lag",
+          "p": 0.7038385863494869,
+          "se": 1.148368094600523,
+          "z": -0.380143918371467
+        },
+        "2025Q2": {
+          "ci95": [
+            -1.1879206438781171,
+            3.263214864487468
+          ],
+          "coef": 1.0376471103046754,
+          "kind": "lag",
+          "p": 0.36080671014646803,
+          "se": 1.1354937521340778,
+          "z": 0.9138289914449051
+        },
+        "2025Q3": {
+          "ci95": [
+            -1.9531037132753384,
+            3.131191505211311
+          ],
+          "coef": 0.5890438959679862,
+          "kind": "lag",
+          "p": 0.6497181217910097,
+          "se": 1.297014086348635,
+          "z": 0.45415381541943584
+        },
+        "2025Q4": {
+          "ci95": [
+            -3.5578065289104184,
+            2.911042769184689
+          ],
+          "coef": -0.3233818798628647,
+          "kind": "lag",
+          "p": 0.8446389018529223,
+          "se": 1.6502166576773234,
+          "z": -0.19596328661354326
+        }
+      },
+      "lag_quarters": [
+        "2022Q1",
+        "2022Q2",
+        "2022Q3",
+        "2022Q4",
+        "2023Q1",
+        "2023Q2",
+        "2023Q3",
+        "2023Q4",
+        "2024Q1",
+        "2024Q2",
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2",
+        "2025Q3",
+        "2025Q4"
+      ],
+      "lead_quarters": [
+        "2019Q2",
+        "2019Q3",
+        "2019Q4",
+        "2020Q1",
+        "2020Q2",
+        "2020Q3",
+        "2020Q4",
+        "2021Q1",
+        "2021Q2",
+        "2021Q3"
+      ],
+      "n_countries": 108,
+      "n_obs": 2758,
+      "pretrend_df": 10,
+      "pretrend_joint_wald": 14.704109936394005,
+      "pretrend_p": 0.14322761287703953
+    }
+  },
+  "groups": {
+    "assignment_rule": "TREATED = ES-11/1 No/Abstain (treated flag=1); CONTROL = Yes (flag=0). Turkey voted YES -> CONTROL in the headline; it is a robust_nonwestern_buyer and is added to treated ONLY in the labelled robustness variant.",
+    "control_headline_count": 90,
+    "n_control_headline": 90,
+    "n_control_robust": 89,
+    "n_treated_headline": 24,
+    "n_treated_robust": 25,
+    "treated_headline": [
+      "ARM",
+      "BDI",
+      "BGD",
+      "BLR",
+      "BOL",
+      "CHN",
+      "COG",
+      "DZA",
+      "ERI",
+      "IND",
+      "IRQ",
+      "KAZ",
+      "KGZ",
+      "LAO",
+      "LKA",
+      "MNG",
+      "MOZ",
+      "NIC",
+      "PAK",
+      "RUS",
+      "SLV",
+      "SYR",
+      "TJK",
+      "ZAF"
+    ],
+    "treated_robust_adds": [
+      "TUR"
+    ]
+  },
+  "russia_case": {
+    "gold_tonnes_2021Q4": 2301.64,
+    "gold_tonnes_2022Q1": 2304.75,
+    "gold_tonnes_2025Q4": 2326.52,
+    "net_purchases_2022Q1_to_2025Q4_tonnes": 24.88000000000011,
+    "observed": true,
+    "plateau_note": "CBR gold reserve sits on a plateau ~2326-2336t across the whole post-freeze window (2022Q1-2025Q4); net change is essentially flat (small +/- moves near reporting noise). Russia did NOT materially accumulate gold tonnage after the freeze on the reported series. Reporting opacity is stated honestly: CBR monthly disclosure continued but at reduced granularity; the plateau is what the reported tonnage shows, not an inferred accumulation.",
+    "post_freeze_max_tonnes": 2335.85
+  },
+  "status": "OUTPUT \u2014 NOT ESTABLISHED until RD2_verify.json exists and byte-reproduces."
+}

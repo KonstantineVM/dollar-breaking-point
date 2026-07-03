@@ -1,0 +1,143 @@
+{
+  "contract": "gleif_source_contract",
+  "task": "COVERAGE-MEASUREMENT Part 1, Deliverable A — GLEIF Level-2 who-owns-whom -> issuer_lei -> ultimate-parent -> parent legal jurisdiction (ISO country)",
+  "checked_against_publisher_on": "2026-06-29",
+  "scope_disclaimer": "This contract grounds a free per-security ultimate-parent-nationality LOOKUP. It does NOT compute coverage, does NOT re-tag any holding, and does NOT modify the panel. Coverage is Part 2 (a separate agent).",
+
+  "path_used": {
+    "relationships_level2_RR": "BULK golden-copy file (downloaded + parsed). The full RR golden copy is small enough to fetch whole.",
+    "parent_and_issuer_country_level1": "FREE GLEIF API (api.gleif.org/api/v1/lei-records), NOT the bulk L1 golden copy.",
+    "why_api_for_country": "The full Level-1 lei2 golden copy is ~468 MB zip / 3,356,603 records (large). Only the distinct LEIs actually needed (240 distinct parent LEIs + 3,434 distinct haven issuer LEIs = 3,599 distinct) were resolved, in 200-LEI batches via the API filter[lei] parameter. This is the documented tractable path; the RR relationships still came from the REAL bulk file as required."
+  },
+
+  "gleif_files_fetched": {
+    "publish_listing_api": {
+      "url": "https://goldencopy.gleif.org/api/v2/golden-copies/publishes/latest",
+      "publish_date": "2026-06-29 16:00:00 UTC",
+      "note": "Authoritative listing of the latest golden-copy bulk downloads. Queried live on 2026-06-29."
+    },
+    "rr_relationship_records_golden_copy": {
+      "url": "https://goldencopy.gleif.org/storage/golden-copy-files/2026/06/29/1245215/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip",
+      "format": "csv (zip)",
+      "cdf_version": "RR_2.1",
+      "publish_date": "2026-06-29 16:00:00 UTC",
+      "zip_bytes_downloaded": 23865056,
+      "zip_size_human_publisher": "22.76 MB",
+      "csv_bytes_uncompressed": 237873779,
+      "total_relationship_count": 477383,
+      "local_copy": "build/data/gleif/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip (gitignored; URL in build/data/.gitignore)",
+      "relationship_type_counts_observed": {
+        "IS_FUND-MANAGED_BY": 146964,
+        "IS_ULTIMATELY_CONSOLIDATED_BY": 130628,
+        "IS_DIRECTLY_CONSOLIDATED_BY": 124609,
+        "IS_SUBFUND_OF": 71896,
+        "IS_INTERNATIONAL_BRANCH_OF": 1923,
+        "IS_FEEDER_TO": 1363
+      }
+    },
+    "level1_lei2_golden_copy_NOT_downloaded": {
+      "url_if_needed": "https://goldencopy.gleif.org/storage/golden-copy-files/2026/06/29/1245170/20260629-1600-gleif-goldencopy-lei2-golden-copy.csv.zip",
+      "format": "csv (zip)",
+      "cdf_version": "LEI_3.1",
+      "record_count": 3356603,
+      "size_human_publisher": "468.56 MB",
+      "reason_skipped": "Large; replaced by targeted GLEIF API calls for only the needed LEIs (see path_used)."
+    }
+  },
+
+  "confirmed_field_names": {
+    "RR_child_lei_field": "Relationship.StartNode.NodeID (the entity that IS consolidated)",
+    "RR_parent_lei_field": "Relationship.EndNode.NodeID (the consolidating parent)",
+    "RR_relationship_type_field": "Relationship.RelationshipType",
+    "RR_relationship_status_field": "Relationship.RelationshipStatus",
+    "RR_consolidation_types_used": ["IS_ULTIMATELY_CONSOLIDATED_BY (preferred)", "IS_DIRECTLY_CONSOLIDATED_BY (fallback when no ULTIMATE)"],
+    "L1_legal_country_field": "data.attributes.entity.legalAddress.country (ISO 3166 alpha-2)",
+    "L1_legal_jurisdiction_field": "data.attributes.entity.jurisdiction (ISO 3166 alpha-2)",
+    "field_confirmation_method": "Read from the ACTUAL fetched RR CSV header/rows and an ACTUAL GLEIF API record, not asserted from memory."
+  },
+
+  "quoted_example_records": {
+    "RR_record_real": {
+      "source_field_meaning": "StartNode=child, EndNode=parent",
+      "Relationship.StartNode.NodeID": "1IE8VN30JCEQV1H4R804",
+      "Relationship.EndNode.NodeID": "MLU0ZO3ML4LN2LL2TL39",
+      "Relationship.RelationshipType": "IS_ULTIMATELY_CONSOLIDATED_BY",
+      "Relationship.RelationshipStatus": "ACTIVE",
+      "Registration.RegistrationStatus": "PUBLISHED",
+      "note": "A real haven issuer LEI (1IE8VN30JCEQV1H4R804) ultimately consolidated by MLU0ZO3ML4LN2LL2TL39."
+    },
+    "L1_API_record_real": {
+      "endpoint": "https://api.gleif.org/api/v1/lei-records/MLU0ZO3ML4LN2LL2TL39",
+      "data.attributes.lei": "MLU0ZO3ML4LN2LL2TL39",
+      "data.attributes.entity.legalName.name": "HSBC HOLDINGS PLC",
+      "data.attributes.entity.legalAddress.country": "GB",
+      "data.attributes.entity.jurisdiction": "GB",
+      "note": "Confirms the parent-country field name and ISO2 form. So the example child 1IE8VN30JCEQV1H4R804 -> parent HSBC HOLDINGS PLC -> parent_country_iso = GB."
+    },
+    "residence_vs_nationality_validation": {
+      "endpoint": "https://api.gleif.org/api/v1/lei-records?filter[lei]=254900N4SLUMW4XUYY11",
+      "entity.legalName.name": "Tencent Holdings Ltd (per record, CJK form returned)",
+      "entity.legalAddress.country": "KY",
+      "note": "Tencent's OWN LEI legal country is KY (Cayman residence). This shows why the issuer's own country is NOT nationality; only the parent chain (or, for H-shares, GLEIF's legal jurisdiction itself = CN) yields China nationality."
+    }
+  },
+
+  "addressable_universe": {
+    "panel": "build/data/nport/us_china_nationality_panel.parquet",
+    "haven_subset_definition": "is_haven_resident==True (residence CYM/HKG/VGB)",
+    "haven_rows": 663325,
+    "haven_rows_with_blank_lei_placeholder": "215260 rows carry issuer_lei == 'N/A' (3-char placeholder); these are NOT GLEIF-addressable.",
+    "haven_rows_with_valid_20char_lei": 448065,
+    "distinct_non_null_haven_issuer_leis": 3434,
+    "distinct_non_null_haven_issuer_leis_note": "20-char valid LEIs only; this is the GLEIF-addressable universe."
+  },
+
+  "resolution_result": {
+    "haven_leis_resolved_to_a_country": 3427,
+    "haven_leis_unresolved": 7,
+    "haven_leis_unresolved_reason": "GLEIF API returned no record for these 7 LEIs (likely retired/merged/lapsed LEIs not in the active filter result).",
+    "gleif_resolution_rate_on_addressable_universe_pct": 99.8,
+    "by_relationship_type": {
+      "ULTIMATE": 323,
+      "DIRECT": 21,
+      "SELF": 3083,
+      "note": "344 haven issuer LEIs have a REAL RR parent relationship (323 IS_ULTIMATELY_CONSOLIDATED_BY + 21 IS_DIRECTLY_CONSOLIDATED_BY). The remaining 3083 have NO RR parent filed in GLEIF and were marked SELF (issuer's own legal country, ultimate_parent_lei==issuer_lei)."
+    },
+    "RR_relationship_coverage_caveat": "Only 344 of 3434 haven issuer LEIs (10.0%) carry ANY parent consolidation relationship in GLEIF. GLEIF Level-2 reporting is sparse — most entities never file a parent. So a NATIONALITY claim FROM A REAL PARENT RELATIONSHIP exists for only ~10% of the addressable universe; the rest fall back to the issuer's own legal jurisdiction (SELF), which is NOT ultimate-parent nationality except where GLEIF's own legal jurisdiction already differs from N-PORT residence (notably HK-listed H-shares with legal jurisdiction CN)."
+  },
+
+  "cn_parent_count": {
+    "total_haven_leis_with_country_CN": 305,
+    "by_relationship_type": {
+      "ULTIMATE": 106,
+      "DIRECT": 6,
+      "SELF": 193
+    },
+    "cn_from_real_parent_relationship": 112,
+    "cn_from_real_parent_relationship_note": "112 haven issuer LEIs (106 ULTIMATE + 6 DIRECT) have an ACTUAL GLEIF parent whose legal country is CN. This is the defensible RR-grounded China-nationality signal.",
+    "cn_from_SELF_own_legal_jurisdiction": 193,
+    "cn_from_SELF_own_legal_jurisdiction_note": "193 haven-resident (mostly HKG) issuers have NO RR parent but GLEIF records their OWN legal jurisdiction as CN — verified examples: Air China, Datang International Power, Angang Steel, Sinopec, China Molybdenum, Zhejiang Expressway (all N-PORT residence HKG, GLEIF legalAddress.country CN). These are H-share companies; CN here is the entity's own legal jurisdiction, captured as nationality only because GLEIF's legal country differs from N-PORT residence.",
+    "parent_country_distribution_RR_parented_only_top": {
+      "CN": 112, "HK": 55, "US": 54, "KY": 36, "GB": 19, "BM": 13, "AE": 7, "JP": 7, "CH": 7, "VG": 6, "BR": 5, "PH": 3
+    }
+  },
+
+  "artifacts_written": {
+    "lei_parent_country_csv": "build/data/gleif/lei_parent_country.csv (3427 rows; columns issuer_lei, ultimate_parent_lei, parent_country_iso, relationship_type, source)",
+    "raw_rr_bulk": "build/data/gleif/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip (gitignored)",
+    "readme": "build/data/gleif/README.md",
+    "gitignore_entry": "build/data/.gitignore (RR bulk URL recorded for reproducibility)"
+  },
+
+  "confidence_tier": "HIGH",
+  "confidence_reason": "All structural facts (RR field names, consolidation relationship types and their counts, the L1 legal-country field) were read from the ACTUAL fetched RR golden-copy CSV and ACTUAL GLEIF API records, with real example records quoted. The addressable universe (3434) and resolution counts (3427 resolved; 305 CN, of which 112 from a real parent relationship) are computed directly from the panel and the fetched data, not asserted. The one DOWNGRADE caveat documented in-line: GLEIF Level-2 parent reporting is sparse (only 344/3434 = 10% carry any RR parent), so the from-real-parent China signal covers only ~10% of the universe; the SELF fallback is the issuer's own legal jurisdiction, not ultimate parent. This caveat is recorded, not smoothed over.",
+
+  "known_frictions": [
+    "GLEIF Level-2 RR parent reporting is sparse: only 344 of 3434 haven issuer LEIs (10%) have ANY consolidation parent. The dominant fallback is SELF (own legal jurisdiction), which is residence-like, not nationality.",
+    "7 haven issuer LEIs could not be resolved to any country via the GLEIF API (likely lapsed/merged).",
+    "215,260 haven rows carry issuer_lei == 'N/A' (no LEI at all) and are entirely outside the GLEIF-addressable universe; those holdings need an identifier-based map (ISIN/CUSIP), not GLEIF — handled by Deliverable B.",
+    "SELF-CN rows (193) reflect GLEIF's legal jurisdiction (CN) for H-share issuers whose N-PORT residence is HKG; this is a genuine nationality signal but arises from the entity's own legal jurisdiction, not a parent relationship — flagged via relationship_type=SELF so Part 2 can treat it distinctly."
+  ],
+
+  "SOURCE": "GLEIF golden-copy publish listing https://goldencopy.gleif.org/api/v2/golden-copies/publishes/latest and RR golden-copy bulk file https://goldencopy.gleif.org/storage/golden-copy-files/2026/06/29/1245215/20260629-1600-gleif-goldencopy-rr-golden-copy.csv.zip (RR_2.1, publish 2026-06-29 16:00 UTC, 477383 records), with parent/issuer legal country from the free GLEIF API https://api.gleif.org/api/v1/lei-records (field data.attributes.entity.legalAddress.country). All fetched and read on 2026-06-29."
+}

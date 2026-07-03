@@ -1,0 +1,22 @@
+{
+  "Fund Holdings|2020": {
+    "pool_denominator_mn": 1700910.0,
+    "china_nationality_mn": 904389.0,
+    "f": 0.5317
+  },
+  "Fund Holdings|2019": {
+    "pool_denominator_mn": 1312779.0,
+    "china_nationality_mn": 641826.0,
+    "f": 0.4889
+  },
+  "Enhanced Fund Holdings|2020": {
+    "pool_denominator_mn": 1264177.0,
+    "china_nationality_mn": 895488.0,
+    "f": 0.7084
+  },
+  "Enhanced Fund Holdings|2019": {
+    "pool_denominator_mn": 903982.0,
+    "china_nationality_mn": 634661.0,
+    "f": 0.7021
+  }
+}

@@ -1,0 +1,344 @@
+{
+ "STATUS": "NOT ESTABLISHED — STAGING ONLY. Axis numbers staged for the RDT-G assembly; the I.B verdict (SURGE/FLAT/DECLINE/SUPPRESSED) is rendered by the later assembly step, not here, and no result below is established until its verifier scenario has run and its verifier artifact exists.",
+ "additivity_check": {
+  "max_abs_diff_published_sublines_vs_ib_total_usd_bn": 0.001,
+  "note": "published sub-lines sum to the I.B total within rounding in every month"
+ },
+ "axis_numbers_STAGING_ONLY": {
+  "delta_ib_total_baseline_window_context": {
+   "definition": "I.B_total(2021-12) - I.B_total(2015-06) (baseline window, data floor stated)",
+   "endpoints": {
+    "2015-06": 188.158471,
+    "2021-12": 179.276
+   },
+   "value_usd_bn": -8.882471
+  },
+  "delta_ib_total_verdict_window": {
+   "definition": "I.B_total(latest published) - I.B_total(2022-01), per the pre-registered window wording '2022-01 -> latest published'",
+   "endpoints": {
+    "2022-01": 179.232,
+    "2026-05": 160.536
+   },
+   "value_usd_bn": -18.696,
+   "variant_2021_12_base": {
+    "definition": "I.B_total(latest) - I.B_total(2021-12) — the calendar-2022-onward change including January 2022's within-month move; stated as sensitivity, same side of every bar",
+    "endpoints": {
+     "2021-12": 179.276,
+     "2026-05": 160.536
+    },
+    "value_usd_bn": -18.74
+   }
+  },
+  "staged_comparison_STAGING_ONLY": {
+   "NOT_A_VERDICT": "the SURGE/FLAT/DECLINE/SUPPRESSED call is rendered by the RDT-G assembly, not by this parse",
+   "abs_delta_vs_threshold": "|-18.696| < 24.74885",
+   "side": "FLAT-side (strictly between -threshold and +threshold)",
+   "side_variant_2021_12_base": "FLAT-side (strictly between -threshold and +threshold)",
+   "sign_note": "the staged delta is NEGATIVE (I.B fell over the verdict window) but does not reach the -24.74885 DECLINE bar under either endpoint convention"
+  },
+  "sub_line_deltas": {
+   "ib_deposits": {
+    "baseline_window_2015_06_to_2021_12_usd_bn": null,
+    "endpoint_values_usd_bn": {
+     "2015-06": null,
+     "2021-12": null,
+     "2022-01": null,
+     "2026-05": null
+    },
+    "last_published_month": "2017-04",
+    "last_published_value_usd_bn": 0.0,
+    "verdict_window_2022_01_to_latest_usd_bn": null
+   },
+   "ib_fin_derivatives": {
+    "baseline_window_2015_06_to_2021_12_usd_bn": null,
+    "endpoint_values_usd_bn": {
+     "2015-06": null,
+     "2021-12": 0.0,
+     "2022-01": 0.0,
+     "2026-05": 0.0
+    },
+    "last_published_month": "2026-05",
+    "last_published_value_usd_bn": 0.0,
+    "verdict_window_2022_01_to_latest_usd_bn": 0.0
+   },
+   "ib_gold": {
+    "baseline_window_2015_06_to_2021_12_usd_bn": null,
+    "endpoint_values_usd_bn": {
+     "2015-06": null,
+     "2021-12": null,
+     "2022-01": null,
+     "2026-05": null
+    },
+    "last_published_month": null,
+    "last_published_value_usd_bn": null,
+    "verdict_window_2022_01_to_latest_usd_bn": null
+   },
+   "ib_loans": {
+    "baseline_window_2015_06_to_2021_12_usd_bn": -10.389471,
+    "endpoint_values_usd_bn": {
+     "2015-06": 11.786471,
+     "2021-12": 1.397,
+     "2022-01": 1.345,
+     "2026-05": null
+    },
+    "last_published_month": "2026-04",
+    "last_published_value_usd_bn": 0.0,
+    "verdict_window_2022_01_to_latest_usd_bn": null
+   },
+   "ib_other": {
+    "baseline_window_2015_06_to_2021_12_usd_bn": null,
+    "endpoint_values_usd_bn": {
+     "2015-06": null,
+     "2021-12": null,
+     "2022-01": null,
+     "2026-05": null
+    },
+    "last_published_month": null,
+    "last_published_value_usd_bn": null,
+    "verdict_window_2022_01_to_latest_usd_bn": null
+   },
+   "ib_securities": {
+    "baseline_window_2015_06_to_2021_12_usd_bn": 1.507,
+    "endpoint_values_usd_bn": {
+     "2015-06": 176.372,
+     "2021-12": 177.879,
+     "2022-01": 177.887,
+     "2026-05": 160.536
+    },
+    "last_published_month": "2026-05",
+    "last_published_value_usd_bn": 160.536,
+    "verdict_window_2022_01_to_latest_usd_bn": -17.351
+   }
+  },
+  "threshold_reproduction": {
+   "constant_read_from": "build/reserve/RDTD_result.json field path: identity.china_alone.delta_non_us_busd",
+   "multiplier": 0.05,
+   "note": "computed 0.05 x the committed constant at run time, never hardcoded",
+   "prereg_displayed_value": 24.749,
+   "threshold_busd": 24.74885,
+   "upper_mass_busd": 494.977
+  }
+ },
+ "corpus": {
+  "SOURCE": "build/reserve/rdtd_evidence/ (RDT-D fetch, disk-only here)",
+  "data_month_read_from": "As-at date in the file header (never from link labels)",
+  "duplicate_month_vintages": {
+   "2020-10": [
+    "raw_074_23ed4a16b2544f7bb6c0ada3026ef26e.xls",
+    "raw_075_64d062bdd85f4b6f94bc8a9d5555d46b.xls"
+   ]
+  },
+  "missing_months": [],
+  "raw_files_parsed": 133,
+  "span": [
+   "2015-06",
+   "2026-05"
+  ],
+  "unique_data_months": 132,
+  "unparsable_files": [],
+  "vintage_note_2020_10_ib": "the two 2020-10 vintages differ on I.B only in numeric precision and in the derivatives sub-line (BLANK in raw_074, explicit 0.0 in raw_075); I.B total agrees within 0.0002 USD bn (raw_074 165.882 rounded vs raw_075 165.881813 full precision)",
+  "vintage_rule": "latest-published file per month; 2020-10: raw_075_* (corrected, later vintage) supersedes raw_074_* per build/reserve/rdtd_sdds_manifest.json line_map_section_IA.publisher_frictions[0..1]; both files retained on disk"
+ },
+ "crosscheck_ia_vs_committed": {
+  "committed_csv": "build/reserve/rdtd_sdds_series.csv",
+  "finding": "PASS: same-file re-parse of Section I.A reconciles with the committed RDT-D extraction on all overlapping months",
+  "lines_checked": [
+   "(1)(a) Securities",
+   "A. Official reserve assets (total)"
+  ],
+  "max_abs_diff_securities_usd_bn": 3.81e-07,
+  "max_abs_diff_total_ora_usd_bn": 4.24e-07,
+  "months_checked": 132,
+  "source_file_mismatch_months": [],
+  "spot_check_requirement": ">=5 months required; all overlapping months checked"
+ },
+ "governing_preregistration": {
+  "path": "build/reserve/RDTG_prediction.md",
+  "windows": {
+   "baseline": "calendar 2015->2021 (data floor 2015-06)",
+   "verdict": "2022-01 -> latest published (pre-registered wording)"
+  }
+ },
+ "ib_row_labels_exact": {
+  "identical_across_all_files": true,
+  "labels": {
+   "ib_deposits": "未列入官方储备资产的存款 deposits not included in official reserve assets",
+   "ib_fin_derivatives": "未列入官方储备资产的金融衍生工具 financial derivatives not included in official reserve assets",
+   "ib_gold": "未列入官方储备资产的黄金 gold not included in official reserve assets",
+   "ib_loans": "未列入官方储备资产的贷款 loans not included in official reserve assets",
+   "ib_other": "其他 other",
+   "ib_securities": "未列入官方储备资产的证券 securities not included in official reserve assets",
+   "ib_total": "B. 其他外币资产 （请列明） Other foreign currency assets (specify)"
+  },
+  "note": "the template's six I.B sub-lines are securities / deposits / loans / financial derivatives / gold / other, each 'not included in official reserve assets'; there is no separate I.B securities-lending/repo line in the SAFE rendering"
+ },
+ "level_profile_ib_total_usd_bn": {
+  "SOURCE": "build/reserve/RDTG_ib_series.csv (this parse)",
+  "max_month": "2016-08",
+  "max_usd_bn": 210.275,
+  "mean_usd_bn": 176.426172,
+  "min_month": "2024-12",
+  "min_usd_bn": 160.134,
+  "months": 132
+ },
+ "outputs": {
+  "regenerator": "build/reserve/RDTG_ib_recompute.py",
+  "series_csv": "build/reserve/RDTG_ib_series.csv",
+  "staging_json": "build/reserve/RDTG_ib_staging.json"
+ },
+ "suppression_assessment_STAGING_ONLY": {
+  "ib_total": "PUBLISHED in all 132 months — the I.B block itself is NOT unpublished; SUPPRESSED-CANDIDATE does not attach to the total",
+  "per_line_status": {
+   "ib_deposits": {
+    "absent_months": 0,
+    "blank_months": 131,
+    "published_months": 1,
+    "spans": [
+     {
+      "end": "2017-03",
+      "flag": "BLANK",
+      "n": 22,
+      "start": "2015-06"
+     },
+     {
+      "end": "2017-04",
+      "flag": "PUBLISHED",
+      "n": 1,
+      "start": "2017-04"
+     },
+     {
+      "end": "2026-05",
+      "flag": "BLANK",
+      "n": 109,
+      "start": "2017-05"
+     }
+    ]
+   },
+   "ib_fin_derivatives": {
+    "absent_months": 0,
+    "blank_months": 18,
+    "published_months": 114,
+    "spans": [
+     {
+      "end": "2015-11",
+      "flag": "BLANK",
+      "n": 6,
+      "start": "2015-06"
+     },
+     {
+      "end": "2019-09",
+      "flag": "PUBLISHED",
+      "n": 46,
+      "start": "2015-12"
+     },
+     {
+      "end": "2020-09",
+      "flag": "BLANK",
+      "n": 12,
+      "start": "2019-10"
+     },
+     {
+      "end": "2026-05",
+      "flag": "PUBLISHED",
+      "n": 68,
+      "start": "2020-10"
+     }
+    ]
+   },
+   "ib_gold": {
+    "absent_months": 0,
+    "blank_months": 132,
+    "published_months": 0,
+    "spans": [
+     {
+      "end": "2026-05",
+      "flag": "BLANK",
+      "n": 132,
+      "start": "2015-06"
+     }
+    ]
+   },
+   "ib_loans": {
+    "absent_months": 0,
+    "blank_months": 5,
+    "published_months": 127,
+    "spans": [
+     {
+      "end": "2025-10",
+      "flag": "PUBLISHED",
+      "n": 125,
+      "start": "2015-06"
+     },
+     {
+      "end": "2026-02",
+      "flag": "BLANK",
+      "n": 4,
+      "start": "2025-11"
+     },
+     {
+      "end": "2026-04",
+      "flag": "PUBLISHED",
+      "n": 2,
+      "start": "2026-03"
+     },
+     {
+      "end": "2026-05",
+      "flag": "BLANK",
+      "n": 1,
+      "start": "2026-05"
+     }
+    ]
+   },
+   "ib_other": {
+    "absent_months": 0,
+    "blank_months": 132,
+    "published_months": 0,
+    "spans": [
+     {
+      "end": "2026-05",
+      "flag": "BLANK",
+      "n": 132,
+      "start": "2015-06"
+     }
+    ]
+   },
+   "ib_securities": {
+    "absent_months": 0,
+    "blank_months": 0,
+    "published_months": 132,
+    "spans": [
+     {
+      "end": "2026-05",
+      "flag": "PUBLISHED",
+      "n": 132,
+      "start": "2015-06"
+     }
+    ]
+   },
+   "ib_total": {
+    "absent_months": 0,
+    "blank_months": 0,
+    "published_months": 132,
+    "spans": [
+     {
+      "end": "2026-05",
+      "flag": "PUBLISHED",
+      "n": 132,
+      "start": "2015-06"
+     }
+    ]
+   }
+  },
+  "reading": "securities: published all 132 months and carries essentially the whole I.B line; gold, other: BLANK in all 132 months (a disclosure state, distinct from zero, never interpolated); deposits: BLANK in 131 of 132 months, single explicit 0 in 2017-04; loans: published with real values through most of the corpus, BLANK 2025-11..2026-02 and 2026-05, explicit 0.0 in 2026-03..04 (see spans); financial derivatives: explicit values (incl. 0.0 and negatives) most months, BLANK 2015-06..2015-11 and 2019-10..2020-09 (see spans). Whether the persistent component blanks meet the pre-registration's SUPPRESSED clause ('the I.B line or its components are unpublished/aggregated/blank') alongside the published total is an assembly-level call, staged here as facts only."
+ },
+ "task": "RDT-G Part 1 — Section I.B ('other foreign currency assets') parse and axis staging",
+ "unit_finding": {
+  "SOURCE": "unit header row of every corpus file (e.g. build/reserve/rdtd_evidence/raw_000_6798bb2d92a547dc972c00310d54bc6d.xls row 5; raw_124_* row 4 for the 2015-06..2016-02 single-column variant)",
+  "conversion": "CSV and all staging values converted to USD bn by dividing the published 亿美元 value by 10 (same convention as build/reserve/rdtd_sdds_series.csv)",
+  "header_variants_found": [
+   "单位：亿美元 US$ 100million",
+   "（亿美元） 100million USD"
+  ],
+  "unit_as_published": "100 million USD (亿美元) — NOT USD millions; the task premise 'USD millions per the template convention' is contradicted by the real file headers and is corrected here"
+ }
+}

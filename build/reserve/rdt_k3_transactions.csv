@@ -1,0 +1,1281 @@
+country,period,net_purchases_busd,source_file
+Russia,2013-01,1.862,s1_globl.txt
+Russia,2013-02,-2.828,s1_globl.txt
+Russia,2013-03,1.417,s1_globl.txt
+Russia,2013-04,-1.965,s1_globl.txt
+Russia,2013-05,1.478,s1_globl.txt
+Russia,2013-06,-2.643,s1_globl.txt
+Russia,2013-07,1.413,s1_globl.txt
+Russia,2013-08,2.692,s1_globl.txt
+Russia,2013-09,-0.482,s1_globl.txt
+Russia,2013-10,-0.262,s1_globl.txt
+Russia,2013-11,-0.06,s1_globl.txt
+Russia,2013-12,0.476,s1_globl.txt
+Russia,2014-01,0.708,s1_globl.txt
+Russia,2014-02,-0.216,s1_globl.txt
+Russia,2014-03,-0.141,s1_globl.txt
+Russia,2014-04,-0.851,s1_globl.txt
+Russia,2014-05,-2.596,s1_globl.txt
+Russia,2014-06,2.481,s1_globl.txt
+Russia,2014-07,-1.09,s1_globl.txt
+Russia,2014-08,-0.115,s1_globl.txt
+Russia,2014-09,-0.519,s1_globl.txt
+Russia,2014-10,-1.011,s1_globl.txt
+Russia,2014-11,-1.745,s1_globl.txt
+Russia,2014-12,-8.442,s1_globl.txt
+Russia,2015-01,-1.8,s1_globl.txt
+Russia,2015-02,-3.579,s1_globl.txt
+Russia,2015-03,-0.643,s1_globl.txt
+Russia,2015-04,-2.18,s1_globl.txt
+Russia,2015-05,0.882,s1_globl.txt
+Russia,2015-06,-1.106,s1_globl.txt
+Russia,2015-07,1.483,s1_globl.txt
+Russia,2015-08,1.387,s1_globl.txt
+Russia,2015-09,-1.053,s1_globl.txt
+Russia,2015-10,-6.111,s1_globl.txt
+Russia,2015-11,0.164,s1_globl.txt
+Russia,2015-12,-0.591,s1_globl.txt
+Russia,2016-01,-0.696,s1_globl.txt
+Russia,2016-02,-4.253,s1_globl.txt
+Russia,2016-03,-1.317,s1_globl.txt
+Russia,2016-04,-2.19,s1_globl.txt
+Russia,2016-05,0.493,s1_globl.txt
+Russia,2016-06,-0.219,s1_globl.txt
+Russia,2016-07,-4.989,s1_globl.txt
+Russia,2016-08,-2.656,s1_globl.txt
+Russia,2016-09,-9.803,s1_globl.txt
+Russia,2016-10,-2.74,s1_globl.txt
+Russia,2016-11,-1.343,s1_globl.txt
+Russia,2016-12,-0.852,s1_globl.txt
+Russia,2017-01,-1.605,s1_globl.txt
+Russia,2017-02,-0.643,s1_globl.txt
+Russia,2017-03,1.77,s1_globl.txt
+Russia,2017-04,-0.964,s1_globl.txt
+Russia,2017-05,-0.118,s1_globl.txt
+Russia,2017-06,-4.688,s1_globl.txt
+Russia,2017-07,-0.902,s1_globl.txt
+Russia,2017-08,-0.027,s1_globl.txt
+Russia,2017-09,-5.41,s1_globl.txt
+Russia,2017-10,2.668,s1_globl.txt
+Russia,2017-11,-1.546,s1_globl.txt
+Russia,2017-12,-8.887,s1_globl.txt
+Russia,2018-01,0.099,s1_globl.txt
+Russia,2018-02,-1.582,s1_globl.txt
+Russia,2018-03,-0.831,s1_globl.txt
+Russia,2018-04,-20.472,s1_globl.txt
+Russia,2018-05,-14.155,s1_globl.txt
+Russia,2018-06,0.001,s1_globl.txt
+Russia,2018-07,0.002,s1_globl.txt
+Russia,2018-08,-2.333,s1_globl.txt
+Russia,2018-09,0.001,s1_globl.txt
+Russia,2018-10,0.357,s1_globl.txt
+Russia,2018-11,0.195,s1_globl.txt
+Russia,2018-12,1.384,s1_globl.txt
+Russia,2019-01,0.638,s1_globl.txt
+Russia,2019-02,0.502,s1_globl.txt
+Russia,2019-03,1.744,s1_globl.txt
+Russia,2019-04,-3.167,s1_globl.txt
+Russia,2019-05,-0.696,s1_globl.txt
+Russia,2019-06,0.0,s1_globl.txt
+Russia,2019-07,-1.01,s1_globl.txt
+Russia,2019-08,-0.499,s1_globl.txt
+Russia,2019-09,0.0,s1_globl.txt
+Russia,2019-10,-0.498,s1_globl.txt
+Russia,2019-11,0.401,s1_globl.txt
+Russia,2019-12,0.128,s1_globl.txt
+Russia,2020-01,-0.293,s1_globl.txt
+Russia,2020-02,-0.125,s1_globl.txt
+Russia,2020-03,-0.217,s1_globl.txt
+Russia,2020-04,0.001,s1_globl.txt
+Russia,2020-05,0.0,s1_globl.txt
+Russia,2020-06,0.0,s1_globl.txt
+Russia,2020-07,0.0,s1_globl.txt
+Russia,2020-08,0.0,s1_globl.txt
+Russia,2020-09,-0.542,s1_globl.txt
+Russia,2020-10,0.003,s1_globl.txt
+Russia,2020-11,-0.91,s1_globl.txt
+Russia,2020-12,0.0,s1_globl.txt
+Russia,2021-01,0.003,s1_globl.txt
+Russia,2021-02,-0.905,s1_globl.txt
+Russia,2021-03,0.001,s1_globl.txt
+Russia,2021-04,0.0,s1_globl.txt
+Russia,2021-05,0.001,s1_globl.txt
+Russia,2021-06,0.0,s1_globl.txt
+Russia,2021-07,0.0,s1_globl.txt
+Russia,2021-08,-0.1,s1_globl.txt
+Russia,2021-09,0.0,s1_globl.txt
+Russia,2021-10,0.0,s1_globl.txt
+Russia,2021-11,-0.45,s1_globl.txt
+Russia,2021-12,0.0,s1_globl.txt
+Russia,2022-01,-0.1,s1_globl.txt
+Russia,2022-02,0.0,s1_globl.txt
+Russia,2022-03,0.0,s1_globl.txt
+Russia,2022-04,0.0,s1_globl.txt
+Russia,2022-05,0.001,s1_globl.txt
+Russia,2022-06,0.023,s1_globl.txt
+Russia,2022-07,0.013,s1_globl.txt
+Russia,2022-08,0.005,s1_globl.txt
+Russia,2022-09,0.002,s1_globl.txt
+Russia,2022-10,0.002,s1_globl.txt
+Russia,2022-11,0.001,s1_globl.txt
+Russia,2022-12,0.002,s1_globl.txt
+Russia,2023-01,0.036,s1_globl.txt
+Russia,2023-02,0.004,slt_table3.txt
+Russia,2023-03,0.008,slt_table3.txt
+Russia,2023-04,0.005,slt_table3.txt
+Russia,2023-05,0.0,slt_table3.txt
+Russia,2023-06,0.002,slt_table3.txt
+Russia,2023-07,0.001,slt_table3.txt
+Russia,2023-08,0.003,slt_table3.txt
+Russia,2023-09,0.003,slt_table3.txt
+Russia,2023-10,0.001,slt_table3.txt
+Russia,2023-11,0.002,slt_table3.txt
+Russia,2023-12,0.003,slt_table3.txt
+Russia,2024-01,0.002,slt_table3.txt
+Russia,2024-02,0.003,slt_table3.txt
+Russia,2024-03,0.001,slt_table3.txt
+Russia,2024-04,0.002,slt_table3.txt
+Russia,2024-05,0.001,slt_table3.txt
+Russia,2024-06,0.001,slt_table3.txt
+Russia,2024-07,-0.02,slt_table3.txt
+Russia,2024-08,0.001,slt_table3.txt
+Russia,2024-09,0.002,slt_table3.txt
+Russia,2024-10,0.001,slt_table3.txt
+Russia,2024-11,0.002,slt_table3.txt
+Russia,2024-12,0.004,slt_table3.txt
+Russia,2025-01,0.005,slt_table3.txt
+Russia,2025-02,0.0,slt_table3.txt
+Russia,2025-03,0.001,slt_table3.txt
+Russia,2025-04,0.002,slt_table3.txt
+Russia,2025-05,0.004,slt_table3.txt
+Russia,2025-06,0.0,slt_table3.txt
+Russia,2025-07,0.0,slt_table3.txt
+Russia,2025-08,0.001,slt_table3.txt
+Russia,2025-09,0.002,slt_table3.txt
+Russia,2025-10,0.003,slt_table3.txt
+Russia,2025-11,0.001,slt_table3.txt
+Russia,2025-12,0.002,slt_table3.txt
+Russia,2026-01,0.001,slt_table3.txt
+Russia,2026-02,0.003,slt_table3.txt
+Russia,2026-03,0.003,slt_table3.txt
+Russia,2026-04,0.004,slt_table3.txt
+"China, Mainland",2013-01,44.49,s1_globl.txt
+"China, Mainland",2013-02,10.691,s1_globl.txt
+"China, Mainland",2013-03,-1.504,s1_globl.txt
+"China, Mainland",2013-04,-4.971,s1_globl.txt
+"China, Mainland",2013-05,22.485,s1_globl.txt
+"China, Mainland",2013-06,12.236,s1_globl.txt
+"China, Mainland",2013-07,-6.476,s1_globl.txt
+"China, Mainland",2013-08,1.415,s1_globl.txt
+"China, Mainland",2013-09,-5.62,s1_globl.txt
+"China, Mainland",2013-10,2.306,s1_globl.txt
+"China, Mainland",2013-11,10.668,s1_globl.txt
+"China, Mainland",2013-12,-4.655,s1_globl.txt
+"China, Mainland",2014-01,16.03,s1_globl.txt
+"China, Mainland",2014-02,21.75,s1_globl.txt
+"China, Mainland",2014-03,18.045,s1_globl.txt
+"China, Mainland",2014-04,32.898,s1_globl.txt
+"China, Mainland",2014-05,18.485,s1_globl.txt
+"China, Mainland",2014-06,23.598,s1_globl.txt
+"China, Mainland",2014-07,-11.867,s1_globl.txt
+"China, Mainland",2014-08,11.828,s1_globl.txt
+"China, Mainland",2014-09,24.705,s1_globl.txt
+"China, Mainland",2014-10,28.44,s1_globl.txt
+"China, Mainland",2014-11,7.198,s1_globl.txt
+"China, Mainland",2014-12,-5.427,s1_globl.txt
+"China, Mainland",2015-01,-1.398,s1_globl.txt
+"China, Mainland",2015-02,6.724,s1_globl.txt
+"China, Mainland",2015-03,12.834,s1_globl.txt
+"China, Mainland",2015-04,-9.36,s1_globl.txt
+"China, Mainland",2015-05,7.111,s1_globl.txt
+"China, Mainland",2015-06,19.508,s1_globl.txt
+"China, Mainland",2015-07,-13.867,s1_globl.txt
+"China, Mainland",2015-08,-22.619,s1_globl.txt
+"China, Mainland",2015-09,-6.629,s1_globl.txt
+"China, Mainland",2015-10,-14.66,s1_globl.txt
+"China, Mainland",2015-11,29.717,s1_globl.txt
+"China, Mainland",2015-12,-29.219,s1_globl.txt
+"China, Mainland",2016-01,-37.202,s1_globl.txt
+"China, Mainland",2016-02,-6.484,s1_globl.txt
+"China, Mainland",2016-03,-3.549,s1_globl.txt
+"China, Mainland",2016-04,-2.37,s1_globl.txt
+"China, Mainland",2016-05,4.526,s1_globl.txt
+"China, Mainland",2016-06,-27.938,s1_globl.txt
+"China, Mainland",2016-07,-20.929,s1_globl.txt
+"China, Mainland",2016-08,-17.393,s1_globl.txt
+"China, Mainland",2016-09,-13.927,s1_globl.txt
+"China, Mainland",2016-10,-25.75,s1_globl.txt
+"China, Mainland",2016-11,-2.907,s1_globl.txt
+"China, Mainland",2016-12,-1.28,s1_globl.txt
+"China, Mainland",2017-01,1.348,s1_globl.txt
+"China, Mainland",2017-02,1.55,s1_globl.txt
+"China, Mainland",2017-03,-3.726,s1_globl.txt
+"China, Mainland",2017-04,-3.74,s1_globl.txt
+"China, Mainland",2017-05,-9.207,s1_globl.txt
+"China, Mainland",2017-06,21.124,s1_globl.txt
+"China, Mainland",2017-07,-1.373,s1_globl.txt
+"China, Mainland",2017-08,24.568,s1_globl.txt
+"China, Mainland",2017-09,1.142,s1_globl.txt
+"China, Mainland",2017-10,4.333,s1_globl.txt
+"China, Mainland",2017-11,-10.449,s1_globl.txt
+"China, Mainland",2017-12,-3.081,s1_globl.txt
+"China, Mainland",2018-01,4.192,s1_globl.txt
+"China, Mainland",2018-02,15.029,s1_globl.txt
+"China, Mainland",2018-03,-2.534,s1_globl.txt
+"China, Mainland",2018-04,-6.814,s1_globl.txt
+"China, Mainland",2018-05,6.997,s1_globl.txt
+"China, Mainland",2018-06,-8.724,s1_globl.txt
+"China, Mainland",2018-07,-5.936,s1_globl.txt
+"China, Mainland",2018-08,9.441,s1_globl.txt
+"China, Mainland",2018-09,-18.509,s1_globl.txt
+"China, Mainland",2018-10,-8.107,s1_globl.txt
+"China, Mainland",2018-11,-3.783,s1_globl.txt
+"China, Mainland",2018-12,-15.967,s1_globl.txt
+"China, Mainland",2019-01,-12.083,s1_globl.txt
+"China, Mainland",2019-02,1.075,s1_globl.txt
+"China, Mainland",2019-03,-20.454,s1_globl.txt
+"China, Mainland",2019-04,-10.071,s1_globl.txt
+"China, Mainland",2019-05,-6.441,s1_globl.txt
+"China, Mainland",2019-06,-3.75,s1_globl.txt
+"China, Mainland",2019-07,3.197,s1_globl.txt
+"China, Mainland",2019-08,-31.957,s1_globl.txt
+"China, Mainland",2019-09,-7.796,s1_globl.txt
+"China, Mainland",2019-10,-16.646,s1_globl.txt
+"China, Mainland",2019-11,-15.352,s1_globl.txt
+"China, Mainland",2019-12,0.882,s1_globl.txt
+"China, Mainland",2020-01,-16.23,s1_globl.txt
+"China, Mainland",2020-02,-11.675,s1_globl.txt
+"China, Mainland",2020-03,-8.026,s1_globl.txt
+"China, Mainland",2020-04,-5.082,s1_globl.txt
+"China, Mainland",2020-05,1.088,s1_globl.txt
+"China, Mainland",2020-06,-1.32,s1_globl.txt
+"China, Mainland",2020-07,-4.664,s1_globl.txt
+"China, Mainland",2020-08,15.915,s1_globl.txt
+"China, Mainland",2020-09,8.771,s1_globl.txt
+"China, Mainland",2020-10,0.565,s1_globl.txt
+"China, Mainland",2020-11,-4.137,s1_globl.txt
+"China, Mainland",2020-12,-9.193,s1_globl.txt
+"China, Mainland",2021-01,2.174,s1_globl.txt
+"China, Mainland",2021-02,-14.94,s1_globl.txt
+"China, Mainland",2021-03,41.56,s1_globl.txt
+"China, Mainland",2021-04,14.57,s1_globl.txt
+"China, Mainland",2021-05,-17.383,s1_globl.txt
+"China, Mainland",2021-06,-8.797,s1_globl.txt
+"China, Mainland",2021-07,8.359,s1_globl.txt
+"China, Mainland",2021-08,2.784,s1_globl.txt
+"China, Mainland",2021-09,-3.134,s1_globl.txt
+"China, Mainland",2021-10,7.056,s1_globl.txt
+"China, Mainland",2021-11,-8.545,s1_globl.txt
+"China, Mainland",2021-12,-3.228,s1_globl.txt
+"China, Mainland",2022-01,19.362,s1_globl.txt
+"China, Mainland",2022-02,-6.429,s1_globl.txt
+"China, Mainland",2022-03,-26.988,s1_globl.txt
+"China, Mainland",2022-04,8.46,s1_globl.txt
+"China, Mainland",2022-05,-15.091,s1_globl.txt
+"China, Mainland",2022-06,-0.248,s1_globl.txt
+"China, Mainland",2022-07,-7.11,s1_globl.txt
+"China, Mainland",2022-08,7.566,s1_globl.txt
+"China, Mainland",2022-09,2.242,s1_globl.txt
+"China, Mainland",2022-10,7.115,s1_globl.txt
+"China, Mainland",2022-11,-2.097,s1_globl.txt
+"China, Mainland",2022-12,0.622,s1_globl.txt
+"China, Mainland",2023-01,-10.922,s1_globl.txt
+"China, Mainland",2023-02,6.006,slt_table3.txt
+"China, Mainland",2023-03,-13.816,slt_table3.txt
+"China, Mainland",2023-04,-0.997,slt_table3.txt
+"China, Mainland",2023-05,-13.671,slt_table3.txt
+"China, Mainland",2023-06,8.088,slt_table3.txt
+"China, Mainland",2023-07,-11.204,slt_table3.txt
+"China, Mainland",2023-08,-14.867,slt_table3.txt
+"China, Mainland",2023-09,-1.004,slt_table3.txt
+"China, Mainland",2023-10,1.852,slt_table3.txt
+"China, Mainland",2023-11,-15.046,slt_table3.txt
+"China, Mainland",2023-12,-2.645,slt_table3.txt
+"China, Mainland",2024-01,-21.735,slt_table3.txt
+"China, Mainland",2024-02,-13.154,slt_table3.txt
+"China, Mainland",2024-03,-9.813,slt_table3.txt
+"China, Mainland",2024-04,23.895,slt_table3.txt
+"China, Mainland",2024-05,-23.887,slt_table3.txt
+"China, Mainland",2024-06,5.925,slt_table3.txt
+"China, Mainland",2024-07,-23.106,slt_table3.txt
+"China, Mainland",2024-08,-15.866,slt_table3.txt
+"China, Mainland",2024-09,-12.354,slt_table3.txt
+"China, Mainland",2024-10,3.138,slt_table3.txt
+"China, Mainland",2024-11,-4.132,slt_table3.txt
+"China, Mainland",2024-12,-10.702,slt_table3.txt
+"China, Mainland",2025-01,-3.197,slt_table3.txt
+"China, Mainland",2025-02,-4.541,slt_table3.txt
+"China, Mainland",2025-03,-27.575,slt_table3.txt
+"China, Mainland",2025-04,-20.876,slt_table3.txt
+"China, Mainland",2025-05,2.459,slt_table3.txt
+"China, Mainland",2025-06,-5.389,slt_table3.txt
+"China, Mainland",2025-07,-23.572,slt_table3.txt
+"China, Mainland",2025-08,-21.767,slt_table3.txt
+"China, Mainland",2025-09,-2.966,slt_table3.txt
+"China, Mainland",2025-10,-11.258,slt_table3.txt
+"China, Mainland",2025-11,2.864,slt_table3.txt
+"China, Mainland",2025-12,5.706,slt_table3.txt
+"China, Mainland",2026-01,11.926,slt_table3.txt
+"China, Mainland",2026-02,-11.822,slt_table3.txt
+"China, Mainland",2026-03,-29.997,slt_table3.txt
+"China, Mainland",2026-04,5.519,slt_table3.txt
+Belgium,2013-01,-0.287,s1_globl.txt
+Belgium,2013-02,-0.083,s1_globl.txt
+Belgium,2013-03,-3.655,s1_globl.txt
+Belgium,2013-04,-2.392,s1_globl.txt
+Belgium,2013-05,-2.409,s1_globl.txt
+Belgium,2013-06,-0.292,s1_globl.txt
+Belgium,2013-07,-0.683,s1_globl.txt
+Belgium,2013-08,-0.329,s1_globl.txt
+Belgium,2013-09,-0.411,s1_globl.txt
+Belgium,2013-10,-0.356,s1_globl.txt
+Belgium,2013-11,-0.827,s1_globl.txt
+Belgium,2013-12,-0.123,s1_globl.txt
+Belgium,2014-01,-0.354,s1_globl.txt
+Belgium,2014-02,-2.882,s1_globl.txt
+Belgium,2014-03,-2.633,s1_globl.txt
+Belgium,2014-04,-0.67,s1_globl.txt
+Belgium,2014-05,-2.819,s1_globl.txt
+Belgium,2014-06,-0.296,s1_globl.txt
+Belgium,2014-07,-0.777,s1_globl.txt
+Belgium,2014-08,-0.261,s1_globl.txt
+Belgium,2014-09,-0.172,s1_globl.txt
+Belgium,2014-10,-3.211,s1_globl.txt
+Belgium,2014-11,-6.387,s1_globl.txt
+Belgium,2014-12,-7.714,s1_globl.txt
+Belgium,2015-01,-8.135,s1_globl.txt
+Belgium,2015-02,-11.183,s1_globl.txt
+Belgium,2015-03,-8.235,s1_globl.txt
+Belgium,2015-04,-2.349,s1_globl.txt
+Belgium,2015-05,-5.362,s1_globl.txt
+Belgium,2015-06,-0.652,s1_globl.txt
+Belgium,2015-07,-0.437,s1_globl.txt
+Belgium,2015-08,-0.295,s1_globl.txt
+Belgium,2015-09,-0.243,s1_globl.txt
+Belgium,2015-10,-0.42,s1_globl.txt
+Belgium,2015-11,-1.373,s1_globl.txt
+Belgium,2015-12,-0.998,s1_globl.txt
+Belgium,2016-01,-0.656,s1_globl.txt
+Belgium,2016-02,-0.561,s1_globl.txt
+Belgium,2016-03,-0.929,s1_globl.txt
+Belgium,2016-04,-0.707,s1_globl.txt
+Belgium,2016-05,-1.667,s1_globl.txt
+Belgium,2016-06,-0.63,s1_globl.txt
+Belgium,2016-07,-0.468,s1_globl.txt
+Belgium,2016-08,-0.847,s1_globl.txt
+Belgium,2016-09,-0.532,s1_globl.txt
+Belgium,2016-10,-1.201,s1_globl.txt
+Belgium,2016-11,-0.544,s1_globl.txt
+Belgium,2016-12,-3.114,s1_globl.txt
+Belgium,2017-01,-1.37,s1_globl.txt
+Belgium,2017-02,-0.537,s1_globl.txt
+Belgium,2017-03,-1.137,s1_globl.txt
+Belgium,2017-04,-1.189,s1_globl.txt
+Belgium,2017-05,-0.671,s1_globl.txt
+Belgium,2017-06,-0.951,s1_globl.txt
+Belgium,2017-07,-1.322,s1_globl.txt
+Belgium,2017-08,-0.136,s1_globl.txt
+Belgium,2017-09,-2.046,s1_globl.txt
+Belgium,2017-10,-1.269,s1_globl.txt
+Belgium,2017-11,-0.821,s1_globl.txt
+Belgium,2017-12,-0.83,s1_globl.txt
+Belgium,2018-01,-1.371,s1_globl.txt
+Belgium,2018-02,-1.423,s1_globl.txt
+Belgium,2018-03,-0.975,s1_globl.txt
+Belgium,2018-04,-2.376,s1_globl.txt
+Belgium,2018-05,-0.965,s1_globl.txt
+Belgium,2018-06,-1.933,s1_globl.txt
+Belgium,2018-07,-1.273,s1_globl.txt
+Belgium,2018-08,-1.225,s1_globl.txt
+Belgium,2018-09,-1.128,s1_globl.txt
+Belgium,2018-10,-1.416,s1_globl.txt
+Belgium,2018-11,-1.584,s1_globl.txt
+Belgium,2018-12,-1.21,s1_globl.txt
+Belgium,2019-01,-2.162,s1_globl.txt
+Belgium,2019-02,-1.338,s1_globl.txt
+Belgium,2019-03,-3.311,s1_globl.txt
+Belgium,2019-04,-3.064,s1_globl.txt
+Belgium,2019-05,-1.414,s1_globl.txt
+Belgium,2019-06,-2.53,s1_globl.txt
+Belgium,2019-07,-1.791,s1_globl.txt
+Belgium,2019-08,-2.389,s1_globl.txt
+Belgium,2019-09,-1.883,s1_globl.txt
+Belgium,2019-10,-1.551,s1_globl.txt
+Belgium,2019-11,-3.585,s1_globl.txt
+Belgium,2019-12,-1.508,s1_globl.txt
+Belgium,2020-01,-1.788,s1_globl.txt
+Belgium,2020-02,-3.378,s1_globl.txt
+Belgium,2020-03,-1.884,s1_globl.txt
+Belgium,2020-04,-1.392,s1_globl.txt
+Belgium,2020-05,-2.62,s1_globl.txt
+Belgium,2020-06,-2.536,s1_globl.txt
+Belgium,2020-07,-1.627,s1_globl.txt
+Belgium,2020-08,-3.272,s1_globl.txt
+Belgium,2020-09,-1.4,s1_globl.txt
+Belgium,2020-10,-1.769,s1_globl.txt
+Belgium,2020-11,-3.675,s1_globl.txt
+Belgium,2020-12,-0.464,s1_globl.txt
+Belgium,2021-01,-2.313,s1_globl.txt
+Belgium,2021-02,-2.033,s1_globl.txt
+Belgium,2021-03,-1.59,s1_globl.txt
+Belgium,2021-04,-3.106,s1_globl.txt
+Belgium,2021-05,-1.277,s1_globl.txt
+Belgium,2021-06,-1.703,s1_globl.txt
+Belgium,2021-07,-2.049,s1_globl.txt
+Belgium,2021-08,-3.455,s1_globl.txt
+Belgium,2021-09,-4.565,s1_globl.txt
+Belgium,2021-10,-5.324,s1_globl.txt
+Belgium,2021-11,-4.43,s1_globl.txt
+Belgium,2021-12,-2.166,s1_globl.txt
+Belgium,2022-01,-12.302,s1_globl.txt
+Belgium,2022-02,-1.598,s1_globl.txt
+Belgium,2022-03,-2.616,s1_globl.txt
+Belgium,2022-04,-5.565,s1_globl.txt
+Belgium,2022-05,-2.463,s1_globl.txt
+Belgium,2022-06,-1.982,s1_globl.txt
+Belgium,2022-07,-2.459,s1_globl.txt
+Belgium,2022-08,-2.022,s1_globl.txt
+Belgium,2022-09,-2.45,s1_globl.txt
+Belgium,2022-10,-8.275,s1_globl.txt
+Belgium,2022-11,-2.93,s1_globl.txt
+Belgium,2022-12,-4.502,s1_globl.txt
+Belgium,2023-01,-8.591,s1_globl.txt
+Belgium,2023-02,-1.262,slt_table3.txt
+Belgium,2023-03,-3.602,slt_table3.txt
+Belgium,2023-04,-5.338,slt_table3.txt
+Belgium,2023-05,-5.577,slt_table3.txt
+Belgium,2023-06,9.255,slt_table3.txt
+Belgium,2023-07,-3.848,slt_table3.txt
+Belgium,2023-08,-2.91,slt_table3.txt
+Belgium,2023-09,2.731,slt_table3.txt
+Belgium,2023-10,-14.032,slt_table3.txt
+Belgium,2023-11,-2.889,slt_table3.txt
+Belgium,2023-12,-2.371,slt_table3.txt
+Belgium,2024-01,-12.983,slt_table3.txt
+Belgium,2024-02,-0.733,slt_table3.txt
+Belgium,2024-03,-8.308,slt_table3.txt
+Belgium,2024-04,-1.321,slt_table3.txt
+Belgium,2024-05,0.009,slt_table3.txt
+Belgium,2024-06,-0.329,slt_table3.txt
+Belgium,2024-07,-11.622,slt_table3.txt
+Belgium,2024-08,5.171,slt_table3.txt
+Belgium,2024-09,20.224,slt_table3.txt
+Belgium,2024-10,-8.632,slt_table3.txt
+Belgium,2024-11,3.798,slt_table3.txt
+Belgium,2024-12,6.899,slt_table3.txt
+Belgium,2025-01,-6.503,slt_table3.txt
+Belgium,2025-02,-0.261,slt_table3.txt
+Belgium,2025-03,1.285,slt_table3.txt
+Belgium,2025-04,-15.476,slt_table3.txt
+Belgium,2025-05,-0.034,slt_table3.txt
+Belgium,2025-06,-1.376,slt_table3.txt
+Belgium,2025-07,-3.31,slt_table3.txt
+Belgium,2025-08,-0.272,slt_table3.txt
+Belgium,2025-09,7.095,slt_table3.txt
+Belgium,2025-10,-14.485,slt_table3.txt
+Belgium,2025-11,10.11,slt_table3.txt
+Belgium,2025-12,6.598,slt_table3.txt
+Belgium,2026-01,-6.235,slt_table3.txt
+Belgium,2026-02,-6.763,slt_table3.txt
+Belgium,2026-03,5.052,slt_table3.txt
+Belgium,2026-04,-12.027,slt_table3.txt
+Luxembourg,2013-01,-7.729,s1_globl.txt
+Luxembourg,2013-02,-7.964,s1_globl.txt
+Luxembourg,2013-03,1.16,s1_globl.txt
+Luxembourg,2013-04,-3.11,s1_globl.txt
+Luxembourg,2013-05,-3.722,s1_globl.txt
+Luxembourg,2013-06,-1.846,s1_globl.txt
+Luxembourg,2013-07,-7.091,s1_globl.txt
+Luxembourg,2013-08,-12.279,s1_globl.txt
+Luxembourg,2013-09,-4.666,s1_globl.txt
+Luxembourg,2013-10,-6.266,s1_globl.txt
+Luxembourg,2013-11,-2.675,s1_globl.txt
+Luxembourg,2013-12,-4.196,s1_globl.txt
+Luxembourg,2014-01,-8.758,s1_globl.txt
+Luxembourg,2014-02,-1.069,s1_globl.txt
+Luxembourg,2014-03,-2.431,s1_globl.txt
+Luxembourg,2014-04,-1.138,s1_globl.txt
+Luxembourg,2014-05,1.336,s1_globl.txt
+Luxembourg,2014-06,-5.487,s1_globl.txt
+Luxembourg,2014-07,-5.568,s1_globl.txt
+Luxembourg,2014-08,-5.556,s1_globl.txt
+Luxembourg,2014-09,3.906,s1_globl.txt
+Luxembourg,2014-10,-3.753,s1_globl.txt
+Luxembourg,2014-11,-1.501,s1_globl.txt
+Luxembourg,2014-12,-2.172,s1_globl.txt
+Luxembourg,2015-01,-1.29,s1_globl.txt
+Luxembourg,2015-02,-3.915,s1_globl.txt
+Luxembourg,2015-03,-0.516,s1_globl.txt
+Luxembourg,2015-04,-5.377,s1_globl.txt
+Luxembourg,2015-05,0.254,s1_globl.txt
+Luxembourg,2015-06,2.139,s1_globl.txt
+Luxembourg,2015-07,-3.303,s1_globl.txt
+Luxembourg,2015-08,-9.487,s1_globl.txt
+Luxembourg,2015-09,-0.19,s1_globl.txt
+Luxembourg,2015-10,-3.93,s1_globl.txt
+Luxembourg,2015-11,-3.489,s1_globl.txt
+Luxembourg,2015-12,-1.154,s1_globl.txt
+Luxembourg,2016-01,8.995,s1_globl.txt
+Luxembourg,2016-02,-0.255,s1_globl.txt
+Luxembourg,2016-03,-1.41,s1_globl.txt
+Luxembourg,2016-04,-5.383,s1_globl.txt
+Luxembourg,2016-05,-6.195,s1_globl.txt
+Luxembourg,2016-06,0.368,s1_globl.txt
+Luxembourg,2016-07,-5.896,s1_globl.txt
+Luxembourg,2016-08,-4.042,s1_globl.txt
+Luxembourg,2016-09,1.509,s1_globl.txt
+Luxembourg,2016-10,-8.415,s1_globl.txt
+Luxembourg,2016-11,-0.373,s1_globl.txt
+Luxembourg,2016-12,-0.204,s1_globl.txt
+Luxembourg,2017-01,-9.08,s1_globl.txt
+Luxembourg,2017-02,-1.478,s1_globl.txt
+Luxembourg,2017-03,-1.667,s1_globl.txt
+Luxembourg,2017-04,-6.051,s1_globl.txt
+Luxembourg,2017-05,-8.988,s1_globl.txt
+Luxembourg,2017-06,-0.348,s1_globl.txt
+Luxembourg,2017-07,-11.153,s1_globl.txt
+Luxembourg,2017-08,-4.469,s1_globl.txt
+Luxembourg,2017-09,-2.898,s1_globl.txt
+Luxembourg,2017-10,-7.722,s1_globl.txt
+Luxembourg,2017-11,0.264,s1_globl.txt
+Luxembourg,2017-12,2.372,s1_globl.txt
+Luxembourg,2018-01,-1.345,s1_globl.txt
+Luxembourg,2018-02,-4.324,s1_globl.txt
+Luxembourg,2018-03,-0.542,s1_globl.txt
+Luxembourg,2018-04,-3.534,s1_globl.txt
+Luxembourg,2018-05,-0.681,s1_globl.txt
+Luxembourg,2018-06,0.287,s1_globl.txt
+Luxembourg,2018-07,-9.747,s1_globl.txt
+Luxembourg,2018-08,-1.042,s1_globl.txt
+Luxembourg,2018-09,-0.706,s1_globl.txt
+Luxembourg,2018-10,-9.013,s1_globl.txt
+Luxembourg,2018-11,2.064,s1_globl.txt
+Luxembourg,2018-12,-0.539,s1_globl.txt
+Luxembourg,2019-01,-6.508,s1_globl.txt
+Luxembourg,2019-02,-0.4,s1_globl.txt
+Luxembourg,2019-03,-0.562,s1_globl.txt
+Luxembourg,2019-04,-6.375,s1_globl.txt
+Luxembourg,2019-05,-2.51,s1_globl.txt
+Luxembourg,2019-06,0.585,s1_globl.txt
+Luxembourg,2019-07,-4.859,s1_globl.txt
+Luxembourg,2019-08,-4.112,s1_globl.txt
+Luxembourg,2019-09,5.515,s1_globl.txt
+Luxembourg,2019-10,-0.855,s1_globl.txt
+Luxembourg,2019-11,1.629,s1_globl.txt
+Luxembourg,2019-12,3.883,s1_globl.txt
+Luxembourg,2020-01,-4.75,s1_globl.txt
+Luxembourg,2020-02,-1.208,s1_globl.txt
+Luxembourg,2020-03,-1.176,s1_globl.txt
+Luxembourg,2020-04,-5.778,s1_globl.txt
+Luxembourg,2020-05,-4.231,s1_globl.txt
+Luxembourg,2020-06,-3.481,s1_globl.txt
+Luxembourg,2020-07,-12.484,s1_globl.txt
+Luxembourg,2020-08,-6.093,s1_globl.txt
+Luxembourg,2020-09,-3.401,s1_globl.txt
+Luxembourg,2020-10,-3.931,s1_globl.txt
+Luxembourg,2020-11,-9.541,s1_globl.txt
+Luxembourg,2020-12,-1.388,s1_globl.txt
+Luxembourg,2021-01,-2.731,s1_globl.txt
+Luxembourg,2021-02,-3.621,s1_globl.txt
+Luxembourg,2021-03,-2.052,s1_globl.txt
+Luxembourg,2021-04,-4.749,s1_globl.txt
+Luxembourg,2021-05,-1.565,s1_globl.txt
+Luxembourg,2021-06,-1.771,s1_globl.txt
+Luxembourg,2021-07,-1.949,s1_globl.txt
+Luxembourg,2021-08,-2.227,s1_globl.txt
+Luxembourg,2021-09,-3.613,s1_globl.txt
+Luxembourg,2021-10,-0.122,s1_globl.txt
+Luxembourg,2021-11,-2.576,s1_globl.txt
+Luxembourg,2021-12,-2.084,s1_globl.txt
+Luxembourg,2022-01,-3.692,s1_globl.txt
+Luxembourg,2022-02,-3.899,s1_globl.txt
+Luxembourg,2022-03,-4.757,s1_globl.txt
+Luxembourg,2022-04,0.392,s1_globl.txt
+Luxembourg,2022-05,-2.712,s1_globl.txt
+Luxembourg,2022-06,-0.008,s1_globl.txt
+Luxembourg,2022-07,-1.501,s1_globl.txt
+Luxembourg,2022-08,-5.443,s1_globl.txt
+Luxembourg,2022-09,1.21,s1_globl.txt
+Luxembourg,2022-10,-1.871,s1_globl.txt
+Luxembourg,2022-11,-3.489,s1_globl.txt
+Luxembourg,2022-12,1.057,s1_globl.txt
+Luxembourg,2023-01,-11.149,s1_globl.txt
+Luxembourg,2023-02,10.34,slt_table3.txt
+Luxembourg,2023-03,-5.765,slt_table3.txt
+Luxembourg,2023-04,3.675,slt_table3.txt
+Luxembourg,2023-05,1.744,slt_table3.txt
+Luxembourg,2023-06,-6.02,slt_table3.txt
+Luxembourg,2023-07,12.453,slt_table3.txt
+Luxembourg,2023-08,7.534,slt_table3.txt
+Luxembourg,2023-09,7.842,slt_table3.txt
+Luxembourg,2023-10,-16.921,slt_table3.txt
+Luxembourg,2023-11,7.806,slt_table3.txt
+Luxembourg,2023-12,2.343,slt_table3.txt
+Luxembourg,2024-01,9.652,slt_table3.txt
+Luxembourg,2024-02,6.475,slt_table3.txt
+Luxembourg,2024-03,3.542,slt_table3.txt
+Luxembourg,2024-04,2.488,slt_table3.txt
+Luxembourg,2024-05,2.754,slt_table3.txt
+Luxembourg,2024-06,2.19,slt_table3.txt
+Luxembourg,2024-07,-2.936,slt_table3.txt
+Luxembourg,2024-08,1.901,slt_table3.txt
+Luxembourg,2024-09,1.136,slt_table3.txt
+Luxembourg,2024-10,5.103,slt_table3.txt
+Luxembourg,2024-11,-4.018,slt_table3.txt
+Luxembourg,2024-12,-0.055,slt_table3.txt
+Luxembourg,2025-01,-2.234,slt_table3.txt
+Luxembourg,2025-02,4.203,slt_table3.txt
+Luxembourg,2025-03,-3.795,slt_table3.txt
+Luxembourg,2025-04,-7.442,slt_table3.txt
+Luxembourg,2025-05,3.695,slt_table3.txt
+Luxembourg,2025-06,-3.357,slt_table3.txt
+Luxembourg,2025-07,0.365,slt_table3.txt
+Luxembourg,2025-08,15.139,slt_table3.txt
+Luxembourg,2025-09,10.838,slt_table3.txt
+Luxembourg,2025-10,0.202,slt_table3.txt
+Luxembourg,2025-11,0.935,slt_table3.txt
+Luxembourg,2025-12,2.82,slt_table3.txt
+Luxembourg,2026-01,4.963,slt_table3.txt
+Luxembourg,2026-02,-12.854,slt_table3.txt
+Luxembourg,2026-03,-0.773,slt_table3.txt
+Luxembourg,2026-04,8.912,slt_table3.txt
+India,2013-01,-0.833,s1_globl.txt
+India,2013-02,-1.838,s1_globl.txt
+India,2013-03,-0.402,s1_globl.txt
+India,2013-04,-0.416,s1_globl.txt
+India,2013-05,1.847,s1_globl.txt
+India,2013-06,0.607,s1_globl.txt
+India,2013-07,-0.007,s1_globl.txt
+India,2013-08,-0.954,s1_globl.txt
+India,2013-09,-0.416,s1_globl.txt
+India,2013-10,1.476,s1_globl.txt
+India,2013-11,1.784,s1_globl.txt
+India,2013-12,1.524,s1_globl.txt
+India,2014-01,-0.536,s1_globl.txt
+India,2014-02,-0.932,s1_globl.txt
+India,2014-03,0.061,s1_globl.txt
+India,2014-04,-1.067,s1_globl.txt
+India,2014-05,-0.524,s1_globl.txt
+India,2014-06,0.126,s1_globl.txt
+India,2014-07,0.821,s1_globl.txt
+India,2014-08,-0.69,s1_globl.txt
+India,2014-09,-1.802,s1_globl.txt
+India,2014-10,-2.119,s1_globl.txt
+India,2014-11,0.081,s1_globl.txt
+India,2014-12,-0.601,s1_globl.txt
+India,2015-01,0.86,s1_globl.txt
+India,2015-02,0.734,s1_globl.txt
+India,2015-03,-0.846,s1_globl.txt
+India,2015-04,-1.04,s1_globl.txt
+India,2015-05,0.505,s1_globl.txt
+India,2015-06,-0.679,s1_globl.txt
+India,2015-07,-1.688,s1_globl.txt
+India,2015-08,-2.135,s1_globl.txt
+India,2015-09,-2.701,s1_globl.txt
+India,2015-10,0.49,s1_globl.txt
+India,2015-11,-3.961,s1_globl.txt
+India,2015-12,-1.892,s1_globl.txt
+India,2016-01,-0.119,s1_globl.txt
+India,2016-02,-3.201,s1_globl.txt
+India,2016-03,-0.558,s1_globl.txt
+India,2016-04,-0.005,s1_globl.txt
+India,2016-05,-4.303,s1_globl.txt
+India,2016-06,-2.137,s1_globl.txt
+India,2016-07,0.121,s1_globl.txt
+India,2016-08,-3.348,s1_globl.txt
+India,2016-09,-2.295,s1_globl.txt
+India,2016-10,-2.204,s1_globl.txt
+India,2016-11,-3.825,s1_globl.txt
+India,2016-12,-1.375,s1_globl.txt
+India,2017-01,-5.954,s1_globl.txt
+India,2017-02,-4.099,s1_globl.txt
+India,2017-03,-1.293,s1_globl.txt
+India,2017-04,1.012,s1_globl.txt
+India,2017-05,-2.563,s1_globl.txt
+India,2017-06,-0.35,s1_globl.txt
+India,2017-07,0.152,s1_globl.txt
+India,2017-08,-0.958,s1_globl.txt
+India,2017-09,1.267,s1_globl.txt
+India,2017-10,-5.094,s1_globl.txt
+India,2017-11,-2.822,s1_globl.txt
+India,2017-12,1.91,s1_globl.txt
+India,2018-01,-1.698,s1_globl.txt
+India,2018-02,-0.919,s1_globl.txt
+India,2018-03,0.363,s1_globl.txt
+India,2018-04,-7.51,s1_globl.txt
+India,2018-05,-2.744,s1_globl.txt
+India,2018-06,0.216,s1_globl.txt
+India,2018-07,-5.655,s1_globl.txt
+India,2018-08,-1.58,s1_globl.txt
+India,2018-09,0.329,s1_globl.txt
+India,2018-10,-5.864,s1_globl.txt
+India,2018-11,-1.693,s1_globl.txt
+India,2018-12,-2.476,s1_globl.txt
+India,2019-01,-2.992,s1_globl.txt
+India,2019-02,-4.127,s1_globl.txt
+India,2019-03,1.06,s1_globl.txt
+India,2019-04,-3.233,s1_globl.txt
+India,2019-05,-1.292,s1_globl.txt
+India,2019-06,-0.125,s1_globl.txt
+India,2019-07,-5.578,s1_globl.txt
+India,2019-08,-0.951,s1_globl.txt
+India,2019-09,-5.635,s1_globl.txt
+India,2019-10,-1.732,s1_globl.txt
+India,2019-11,-4.304,s1_globl.txt
+India,2019-12,-6.5,s1_globl.txt
+India,2020-01,-0.309,s1_globl.txt
+India,2020-02,0.638,s1_globl.txt
+India,2020-03,-10.58,s1_globl.txt
+India,2020-04,-3.83,s1_globl.txt
+India,2020-05,0.26,s1_globl.txt
+India,2020-06,-5.888,s1_globl.txt
+India,2020-07,-3.176,s1_globl.txt
+India,2020-08,-5.956,s1_globl.txt
+India,2020-09,-1.568,s1_globl.txt
+India,2020-10,2.353,s1_globl.txt
+India,2020-11,-4.847,s1_globl.txt
+India,2020-12,-2.582,s1_globl.txt
+India,2021-01,-0.108,s1_globl.txt
+India,2021-02,-3.665,s1_globl.txt
+India,2021-03,-2.739,s1_globl.txt
+India,2021-04,0.917,s1_globl.txt
+India,2021-05,2.003,s1_globl.txt
+India,2021-06,-3.14,s1_globl.txt
+India,2021-07,0.503,s1_globl.txt
+India,2021-08,-3.485,s1_globl.txt
+India,2021-09,-0.224,s1_globl.txt
+India,2021-10,-1.489,s1_globl.txt
+India,2021-11,-3.761,s1_globl.txt
+India,2021-12,-1.525,s1_globl.txt
+India,2022-01,1.093,s1_globl.txt
+India,2022-02,0.61,s1_globl.txt
+India,2022-03,1.906,s1_globl.txt
+India,2022-04,0.644,s1_globl.txt
+India,2022-05,1.284,s1_globl.txt
+India,2022-06,2.29,s1_globl.txt
+India,2022-07,0.804,s1_globl.txt
+India,2022-08,2.774,s1_globl.txt
+India,2022-09,-0.43,s1_globl.txt
+India,2022-10,-0.095,s1_globl.txt
+India,2022-11,1.595,s1_globl.txt
+India,2022-12,1.815,s1_globl.txt
+India,2023-01,-0.505,s1_globl.txt
+India,2023-02,1.867,slt_table3.txt
+India,2023-03,1.322,slt_table3.txt
+India,2023-04,1.077,slt_table3.txt
+India,2023-05,2.182,slt_table3.txt
+India,2023-06,-1.019,slt_table3.txt
+India,2023-07,-1.156,slt_table3.txt
+India,2023-08,-0.427,slt_table3.txt
+India,2023-09,-0.559,slt_table3.txt
+India,2023-10,-8.201,slt_table3.txt
+India,2023-11,-4.03,slt_table3.txt
+India,2023-12,4.239,slt_table3.txt
+India,2024-01,-0.851,slt_table3.txt
+India,2024-02,1.607,slt_table3.txt
+India,2024-03,2.345,slt_table3.txt
+India,2024-04,-1.817,slt_table3.txt
+India,2024-05,1.937,slt_table3.txt
+India,2024-06,4.627,slt_table3.txt
+India,2024-07,-8.484,slt_table3.txt
+India,2024-08,0.625,slt_table3.txt
+India,2024-09,-3.902,slt_table3.txt
+India,2024-10,7.293,slt_table3.txt
+India,2024-11,-6.524,slt_table3.txt
+India,2024-12,-10.278,slt_table3.txt
+India,2025-01,-3.336,slt_table3.txt
+India,2025-02,-1.602,slt_table3.txt
+India,2025-03,9.663,slt_table3.txt
+India,2025-04,-5.459,slt_table3.txt
+India,2025-05,1.712,slt_table3.txt
+India,2025-06,-8.683,slt_table3.txt
+India,2025-07,-6.427,slt_table3.txt
+India,2025-08,-4.234,slt_table3.txt
+India,2025-09,-13.486,slt_table3.txt
+India,2025-10,-13.636,slt_table3.txt
+India,2025-11,-2.031,slt_table3.txt
+India,2025-12,-4.284,slt_table3.txt
+India,2026-01,5.612,slt_table3.txt
+India,2026-02,2.291,slt_table3.txt
+India,2026-03,-7.974,slt_table3.txt
+India,2026-04,-0.796,slt_table3.txt
+Turkey,2013-01,4.512,s1_globl.txt
+Turkey,2013-02,-0.196,s1_globl.txt
+Turkey,2013-03,0.286,s1_globl.txt
+Turkey,2013-04,1.009,s1_globl.txt
+Turkey,2013-05,0.755,s1_globl.txt
+Turkey,2013-06,0.629,s1_globl.txt
+Turkey,2013-07,0.273,s1_globl.txt
+Turkey,2013-08,-0.444,s1_globl.txt
+Turkey,2013-09,-0.713,s1_globl.txt
+Turkey,2013-10,1.422,s1_globl.txt
+Turkey,2013-11,0.087,s1_globl.txt
+Turkey,2013-12,-0.825,s1_globl.txt
+Turkey,2014-01,0.15,s1_globl.txt
+Turkey,2014-02,-0.032,s1_globl.txt
+Turkey,2014-03,0.954,s1_globl.txt
+Turkey,2014-04,-0.068,s1_globl.txt
+Turkey,2014-05,-0.44,s1_globl.txt
+Turkey,2014-06,-0.499,s1_globl.txt
+Turkey,2014-07,-1.483,s1_globl.txt
+Turkey,2014-08,0.498,s1_globl.txt
+Turkey,2014-09,-0.365,s1_globl.txt
+Turkey,2014-10,-1.797,s1_globl.txt
+Turkey,2014-11,-1.796,s1_globl.txt
+Turkey,2014-12,-1.33,s1_globl.txt
+Turkey,2015-01,-0.157,s1_globl.txt
+Turkey,2015-02,-1.233,s1_globl.txt
+Turkey,2015-03,-0.127,s1_globl.txt
+Turkey,2015-04,-0.359,s1_globl.txt
+Turkey,2015-05,0.175,s1_globl.txt
+Turkey,2015-06,-0.946,s1_globl.txt
+Turkey,2015-07,0.059,s1_globl.txt
+Turkey,2015-08,-0.012,s1_globl.txt
+Turkey,2015-09,0.263,s1_globl.txt
+Turkey,2015-10,0.479,s1_globl.txt
+Turkey,2015-11,-2.177,s1_globl.txt
+Turkey,2015-12,0.594,s1_globl.txt
+Turkey,2016-01,-1.701,s1_globl.txt
+Turkey,2016-02,-0.273,s1_globl.txt
+Turkey,2016-03,-0.218,s1_globl.txt
+Turkey,2016-04,-0.167,s1_globl.txt
+Turkey,2016-05,-0.426,s1_globl.txt
+Turkey,2016-06,-0.827,s1_globl.txt
+Turkey,2016-07,0.666,s1_globl.txt
+Turkey,2016-08,-3.309,s1_globl.txt
+Turkey,2016-09,-1.134,s1_globl.txt
+Turkey,2016-10,-0.407,s1_globl.txt
+Turkey,2016-11,0.237,s1_globl.txt
+Turkey,2016-12,-0.214,s1_globl.txt
+Turkey,2017-01,-0.76,s1_globl.txt
+Turkey,2017-02,0.325,s1_globl.txt
+Turkey,2017-03,-0.27,s1_globl.txt
+Turkey,2017-04,0.41,s1_globl.txt
+Turkey,2017-05,-3.633,s1_globl.txt
+Turkey,2017-06,-1.513,s1_globl.txt
+Turkey,2017-07,0.716,s1_globl.txt
+Turkey,2017-08,0.0,s1_globl.txt
+Turkey,2017-09,-1.427,s1_globl.txt
+Turkey,2017-10,-1.705,s1_globl.txt
+Turkey,2017-11,-1.436,s1_globl.txt
+Turkey,2017-12,1.544,s1_globl.txt
+Turkey,2018-01,-3.613,s1_globl.txt
+Turkey,2018-02,0.001,s1_globl.txt
+Turkey,2018-03,-0.873,s1_globl.txt
+Turkey,2018-04,-2.272,s1_globl.txt
+Turkey,2018-05,-2.508,s1_globl.txt
+Turkey,2018-06,-2.125,s1_globl.txt
+Turkey,2018-07,-0.157,s1_globl.txt
+Turkey,2018-08,-0.091,s1_globl.txt
+Turkey,2018-09,-0.729,s1_globl.txt
+Turkey,2018-10,-0.975,s1_globl.txt
+Turkey,2018-11,-0.001,s1_globl.txt
+Turkey,2018-12,-0.345,s1_globl.txt
+Turkey,2019-01,0.175,s1_globl.txt
+Turkey,2019-02,0.447,s1_globl.txt
+Turkey,2019-03,-0.336,s1_globl.txt
+Turkey,2019-04,-0.03,s1_globl.txt
+Turkey,2019-05,-0.287,s1_globl.txt
+Turkey,2019-06,0.0,s1_globl.txt
+Turkey,2019-07,-0.001,s1_globl.txt
+Turkey,2019-08,0.001,s1_globl.txt
+Turkey,2019-09,0.128,s1_globl.txt
+Turkey,2019-10,0.099,s1_globl.txt
+Turkey,2019-11,0.0,s1_globl.txt
+Turkey,2019-12,0.005,s1_globl.txt
+Turkey,2020-01,0.151,s1_globl.txt
+Turkey,2020-02,-0.35,s1_globl.txt
+Turkey,2020-03,-0.121,s1_globl.txt
+Turkey,2020-04,-0.257,s1_globl.txt
+Turkey,2020-05,0.0,s1_globl.txt
+Turkey,2020-06,-0.001,s1_globl.txt
+Turkey,2020-07,-0.114,s1_globl.txt
+Turkey,2020-08,-0.169,s1_globl.txt
+Turkey,2020-09,-0.01,s1_globl.txt
+Turkey,2020-10,0.01,s1_globl.txt
+Turkey,2020-11,0.0,s1_globl.txt
+Turkey,2020-12,0.0,s1_globl.txt
+Turkey,2021-01,-0.003,s1_globl.txt
+Turkey,2021-02,-0.003,s1_globl.txt
+Turkey,2021-03,-0.009,s1_globl.txt
+Turkey,2021-04,0.008,s1_globl.txt
+Turkey,2021-05,0.0,s1_globl.txt
+Turkey,2021-06,-0.345,s1_globl.txt
+Turkey,2021-07,0.007,s1_globl.txt
+Turkey,2021-08,-0.105,s1_globl.txt
+Turkey,2021-09,0.0,s1_globl.txt
+Turkey,2021-10,0.009,s1_globl.txt
+Turkey,2021-11,-0.007,s1_globl.txt
+Turkey,2021-12,0.009,s1_globl.txt
+Turkey,2022-01,-0.282,s1_globl.txt
+Turkey,2022-02,0.001,s1_globl.txt
+Turkey,2022-03,0.0,s1_globl.txt
+Turkey,2022-04,0.007,s1_globl.txt
+Turkey,2022-05,0.001,s1_globl.txt
+Turkey,2022-06,0.0,s1_globl.txt
+Turkey,2022-07,0.008,s1_globl.txt
+Turkey,2022-08,-0.031,s1_globl.txt
+Turkey,2022-09,-0.162,s1_globl.txt
+Turkey,2022-10,0.002,s1_globl.txt
+Turkey,2022-11,0.009,s1_globl.txt
+Turkey,2022-12,0.004,s1_globl.txt
+Turkey,2023-01,0.004,s1_globl.txt
+Turkey,2023-02,-0.137,slt_table3.txt
+Turkey,2023-03,0.151,slt_table3.txt
+Turkey,2023-04,0.252,slt_table3.txt
+Turkey,2023-05,-0.048,slt_table3.txt
+Turkey,2023-06,0.048,slt_table3.txt
+Turkey,2023-07,0.111,slt_table3.txt
+Turkey,2023-08,0.067,slt_table3.txt
+Turkey,2023-09,0.032,slt_table3.txt
+Turkey,2023-10,-0.005,slt_table3.txt
+Turkey,2023-11,-0.001,slt_table3.txt
+Turkey,2023-12,0.033,slt_table3.txt
+Turkey,2024-01,0.951,slt_table3.txt
+Turkey,2024-02,-0.001,slt_table3.txt
+Turkey,2024-03,0.026,slt_table3.txt
+Turkey,2024-04,0.019,slt_table3.txt
+Turkey,2024-05,0.133,slt_table3.txt
+Turkey,2024-06,0.153,slt_table3.txt
+Turkey,2024-07,1.582,slt_table3.txt
+Turkey,2024-08,0.051,slt_table3.txt
+Turkey,2024-09,0.092,slt_table3.txt
+Turkey,2024-10,4.116,slt_table3.txt
+Turkey,2024-11,0.213,slt_table3.txt
+Turkey,2024-12,0.376,slt_table3.txt
+Turkey,2025-01,2.315,slt_table3.txt
+Turkey,2025-02,0.932,slt_table3.txt
+Turkey,2025-03,-0.634,slt_table3.txt
+Turkey,2025-04,-7.264,slt_table3.txt
+Turkey,2025-05,0.431,slt_table3.txt
+Turkey,2025-06,0.097,slt_table3.txt
+Turkey,2025-07,0.251,slt_table3.txt
+Turkey,2025-08,1.568,slt_table3.txt
+Turkey,2025-09,0.305,slt_table3.txt
+Turkey,2025-10,0.444,slt_table3.txt
+Turkey,2025-11,0.171,slt_table3.txt
+Turkey,2025-12,0.397,slt_table3.txt
+Turkey,2026-01,2.147,slt_table3.txt
+Turkey,2026-02,0.264,slt_table3.txt
+Turkey,2026-03,-10.258,slt_table3.txt
+Turkey,2026-04,0.171,slt_table3.txt
+Saudi Arabia,2013-01,1.155,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-02,0.104,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-03,-0.263,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-04,0.696,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-05,2.645,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-06,0.762,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-07,-0.055,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-08,0.225,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-09,-0.767,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-10,0.58,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-11,0.375,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2013-12,-0.858,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-01,0.409,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-02,-0.174,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-03,0.974,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-04,1.357,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-05,1.085,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-06,0.48,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-07,0.765,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-08,-0.186,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-09,0.289,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-10,0.114,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-11,0.496,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2014-12,0.568,oilexp_sdata_hist_2003-2014.csv
+Saudi Arabia,2015-01,0.208,s1_globl.txt
+Saudi Arabia,2015-02,1.251,s1_globl.txt
+Saudi Arabia,2015-03,0.844,s1_globl.txt
+Saudi Arabia,2015-04,0.922,s1_globl.txt
+Saudi Arabia,2015-05,1.251,s1_globl.txt
+Saudi Arabia,2015-06,1.278,s1_globl.txt
+Saudi Arabia,2015-07,0.988,s1_globl.txt
+Saudi Arabia,2015-08,1.123,s1_globl.txt
+Saudi Arabia,2015-09,1.164,s1_globl.txt
+Saudi Arabia,2015-10,1.254,s1_globl.txt
+Saudi Arabia,2015-11,-2.54,s1_globl.txt
+Saudi Arabia,2015-12,-0.019,s1_globl.txt
+Saudi Arabia,2016-01,-0.016,s1_globl.txt
+Saudi Arabia,2016-02,-1.293,s1_globl.txt
+Saudi Arabia,2016-03,0.827,s1_globl.txt
+Saudi Arabia,2016-04,0.079,s1_globl.txt
+Saudi Arabia,2016-05,-1.269,s1_globl.txt
+Saudi Arabia,2016-06,-0.35,s1_globl.txt
+Saudi Arabia,2016-07,0.901,s1_globl.txt
+Saudi Arabia,2016-08,0.861,s1_globl.txt
+Saudi Arabia,2016-09,-0.163,s1_globl.txt
+Saudi Arabia,2016-10,0.202,s1_globl.txt
+Saudi Arabia,2016-11,-0.358,s1_globl.txt
+Saudi Arabia,2016-12,0.216,s1_globl.txt
+Saudi Arabia,2017-01,-1.693,s1_globl.txt
+Saudi Arabia,2017-02,0.169,s1_globl.txt
+Saudi Arabia,2017-03,-0.452,s1_globl.txt
+Saudi Arabia,2017-04,-0.201,s1_globl.txt
+Saudi Arabia,2017-05,1.388,s1_globl.txt
+Saudi Arabia,2017-06,1.075,s1_globl.txt
+Saudi Arabia,2017-07,-0.277,s1_globl.txt
+Saudi Arabia,2017-08,0.252,s1_globl.txt
+Saudi Arabia,2017-09,0.686,s1_globl.txt
+Saudi Arabia,2017-10,0.437,s1_globl.txt
+Saudi Arabia,2017-11,-0.217,s1_globl.txt
+Saudi Arabia,2017-12,-1.275,s1_globl.txt
+Saudi Arabia,2018-01,-0.756,s1_globl.txt
+Saudi Arabia,2018-02,1.064,s1_globl.txt
+Saudi Arabia,2018-03,0.705,s1_globl.txt
+Saudi Arabia,2018-04,0.258,s1_globl.txt
+Saudi Arabia,2018-05,-1.08,s1_globl.txt
+Saudi Arabia,2018-06,1.394,s1_globl.txt
+Saudi Arabia,2018-07,1.926,s1_globl.txt
+Saudi Arabia,2018-08,2.114,s1_globl.txt
+Saudi Arabia,2018-09,5.63,s1_globl.txt
+Saudi Arabia,2018-10,-1.918,s1_globl.txt
+Saudi Arabia,2018-11,-1.049,s1_globl.txt
+Saudi Arabia,2018-12,-2.132,s1_globl.txt
+Saudi Arabia,2019-01,-1.946,s1_globl.txt
+Saudi Arabia,2019-02,0.039,s1_globl.txt
+Saudi Arabia,2019-03,0.024,s1_globl.txt
+Saudi Arabia,2019-04,-1.429,s1_globl.txt
+Saudi Arabia,2019-05,-0.391,s1_globl.txt
+Saudi Arabia,2019-06,0.128,s1_globl.txt
+Saudi Arabia,2019-07,-3.619,s1_globl.txt
+Saudi Arabia,2019-08,-5.61,s1_globl.txt
+Saudi Arabia,2019-09,-8.02,s1_globl.txt
+Saudi Arabia,2019-10,-2.762,s1_globl.txt
+Saudi Arabia,2019-11,-0.732,s1_globl.txt
+Saudi Arabia,2019-12,-2.747,s1_globl.txt
+Saudi Arabia,2020-01,-1.301,s1_globl.txt
+Saudi Arabia,2020-02,-0.105,s1_globl.txt
+Saudi Arabia,2020-03,-10.516,s1_globl.txt
+Saudi Arabia,2020-04,-15.35,s1_globl.txt
+Saudi Arabia,2020-05,-1.104,s1_globl.txt
+Saudi Arabia,2020-06,-0.613,s1_globl.txt
+Saudi Arabia,2020-07,0.014,s1_globl.txt
+Saudi Arabia,2020-08,0.347,s1_globl.txt
+Saudi Arabia,2020-09,-0.153,s1_globl.txt
+Saudi Arabia,2020-10,0.844,s1_globl.txt
+Saudi Arabia,2020-11,1.116,s1_globl.txt
+Saudi Arabia,2020-12,-0.656,s1_globl.txt
+Saudi Arabia,2021-01,0.193,s1_globl.txt
+Saudi Arabia,2021-02,-0.853,s1_globl.txt
+Saudi Arabia,2021-03,-0.764,s1_globl.txt
+Saudi Arabia,2021-04,-1.282,s1_globl.txt
+Saudi Arabia,2021-05,-1.114,s1_globl.txt
+Saudi Arabia,2021-06,-0.768,s1_globl.txt
+Saudi Arabia,2021-07,-1.843,s1_globl.txt
+Saudi Arabia,2021-08,-1.082,s1_globl.txt
+Saudi Arabia,2021-09,-0.963,s1_globl.txt
+Saudi Arabia,2021-10,-0.617,s1_globl.txt
+Saudi Arabia,2021-11,-0.992,s1_globl.txt
+Saudi Arabia,2021-12,-1.45,s1_globl.txt
+Saudi Arabia,2022-01,-1.382,s1_globl.txt
+Saudi Arabia,2022-02,-0.783,s1_globl.txt
+Saudi Arabia,2022-03,-0.875,s1_globl.txt
+Saudi Arabia,2022-04,0.265,s1_globl.txt
+Saudi Arabia,2022-05,-2.057,s1_globl.txt
+Saudi Arabia,2022-06,-0.777,s1_globl.txt
+Saudi Arabia,2022-07,0.318,s1_globl.txt
+Saudi Arabia,2022-08,-3.123,s1_globl.txt
+Saudi Arabia,2022-09,0.528,s1_globl.txt
+Saudi Arabia,2022-10,-0.394,s1_globl.txt
+Saudi Arabia,2022-11,-0.382,s1_globl.txt
+Saudi Arabia,2022-12,0.183,s1_globl.txt
+Saudi Arabia,2023-01,-0.304,s1_globl.txt
+Saudi Arabia,2023-02,-0.462,slt_table3.txt
+Saudi Arabia,2023-03,1.938,slt_table3.txt
+Saudi Arabia,2023-04,-3.333,slt_table3.txt
+Saudi Arabia,2023-05,0.676,slt_table3.txt
+Saudi Arabia,2023-06,1.611,slt_table3.txt
+Saudi Arabia,2023-07,0.184,slt_table3.txt
+Saudi Arabia,2023-08,-0.231,slt_table3.txt
+Saudi Arabia,2023-09,3.42,slt_table3.txt
+Saudi Arabia,2023-10,0.259,slt_table3.txt
+Saudi Arabia,2023-11,0.951,slt_table3.txt
+Saudi Arabia,2023-12,0.474,slt_table3.txt
+Saudi Arabia,2024-01,1.26,slt_table3.txt
+Saudi Arabia,2024-02,-1.899,slt_table3.txt
+Saudi Arabia,2024-03,0.848,slt_table3.txt
+Saudi Arabia,2024-04,0.395,slt_table3.txt
+Saudi Arabia,2024-05,0.184,slt_table3.txt
+Saudi Arabia,2024-06,1.148,slt_table3.txt
+Saudi Arabia,2024-07,0.448,slt_table3.txt
+Saudi Arabia,2024-08,0.234,slt_table3.txt
+Saudi Arabia,2024-09,0.191,slt_table3.txt
+Saudi Arabia,2024-10,0.203,slt_table3.txt
+Saudi Arabia,2024-11,0.011,slt_table3.txt
+Saudi Arabia,2024-12,-0.091,slt_table3.txt
+Saudi Arabia,2025-01,-6.425,slt_table3.txt
+Saudi Arabia,2025-02,-2.153,slt_table3.txt
+Saudi Arabia,2025-03,-1.332,slt_table3.txt
+Saudi Arabia,2025-04,1.615,slt_table3.txt
+Saudi Arabia,2025-05,-3.329,slt_table3.txt
+Saudi Arabia,2025-06,0.873,slt_table3.txt
+Saudi Arabia,2025-07,1.22,slt_table3.txt
+Saudi Arabia,2025-08,0.109,slt_table3.txt
+Saudi Arabia,2025-09,0.594,slt_table3.txt
+Saudi Arabia,2025-10,0.205,slt_table3.txt
+Saudi Arabia,2025-11,0.314,slt_table3.txt
+Saudi Arabia,2025-12,0.397,slt_table3.txt
+Saudi Arabia,2026-01,-0.8,slt_table3.txt
+Saudi Arabia,2026-02,-1.162,slt_table3.txt
+Saudi Arabia,2026-03,2.415,slt_table3.txt
+Saudi Arabia,2026-04,0.082,slt_table3.txt
+Poland,2013-01,2.193,s1_globl.txt
+Poland,2013-02,-0.085,s1_globl.txt
+Poland,2013-03,0.962,s1_globl.txt
+Poland,2013-04,-0.524,s1_globl.txt
+Poland,2013-05,0.209,s1_globl.txt
+Poland,2013-06,1.421,s1_globl.txt
+Poland,2013-07,0.629,s1_globl.txt
+Poland,2013-08,-0.231,s1_globl.txt
+Poland,2013-09,-1.089,s1_globl.txt
+Poland,2013-10,-0.179,s1_globl.txt
+Poland,2013-11,-0.011,s1_globl.txt
+Poland,2013-12,0.0,s1_globl.txt
+Poland,2014-01,0.365,s1_globl.txt
+Poland,2014-02,-0.152,s1_globl.txt
+Poland,2014-03,0.063,s1_globl.txt
+Poland,2014-04,0.237,s1_globl.txt
+Poland,2014-05,-0.114,s1_globl.txt
+Poland,2014-06,0.029,s1_globl.txt
+Poland,2014-07,0.154,s1_globl.txt
+Poland,2014-08,0.206,s1_globl.txt
+Poland,2014-09,1.049,s1_globl.txt
+Poland,2014-10,-0.433,s1_globl.txt
+Poland,2014-11,-0.366,s1_globl.txt
+Poland,2014-12,0.664,s1_globl.txt
+Poland,2015-01,0.748,s1_globl.txt
+Poland,2015-02,-1.948,s1_globl.txt
+Poland,2015-03,-0.861,s1_globl.txt
+Poland,2015-04,-1.064,s1_globl.txt
+Poland,2015-05,1.295,s1_globl.txt
+Poland,2015-06,0.283,s1_globl.txt
+Poland,2015-07,-1.219,s1_globl.txt
+Poland,2015-08,-2.526,s1_globl.txt
+Poland,2015-09,-1.659,s1_globl.txt
+Poland,2015-10,-0.447,s1_globl.txt
+Poland,2015-11,-1.271,s1_globl.txt
+Poland,2015-12,0.179,s1_globl.txt
+Poland,2016-01,-1.08,s1_globl.txt
+Poland,2016-02,-1.094,s1_globl.txt
+Poland,2016-03,-1.379,s1_globl.txt
+Poland,2016-04,-1.886,s1_globl.txt
+Poland,2016-05,-1.591,s1_globl.txt
+Poland,2016-06,-1.673,s1_globl.txt
+Poland,2016-07,-1.849,s1_globl.txt
+Poland,2016-08,-0.447,s1_globl.txt
+Poland,2016-09,-1.0,s1_globl.txt
+Poland,2016-10,-1.83,s1_globl.txt
+Poland,2016-11,0.28,s1_globl.txt
+Poland,2016-12,-0.063,s1_globl.txt
+Poland,2017-01,-0.956,s1_globl.txt
+Poland,2017-02,0.328,s1_globl.txt
+Poland,2017-03,0.711,s1_globl.txt
+Poland,2017-04,-1.88,s1_globl.txt
+Poland,2017-05,-0.329,s1_globl.txt
+Poland,2017-06,-0.89,s1_globl.txt
+Poland,2017-07,-0.512,s1_globl.txt
+Poland,2017-08,0.116,s1_globl.txt
+Poland,2017-09,0.781,s1_globl.txt
+Poland,2017-10,1.233,s1_globl.txt
+Poland,2017-11,-0.489,s1_globl.txt
+Poland,2017-12,1.182,s1_globl.txt
+Poland,2018-01,0.465,s1_globl.txt
+Poland,2018-02,0.316,s1_globl.txt
+Poland,2018-03,-0.301,s1_globl.txt
+Poland,2018-04,0.247,s1_globl.txt
+Poland,2018-05,-0.429,s1_globl.txt
+Poland,2018-06,1.522,s1_globl.txt
+Poland,2018-07,-0.042,s1_globl.txt
+Poland,2018-08,-0.751,s1_globl.txt
+Poland,2018-09,-0.037,s1_globl.txt
+Poland,2018-10,-0.075,s1_globl.txt
+Poland,2018-11,0.381,s1_globl.txt
+Poland,2018-12,0.309,s1_globl.txt
+Poland,2019-01,-5.858,s1_globl.txt
+Poland,2019-02,-3.637,s1_globl.txt
+Poland,2019-03,-2.491,s1_globl.txt
+Poland,2019-04,1.702,s1_globl.txt
+Poland,2019-05,0.199,s1_globl.txt
+Poland,2019-06,-0.464,s1_globl.txt
+Poland,2019-07,0.236,s1_globl.txt
+Poland,2019-08,1.522,s1_globl.txt
+Poland,2019-09,0.008,s1_globl.txt
+Poland,2019-10,0.067,s1_globl.txt
+Poland,2019-11,0.666,s1_globl.txt
+Poland,2019-12,-0.646,s1_globl.txt
+Poland,2020-01,0.813,s1_globl.txt
+Poland,2020-02,-2.096,s1_globl.txt
+Poland,2020-03,-0.027,s1_globl.txt
+Poland,2020-04,-0.371,s1_globl.txt
+Poland,2020-05,0.74,s1_globl.txt
+Poland,2020-06,-1.387,s1_globl.txt
+Poland,2020-07,-0.097,s1_globl.txt
+Poland,2020-08,-5.632,s1_globl.txt
+Poland,2020-09,0.523,s1_globl.txt
+Poland,2020-10,-0.399,s1_globl.txt
+Poland,2020-11,-0.151,s1_globl.txt
+Poland,2020-12,1.435,s1_globl.txt
+Poland,2021-01,6.208,s1_globl.txt
+Poland,2021-02,-0.577,s1_globl.txt
+Poland,2021-03,0.486,s1_globl.txt
+Poland,2021-04,0.42,s1_globl.txt
+Poland,2021-05,0.474,s1_globl.txt
+Poland,2021-06,-0.399,s1_globl.txt
+Poland,2021-07,-0.33,s1_globl.txt
+Poland,2021-08,0.239,s1_globl.txt
+Poland,2021-09,-0.117,s1_globl.txt
+Poland,2021-10,0.15,s1_globl.txt
+Poland,2021-11,1.273,s1_globl.txt
+Poland,2021-12,-6.13,s1_globl.txt
+Poland,2022-01,-0.096,s1_globl.txt
+Poland,2022-02,0.038,s1_globl.txt
+Poland,2022-03,-0.098,s1_globl.txt
+Poland,2022-04,-0.655,s1_globl.txt
+Poland,2022-05,-0.657,s1_globl.txt
+Poland,2022-06,0.132,s1_globl.txt
+Poland,2022-07,0.305,s1_globl.txt
+Poland,2022-08,-1.292,s1_globl.txt
+Poland,2022-09,-1.409,s1_globl.txt
+Poland,2022-10,0.281,s1_globl.txt
+Poland,2022-11,0.994,s1_globl.txt
+Poland,2022-12,0.392,s1_globl.txt
+Poland,2023-01,0.017,s1_globl.txt
+Poland,2023-02,1.123,slt_table3.txt
+Poland,2023-03,-0.207,slt_table3.txt
+Poland,2023-04,1.957,slt_table3.txt
+Poland,2023-05,1.62,slt_table3.txt
+Poland,2023-06,1.825,slt_table3.txt
+Poland,2023-07,-0.06,slt_table3.txt
+Poland,2023-08,1.231,slt_table3.txt
+Poland,2023-09,0.041,slt_table3.txt
+Poland,2023-10,-3.085,slt_table3.txt
+Poland,2023-11,0.508,slt_table3.txt
+Poland,2023-12,-0.872,slt_table3.txt
+Poland,2024-01,-0.527,slt_table3.txt
+Poland,2024-02,0.221,slt_table3.txt
+Poland,2024-03,-0.147,slt_table3.txt
+Poland,2024-04,-1.125,slt_table3.txt
+Poland,2024-05,0.582,slt_table3.txt
+Poland,2024-06,2.87,slt_table3.txt
+Poland,2024-07,-0.191,slt_table3.txt
+Poland,2024-08,-0.182,slt_table3.txt
+Poland,2024-09,0.503,slt_table3.txt
+Poland,2024-10,-0.159,slt_table3.txt
+Poland,2024-11,1.766,slt_table3.txt
+Poland,2024-12,-0.03,slt_table3.txt
+Poland,2025-01,0.878,slt_table3.txt
+Poland,2025-02,-0.676,slt_table3.txt
+Poland,2025-03,2.265,slt_table3.txt
+Poland,2025-04,5.152,slt_table3.txt
+Poland,2025-05,1.611,slt_table3.txt
+Poland,2025-06,1.902,slt_table3.txt
+Poland,2025-07,1.213,slt_table3.txt
+Poland,2025-08,-5.752,slt_table3.txt
+Poland,2025-09,0.589,slt_table3.txt
+Poland,2025-10,0.83,slt_table3.txt
+Poland,2025-11,-2.655,slt_table3.txt
+Poland,2025-12,0.13,slt_table3.txt
+Poland,2026-01,5.1,slt_table3.txt
+Poland,2026-02,0.453,slt_table3.txt
+Poland,2026-03,-1.279,slt_table3.txt
+Poland,2026-04,-0.501,slt_table3.txt

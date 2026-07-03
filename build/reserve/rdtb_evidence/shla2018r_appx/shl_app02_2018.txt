@@ -1,0 +1,270 @@
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+Table A2.  Value of foreign holdings of U.S. long-term securities, by country and type of
+security, as of June 29, 2018
+ Millions of dollars
+                                                 Total                                                    Agency                         Corporate
+ Countries and Regions                            LT            Equities        Treasury         NonABS            ABS           NonABS            ABS
+  Afghanistan                                            1558               8            1548               0               0               1               0
+  Albania                                                 458               6             453               0               0               0               0
+  Algeria                                                  24              24               0               0               0               *               0
+  Andorra                                                1838             838             405               *               3             592               0
+  Angola                                                 1247             477             655               0               0             115               0
+  Anguilla                                               2573            2360               4               1               2              79             128
+  Antigua and Barbuda                                     319             245              20               7               *              47               *
+  Argentina                                              9241            5163            2653               8               6            1399              12
+  Armenia                                                 594               6             588               0               0               *               0
+  Aruba                                                  1431             493              60             133              55             503             187
+  Australia                                            293012          223281           31267             133            3378           30929            4024
+  Austria                                               22124           13946            3485               8             642            3954              90
+  Azerbaijan                                             6728            1722             600               0               0            4407               0
+  Bahamas                                               30928           19918            3535              86             657            6525             207
+  Bahrain                                                1455             941             338               2              22             114              38
+  Bangladesh                                                7               7               0               0               0               *               0
+  Barbados                                              20612            1501            1079              55            1777            4337           11863
+  Belarus                                                 130              13             117               0               0               0               0
+  Belgium                                              707584           53679          138032            2808            1399          502158            9508
+  Belize                                                  830             532              70               2               *             225               1
+  Benin                                                     *               *               0               0               0               *               0
+  Bermuda                                              295687          102370           42674            2897           24969           98815           23962
+  Bhutan                                                  106              58              48               0               0               0               0
+  Bolivia                                                1096             257             337              39               1             462               *
+  Bonaire, Sint Eustatius & Saba (1)                       68              40               4               *               0              24               0
+  Bosnia and Herzegovina                                    1               1               0               0               0               *               0
+  Botswana                                               1564             638             906               2               0              16               *
+  Brazil                                               302203            5620          293863            1913               2             804               1
+  British Indian Ocean Territory                            *               *               0               0               0               *               0
+  British Virgin Islands                               162090          113804           24791             312            1291           20391            1502
+  Brunei                                                 5781            4730             380               1               1             555             114
+  Bulgaria                                                236             183              33               0               *              20               0
+  Burkina Faso                                             14              14               0               0               0               0               0
+  Burma                                                   145               2             143               0               *               0               0
+  Burundi                                                   *               *               0               0               0               0               0
+  Cambodia                                               2109              26            1877               0               0             204               2
+  Cameroon                                                  2               2               0               0               0               0               0
+  Canada                                              1190720          928148           86556             376            4766          144003           26872
+  Cape Verde                                               32               *              32               0               0               *               0
+  Cayman Islands                                      1642550         1038154           86224            6633           24384          384971          102184
+  Central African Republic                                  *               *               0               0               0               0               0
+  Chad                                                      *               *               0               0               0               0               0
+  Chile                                                 44578           21298           20460              16              22            2774               8
+  China, mainland (2)                                 1602048          216814         1187504            4290          176345           13717            3378
+  Colombia                                              42496           13283           26156             409             919            1728               1
+  Comoros                                                 159             159               0               0               0               0               0
+  Congo (Brazzaville)                                       3               3               0               0               0               0               0
+  Congo (Kinshasa)                                         62               5               0              32               0              25               0
+  Cook Islands                                            568             507               *               *               0              59               1
+  Costa Rica                                             2783            1262            1088              39               2             391               2
+  Cote d`Ivoire (Ivory Coast)                               4               4               0               0               0               0               0
+  Croatia                                                1234             411             821               0               0               2               0
+  Cuba                                                      *               *               0               0               0               0               0
+  Curacao (1)                                            6200            3783             139             382              26            1823              46
+  Cyprus                                                  752             599             101               *               0              51               0
+  Czech Republic                                        22586            3119           19385               0               0              82               0
+  Denmark                                              122150           86647           16065              40             178           18850             369
+  Djibouti                                                  1               1               0               0               0               0               0
+  Dominica                                                 75              54               1               *               0              20               *
+  Dominican Republic                                     2818             448            1976               2               3             389               *
+  East Timor                                            11730            3674            8056               0               0               0               0
+  Ecuador                                                 976             480             177              21               1             297               *
+  Egypt                                                  2950             676            2107               *             150              16               1
+  El Salvador                                            1129             283             704               1               7             134               *
+  Equatorial Guinea                                         1               1               0               0               0               0               0
+  Eritrea                                                   *               *               0               0               0               0               0
+  Estonia                                                 728             603              66               *               0              59               0
+  Ethiopia                                                  9               8               0               0               0               *               0
+  Falkland Islands                                         25              17               6               0               0               1               *
+  Faroe Islands                                             *               *               0               0               0               *               0
+  Federated States of Micronesia                          161              75              37              13               3              34               0
+  Fiji                                                      7               2               0               5               0               *               0
+  Finland                                               46300           33947            6310               2               *            6038               2
+  France                                               310903          166469           75828             525            4527           58679            4874
+  French Guiana                                            15              13               0               0               0               2               0
+  French Polynesia                                         18              17               *               *               *               1               0
+  Gabon                                                   100              31              69               0               0               0               0
+  Gambia                                                    8               8               0               0               0               0               0
+  Georgia                                                  17              12               5               0               0               *               0
+  Germany                                              448872          239402           63818             368            3128          123640           18516
+  Ghana                                                  1351              13            1300               0               0              38               0
+  Gibraltar                                               507             186             130               1               0             190               0
+  Greece                                                 3637            1719            1689               5               2             222               *
+  Greenland                                                 *               *               0               0               0               0               0
+  Grenada                                                 111              77               *               1               0              33               0
+  Guadeloupe (1)                                           15              15               0               0               0               *               0
+  Guatemala                                              4677             411            3194              45              10             975              42
+  Guernsey                                              42026           31951            4932             150             100            4605             287
+  Guinea                                                    *               *               0               0               0               *               0
+  Guyana                                                  136              29              30              64               *              13               *
+  Haiti                                                  1630             128             172             483               2             840               5
+  Holy See (Vatican)                                       15               4              11               0               0               0               0
+  Honduras                                                933             111             722              10               *              89               *
+  Hong Kong                                            322676          112884          154258            2514            9510           41029            2481
+  Hungary                                                2596             855             507              78            1126              30               0
+  Iceland                                                3395            1343            2012              39               0               0               0
+  India                                                145580            3603          141310               9             125             534               *
+  Indonesia                                             26975             356           21094             116            3530            1795              84
+  Iran                                                      2               2               0               0               0               *               0
+  Iraq                                                  10633               1           10632               0               0               0               0
+  Ireland                                             1014762          392629          246970            8985           37832          283136           45211
+  Isle of Man                                            2247            1134             713               *               *             400               *
+  Israel                                                89864           54954           26377             471            2129            5723             209
+  Italy                                                 87286           32944           38225             912             628           14408             170
+  Jamaica                                                1173             252             409              15               0             496               0
+  Japan                                               1979096          543170          969985            3575          253972          193785           14609
+  Jersey                                                22307           15255            1681              55             220            4786             309
+  Jordan                                                  739              79             659               *               *               2               0
+  Kazakhstan                                             3801              53            3146              94               *             508               0
+  Kenya                                                  3214              29            3181               *               0               5               0
+  Kiribati                                                304             304               0               0               0               0               0
+  Korea, South                                         298959          125166           94221           10975           33064           33287            2244
+  Kosovo (1)                                                2               2               0               0               0               *               0
+  Kuwait                                               246010          185218           39153             412            4430           15901             896
+  Kyrgyzstan                                                *               *               0               0               0               0               0
+  Laos                                                      1               1               0               0               0               *               0
+  Latvia                                                 2152              86             370               3            1062              41             591
+  Lebanon                                                 206             191               *               0               *              14               0
+  Lesotho                                                  55               0              55               0               0               0               0
+  Liberia                                                 947             624             107               9              35             150              21
+  Libya                                                   697              51             646               0               0               0               0
+  Liechtenstein                                          4777            4037              49              12              57             601              22
+  Lithuania                                              2705              57            2082             119               0             447               0
+  Luxembourg                                          1391051          617417          169447            2360           34012          524891           42924
+  Macau                                                  4173            1639            1012               6             170            1158             187
+  Macedonia                                               122               3             117               0               0               3               0
+  Madagascar                                              201              11             190               0               0               0               0
+  Malawi                                                   87               5              81               0               0               1               *
+  Malaysia                                              41984           14148           13298             391           12319            1667             161
+  Maldives                                                 11               1              10               0               0               0               0
+  Mali                                                      1               1               0               0               0               0               0
+  Malta                                                  1810             816             174               2               1             813               4
+  Marshall Islands                                       1037             843              34               *               *             158               1
+  Martinique                                                2               1               0               0               0               *               0
+  Mauritania                                              133               2             130               0               0               *               0
+  Mauritius                                              2820             787             692               *              12            1317              12
+  Mexico                                               107263           58256           32949            7327            5416            3183             131
+  Moldova                                                 975              12             963               0               0               0               0
+  Monaco                                                 1498            1357             121               *               0              20               0
+  Mongolia                                                262               *             261               0               0               0               0
+  Montenegro (1)                                            1               1               0               0               0               *               0
+  Montserrat                                               19              16               2               0               0               1               0
+  Morocco                                                2690             311            2374               *               0               5               0
+  Mozambique                                              297               6             283               0               0               8               0
+  Namibia                                                 595             562              33               0               0               *               0
+  Nauru                                                     5               5               0               0               0               0               0
+  Nepal                                                   601               9             591               0               0               *               0
+  Netherlands                                          403206          280081           40747             558           11437           66906            3476
+  New Caledonia                                             2               1               0               0               0               1               0
+  New Zealand                                           31185           23268            5017              24             729            1990             157
+  Nicaragua                                               349             224              73              15               *              37               *
+  Niger                                                     1               1               0               0               0               0               0
+  Nigeria                                                3943              95            3278             196             249              99              26
+  Niue                                                      *               *               0               0               0               0               0
+  Norway                                               369144          276620           49031               6               9           43187             291
+  Oman                                                  22531           10244           11657               0             107             515               8
+  Pakistan                                               1388              62            1204               0               *             122               0
+  Palau                                                   188             136              16               5               3              29               *
+  Panama                                                21655           12178            1014             269             896            7090             208
+  Papua New Guinea                                         42               2              40               0               0               0               0
+  Paraguay                                                471             160             232               5               1              72               *
+  Peru                                                  31377           11558           17476             877               1            1453              13
+  Philippines                                           35556            3247           31156              27              28            1099               *
+  Pitcairn Island                                           *               *               0               0               0               0               0
+  Poland                                                43098            2232           40497               0               0             370               0
+  Portugal                                               7004            4222            2071               4               *             707               *
+  Qatar                                                  5224            3177            1127               *             301             443             176
+  Reunion                                                  90              90               0               0               0               0               0
+  Romania                                                7851             112            7681               *               0              58               0
+  Russia                                                 9652             468            9103               *               1              80               *
+  Rwanda                                                  181               *             180               0               0               *               0
+  Saint Kitts and Nevis                                  3966            2427             642              83               9             802               3
+  Saint Lucia                                             465             227              10               1               *             226               1
+  Saint Martin & Saint Barthelemy (1)                      16              14               *               0               0               3               0
+  Saint Vincent and the Grenadines                         83              79               1               0               *               4               *
+  Samoa                                                   273             256               0               1               0              15               *
+  San Marino                                                1               1               0               0               0               0               0
+  Sao Tome and Principe                                     4               4               0               0               0               0               0
+  Saudi Arabia                                         178362           57295          110031             415            2830            6876             916
+  Senegal                                                   3               3               *               0               0               *               0
+  Serbia and Montenegro (1)                              1564              15            1549               0               0               *               0
+  Seychelles                                              246             146              83               *               *              17               *
+  Sierra Leone                                              1               1               0               0               0               0               0
+  Singapore                                            342126          180373          116264             834            3270           38339            3046
+  Sint Maarten (1)                                        156             121               0               1               3              31               *
+  Slovakia                                                277              46             229               1               0               *               0
+  Slovenia                                               2037            1275             260               3               0             499               *
+  Solomon Islands                                           *               *               0               0               0               *               0
+  Somalia                                                   *               *               0               0               0               0               0
+  South Africa                                          30020           11908           16850               9             686             563               4
+  South Sudan                                               *               *               0               0               0               0               0
+  Spain                                                 53388           17653           30189              87             558            2166            2736
+  Sri Lanka                                              3490              34            3455               0               0               *               0
+  Sudan                                                   111             111               0               0               0               0               0
+  Suriname                                                254             124               3              13               *             114               0
+  Swaziland                                               147               4              41               0              11               1              89
+  Sweden                                               216122          163570           45503              33             208            6413             394
+  Switzerland                                          783022          452299          206351             975           10863          105740            6794
+  Syria                                                     3               3               0               0               0               *               0
+  Taiwan                                               574742           65134          160994             236          249773           96962            1643
+  Tajikistan                                                1               1               0               0               0               0               0
+  Tanzania                                               1879              15            1862               0               0               2               *
+  Thailand                                              60389            6024           42320              15            7209            4800              22
+  Togo                                                      2               1               0               0               0               1               0
+  Tokelau                                                   *               *               0               0               0               0               0
+  Tonga                                                     1               1               0               0               0               *               0
+  Trinidad and Tobago                                    8751            2945            1929             216             633            2322             705
+  Tunisia                                                1325            1053             272               0               0               1               0
+  Turkey                                                13353             843           12477               1               0              32               0
+  Turkmenistan                                              *               *               0               0               0               0               0
+  Turks and Caicos Islands                                786             478              48               3              19             233               5
+  Uganda                                                  487              18             349               4              22              34              59
+  Ukraine                                                4012            2760            1220               0               0              32               1
+  United Arab Emirates                                 145335           88679           49202              75             673            6325             380
+  United Kingdom                                      1553229          923804          229106            1843            8819          370897           18761
+  Uruguay                                                9690            2528            5602              93             455            1001              11
+  Uzbekistan                                                7               5               0               0               0               3               0
+  Vanuatu                                                  10               3               7               0               0               *               0
+  Venezuela                                              5525            3269             109              35              12            2091               9
+  Vietnam                                               20202              35           20166               0               0               1               0
+  Wallis and Futuna                                         *               *               0               0               0               0               0
+  West Bank and Gaza                                        *               *               0               0               0               0               0
+  Yemen                                                     *               *               0               0               0               *               0
+  Zambia                                                  126               2             124               0               0               *               0
+  Zimbabwe                                                  6               5               0               0               0               *               0
+  International and regional organizations              65855            5212           41672            2795            5365            5853            4958
+  Country Unknown                                       79421             733               *              30               7           78649               1
+
+  Total                                              18420806         8139176         5466964           70588          953612         3427074          363390
+
+  of which: Holdings of foreign official
+  institutions                                        5427714         1041932         3650929           31130          547867          143362           12494
+
+  Totals by Region:
+  Total Africa                                          57838           17912           35880             252            1166            2417             212
+  Total Asia                                          6182058         1681990         3220334           24363          759806          464970           30595
+  Total Caribbean                                     2182522         1289950          163722           11310           53830          522911          140799
+  Total Europe                                        7747876         3829472         1475465           20081          116808         2150720          155329
+  Total Latin America                                  587701          137055          406918           11201            7751           24335             441
+  Canada                                              1190720          928148           86556             376            4766          144003           26872
+  Australia/Oceania                                    326815          248703           36418             180            4113           33217            4184
+  Country Unknown                                       79421             733               *              30               7           78649               1
+  International and regional organizations              65855            5212           41672            2795            5365            5853            4958
+
+
+* Greater than zero but less than $500,000.
+n.a. Not available.
+
+1. Separate reporting for certain country groups began with the 2014 survey.
+
+    Entries for Bonaire, Sint Eustatius, and Saba; Curacao; and Sint Maarten were previously reported together as Netherlands Antilles.
+
+    Entries for Guadeloupe and for Saint Martin and Saint Barthelemy were previously reported together as Guadeloupe.
+
+    Entries for Kosovo, Montenegro, and Serbia were previously reported together as Serbia.
+
+2. Excludes Hong Kong and Macau, which are reported separately.
+
+
+

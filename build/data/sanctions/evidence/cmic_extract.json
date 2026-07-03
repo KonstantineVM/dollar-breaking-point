@@ -1,0 +1,415 @@
+{
+ "source": "https://www.treasury.gov/ofac/downloads/consolidated/cons_prim.csv",
+ "fetch_date": "2026-07-01",
+ "n": 68,
+ "entries": [
+  {
+   "ofac_uid": "30882",
+   "name": "CHINA TELECOM CORPORATION LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30902",
+   "name": "AERO ENGINE CORPORATION OF CHINA",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30923",
+   "name": "CHINA MOBILE LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30924",
+   "name": "CHINA UNICOM (HONG KONG) LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30925",
+   "name": "AVIATION INDUSTRY CORPORATION OF CHINA, LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30926",
+   "name": "CNOOC LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30927",
+   "name": "CHINA ACADEMY OF LAUNCH VEHICLE TECHNOLOGY",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30928",
+   "name": "CHINA AEROSPACE SCIENCE AND INDUSTRY CORPORATION LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30929",
+   "name": "CHINA AEROSPACE SCIENCE AND TECHNOLOGY CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30930",
+   "name": "CHINA COMMUNICATIONS CONSTRUCTION COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30932",
+   "name": "CHINA ELECTRONICS CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30933",
+   "name": "CHINA SOUTH INDUSTRIES GROUP CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30934",
+   "name": "CHINA SPACESAT CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30936",
+   "name": "CHINA ELECTRONICS TECHNOLOGY GROUP CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30937",
+   "name": "CHINA GENERAL NUCLEAR POWER CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30938",
+   "name": "CHINA STATE SHIPBUILDING CORPORATION LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30939",
+   "name": "CHINA TELECOMMUNICATIONS CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30942",
+   "name": "CHINA UNITED NETWORK COMMUNICATIONS GROUP CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30944",
+   "name": "CHINA MOBILE COMMUNICATIONS GROUP CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30946",
+   "name": "HANGZHOU HIKVISION DIGITAL TECHNOLOGY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30947",
+   "name": "HUAWEI TECHNOLOGIES CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30949",
+   "name": "INSPUR GROUP CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30950",
+   "name": "PANDA ELECTRONICS GROUP CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30951",
+   "name": "SEMICONDUCTOR MANUFACTURING INTERNATIONAL CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30954",
+   "name": "CHINA NATIONAL NUCLEAR CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30956",
+   "name": "CHINA NATIONAL OFFSHORE OIL CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30957",
+   "name": "CHINA NORTH INDUSTRIES GROUP CORPORATION LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30958",
+   "name": "CHINA NUCLEAR ENGINEERING CORPORATION LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "30959",
+   "name": "CHINA RAILWAY CONSTRUCTION CORPORATION LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32028",
+   "name": "ANHUI GREATWALL MILITARY INDUSTRY COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32052",
+   "name": "AVIC XI'AN AIRCRAFT INDUSTRY GROUP COMPANY LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32053",
+   "name": "AVIC HEAVY MACHINERY COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32055",
+   "name": "AVIC JONHON OPTRONIC TECHNOLOGY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32056",
+   "name": "AVIC SHENYANG AIRCRAFT COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32069",
+   "name": "CHINA SATELLITE COMMUNICATIONS CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32072",
+   "name": "CHINA COMMUNICATIONS CONSTRUCTION GROUP (LIMITED)",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32073",
+   "name": "AEROSPACE COMMUNICATIONS HOLDINGS GROUP COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32077",
+   "name": "FUJIAN TORCH ELECTRON TECHNOLOGY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32078",
+   "name": "INNER MONGOLIA FIRST MACHINERY GROUP CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32079",
+   "name": "CSSC OFFSHORE & MARINE ENGINEERING (GROUP) COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32082",
+   "name": "AVIC AVIATION HIGH-TECHNOLOGY COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32084",
+   "name": "AEROSPACE CH UAV CO., LTD",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32085",
+   "name": "CHINA AEROSPACE TIMES ELECTRONICS CO., LTD",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32087",
+   "name": "HUAWEI INVESTMENT & HOLDING CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32088",
+   "name": "JIANGXI HONGDU AVIATION INDUSTRY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32089",
+   "name": "PROVEN GLORY CAPITAL LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32090",
+   "name": "CHINA AVIONICS SYSTEMS COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32091",
+   "name": "PROVEN HONOUR CAPITAL LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32100",
+   "name": "CHINA SHIPBUILDING INDUSTRY COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32101",
+   "name": "GUIZHOU SPACE APPLIANCE CO., LTD",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32102",
+   "name": "CHANGSHA JINGJIA MICROELECTRONICS COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32103",
+   "name": "CHINA MARINE INFORMATION ELECTRONICS COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32106",
+   "name": "CHINA SHIPBUILDING INDUSTRY GROUP POWER COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32107",
+   "name": "COSTAR GROUP CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32128",
+   "name": "NANJING PANDA ELECTRONICS COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32129",
+   "name": "AEROSUN CORPORATION",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32130",
+   "name": "NORTH NAVIGATION CONTROL TECHNOLOGY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32131",
+   "name": "SHAANXI ZHONGTIAN ROCKET TECHNOLOGY COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "32153",
+   "name": "ZHONGHANG ELECTRONIC MEASURING INSTRUMENTS COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "02 Aug 2021"
+  },
+  {
+   "ofac_uid": "33091",
+   "name": "MEGVII TECHNOLOGY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33111",
+   "name": "SZ DJI TECHNOLOGY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33112",
+   "name": "CLOUDWALK TECHNOLOGY CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33113",
+   "name": "DAWNING INFORMATION INDUSTRY CO., LTD",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33114",
+   "name": "SENSETIME GROUP LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "08 Feb 2022"
+  },
+  {
+   "ofac_uid": "33893",
+   "name": "YITU LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33894",
+   "name": "LEON TECHNOLOGY COMPANY LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33895",
+   "name": "NETPOSA TECHNOLOGIES LIMITED",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  },
+  {
+   "ofac_uid": "33896",
+   "name": "XIAMEN MEIYA PICO INFORMATION CO., LTD.",
+   "program": "CMIC-EO13959",
+   "effective_date_cmic": "14 Feb 2022"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+TREATED/CONTROL alignment criterion — grounding evidence (RD0, checked 2026-07-01)
+
+CRITERION: UN General Assembly Resolution ES-11/1 "Aggression against Ukraine", adopted 2 March 2022.
+PRIMARY PUBLISHER: United Nations.
+  - UN press release (primary meetings coverage): https://press.un.org/en/2022/ga12407.doc.htm
+    (WebFetch returned a bot "Client Challenge"; curl attempt recorded below. Roll-call cross-confirmed via Wikipedia list of the same official vote.)
+  - Resolution text (UNDOCS): https://docs.un.org/en/A/RES/ES-11/1
+  - UN Digital Library record: https://digitallibrary.un.org/record/3959039
+
+VOTE: 141 in favour, 5 against, 35 abstentions.
+AGAINST (5): Russia, Belarus, North Korea (DPRK), Syria, Eritrea.
+ABSTAINED (35, incl.): CHINA, India, South Africa, Kazakhstan, Iran, Cuba, Vietnam, Pakistan, Mongolia, Namibia, Mozambique, South Sudan, Sri Lanka, Zimbabwe, Uganda, Tanzania, Armenia, Kyrgyzstan, Tajikistan, Laos, Angola, Nicaragua, Bolivia, Sudan, Algeria, Bangladesh, Madagascar, Mali, Senegal, Iraq, El Salvador, Congo, Burundi, Central African Republic, Equatorial Guinea.
+IN FAVOUR (141, incl. reserve-manager CONTROLS present in the LMW panel): United States, United Kingdom, Germany/Euro Area members, Japan, Canada, Australia, Korea, Switzerland, Denmark, Sweden, Norway, Finland, New Zealand, Poland, Czech Republic, etc.
+
+MAPPING TO TAXONOMY:
+  TREATED  = AGAINST cohort ⇒ RUSSIA (observed treated unit, reserves frozen 2022-02-28 per OFAC jy0612) + the low-US-alignment "active diversifier" set (CHINA is in the ABSTAIN cohort).
+  CONTROL  = IN-FAVOUR advanced-economy disclosers not sanctions-exposed (US-aligned reserve managers that disclose currency composition in LMW).
+COROBORATING SANCTIONS-COALITION CRITERION (secondary): membership in the Russia-sanctions coalition (US/EU/UK/JP/CA/AU/KR/CH) — the reserve managers that immobilized CBR reserves; grounded in build/contracts/sanctions_sources.json (OFAC jy0612, 2022-02-28).

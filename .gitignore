@@ -1,0 +1,75 @@
+# Large raw fetched data intentionally NOT committed (re-fetchable from URLs recorded in build/audit/sep_data_acquired.json).
+# The load-bearing recompute inputs (slt_table*.txt, slt_haven_extract.json) and grounding evidence ARE committed.
+build/data/gcap_post2020_check/Restated_Bilateral_External_Portfolios.xlsx
+build/data/treasury_tic/current/slt_tables/slt_table1.html
+build/data/treasury_tic/current/slt_tables/slt_table2.html
+build/data/treasury_tic/current/slt_tables/slt_table3.html
+build/data/treasury_tic/current/slt_tables/slt_table4.html
+build/data/treasury_tic/current/slt_tables/slt_table6.html
+
+# DP1-reopen N-PORT: the 38MB security-level residence panel is reproducible from
+# build/data/nport/build_us_china_panel.py + the SEC ZIP URLs in us_china_panel_provenance.json
+# (per-quarter aggregates + the recompute live in build/results/dp1reopen_p2p3_verify.json).
+build/data/nport/us_china_nationality_panel.parquet
+# Corrupted binary text extracts (superseded by the committed source PDFs nport_readme.pdf / CMNS_Data_Guide.pdf).
+build/data/nport/nport_readme_extract.txt
+build/data/nport/gcap/cmns_guide_flat.txt
+# Raw single-quarter N-PORT sample (redundant; the panel + provenance carry the grounded content).
+build/data/nport/nport_flat.txt
+
+# DP1-reopen CORRECTED: large free GCAP products, reproducible from the S3/Drive URLs in
+# build/contracts/gcap_product_contract.json (the small READMEs/PDFs, the route-A-absent
+# data_zip_listing.txt, and the access-evidence HTML ARE committed; per-quarter calibration
+# + recompute live in build/results/dp1reopen_corrected_verify.json).
+build/data/gcap_products/Restatement_Matrices.dta
+build/data/gcap_products/redrawing-the-map.zip
+build/data/gcap_products/redrawing_extract/data.zip
+
+# Part 0 re-run (GCAP route determination): all five candidate raw downloads +
+# extracts are large and re-fetchable from the URLs recorded in
+# build/contracts/gcap_route_determination.json. Only the contract + small
+# enumerated-schema evidence (varname listings, zip directory dumps) are committed.
+build/data/gcap_route/
+
+# Part 1 crosswalk: large raw bulk files / zips / full filings are re-fetchable from the
+# URLs recorded in build/contracts/crosswalk_sources.json. Small lists/schemas/evidence/
+# match-result JSON ARE committed.
+build/data/crosswalk/gleif/lei-isin-*.csv
+build/data/crosswalk/gleif/isin_lei_latest.zip
+build/data/crosswalk/qcc/lei-qcc-*.csv
+build/data/crosswalk/qcc/qcc_lei_latest.zip
+build/data/crosswalk/qcc/*_page.html
+build/data/crosswalk/opencorporates/lei-oc-*.csv
+build/data/crosswalk/opencorporates/oc_lei_latest.zip
+build/data/crosswalk/opencorporates/oc_page.html
+build/data/crosswalk/edgar/*_20f_*.htm
+build/data/crosswalk/edgar/sub_*.json
+build/data/crosswalk/hfcaa/hfcaa_landing.html
+
+# Tagged haven panel (11MB) regenerable from build/data/nport/panel_crosswalk_tagged_recompute.py
+# + the panel + crosswalk sources; coverage recompute + verify carry the load-bearing numbers.
+build/data/nport/panel_crosswalk_tagged.parquet
+
+# Full-panel power rebuild — large raw N-PORT intermediates (ZIPs 240-720MB each, extracted TSVs,
+# per-quarter haven parquets). Regenerable from build_fullpanel_haven.py + the SEC ZIP URLs in the
+# provenance. The final tagged full panel is also gitignored (large); recompute + verifier carry numbers.
+build/data/nport/work/
+build/data/nport/haven_parts/
+build/data/nport/__pycache__/
+build/data/nport/panel_crosswalk_tagged_full.parquet
+
+# Active-flow F3 test — per-quarter haven parts WITH balance/unit (large raw intermediate,
+# ZIPs streamed+deleted). Regenerable from build_haven_with_balance.py + the SEC ZIP URLs.
+# active_flow_panel.parquet + active_flow_provenance.md carry the load-bearing numbers.
+build/data/nport/haven_bal_parts/
+
+# DiD F3 Part 0(b) — per-quarter EM/DM-equity re-parse parts (large raw intermediate,
+# ZIPs streamed+deleted per quarter). Regenerable from build_did_controls_reparse.py + SEC
+# ZIP URLs. The did_control_panels.parquet deliverable + did_feasibility.json carry the numbers.
+build/data/nport/did_control_parts/
+
+# Python bytecode caches (any dir)
+**/__pycache__/
+
+# Large reference paper (re-fetchable; primary data is lmw_Data.xls)
+build/reserve/rd0_evidence/lmw_reading_emdp202501.pdf

@@ -1,0 +1,180 @@
+{
+  "stage": "RDT-F Phase 1 grounding — custody-center set (DERIVED, not chosen)",
+  "date_grounded": "2026-07-02",
+  "derivation_rule": "Verbatim from build/reserve/RDTF_prediction.md (committed 6701b5c), section 'The custody-center set (DERIVED, not chosen)': \"Derivation rule (mechanical): a jurisdiction enters the custody-center set IF AND ONLY IF a retained or fetched PUBLISHER document (TIC attribution/methodology documentation, the SHL/SHCA custodial-bias passages, or equivalent publisher text) names it as a custodial / ICSD / attribution-bias center — the grounding line QUOTED verbatim per center. Known candidate lines already on disk: the SHL custodial-bias passage naming Belgium, Luxembourg, Switzerland, and the United Kingdom (retained in rdtb_evidence/shl2025r_extracted.txt, quoted in RDT-D). The grounding pass re-reads the retained documents (and may fetch additional TIC/SHCA methodology pages) and quotes the line for EVERY center that enters; a center with no quoted line does NOT enter. The DP-era offshore-hub tagging (CYM/HKG/VGB) is a BENEFICIAL-OWNER/issuer-haven taxonomy, not a custody taxonomy — per the zero-guard, beneficial-owner jurisdictions do NOT enter the custody set unless a publisher line independently names them as custodial attribution-bias centers. No center enters or exits by choice; the set is whatever the quoted lines support, and the quotes are the audit trail.\"",
+  "grounded_centers": [
+    {
+      "code": "BEL",
+      "name": "Belgium",
+      "quote": "Third, chains of foreign financial intermediaries are often involved in the custody or management of securities. This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+      "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2016-2019; Section 4.3.4 'Reporting Basis: Country of Residence')",
+      "document_identity": "‘Foreign Portfolio Holdings of U.S. Securities as of June 30, 2025’ (TIC SHL annual survey report, Department of the Treasury / Federal Reserve Bank of New York / Board of Governors of the Federal Reserve System), fetched 2026-07-02 from https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2025r.pdf; raw PDF retained as build/reserve/rdtb_evidence/shl2025r.pdf",
+      "supporting_quotes": [
+        {
+          "quote": "Second, many registered U.S. securities are issued abroad, and these securities typically trade in book-entry form, with settlement and custody occurring at international central securities depositories (ICSDs). Prominent ICSDs are Euroclear in Belgium and Clearstream in Luxembourg. U.S. survey reporters typically report only the country where the ICSD is located and thus large foreign holdings are attributed to these countries.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2010-2015; page-break string '54 Foreign Portfolio Holdings of U.S. Securities as of June 30, 2025' interleaved in the extraction removed here)",
+          "document_identity": "same SHL 2025 report (ICSD / attribution line)"
+        },
+        {
+          "quote": "This \"custodial bias\" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdtd_evidence/tic_faq2.html (FAQ 7, 'What are the problems of geographic attribution for securities holdings and transactions in the TIC system?'); reading-aid extraction build/reserve/rdtf_evidence/tic_faq2_extracted.txt line ~396",
+          "document_identity": "U.S. Treasury, 'Frequently Asked Questions Regarding the TIC System and TIC Data' (part 2), https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/frequently-asked-questions-regarding-the/ticfaq2 , fetched 2026-07-02"
+        },
+        {
+          "quote": "This “custodial bias” contributes to the large recorded holdings in major custodial centers including Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdte_evidence/method_mfh_legacy.html; reading-aid extraction build/reserve/rdtf_evidence/method_mfh_legacy_extracted.txt line 339",
+          "document_identity": "U.S. Treasury, 'New Methodology for Estimating Major Foreign Holders of Treasury Securities' (MFH methodology note, 2/29/2012, with 5/15/2006 archive), http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx , fetched 2026-07-02"
+        }
+      ]
+    },
+    {
+      "code": "LUX",
+      "name": "Luxembourg",
+      "quote": "Third, chains of foreign financial intermediaries are often involved in the custody or management of securities. This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+      "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2016-2019)",
+      "document_identity": "SHL 2025 report (identity as for BEL)",
+      "supporting_quotes": [
+        {
+          "quote": "Prominent ICSDs are Euroclear in Belgium and Clearstream in Luxembourg. U.S. survey reporters typically report only the country where the ICSD is located and thus large foreign holdings are attributed to these countries.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2012-2015)",
+          "document_identity": "same SHL 2025 report (ICSD / attribution line)"
+        },
+        {
+          "quote": "This \"custodial bias\" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdtd_evidence/tic_faq2.html (FAQ 7)",
+          "document_identity": "TIC FAQ part 2 (identity as for BEL supporting quote)"
+        }
+      ]
+    },
+    {
+      "code": "CHE",
+      "name": "Switzerland",
+      "quote": "This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom. For example, a resident of Germany may buy a U.S. security and place it in the custody of a Swiss bank.",
+      "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2017-2020)",
+      "document_identity": "SHL 2025 report (identity as for BEL)",
+      "supporting_quotes": [
+        {
+          "quote": "For example, a German investor may buy a U.S. security and place it in the custody of a Swiss bank. In the surveys of foreign holdings of U.S. securities, such a holding is recorded against Switzerland rather than Germany. This \"custodial bias\" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdtd_evidence/tic_faq2.html (FAQ 7)",
+          "document_identity": "TIC FAQ part 2 (identity as for BEL supporting quote)"
+        }
+      ]
+    },
+    {
+      "code": "GBR",
+      "name": "United Kingdom",
+      "quote": "This “custodial bias” tends to overstate the amounts of holdings by residents of countries with major custodial activities such as Belgium, Luxembourg, Switzerland, and the United Kingdom.",
+      "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 2017-2019)",
+      "document_identity": "SHL 2025 report (identity as for BEL)",
+      "supporting_quotes": [
+        {
+          "quote": "The June 2011 survey measure of U.S. Treasury securities held by residents of the United Kingdom is $135.7 billion. This relatively high level of U.K. holdings primarily reflects the custodial bias of the United Kingdom: at $135.7 billion, the United Kingdom was the eighth largest recorded foreign holder of U.S. Treasuries.",
+          "quote_source_path": "build/reserve/rdtd_evidence/tic_faq2.html (FAQ 7, U.K. worked example)",
+          "document_identity": "TIC FAQ part 2 (identity as for BEL supporting quote)"
+        },
+        {
+          "quote": "This \"custodial bias\" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdtd_evidence/tic_faq2.html (FAQ 7)",
+          "document_identity": "TIC FAQ part 2 (identity as for BEL supporting quote)"
+        }
+      ]
+    },
+    {
+      "code": "CARIB-BC",
+      "name": "Caribbean banking centers (TIC publisher grouping, NOT a single jurisdiction)",
+      "quote": "This “custodial bias” contributes to the large recorded holdings in major custodial centers including Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+      "quote_source_path": "build/reserve/rdte_evidence/method_mfh_legacy.html; reading-aid extraction build/reserve/rdtf_evidence/method_mfh_legacy_extracted.txt line 339",
+      "document_identity": "U.S. Treasury MFH methodology note (method-mfh.aspx, 2/29/2012 revision), fetched 2026-07-02",
+      "supporting_quotes": [
+        {
+          "quote": "This \"custodial bias\" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdtd_evidence/tic_faq2.html (FAQ 7)",
+          "document_identity": "TIC FAQ part 2 (identity as for BEL supporting quote)"
+        },
+        {
+          "quote": "4/   Caribbean Banking Centers include Bahamas, Bermuda, Cayman Islands, Netherlands Antilles, and Panama. Beginning with new series for June 2006, also includes British Virgin Islands. This aggregate of countries was discontinued after data for February 2016.",
+          "quote_source_path": "build/reserve/rdt_evidence/tic/mfhhis01.txt (footnote 4, lines 1287-1288)",
+          "document_identity": "U.S. Treasury, MFH history table (mfhhis01.txt), https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.txt , fetched 2026-07-01 (publisher-defined group membership)"
+        },
+        {
+          "quote": "Caribbean financial centers are Bermuda; Bonaire, Sint Eustatius, and Saba; British Virgin Islands; Cayman Islands; Curacao; and Panama.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1739-1740, Section 3.3 Geographical Notes)",
+          "document_identity": "SHL 2025 report (publisher-defined membership of the closely related SHL grouping 'Caribbean financial centers')"
+        }
+      ],
+      "assembly_note": "Entered at the grouping level exactly as the publisher names it. The publisher's custodial-bias lines name the GROUP, not any single member jurisdiction; the TIC aggregate line for the group was discontinued after data for February 2016 (mfhhis01.txt footnote 4), so applying this center on the RDT-F axis (2023-05..2026-04) requires mapping to publisher-defined member-country lines. Member jurisdictions individually (notably Cayman Islands and British Virgin Islands) carry the pre-registration's beneficial-owner tagging and are NOT individually grounded as custodial centers — see ambiguous / rejected_candidates. Whether the group-level custodial naming can be operationalized without individually admitting beneficial-owner member jurisdictions is an assembly-stage question; this manifest records the quotes only."
+    }
+  ],
+  "ambiguous": [
+    {
+      "code": "CYM",
+      "name": "Cayman Islands (as an individual jurisdiction)",
+      "status": "AMBIGUOUS — not entered in the grounded set",
+      "reason": "No publisher line unambiguously names the Cayman Islands, individually, as a custodial / ICSD / attribution-bias center. The nearest lines are (a) a conjunctive 'hubs' sentence that does not separate custody from offshore issuance, and (b) a disjunctive 'financial centers' definition; the same report's own classification sentence places Cayman in the international-investment-fund (beneficial-owner) subset. Cayman is a member of the publisher-defined 'Caribbean banking centers' group named in the custodial-bias lines, but a group mention is not an independent individual naming, and the pre-registration's zero-guard requires an independent naming for CYM.",
+      "quotes": [
+        {
+          "quote": "Differences are concentrated in countries that are hubs for offshore debt issuance and securities custody businesses: the United Kingdom, Cayman Islands, Luxembourg, and Belgium.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1814-1816, Section 4.2.2)",
+          "classification": "conjunctive: names four jurisdictions as hubs for BOTH offshore debt issuance AND securities custody businesses without separating which role attaches to which jurisdiction"
+        },
+        {
+          "quote": "Among the top foreign holders are financial centers — such as the Cayman Islands, the United Kingdom, Luxembourg, Ireland, and Switzerland — in which substantial amounts of securities owned by residents of other countries are managed or held in custody. Moreover, three of these financial centers — the Cayman Islands, Luxembourg, and Ireland — have large financial industries with many international investment funds whose holders need not be, and often are not, residents of those countries.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 678-683)",
+          "classification": "disjunctive ('managed or held in custody'), and the 'Moreover' sentence classifies Cayman in the investment-fund (beneficial-owner) subset"
+        },
+        {
+          "quote": "In addition, funds with legal residence outside the United States (for example, in the Cayman Islands) can and do hold securities on behalf of residents of other countries, including the United States.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1686-1688, Section 3.2 Technical Notes)",
+          "classification": "beneficial-owner / fund-domicile characterization, not custodial"
+        }
+      ]
+    },
+    {
+      "code": "IRL",
+      "name": "Ireland",
+      "status": "AMBIGUOUS — not entered in the grounded set",
+      "reason": "Ireland appears only in disjunctive 'financial centers' lines ('manage or hold in custody substantial amounts ... OR have a large financial industry with many international investment funds') and is explicitly placed by the publisher in the investment-fund (beneficial-owner) subset. Neither the SHL custodial-bias passage (Section 4.3.4) nor TIC FAQ 7 nor the MFH methodology note names Ireland as a custodial / ICSD / attribution-bias center.",
+      "quotes": [
+        {
+          "quote": "Financial centers: These countries manage or hold in custody substantial amounts of securities owned by residents of other countries or have a large financial industry with many international investment funds whose holders need not be, and often are not, residents of those countries. These countries include the Cayman Islands, Ireland, Luxembourg, Switzerland, and the United Kingdom.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1670-1674, Section 3.2 Technical Notes)",
+          "classification": "disjunctive definition — does not state which listed country is custodial vs fund-domicile"
+        },
+        {
+          "quote": "Moreover, three of these financial centers — the Cayman Islands, Luxembourg, and Ireland — have large financial industries with many international investment funds whose holders need not be, and often are not, residents of those countries.",
+          "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 681-683)",
+          "classification": "publisher classifies Ireland in the investment-fund (beneficial-owner) subset"
+        }
+      ]
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "code": "HKG",
+      "name": "Hong Kong",
+      "reason": "No publisher line in any retained or fetched document names Hong Kong as a custodial / ICSD / attribution-bias center. In the SHL 2025 report Hong Kong appears only in data rows and in the 'Advanced foreign economies' geographic grouping; the DP-era offshore-hub tagging of HKG is a beneficial-owner/issuer-haven taxonomy, which per the zero-guard does not admit it.",
+      "quote": "Advanced foreign economies (AFE) include the euro area; Australia; Canada; Czech Republic; Denmark; Hong Kong; Iceland; Israel; Japan; New Zealand; Norway; Singapore; South Korea; Sweden; Switzerland; Taiwan; and United Kingdom, including Jersey, Guernsey, and Isle of Man.",
+      "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1735-1738, Section 3.3 Geographical Notes) — the only classificatory mention of Hong Kong; it is not a custody line"
+    },
+    {
+      "code": "VGB",
+      "name": "British Virgin Islands (as an individual jurisdiction)",
+      "reason": "No publisher line names the British Virgin Islands individually as a custodial / ICSD / attribution-bias center. It appears only as a member of the publisher-defined Caribbean groupings and in data rows; the DP-era tagging of VGB is beneficial-owner/issuer-haven. Group membership in 'Caribbean banking centers' (from June 2006 per mfhhis01.txt footnote 4) is recorded under the CARIB-BC entry and is not an individual naming.",
+      "quote": "Caribbean financial centers are Bermuda; Bonaire, Sint Eustatius, and Saba; British Virgin Islands; Cayman Islands; Curacao; and Panama.",
+      "quote_source_path": "build/reserve/rdtb_evidence/shl2025r_extracted.txt (lines 1739-1740, Section 3.3 Geographical Notes)"
+    }
+  ],
+  "frictions": [
+    "The strongest custodial-bias line (SHL 2025 Section 4.3.4) names exactly Belgium, Luxembourg, Switzerland, United Kingdom — matching the pre-registration's known candidate line.",
+    "Two TIC methodology documents (FAQ 7 and the MFH methodology note) additionally name 'the Caribbean banking centers' inside the custodial-bias sentence — the MFH note calls them 'major custodial centers'. This grouping enters at group level; its member jurisdictions individually do not, per the zero-guard. The TIC aggregate data line for the group was discontinued after February 2016 data, so the assembly must decide the mapping on the verdict axis and report it.",
+    "The MFH methodology note (method-mfh.aspx) and FAQ 7 custodial-bias passages date from the 2012-era revision; the SHL 2025 report is the current-vintage publisher statement. Both vintages agree on BE/LU/CH/UK; only the TIC-side documents add the Caribbean group.",
+    "TIC FAQ 7 also names 'the United Kingdom and the Caribbean banking centers' for TRANSACTIONS bias (Form S era, pre-2023-02); transactions bias is a distinct mechanism from custodial bias and was not used as a grounding line."
+  ],
+  "SOURCE": [
+    "build/reserve/rdtb_evidence/shl2025r.pdf + build/reserve/rdtb_evidence/shl2025r_extracted.txt — 'Foreign Portfolio Holdings of U.S. Securities as of June 30, 2025' (TIC SHL survey report), https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shl2025r.pdf , fetched 2026-07-02",
+    "build/reserve/rdtd_evidence/tic_faq2.html (+ reading aid build/reserve/rdtf_evidence/tic_faq2_extracted.txt) — TIC FAQ part 2, https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/frequently-asked-questions-regarding-the/ticfaq2 , fetched 2026-07-02",
+    "build/reserve/rdte_evidence/method_mfh_legacy.html (+ reading aid build/reserve/rdtf_evidence/method_mfh_legacy_extracted.txt) — MFH methodology note, http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx , fetched 2026-07-02",
+    "build/reserve/rdt_evidence/tic/mfhhis01.txt — MFH history table with group-membership footnote 4, https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.txt , fetched 2026-07-01",
+    "build/reserve/RDTF_prediction.md — pre-registered derivation rule (committed 6701b5c)"
+  ]
+}

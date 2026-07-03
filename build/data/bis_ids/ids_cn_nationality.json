@@ -1,0 +1,402 @@
+{
+  "dataset": {
+    "publisher": "Bank for International Settlements (BIS)",
+    "name": "International debt securities (BIS-compiled) \u2014 Debt securities statistics",
+    "flow_id": "WS_DEBT_SEC2_PUB",
+    "flow_version": "1.0",
+    "agency": "BIS",
+    "dsd_id": "BIS_DEBT_SEC2",
+    "portal": "BIS Data Portal SDMX REST API (stats.bis.org)"
+  },
+  "fetch": {
+    "fetch_date": "2026-06-30",
+    "api_base_v2": "https://stats.bis.org/api/v2",
+    "dataflow_discovery_url": "https://stats.bis.org/api/v2/structure/dataflow/BIS/?detail=allstubs",
+    "series_keys_discovery_url": "https://stats.bis.org/api/v1/data/WS_DEBT_SEC2_PUB/all/all?detail=serieskeysonly&format=csv",
+    "dimension_order": [
+      "FREQ",
+      "ISSUER_RES",
+      "ISSUER_NAT",
+      "ISSUER_BUS_IMM",
+      "ISSUER_BUS_ULT",
+      "MARKET",
+      "ISSUE_TYPE",
+      "ISSUE_CUR_GROUP",
+      "ISSUE_CUR",
+      "ISSUE_OR_MAT",
+      "ISSUE_RE_MAT",
+      "ISSUE_RATE",
+      "ISSUE_RISK",
+      "ISSUE_COL",
+      "MEASURE"
+    ]
+  },
+  "nationality_basis": {
+    "series_key": "Q.3P.CN.1.1.C.A.A.TO1.A.A.A.A.A.I",
+    "api_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.3P.CN.1.1.C.A.A.TO1.A.A.A.A.A.I?startPeriod=2019-Q1&format=csv&labels=both",
+    "raw_payload_file": "build/data/bis_ids/raw_cn_nationality_v2.csv",
+    "nationality_confirmation_quoted_metadata": {
+      "note": "Quoted verbatim from the fetched v2 labelled CSV (labels=both). The nationality basis is encoded as ISSUER_RES=3P (all-residence) crossed with ISSUER_NAT=CN; debt is reattributed to the country of the issuer's controlling parent (nationality).",
+      "ISSUER_NAT": "CN = 'China'  (dimension label: 'Issuer nationality')",
+      "ISSUER_RES": "3P = 'All countries excluding residents'  (dimension label: 'Issuer residence')",
+      "ISSUER_BUS_IMM": "1 = 'All issuers'  (label: 'Issuer sector - immediate borrower')",
+      "ISSUER_BUS_ULT": "1 = 'All issuers'  (label: 'Issuer sector - ultimate borrower')",
+      "MARKET": "C = 'International markets'  (label: 'Issue market')",
+      "ISSUE_CUR": "TO1 = 'Total all currencies'",
+      "ISSUE_OR_MAT": "A = 'Total (all maturities)'",
+      "MEASURE": "I = 'Amounts outstanding'",
+      "UNIT_MEASURE": "USD = 'US dollar'",
+      "UNIT_MULT": "6 = 'Millions'"
+    },
+    "units": "USD millions",
+    "frequency": "Quarterly",
+    "coverage_periods": "2019-Q1 .. 2026-Q1 (n=29)",
+    "series": {
+      "2019-Q1": {
+        "amount_outstanding_usd_millions": 1074073.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2019-Q2": {
+        "amount_outstanding_usd_millions": 1113484.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2019-Q3": {
+        "amount_outstanding_usd_millions": 1131790.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2019-Q4": {
+        "amount_outstanding_usd_millions": 1162484.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q1": {
+        "amount_outstanding_usd_millions": 1174484.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q2": {
+        "amount_outstanding_usd_millions": 1185886.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q3": {
+        "amount_outstanding_usd_millions": 1230825.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q4": {
+        "amount_outstanding_usd_millions": 1251965.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q1": {
+        "amount_outstanding_usd_millions": 1264551.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q2": {
+        "amount_outstanding_usd_millions": 1268233.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q3": {
+        "amount_outstanding_usd_millions": 1275320.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q4": {
+        "amount_outstanding_usd_millions": 1277609.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q1": {
+        "amount_outstanding_usd_millions": 1248453.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q2": {
+        "amount_outstanding_usd_millions": 1199987.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q3": {
+        "amount_outstanding_usd_millions": 1162102.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q4": {
+        "amount_outstanding_usd_millions": 1174883.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q1": {
+        "amount_outstanding_usd_millions": 1146143.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q2": {
+        "amount_outstanding_usd_millions": 1113530.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q3": {
+        "amount_outstanding_usd_millions": 1083774.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q4": {
+        "amount_outstanding_usd_millions": 1092215.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q1": {
+        "amount_outstanding_usd_millions": 1069351.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q2": {
+        "amount_outstanding_usd_millions": 1052534.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q3": {
+        "amount_outstanding_usd_millions": 1064538.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q4": {
+        "amount_outstanding_usd_millions": 1034502.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q1": {
+        "amount_outstanding_usd_millions": 1017736.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q2": {
+        "amount_outstanding_usd_millions": 1004860.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q3": {
+        "amount_outstanding_usd_millions": 998290.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q4": {
+        "amount_outstanding_usd_millions": 1004645.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2026-Q1": {
+        "amount_outstanding_usd_millions": 1004076.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      }
+    }
+  },
+  "residence_basis_contrast": {
+    "label": "RESIDENCE BASIS (for contrast only \u2014 NOT the nationality marginal). Issuance attributed to the issuer's country of residence.",
+    "series_key": "Q.CN.3P.1.1.C.A.A.TO1.A.A.A.A.A.I",
+    "api_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/Q.CN.3P.1.1.C.A.A.TO1.A.A.A.A.A.I?startPeriod=2019-Q1&format=csv&labels=both",
+    "raw_payload_file": "build/data/bis_ids/raw_cn_residence_v2.csv",
+    "decode": {
+      "ISSUER_RES": "CN = 'China'",
+      "ISSUER_NAT": "3P = 'All countries excluding residents'",
+      "MEASURE": "I = 'Amounts outstanding'",
+      "units": "USD millions"
+    },
+    "units": "USD millions",
+    "series": {
+      "2019-Q1": {
+        "amount_outstanding_usd_millions": 206102.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2019-Q2": {
+        "amount_outstanding_usd_millions": 208449.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2019-Q3": {
+        "amount_outstanding_usd_millions": 211041.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2019-Q4": {
+        "amount_outstanding_usd_millions": 208001.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q1": {
+        "amount_outstanding_usd_millions": 212341.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q2": {
+        "amount_outstanding_usd_millions": 214738.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q3": {
+        "amount_outstanding_usd_millions": 221666.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2020-Q4": {
+        "amount_outstanding_usd_millions": 237166.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q1": {
+        "amount_outstanding_usd_millions": 242234.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q2": {
+        "amount_outstanding_usd_millions": 242773.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q3": {
+        "amount_outstanding_usd_millions": 246584.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2021-Q4": {
+        "amount_outstanding_usd_millions": 250207.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q1": {
+        "amount_outstanding_usd_millions": 253288.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q2": {
+        "amount_outstanding_usd_millions": 254130.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q3": {
+        "amount_outstanding_usd_millions": 242622.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2022-Q4": {
+        "amount_outstanding_usd_millions": 234241.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q1": {
+        "amount_outstanding_usd_millions": 234550.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q2": {
+        "amount_outstanding_usd_millions": 234447.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q3": {
+        "amount_outstanding_usd_millions": 238069.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2023-Q4": {
+        "amount_outstanding_usd_millions": 230840.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q1": {
+        "amount_outstanding_usd_millions": 235595.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q2": {
+        "amount_outstanding_usd_millions": 239798.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q3": {
+        "amount_outstanding_usd_millions": 252387.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2024-Q4": {
+        "amount_outstanding_usd_millions": 249082.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q1": {
+        "amount_outstanding_usd_millions": 249874.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q2": {
+        "amount_outstanding_usd_millions": 247186.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q3": {
+        "amount_outstanding_usd_millions": 254030.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2025-Q4": {
+        "amount_outstanding_usd_millions": 253542.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      },
+      "2026-Q1": {
+        "amount_outstanding_usd_millions": 250497.0,
+        "obs_status": "Normal value",
+        "obs_conf": "Free"
+      }
+    }
+  },
+  "panel_quarters": {
+    "2019-Q3": {
+      "nationality_basis_usd_millions": 1131790.0,
+      "residence_basis_usd_millions": 211041.0
+    },
+    "2019-Q4": {
+      "nationality_basis_usd_millions": 1162484.0,
+      "residence_basis_usd_millions": 208001.0
+    },
+    "2020-Q1": {
+      "nationality_basis_usd_millions": 1174484.0,
+      "residence_basis_usd_millions": 212341.0
+    },
+    "2020-Q2": {
+      "nationality_basis_usd_millions": 1185886.0,
+      "residence_basis_usd_millions": 214738.0
+    },
+    "2020-Q3": {
+      "nationality_basis_usd_millions": 1230825.0,
+      "residence_basis_usd_millions": 221666.0
+    },
+    "2022-Q1": {
+      "nationality_basis_usd_millions": 1248453.0,
+      "residence_basis_usd_millions": 253288.0
+    },
+    "2022-Q2": {
+      "nationality_basis_usd_millions": 1199987.0,
+      "residence_basis_usd_millions": 254130.0
+    },
+    "2024-Q4": {
+      "nationality_basis_usd_millions": 1034502.0,
+      "residence_basis_usd_millions": 249082.0
+    }
+  },
+  "coverage": "DEBT_SECURITIES_ONLY; haven equity VIEs/ADRs not in IDS (equity nationality gap)",
+  "coverage_note": "BIS IDS (WS_DEBT_SEC2_PUB) covers DEBT securities only. The haven-resident equity structures of Chinese firms \u2014 Cayman/BVI-incorporated VIEs and US-listed ADRs (e.g. Alibaba, Tencent, PDD, Baidu) \u2014 are EQUITY and are NOT in IDS. The nationality-basis marginal grounded here is therefore a DEBT marginal. Equity issuance reattributed to Chinese nationality is NOT covered by this source and must be sourced elsewhere (e.g. equity datasets); it is an explicit coverage gap, not assumed zero.",
+  "confidence": "HIGH",
+  "confidence_reason": "Both series fetched live from the BIS SDMX REST API on 2026-06-30 (HTTP 200). Nationality basis confirmed from the dataset's own dimension labels in the fetched v2 labelled CSV ('Issuer nationality' = CN = China; ISSUER_RES=3P 'All countries excluding residents'), not from memory. Amounts-outstanding (MEASURE=I), USD, millions, quarterly all read from fetched metadata. Nationality (~$1.13T) vs residence (~$211B) ~5x gap is consistent with reattribution of haven-resident issuance to the Chinese parent.",
+  "SOURCE": "BIS Data Portal, dataflow WS_DEBT_SEC2_PUB v1.0 (DSD BIS:BIS_DEBT_SEC2(1.0)), 'International debt securities (BIS-compiled)'. Fetched via SDMX REST https://stats.bis.org/api/v2/data/dataflow/BIS/WS_DEBT_SEC2_PUB/1.0/<key>?format=csv&labels=both on 2026-06-30.",
+  "status": "COMPLETE"
+}

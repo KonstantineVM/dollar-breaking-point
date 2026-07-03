@@ -1,0 +1,1045 @@
+{
+  "artifact": "sanctions_shock_result",
+  "generated_by": "build/audit/sanctions_shock_recompute.py (no network)",
+  "serves_prereg": "build/audit/sanctions_shock_prediction.md",
+  "panel_path": "/home/user/dollar-breaking-point/build/data/cm_panel/cm_weight_panel_full.parquet",
+  "treatment_path": "/home/user/dollar-breaking-point/build/data/sanctions/sanctions_treatment_panel.csv",
+  "merged_panel_path": "/home/user/dollar-breaking-point/build/data/cm_panel/sanctions_cm_panel.parquet",
+  "estimator": "within (fund-demeaned) OLS; fund FE + X_t, NO time FE. Estimator functions REUSED VERBATIM from cm_regression_full_recompute.py; ONLY change is the SHOCK (GPRC_China -> sanc_freeze_post) plus an ADDED regulatory control. beta read from the estimator at design position 0, never hardcoded.",
+  "dependent_variable": "w = cn_haven_raw / tot_haven_raw (USD, NO FX). IDENTICAL to the GPR-China full-panel pass (the standing correction).",
+  "headline_treatment": "sanc_freeze_post",
+  "primary_regulatory_control": "reg_crackdown_post",
+  "sign_convention": "NEGATIVE beta on the sanctions treatment = weight shifts OUT of CN-nationality haven exposure as sanctions risk rises = F3 substitution.",
+  "merge_check": {
+    "panel_quarters": 22,
+    "treatment_rows": 22,
+    "keys_matched": 22,
+    "orphans_treatment_side": [],
+    "orphans_panel_side": [],
+    "merge_ok_22_of_22": true
+  },
+  "estimation_set": {
+    "quarters": [
+      "2019q3",
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2020q4",
+      "2021q1",
+      "2021q2",
+      "2021q3",
+      "2021q4",
+      "2022q1",
+      "2022q2",
+      "2022q3",
+      "2022q4",
+      "2023q1",
+      "2023q2",
+      "2023q3",
+      "2023q4",
+      "2024q1",
+      "2024q2",
+      "2024q3",
+      "2024q4"
+    ],
+    "G": 22,
+    "n_cells": 104306,
+    "n_funds": 7806
+  },
+  "LOAD_BEARING_with_vs_without_regulatory_control": {
+    "WITHOUT_regulatory_control": {
+      "label": "HEADLINE w~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78540,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": 0.018506876606456533,
+      "se_classical": {
+        "coef": 0.018506876606456533,
+        "se": 0.004741185355723405,
+        "t": 3.9034281973632674,
+        "p": 9.49188072508658e-05,
+        "dof": 78540,
+        "ci95": [
+          0.009214180857315828,
+          0.027799572355597237
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.018506876606456533,
+        "se": 0.0074615887774845645,
+        "t": 2.4802863248509834,
+        "p": 0.013153595149618598,
+        "dof": 6306,
+        "ci95": [
+          0.0038796238101469985,
+          0.03313412940276607
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.018506876606456533,
+        "se": 0.0033902610058495347,
+        "t": 5.458835344690242,
+        "p": 2.8829481004822898e-05,
+        "dof": 19,
+        "ci95": [
+          0.011410978770490948,
+          0.025602774442422118
+        ]
+      }
+    },
+    "WITH_regulatory_control_reg_crackdown": {
+      "label": "HEADLINE w~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78539,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": 0.017660570225023094,
+      "se_classical": {
+        "coef": 0.017660570225023094,
+        "se": 0.004773817704794817,
+        "t": 3.6994647297245637,
+        "p": 0.00021620191077899087,
+        "dof": 78539,
+        "ci95": [
+          0.008303915259472716,
+          0.027017225190573473
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.017660570225023094,
+        "se": 0.007687193409562245,
+        "t": 2.2974015722116183,
+        "p": 0.021628468767631012,
+        "dof": 6306,
+        "ci95": [
+          0.002591055588262588,
+          0.0327300848617836
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.017660570225023094,
+        "se": 0.002475878793962374,
+        "t": 7.133051209166535,
+        "p": 8.812524891090036e-07,
+        "dof": 19,
+        "ci95": [
+          0.012478496353460412,
+          0.022842644096585776
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.007582519052857159,
+          "se": 0.004995458696017676,
+          "t": -1.5178824436886764,
+          "p": 0.12904806156095902,
+          "dof": 78539,
+          "ci95": [
+            -0.017373589073471734,
+            0.002208550967757416
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.007582519052857159,
+          "se": 0.004983401542325719,
+          "t": -1.5215549035044142,
+          "p": 0.128170783672144,
+          "dof": 6306,
+          "ci95": [
+            -0.01735168166941331,
+            0.0021866435636989923
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.007582519052857159,
+          "se": 0.002875151926355111,
+          "t": -2.6372585682697034,
+          "p": 0.016238539464582057,
+          "dof": 19,
+          "ci95": [
+            -0.013600281194796792,
+            -0.001564756910917526
+          ]
+        }
+      }
+    }
+  },
+  "robustness_panel": {
+    "r1_freeze_no_control": {
+      "label": "HEADLINE w~sanc_freeze+L1+L2+X+relret  (NO regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78540,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": 0.018506876606456533,
+      "se_classical": {
+        "coef": 0.018506876606456533,
+        "se": 0.004741185355723405,
+        "t": 3.9034281973632674,
+        "p": 9.49188072508658e-05,
+        "dof": 78540,
+        "ci95": [
+          0.009214180857315828,
+          0.027799572355597237
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.018506876606456533,
+        "se": 0.0074615887774845645,
+        "t": 2.4802863248509834,
+        "p": 0.013153595149618598,
+        "dof": 6306,
+        "ci95": [
+          0.0038796238101469985,
+          0.03313412940276607
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.018506876606456533,
+        "se": 0.0033902610058495347,
+        "t": 5.458835344690242,
+        "p": 2.8829481004822898e-05,
+        "dof": 19,
+        "ci95": [
+          0.011410978770490948,
+          0.025602774442422118
+        ]
+      }
+    },
+    "r2_freeze_plus_reg_crackdown": {
+      "label": "HEADLINE w~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78539,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": 0.017660570225023094,
+      "se_classical": {
+        "coef": 0.017660570225023094,
+        "se": 0.004773817704794817,
+        "t": 3.6994647297245637,
+        "p": 0.00021620191077899087,
+        "dof": 78539,
+        "ci95": [
+          0.008303915259472716,
+          0.027017225190573473
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.017660570225023094,
+        "se": 0.007687193409562245,
+        "t": 2.2974015722116183,
+        "p": 0.021628468767631012,
+        "dof": 6306,
+        "ci95": [
+          0.002591055588262588,
+          0.0327300848617836
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.017660570225023094,
+        "se": 0.002475878793962374,
+        "t": 7.133051209166535,
+        "p": 8.812524891090036e-07,
+        "dof": 19,
+        "ci95": [
+          0.012478496353460412,
+          0.022842644096585776
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.007582519052857159,
+          "se": 0.004995458696017676,
+          "t": -1.5178824436886764,
+          "p": 0.12904806156095902,
+          "dof": 78539,
+          "ci95": [
+            -0.017373589073471734,
+            0.002208550967757416
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.007582519052857159,
+          "se": 0.004983401542325719,
+          "t": -1.5215549035044142,
+          "p": 0.128170783672144,
+          "dof": 6306,
+          "ci95": [
+            -0.01735168166941331,
+            0.0021866435636989923
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.007582519052857159,
+          "se": 0.002875151926355111,
+          "t": -2.6372585682697034,
+          "p": 0.016238539464582057,
+          "dof": 19,
+          "ci95": [
+            -0.013600281194796792,
+            -0.001564756910917526
+          ]
+        }
+      }
+    },
+    "r3_freeze_plus_reg_hfcaa": {
+      "label": "w~sanc_freeze+L1+L2+X+relret + reg_hfcaa  (bounded-window regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_hfcaa_post"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78539,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": 0.017777436755156334,
+      "se_classical": {
+        "coef": 0.017777436755156334,
+        "se": 0.004757681884683169,
+        "t": 3.7365753293402877,
+        "p": 0.00018667557546951985,
+        "dof": 78539,
+        "ci95": [
+          0.008452407903275783,
+          0.027102465607036885
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.017777436755156334,
+        "se": 0.007189531911446063,
+        "t": 2.472683475659082,
+        "p": 0.01343646167128211,
+        "dof": 6306,
+        "ci95": [
+          0.0036835079831517726,
+          0.0318713655271609
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.017777436755156334,
+        "se": 0.0025005021682473773,
+        "t": 7.1095466266348755,
+        "p": 9.231153097479327e-07,
+        "dof": 19,
+        "ci95": [
+          0.012543825568914441,
+          0.023011047941398226
+        ]
+      },
+      "lambda_reg_hfcaa_post": {
+        "se_classical": {
+          "coef": 0.01139835748962345,
+          "se": 0.006199079549932302,
+          "t": 1.8387177318522923,
+          "p": 0.06596048727110894,
+          "dof": 78539,
+          "ci95": [
+            -0.00075180241163505,
+            0.02354851739088195
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": 0.01139835748962345,
+          "se": 0.005377208441325034,
+          "t": 2.119753700084333,
+          "p": 0.034065778640287175,
+          "dof": 6306,
+          "ci95": [
+            0.0008571993589248511,
+            0.02193951562032205
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": 0.01139835748962345,
+          "se": 0.005263233762336335,
+          "t": 2.165656705425098,
+          "p": 0.043267371374068796,
+          "dof": 19,
+          "ci95": [
+            0.0003822826210795587,
+            0.02241443235816734
+          ]
+        }
+      }
+    },
+    "r4_eo2023_second_event_with_controls": {
+      "label": "w~sanc_eo2023 + sanc_freeze + reg_crackdown +L1+L2+X+relret (eo2023 as 2nd sanctions event)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_eo2023_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "sanc_freeze_post",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78538,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": -0.003556640411063876,
+      "se_classical": {
+        "coef": -0.003556640411063876,
+        "se": 0.0033914202062738136,
+        "t": -1.0487171139938425,
+        "p": 0.29431156231731115,
+        "dof": 78538,
+        "ci95": [
+          -0.01020380431253723,
+          0.0030905234904094795
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -0.003556640411063876,
+        "se": 0.0035850712532848393,
+        "t": -0.9920696576965065,
+        "p": 0.3212016111804788,
+        "dof": 6306,
+        "ci95": [
+          -0.01058459988168187,
+          0.0034713190595541186
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -0.003556640411063876,
+        "se": 0.0023981236221196677,
+        "t": -1.4830930225024062,
+        "p": 0.15444818739064267,
+        "dof": 19,
+        "ci95": [
+          -0.008575970837605121,
+          0.0014626900154773698
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.008261333152010282,
+          "se": 0.00503721628174897,
+          "t": -1.640059248983025,
+          "p": 0.1009968531603874,
+          "dof": 78538,
+          "ci95": [
+            -0.018134247799984238,
+            0.0016115814959636755
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.008261333152010282,
+          "se": 0.005538905108149544,
+          "t": -1.4915101433774618,
+          "p": 0.13587763064038236,
+          "dof": 6306,
+          "ci95": [
+            -0.01911947176669102,
+            0.0025968054626704547
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.008261333152010282,
+          "se": 0.0033017908174132297,
+          "t": -2.5020764817810535,
+          "p": 0.021645441284869064,
+          "dof": 19,
+          "ci95": [
+            -0.015172060755480644,
+            -0.0013506055485399205
+          ]
+        }
+      }
+    },
+    "r5_intensity_continuous_with_controls_SURVIVORSHIP_FLAGGED": {
+      "label": "w~sanc_intensity + reg_crackdown +L1+L2+X+relret (SURVIVORSHIP-BIASED/SPARSE robustness)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_intensity",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78539,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": -8.199600642330075e-05,
+      "se_classical": {
+        "coef": -8.199600642330075e-05,
+        "se": 8.956550361548298e-05,
+        "t": -0.9154864664784433,
+        "p": 0.3599391147858367,
+        "dof": 78539,
+        "ci95": [
+          -0.00025754387313469806,
+          9.355186028809658e-05
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": -8.199600642330075e-05,
+        "se": 4.9041404337677774e-05,
+        "t": -1.6719750898386174,
+        "p": 0.09457884604045763,
+        "dof": 6306,
+        "ci95": [
+          -0.0001781338451766007,
+          1.414183232999922e-05
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": -8.199600642330075e-05,
+        "se": 0.0001235709368056699,
+        "t": -0.6635541377520614,
+        "p": 0.5149471291377508,
+        "dof": 19,
+        "ci95": [
+          -0.0003406329495833369,
+          0.00017664093673673534
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.006576314725662952,
+          "se": 0.006047110535349857,
+          "t": -1.0875135632496715,
+          "p": 0.27681324505116395,
+          "dof": 78539,
+          "ci95": [
+            -0.018428616241278773,
+            0.0052759867899528695
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.006576314725662952,
+          "se": 0.0054393630614588614,
+          "t": -1.2090229409873507,
+          "p": 0.22669936045354439,
+          "dof": 6306,
+          "ci95": [
+            -0.017239317059823882,
+            0.004086687608497979
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.006576314725662952,
+          "se": 0.010125348181861341,
+          "t": -0.6494902306119047,
+          "p": 0.5237964941224271,
+          "dof": 19,
+          "ci95": [
+            -0.027768912029558175,
+            0.014616282578232269
+          ]
+        }
+      }
+    },
+    "r6_narrow_event_window_2022q1q2_vs_pre": {
+      "label": "NARROW window (2022q1-q2 vs pre) w~sanc_freeze+reg_crackdown+L1+L2+X+relret",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 41554,
+      "n_funds": 5302,
+      "within_dof": 36244,
+      "n_quarter_clusters": 10,
+      "n_fund_clusters": 5302,
+      "beta_treatment": 0.04201481177265228,
+      "se_classical": {
+        "coef": 0.04201481177265228,
+        "se": 0.017659022878059753,
+        "t": 2.379226306165167,
+        "p": 0.01735416652453898,
+        "dof": 36244,
+        "ci95": [
+          0.007402607059075819,
+          0.07662701648622874
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.04201481177265228,
+        "se": 0.016706540017520026,
+        "t": 2.5148721236468865,
+        "p": 0.011936910175862424,
+        "dof": 5301,
+        "ci95": [
+          0.009263116944675194,
+          0.07476650660062936
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.04201481177265228,
+        "se": 0.002630593554793237,
+        "t": 15.971609029489398,
+        "p": 6.533039606411159e-08,
+        "dof": 9,
+        "ci95": [
+          0.036063995720265966,
+          0.0479656278250386
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": 0.003017080380466794,
+          "se": 0.011704026394666637,
+          "t": 0.2577814060502833,
+          "p": 0.7965770789905892,
+          "dof": 36244,
+          "ci95": [
+            -0.01992315591361595,
+            0.025957316674549542
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": 0.003017080380466794,
+          "se": 0.0046299719582922685,
+          "t": 0.6516411778829914,
+          "p": 0.5146609266871778,
+          "dof": 5301,
+          "ci95": [
+            -0.006059570349190973,
+            0.01209373111012456
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": 0.003017080380466794,
+          "se": 0.0015969457844424778,
+          "t": 1.8892816586883132,
+          "p": 0.091441098993934,
+          "dof": 9,
+          "ci95": [
+            -0.0005954619644101553,
+            0.006629622725343743
+          ]
+        }
+      }
+    },
+    "r6b_persistent_step_full_span_for_contrast": {
+      "label": "HEADLINE w~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": true,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 84854,
+      "n_funds": 6307,
+      "within_dof": 78539,
+      "n_quarter_clusters": 20,
+      "n_fund_clusters": 6307,
+      "beta_treatment": 0.017660570225023094,
+      "se_classical": {
+        "coef": 0.017660570225023094,
+        "se": 0.004773817704794817,
+        "t": 3.6994647297245637,
+        "p": 0.00021620191077899087,
+        "dof": 78539,
+        "ci95": [
+          0.008303915259472716,
+          0.027017225190573473
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.017660570225023094,
+        "se": 0.007687193409562245,
+        "t": 2.2974015722116183,
+        "p": 0.021628468767631012,
+        "dof": 6306,
+        "ci95": [
+          0.002591055588262588,
+          0.0327300848617836
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.017660570225023094,
+        "se": 0.002475878793962374,
+        "t": 7.133051209166535,
+        "p": 8.812524891090036e-07,
+        "dof": 19,
+        "ci95": [
+          0.012478496353460412,
+          0.022842644096585776
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": -0.007582519052857159,
+          "se": 0.004995458696017676,
+          "t": -1.5178824436886764,
+          "p": 0.12904806156095902,
+          "dof": 78539,
+          "ci95": [
+            -0.017373589073471734,
+            0.002208550967757416
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": -0.007582519052857159,
+          "se": 0.004983401542325719,
+          "t": -1.5215549035044142,
+          "p": 0.128170783672144,
+          "dof": 6306,
+          "ci95": [
+            -0.01735168166941331,
+            0.0021866435636989923
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": -0.007582519052857159,
+          "se": 0.002875151926355111,
+          "t": -2.6372585682697034,
+          "p": 0.016238539464582057,
+          "dof": 19,
+          "ci95": [
+            -0.013600281194796792,
+            -0.001564756910917526
+          ]
+        }
+      }
+    },
+    "r7_no_weight_lags_with_control": {
+      "label": "w~sanc_freeze+reg_crackdown+X+relret (NO weight lags)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns",
+        "reg_crackdown_post"
+      ],
+      "n_obs": 103867,
+      "n_funds": 7367,
+      "within_dof": 96494,
+      "n_quarter_clusters": 22,
+      "n_fund_clusters": 7367,
+      "beta_treatment": 0.09398483584917798,
+      "se_classical": {
+        "coef": 0.09398483584917798,
+        "se": 0.0819579745486448,
+        "t": 1.1467442474849696,
+        "p": 0.2514901808875863,
+        "dof": 96494,
+        "ci95": [
+          -0.06665185744499082,
+          0.2546215291433468
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.09398483584917798,
+        "se": 0.08280191549966037,
+        "t": 1.13505630011136,
+        "p": 0.25638866251903797,
+        "dof": 7366,
+        "ci95": [
+          -0.06833060761836911,
+          0.25630027931672505
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.09398483584917798,
+        "se": 0.0720927113781385,
+        "t": 1.3036662660142102,
+        "p": 0.20645867274737162,
+        "dof": 21,
+        "ci95": [
+          -0.055940164836755554,
+          0.2439098365351115
+        ]
+      },
+      "lambda_reg_crackdown_post": {
+        "se_classical": {
+          "coef": 0.11874893373571192,
+          "se": 0.07724858598838397,
+          "t": 1.537231163733773,
+          "p": 0.12423999025388537,
+          "dof": 96494,
+          "ci95": [
+            -0.032657411811042994,
+            0.27015527928246685
+          ]
+        },
+        "se_cluster_fund": {
+          "coef": 0.11874893373571192,
+          "se": 0.14096883579660546,
+          "t": 0.8423772039023352,
+          "p": 0.3996041983218344,
+          "dof": 7366,
+          "ci95": [
+            -0.15759031469053603,
+            0.3950881821619599
+          ]
+        },
+        "se_cluster_quarter": {
+          "coef": 0.11874893373571192,
+          "se": 0.117949293887316,
+          "t": 1.0067795221322806,
+          "p": 0.32550123902905914,
+          "dof": 21,
+          "ci95": [
+            -0.1265400508082043,
+            0.3640379182796281
+          ]
+        }
+      }
+    },
+    "r7b_no_weight_lags_no_control": {
+      "label": "w~sanc_freeze+X+relret (NO weight lags, NO regulatory control)",
+      "status": "OK",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "use_lags": false,
+      "controls": [
+        "log_vix",
+        "broad_dollar",
+        "oil",
+        "relative_returns"
+      ],
+      "n_obs": 103867,
+      "n_funds": 7367,
+      "within_dof": 96495,
+      "n_quarter_clusters": 22,
+      "n_fund_clusters": 7367,
+      "beta_treatment": 0.10729820579955787,
+      "se_classical": {
+        "coef": 0.10729820579955787,
+        "se": 0.08149967567754517,
+        "t": 1.3165476415401336,
+        "p": 0.18799342600544305,
+        "dof": 96495,
+        "ci95": [
+          -0.052440226925079214,
+          0.26703663852419496
+        ]
+      },
+      "se_cluster_fund": {
+        "coef": 0.10729820579955787,
+        "se": 0.09857592608926935,
+        "t": 1.0884828584048982,
+        "p": 0.2764176113872911,
+        "dof": 7366,
+        "ci95": [
+          -0.08593881126521677,
+          0.30053522286433254
+        ]
+      },
+      "se_cluster_quarter": {
+        "coef": 0.10729820579955787,
+        "se": 0.09443798219412652,
+        "t": 1.1361763911790903,
+        "p": 0.26868304901449874,
+        "dof": 21,
+        "ci95": [
+          -0.08909632943949372,
+          0.30369274103860944
+        ]
+      }
+    },
+    "r8_clustering_reported_in_every_spec": {
+      "note": "Every spec reports se_classical, se_cluster_fund (G=n_funds), se_cluster_quarter (G=22). No separate re-estimation needed; the headline WITH-control cluster SEs:",
+      "headline_with_control_se_cluster_fund": {
+        "coef": 0.017660570225023094,
+        "se": 0.007687193409562245,
+        "t": 2.2974015722116183,
+        "p": 0.021628468767631012,
+        "dof": 6306,
+        "ci95": [
+          0.002591055588262588,
+          0.0327300848617836
+        ]
+      },
+      "headline_with_control_se_cluster_quarter": {
+        "coef": 0.017660570225023094,
+        "se": 0.002475878793962374,
+        "t": 7.133051209166535,
+        "p": 8.812524891090036e-07,
+        "dof": 19,
+        "ci95": [
+          0.012478496353460412,
+          0.022842644096585776
+        ]
+      }
+    }
+  },
+  "collinearity_diagnostic": {
+    "across_22q_corr_sanc_freeze_vs_reg_crackdown": 0.8280786712108251,
+    "across_22q_corr_sanc_freeze_vs_reg_hfcaa": 0.43033148291193535,
+    "vif_sanc_freeze_in_with_control_design_after_FE": {
+      "r2_treatment_on_others": 0.8430107428466541,
+      "vif": 6.369862614377542,
+      "se_inflation_factor_sqrt_vif": 2.5238586755952763
+    },
+    "vif_sanc_freeze_in_no_control_design_after_FE": {
+      "r2_treatment_on_others": 0.8408396308264446,
+      "vif": 6.282971101364792,
+      "se_inflation_factor_sqrt_vif": 2.506585546388711
+    },
+    "se_inflation_attributable_to_reg_crackdown": 0.7302914995897096,
+    "interpretation_note": "r=0.828 is the Part-1 across-quarter collinearity the verdict must confront. The VIF is the treatment's variance-inflation AFTER fund FE + macro block + weight lags + (with-control) reg_crackdown; sqrt(VIF) is how much the regulatory control widens the sanctions SE."
+  },
+  "power_diagnostic": {
+    "sanc_freeze_cross_quarter_sd_22q": 0.5096471914376255,
+    "within_fund_sd_sanc_freeze_after_FE": 0.4501277318775904,
+    "residual_sd_sanc_freeze_after_FE_and_macro_controls_NO_reg": 0.17957804493291626,
+    "residual_sd_sanc_freeze_after_FE_macro_AND_reg_crackdown": 0.17834902414709233,
+    "residual_share_of_within_NO_reg": 0.39894908092832515,
+    "residual_share_of_within_WITH_reg": 0.39621869864172976,
+    "n_quarter_clusters_G": 22,
+    "headline_with_control_beta": 0.017660570225023094,
+    "headline_with_control_se_cluster_quarter": 0.002475878793962374,
+    "ci95_halfwidth_clustered_quarter": 0.004852722436166253,
+    "note": "residual_share_of_within is the fraction of the treatment's within-fund variation that SURVIVES fund FE + controls (+ reg_crackdown in the WITH column). A large drop from NO_reg to WITH_reg is the collinearity eating the sanctions-specific variation."
+  },
+  "few_cluster_inference": {
+    "wild_cluster_bootstrap_quarter_headline_WITH_control": {
+      "spec": "no-lags: w ~ sanc_freeze_post + log_vix + broad_dollar + oil + relative_returns + reg_crackdown_post",
+      "weight_col": "w",
+      "treatment_col": "sanc_freeze_post",
+      "reps": 2000,
+      "seed": 42,
+      "n_quarter_clusters_G": 22,
+      "beta_treatment": 0.09398483584917798,
+      "naive_cluster_quarter_se": 0.0720927113781385,
+      "t_obs": 1.3036662660142102,
+      "bootstrap_p_twosided": 0.2655,
+      "rademacher": true,
+      "null_imposed_restricted_residuals": true
+    },
+    "leave_one_quarter_out_WITH_control": {
+      "spec": "HEADLINE w~sanc_freeze+L1+L2+X+relret + reg_crackdown  (WITH regulatory control) [lags on contiguous 22q ordinal]",
+      "full_beta": 0.017660570225023094,
+      "beta_dropping_quarter": {
+        "2019q3": 0.017868081100970105,
+        "2019q4": 0.017424371139242896,
+        "2020q1": 0.017744041132584015,
+        "2020q2": 0.015459182366894272,
+        "2020q3": 0.017418066457999332,
+        "2020q4": 0.016943077710131173,
+        "2021q1": 0.015455333505913818,
+        "2021q2": 0.003800544871624676,
+        "2021q3": 0.004223382151445495,
+        "2021q4": 0.016707388203400467,
+        "2022q1": 0.018283965585591,
+        "2022q2": 0.02203441708405306,
+        "2022q3": 0.022604867398191855,
+        "2022q4": 0.019552597519253253,
+        "2023q1": 0.01784777836382074,
+        "2023q2": 0.015236059846673377,
+        "2023q3": 0.01639998283028861,
+        "2023q4": 0.017738786098690458,
+        "2024q1": 0.018157729356535826,
+        "2024q2": 0.017224741948116826,
+        "2024q3": 0.017478968086070287,
+        "2024q4": 0.017038272936199365
+      }
+    },
+    "leave_one_quarter_out_WITHOUT_control": {
+      "spec": "HEADLINE w~sanc_freeze+L1+L2+X+relret  (NO regulatory control) [lags on contiguous 22q ordinal]",
+      "full_beta": 0.018506876606456533,
+      "beta_dropping_quarter": {
+        "2019q3": 0.018581536095542615,
+        "2019q4": 0.01809977906580291,
+        "2020q1": 0.018485318108414417,
+        "2020q2": 0.01635976371751322,
+        "2020q3": 0.017631352785166157,
+        "2020q4": 0.018267612969835537,
+        "2021q1": 0.0158456547523422,
+        "2021q2": 0.007601089743254073,
+        "2021q3": 0.008446764302887513,
+        "2021q4": 0.016146101063225442,
+        "2022q1": 0.019673797226029695,
+        "2022q2": 0.023203839319789026,
+        "2022q3": 0.02363603907140677,
+        "2022q4": 0.02139115793080072,
+        "2023q1": 0.020074754615114654,
+        "2023q2": 0.016587246930886358,
+        "2023q3": 0.017158053057233495,
+        "2023q4": 0.018638101767685107,
+        "2024q1": 0.01917000112856599,
+        "2024q2": 0.01827319490012174,
+        "2024q3": 0.01841600590350174,
+        "2024q4": 0.017976563596943305
+      }
+    }
+  },
+  "gpr_china_full_panel_comparison": {
+    "gpr_headline_beta": 0.0125,
+    "gpr_note": "GPR-China full-panel pass: headline beta +0.0125 (positive), robust across all 22 LOQO drops; negative (substitution) direction bootstrap-insignificant p=0.58 at G=22. Same identification, same dependent variable; only the shock differs here."
+  }
+}

@@ -1,0 +1,529 @@
+# RDT-F evidence extraction (plain text derived from a retained publisher file; NOT a new fetch)
+# Source file (raw bytes, on disk): build/reserve/rdtd_evidence/tic_faq2.html
+# Publisher URL of the source fetch: https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/frequently-asked-questions-regarding-the/ticfaq2
+# Source fetched (per its stage fetch log): 2026-07-02 (RDTD fetch log line 197)
+# Extraction: Python stdlib html.unescape + regex tag-strip, whitespace-normalized, 2026-07-02.
+# Quote verification must go to the raw source file; this extraction is a reading aid.
+
+ 
+ Frequently Asked Questions Regarding the TIC System and TIC Data page2 | U.S. Department of the Treasury 
+ Skip to main content
+ An official website of the United States government
+ Here’s how you know
+ Here’s how you know 
+ Official websites use .gov 
+ A .gov website belongs to an official government organization in the United States.
+ Secure .gov websites use HTTPS 
+ A lock 
+ ( Lock A locked padlock )
+ or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+ FREEDOM250 
+ Countdown to America's 250th Anniversary 
+ July 4, 2026 
+ Learn More 
+ MENU 
+ MENU
+ U.S. Department of the Treasury 
+ About Treasury 
+ Enter Search Term(s): 
+ Advanced Search 
+ About Treasury 
+ General Information 
+ Role of the Treasury 
+ Officials 
+ Organizational Chart 
+ Orders and Directives 
+ Offices 
+ Domestic Finance 
+ Economic Policy 
+ General Counsel 
+ International Affairs 
+ Management 
+ Public Affairs 
+ Tax Policy 
+ Terrorism and Financial Intelligence 
+ Tribal and Native Affairs 
+ Inspectors General 
+ Bureaus 
+ Alcohol and Tobacco Tax and Trade Bureau (TTB) 
+ Bureau of Engraving & Printing (BEP) 
+ Financial Crimes Enforcement Network (FinCEN) 
+ Bureau of the Fiscal Service (BFS) 
+ Internal Revenue Service (IRS) 
+ Office of the Comptroller of the Currency (OCC) 
+ U.S. Mint 
+ Office of Inspector General (OIG) 
+ Treasury Inspector General for Tax Administration (TIGTA) 
+ Special Inspector General for Pandemic Recovery (SIGPR) 
+ Budget, Financial Reporting, Planning and Performance 
+ Strategic Plan 
+ Budget Request/Annual Performance Plan and Reports 
+ Agency Financial Report 
+ Inspector General Audits and Investigative Reports 
+ IRS Strategic Operating Plan 
+ History 
+ Curator 
+ History Overview 
+ Prior Secretaries 
+ Prior Treasurers 
+ The Treasury Building 
+ Collections 
+ Freedman's Bank Building 
+ Careers 
+ At Headquarters 
+ At Our Bureaus  
+ Top 10 Reasons to Work Here 
+ Benefits and Growth 
+ Workforce 
+ Veterans Employment 
+ Pathways 
+ How to Apply 
+ Search Jobs 
+ The Fair Chance to Compete Act 
+ Policy Issues 
+ Enter Search Term(s): 
+ Advanced Search 
+ Policy Issues 
+ Tax Policy 
+ Data Transparency 
+ Revenue Proposals 
+ Tax Expenditures 
+ International Tax 
+ Treaties and Related Documents 
+ Foreign Account Tax Compliance Act (FATCA) 
+ Reports 
+ Tax Analysis 
+ Tax Regulatory Process 
+ Economic Policy 
+ Treasury Coupon Issues 
+ Corporate Bond Yield Curve 
+ Economic Policy Reports 
+ Social Security and Medicare 
+ Total Taxable Resources 
+ Terrorism and Illicit Finance 
+ Sanctions 
+ Asset Forfeiture 
+ 311 Actions 
+ Terrorist Finance Tracking Program 
+ Money Laundering 
+ Financial Action Task Force 
+ Protecting Charitable Organizations 
+ Financing the Government 
+ Treasury Quarterly Refunding 
+ Interest Rate Statistics 
+ Treasury Securities 
+ Treasury Investor Data 
+ Debt Management Research 
+ Financial Markets, Financial Institutions, and Fiscal Service 
+ Cash and Debt Forecasting 
+ Debt Limit 
+ Financial Stability Oversight Council 
+ Federal Insurance Office 
+ RESTORE Act 
+ 1603 Program 
+ The Community Development Financial Institution (CDFI) Fund 
+ Making Home Affordable 
+ Office of Capital Access 
+ Financial Sanctions 
+ Specially Designated Nationals List (SDN List) 
+ Consolidated Sanctions List 
+ Search OFAC's Sanctions Lists 
+ Additional Sanctions Lists 
+ OFAC Recent Actions 
+ Sanctions Programs and Country Information 
+ Frequently Asked Questions 
+ OFAC Civil Penalties and Enforcement 
+ Contact OFAC 
+ Consumer Policy 
+ Financial Literacy and Education Commission 
+ Mymoney.gov 
+ Innovations in Financial Services 
+ Featured Research 
+ Student Loans 
+ International 
+ The Committee on Foreign Investment in the United States (CFIUS) 
+ Outbound Investment Security Program  
+ Exchange Stabilization Fund 
+ G-7 and G-20 
+ International Monetary Fund 
+ Multilateral Development Banks 
+ Macroeconomic and Foreign Exchange Policies of Major Trading Partners 
+ Exchange Rate Analysis 
+ U.S.-China Comprehensive Strategic Economic Dialogue (CED) 
+ Small Business Programs 
+ Small and Disadvantaged Business Utilization 
+ Small Business Lending Fund 
+ State Small Business Credit Initiative 
+ Tribal Affairs 
+ Data 
+ Enter Search Term(s): 
+ Advanced Search 
+ Data 
+ Interest Rates 
+ Daily Treasury Par Yield Curve Rates 
+ Daily Treasury Par Real Yield Curve Rates 
+ Daily Treasury Bill Rates 
+ Daily Treasury Long-Term Rates 
+ Daily Treasury Real Long-Term Rates 
+ Treasury Coupon-Issue and Corporate Bond Yield Curve 
+ Treasury Coupon Issues 
+ Corporate Bond Yield Curve 
+ Federal Financial Data
+ Your Guide to America’s Finances 
+ Monthly Treasury Statement 
+ Daily Treasury Statement 
+ How Your Money Is Spent 
+ USAspending.gov 
+ National Debt 
+ National Debt to the Penny 
+ Historical Debt Outstanding 
+ Monthly Statement of the Public Debt  
+ Quarterly Refunding 
+ Debt Management Overview and Quarterly Refunding Process 
+ Most Recent Documents 
+ Archives 
+ Webcasts 
+ Investor Class Auction Allotments 
+ Other Programs 
+ Treasury International Capital (TIC) System 
+ U.S International Portfolio Investment Statistics 
+ Release Dates 
+ Forms and Instructions 
+ TIC Press Releases 
+ U.S. International Reserve Position 
+ Troubled Assets Relief Program 
+ Reports 
+ Office of the Chief Data Officer 
+ Federal CDO Council 
+ Data.gov 
+ Treasury Open Data 
+ Evidence Act H.R.4174 
+ Datafoundation.org 
+ Services 
+ Enter Search Term(s): 
+ Advanced Search 
+ Services 
+ Report Fraud, Waste & Abuse 
+ Report COVID-19 Scam Attempts 
+ Report Scam Attempts 
+ Report Fraud Related to Government Contracts 
+ Inspectors General 
+ Bonds and Securities 
+ Buy, Manage, and Redeem 
+ Treasury Hunt - Search for Matured Bonds 
+ Cashing Savings Bonds in Disaster-Declared Areas 
+ Frequently Asked Questions 
+ Grant Programs 
+ Pay for Results (SIPPRA) 
+ RESTORE Act 
+ Community Development Financial Institution (CDFI) Fund 
+ Treasury Payments 
+ Where is my Refund? 
+ Lost or Expired Check 
+ Direct Express Card 
+ Non-Benefit Federal Payments 
+ Electronic Federal Benefit Payments - GoDirect 
+ Currency and Coins 
+ Shop for Coin Products 
+ Shop for Currency Products  
+ Redeem Damaged Currency 
+ Bureau of Engraving and Printing 
+ U.S Mint 
+ Auctions 
+ IRS Auctions 
+ Real Estate 
+ General Property, Vehicles, Vessels & Aircraft 
+ Kline-Miller Multiemployer Pension Reform Act of 2014 
+ Applications 
+ Frequently Asked Questions 
+ Education 
+ Whistleblowing and Financial Integrity
+ Whistleblower Resources 
+ Taxes 
+ Internal Revenue Service (IRS)  
+ IRS Forms, Instructions & Publications 
+ Refund Status 
+ Foreign Account Tax Compliance Act 
+ Forms 
+ IRS Forms and Instructions 
+ Savings Bonds - Treasury Securities 
+ Bank Secrecy Act - Fincen 114 and more 
+ OFAC License Application 
+ OFAC Reporting 
+ Treasury International Capital (TIC) 
+ Government Shared Services 
+ Treasury Franchise Fund (TFF) 
+ Center for Financial Management (CFM) 
+ Shared Services Program (SSP) 
+ Financial Management (FM) Marketplace Catalog 
+ TreasuryDirect 
+ Invoice Processing Platform 
+ Tours and Library 
+ Historic Treasury Building 
+ Library 
+ Curator 
+ Bureau of Engraving and Printing 
+ U.S. Mint 
+ News 
+ Enter Search Term(s): 
+ Advanced Search 
+ News 
+ Featured Stories 
+ June 23, 2026 
+ Achieving our Objectives, Supporting our Stakeholders: OFAC-OFSI Enhanced Partnership Exchange 2026 
+ February 13, 2026 
+ Treasury Accepting Whistleblower Tips on Fraud, Money Laundering, Sanctions Violations 
+ December 23, 2025 
+ Penny Production Cessation FAQs 
+ View all Featured Stories 
+ Press Releases 
+ July 1, 2026 
+ Treasury Announces Investment Lineup for Trump Accounts 
+ July 1, 2026 
+ Treasury Sanctions Brazilian Criminal Network Exploiting U.S. Financial System to Launder Drug Proceeds 
+ July 1, 2026 
+ Treasury Opens the New Designation Cycle for Opportunity Zones 
+ View All Press Releases 
+ Remarks and Statements 
+ June 24, 2026 
+ Remarks by Treasury Secretary Scott Bessent before the American Academy of Achievement’s International Achievement Summit 
+ June 23, 2026 
+ Remarks from Secretary of the Treasury Scott Bessent at The Economic Club of New York’s America 250 Gala Dinner: American Economic Statecraft in the 21st Century 
+ June 16, 2026 
+ Remarks by Treasury Secretary Scott Bessent before the American Swiss Foundation 
+ View All Remarks and Statements 
+ Press Information 
+ Press Contacts 
+ Weekly Public Schedule Archive 
+ Webcasts 
+ Media Advisories Archive 
+ Subscribe to Press Releases 
+ Twitter 
+ View All Tweets 
+ Whistleblower Resources 
+ Working Families Tax Cuts 
+ Search 
+ Enter Search Term(s): 
+ Advanced Search 
+ Search 
+ The Public
+ General Public 
+ Auctions 
+ Report Scam Attempts 
+ Savings Bonds 
+ Businesses
+ All Businesses 
+ Form 941, employer's quarterly federal tax return 
+ Employer Identification Number (EIN) 
+ Small Businesses 
+ Government Contracting Small Business Contacts 
+ Financial Institutions
+ All Financial Institutions 
+ Specially Designated Nationals list 
+ Interest rate statistics 
+ Quarterly refunding information 
+ Government
+ Federal Government 
+ Budget, Financial Reporting, Planning and Performance 
+ Shared Services 
+ TreasuryDirect for Government 
+ Breadcrumb 
+ Home 
+ Frequently Asked Questions Regarding the TIC System and TIC Data page2 
+ A. General questions on the TIC system
+ 1. What is the TIC system and how do I use it? 
+The Treasury International Capital (TIC) reporting system collects data for the United States on cross-border portfolio investment flows and positions between U.S. residents (including U.S.-based branches of firms headquartered in other countries) and foreign residents (including offshore branches of U.S. firms).
+ This system provides:
+ monthly data on transactions and holdings of long-term securities;
+ annual detailed position data on holdings of long-term and short-term securities;
+ monthly and quarterly position data on claims and liabilities (including short-term securities) reported by banks and broker/dealers of securities;
+ quarterly position data on selected claims and liabilities reported by non-banks and non-broker/dealers; and
+ quarterly position and transactions data on financial derivatives reported by major participants in those markets.
+ More detailed information is available as follows:
+ Topic 
+ Web location 
+ TIC Overview
+ http://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/description-of-TIC-system 
+ TIC securities transactions and holdings data
+ See FAQ number 2 (below).
+ TIC banking claims and liabilities data
+ http://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/usbanking-claims-liabilities-foreigners 
+ TIC nonbanking claims and liabilities data
+ https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/nonbank-liabilities 
+ TIC derivatives holdings and transactions data
+ https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/us-derivatives-contracts-foreigners-holdings-transactions 
+ Using Tic Data: files & downloading data
+ https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/contact-tic-using-tic 
+ 2. How are the various TIC data series on securities related ? (2023 Sept.) The monthly aggregate transactions data, monthly aggregate holdings data, monthly valuation change data, and the detailed annual surveys form a complementary system for analysis of cross-border activity in long-term securities (that is, securities with an original maturity of over one year). Monthly and annual holdings data on short-term securities are also available.
+ Monthly transactions data, beginning as-of February 2023, are reported by custodians, issuers and end-investors on the expanded TIC Form SLT, “Aggregate Holdings, Purchases and Sales, and Fair Value Changes of Long-Term Securities by U.S. and Foreign Residents.” The data are available with a six-week lag and provide data on cross-border transactions in six broad types of long-term securities (U.S. Treasuries, U.S. agencies, U.S. corporate bonds and stocks, and foreign bonds and stocks). Before February 2023 the same data were reported by broker/dealers of securities, banks, and other market participants on TIC Form S, "Purchases and Sales of Long-Term Securities by Foreigners." (An old description of the TIC Form S is available at: http://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/ticsecd )
+ The expanded TIC Form SLT improves upon and differs from the legacy TIC Form SLT and TIC Form S. The transactions data in the expanded Form SLT have several improvements over the transactions data in the legacy Form S.
+ In the expanded SLT, the custodian, issuer or end-investor that reports the holdings must now report the purchases and sales that underlie those holdings. Consequently, transactions are consistent with and collected on the same basis as holdings. In contrast, the legacy S purchases and sales were not necessarily consistent with holdings, as they were reported by a trader (for example, broker-dealer, prime broker, or principal trading firm) while legacy SLT holdings were reported by a custodian, issuer or end-investor. As laid out in the Federal Register notice of June 2, 2021 stated, “Another aim of this revision of the SLT data collection is to obtain the three main data types (holdings, purchases and sales, and change in fair value) from the same source. The result should greatly improve the connections between the holdings data and the purchases and sales data and the ‘change in fair value’ data.” (The notice is available at: https://www.govinfo.gov/content/pkg/FR-2021-06-02/pdf/2021-11599.pdf 
+ The expanded SLT data more accurately attributes transactions to the country with whom a U.S. investor transacts. On the U.S. liabilities side, expanded SLT transactions are reported by custodians, who report the country of the holder of the security which can be the country of the beneficial owner. In contrast, legacy S transactions were recorded with the country of the first cross-border transaction, and not the residence country of the beneficial buyer, seller, or issuer of the security. This approach caused the legacy S to have “transaction bias,” whereby countries with major financial centers accounted for an outsized portion of transactions relative to resident holdings and issuance.
+ -- For example, a U.S. issuer issues corporate debt through the Central Securities Depository (Euroclear) in Belgium, which an investor in Germany purchases. The legacy TIC S would show the transaction as occurring in Belgium rather than as a U.S. sale to an investor in Germany. In contrast, the issuer reporting in the expanded SLT would attribute the purchase of the U.S. corporate debt to an investor in Germany.
+ On the U.S. claims side, expanded SLT transactions are reported by custodians, who can report the foreign country that issued the security, whereas legacy S data were recorded for a foreign country where the purchase or sale took place regardless of the issuing country.
+ -- For example, if a U.S. resident buys a Japanese security through a London broker, the legacy S would have identified this transaction as a U.S. purchase of a foreign security from the United Kingdom, rather than as a U.S. purchase of a Japanese security. In contrast, the custodian reporting in the expanded SLT would record the purchase of a Japanese security despite the transaction happening in London.
+ Repayment flows for asset-backed securities are included in the expanded SLT transactions whereas they were previously excluded from legacy S transactions. Thus, the expanded SLT purchases include redemptions and repayments of asset-backed security (ABS) principal, and the expanded SLT sales include new issues of long-term securities.
+ The expanded SLT data are recorded from the U.S. point of view, while the legacy S data were recorded from the foreign point of view. For example, expanded SLT purchases are made by U.S. residents from foreign residents, whereas legacy S purchases were made by foreign residents from U.S. residents. In the expanded SLT table 1, a positive number in net U.S. sales indicates a flow of money into the U.S. and therefore has the same sign as the legacy S net foreign purchases measure. In the expanded SLT table 2, a positive number in net U.S. purchases indicates an outflow of money from the U.S. and therefore has the same sign as the legacy S net foreign sales measure.
+ Frequently asked questions about the expanded TIC Form SLT: Are valuation data from the expanded TIC Form SLT also being published ? Not at present. When data quality permits, the valuation change data will be published. This information will help users decompose changes in holdings into changes due to transactions and changes due to price movements. Valuation changes include both price change and exchange rate changes for non-dollar denominated securities. Even without the valuation data, the expanded SLT transactions data will more accurately align with changes in holdings.
+ Will changes in holdings equal net transactions plus valuation changes ? No, holdings changes will not necessarily equal net transactions plus valuation changes. Changes in holdings may differ from net transactions plus valuation changes due to other changes, which are defined as a residual. Other changes can include purchases or sales of U.S. securities by one foreign country from another foreign country, changes in the foreign country where U.S. securities are held, changes in the respondent panel, corporate acquisitions by stock swaps, and any other change in holdings not included in net transactions or valuation changes.
+ Monthly and annual holdings data are reported by U.S. custodians of securities, issuers of U.S. securities in foreign countries, and U.S. investors in foreign securities that do not use U.S. custodians. The monthly holdings data are reported on the expanded TIC Form SLT, “Aggregate Holdings, Purchases and Sales, and Fair Value Changes of Long-Term Securities by U.S. and Foreign Residents.” In contrast to the transactions data, there is no series break in the holdings data from the expanded Form SLT because the reporting is done by the same entities with the same instructions used for the legacy Form SLT, "Aggregate Holdings of Long-Term Securities by U.S. and Foreign Residents." The first reporting date for the legacy SLT was September 2011; the first reporting date for the expanded SLT was February 2023. Complete monthly holdings data have been available since May 15, 2012, on six broad types of long-term securities: U.S. Treasuries, U.S. agencies, U.S. corporate bonds, U.S. stocks, foreign bonds, and foreign stocks.
+ The monthly Major Foreign Holders of Treasury Securities (MFH) table has included SLT data on long-term U.S. Treasuries since end-February 2012. (Data are
+ now available at: https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.html ; for data before January 2020, go to: https://www.treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.txt) . For October and November of 2011 and periods prior to September 2011 when there was no SLT data, it is possible to combine the transactions data with the annual holdings data to estimate monthly holdings of securities (for example, as in the MFH table), but users should be aware of the difficulties, particularly in regard to country attribution, associated with this methodology (see FAQ number 7 below, especially regarding transactions bias). Additional information regarding the TIC system, analysis using the TIC data, and discussion of the methodology for constructing between-survey positions is available in a series of Federal Reserve Bulletin articles listed at https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/help-files/articles-on-the-treasury-international-capital-system-tic . 
+ -- For example, the Major Foreign Holders table, released on February 29, 2012, is based on the June 2011 annual survey data, but also includes the legacy Form SLT data on holdings of Treasury bonds and notes at the end of September 2011 and end-December 2011 (no SLT data were collected for October and November 2011). This inclusion of the new Form SLT data in the Major Foreign Holders table differs from past practice, where the table was constructed based on the June annual survey data and subsequent monthly transactions data on foreign net purchases of long-term Treasuries. The SLT-based methodology gives estimated U.S. Treasury ownership by country, but ownership gaps remain, as discussed in FAQ 7.
+ The annual surveys use Forms SHC/SHCA and SHL/SHLA to collect holdings information by individual security and are thus considered to be highly accurate. However, because of the processing and verification procedures needed for such voluminous and detailed data, results are available only with a lag of about ten months, a time frame not useful for analysis of current activity. (Some additional information is at: http://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/fpisd .) Data are available from the webpage at: https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/securities-c-annual-cross-us-border-portfolio-holdings . See line 1 for "SHC reports" and line 2 for "SHL reports".
+ Data on foreign holdings of U.S. short-term securities and U.S. holdings of foreign short-term securities are collected in the annual surveys as well as in the monthly and quarterly TIC B-form reports (BL1, BL2, BC, BQ1, and BQ2) that cover liabilities to, and claims on, foreigners filed by banks, broker-dealers, and other financial entities. Foreign holdings of most types of dollar-denominated short-term U.S. securities are aggregated with other liabilities in the monthly data on "U.S. Banking Liabilities to Foreigners," but these data do provide country detail on foreign holdings of short-term U.S. Treasury securities. Data on U.S. holdings of short-term foreign securities, including securities held for banks' domestic customers, are included with other claims in the monthly data on "U.S. Banking Claims on Foreigners." Additional detail on cross-border holdings of short-term securities was available quarterly, until December 2013, in the Capital Movements tables of the Treasury Bulletin; refer to https://www.fiscal.treasury.gov/reports-statements/treasury-bulletin/previous.html .
+ 3. The TIC data cover cross-border transactions. What kinds of transactions are considered "cross-border"?  
+The TIC data collection system is specifically designed to capture U.S. cross- border financial transactions for balance of payments purposes. That is, it is designed to capture only financial transactions that involve both a U.S. resident and a foreign resident. Note that a U.S. resident includes any individual, corporation, or organization located in the United States including branches, subsidiaries, and affiliates of foreign entities located in the United States. In addition, any corporation incorporated in the United States is considered a U.S. resident even if it has no physical presence. Thus, a U.S. branch of a Japanese bank is considered a U.S. resident, and a London branch of a U.S. bank is considered a foreign resident.
+ The cross-border definition means that TIC data on foreign purchases of U.S. securities include only those transactions that involve both a U.S. seller and a foreign purchaser. Thus, these data exclude any U.S.-to-U.S. transactions, including, for example, transactions where the seller is a U.S. securities broker and the purchaser is a U.S.-based branch of a Japanese securities firm. They also exclude foreign-to-foreign transactions in securities, for example if a German broker purchases U.S. Treasuries from a London-based securities broker. Because many U.S. securities, including U.S. Treasury securities, trade in foreign financial markets, the TIC data will not capture all foreign transactions in U.S. securities.
+ 4. Are there cross-border transactions and holdings that the TIC system does not capture?  
+Yes. The TIC reporting system captures U.S. cross-border activity and positions from a defined panel of custodians, banks and other depository institutions, securities brokers and dealers, end-investors, security issuers, and nonfinancial institutions. In all cases, there are minimum levels of cross-border activity that must be reached before reporting is required. For example, monthly TIC Form S reporters must have cross-border transactions of at least $50 million. Transactions by or holdings of individuals or institutions that fall below the mandatory reporting levels will not be captured. Additionally, some cross-border activity may meet reporting requirements but be missed in the TIC data, either because the institutions involved have not yet been identified and included in the reporting panel or because of improper reporting by identified panel members. For cross-border securities activity, the complimentary system of monthly transactions reports and periodic surveys can help identify potential gaps in coverage, because the surveys can account for holdings of securities that are entrusted to major custodians regardless of how those securities were acquired.
+ As noted below in FAQs numbers 13 and 19, the TIC system also cannot capture important cross-border flows resulting from stock swaps and from the periodic payments associated with holdings of asset-backed securities. Use of the monthly securities transactions data without considering these omissions can lead to an underestimate of cross-border equity flows on the one hand, and an overestimate of foreign purchases of long-term debt securities on the other hand.
+ In addition, the TIC system measures only cross-border portfolio flows and positions, thus all cross-border direct investment activity is excluded from these data. Direct investment is defined as the ownership or control, directly or indirectly, by one person or by an affiliated group, of 10 percent or more of the voting stock of an incorporated business enterprise, or an equivalent interest in an unincorporated enterprise. Direct investment positions and flows are collected by the U.S. Department of Commerce. The TIC data also exclude cross-border capital transactions of the U.S. Government; these transactions are also published by the Department of Commerce in its regular reports on the U.S. balance of payments.
+ 5. How are TIC data used by BEA and the Federal Reserve? Where else are TIC data reported or used?  
+ TIC data, including the data from the periodic surveys of holdings of securities, are a primary input to the Bureau of Economic Analysis' International Transactions Accounts and for the International Investment Position of the United States. Links to the BEA's international transactions data releases and to a description of how BEA aligns and augments data from the TIC system for inclusion in the International Transactions Accounts are available under the Bureau of Economic Analysis section of the TIC website's "Articles of Interest" at: www.treas.gov/tic/articles.html#BEAarticles 
+ The TIC monthly and quarterly data are also published in several tables on International Statistics in the Statistical Supplement to the Federal Reserve Bulletin . The Statistical Supplement is available at: www.federalreserve.gov/pubs/supplement/default.htm 
+ The TIC data are indirectly one source for the Federal Reserve Board's Flow of Funds accounts for financial positions and flows of the Rest of the World sector. The Flow of Funds accounts use as their primary input the data as published by BEA in its international transactions accounts, which as noted above are based on the TIC data. The Flow of Funds Accounts are available from the Federal Reserve Board of Governors' website at this link: www.federalreserve.gov/releases/Z1/ 
+ TIC data are also used to compute the U.S. Gross External Debt position, which is published as part of the International Monetary Fund's Special Data Dissemination Standard (SDDS) . At present, 126 countries provide data on their gross external debt position as part of the SDDS. The U.S. Gross External Debt data are available on the TIC webpage at: www.treas.gov/tic/external-debt.html . The data published by each country are available from the IMF's SDDS webpage: External Debt (EXD) data for SDDS Subscribers . The TIC data are also available for cross-country comparisons from the World Bank Quarterly External Debt Statistics webpage .
+ The TIC surveys of U.S. holdings of foreign securities are also the basis of the U.S. contribution to the International Monetary Fund's Coordinated Portfolio Investment Surveys , available on the IMF's CPIS website .
+ TIC data are a primary input into the U.S. information provided for the locational banking statistics of the Bank for International Settlements , available on the BIS website . 
+ Before 2014, detailed data from the monthly and quarterly TIC forms were combined and presented in several tables in the Capital Movements section of the quarterly Treasury Bulletin, available at: https://www.fiscal.treasury.gov/reports-statements/treasury-bulletin/previous.html . 
+ 6. Where can I find comparable data for other countries ?  
+As noted in FAQ number 5, the TIC surveys of U.S. holdings of foreign securities are the basis of the U.S. contributions to the International Monetary Fund's annual Coordinated Portfolio Investment Surveys (CPIS). The first CPIS was conducted in 1997, when 29 economies reported total cross-border holdings valued at $5.8 trillion. Since then, many more have participated in the Coordinated Portfolio Investment Surveys: as of year-end 2022, 82 economies reported total cross-border holdings valued at $69.7 trillion. The IMF consolidates the data from these surveys and posts the results, along with analytical tables, on the IMF's CPIS website .
+ In addition, the IMF's Special Data Dissemination Standard (SDDS) website provides links to other participating country's External Debt calculations and estimates of their International Investment Position. The SDDS website is available at: External Debt (EXD) data for SDDS Subscribers 
+ B. Questions on country classification in TIC data:
+ 7. What are the problems of geographic attribution for securities holdings and transactions in the TIC system?  
+The annual Surveys and the monthly table on Major Foreign Holders of Treasury Securities (MFH) report estimated foreign holdings of U.S. Treasury securities.
+ Beginning with data for end-September 2011, which were first reported at end-February 2012, the MFH estimates are based primarily on custodial data from the TIC SLT. These data help provide a window into foreign ownership of U.S. Treasury securities, but they cannot attribute holdings of U.S. Treasury securities with complete accuracy. For example, if a U.S. Treasury security purchased by a foreign resident is held in a custodial account in a third country, the true country of ownership of the security will not be reflected in the data. The custodial data will also not properly attribute U.S. Treasury securities managed by foreign private portfolio managers who invest on behalf of residents of other countries. In addition, foreign countries may hold dollars and other U.S. assets in offshore accounts that are not captured in the TIC data. For these reasons, it is difficult to draw precise conclusions about changes in the foreign holdings of U.S. financial assets by individual countries from TIC data.
+ The country attribution of foreign holdings of U.S. securities as reported in the position surveys and in the SLT is imperfect because some foreign owners entrust the safekeeping of their securities to institutions that are neither in the United States nor in the owner's country of residence. For example, a German investor may buy a U.S. security and place it in the custody of a Swiss bank. In the surveys of foreign holdings of U.S. securities, such a holding is recorded against Switzerland rather than Germany. This "custodial bias" contributes to the large recorded foreign holdings of U.S. securities in major financial centers, such as Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.
+ In addition to the shortcomings of the position data, the country allocation in the data on transactions in long-term securities as reported on TIC Form S is also imperfect because transactions are recorded against the country of the foreign transactor dealing directly with the TIC Form S reporter. For example, when a U.S. resident purchases Japanese securities and the transaction is executed by a financial intermediary in London, the purchase of foreign securities is recorded against the United Kingdom rather than Japan. Likewise, if an Italian resident purchases U.S. securities through an financial intermediary in Switzerland, the sale of U.S. securities would be recorded against Switzerland, not Italy. Because cross-border securities transactions take place disproportionately in major international financial centers such as the United Kingdom and the Caribbean banking centers, large net transactions in those areas do not necessarily reflect acquisitions or sales by investors in those areas.
+ In data for October and November of 2011 and periods prior to September 2011, the beginning of SLT data, this "transactions bias" can further distort the country allocation of foreign holdings of securities when estimates of holdings are made for months not covered by the periodic annual surveys. These estimates have typically been made by adding net transactions recorded against a given country to the most recently reported survey position for that country. (Adding estimated valuation changes can produce more reliable estimates, especially for some types of securities such as stocks.) For some countries, the transactions bias will lead to an under-estimate of holdings, as some of the net purchases of U.S. securities recorded against international financial centers reflect net purchases of residents of other countries. Conversely, for other countries, the transactions bias will lead to an overestimate of holdings by residents of those countries.
+ A useful example that illustrates both custodial and transactions bias is that of estimated securities holdings by residents of the United Kingdom. (See the historical data file on the Securities (B) webpage of the TIC website.) The June 2011 survey measure of U.S. Treasury securities held by residents of the United Kingdom is $135.7 billion. This relatively high level of U.K. holdings primarily reflects the custodial bias of the United Kingdom: at $135.7 billion, the United Kingdom was the eighth largest recorded foreign holder of U.S. Treasuries. The estimate derived from the previous survey as of June 2010, adjusted forward by adding U.K. net purchases over the 12-month period until June 2011, however, is much larger: $347 billion. The difference between the 2011 survey measure and the estimate based on the 2010 survey measure primarily reflects the additional transactions bias of the United Kingdom as a major international financial center.
+ Custodial bias is not a problem for measured U.S. holdings of foreign securities in the periodic asset surveys, because the security-by-security construction of those estimates allows for accurate attribution of the country of issuance of the foreign securities.
+ 8. Can I get a time series of securities holdings by country? 
+ (a) Annual Survey data. As noted in FAQ number 2, the most reliable estimates of holdings are those derived from the periodic surveys of holdings. The full reports from the most recent surveys include tables that give a historical perspective of these holdings by country as reported in each of the previous surveys. In the report for the June 2022 survey of foreign portfolio holdings of U.S. securities , appendix tables A1-A4 list foreign holdings of total U.S. securities, equities, long-term debt securities, and short-term debt securities, by country, from the 2015 through 2022 surveys. Earlier survey reports additionally include results from the 1974, 1978, 1984, 1989, 1994, 2000, 2002, and 2003-2014 surveys. These reports and data are available on the webpage U.S. Liabilities to Foreigners from Holdings of U.S. Securities , (a link is also in line 2 of the Securities (C) webpage) .
+ In the report for the December 2022 survey of U.S. portfolio holdings of foreign securities , appendix tables A2-A5 list holdings by country from the surveys since 2014. Earlier surveys include results from the 1994, 1997, 2001, 2003, and 2004-2013 surveys. These reports and data are available on the webpage U.S. Claims on Foreigners from Holdings of Foreign Securities , (a link is also in line 1 of the Securities (C) webpage).
+ The TIC website also provides historical data of holdings by country and by type of security in spreadsheet form as follows.
+ Data on foreign holdings of U.S. securities beginning with the 1974 survey are available at: http://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shlhistdat.html .
+ Data on U.S. holdings of foreign securities beginning with the 1994 survey are available at: http://www.treasury.gov/resource-center/data-chart-center/tic/Documents/shchistdat.html .
+ (b) Monthly data. Monthly measurements of cross-border securities holdings by country and security type derived from the TIC SLT are available at http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/ticsec3.aspx . These data are published with a longer lag than the transactions and banking data, but are published much sooner than the annual survey data for the corresponding dates.   
+ More up-to-date estimates of foreign holdings of U.S. Treasury securities based on transactions data on foreign net purchases of U.S. Treasury securities combined with recent SLT data on positions are available in the Major Foreign Holders (MFH) table at: http://www.treasury.gov/resource-center/data-chart-center/tic/Documents/mfh.txt 
+ (c) “Smoothed” historical monthly estimates of foreign holdings of long-term U.S. securities are available on the Federal Reserve Board (FRB) website.
+These FRB estimates give smoothed time series that do not include the large adjustments each June seen in the Treasury series. These FRB monthly data (except for June) are different from Treasury's figures because the FRB data include an estimate of the valuation change for each month, whereas the Treasury data do not include such estimates. The most recent Fed data are through 2011.
+The FRB estimates of foreign holdings of long-term U.S. securities, by country and at a monthly frequency, that are constructed from the annual surveys, monthly transactions data, and estimates of valuation changes from the FRB working paper “Monthly Estimates of U.S. Cross-Border Securities Positions”, by Carol Bertaut and Ralph Tryon, at http://www.federalreserve.gov/pubs/ifdp/2007/910/default.htm .
+The paper describes the methodology for constructing the data series and provides a link to an updated data file. The FRB encourages users to consult the paper in order to understand how the estimates are constructed.
+ (d) Constructing inter-survey monthly estimates. Users wishing to construct additional estimates for periods between survey dates or for earlier periods, by combining net transactions with reported survey positions, are advised to read the 2006 Federal Reserve Bulletin article "Understanding U.S. Cross-Border Securities Data" and the 2001 Federal Reserve Bulletin article "The U.S. System for Measuring Cross-Border Investment in Securities", available on the TIC website under Articles of Interest at http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/articles.aspx . Users are also advised to note the problems of country attribution that such a methodology can generate, as described in FAQ number 7.
+ 9. Where can I find data on OPEC countries or oil-exporters on the TIC website? 
+ Data for the individual Asian (middle-east) and African OPEC countries are not available.
+ Data for Asian (middle-east) and African OPEC countries are available in aggregate in the monthly data on the TIC website, in the quarterly data in the Treasury Bulletin, and in the annual survey reports.
+ In the bank-reported positions data, data for Asian (middle-east) OPEC countries and for African OPEC countries are available under country codes 46612 and 57215, respectively, for dates after January 2003. For dates up through January 2003, data for Asian (middle-east) OPEC countries and for African OPEC countries are combined with residual “Other Asia” countries under country code 48909 and with residual “Other Africa” countries under country code 58904, respectively.
+ Data on net transactions in long-term securities by Asian (middle-east) OPEC and African OPEC countries from 1977 forward can be found in part A of Statistics on the TIC webpage “U.S. Transactions with Foreigners in Long-Term Securities” ( www.treasury.gov/resource-center/data-chart-center/tic/Pages/ticsec.aspx ).
+ C. Questions on foreign holdings of U.S. Treasury Securities and Foreign Official holdings:
+ 10 a. How do the TIC data on Major Foreign Holders of U.S. Treasury Securities compare with FRBNY custody holdings? 
+TIC users often attempt to reconcile holdings of Treasury securities by foreign official institutions as reported in the memo lines of the TIC table "Major Foreign Holders of U.S. Treasury Securities", ( http://www.treasury.gov/resource center/data chart center/tic/Documents/mfh.txt ) with table 1A of the Federal Reserve’s H.4.1 Statistical Release, "Factors Affecting Reserve Balances" ( www.federalreserve.gov/releases/h41/ ), which reports the total value of Treasury securities held in custody by the Federal Reserve System, primarily for foreign official institutions at the Federal Reserve Bank of New York (FRBNY). This note outlines the comparability of these two series and explains why both positions and monthly changes in the two series may differ. Users are also advised to read the companion note, "Methodology for Estimating Holdings of Treasury Securities in the table “Major Foreign Holders of U.S. Treasury Securities,” ( http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx ) to understand how the TIC positions in that table are constructed.
+ Differences in coverage: The most important reason for differences between holdings reported in the TIC and the FRBNY custody accounts is that reporting coverage differs. First, not all foreign official holdings of Treasury securities as reported by the TIC system are held at FRBNY. In particular, Treasury securities held by private custodians on behalf of foreign official institutions are included in the TIC but not in the FRBNY figures. In this sense, the coverage of the TIC system is broader than that of the FRBNY custody holdings. Second, the custody holdings at FRBNY include securities held for some international organizations as well as for foreign official institutions. In this sense, the coverage of the FRBNY custody holdings is broader than the foreign official designation in the TIC system.
+ Differences in timing: The TIC system records holdings and transactions as of the end of the last business day of each calendar month whereas FRBNY custody holdings are reported in the H.4.1. as of the week ending Wednesday. This difference in timing can lead to slight differences in both positions and transactions over a month or a quarter. TIC data are released monthly with approximately a 1½ month lag. The H.4.1. is released weekly, generally on the Thursday following the Wednesday as-of date.
+ Differences in valuation: The custody holdings at FRBNY are reported at face value. TIC MFH data are reported at estimated value. As described in the companion note on the revised methodology for the MFH table effective February 29, 2012, the TIC MFH data for the most recent month for Treasury bonds and notes are estimated by taking the market value as of the most recent TIC SLT report, and then projecting forward one month using monthly transactions data, also at market value. Treasury bills and certificates are included at face value. These differences in valuation can also make slight differences both in holdings and in changes in holdings as reported in the two sources.
+ Different effects of non-cross-border transactions: TIC reporting captures only U.S. cross-border transactions. If a foreign official institution acquires a Treasury security from a private foreign entity on a foreign securities exchange and then has the security held in custody at FRBNY, reported custody holdings will increase. However, there will not be a corresponding TIC-reported foreign official purchase because the transaction is not a U.S. cross-border transaction: it is a foreign-to-foreign transaction. There would have been a U.S. cross-border transaction reportable in the TIC system when the Treasury security first was acquired by the private foreigner, but the transaction would have been recorded as a private purchase rather than as a foreign official purchase; moreover, it would not necessarily be recorded in the same calendar month or against the same country as the movement into custody at FRBNY.
+Similarly, foreign official institutions may transfer Treasury securities into or out of the custody of FRBNY from other U.S custodians. Such a shift would show up as an increase or decrease in custody holdings at FRBNY, but (appropriately) would not show up as a foreign official transaction in the TIC data because there is no U.S. cross-border transaction. Thus, holdings of Treasury securities as reported on the MFH table would remain unchanged while holdings reported by FRBNY would rise or fall.
+ Comparison of Estimates of Foreign Official Holdings of U.S. Treasury Securities (Billions of Dollars)   Major Foreign 
+ Holders (MFH) Table H.4.1. Release 
+ (as originally published) 
+ End-June 2011 3,514.6 2,702.2 
+ End-September
+2011 3,617.0 2,696.9 
+ End-December
+2011 3,615.1 2,679.2 
+ Change: Q3 2011 -102.4 -5.3 
+ Change: Q4 2011 -1.9 -17.7 
+ Data as of March 24, 2012. 
+ 10 b: How do the TIC data on foreign official transactions in U.S. agency securities compare with changes in FRBNY custody holdings? 
+TIC users sometimes attempt to reconcile the TIC-reported net purchases of U.S. long-term agency securities by foreign official institutions, as shown in the table "Net Foreign Purchases of U.S. Long-term Securities by Major Foreign Sector: U.S. Gov't Corp & Federally-sponsored Agency Bonds" (item 3.b of the TIC securities (b) webpage, available at ( http://www.treasury.gov/resource-center/data-chart-center/tic/Documents/agnsect.txt ) with changes in the custody holdings of agency securities at the Federal Reserve Bank of New York (FRBNY) as reported in table 1A of the Federal Reserve’s H.4.1 Statistical Release. The reasons for the differences in the data reported in these sources outlined in FAQ number 10a above apply to agency securities as well. However, two additional considerations apply regarding foreign official acquisitions of agency securities.
+ Coverage of short-term securities: The FRBNY custody holdings of Treasury and agency securities include both long-term and short-term securities, but the TIC Form S data used in the net agency bond purchases table noted above record only net purchases of long-term bonds, which are defined in TIC as securities with an original maturity of one year or more. In comparing changes in the FRBNY custody data for foreign official acquisitions of Treasury securities with the TIC data, net purchases of Treasury bonds as reported on the TIC Form S are combined with changes in foreign official holdings of short-term U.S. Treasury securities as reported in the TIC Form B statistics on banking liabilities to foreigners, allowing for a comparable measure of transactions in U.S. Treasury securities. However, the TIC banking data do not include a separate item for foreign official holdings of short-term agency securities, and so the more comparable measure of foreign official transactions in agency securities is not available. If the major reason for an increase in FRBNY custody holdings of agency securities over a given period is acquisitions of short-term agency securities, these two data sources will necessarily differ. Note, however, that total foreign holdings of a broader class of short-term negotiable securities, including agency securities, commercial paper, negotiable certificates of deposit, and bankers’ acceptances, is reported, by country, with the monthly banking liabilities data.
+ Treatment of principal repayments for mortgage-backed and other asset-backed securities: Some mortgage-backed and other asset-backed securities are subject to periodic principal repayments prior to maturity. The reporting basis for these securities on the H.4.1 statistical release changed with the November 15, 2012, release.
+ Through the November 8, 2012, H.4.1 release, custody holdings at the FRBNY as reported in table 1A of the H.4.1 were listed at original face value whereas TIC SLT and S data report holdings of these securities at market value. To the extent that foreign official institutions hold agency mortgage-backed securities, the FRBNY custody holdings for this period overstate the actual market value of these securities, because these values were not adjusted for principal repayments or for other changes in market value. Thus, changes in total holdings of these securities may not accurately reflect net foreign official acquisitions of long-term agency securities. On the other hand, as noted in FAQ number 13, the TIC Form S transactions data overstate net foreign purchases of long-term agency securities because they also do not account for the principal repayments.
+ As of November 15, 2012, table 1A of the H.4.1 began reporting FRBNY custody holdings on a current face-value basis, which is much closer to the market value reported on the TIC SLT and SHL. Thus, apart from differences in reporting dates (H.4.1 data are reported for Wednesday dates and week averages, but TIC data are reported for the last business day of the month), changes in H.4.1 FRBNY custody holdings data and TIC data should be roughly comparable subject to the reporting and coverage differences noted above. In addition, as noted in FAQ number 13, the TIC Form S transactions data overstate net foreign purchases of long-term agency securities because they also do not account for the principal repayments. Historical data for the FRBNY custody holdings at current face value back to July 2007 are also available through the H.4.1 statistical release data download program at ( www.federalreserve.gov/datadownload/Choose.aspx?rel=H41 ).
+ Foreign official holdings of asset-backed agency bonds have grown substantially in recent years, from $23 billion (about 1.4 percent of total official holdings of long-term agency debt securities) as of June 2004 to $405 billion (about 10.5 percent) by June 2011. As noted in FAQ number 13, the TIC website provides monthly estimates for July 2002 forward of principal repayment flows on foreign official holdings of asset-backed agency bonds.
+ 11. What are the differences between the table on "Major Foreign Holders of U.S. Treasury Securities" (item Part A.3 under Statistics) and the table "Net Foreign Purchases of U.S. Long-Term Securities by Major Foreign Sector: U.S. Treasury Bonds and Notes" (item Part A.2.a under Statistics)?"  
+The "Net Purchases of U.S. Long-term Securities by Major Foreign Sector : U.S. Treasury Bonds & Notes" table ( www.treas.gov/tic/tressect.txt ) gives a monthly breakdown of net transactions in long-term U.S. Treasury securities by sector, including net purchases by foreign official institutions, by international and regional organizations, and by other private foreigners, as reported on the TIC Form S. The “Major Foreign Holders” of U.S. Treasuries table ( www.treas.gov/tic/mfh.txt ) additionally includes short-term Treasury Bills and Certificates (Treasury securities with original maturity of less than one year), which are reported on TIC Form BL-2, as well as a small amount of non-marketable zero-coupon Treasury notes held by selected foreign official institutions. The difference in the total change calculated from the Major Foreign Holders table and the change reported in the Net Purchases table primarily reflects changes in holdings of Treasury Bills and Certificates. Users are also advised to read the companion note "Methodology for Estimating Holdings of Treasury Securities in the table “Major Foreign Holders of U.S. Treasury Securities” (www.treas.gov/tic/method-mfh.html) to understand how the TIC positions in that table are constructed. For further detail on the Major Foreign Holders table, see FAQ number 10.
+ 12. Where can I find comprehensive measures of foreign official holdings of U.S. or dollar-denominated assets? Why are there differences between these various measures?  
+A detailed comparison of various measures of foreign official holdings of U.S. assets is available from the paper and accompanying table at:
+ http://www.treas.gov/tic/fohdefs1.904.pdf                             
+ htp://www.treas.gov/tic/fohdefs2.904.pdf 
+ D. Questions on other types of securities in the TIC data:
+ 13. Are mortgage-backed or other asset-backed securities included in the TIC data?  
+Yes, foreign holdings of mortgage-backed and other asset-backed securities are included in the annual surveys of foreign holdings of U.S. securities, and transactions in asset-backed securities are included in the TIC data on transactions in long-term securities. Table 4 of the recent Survey report "Foreign Portfolio Holdings of U.S. Securities as of June 2006" indicates that at that time, about 39 percent of the long-term U.S. government agency securities held by foreigners were asset-backed securities. Of long-term corporate debt securities held by foreigners, about 29 percent were asset-backed securities. Table 8 of the June 2006 survey report provides, for the first time, additional detail on the split between foreign holdings of corporate mortgage-backed securities and other corporate asset-backed securities. As of June 2006, foreign holdings of corporate mortgage-backed securities amounted to $341 billion, about 57 percent of all foreign holdings of corporate asset-backed securities
+ Although cross-border transactions in asset-backed securities are captured on the TIC S form, it is not possible in the monthly TIC S transactions data to differentiate transactions in asset-backed securities from transactions in other long-term agency or corporate debt securities. More importantly, the TIC S form cannot capture the periodic (often monthly) principal payments that are distributed to holders of asset-backed securities prior to redemption. Users should be aware that use of the TIC Form S data without considering the effect of these principal payments may lead to a significant overestimate of foreign net holdings of U.S. securities. To assist TIC users, the Federal Reserve Bank of New York (FRBNY) has estimated monthly principal repayments of asset-backed securities to foreign holders, including repayments on official holdings of agency asset-backed securities, beginning with July 2002. Further details, including the estimated adjustment data and the methodology used to estimate these adjustments, can be found at: www.treas.gov/tic/absprin.html 
+ The TIC transactions data for purchases and sales of foreign bonds are also likely to include transactions in foreign asset-backed debt securities. Table 23 from the survey report "U.S. Portfolio Holdings of Foreign Securities at end-year 2005" shows that long-term asset-backed debt securities accounted for about 13 percent of all foreign long-term debt securities held by U.S. investors, an increase from less than 1 percent as of December 2001.
+ 14. Are American Depositary Receipts (ADRs) included in the TIC data? 
+Yes, American Depositary Receipts (ADRs) are included in the TIC data as foreign equities. Although they trade on U.S. exchanges in U.S. dollars, owners of ADRs are entitled to the same dividends, capital gains or losses, and voting rights as if the underlying foreign shares were directly owned. In the monthly securities transactions data, purchases and sales of ADRs are included along with purchases and sales of all other foreign equity. Details on U.S. holdings of ADRs by country are available in the survey reports on U.S. holdings of foreign securities.
+ 15. What securities are included in "corporate and other" bonds in the survey reports and in the monthly TIC transactions data?  
+These securities are overwhelmingly U.S. corporate debt securities, but also include some municipal debt securities and a smaller amount of debt securities issued by non-profit organizations. As of the June 2006 survey, foreign holdings of municipal bonds accounted for only about $30 billion of the $2,021 billion total in "corporate and other" debt securities held by foreigners.
+ 16. Where are data on short-term securities included? 
+As noted in FAQ number 2, data on foreign holdings of U.S. short-term securities and on U.S. holdings of foreign short-term securities are included in the data on bank-reported liabilities to and claims on foreigners. Data on foreign holdings of short-term U.S. Treasury securities are available on the TIC website under the link to U.S. bank-reported liabilities to foreigners: www.treas.gov/tic/ticliab.html , in column (9) for data since February 2003 (as the sum of columns (7) plus (11) for data before February 2003).
+ Beginning with the survey of U.S. holdings of foreign securities as of December 2001 and the survey of foreign holdings of U.S. securities as of June 2002, security-by-security data have also been collected for short-term securities on the position surveys.
+ 17. Where can I find data on U.S. transactions in foreign securities?  
+U.S.-cross border gross transactions in foreign bonds and foreign stocks are reported on the monthly TIC Form S under the columns "foreign purchases of foreign bonds" and "foreign sales of foreign bonds", and "foreign purchases of foreign stocks" and "foreign sales of foreign stocks". From the U.S. investor perspective, foreign sales of foreign bonds correspond to U.S. purchases of foreign bonds, and foreign purchases correspond to U.S. sales. Thus net U.S. purchases of foreign bonds can be constructed from the tables of U.S. transactions with foreigners in long-term securities as the amount in column 10 minus the amount in column 5, and net U.S. purchases of foreign stocks can be constructed as the amount in column 11 minus the amount in column 6. The tables by country can be found at: www.treas.gov/tic/ticsec.html 
+ Additionally, the TIC website now includes a time series table of U.S. net transactions in foreign securities. This table series presents net transactions in foreign securities from a balance of payments perspective, where U.S. net purchases of foreign securities have a negative sign, denoting an outflow of capital from the United States, and U.S. net sales of foreign securities have a positive sign. The time series table is available at: www.treas.gov/tic/netfsec.txt .
+ 18. Where are transactions in and holdings of dollar-denominated foreign bonds reported? 
+In the TIC S monthly transactions data, all such bonds are considered foreign bonds regardless of the currency of denomination, and are included in the data on U.S. transactions in foreign securities (see FAQ no. 17). Tables 8 and 21 of the Survey report "U.S. Portfolio Holdings of Foreign Securities at End-year 2005" give information on the currency denomination of U.S. holdings of long-term securities.
+ 19. What are the stock swap data and how should I adjust for stock swaps?  
+The TIC Form S gathers data, primarily from securities brokers and dealers, on cross-border purchases, sales, and redemptions of long-term securities. However, TIC S-reporters do not have the information to report acquisitions of equities through merger-related stock swaps; that is, the cross-border exchange of equity that frequently is part of the financing of cross-border mergers and acquisitions. Use of the TIC Form S data without considering the effect of stock swaps may lead to a significant underestimate of cross-border equity flows. To assist TIC users, the Federal Reserve Board has estimated monthly stock swaps from January 2000 forward. Further details, including the estimated adjustment data, advice on the use of the adjustment data, and the methodology used to estimate these adjustments, can be found at: www.treas.gov/tic/swapstk.html 
+ 20. Where can I find estimates of how much foreigner investors hold of the outstanding stock of U.S. securities?  
+The most reliable estimates of foreign holdings of U.S. securities are derived from the comprehensive annual surveys of foreign portfolio holdings of U.S. securities. Table 2 of the Survey report "Foreign Portfolio Holdings of U.S. Securities as of June 30, 2006" indicates that at that time foreign investors held 52.0 percent of outstanding marketable long-term Treasury securities, 16.8 percent of long-term Agency securities, 20.4 percent of long-term corporate debt securities, and 10.2 percent of U.S. equities.
+ Users looking for more recent estimates of the fraction of total Treasury securities (including short-term Treasury Bills and Certificates) held by foreigners can compare the monthly estimates from table on "Major Foreign Holders of U.S. Treasury securities"; (available at: http://www.treas.gov/tic/mfh.txt ) to the total Treasury debt outstanding and held by the public from the Monthly Statement of the Public Debt, available at: www.treasurydirect.gov/govt/govt.htm .
+ 21. Where can I find estimates of how much U.S. investors hold of the outstanding stock of foreign securities?  
+The most reliable estimates of U.S. holdings of foreign securities are derived from the comprehensive surveys of U.S. portfolio holdings of foreign securities. Table 28 of the Survey report "U.S. Portfolio Holdings of Foreign Securities at End-year 2005" indicates the percentage of foreign equity market capitalization held by U.S. investors at that date.
+ Revisions to this webpage: 
+-- Aug. 1, 2005: FAQs 7, 8, 10a, 10b, 13, 15, 18, 20, and 21 to reflect findings from the recent report on Foreign Holdings of U.S. Securities at end-June 2004.
+-- Feb. 15, 2007: FAQ 9 to reflect new hist. data on oil-exporting countries.
+-- Aug 30, 2007: FAQs 1, 5, 6, 7, 8, 10a, 10b, 13, 15, 18, 20, and 21 to reflect publication of derivatives statistics, web publication of the Federal Reserve Statistical Bulletin, and findings from the recent reports on "U.S. Portfolio Holdings of Foreign Securities at End-year 2005" and "Foreign Portfolio Holdings of U.S. Securities as of June 30, 2006".
+ -- April 16, 2012: FAQs 1, 2, 7, and 8 to reflect new TIC Form SLT securities data, new MFH table methodology using SLT data, expanded discussion of country attribution in FAQ 7, reference to Federal Reserve Board paper on smoothing MFH data in FAQ 8, and including information from the "Using TIC" webpage which is to be eliminated.
+-- November 16, 2012: FAQs 3 and 4 (minor clarifications in first sentences), 8 (re-organized), 10a (clarified text and updated table and links), and 10b (included changes in reporting of FRBNY custody holdings).
+-- October 2, 2023: FAQ 2 (major revision to include the expanded-SLT; FAQs 1, 3, 4 (no changes); FAQ 5 & 6 (corrected links, updated some examples; FAQ 7 (no changes); To be updated--->,10a (clarified text and updated table and links), and 10b (included changes in reporting of FRBNY custody holdings).
+ Bureaus
+ Alcohol and Tobacco Tax and Trade (TTB) 
+ Bureau of Engraving and Printing (BEP) 
+ Bureau of the Fiscal Service (BFS) 
+ Financial Crimes Enforcement Network (FinCEN) 
+ Internal Revenue Service (IRS) 
+ Office of the Comptroller of the Currency (OCC) 
+ U.S. Mint 
+ Inspector General Sites
+ Office of Inspector General (OIG) 
+ Treasury Inspector General for Tax Administration (TIGTA) 
+ Report Scams, Fraud, Waste & Abuse 
+ Special Inspector General for Pandemic Recovery (SIGPR) 
+ U.S. Government Shared Services
+ Center for Financial Management 
+ Treasury Direct Services for Governments 
+ Financial Management (FM) Marketplace Catalog 
+ Additional Resources
+ Privacy Act 
+ Small Business Contacts 
+ Budget and Performance 
+ TreasuryDirect.gov Securities/Bonds 
+ Freedom of Information Act (FOIA) 
+ No FEAR Act Data 
+ Whistleblower Protection 
+ Other Government Sites
+ USA.gov 
+ USAJOBS.gov 
+ OPM.gov 
+ MyMoney.gov 
+ Data.gov 
+ Forms.gov 
+ Regulations.gov 
+ PaymentAccuracy.gov 
+ my Social Security 
+ Vote.gov 
+ Privacy Policy 
+ Google Privacy 
+ Site Policies and Notices 
+ FAQs 
+ Feedback 
+ Careers 
+ Accessibility 
+ Contact 
+ Required Plug-ins Adobe® Reader® 
+ Twitter 
+ Facebook 

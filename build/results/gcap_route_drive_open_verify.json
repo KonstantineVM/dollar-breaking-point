@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "sha256:zip_tail.bin": true,
+    "sha256:member0_head.bin": true,
+    "entries_byte_match_committed_json": true,
+    "member_count_is_26": true,
+    "members_2019q3_to_2025q4": true,
+    "schema_byte_match_committed_json": true,
+    "first_member_is_2019q3": true,
+    "nvar_is_41": true,
+    "has_security_identifier": true,
+    "only_geography_is_investment_country": true,
+    "no_parent_nationality_column": true
+  },
+  "sha256": {
+    "zip_tail.bin": "07d803f02c8c3ae982ed3dd98421f113b49447bdf4f1459025ce4106d8be98fb",
+    "member0_head.bin": "a7700ed636e94ee25ec7d9e784654330d13a1c4d80722a5a37684eea9af9e14c"
+  },
+  "security_identifier_columns_present": [
+    "issuer_cusip",
+    "identifier_isin",
+    "issuer_lei"
+  ],
+  "geography_columns": [
+    "investment_country"
+  ],
+  "nationality_parent_columns": [],
+  "total_bytes_from_zip64_eocd_context": 16470969928,
+  "overall_pass": true,
+  "route_relevant_conclusion": "Security ids present (issuer_cusip, identifier_isin, issuer_lei); only geography column = investment_country (issuer residence per publisher README); no nationality/ultimate-parent column -> supports ROUTE-A-ABSENT-EARNED for file #2."
+}

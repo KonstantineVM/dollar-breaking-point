@@ -1,0 +1,5 @@
+SWIFT RMB Tracker (renamed Global Currency Tracker Feb-2026) - evidence captured RD0 2026-07-01
+Resource 252007 = RMB Tracker March 2023 (reports Feb 2023): RMB rank 5th, share 2.19% global payments; methodology "Live and delivered, MT 103 and MT 202".
+Resource 252053 = RMB Tracker June 2023 (reports May 2023): RMB rank 5th, share 2.54%.
+Document centre (https://www.swift.com/products/renminbi-tracker/document-centre) currently exposes only recent editions (Sep 2025 - Jun 2026 on landing page); 2022 monthly editions were published contemporaneously (monthly series since 2011) but are NOT on the current landing page.
+Free/public, no login. PDFs fetched HTTP 200 (283KB, 343KB).

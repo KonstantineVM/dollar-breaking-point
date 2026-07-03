@@ -1,0 +1,164 @@
+{
+  "artifact": "RDT-C Part 1 — SAFE monthly official reserve assets totals (branch-(a) closure leg)",
+  "status": "GROUNDED",
+  "fetch_date": "2026-07-02",
+  "publisher": "State Administration of Foreign Exchange (SAFE), safe.gov.cn — primary; no fallback tier needed",
+  "coverage": {
+    "csv_window": "2021-12 .. 2026-05",
+    "rows": 54,
+    "missing_months": [],
+    "latest_published_month": "2026-05",
+    "latest_month_source": "Chinese-language SAFE data page (safe.gov.cn/safe/2026/0206/27116.html); the English xlsx (file dated 2026-06-07) lags one month, ending 2026-04",
+    "units": "SAFE publishes 亿美元 (100 million USD); converted to USD bn by /10. Gold volume published as 万盎司 (10,000 troy oz); converted to million oz by /100."
+  },
+  "series_supplied": {
+    "official_reserve_assets_usd_bn": "合计/Total — FX reserves + IMF reserve position + SDRs + gold + other reserve assets",
+    "fx_reserves_usd_bn": "row 1 外汇储备 / Foreign currency reserves — the ex-gold line the pre-registered closure test uses",
+    "gold_usd_bn": "row 4 黄金/Gold, USD value",
+    "gold_volume_moz": "gold volume row, million troy oz (release carries it)",
+    "others": "IMF reserve position, SDRs, other reserve assets (for total reconciliation)"
+  },
+  "cross_checks": {
+    "english_xlsx_vs_chinese_html_overlap": {
+      "months_compared": "2024-01..2024-11 and 2026-01..2026-04, all 7 fields",
+      "diffs_gt_0p005": 0
+    },
+    "vs_ondisk_rd2_evidence_safe_ora_files": {
+      "note": "on-disk safe_ora_2021..2026.xls* are un-attributed per RD2 provenance (concurrent writer); compared as soft cross-check only",
+      "months_compared": "all overlapping months 2021-01..2026-04, all 7 fields",
+      "diffs_gt_0p005": 0,
+      "months_only_in_my_fetch": [
+        "2024-12",
+        "2026-05"
+      ],
+      "rdt_b_empty_2024_12_finding": "STANDS and is a property of the publisher's English-site file: my freshly fetched safe_ora_2024_MYFETCH.xlsx also has an empty 2024.12 column. Filled from the publisher's own Chinese-language 2024 data page (values in fetch log), so the CSV has no gap."
+    },
+    "gold_volume_vs_rdt_k2_gold_csv": {
+      "note": "SAFE Dec volume (万盎司 -> tonnes at 32,150.7466 oz/t) vs on-disk WGC/IFS Q4 tonnage",
+      "diffs_tonnes": {
+        "2021": 0.01,
+        "2022": 0.02,
+        "2023": 0.02,
+        "2024": 0.01,
+        "2025": 0.02
+      },
+      "verdict": "identical to rounding"
+    },
+    "safe_implied_gold_price_vs_wb_pinksheet": {
+      "note": "SAFE gold value / SAFE gold volume vs on-disk rd2_evidence/wb_pinksheet_MYFETCH.xlsx monthly gold",
+      "checked": {
+        "2021-12": "1805.95 vs 1790.43 (+0.87%)",
+        "2022-03": "1942.26 vs 1947.83 (-0.29%)",
+        "2025-12": "4308.16 vs 4309.23 (-0.02%)"
+      },
+      "verdict": "agree within ~0.9%; Pink Sheet on disk ends 2025-12, so the 2026 decomposition uses the SAFE-implied price (same release, value/volume)"
+    }
+  },
+  "closure_numbers_fx_reserves_line_usd_bn": {
+    "note": "FX-reserves (ex-gold) line changes, computed from the fetched series. Reported plainly; the verdict rule is applied by the Part-2/3 agent, not here.",
+    "verdict_axis_recent3y": {
+      "window": "2023-05 -> 2026-04 (RDT-B recent-3y window verbatim; 2026-04 is within the fetched series)",
+      "fx_start_bn": 3176.508,
+      "fx_end_bn": 3410.547,
+      "delta_bn": 234.039,
+      "direction": "ROSE"
+    },
+    "freeze_era": {
+      "window": "2022-03 -> 2026-05 (latest)",
+      "fx_start_bn": 3187.994,
+      "fx_end_bn": 3442.238,
+      "delta_bn": 254.244,
+      "direction": "ROSE"
+    },
+    "calendar_2022_to_2025": {
+      "note": "'calendar 2022->2025' is ambiguous; both readings reported, neither privileged",
+      "end2021_to_end2025": {
+        "window": "2021-12 -> 2025-12",
+        "fx_start_bn": 3250.166,
+        "fx_end_bn": 3357.869,
+        "delta_bn": 107.703,
+        "direction": "ROSE"
+      },
+      "end2022_to_end2025": {
+        "window": "2022-12 -> 2025-12",
+        "fx_start_bn": 3127.691,
+        "fx_end_bn": 3357.869,
+        "delta_bn": 230.178,
+        "direction": "ROSE",
+        "remark": "this reading reproduces the task's untrusted search-summary figure (~+$230bn), now grounded by fetch"
+      }
+    },
+    "context_2022_intra_year_drawdown": {
+      "window": "2021-12 -> 2022-10 (trough)",
+      "fx_start_bn": 3250.166,
+      "fx_end_bn": 3052.427,
+      "delta_bn": -197.739,
+      "direction": "FELL",
+      "remark": "coincides with the 2022 rates selloff + USD strength; direction consistent with valuation losses at zero selling (see caveat), later reversed"
+    }
+  },
+  "valuation_caveats": {
+    "gold_leg_quantified": {
+      "window": "2021-12 -> 2026-05",
+      "total_reserves_rise_bn": 423.678,
+      "gold_value_rise_bn": 227.627,
+      "gold_volume_moz": [
+        62.64,
+        74.96
+      ],
+      "implied_price_usd_oz": [
+        1805.95,
+        4545.78
+      ],
+      "valuation_on_initial_holdings_bn": 171.623,
+      "volume_purchases_at_end_price_bn": 56.004,
+      "gold_valuation_share_of_total_reserves_rise": 0.4051,
+      "gold_total_share_of_total_reserves_rise": 0.5373,
+      "decomposition_convention": "delta_gold_value = oz_start*(px_end-px_start) + (oz_end-oz_start)*px_end; price = SAFE-implied (gold value / gold volume, same release), cross-checked vs WB Pink Sheet within its coverage",
+      "implication": "~40.5% of the 2021-12->2026-05 rise in TOTAL reserves is gold-price valuation (and ~53.7% is gold value in total); this is why the pre-registered closure test uses the ex-gold FX-reserves line"
+    },
+    "fx_line_bounded_not_decomposable": {
+      "statement": "Inside the FX-reserves line itself, non-USD currency valuation and bond-price valuation are NOT decomposable from SAFE data: SAFE publishes no monthly currency or instrument composition of FX reserves. This caveat is stated, not quantified.",
+      "direction_notes": [
+        "2022 rates selloff + USD strength would have CUT the FX line with zero selling (observed: -197.7 bn 2021-12 -> 2022-10 trough).",
+        "2023-2025 bond rally + partial USD retreat partially reversed that valuation loss, flattering the FX-line rise over windows starting in 2022."
+      ]
+    }
+  },
+  "not_available": [
+    "Monthly currency/instrument composition of SAFE FX reserves (SAFE does not publish it) — the intra-FX-line valuation split is therefore NOT quantifiable from the publisher.",
+    "2024-12 and 2026-05 in the SAFE ENGLISH xlsx files (publisher's English files end 2024.11 / 2026.04 respectively) — both months taken from the publisher's own Chinese-language data pages, zero-diff on all overlapping months.",
+    "WB Pink Sheet gold price after 2025-12 in the on-disk read-only copy — SAFE-implied price used for 2026 months of the gold decomposition."
+  ],
+  "files": {
+    "csv": "build/reserve/rdtc_safe_totals.csv",
+    "provenance": "build/reserve/rdtc_safe_provenance.md",
+    "fetch_log": "build/reserve/rdtc_evidence/_RDTC_fetch_log.txt",
+    "raw_evidence": [
+      "build/reserve/rdtc_evidence/safe_ora_2021_MYFETCH.xlsx",
+      "build/reserve/rdtc_evidence/safe_ora_2022_MYFETCH.xlsx",
+      "build/reserve/rdtc_evidence/safe_ora_2023_MYFETCH.xlsx",
+      "build/reserve/rdtc_evidence/safe_ora_2024_MYFETCH.xlsx",
+      "build/reserve/rdtc_evidence/safe_ora_2025_MYFETCH.xlsx",
+      "build/reserve/rdtc_evidence/safe_ora_2026_MYFETCH.xlsx",
+      "build/reserve/rdtc_evidence/safe_cn_ora_2024.html",
+      "build/reserve/rdtc_evidence/safe_cn_27116.html",
+      "build/reserve/rdtc_evidence/safe_forexreserves_index.html",
+      "build/reserve/rdtc_evidence/safe_cn_gfcbzc_index.html",
+      "build/reserve/rdtc_evidence/safe_cn_tjsj.html",
+      "build/reserve/rdtc_evidence/safe_ora_page_2021.html",
+      "build/reserve/rdtc_evidence/safe_ora_page_2022.html",
+      "build/reserve/rdtc_evidence/safe_ora_page_2023.html",
+      "build/reserve/rdtc_evidence/safe_ora_page_2024.html",
+      "build/reserve/rdtc_evidence/safe_ora_page_2025.html",
+      "build/reserve/rdtc_evidence/safe_ora_page_2026.html"
+    ],
+    "raw_evidence_note": "safe_cn_tjsj.html added post-audit (2026-07-02) for inventory completeness — the file was fetched and on disk but omitted from this list; no other manifest content altered."
+  },
+  "confidence": "HIGH — every month fetched directly from the primary publisher (safe.gov.cn) this run, English-xlsx and Chinese-HTML legs agree exactly on all overlaps, zero diffs vs the on-disk soft cross-check, gold volume matches the independent WGC/IFS tonnage to 0.02 t, and SAFE-implied gold price matches the WB Pink Sheet within 0.9%.",
+  "publisher_quirks": [
+    "safe_ora_2025_MYFETCH.xlsx stores the 2025-05 'Other reserve assets' cell as TEXT (\"'-3.00\", leading apostrophe), not a number; parsed as -3.00 亿USD = -0.30 bn; components reconcile to the published total within 0.001 bn.",
+    "The Chinese data pages carry a footnote row (注：...特别提款权(SDR)...) inside the same HTML table; row-label matching must anchor on the item numbers (1..5) or the footnote contaminates the SDR series (caught and fixed; overlap months re-verified against the English xlsx)."
+  ],
+  "reconciliation": "max |fx+gold+imf+sdr+other - total| over all 54 rows = 0.001 USD bn; no NaN cells."
+}

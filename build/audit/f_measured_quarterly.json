@@ -1,0 +1,65 @@
+{
+  "artifact": "f_measured_quarterly.json",
+  "task": "DP1-REOPEN CORRECTED Part 2 (OVERWRITE of the prior UNDETERMINED version) -- report the MEASURED China-nationality fraction f of US-held haven exposure per fiscal quarter, its 2019->2024 path, and an explicit comparison to the prior pinned [0.49,0.71]. This REPLACES the prior version's 'f UNDETERMINED' with a MEASUREMENT from the FREE GCAP route-B product.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "replaces": "Prior f_measured_quarterly.json recorded f UNDETERMINED (treating nationality as a commercially-gated per-security HOLE). That access framing was the Part-0 error: GCAP's aggregate reallocation shares are a FREE download. f is now MEASURED by route-B calibration; UNDETERMINED is RETIRED.",
+  "scope_limit": "Wrote build/audit/f_calibrated_gcap.json (Part 1), this file (Part 2 overwrite), build/audit/sep_retest_nationality.json (Part 3 overwrite), and build/audit/sep_retest_nationality_recompute_gcap.py. Did NOT modify the operator, dp3/dp4/dp5/geo_vs_emp/sep_definitive_test/china_fraction_bound/f_pin artifacts, the contracts, or the panel. DP6 NOT started. No hazard, no date, no bare probability.",
+
+  "read_only_inputs": [
+    "build/audit/f_calibrated_gcap.json (Part 1: the calibration method, headline check, per-quarter China-nationality mass)",
+    "build/data/gcap_products/Restatement_Matrices.dta (route-B shares)",
+    "build/data/nport/us_china_nationality_panel.parquet (haven holdings)",
+    "build/model/china_fraction_bound.json + build/audit/f_pin_test.json (prior pin [0.49,0.71])"
+  ],
+
+  "MEASURED_F_PER_QUARTER": {
+    "claim": "The China-nationality fraction f of US-held haven (CYM+HKG+VGB) exposure, MEASURED per fiscal quarter by applying GCAP's free aggregate reallocation shares (Fund Holdings) to the N-PORT haven holdings.",
+    "f_fund_holdings_primary": {"2019q3": 0.501653, "2019q4": 0.524529, "2020q1": 0.418792, "2020q2": 0.422748, "2020q3": 0.450173, "2022q1": 0.356059, "2022q2": 0.372433, "2024q4": 0.379477},
+    "transcription_correction_note": "2026-06-29: the 2022q2 and 2024q4 Fund-Holdings values were corrected from 0.366932/0.373780 to 0.372433/0.379477 to match the authoritative recompute build/results/dp1reopen_corrected_verify.json (the prior values had been mis-copied from the Enhanced-Fund-Holdings sensitivity column). The first six quarters were already exact. The correction does NOT change any conclusion: both corrected values remain well BELOW the 0.49 pin floor, f still moves DOWN from ~0.52 (2019) to ~0.37-0.38 (post-2020), and the Part-3 STILL-GEOMETRIC-ONLY verdict is unaffected (it uses the calibrated mass recomputed directly, not these rounded display values).",
+    "f_enhanced_fund_holdings_sensitivity": {"2019q3": 0.495958, "2019q4": 0.518785, "2020q1": 0.413131, "2020q2": 0.416924, "2020q3": 0.444468, "2022q1": 0.350869, "2022q2": 0.366932, "2024q4": 0.373780},
+    "SUBJECT_DRIVER": "f is the calibrated China-by-ultimate-parent share of the US-fund haven pool; it is driven by the Cayman equity channel (per-haven f ~0.55-0.60) blended down by non-Chinese Cayman ABS (share 0) and by the Hong Kong channel (per-haven f ~0.20-0.33). The two holdings-side methodologies (Fund Holdings, Enhanced Fund Holdings) agree to within ~0.006 per quarter, so the measurement is robust to the methodology choice.",
+    "BOUNDARIES": "US-registered-fund holders, 8-quarter subset, residency havens CYM/HKG/VGB; mixed-currency C.2.c sums (USD-denomination PARTIALLY-VERIFIED per the prior contract). Post-2020 quarters (2022q1, 2022q2, 2024q4) carry the 2020 GCAP vintage share (extrapolation; see VINTAGE_CAVEAT).",
+    "FALSIFIER": "Recompute f per quarter from the panel x .dta (Part-1 recipe) and obtain a Fund-Holdings value differing from the per-quarter numbers above.",
+    "SOURCE": "build/audit/f_calibrated_gcap.json CALIBRATED_CHINA_NATIONALITY_MASS_PER_QUARTER; recomputed by build/audit/sep_retest_nationality_recompute_gcap.py."
+  },
+
+  "F_PATH_2019_TO_2024": {
+    "claim": "f peaks in 2019 (~0.52), steps DOWN through 2020 (~0.42-0.45), and is lowest in the 2020-vintage-extrapolated post-2020 quarters (~0.36-0.38).",
+    "path_fund_holdings": "2019q3 0.502 -> 2019q4 0.525 (peak) -> 2020q1 0.419 -> 2020q2 0.423 -> 2020q3 0.450 -> 2022q1 0.356 -> 2022q2 0.372 -> 2024q4 0.379",
+    "SUBJECT_DRIVER": "The 2019->2020 step-down is driven by GCAP's Hong Kong common-equity share falling from 0.323 (2019) to 0.198 (2020) WHILE the panel's Hong Kong weight rises; the post-2020 decline is driven by the haven pool (denominator) growing faster than the 2020-vintage-frozen China-nationality mass (numerator). Note the f PATH below 2020q3 is NOT an observed nationality movement -- the GCAP weights are frozen at 2020, so post-2020 path variation is driven entirely by the panel's residency-mix changes applied to fixed shares.",
+    "BOUNDARIES": "8 documented fiscal quarters (not a continuous series); 2019->2020 segment uses true-vintage GCAP shares; post-2020 segment uses frozen 2020 shares.",
+    "FALSIFIER": "Recompute the per-quarter f path and obtain a different ordering or peak quarter.",
+    "SOURCE": "build/audit/f_calibrated_gcap.json per_quarter_fund_holdings_primary; recompute script."
+  },
+
+  "COMPARISON_TO_PINNED_INTERVAL": {
+    "claim": "The measured f lands AT or BELOW the bottom of the prior pin [0.49,0.71] in every quarter: INSIDE the pin only in 2019 (0.50, 0.52), and BELOW the pin floor (0.49) from 2020 onward (0.42, 0.42, 0.45, 0.36, 0.37, 0.37).",
+    "inside_above_below": {
+      "2019q3": "INSIDE (0.502, just above floor 0.49)",
+      "2019q4": "INSIDE (0.525)",
+      "2020q1": "BELOW (0.419 < 0.49)",
+      "2020q2": "BELOW (0.423 < 0.49)",
+      "2020q3": "BELOW (0.450 < 0.49)",
+      "2022q1": "BELOW (0.356; 2020-vintage extrapolation)",
+      "2022q2": "BELOW (0.372; 2020-vintage extrapolation)",
+      "2024q4": "BELOW (0.379; 2020-vintage extrapolation)"
+    },
+    "did_it_move": "YES -- DOWN. The measured haven-pool f moves from ~0.52 (2019, inside the pin) to ~0.37 (post-2020, below the pin floor).",
+    "why_below_the_pin_SUBJECT_DRIVER": "The prior pin [0.49,0.71] (f_pin_test.json) used GCAP's OWN Restated-Bilateral-External-Portfolios Position_Residency dollar weights as the denominator and the same GCAP shares as numerator -- an internally-GCAP-consistent ratio. THIS measurement uses the ACTUAL N-PORT US-fund haven holdings as the denominator (a different, panel-specific pool composition). The N-PORT haven pool is MORE ABS-heavy and MORE Hong-Kong-weighted than GCAP's RBEP US pool; ABS reallocates 0 to China and HKG reallocates only ~0.20, both of which drag the panel-calibrated f below the GCAP-RBEP-weighted pin. This is not a contradiction in the shares (the per-haven shares match GCAP exactly, per the Part-1 headline check) but a difference in the DENOMINATOR pool the share is applied to. The pin is a GCAP-internal ratio; this is the panel-applied ratio.",
+    "honest_reading": "The measured f does NOT come out above 0.71 (the prompt flagged that as plausible given CYM->CHN=0.82 dominates a Cayman-heavy pool); it comes out at-or-below the pin floor because the N-PORT haven pool is not purely Cayman-equity -- it is diluted by non-Chinese Cayman ABS and by lower-share Hong Kong. Reported as found.",
+    "BOUNDARIES": "Comparison is between a GCAP-internal denominator (pin) and a panel denominator (this measurement); both use the same GCAP shares. The pin's vintage caveat (2020) and this measurement's post-2020 extrapolation both apply.",
+    "FALSIFIER": "Show the measured panel-applied f exceeds 0.49 in a 2020-or-later quarter under Fund Holdings, or that the GCAP-RBEP denominator and the N-PORT denominator have the same ABS/HKG composition.",
+    "SOURCE": "build/audit/f_pin_test.json f_interval_pinned [0.49,0.71] (GCAP-RBEP denominator); build/audit/f_calibrated_gcap.json (N-PORT-panel denominator); recompute script."
+  },
+
+  "VINTAGE_CAVEAT": {
+    "claim": "Post-2020 quarters (2022q1, 2022q2, 2024q4) carry the 2020 GCAP vintage share; their f is an extrapolation, not an observed 2022/2024 reattribution.",
+    "SUBJECT_DRIVER": "GCAP terminates at data-year 2020 (Restatement_Matrices.dta Year max = 2020). No post-2020 reallocation share exists, so the 2020 share is held constant for the post-2020 quarters; their f variation reflects only the panel's residency-mix changes against frozen weights.",
+    "BOUNDARIES": "The 2019/2020 quarters use true-vintage shares; only the three post-2020 quarters carry the frozen-2020 assumption (flagged extrapolated=true in Part 1).",
+    "FALSIFIER": "A published post-2020 GCAP (or equivalent) USA haven->CHN share materially different from the 2020 value.",
+    "SOURCE": "build/contracts/gcap_product_contract.json vintage.max_data_year_in_free_files=2020; build/audit/f_calibrated_gcap.json YEAR_MAPPING."
+  },
+
+  "verdict_part2": "f MEASURED (UNDETERMINED RETIRED). Using the free GCAP route-B aggregate shares (Fund Holdings primary) applied to the N-PORT US-fund haven holdings, the China-nationality fraction f of the US-held haven pool is 0.502 (2019q3), 0.525 (2019q4), 0.419/0.423/0.450 (2020q1-q3), and 0.356/0.372/0.379 (post-2020, 2020-vintage extrapolated). f moves DOWN from ~0.52 (2019, INSIDE the pin [0.49,0.71]) to ~0.37-0.38 (post-2020, BELOW the pin floor). It does NOT exceed 0.71. The below-pin landing is driven by the N-PORT haven pool being more ABS-heavy and more Hong-Kong-weighted than the GCAP-RBEP pool the pin used as its denominator -- the per-haven shares match GCAP exactly; the denominator pool differs. The prior version recorded f UNDETERMINED; this replaces it with a measurement and says so."
+}

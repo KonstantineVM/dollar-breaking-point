@@ -1,0 +1,175 @@
+{
+  "contract": "Sanctions treatment + regulatory-channel control for the Converse-Mallucci F3 weight-regression sanctions-shock test (Part 1 grounding ONLY; does NOT run the regression, which is Part 2)",
+  "serves_prereg": "build/audit/sanctions_shock_prediction.md",
+  "target_span": "fiscal quarters 2019q3..2024q4 (22 contiguous quarters; the full-panel CM span)",
+  "panel_key": "fiscal_quarter (22 values), merges onto build/data/nport/panel_crosswalk_tagged_full.parquet (key confirmed present with exactly these 22 values)",
+  "fetch_date": "2026-07-01",
+  "fetched_by_env": "Claude Code on the web; outbound HTTPS via agent proxy; Treasury/OFAC/SEC/PCAOB/FederalRegister reached with curl + descriptive User-Agent (WebFetch returned 503 from home.treasury.gov; curl with UA succeeded, same pattern the crosswalk build recorded for sec.gov).",
+  "SOURCE": "Every date/count below carries a primary-publisher URL and the confirming quoted text/figure. No date or count asserted from memory. Raw fetched evidence persisted under build/data/sanctions/evidence/ for verifier re-check without re-fetch.",
+  "part_1a_sanctions_treatment": {
+    "event_1_rcb_reserve_freeze": {
+      "fact": "US immobilization of Russian central bank reserves \u2014 OFAC Directive 4 under E.O. 14024. THE F3 TRIGGERING EVENT.",
+      "primary_publisher": "U.S. Department of the Treasury",
+      "url": "https://home.treasury.gov/news/press-releases/jy0612",
+      "publication_datetime_from_page": "2022-02-28T12:30:00Z (page datetime attribute) / dateline 'February 28, 2022'",
+      "precise_date": "2022-02-28",
+      "confirming_quoted_text": "'Today, the U.S. Department of the Treasury's Office of Foreign Assets Control (OFAC) prohibited United States persons from engaging in transactions with the Central Bank of the Russian Federation, the National Wealth Fund of the Russian Federation, and the Ministry of Finance of the Russian Federation. This action effectively immobilizes any assets of the Central Bank of the Russian Federation held in the United States or by U.S. persons, wherever located.' ... 'Today, OFAC issued new Directive 4 under E.O. 14024' ... 'Today's actions were taken pursuant to Executive Order (E.O.) 14024'.",
+      "allied_commitment_date_also_in_page": "'On February 26, 2022, partners and allies committed to imposing restrictive measures that will prevent the Central Bank of the Russian Federation from deploying its international reserves' (the joint allied statement; the binding OFAC Directive 4 is Feb 28, 2022 and is the date used).",
+      "fiscal_quarter": "2022q1",
+      "fetch_status": "FETCHED HTTP 200 (125,756 bytes)",
+      "evidence_file": "build/data/sanctions/evidence/treasury_jy0612_rcb_freeze.html",
+      "used_for": "sanc_freeze_post = 1 from 2022q1 onward"
+    },
+    "event_2_eo14114_secondary_sanctions": {
+      "fact": "E.O. 14114 amending E.O. 14024 \u2014 authorizes secondary sanctions on foreign financial institutions dealing with Russia's military-industrial base.",
+      "primary_publisher": "Federal Register (Office of the Federal Register / White House Presidential Documents)",
+      "url": "https://www.federalregister.gov/documents/2023/12/26/2023-28662/taking-additional-steps-with-respect-to-the-russian-federations-harmful-activities",
+      "api_url": "https://www.federalregister.gov/api/v1/documents/2023-28662.json",
+      "executive_order_number": 14114,
+      "signing_date": "2023-12-22",
+      "publication_date": "2023-12-26",
+      "citation": "88 FR 89271",
+      "precise_date": "2023-12-22 (signing date; the event date used)",
+      "confirming_quoted_text": "'Executive Order 14114 of December 22, 2023 / Taking Additional Steps With Respect to the Russian Federation's Harmful Activities' ... 'the Secretary of the Treasury ... is hereby authorized to impose on a foreign financial institution the sanctions described in subsection (b) of this section, upon determining that the foreign financial institution has: (i) conducted or facilitated any significant transaction ...' ... amends 'Executive Order 14024 of April 15, 2021'.",
+      "eo14024_base_authority_date": {
+        "CORRECTION": "An earlier draft claimed 'Executive Order 14024 of April 15, 2021' is 'quoted verbatim in the EO 14114 full text.' That claim is WITHDRAWN: the retained artifact fr_eo14114_full_text.txt contains '14024' (5x) but does NOT contain the strings 'April 15' or 'May 15' -- the verbatim date phrase is not in the retained full text, so the assertion did not match the retained source. The EO 14114 FR structured-metadata 'amends' field (fr_eo14114_doc.json) records '14024, May 15, 2021' -- a Federal Register metadata quirk that DISAGREES with EO 14024's own record.",
+        "authoritative_date_grounded": "E.O. 14024 signing date = 2021-04-15 (published 2021-04-19), grounded against EO 14024's OWN primary Federal Register record, not from EO 14114 text or memory.",
+        "primary_publisher": "Federal Register (White House Presidential Documents)",
+        "url": "https://www.federalregister.gov/documents/2021/04/19/2021-08098/blocking-property-with-respect-to-specified-harmful-foreign-activities-of-the-government-of-the",
+        "api_url": "https://www.federalregister.gov/api/v1/documents/2021-08098.json",
+        "executive_order_number": 14024,
+        "signing_date": "2021-04-15",
+        "publication_date": "2021-04-19",
+        "citation": "86 FR 20249",
+        "title": "Blocking Property With Respect To Specified Harmful Foreign Activities of the Government of the Russian Federation",
+        "fetch_status": "FETCHED HTTP 200 (FR document JSON)",
+        "evidence_file": "build/data/sanctions/evidence/fr_eo14024_doc.json",
+        "NOT_USED_DOWNSTREAM": "This E.O. 14024 base-authority date is NOT used in any treatment column. The sanctions event treatments are the 2022-02-28 RCB reserve freeze (sanc_freeze_post) and the 2023-12-22 EO 14114 (sanc_eo2023_post). Nothing downstream depends on the 14024 signing date; this correction changes no coefficient."
+      },
+      "fiscal_quarter": "2023q4",
+      "fetch_status": "FETCHED HTTP 200 (raw EO text 15,482 bytes; FR document JSON fetched)",
+      "evidence_file": "build/data/sanctions/evidence/fr_eo14114_full_text.txt, build/data/sanctions/evidence/fr_eo14114_doc.json",
+      "used_for": "sanc_eo2023_post = 1 from 2023q4 onward"
+    },
+    "event_3_china_sanctions_intensity": {
+      "fact": "Quarterly China-related sanctions-intensity series: OFAC Non-SDN Chinese Military-Industrial Complex Companies (NS-CMIC / CMIC-EO13959) additions per quarter, from the free primary OFAC Consolidated (non-SDN) list, using the per-entry 'Effective Date (CMIC)' embedded in each entry's remarks field.",
+      "primary_publisher": "U.S. Department of the Treasury, OFAC",
+      "url": "https://www.treasury.gov/ofac/downloads/consolidated/cons_prim.csv",
+      "url_alt_sanctions_list_service": "https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/CONS_PRIM.CSV (same 238,635-byte file)",
+      "fetch_status": "FETCHED HTTP 200 (238,635 bytes)",
+      "evidence_file": "build/data/sanctions/evidence/ofac_cons_prim.csv, build/data/sanctions/evidence/cmic_extract.json",
+      "constructibility_verdict": "PARTIALLY CONSTRUCTIBLE -> RETAINED AS sanc_intensity WITH AN EXPLICIT LIMITATION; the defensible primary treatment is the EVENT DUMMIES, and the continuous series is a SPARSE, SURVIVORSHIP-BIASED supplement, not a clean continuous intensity measure.",
+      "measured_counts": {
+        "method": "Parsed cons_prim.csv; selected the 68 primary entries whose OFAC program field contains 'CMIC'; extracted 'Effective Date (CMIC) DD Mon YYYY' from each entry's remarks (68/68 parseable); binned to fiscal quarter.",
+        "total_current_CMIC_primary_entries": 68,
+        "additions_by_fiscal_quarter": {
+          "2021q3": 59,
+          "2022q1": 9
+        },
+        "distinct_effective_dates": [
+          "02 Aug 2021 (n=59)",
+          "08 Feb 2022 (n=1, SenseTime)",
+          "14 Feb 2022 (n=8)"
+        ],
+        "feb2022_entries_verified": [
+          "MEGVII TECHNOLOGY LIMITED 14 Feb 2022",
+          "SZ DJI TECHNOLOGY CO., LTD. 14 Feb 2022",
+          "SENSETIME GROUP LIMITED 08 Feb 2022",
+          "CLOUDWALK / DAWNING / YITU / LEON / NETPOSA / XIAMEN MEIYA PICO 14 Feb 2022"
+        ],
+        "quoted_real_record": "'AERO ENGINE CORPORATION OF CHINA' | program 'CMIC-EO13959' | remark 'Effective Date (CMIC) 02 Aug 2021'."
+      },
+      "LIMITATIONS": [
+        "SURVIVORSHIP BIAS: cons_prim.csv is the CURRENT snapshot of the list. Entities removed over time are ABSENT (e.g. the original Nov-2020 EO 13959 tranche predating the Jun-2021 EO 14032/CMIC re-designation, and litigated removals such as Xiaomi/Luokung, are not in the current file). The series therefore undercounts historical additions and reflects only entities still listed as of 2026-07-01.",
+        "SPARSITY: only 2 of 22 quarters are non-zero (2021q3, 2022q1); the series collapses toward the 2021q3/2022q1 window and carries essentially no continuous variation elsewhere. As a regression regressor it behaves close to a 2021q3+2022q1 spike, not a smooth intensity.",
+        "The free primary OFAC bulk files (SDN.CSV, CONS_PRIM.CSV) carry NO general per-entry designation-date column; only the CMIC program embeds an 'Effective Date (CMIC)' in remarks. A full 2019q3-2024q4 quarterly count of ALL China-related OFAC designations (SDN + sectoral) is NOT constructible from a single free primary artifact without page-by-page scraping of hundreds of dated Recent-Actions pages and a subjective China-relatedness classification per action; that route was NOT taken and no such count is fabricated."
+      ],
+      "decision": "sanc_intensity column IS populated (NS-CMIC additions per quarter, trace-to-source) but the pre-registration's primary sanctions treatment is the EVENT DUMMIES (sanc_freeze_post, sanc_eo2023_post). sanc_intensity is provided as a documented, survivorship-limited robustness regressor, NOT as the headline continuous treatment.",
+      "fiscal_quarter_mapping": {
+        "02 Aug 2021": "2021q3",
+        "08 Feb 2022": "2022q1",
+        "14 Feb 2022": "2022q1"
+      }
+    }
+  },
+  "part_1b_regulatory_control": {
+    "hfcaa_cii_timing": {
+      "fact": "SEC HFCAA Commission-Identified-Issuer (CII) determinations began 2022q1; PCAOB Dec-2022 access determination vacated the 2021 determinations and paused delistings.",
+      "membership_source": "build/data/crosswalk/hfcaa/hfcaa_conclusive.json (REUSED, not re-derived; 174 CIIs, SEC-sourced in the prior crosswalk build).",
+      "cii_start": {
+        "measured_from_on_disk_list": "Earliest conclusive identification = 'March 30, 2022' (first cohort: BeiGene, Yum China, Zai Lab, ACM Research, HUTCHMED). These five are the March 8, 2022 first provisional CII cohort. -> CII determinations began 2022q1.",
+        "latest_conclusive_in_list": "February 1, 2023",
+        "fiscal_quarter_start": "2022q1"
+      },
+      "pcaob_access_determination": {
+        "primary_publisher": "PCAOB (news release) + SEC HFCAA page (corroborating)",
+        "pcaob_url": "https://pcaobus.org/news-events/news-releases/news-release-detail/pcaob-secures-complete-access-to-inspect-investigate-chinese-firms-for-first-time-in-history",
+        "sec_corroborating_url": "https://www.sec.gov/rules-regulations/holding-foreign-companies-accountable-act",
+        "date": "2022-12-15",
+        "confirming_quoted_text_pcaob": "'the Board determined the PCAOB was able to secure complete access to inspect and investigate audit firms in the People's Republic of China (PRC) for the first time in history, in 2022' ... dateline 'Dec. 15, 2022' ... 'the Board voted to vacate the previous determinations to the contrary.'",
+        "confirming_quoted_text_sec": "'PCAOB Determination Update On December 15, 2022, the PCAOB vacated its 2021 determinations that the positions taken by authorities in mainland China and Hong Kong prevented it from inspecting and investigating...'",
+        "fiscal_quarter": "2022q4",
+        "fetch_status": "FETCHED HTTP 200 (PCAOB 57,731 bytes; SEC 135,719 bytes)",
+        "evidence_file": "build/data/sanctions/evidence/pcaob_dec2022_access_determination.html, build/data/sanctions/evidence/sec_hfcaa_page.html"
+      },
+      "used_for": "reg_hfcaa_post = 1 for the delisting-risk window 2022q1..2022q4 inclusive (CII determinations began 2022q1 through the PCAOB-access-restored quarter 2022q4), per the pre-registration."
+    },
+    "didi_tech_crackdown_2021": {
+      "fact": "2021 Didi / China tech-regulatory crackdown onset \u2014 Didi's June-2021 US IPO and the immediately-following CAC cybersecurity review / app-store removal (July 2021).",
+      "primary_publisher": "SEC EDGAR (DiDi Global Inc. filings, CIK 1764757)",
+      "url": "https://data.sec.gov/submissions/CIK0001764757.json",
+      "confirming_filing_dates_quoted": "Form 424B4 (IPO prospectus) filed 2021-06-30; 6-K filings 2021-07-02, 2021-07-06, 2021-07-12 (the CAC cybersecurity-review / app-removal period); Form 25 (delisting) filed 2022-06-02.",
+      "crackdown_onset_date": "2021-07 (post-IPO CAC review; onset in July 2021)",
+      "fiscal_quarter": "2021q3",
+      "fetch_status": "FETCHED HTTP 200 (13,858 bytes)",
+      "evidence_file": "build/data/sanctions/evidence/didi_edgar_submissions.json",
+      "note": "The July-2021 crackdown quarter (2021q3) is anchored by the primary EDGAR filing DATES (424B4 IPO 2021-06-30 then the July 2021 6-K cluster then the 2022-06-02 Form 25 delisting). The CAC (Cyberspace Administration of China) is the substantive regulator; EDGAR filing dates are used as the checkable primary timestamp.",
+      "used_for": "reg_crackdown_post = 1 from 2021q3 onward"
+    },
+    "outbound_investment_eo_2023": {
+      "fact": "U.S. outbound-investment executive order. CORRECTION TO TASK WORDING: the outbound-investment EO is E.O. 14105, signed AUGUST 2023, not December 2023. (The December-2023 event is E.O. 14114, the secondary-sanctions EO, already grounded above.) Recorded per literal-honesty; the calendar discrepancy in the task brief is surfaced, not silently mapped.",
+      "primary_publisher": "Federal Register (White House Presidential Documents)",
+      "url": "https://www.federalregister.gov/documents/2023/08/11/2023-17449/addressing-united-states-investments-in-certain-national-security-technologies-and-products-in",
+      "api_url": "https://www.federalregister.gov/api/v1/documents/2023-17449.json",
+      "executive_order_number": 14105,
+      "signing_date": "2023-08-09",
+      "publication_date": "2023-08-11",
+      "citation": "88 FR 54867",
+      "title": "Addressing United States Investments in Certain National Security Technologies and Products in Countries of Concern",
+      "fiscal_quarter": "2023q3",
+      "fetch_status": "FETCHED HTTP 200 (FR document JSON)",
+      "evidence_file": "build/data/sanctions/evidence/fr_eo14105_outbound_doc.json",
+      "used_for": "NOT built into a separate step column in the headline panel (a single 2023q3 outbound-investment step would be nearly collinear with the sanctions/regulatory 2022-2023 ramp and is not among the two pre-registered regulatory step series). Recorded here as grounded context; available for a robustness column if Part 2 elects to add it. Its correct date (2023q3, EO 14105) is the load-bearing correction."
+    }
+  },
+  "step_series_correlations_across_22_quarters": {
+    "purpose": "The sanctions-vs-regulatory collinearity is load-bearing for the verdict (pre-registration sec 'Why a null is a-priori likely', point 2). Measured on the 22-quarter step series.",
+    "method": "Pearson correlation of the binary/count step series across the 22 fiscal quarters.",
+    "values": {
+      "sanc_freeze_post_vs_reg_hfcaa_post": 0.4303,
+      "sanc_freeze_post_vs_reg_crackdown_post": 0.8281,
+      "sanc_eo2023_post_vs_reg_hfcaa_post": -0.2557,
+      "sanc_eo2023_post_vs_reg_crackdown_post": 0.41,
+      "sanc_intensity_vs_reg_hfcaa_post": -0.0321,
+      "sanc_intensity_vs_reg_crackdown_post": 0.1893,
+      "sanc_freeze_post_vs_sanc_eo2023_post": 0.4951,
+      "reg_hfcaa_post_vs_reg_crackdown_post": 0.3563,
+      "ANY_sanctions_step_vs_ANY_regulatory_step": 0.8281
+    },
+    "interpretation": "The headline sanctions step (sanc_freeze_post, 2022q1 on) is STRONGLY collinear with the crackdown step (reg_crackdown_post, 2021q3 on): r=0.828 (the ANY-vs-ANY composite is the same 0.828). This is exactly the co-movement the pre-registration flags as making sanctions/regulatory separation intrinsically hard over 22 quarters. The two levers that BREAK the collinearity: (a) reg_hfcaa_post is a BOUNDED window (2022q1..2022q4), so its correlation with the persistent sanc_freeze_post is only 0.43 and with the later sanc_eo2023_post is NEGATIVE (-0.26); (b) sanc_eo2023_post (2023q4 on) has DISTINCT timing from the 2021-2022 regulatory ramp. These are the timing levers the pre-registration identifies as the only way to distinguish the channels."
+  },
+  "deliverables": {
+    "contract": "build/contracts/sanctions_sources.json (this file)",
+    "panel_csv": "build/data/sanctions/sanctions_treatment_panel.csv (22 rows keyed by fiscal_quarter; columns sanc_freeze_post, sanc_eo2023_post, sanc_intensity, reg_hfcaa_post, reg_crackdown_post)",
+    "provenance_md": "build/data/sanctions/sanctions_treatment_provenance.md",
+    "raw_evidence_dir": "build/data/sanctions/evidence/"
+  },
+  "incomplete_items": [
+    "sanc_intensity (NS-CMIC quarterly count) is SURVIVORSHIP-BIASED (current-snapshot list; removed entities absent) and SPARSE (non-zero only 2021q3, 2022q1). Retained WITH this limitation stated; the pre-registered primary sanctions treatment is the event dummies. A clean full-history China-designation intensity series is NOT constructible from free primary OFAC bulk data (no per-entry date column outside the CMIC program remarks).",
+    "outbound-investment EO date in the task brief ('Dec-2023') does not match the primary Federal Register (EO 14105 is Aug 2023 / 2023q3). Surfaced as a correction; the Dec-2023 EO is EO 14114 (secondary sanctions). No separate outbound-EO column built into the headline panel."
+  ],
+  "integrity_notes": {
+    "answer_integrity_audit": "Every event date is read from a fetched primary artifact: Treasury press-release datetime attribute + dateline (RCB freeze 2022-02-28); Federal Register document JSON signing_date + quoted EO text (EO 14114 2023-12-22, EO 14105 2023-08-09); PCAOB news release + SEC HFCAA page (2022-12-15); on-disk SEC-sourced HFCAA list (CII start 2022q1); EDGAR submissions JSON filing dates (Didi IPO 2021-06-30, delisting 2022-06-02). CMIC counts parsed from the fetched cons_prim.csv (68/68 entries dated). No date or count asserted from memory. All correlations MEASURED from the built panel, not asserted.",
+    "analytical_claim_discipline": "No regression run (Part 2). Panel columns follow the pre-registration's fixed treatment/control definitions; no spec-search across windows. Where a fact could not be cleanly constructed (continuous intensity, outbound-EO date discrepancy) it is recorded as an INCOMPLETE/CORRECTION, not smoothed over. Did not touch the ledger, build/approvals/, or DP2-DP6."
+  }
+}

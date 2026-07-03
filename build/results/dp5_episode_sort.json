@@ -1,0 +1,92 @@
+{
+  "dp": "DP5-PART1",
+  "artifact": "dp5_episode_sort.json",
+  "title": "Episode-sort at the identification gate -- stress episodes sorted by OPERATOR FOOTPRINT (which direction of M=[v_F3|v_F4] their mechanism loads on), with NO pre-assignment of any episode to F3 or F4. This is the planting guard made operational at the gate.",
+  "generated": "2026-06-29",
+  "reads": [
+    "build/results/dp4_spectrum.json (separation-margin surface; collapsing right-singular vector; episode_2022_f_contingent)",
+    "build/results/dp4_inputs.json (operator recipe v_F3/v_F4; DESTn / USAn directions; eval grid)",
+    "build/audit/dp4_verification.json (f=0 rank-1: max|vF3-vF4|=0 for all usd_share, tau-independent)",
+    "build/model/dp3_spec.json (kind_3 EVENT R_proj episode list; factor footprints F1..F4)",
+    "build/model/dp3_sensitivity.json (f-flip; f=0 degenerate; second hole s_usd)",
+    "build/model/china_fraction_bound.json (f in [0,0.60] admissible interval)"
+  ],
+  "status": "GATE OUTPUT. Reads on-disk artifacts only; re-confirms operator rank/margin from dp4_inputs.json. No re-estimation, no re-specification, no re-grounding. No value supplied for either hole (f, s_usd).",
+
+  "method": {
+    "operator": "M = [v_F3 | v_F4], 15x2, columns = footprints in the 15-dim observed-moment space (3 offshore-pool destination cells US->{CYM,HKG,VGB} + 12 USA-issuer-column-by-holder cells). v_F3 = [(f + (1-f)*s_usd)*DESTn ; -USAn]; v_F4 = [((1-f)*s_usd)*DESTn ; -USAn]. The ONLY F3-exclusive component is f*DESTn.",
+    "three_operator_directions_an_episode_can_load_on": {
+      "D1_F3_exclusive_destination_rise": "the China-by-nationality-NON-USD destination-column rise = f*DESTn; nonzero ONLY when f>0; this is the sole direction that separates F3 from F4.",
+      "D2_shared_USA_common_fall": "-USAn, the common signed fall across the 12 USA-column holders; IDENTICAL in v_F3 and v_F4 (single snapshot has no lead/lag to split contagion from substitution); a footprint here is observationally the F4 common-run direction.",
+      "D3_shared_offshore_USD_destination": "(1-f)*s_usd*DESTn, the offshore-USD remainder on the destination columns that BOTH factors move (the R_sep falsifier); a footprint here does NOT separate F3 from F4."
+    },
+    "decidability_rule": "An episode's loading is DECIDABLE iff its footprint lands on D1 (F3-exclusive) in a region of the admissible (f in [0,0.60], s_usd in [0,1]) plane where the separation margin (smallest singular value of the column-normalised operator) >= tau=0.10. It is UNDECIDABLE iff it lands on the collapsed D2/D3 shared direction, OR on D1 only in a region where margin<tau, OR at f=0 where the operator is algebraically rank-1 (max|v_F3-v_F4|=0, margin=0 for ALL s_usd -- re-confirmed from dp4_inputs.json this run).",
+    "NO_PRE_ASSIGNMENT": "No episode is assigned to F3 or F4 before reading its footprint. The 2022 episode in particular is reported BY ITS FOOTPRINT (offshore-destination + USA-column structure), which at the admissible endpoint f=0 is the SHARED D2=D3 direction -- recorded UNDECIDABLE / F4-at-endpoint, NOT F3. Pre-assigning ANY episode to F3 is the specific planting failure forbidden at this gate."
+  },
+
+  "reconfirmed_operator_facts_from_disk": {
+    "f0_rank1_true_zero": "Recomputed from dp4_inputs.json operator_recipe: at f=0, max|v_F3 - v_F4| = 0.0 EXACTLY for s_usd in {0.0,0.5,1.0}; smallest singular value = 0 (the 9.0e-17/2.9e-17 are float-SVD dust on a true rank-1). tau-INDEPENDENT.",
+    "infimum_margin_admissible_plane": 0.0,
+    "infimum_attained_on": "the entire f=0 edge, for ALL s_usd.",
+    "margin_monotone": "INCREASING in f, DECREASING in s_usd; clears tau=0.10 only for f away from 0 with s_usd not too high -- a region that is NOT pinned on disk (both f and s_usd are HOLES)."
+  },
+
+  "episodes": [
+    {
+      "episode": "2022 Russia reserve-immobilization / sanctions",
+      "reported_by": "FOOTPRINT, not name (planting guard).",
+      "mechanism": "A sanctioned holder exits US/EU claims and shifts mass into alternative counterparties. In cell terms: a fall in a holder's USA-column cell matched by a rise in the offshore/China-conduit destination columns (US->{CYM,HKG,VGB}, US->CHN) -- i.e. a footprint on the destination columns + the USA column.",
+      "operator_direction_loaded": "The offshore-destination + USA-column structure. Its destination component decomposes into D1 (f*DESTn, F3-exclusive) PLUS D3 ((1-f)*s_usd*DESTn, shared offshore-USD), and its USA component is D2 (shared -USAn). At the admissible endpoint f=0 the D1 component is ZERO, so the entire footprint lies on the SHARED D2=D3 direction -- which is observationally the F4 common-run direction.",
+      "decidable_or_undecidable": "UNDECIDABLE / F4-at-endpoint.",
+      "why": "At f=0 (admissible lower endpoint of china_fraction_bound) the operator is algebraically rank-1: v_F3==v_F4, margin=0 for ALL s_usd. The 2022 footprint loads on the collapsed shared direction and is observationally F4 there, NOT F3. The F3 reading exists only as f rises AND s_usd stays low (D1 becomes nonzero and clears tau) -- a region NOT pinned on disk because BOTH f and s_usd are HOLES. So even the F3 reading is conditional on two unmeasured quantities.",
+      "region_where_decidable_if_any": "Would be decidable ONLY at f >= 0.2 with s_usd <= ~0.5 (from dp4_spectrum margin grid: f=0.2,s=0.0 margin 0.1394; f=0.2,s=0.5 margin 0.1130; f=0.6 margin 0.28-0.38 all s). That region requires assuming f>0 AND s_usd low -- supplying a value for either hole is forbidden, so it is NOT established on disk.",
+      "evidence": "dp4_spectrum.json episode_2022_f_contingent (at_f0: 'observationally F4 at the admissible endpoint, NOT F3'; planting_guard); dp4_verification.json check4_2022; dp4_inputs operator_recipe separating_component 'f*DESTn ... Vanishes at f=0 -> v_F3==v_F4'; dp3_sensitivity downstream_consequence_the_planting_guard ('at f=0 it could equally be F4').",
+      "planting_guard_note": "NOT pre-assigned to F3. The 2022->F3 assignment is exactly the reassignment dp3_spec's planting test flags as flipping the binding-mode; the sweep shows it flips within [0,0.60]; the gate records the episode as UNDECIDABLE / F4-at-endpoint."
+    },
+    {
+      "episode": "2008 GFC dollar funding squeeze",
+      "reported_by": "FOOTPRINT.",
+      "mechanism": "Common cross-holder USD funding stress and a broad flight from the dollar leg: holders cut USA-column exposure together, with USD funding marginals tightening system-wide. NOT a counterparty-substitution event (no common compensating in-grid destination rise).",
+      "operator_direction_loaded": "D2, the shared common USA-column fall (-USAn), plus the F1 funding-level direction (BIS USD marginals, OUTSIDE the 15-dim F3/F4 operator). NO loading on the F3-exclusive destination direction D1.",
+      "decidable_or_undecidable": "UNDECIDABLE for the F3-vs-F4 SEPARATION on this single matrix (it loads on the shared D2 common-run direction, which the snapshot cannot split from F3 because the lead/lag contagion-vs-substitution discriminator is absent). Its NON-loading on D1 is consistent with 'not F3', but on one snapshot D2 is the shared direction, so 2008 cannot be cleanly resolved to F4-distinct-from-F3 either.",
+      "region_where_decidable_if_any": "None on disk: D2 is the shared direction for ALL (f,s_usd); separating contagion (F4) from substitution (F3) on the USA block requires temporal lead/lag, which is UNESTIMABLE-FROM-ONE-SNAPSHOT.",
+      "evidence": "dp3_spec kind_3 EVENT R_proj (2008 should_load_on F1 + partially F4, should_NOT_load_on F3); dp4_spectrum single_snapshot_honesty ('USA block is a SHARED direction ... does not separate the factors on one realization'); dp4_inputs single_snapshot_shared_USA.",
+      "planting_guard_note": "Consistent with the F1/F4-not-F3 expectation, but recorded as UNDECIDABLE for the F3/F4 separation because the shared D2 direction is the collapsed one on a single snapshot. No F4 identification claimed as established."
+    },
+    {
+      "episode": "2011-2013 US debt-ceiling / Treasury de-specialization scares",
+      "reported_by": "FOOTPRINT.",
+      "mechanism": "A US-Treasury-instrument-specific quantity/premium move (F2), NOT a broad cross-holder dollar exit. Its discriminating leg is the TREASURY instrument (TIC I2 + Fed S4-government), distinct from the broad dollar leg.",
+      "operator_direction_loaded": "Primarily the F2 Treasury-instrument direction, which sits OUTSIDE the 15-dim F3/F4 operator (the operator's moment space is 3 destination cells + 12 USA-column cells; the instrument split lives in the TIC/Fed layers). Within the operator it would project weakly onto D2 (the unsplit CPIS USA column), NOT onto the F3-exclusive D1 destination direction.",
+      "decidable_or_undecidable": "UNDECIDABLE for F3-vs-F4 within this operator; SEPARATELY, F2-vs-F4 is only THIN (R2 instrument-exclusion): the CPIS USA column is instrument-unsplit (I2 debt + I3 equity combined), so F2 and F4 project onto the same unsplit column there. The Treasury-vs-broad split exists across TIC/Fed but NOT within the CPIS multi-holder column.",
+      "region_where_decidable_if_any": "F2/F4 separation has support on the TIC Treasury-only + Fed S4 layers (US-row Treasury quantity), not on the cross-holder CPIS column. It does NOT bear on the f=0 F3/F4 rank-1 degeneracy at all. No region of the (f,s_usd) plane makes 2011-2013 load on D1.",
+      "evidence": "dp3_spec kind_3 EVENT R_proj (2011-2013 should_load_on F2, should_NOT_load_on F4); dp3_spec restriction_R2_F2_vs_F4 does_falsifier_obtain ('YES, PARTIALLY ... instrument-unsplit ... THIN for the cross-holder dimension'); matrix_spec caveat 'P_TOTINV combines debt + equity; not split here'.",
+      "planting_guard_note": "No loading on the F3-exclusive destination direction; not assignable to F3. Reported as an F2-flavoured episode whose F2/F4 separation is THIN, and which is silent on the F3/F4 degeneracy."
+    },
+    {
+      "episode": "2020 COVID dash-for-cash",
+      "reported_by": "FOOTPRINT.",
+      "mechanism": "A system-wide rush into USD liquidity / Treasuries: common cross-holder funding stress and a broad dollar-leg move, NOT a counterparty substitution into China-conduit destinations.",
+      "operator_direction_loaded": "D2, the shared common USA-column direction (-USAn), plus the F1 funding-level direction (BIS USD marginals, outside the operator). NO loading on the F3-exclusive destination direction D1.",
+      "decidable_or_undecidable": "UNDECIDABLE for the F3-vs-F4 separation on this single matrix -- same structural reason as 2008: it loads on the shared D2 common-run direction, which the single snapshot cannot split into contagion (F4) vs substitution (F3) without a lead/lag discriminator. Its non-loading on D1 is consistent with 'not F3' but does not deliver an F4-distinct-from-F3 reading on one realization.",
+      "region_where_decidable_if_any": "None on disk: D2 is shared for all (f,s_usd); the contagion-vs-substitution discriminator is UNESTIMABLE-FROM-ONE-SNAPSHOT. 2020 is not in dp3_spec's explicit R_proj list; it is sorted here by footprint analogy to 2008 (common funding stress + broad flight), and lands on the same shared direction.",
+      "evidence": "dp4_spectrum single_snapshot_honesty (USA block shared, does not separate on one realization); dp4_inputs single_snapshot_shared_USA; dp3_spec F1/F4 footprints (USA-column common move + BIS USD funding marginals).",
+      "planting_guard_note": "No loading on the F3-exclusive destination direction; not assignable to F3. Recorded UNDECIDABLE for the F3/F4 separation."
+    }
+  ],
+
+  "sort_summary": {
+    "loads_on_F3_exclusive_destination_D1_and_DECIDABLE": "NONE. No episode loads decidably on the F3-exclusive direction anywhere established on disk -- because the only place D1 is nonzero is f>0, and clearing tau also needs s_usd low, and BOTH f and s_usd are HOLES.",
+    "loads_on_shared_D2_D3_collapsed_direction_UNDECIDABLE": ["2022 (F4-at-endpoint at f=0)", "2008", "2020"],
+    "loads_outside_the_F3_F4_operator_F2_flavoured_THIN": ["2011-2013 (F2; F2/F4 separation thin; silent on F3/F4 degeneracy)"],
+    "the_2022_verdict": "2022 = UNDECIDABLE / F4-at-endpoint, NOT F3. At admissible f=0 it loads on the shared F3=F4 = F4 common-run direction. NOT pre-assigned to F3.",
+    "consequence_for_the_gate": "The episode-sort exhibits NO episode whose footprint decidably isolates the F3-exclusive direction on disk. The sort does not rescue the F3/F4 separation; it confirms the operator's f=0 rank-1 degeneracy is what the episodes run into."
+  },
+
+  "carried_forward_not_resolved": [
+    "HOLE: China-nationality fraction f in [0.0,0.60] (china_fraction_bound.json) -- load-bearing; at f=0 the F3-exclusive direction vanishes.",
+    "HOLE: offshore-USD (ABS) share s_usd in [0,1] of the (1-f) remainder (second hole; UNVERIFIED).",
+    "UNESTIMABLE-FROM-ONE-SNAPSHOT: contagion-vs-substitution lead/lag discriminator; one matrix on disk.",
+    "$711,157.7mn BIS banking-marginal floor (F1 noise floor; does not enter the F3/F4 operator)."
+  ]
+}

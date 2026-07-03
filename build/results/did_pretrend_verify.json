@@ -1,0 +1,283 @@
+{
+  "source_panel": "/home/user/dollar-breaking-point/build/data/nport/did_control_panels.parquet",
+  "compared_against": "/home/user/dollar-breaking-point/build/audit/did_feasibility.json",
+  "pre_period": [
+    "2019q4",
+    "2020q1",
+    "2020q2",
+    "2020q3",
+    "2020q4",
+    "2021q1",
+    "2021q2",
+    "2021q3",
+    "2021q4"
+  ],
+  "coef_tol": 1e-06,
+  "p_tol_loose": 0.001,
+  "controls": {
+    "C1": {
+      "untrimmed": {
+        "recomputed": {
+          "interaction_coef": -22.393364659097127,
+          "se": 27.285149982754664,
+          "t": -0.8207162017892756,
+          "p": 0.4118313662711224,
+          "n_obs": 53868,
+          "n_fund_fe": 8352
+        },
+        "stored": {
+          "interaction_coef": -22.393364659097127,
+          "se": 27.285149982754664,
+          "p": 0.4118313662711224
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": true
+      },
+      "trim_1pct": {
+        "recomputed": {
+          "interaction_coef": -0.004263512986352555,
+          "se": 0.001262022740511181,
+          "t": -3.3783170853368483,
+          "p": 0.0007326626560902378,
+          "n_obs": 52790,
+          "n_fund_fe": 8305
+        },
+        "stored": {
+          "interaction_coef": -0.004263512986352555,
+          "se": 0.001262022740511181,
+          "p": 0.0007326626560902378
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "trim_5pct": {
+        "recomputed": {
+          "interaction_coef": -0.004841943711560359,
+          "se": 0.0007063982378873329,
+          "t": -6.854410800968936,
+          "p": 7.680706425823849e-12,
+          "n_obs": 48480,
+          "n_fund_fe": 8174
+        },
+        "stored": {
+          "interaction_coef": -0.004841943711560359,
+          "se": 0.0007063982378873329,
+          "p": 7.680706425823849e-12
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "parallel_untrimmed": true,
+      "parallel_robust": false
+    },
+    "C2": {
+      "untrimmed": {
+        "recomputed": {
+          "interaction_coef": 13.122205300265128,
+          "se": 7.850272119674301,
+          "t": 1.6715605650635144,
+          "p": 0.09466905402807128,
+          "n_obs": 34531,
+          "n_fund_fe": 5391
+        },
+        "stored": {
+          "interaction_coef": 13.122205300265128,
+          "se": 7.850272119674301,
+          "p": 0.09466905402807128
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "trim_1pct": {
+        "recomputed": {
+          "interaction_coef": -0.004999623011851905,
+          "se": 0.0014696307786984017,
+          "t": -3.401958562871069,
+          "p": 0.0006739447178875057,
+          "n_obs": 33839,
+          "n_fund_fe": 5359
+        },
+        "stored": {
+          "interaction_coef": -0.004999623011851905,
+          "se": 0.0014696307786984017,
+          "p": 0.0006739447178875057
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "trim_5pct": {
+        "recomputed": {
+          "interaction_coef": -0.006172640564658965,
+          "se": 0.000787567802664916,
+          "t": -7.837598926432013,
+          "p": 5.521139008918266e-15,
+          "n_obs": 31077,
+          "n_fund_fe": 5248
+        },
+        "stored": {
+          "interaction_coef": -0.006172640564658965,
+          "se": 0.000787567802664916,
+          "p": 5.521139008918266e-15
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "parallel_untrimmed": false,
+      "parallel_robust": false
+    },
+    "C3": {
+      "untrimmed": {
+        "recomputed": {
+          "interaction_coef": 125.81006064572362,
+          "se": 246.29721128079183,
+          "t": 0.5108058673969049,
+          "p": 0.609499163002236,
+          "n_obs": 62280,
+          "n_fund_fe": 9272
+        },
+        "stored": {
+          "interaction_coef": 125.81006064572362,
+          "se": 246.29721128079183,
+          "p": 0.609499163002236
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": true
+      },
+      "trim_1pct": {
+        "recomputed": {
+          "interaction_coef": -0.006677764318844225,
+          "se": 0.001129326760184976,
+          "t": -5.913048866167355,
+          "p": 3.477707369921517e-09,
+          "n_obs": 61034,
+          "n_fund_fe": 9222
+        },
+        "stored": {
+          "interaction_coef": -0.006677764318844225,
+          "se": 0.001129326760184976,
+          "p": 3.477707369921517e-09
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "trim_5pct": {
+        "recomputed": {
+          "interaction_coef": -0.007564695062288458,
+          "se": 0.0006514861369621136,
+          "t": -11.611444408568243,
+          "p": 5.9580914283854305e-31,
+          "n_obs": 56052,
+          "n_fund_fe": 9089
+        },
+        "stored": {
+          "interaction_coef": -0.007564695062288458,
+          "se": 0.0006514861369621136,
+          "p": 5.9580914283854305e-31
+        },
+        "coef_abs_diff": 0.0,
+        "p_abs_diff": 0.0,
+        "coef_match_1e-6": true,
+        "p_match_loose": true,
+        "parallel_recomputed": false
+      },
+      "parallel_untrimmed": true,
+      "parallel_robust": false
+    }
+  },
+  "all_coef_match_1e-6": true,
+  "branch_recomputed": "NOT-IDENTIFIED",
+  "branch_stored": "NOT-IDENTIFIED",
+  "branch_match": true,
+  "per_quarter_group_means_trim5pct": {
+    "trim_definition": "per (group, fiscal_quarter) cell: scipy.stats.trim_mean(rate, 0.05) -- symmetric 5% two-sided trim of that cell's own non-null rate observations, then mean of the remainder. Deterministic (fixed integer drop count floor(0.05*n) per end; no randomness).",
+    "pre_period": [
+      "2019q4",
+      "2020q1",
+      "2020q2",
+      "2020q3",
+      "2020q4",
+      "2021q1",
+      "2021q2",
+      "2021q3",
+      "2021q4"
+    ],
+    "groups": [
+      "treated",
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "means": {
+      "treated": {
+        "2019q4": 0.01917422158865441,
+        "2020q1": -0.0013347552897745123,
+        "2020q2": 0.03868392229323123,
+        "2020q3": 0.030666995053178017,
+        "2020q4": 0.029149616503521998,
+        "2021q1": 0.04355160802416166,
+        "2021q2": 0.008846612413745316,
+        "2021q3": -0.004858136020541268,
+        "2021q4": -0.006539223875545943
+      },
+      "C1": {
+        "2019q4": 0.03740821577962991,
+        "2020q1": 0.0031879848094260644,
+        "2020q2": 0.05947836862363284,
+        "2020q3": 0.0602122548812428,
+        "2020q4": 0.05291874991976855,
+        "2021q1": 0.09169596300979427,
+        "2021q2": 0.047199752074295685,
+        "2021q3": 0.047583996003944695,
+        "2021q4": 0.013434035906112685
+      },
+      "C2": {
+        "2019q4": 0.011735570851724527,
+        "2020q1": -0.03382239319848445,
+        "2020q2": 0.06799140003776633,
+        "2020q3": 0.051520033369313725,
+        "2020q4": 0.07570420765291594,
+        "2021q1": 0.07747534037879474,
+        "2021q2": 0.043714020666520026,
+        "2021q3": 0.01101246498960608,
+        "2021q4": 0.04181964479177896
+      },
+      "C3": {
+        "2019q4": 0.018375709511824972,
+        "2020q1": -0.023562683493679182,
+        "2020q2": 0.05202427623340003,
+        "2020q3": 0.021988274898667563,
+        "2020q4": 0.030192742881813832,
+        "2021q1": 0.07115020079602438,
+        "2021q2": 0.04729658145904086,
+        "2021q3": 0.034216007313127995,
+        "2021q4": 0.01671073898807151
+      }
+    },
+    "self_reproduce_max_abs_diff": 0.0,
+    "self_reproduce_match_1e-6": true
+  }
+}

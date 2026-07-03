@@ -1,0 +1,630 @@
+{
+ "artifact": "RDT_coordinates.parquet",
+ "stage": "RDT Part 1(d) \u2014 coordinates assembly (inputs only; NO distance/velocity/ordering/composite computed here \u2014 that is the estimation stage and is NOT ESTABLISHED until RDT_recompute.py runs and RDT_verify.json exists)",
+ "built_utc": "2026-07-02T00:51:00Z",
+ "schema": [
+  "holder",
+  "coordinate",
+  "year",
+  "value",
+  "value_lower",
+  "value_upper",
+  "observability",
+  "vintage",
+  "source"
+ ],
+ "row_counts": {
+  "total": 793,
+  "by_coordinate": {
+   "allocated_total_usd_bn": 13,
+   "gold_usd_per_oz_2021mean": 1,
+   "k1_usd_share_pct": 68,
+   "k1_usd_share_pct_safe_route": 13,
+   "k2_gold_tonnes": 96,
+   "k2_reserves_ex_gold_usd_bn": 96,
+   "k2_total_reserves_usd_bn": 96,
+   "k3_net_tx_busd": 84,
+   "k3_ust_busd": 102,
+   "k4_cips_participants": 6,
+   "k4_cny_share_pct": 57,
+   "k4_swap_line_bn_cny": 6,
+   "safe_disclosed_usd_share_pct": 2,
+   "usd_share_p10": 28,
+   "usd_share_p25": 28,
+   "usd_share_p50": 28,
+   "usd_share_p75": 28,
+   "usd_share_p90": 28,
+   "usd_share_pct_allocated": 13
+  },
+  "by_observability": {
+   "OBSERVED": 721,
+   "INFERRED-BOUNDED": 56,
+   "NOT-AVAILABLE": 16
+  }
+ },
+ "realized_observability_matrix": {
+  "Russia": {
+   "k1_usd_share_pct": "OBSERVED 2007-2021 (n=15)",
+   "k2_gold_tonnes": "OBSERVED 2010-2025 (n=16)",
+   "k2_reserves_ex_gold_usd_bn": "OBSERVED 2010-2024 (n=15); NOT-AVAILABLE 2025-2025 (n=1)",
+   "k2_total_reserves_usd_bn": "OBSERVED 2010-2024 (n=15); NOT-AVAILABLE 2025-2025 (n=1)",
+   "k3_net_tx_busd": "OBSERVED 2013-2026 (n=14)",
+   "k3_ust_busd": "OBSERVED 2010-2026 (n=17)",
+   "k4_cips_participants": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cny_share_pct": "OBSERVED 2007-2021 (n=15)",
+   "k4_swap_line_bn_cny": "OBSERVED 2014-2014 (n=1)"
+  },
+  "China": {
+   "k1_usd_share_pct": "INFERRED-BOUNDED 2014-2025 (n=12)",
+   "k1_usd_share_pct_safe_route": "INFERRED-BOUNDED 2014-2026 (n=13)",
+   "k2_gold_tonnes": "OBSERVED 2010-2025 (n=16)",
+   "k2_reserves_ex_gold_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k2_total_reserves_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k3_net_tx_busd": "INFERRED-BOUNDED 2013-2026 (n=14)",
+   "k3_ust_busd": "INFERRED-BOUNDED 2010-2026 (n=17)",
+   "k4_cips_participants": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cny_share_pct": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_swap_line_bn_cny": "NOT-AVAILABLE 2026-2026 (n=1)"
+  },
+  "India": {
+   "k1_usd_share_pct": "NOT-AVAILABLE 2023-2023 (n=1)",
+   "k2_gold_tonnes": "OBSERVED 2010-2025 (n=16)",
+   "k2_reserves_ex_gold_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k2_total_reserves_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k3_net_tx_busd": "OBSERVED 2013-2026 (n=14)",
+   "k3_ust_busd": "OBSERVED 2010-2026 (n=17)",
+   "k4_cips_participants": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cny_share_pct": "NOT-AVAILABLE 2023-2023 (n=1)",
+   "k4_swap_line_bn_cny": "OBSERVED 2024-2024 (n=1)"
+  },
+  "Turkey": {
+   "k1_usd_share_pct": "OBSERVED 2004-2023 (n=20)",
+   "k2_gold_tonnes": "OBSERVED 2010-2025 (n=16)",
+   "k2_reserves_ex_gold_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k2_total_reserves_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k3_net_tx_busd": "OBSERVED 2013-2026 (n=14)",
+   "k3_ust_busd": "OBSERVED 2010-2026 (n=17)",
+   "k4_cips_participants": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cny_share_pct": "OBSERVED 2004-2023 (n=20)",
+   "k4_swap_line_bn_cny": "OBSERVED 2012-2012 (n=1)"
+  },
+  "SaudiArabia": {
+   "k1_usd_share_pct": "NOT-AVAILABLE 2023-2023 (n=1)",
+   "k2_gold_tonnes": "OBSERVED 2010-2025 (n=16)",
+   "k2_reserves_ex_gold_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k2_total_reserves_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k3_net_tx_busd": "OBSERVED 2013-2026 (n=14)",
+   "k3_ust_busd": "OBSERVED 2011-2026 (n=16); NOT-AVAILABLE 2010-2010 (n=1)",
+   "k4_cips_participants": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cny_share_pct": "NOT-AVAILABLE 2023-2023 (n=1)",
+   "k4_swap_line_bn_cny": "OBSERVED 2023-2023 (n=1)"
+  },
+  "Poland": {
+   "k1_usd_share_pct": "OBSERVED 2004-2022 (n=19)",
+   "k2_gold_tonnes": "OBSERVED 2010-2025 (n=16)",
+   "k2_reserves_ex_gold_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k2_total_reserves_usd_bn": "OBSERVED 2010-2025 (n=16)",
+   "k3_net_tx_busd": "OBSERVED 2013-2026 (n=14)",
+   "k3_ust_busd": "OBSERVED 2010-2025 (n=16); NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cips_participants": "NOT-AVAILABLE 2026-2026 (n=1)",
+   "k4_cny_share_pct": "OBSERVED 2004-2022 (n=19)",
+   "k4_swap_line_bn_cny": "OBSERVED 2024-2024 (n=1)"
+  },
+  "_AGG_COFER": {
+   "allocated_total_usd_bn": "OBSERVED 2014-2026 (n=13)",
+   "usd_share_pct_allocated": "OBSERVED 2014-2026 (n=13)"
+  },
+  "_LMW_PCTL": {
+   "usd_share_p10": "OBSERVED 1996-2023 (n=28)",
+   "usd_share_p25": "OBSERVED 1996-2023 (n=28)",
+   "usd_share_p50": "OBSERVED 1996-2023 (n=28)",
+   "usd_share_p75": "OBSERVED 1996-2023 (n=28)",
+   "usd_share_p90": "OBSERVED 1996-2023 (n=28)"
+  },
+  "_PREF": {
+   "gold_usd_per_oz_2021mean": "OBSERVED 2021-2021 (n=1)"
+  },
+  "_SAFE_ANCHOR": {
+   "safe_disclosed_usd_share_pct": "OBSERVED 1995-2014 (n=2)"
+  }
+ },
+ "anchors_echo": {
+  "russia_k3_2018_collapse": {
+   "annual_snapshot_dec2017_busd_from_parquet": 102.5,
+   "annual_snapshot_dec2018_busd_from_parquet": 13.2,
+   "monthly_collapse_quoted_from_rdt_k3_ust_csv": {
+    "2018-01": 96.9,
+    "2018-02": 93.8,
+    "2018-03": 96.1,
+    "2018-04": 48.7,
+    "2018-05": 14.9,
+    "2018-06": 14.9,
+    "2018-12": 13.2
+   },
+   "verdict": "REPLICATED in assembled data: Dec-2017 102.5 -> Dec-2018 13.2 busd annual snapshots; monthly 2018-03 96.1 -> 2018-04 48.7 -> 2018-05 14.9 (order ~$100B -> ~$15B within months)"
+  },
+  "russia_k2_accumulation": {
+   "end_2013_tonnes_from_parquet": 1035.21,
+   "end_2020_tonnes_from_parquet": 2298.53,
+   "verdict": "REPLICATED: 1035.21t (end-2013) -> 2298.53t (end-2020), order ~1,000t -> ~2,300t"
+  },
+  "rd2_overlap_reconciliation_from_k2_manifest": {
+   "compared_against": "build/reserve/RD2_gold_panel.parquet (READ-ONLY), column reserve_gold_tonnes",
+   "method": "all overlapping quarters 2019Q1-2025Q4 (28 per country), max |tonnes diff| by country",
+   "per_country_max_abs_tonnes_diff": {
+    "RUS": 0.0,
+    "CHN": 0.0,
+    "IND": 0.0,
+    "TUR": 0.0,
+    "SAU": 0.0,
+    "POL": 0.0,
+    "USA": 0.0
+   },
+   "n_overlap_quarters": {
+    "RUS": 28,
+    "CHN": 28,
+    "IND": 28,
+    "TUR": 28,
+    "SAU": 28,
+    "POL": 28,
+    "USA": 28
+   },
+   "verdict": "EXACT match (max |diff| = 0.0 t for all 7 countries; same API, same day, no revisions between the RD2 2019-2025 window and this extended fetch)"
+  }
+ },
+ "P_ref_gold_usd_per_oz_2021mean": 1799.6291666666664,
+ "k1_china_residual_route_by_year": {
+  "2014": {
+   "W": 62.6819,
+   "A": 11601.054,
+   "R_C": 3900.039,
+   "lmw_year": 2014,
+   "s_NC_p10": 17.34,
+   "s_NC_p90": 87.96,
+   "raw": [
+    12.78,
+    152.21
+   ],
+   "stored": [
+    12.78,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2015": {
+   "W": 64.154,
+   "A": 10924.201,
+   "R_C": 3405.253,
+   "lmw_year": 2015,
+   "s_NC_p10": 24.2,
+   "s_NC_p90": 90.68,
+   "raw": [
+    5.58,
+    152.37
+   ],
+   "stored": [
+    5.58,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2016": {
+   "W": 64.68,
+   "A": 10717.348,
+   "R_C": 3097.658,
+   "lmw_year": 2016,
+   "s_NC_p10": 21.92,
+   "s_NC_p90": 90.62,
+   "raw": [
+    0.87,
+    169.86
+   ],
+   "stored": [
+    0.87,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2017": {
+   "W": 62.7073,
+   "A": 11442.684,
+   "R_C": 3235.682,
+   "lmw_year": 2017,
+   "s_NC_p10": 18.84,
+   "s_NC_p90": 95.14,
+   "raw": [
+    -19.55,
+    173.97
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2018": {
+   "W": 62.065,
+   "A": 11422.259,
+   "R_C": 3168.216,
+   "lmw_year": 2018,
+   "s_NC_p10": 22.86,
+   "s_NC_p90": 94.96,
+   "raw": [
+    -23.63,
+    164.2
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2019": {
+   "W": 61.3203,
+   "A": 11815.395,
+   "R_C": 3222.895,
+   "lmw_year": 2019,
+   "s_NC_p10": 18.59,
+   "s_NC_p90": 93.74,
+   "raw": [
+    -25.1,
+    175.24
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2020": {
+   "W": 59.5283,
+   "A": 12693.933,
+   "R_C": 3357.241,
+   "lmw_year": 2020,
+   "s_NC_p10": 20.68,
+   "s_NC_p90": 93.7,
+   "raw": [
+    -35.52,
+    167.58
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2021": {
+   "W": 59.4025,
+   "A": 12914.128,
+   "R_C": 3427.931,
+   "lmw_year": 2021,
+   "s_NC_p10": 13.89,
+   "s_NC_p90": 94.45,
+   "raw": [
+    -37.59,
+    185.35
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2022": {
+   "W": 58.9518,
+   "A": 11884.46,
+   "R_C": 3306.839,
+   "lmw_year": 2022,
+   "s_NC_p10": 14.78,
+   "s_NC_p90": 94.77,
+   "raw": [
+    -33.96,
+    173.52
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2023": {
+   "W": 58.9796,
+   "A": 12315.031,
+   "R_C": 3449.544,
+   "lmw_year": 2023,
+   "s_NC_p10": 17.68,
+   "s_NC_p90": 88.03,
+   "raw": [
+    -15.68,
+    165.12
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2024": {
+   "W": 58.4082,
+   "A": 12330.174,
+   "R_C": 3456.025,
+   "lmw_year": 2023,
+   "s_NC_p10": 17.68,
+   "s_NC_p90": 88.03,
+   "raw": [
+    -17.65,
+    162.99
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  },
+  "2025": {
+   "W": 56.4173,
+   "A": 13146.663,
+   "R_C": 3748.745,
+   "lmw_year": 2023,
+   "s_NC_p10": 17.68,
+   "s_NC_p90": 88.03,
+   "raw": [
+    -22.83,
+    153.53
+   ],
+   "stored": [
+    0.0,
+    100.0
+   ],
+   "clipped": "True"
+  }
+ },
+ "k1_china_safe_route_by_year": {
+  "2014": {
+   "n": 54,
+   "p10": 0.0,
+   "p90": 0.0,
+   "corridor": [
+    58.0,
+    58.0
+   ],
+   "truncated": 0
+  },
+  "2015": {
+   "n": 54,
+   "p10": 0.28,
+   "p90": 9.99,
+   "corridor": [
+    48.01,
+    67.99
+   ],
+   "truncated": 1
+  },
+  "2016": {
+   "n": 54,
+   "p10": 0.62,
+   "p90": 14.32,
+   "corridor": [
+    43.68,
+    72.32
+   ],
+   "truncated": 1
+  },
+  "2017": {
+   "n": 54,
+   "p10": 0.47,
+   "p90": 17.76,
+   "corridor": [
+    40.24,
+    75.76
+   ],
+   "truncated": 3
+  },
+  "2018": {
+   "n": 54,
+   "p10": 0.91,
+   "p90": 14.63,
+   "corridor": [
+    43.37,
+    72.63
+   ],
+   "truncated": 4
+  },
+  "2019": {
+   "n": 54,
+   "p10": 1.31,
+   "p90": 18.87,
+   "corridor": [
+    39.13,
+    76.87
+   ],
+   "truncated": 4
+  },
+  "2020": {
+   "n": 54,
+   "p10": 1.32,
+   "p90": 20.04,
+   "corridor": [
+    37.96,
+    78.04
+   ],
+   "truncated": 5
+  },
+  "2021": {
+   "n": 54,
+   "p10": 0.69,
+   "p90": 27.13,
+   "corridor": [
+    30.87,
+    85.13
+   ],
+   "truncated": 7
+  },
+  "2022": {
+   "n": 54,
+   "p10": 1.29,
+   "p90": 26.19,
+   "corridor": [
+    31.81,
+    84.19
+   ],
+   "truncated": 11
+  },
+  "2023": {
+   "n": 54,
+   "p10": 1.33,
+   "p90": 24.12,
+   "corridor": [
+    33.88,
+    82.12
+   ],
+   "truncated": 25
+  },
+  "2024": {
+   "n": 54,
+   "p10": 1.33,
+   "p90": 24.12,
+   "corridor": [
+    33.88,
+    82.12
+   ],
+   "truncated": 54
+  },
+  "2025": {
+   "n": 54,
+   "p10": 1.33,
+   "p90": 24.12,
+   "corridor": [
+    33.88,
+    82.12
+   ],
+   "truncated": 54
+  },
+  "2026": {
+   "n": 54,
+   "p10": 1.33,
+   "p90": 24.12,
+   "corridor": [
+    33.88,
+    82.12
+   ],
+   "truncated": 54
+  }
+ },
+ "rd2_2025_backfill_check": "RD2_gold_panel.parquet checked for 2025 values the k2 csv lacks: RUS 2025Q4 fx/total denominators are NaN in RD2 too \u2014 nothing backfilled; RUS 2025 denominators stay NOT-AVAILABLE",
+ "sanity_checks": {
+  "coverage_every_holder_coordinate_has_rows_or_explicit_NA": "PASS",
+  "china_k3_lower_le_upper_everywhere": "PASS (56 INFERRED-BOUNDED rows, lower<=upper in all)",
+  "k1_china_residual_within_0_100_clipped_with_raw_reported": "PASS (stored intervals within [0,100]; 12/12 years CLIPPED, raw endpoints preserved in source and manifest)",
+  "observability_value_consistency": "PASS",
+  "no_readonly_input_modified_mtime_before_after": "PASS (no guarded file modified; 48 files checked)"
+ },
+ "mtimes_before": {
+  "RD1_prediction.md": 1782935714.1402452,
+  "RD1_recompute.py": 1782936037.9202347,
+  "RD1_result.json": 1782936085.7345254,
+  "RD1_verdict.md": 1782936397.9522228,
+  "RD1_verify.json": 1782936085.7753217,
+  "RD2_gold_panel.parquet": 1782942406.2380848,
+  "RD2_gold_provenance.md": 1782943091.9780915,
+  "RD2_prediction.md": 1782940509.0700667,
+  "RD2_recompute.py": 1782942725.938088,
+  "RD2_result.json": 1782943113.4162743,
+  "RD2_verdict.md": 1782942805.8980887,
+  "RD2_verify.json": 1782943113.6682463,
+  "rd0_evidence/fred_DEXCHUS_feb2022.csv": 1782935205.3504255,
+  "rd0_evidence/fred_DEXUSEU_2022q1.csv": 1782933485.6684332,
+  "rd0_evidence/fred_DEXUSUK_2022.csv": 1782935191.5728064,
+  "rd0_evidence/lmw_Data.xls": 1782933238.3083265,
+  "rd0_evidence/lmw_reading_emdp202501.pdf": 1782933059.1723323,
+  "rd0_evidence/swift_rmb_tracker.pdf": 1782933485.6710923,
+  "rd0_evidence/swift_rmb_tracker_252053.pdf": 1782934867.2961805,
+  "rd0_evidence/swift_rmb_tracker_editions.txt": 1782935018.7339933,
+  "rd0_evidence/taxonomy_unga_es11_1_vote.txt": 1782935245.5042605,
+  "rd0_evidence/tic_mfhhis01_evidence.txt": 1782935018.7322822,
+  "rd0_evidence/tic_s1_globl_header.txt": 1782934995.109092,
+  "rd0_evidence/un_digitallibrary_es11_1_votelines.txt": 1782935252.8002603,
+  "rd2_evidence/_RD2_fetch_log.txt": 1782941660.9523108,
+  "rd2_evidence/cbd_quarterly_2019_2025.json": 1782941258.378074,
+  "rd2_evidence/cbr_mrrf_m.html": 1782941296.705248,
+  "rd2_evidence/safe_ora_2020.xls": 1782941257.91244,
+  "rd2_evidence/safe_ora_2021.xlsx": 1782941186.367411,
+  "rd2_evidence/safe_ora_2022.xlsx": 1782941191.316488,
+  "rd2_evidence/safe_ora_2023.xlsx": 1782941196.3808818,
+  "rd2_evidence/safe_ora_2024.xlsx": 1782941201.8630207,
+  "rd2_evidence/safe_ora_2025.xlsx": 1782941206.667785,
+  "rd2_evidence/safe_ora_2026.xlsx": 1782941455.8955631,
+  "rd2_evidence/wb_pinksheet_MYFETCH.xlsx": 1782941731.7500784,
+  "rdt_k2_gold.csv": 1782949776.079253,
+  "rdt_k2_manifest.json": 1782949828.6664035,
+  "rdt_k2_provenance.md": 1782949859.0608928,
+  "rdt_k3_manifest.json": 1782950512.192912,
+  "rdt_k3_provenance.md": 1782950560.8689134,
+  "rdt_k3_transactions.csv": 1782950428.2525005,
+  "rdt_k3_ust.csv": 1782950428.1737106,
+  "rdt_k4_cofer.csv": 1782952386.811388,
+  "rdt_k4_manifest.json": 1782952526.4953482,
+  "rdt_k4_provenance.md": 1782952603.9892404,
+  "rdt_k4_rmb.csv": 1782952486.895504,
+  "RDT_prediction.md": 1782947836.6996946,
+  "../ledger.json": 1782943174.8420923
+ },
+ "mtimes_after": {
+  "RD1_prediction.md": 1782935714.1402452,
+  "RD1_recompute.py": 1782936037.9202347,
+  "RD1_result.json": 1782936085.7345254,
+  "RD1_verdict.md": 1782936397.9522228,
+  "RD1_verify.json": 1782936085.7753217,
+  "RD2_gold_panel.parquet": 1782942406.2380848,
+  "RD2_gold_provenance.md": 1782943091.9780915,
+  "RD2_prediction.md": 1782940509.0700667,
+  "RD2_recompute.py": 1782942725.938088,
+  "RD2_result.json": 1782943113.4162743,
+  "RD2_verdict.md": 1782942805.8980887,
+  "RD2_verify.json": 1782943113.6682463,
+  "rd0_evidence/fred_DEXCHUS_feb2022.csv": 1782935205.3504255,
+  "rd0_evidence/fred_DEXUSEU_2022q1.csv": 1782933485.6684332,
+  "rd0_evidence/fred_DEXUSUK_2022.csv": 1782935191.5728064,
+  "rd0_evidence/lmw_Data.xls": 1782933238.3083265,
+  "rd0_evidence/lmw_reading_emdp202501.pdf": 1782933059.1723323,
+  "rd0_evidence/swift_rmb_tracker.pdf": 1782933485.6710923,
+  "rd0_evidence/swift_rmb_tracker_252053.pdf": 1782934867.2961805,
+  "rd0_evidence/swift_rmb_tracker_editions.txt": 1782935018.7339933,
+  "rd0_evidence/taxonomy_unga_es11_1_vote.txt": 1782935245.5042605,
+  "rd0_evidence/tic_mfhhis01_evidence.txt": 1782935018.7322822,
+  "rd0_evidence/tic_s1_globl_header.txt": 1782934995.109092,
+  "rd0_evidence/un_digitallibrary_es11_1_votelines.txt": 1782935252.8002603,
+  "rd2_evidence/_RD2_fetch_log.txt": 1782941660.9523108,
+  "rd2_evidence/cbd_quarterly_2019_2025.json": 1782941258.378074,
+  "rd2_evidence/cbr_mrrf_m.html": 1782941296.705248,
+  "rd2_evidence/safe_ora_2020.xls": 1782941257.91244,
+  "rd2_evidence/safe_ora_2021.xlsx": 1782941186.367411,
+  "rd2_evidence/safe_ora_2022.xlsx": 1782941191.316488,
+  "rd2_evidence/safe_ora_2023.xlsx": 1782941196.3808818,
+  "rd2_evidence/safe_ora_2024.xlsx": 1782941201.8630207,
+  "rd2_evidence/safe_ora_2025.xlsx": 1782941206.667785,
+  "rd2_evidence/safe_ora_2026.xlsx": 1782941455.8955631,
+  "rd2_evidence/wb_pinksheet_MYFETCH.xlsx": 1782941731.7500784,
+  "rdt_k2_gold.csv": 1782949776.079253,
+  "rdt_k2_manifest.json": 1782949828.6664035,
+  "rdt_k2_provenance.md": 1782949859.0608928,
+  "rdt_k3_manifest.json": 1782950512.192912,
+  "rdt_k3_provenance.md": 1782950560.8689134,
+  "rdt_k3_transactions.csv": 1782950428.2525005,
+  "rdt_k3_ust.csv": 1782950428.1737106,
+  "rdt_k4_cofer.csv": 1782952386.811388,
+  "rdt_k4_manifest.json": 1782952526.4953482,
+  "rdt_k4_provenance.md": 1782952603.9892404,
+  "rdt_k4_rmb.csv": 1782952486.895504,
+  "RDT_prediction.md": 1782947836.6996946,
+  "../ledger.json": 1782943174.8420923
+ },
+ "issues": [
+  "k1-China residual route is WEAK: 12/12 years have a raw endpoint outside [0,100] (China is ~28-34% of the world allocated total, so s_C is hypersensitive to s_NC; the LMW p10-p90 discloser spread (p90 ~88-95%) maps to an interval wider than [0,100] in those years). Clipped values stored; RAW endpoints preserved per year in k1_china_residual_route_by_year and in each row's source. This is information about the residual's weakness, reported, not hidden.",
+  "k2 denominator concept note: WB total reserves (k2 csv) and RD2 panel totals differ for TUR 2025 (WB 185.568 vs RD2/WGC-derived 157.887 $bn) \u2014 different publisher concepts; the committed k2 csv (WB) is used, RD2 only checked for backfill per rule 2.",
+  "COFER 2025Q3 methodology break (unallocated eliminated, imputed back to 2000Q1, TNM/2025/14) carried in every _AGG_COFER row source and every k1-China residual row source.",
+  "Poland k3_ust 2026: NOT-AVAILABLE (publisher does not publish Poland total UST 2026-01..04); Russia 2025 WB denominators: NOT-AVAILABLE; India/SaudiArabia k1 and k4_cny: NOT-AVAILABLE (absent from LMW panel); per-country CIPS counts: NOT-AVAILABLE (publisher).",
+  "LMW cross-section thins in its final year: 2023 has n=31 disclosers with non-missing USD share vs ~49-56 in 2010-2022. The 2023 percentiles (used for residual/safe-route target years 2023-2026 per the latest-LMW-year rule) therefore rest on a thinner cross-section; per-year n is recorded in every _LMW_PCTL row source and in each residual-row source.",
+  "SAFE-route corridor construction choice, disclosed: the prediction's 'anchor +/- the 10th-90th percentile of |dUSD share|' is implemented as the conservative envelope anchor +/- p90, with p10 recorded per year in source and manifest (k1_china_safe_route_by_year)."
+ ]
+}

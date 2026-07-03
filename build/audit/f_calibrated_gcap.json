@@ -1,0 +1,95 @@
+{
+  "artifact": "f_calibrated_gcap.json",
+  "task": "DP1-REOPEN CORRECTED Part 1 -- ROUTE B. Attach China-nationality mass to the N-PORT haven panel by applying GCAP's FREE aggregate residency->nationality reallocation SHARES (Restatement_Matrices.dta) to the panel's haven holdings. This is a CALIBRATED AGGREGATE fraction (country x asset x year shares applied to the panel), NOT a per-security ultimate-parent tag.",
+  "generated": "2026-06-29",
+  "checked_on": "2026-06-29",
+  "scope_limit": "Wrote EXACTLY this file, build/audit/f_measured_quarterly.json (Part 2 overwrite), build/audit/sep_retest_nationality.json (Part 3 overwrite), and the recompute script build/audit/sep_retest_nationality_recompute_gcap.py. Did NOT modify the operator, dp3/dp4/dp5 artifacts, geo_vs_emp/sep_definitive_test/china_fraction_bound/f_pin prior artifacts, the contracts, or the panel. DP6 NOT started. No hazard, no date, no bare probability.",
+
+  "read_only_inputs": [
+    "build/contracts/gcap_product_contract.json (Part 0: ROUTE B determined -- free aggregate shares, access HOLE retired for the aggregate product)",
+    "build/data/gcap_products/Restatement_Matrices.dta (140MB; the residency->nationality reallocation SHARES; Investor=USA filtered)",
+    "build/data/nport/us_china_nationality_panel.parquet (1,141,109 rows; residence panel, havens CYM/HKG/VGB + CHN direct)",
+    "build/model/china_fraction_bound.json + build/audit/f_pin_test.json (prior pin [0.49,0.71], GCAP-RBEP-weighted)"
+  ],
+
+  "METHODOLOGY_CHOICE": {
+    "claim": "Fund Holdings (Methodology 2) is the PRIMARY calibration; Enhanced Fund Holdings (Methodology 1) is the SENSITIVITY.",
+    "SUBJECT_DRIVER": "The panel is US-registered-FUND holdings (N-PORT filers), so Fund Holdings is the natural investor-side match. Fund Holdings is ALSO the only methodology in Restatement_Matrices.dta that covers ALL FIVE asset classes for Investor=USA (Common Equity, Corporate Bonds, Government Bonds, Asset-Backed Securities, and the All-Bonds aggregate), verified on disk; Enhanced Fund Holdings covers ONLY Common Equity and Corporate Bonds for USA, so it cannot weight the panel's ABS and government-bond cells. Fund Holdings is therefore the complete, panel-matched calibration.",
+    "BOUNDARIES": "Both are HOLDINGS-side, investor=USA reallocation shares; the Issuance methodologies (3, 6) and the Sales-Based methodologies (4, 5) are NOT used (Issuance is investor-agnostic 'World', wrong basis for a US-fund panel; Sales-Based is a different reattribution concept). Shares are December-annual; max GCAP year = 2020.",
+    "FALSIFIER": "Recompute the asset_class x methodology coverage table for Investor=USA from Restatement_Matrices.dta and find Enhanced Fund Holdings covering ABS/Government Bonds (it does not), or find Fund Holdings missing an asset class the panel needs.",
+    "SOURCE": "build/data/gcap_products/Restatement_Matrices.dta groupby(Methodology, Asset_Class) for Investor=USA, recomputed by build/audit/sep_retest_nationality_recompute_gcap.py; build/contracts/gcap_product_contract.json route_B_aggregate_matrices.primary_file_1.methodologies_value_labels."
+  },
+
+  "ASSET_MAPPING": {
+    "claim": "Panel asset_cat is mapped to GCAP Asset_Class as: equity instruments -> Common Equity; ABS instruments -> Asset-Backed Securities; all debt and debt-like residual -> Corporate Bonds.",
+    "mapping_table": {
+      "Common Equity": ["EC", "EP", "DE", "DFE"],
+      "Asset-Backed Securities": ["ABS-CBDO", "ABS-O", "ABS-MBS", "ABS-APCP"],
+      "Corporate Bonds": ["DBT", "DCR", "DCO", "LON", "DIR", "DO", "SN", "STIV", "RA", "RE", "OTHER"]
+    },
+    "SUBJECT_DRIVER": "The mapping is driven by instrument economics: EC/EP/DE/DFE are equity (the dominant cell, $3.69tn of panel mass) -> Common Equity (CYM->CHN ~0.82-0.86, the China-SPV equity channel); ABS-* are asset-backed -> Asset-Backed Securities, whose GCAP CHN reallocation row is ABSENT (=> share 0, i.e. US-bank Cayman-SPV ABS is non-Chinese, matching f_pin_test footnote-3 reasoning); remaining debt/debt-like cells (DBT being the largest, $0.34tn) -> Corporate Bonds (CYM->CHN ~0.55, HKG ~0.36, VGB ~0.84). Government Bonds is not separately keyed because the haven cells carry no sovereign issuer (havens issue corp/SPV paper); any USGA-type DBT is negligible.",
+    "BOUNDARIES": "The residual debt-like categories (LON loans, OTHER, SN structured notes, etc.) are assigned Corporate Bonds as the closest GCAP class; they are a small fraction of haven mass relative to EC and ABS. ABS gets a 0 China-share because GCAP posts no CHN reallocation for USA ABS (verified absent on disk).",
+    "FALSIFIER": "Reassign ABS to Common Equity or Corporate Bonds (raising f) or reassign DBT to Government Bonds (lowering f) and show the headline per-quarter f moves outside the reported range; the sensitivity is bounded because EC dominates the haven equity pool.",
+    "SOURCE": "build/data/nport/us_china_nationality_panel.parquet asset_cat value_counts + currency_value sums; build/data/gcap_products/Restatement_Matrices.dta asset-class availability (ABS CHN row absent => 0), recomputed by the script."
+  },
+
+  "YEAR_MAPPING": {
+    "claim": "GCAP year is matched to the holding's as-of calendar year for 2019/2020; post-2020 panel quarters carry the 2020 GCAP vintage, flagged as extrapolation.",
+    "mapping": {
+      "2019q3 (as-of 30-SEP-2019)": "GCAP 2019",
+      "2019q4 (as-of 31-DEC-2019)": "GCAP 2019",
+      "2020q1 (as-of 31-MAR-2020)": "GCAP 2020",
+      "2020q2 (as-of 30-JUN-2020)": "GCAP 2020",
+      "2020q3 (as-of 30-SEP-2020)": "GCAP 2020",
+      "2022q1 (as-of 31-MAR-2022)": "GCAP 2020 -- EXTRAPOLATION (GCAP terminates 2020)",
+      "2022q2 (as-of 30-JUN-2022)": "GCAP 2020 -- EXTRAPOLATION",
+      "2024q4 (as-of 31-DEC-2024)": "GCAP 2020 -- EXTRAPOLATION"
+    },
+    "SUBJECT_DRIVER": "GCAP is December-annual and terminates at data-year 2020 (Restatement_Matrices.dta Year max = 2020, verified on disk and in the Part-0 contract). For the in-sample 2019/2020 quarters the matching GCAP year is used directly; for the three post-2020 quarters no GCAP vintage exists, so the 2020 share is applied as the best-available and EXPLICITLY flagged extrapolated_post2020=true on those rows.",
+    "BOUNDARIES": "The 2020-vintage share is held constant for 2022 and 2024; this is a vintage assumption, not a measurement of 2022/2024 reattribution shares (none are published). The per-quarter table flags which quarters carry this assumption.",
+    "FALSIFIER": "A GCAP (or equivalent) post-2020 reallocation share for USA havens->CHN that differs materially from the 2020 share, applied to the post-2020 quarters, moving their f outside the reported band.",
+    "SOURCE": "build/contracts/gcap_product_contract.json vintage.max_data_year_in_free_files=2020; build/data/nport/.../panel as_of_date per fiscal_quarter; recompute script FQ_YEAR map."
+  },
+
+  "HEADLINE_CHECK": {
+    "claim": "The calibration pipeline reproduces GCAP's published haven->China shares EXACTLY from Restatement_Matrices.dta, confirming join correctness.",
+    "EFH_common_equity_2020": {"CYM->CHN": 0.823155, "HKG->CHN": 0.197880, "VGB->CHN": 0.027774, "CHN_domestic->CHN": 0.985846, "BMU->CHN": 0.094063, "SGP->CHN": 0.031940},
+    "FH_common_equity_2020": {"CYM->CHN": 0.826124, "HKG->CHN": 0.197849, "VGB->CHN": 0.024740, "CHN_domestic->CHN": 0.985845},
+    "agreement": "EXACT. CYM->CHN=0.823155 (EFH), HKG->CHN=0.197880, VGB->CHN=0.027774, CHN-domestic->CHN=0.985846 reproduce the Part-0 contract's example to 6 decimals. The Fund Holdings (primary) equity shares (CYM 0.826, HKG 0.198, VGB 0.025) are within ~0.003 of EFH, confirming the two holdings-side methodologies agree closely on the equity channel.",
+    "SUBJECT_DRIVER": "Join correctness: the pipeline reads Value(USA, Destination, Destination_Restated=CHN, Asset_Class, Year) directly off the .dta and matches the publisher's posted numbers, so the calibration applies the correct shares.",
+    "BOUNDARIES": "Confirms the equity channel join for 2020; the bond/ABS shares were read from the same file by the same lookup.",
+    "FALSIFIER": "A re-read of Restatement_Matrices.dta yielding CYM->CHN != 0.823155 for (USA, Common Equity, 2020, Enhanced Fund Holdings).",
+    "SOURCE": "build/data/gcap_products/Restatement_Matrices.dta, recomputed by build/audit/sep_retest_nationality_recompute_gcap.py (headline_check blocks)."
+  },
+
+  "CALIBRATED_CHINA_NATIONALITY_MASS_PER_QUARTER": {
+    "claim": "China-nationality exposure of US-fund haven holdings, calibrated per fiscal quarter (PRIMARY = Fund Holdings).",
+    "definition": "For each panel haven holding (residency Destination in {CYM,HKG,VGB}, asset class ac, as-of year Y), china_mass += currency_value * Value(USA, Destination->CHN, ac, Y). Summed per quarter. f = china_mass / haven_pool_value, where haven_pool_value = total US-fund holdings of CYM+HKG+VGB residency (the offshore-haven pool whose China-nationality fraction f is the target; the direct CHN-residency cell is reported SEPARATELY and is NOT in the f denominator, matching the prior pin's haven-pool denominator).",
+    "per_quarter_fund_holdings_primary": [
+      {"fiscal_quarter": "2019q3", "gcap_year": 2019, "extrapolated": false, "haven_pool_usd": 310646467903.3, "china_nationality_mass_usd": 155836687512.6, "f": 0.501653, "per_haven_f": {"CYM": 0.576296, "HKG": 0.327155, "VGB": 0.542271}},
+      {"fiscal_quarter": "2019q4", "gcap_year": 2019, "extrapolated": false, "haven_pool_usd": 417767320838.3, "china_nationality_mass_usd": 219131070673.5, "f": 0.524529, "per_haven_f": {"CYM": 0.599313, "HKG": 0.328536, "VGB": 0.530261}},
+      {"fiscal_quarter": "2020q1", "gcap_year": 2020, "extrapolated": false, "haven_pool_usd": 394114944614.6, "china_nationality_mass_usd": 165052182738.7, "f": 0.418792, "per_haven_f": {"CYM": 0.549702, "HKG": 0.200710, "VGB": 0.589680}},
+      {"fiscal_quarter": "2020q2", "gcap_year": 2020, "extrapolated": false, "haven_pool_usd": 436391589179.0, "china_nationality_mass_usd": 184483534711.1, "f": 0.422748, "per_haven_f": {"CYM": 0.550082, "HKG": 0.200346, "VGB": 0.570794}},
+      {"fiscal_quarter": "2020q3", "gcap_year": 2020, "extrapolated": false, "haven_pool_usd": 485997296267.8, "china_nationality_mass_usd": 218782995648.1, "f": 0.450173, "per_haven_f": {"CYM": 0.578709, "HKG": 0.200549, "VGB": 0.560768}},
+      {"fiscal_quarter": "2022q1", "gcap_year": 2020, "extrapolated": true, "haven_pool_usd": 538798142423.2, "china_nationality_mass_usd": 191844028348.7, "f": 0.356059, "per_haven_f": {"CYM": 0.466322, "HKG": 0.199761, "VGB": 0.472836}},
+      {"fiscal_quarter": "2022q2", "gcap_year": 2020, "extrapolated": true, "haven_pool_usd": 431097821262.4, "china_nationality_mass_usd": 160554995014.8, "f": 0.372433, "per_haven_f": {"CYM": 0.466156, "HKG": 0.200278, "VGB": 0.418806}},
+      {"fiscal_quarter": "2024q4", "gcap_year": 2020, "extrapolated": true, "haven_pool_usd": 407725321094.3, "china_nationality_mass_usd": 154722423349.0, "f": 0.379477, "per_haven_f": {"CYM": 0.462958, "HKG": 0.199810, "VGB": 0.354657}}
+    ],
+    "transcription_correction_note": "2026-06-29: the 2022q2 and 2024q4 Fund-Holdings PRIMARY rows (mass, f, per_haven_f) were corrected to the authoritative recompute build/results/dp1reopen_corrected_verify.json -- 2022q2 f 0.366932->0.372433 (mass 158183424379.9->160554995014.8), 2024q4 f 0.373780->0.379477 (mass 152399745428.6->154722423349.0). The prior values had been mis-assembled from the Enhanced-Fund-Holdings calibration for exactly those two rows (FH==EFH there, which the methodology forbids since EFH omits ABS/Government Bonds). The first six quarters were already exact, and the EFH sensitivity row was already correct. IMPACT: none on the verdict -- the Part-3 separability statistic (+0.520811) was computed by the recompute script using the CORRECT 2022q2 mass (160554995014.8), so it already matches the authoritative recompute; only these display rows were mis-assembled. Both corrected f values remain BELOW the 0.49 pin floor.",
+    "per_quarter_enhanced_fund_holdings_sensitivity_f": {"2019q3": 0.495958, "2019q4": 0.518785, "2020q1": 0.413131, "2020q2": 0.416924, "2020q3": 0.444468, "2022q1": 0.350869, "2022q2": 0.366932, "2024q4": 0.373780},
+    "SUBJECT_DRIVER": "The China-nationality mass is driven mainly by the Cayman equity channel (CYM->CHN ~0.55-0.60 per-haven f in the panel, vs the published equity-only 0.82 because the CYM panel cell BLENDS equity with non-Chinese ABS that reallocates 0 to China) plus the Hong Kong channel (per-haven f ~0.20-0.33). The pooled f falls from ~0.50 (2019) to ~0.42-0.45 (2020) primarily because the HKG common-equity share drops from 0.323 (2019) to 0.198 (2020) in GCAP while the panel's HKG weight rises; post-2020 quarters fall further (~0.36-0.38) as the haven pool grows faster than the (2020-vintage-frozen) China mass.",
+    "BOUNDARIES": "US-registered-fund holders (N-PORT), 8-quarter subset, residency havens CYM/HKG/VGB. Mixed-currency C.2.c sums (USD-denomination carries the prior contract's PARTIALLY-VERIFIED caveat). Post-2020 quarters carry the 2020-vintage share (extrapolated=true).",
+    "FALSIFIER": "Recompute china_nationality_mass per quarter from the panel x the .dta and obtain a Fund-Holdings f outside the reported per-quarter values (e.g. 2019q3 != 0.5017).",
+    "SOURCE": "build/data/nport/us_china_nationality_panel.parquet x build/data/gcap_products/Restatement_Matrices.dta, recomputed by build/audit/sep_retest_nationality_recompute_gcap.py (part1_calibration_fund_holdings)."
+  },
+
+  "WHAT_THIS_IS_AND_IS_NOT": {
+    "claim": "This is a CALIBRATED AGGREGATE China-nationality fraction (country x asset x year shares applied to the panel's haven cells), NOT a per-security ultimate-parent tag.",
+    "SUBJECT_DRIVER": "Route B supplies only aggregate country x country reallocation shares. Applying CYM->CHN=0.826 to ALL Cayman common-equity holdings assigns the SAME 0.826 fraction to every Cayman equity security; it does NOT identify WHICH specific Cayman securities are China-parent (Alibaba vs a genuine Cayman fund). The within-haven heterogeneity is unresolved by route B; resolving it needs route A (the per-security ISIN->ultimate-parent crosswalk), which the Part-0 contract verified is ABSENT as a free product.",
+    "BOUNDARIES": "The calibrated f is a pool-level fraction valid for aggregate analysis; it must not be read as a per-holding nationality flag. The panel's issuer_nationality column remains UNDETERMINED at the security level and is not overwritten.",
+    "FALSIFIER": "A free per-security ISIN/CUSIP->ultimate-parent-nationality table that, applied to the panel, yields a per-quarter haven China-nationality fraction differing materially from the calibrated aggregate.",
+    "SOURCE": "build/contracts/gcap_product_contract.json route_A_security_level_table.available_free=NO + route_B_aggregate_matrices; this calibration's aggregate-share construction."
+  },
+
+  "verdict_part1": "ROUTE B calibration COMPLETE. The free GCAP aggregate reallocation shares (Restatement_Matrices.dta, Fund Holdings primary, Enhanced Fund Holdings sensitivity) were applied to the N-PORT haven panel, reproducing GCAP's published CYM->CHN=0.823155 (EFH equity 2020) EXACTLY as a join check. The calibrated China-nationality mass of US-fund haven holdings is ~$152-219bn per quarter, giving a haven-pool China-nationality fraction f that runs ~0.50-0.52 in 2019, ~0.42-0.45 in 2020, and ~0.36-0.38 in the 2020-vintage-extrapolated post-2020 quarters. This is a CALIBRATED AGGREGATE fraction (country x asset x year shares on the panel cells), NOT a per-security ultimate-parent tag -- within-haven heterogeneity remains unresolved (route A absent). The access HOLE is retired for this aggregate calibration; f is now MEASURED (Part 2), not UNDETERMINED."
+}

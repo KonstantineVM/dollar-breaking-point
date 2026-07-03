@@ -1,0 +1,408 @@
+# RDT-F evidence extraction (plain text derived from a retained publisher file; NOT a new fetch)
+# Source file (raw bytes, on disk): build/reserve/rdte_evidence/method_mfh_legacy.html
+# Publisher URL of the source fetch: http://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx
+# Source fetched (per its stage fetch log): 2026-07-02T14:36:45Z (RDTE fetch log line 6)
+# Extraction: Python stdlib html.unescape + regex tag-strip, whitespace-normalized, 2026-07-02.
+# Quote verification must go to the raw source file; this extraction is a reading aid.
+
+ 
+ Estimating Holdings of Treasury Securities | U.S. Department of the Treasury 
+ Skip to main content
+ An official website of the United States government
+ Here’s how you know
+ Here’s how you know 
+ Official websites use .gov 
+ A .gov website belongs to an official government organization in the United States.
+ Secure .gov websites use HTTPS 
+ A lock 
+ ( Lock A locked padlock )
+ or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+ FREEDOM250 
+ Countdown to America's 250th Anniversary 
+ July 4, 2026 
+ Learn More 
+ MENU 
+ MENU
+ U.S. Department of the Treasury 
+ About Treasury 
+ Enter Search Term(s): 
+ Advanced Search 
+ About Treasury 
+ General Information 
+ Role of the Treasury 
+ Officials 
+ Organizational Chart 
+ Orders and Directives 
+ Offices 
+ Domestic Finance 
+ Economic Policy 
+ General Counsel 
+ International Affairs 
+ Management 
+ Public Affairs 
+ Tax Policy 
+ Terrorism and Financial Intelligence 
+ Tribal and Native Affairs 
+ Inspectors General 
+ Bureaus 
+ Alcohol and Tobacco Tax and Trade Bureau (TTB) 
+ Bureau of Engraving & Printing (BEP) 
+ Financial Crimes Enforcement Network (FinCEN) 
+ Bureau of the Fiscal Service (BFS) 
+ Internal Revenue Service (IRS) 
+ Office of the Comptroller of the Currency (OCC) 
+ U.S. Mint 
+ Office of Inspector General (OIG) 
+ Treasury Inspector General for Tax Administration (TIGTA) 
+ Special Inspector General for Pandemic Recovery (SIGPR) 
+ Budget, Financial Reporting, Planning and Performance 
+ Strategic Plan 
+ Budget Request/Annual Performance Plan and Reports 
+ Agency Financial Report 
+ Inspector General Audits and Investigative Reports 
+ IRS Strategic Operating Plan 
+ History 
+ Curator 
+ History Overview 
+ Prior Secretaries 
+ Prior Treasurers 
+ The Treasury Building 
+ Collections 
+ Freedman's Bank Building 
+ Careers 
+ At Headquarters 
+ At Our Bureaus  
+ Top 10 Reasons to Work Here 
+ Benefits and Growth 
+ Workforce 
+ Veterans Employment 
+ Pathways 
+ How to Apply 
+ Search Jobs 
+ The Fair Chance to Compete Act 
+ Policy Issues 
+ Enter Search Term(s): 
+ Advanced Search 
+ Policy Issues 
+ Tax Policy 
+ Data Transparency 
+ Revenue Proposals 
+ Tax Expenditures 
+ International Tax 
+ Treaties and Related Documents 
+ Foreign Account Tax Compliance Act (FATCA) 
+ Reports 
+ Tax Analysis 
+ Tax Regulatory Process 
+ Economic Policy 
+ Treasury Coupon Issues 
+ Corporate Bond Yield Curve 
+ Economic Policy Reports 
+ Social Security and Medicare 
+ Total Taxable Resources 
+ Terrorism and Illicit Finance 
+ Sanctions 
+ Asset Forfeiture 
+ 311 Actions 
+ Terrorist Finance Tracking Program 
+ Money Laundering 
+ Financial Action Task Force 
+ Protecting Charitable Organizations 
+ Financing the Government 
+ Treasury Quarterly Refunding 
+ Interest Rate Statistics 
+ Treasury Securities 
+ Treasury Investor Data 
+ Debt Management Research 
+ Financial Markets, Financial Institutions, and Fiscal Service 
+ Cash and Debt Forecasting 
+ Debt Limit 
+ Financial Stability Oversight Council 
+ Federal Insurance Office 
+ RESTORE Act 
+ 1603 Program 
+ The Community Development Financial Institution (CDFI) Fund 
+ Making Home Affordable 
+ Office of Capital Access 
+ Financial Sanctions 
+ Specially Designated Nationals List (SDN List) 
+ Consolidated Sanctions List 
+ Search OFAC's Sanctions Lists 
+ Additional Sanctions Lists 
+ OFAC Recent Actions 
+ Sanctions Programs and Country Information 
+ Frequently Asked Questions 
+ OFAC Civil Penalties and Enforcement 
+ Contact OFAC 
+ Consumer Policy 
+ Financial Literacy and Education Commission 
+ Mymoney.gov 
+ Innovations in Financial Services 
+ Featured Research 
+ Student Loans 
+ International 
+ The Committee on Foreign Investment in the United States (CFIUS) 
+ Outbound Investment Security Program  
+ Exchange Stabilization Fund 
+ G-7 and G-20 
+ International Monetary Fund 
+ Multilateral Development Banks 
+ Macroeconomic and Foreign Exchange Policies of Major Trading Partners 
+ Exchange Rate Analysis 
+ U.S.-China Comprehensive Strategic Economic Dialogue (CED) 
+ Small Business Programs 
+ Small and Disadvantaged Business Utilization 
+ Small Business Lending Fund 
+ State Small Business Credit Initiative 
+ Tribal Affairs 
+ Data 
+ Enter Search Term(s): 
+ Advanced Search 
+ Data 
+ Interest Rates 
+ Daily Treasury Par Yield Curve Rates 
+ Daily Treasury Par Real Yield Curve Rates 
+ Daily Treasury Bill Rates 
+ Daily Treasury Long-Term Rates 
+ Daily Treasury Real Long-Term Rates 
+ Treasury Coupon-Issue and Corporate Bond Yield Curve 
+ Treasury Coupon Issues 
+ Corporate Bond Yield Curve 
+ Federal Financial Data
+ Your Guide to America’s Finances 
+ Monthly Treasury Statement 
+ Daily Treasury Statement 
+ How Your Money Is Spent 
+ USAspending.gov 
+ National Debt 
+ National Debt to the Penny 
+ Historical Debt Outstanding 
+ Monthly Statement of the Public Debt  
+ Quarterly Refunding 
+ Debt Management Overview and Quarterly Refunding Process 
+ Most Recent Documents 
+ Archives 
+ Webcasts 
+ Investor Class Auction Allotments 
+ Other Programs 
+ Treasury International Capital (TIC) System 
+ U.S International Portfolio Investment Statistics 
+ Release Dates 
+ Forms and Instructions 
+ TIC Press Releases 
+ U.S. International Reserve Position 
+ Troubled Assets Relief Program 
+ Reports 
+ Office of the Chief Data Officer 
+ Federal CDO Council 
+ Data.gov 
+ Treasury Open Data 
+ Evidence Act H.R.4174 
+ Datafoundation.org 
+ Services 
+ Enter Search Term(s): 
+ Advanced Search 
+ Services 
+ Report Fraud, Waste & Abuse 
+ Report COVID-19 Scam Attempts 
+ Report Scam Attempts 
+ Report Fraud Related to Government Contracts 
+ Inspectors General 
+ Bonds and Securities 
+ Buy, Manage, and Redeem 
+ Treasury Hunt - Search for Matured Bonds 
+ Cashing Savings Bonds in Disaster-Declared Areas 
+ Frequently Asked Questions 
+ Grant Programs 
+ Pay for Results (SIPPRA) 
+ RESTORE Act 
+ Community Development Financial Institution (CDFI) Fund 
+ Treasury Payments 
+ Where is my Refund? 
+ Lost or Expired Check 
+ Direct Express Card 
+ Non-Benefit Federal Payments 
+ Electronic Federal Benefit Payments - GoDirect 
+ Currency and Coins 
+ Shop for Coin Products 
+ Shop for Currency Products  
+ Redeem Damaged Currency 
+ Bureau of Engraving and Printing 
+ U.S Mint 
+ Auctions 
+ IRS Auctions 
+ Real Estate 
+ General Property, Vehicles, Vessels & Aircraft 
+ Kline-Miller Multiemployer Pension Reform Act of 2014 
+ Applications 
+ Frequently Asked Questions 
+ Education 
+ Whistleblowing and Financial Integrity
+ Whistleblower Resources 
+ Taxes 
+ Internal Revenue Service (IRS)  
+ IRS Forms, Instructions & Publications 
+ Refund Status 
+ Foreign Account Tax Compliance Act 
+ Forms 
+ IRS Forms and Instructions 
+ Savings Bonds - Treasury Securities 
+ Bank Secrecy Act - Fincen 114 and more 
+ OFAC License Application 
+ OFAC Reporting 
+ Treasury International Capital (TIC) 
+ Government Shared Services 
+ Treasury Franchise Fund (TFF) 
+ Center for Financial Management (CFM) 
+ Shared Services Program (SSP) 
+ Financial Management (FM) Marketplace Catalog 
+ TreasuryDirect 
+ Invoice Processing Platform 
+ Tours and Library 
+ Historic Treasury Building 
+ Library 
+ Curator 
+ Bureau of Engraving and Printing 
+ U.S. Mint 
+ News 
+ Enter Search Term(s): 
+ Advanced Search 
+ News 
+ Featured Stories 
+ June 23, 2026 
+ Achieving our Objectives, Supporting our Stakeholders: OFAC-OFSI Enhanced Partnership Exchange 2026 
+ February 13, 2026 
+ Treasury Accepting Whistleblower Tips on Fraud, Money Laundering, Sanctions Violations 
+ December 23, 2025 
+ Penny Production Cessation FAQs 
+ View all Featured Stories 
+ Press Releases 
+ July 1, 2026 
+ Treasury Announces Investment Lineup for Trump Accounts 
+ July 1, 2026 
+ Treasury Sanctions Brazilian Criminal Network Exploiting U.S. Financial System to Launder Drug Proceeds 
+ July 1, 2026 
+ Treasury Opens the New Designation Cycle for Opportunity Zones 
+ View All Press Releases 
+ Remarks and Statements 
+ June 24, 2026 
+ Remarks by Treasury Secretary Scott Bessent before the American Academy of Achievement’s International Achievement Summit 
+ June 23, 2026 
+ Remarks from Secretary of the Treasury Scott Bessent at The Economic Club of New York’s America 250 Gala Dinner: American Economic Statecraft in the 21st Century 
+ June 16, 2026 
+ Remarks by Treasury Secretary Scott Bessent before the American Swiss Foundation 
+ View All Remarks and Statements 
+ Press Information 
+ Press Contacts 
+ Weekly Public Schedule Archive 
+ Webcasts 
+ Media Advisories Archive 
+ Subscribe to Press Releases 
+ Twitter 
+ View All Tweets 
+ Whistleblower Resources 
+ Working Families Tax Cuts 
+ Search 
+ Enter Search Term(s): 
+ Advanced Search 
+ Search 
+ The Public
+ General Public 
+ Auctions 
+ Report Scam Attempts 
+ Savings Bonds 
+ Businesses
+ All Businesses 
+ Form 941, employer's quarterly federal tax return 
+ Employer Identification Number (EIN) 
+ Small Businesses 
+ Government Contracting Small Business Contacts 
+ Financial Institutions
+ All Financial Institutions 
+ Specially Designated Nationals list 
+ Interest rate statistics 
+ Quarterly refunding information 
+ Government
+ Federal Government 
+ Budget, Financial Reporting, Planning and Performance 
+ Shared Services 
+ TreasuryDirect for Government 
+ Breadcrumb 
+ Home 
+ Estimating Holdings of Treasury Securities 
+ New Methodology for Estimating Major Foreign Holders of Treasury Securities
+ 2/29/2012
+ Effective with the February 29, 2012 release, the methodology for the MFH table has been revised to incorporate new data on foreign holdings of long-term Treasury securities collected on TIC Form SLT, “Aggregate Holdings of Long-Term Securities by U.S. and Foreign Residents”. The SLT report is filed by U.S. custodians, securities broker-dealers, and fund managers who report by country the amounts of long-term securities (securities with an original maturity of more than one year), including Treasury securities, held on behalf of foreign investors.
+ SLT data were collected in September and December 2011. The figures in the MFH table for September and December 2011 are the sum of the new SLT data for long-term Treasury securities, plus data on foreign holdings of short-term Treasury bills and certificates (Treasury securities with an original maturity of one year or less). Foreign holdings of short-term Treasury securities are reported by country on TIC form BL-2, which reports values of short-term liabilities to foreigners that are held by customers of U.S. banks and brokers/dealers of securities. The data on short-term Treasury holdings as well as other liabilities to foreigners reported by banks and broker/dealers can be found at: http://www.treas.gov/tic/ticliab.html
+ Beginning in January 2012, SLT data will be collected monthly. Because of processing lags, the MFH table will be updated to reflect the most recent SLT data on a rolling basis, with estimates for the most recent month constructed from data on net transactions in long-term Treasury securities added to the SLT values for the previous month. This is similar to the previous MFH methodology, but there will only be a one-month period where holdings are estimated based on transactions data.
+ The preliminary release of the January 2012 MFH table will be based on foreign holdings of long-term Treasury securities as reported on the December 2011 SLT, with an estimate for holdings of long-term Treasury securities in January constructed by adding net purchases of long-term Treasury securities during January 2012, plus foreign holdings of short-term Treasury securities in January 2012.
+ The release of the February 2012 MFH table will update the values for January to include actual holdings as reported on the January SLT, and will present estimates of holdings in February by adding net purchases of long-term Treasury securities during February, plus foreign holdings of short-term Treasury securities in February.
+ Revised data for October and November 2011 in the current MFH table are a modified version of this new methodology, adding net transactions for October and November to the amount of long-term Treasury securities reported in the SLT for September 2011, plus foreign holdings of short-term Treasury securities reported on the BL2.
+ Data on gross purchases and gross sales by foreigners of long-term securities each month from which the net purchases (gross purchases minus gross sales) are calculated are reported on the TIC form S, and can be found at: http://www.treas.gov/tic/ticsec.html
+ Data for earlier months through August 2011 are based on the previous Major Foreign Holders methodology. Periodic surveys of foreign holdings of U.S. securities give the starting position for holdings of long-term Treasury securities, by country. These surveys have been conducted annually since June 2002. The most recent survey presents holdings as of June 2011. Full survey data can be found at: http://www.treas.gov/tic/fpis.html
+ Estimates of positions for periods in between surveys are constructed by adding the monthly net purchases (gross purchases less gross sales) of long-term Treasury securities by foreigners to the most recently published survey position. Values of foreign holdings of short-term securities reported on TIC form BL-2 are added to these estimates of holdings of long-term Treasury securities.
+ Cautions regarding use of the data. 
+ Country Attribution. Country attribution on a monthly basis is much improved with the new MFH methodology, but users should be aware that it remains imperfect.
+ Imperfections caused by “custodial bias” remain in the current MFH table. Some foreign owners entrust the safekeeping of their securities to institutions that are neither in the United States nor in the owner’s country of residence. For example, a German investor may buy a U.S. security and place it in the custody of a Swiss bank. In both the SLT and the periodic surveys of holdings of long-term securities, such a holding will typically be recorded vis-a-vis Switzerland rather than Germany. This “custodial bias” contributes to the large recorded holdings in major custodial centers including Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.
+ Imperfections caused by “transactions bias” are much reduced. The methodology of adding net transactions to the annual survey positions for long-term marketable securities tended to generate significant geographic distortions over time. These distortions arose because cross-border transactions take place disproportionately in major international financial centers, and net purchases in those areas do not necessarily reflect acquisitions by investors in those areas.
+ To illustrate how significant those distortions may be, the Major Foreign Holders tables have provided two sets of estimates for each survey date: one set reflects holdings as of the most recent survey, and the other set is derived from the previous survey with positions estimated forward using transactions data. For example, the June 2011 survey estimate of Treasury securities held by residents of the United Kingdom is $135.7 billion. The estimate derived from the June 2010 survey by adding the foreign net purchases recorded against the United Kingdom over the 12-month period until June 2005 is $347.0 billion.
+ Because the new MFH methodology will rely on transactions data only for the most recent month, the tendency for “transaction bias” to generate geographic distortions over time will be much reduced.
+ Valuation of securities. Although holdings estimates in the Major Foreign Holders tables are still a hybrid of market and face values, the potential distortions caused by differences in market and face values are much reduced in the current methodology. Foreign holdings of long-term Treasury securities are collected at market value in the annual surveys and on the SLT. Transactions in long-term securities on the TIC S are also reported at market value. Foreign holdings of short-term Treasury bills are reported on the TIC form BL-2 at face value, but the differences between market and face values for short-term Treasury securities tends to be limited.
+ ARCHIVE: Previous Description of Methodology, 5/15/2006. 
+ These estimates of monthly holdings of Treasury securities by country are derived from a combination of monthly data on foreign holdings of short-term Treasury bills and certificates and periodic surveys of holdings of long-term Treasury bonds and notes that are updated using monthly data on foreign net purchases of long-term Treasury securities. An additional adjustment is made to include monthly holdings of non-marketable Treasury securities.
+ Holdings of short-term Treasury Bills and Certificates: Monthly positions are measured by country on the TIC form BL-2, which reports values of short-term liabilities to foreigners that are held by customers of U.S. banks and brokers/dealers of securities. The data on short-term Treasury holdings as well as other liabilities to foreigners reported by banks and broker/dealers can be found at: http://www.treas.gov/tic/ticliab.html 
+ Holdings of long-term Treasury securities: Periodic (annual since June 2002) surveys of foreign holdings of U.S. securities give a starting position for holdings of long-term Treasury securities, by country. The most recent survey presents holdings as of June 2005; earlier surveys report holdings as of June 2004, June 2003, June 2002, March 2000, and December 1994. The survey data can be found at: http://www.treas.gov/tic/fpis.html 
+ Because the survey data for holdings of long-term securities are available only periodically and with a considerable processing lag, estimates of positions for more recent periods are constructed by adding data on monthly net purchases (gross purchases less gross sales) of long-term Treasury securities by foreigners to the most recently published survey position. Data on gross purchases and gross sales by foreigners of long-term securities (from which the net transactions data are calculated) are reported on the TIC form S, and can be found at: http://www.treas.gov/tic/ticsec.html 
+ Holdings of non-marketable Treasury bonds and notes: A small amount of non-marketable U.S. Treasury bonds and notes are held by selected foreign governments. Activity in these non-marketable securities is not reported on the TIC forms, but the Major Foreign Holders tables are adjusted to account for changes in holdings of these securities.  More detail on these non-marketable Treasury securities can be found in Treasury Bulletin tables IFS-2 and IFS-3.
+ Cautions regarding use of the data. 
+ Country Attribution. Users should be aware that the country attribution of foreign holdings of U.S. securities, including U.S. Treasury securities, is imperfect for two main reasons. The first reason is that some foreign owners entrust the safekeeping of their securities to institutions that are neither in the United States nor in the owner's country of residence. For example, a German investor may buy a U.S. security and place it in the custody of a Swiss bank. In the periodic surveys of holdings of long-term securities, such a holding typically is recorded vis-a-vis Switzerland rather than Germany. This "custodial bias" contributes to the large recorded holdings in major financial centers including Belgium, the Caribbean banking centers, Luxembourg, Switzerland, and the United Kingdom.
+ In addition, the procedure of adding net transactions to the original survey positions for long-term marketable securities can generate further significant geographic distortions over time. This is because cross-border transactions take place disproportionately in major international financial centers, and net purchases in those areas do not necessarily reflect acquisitions by investors in those areas. To illustrate how significant those distortions may be, the Major Foreign Holders tables provide two sets of estimates for each survey date: one set reflects holdings as of the most recent survey, and the other set is derived from the previous survey with positions estimated forward using transactions data. For example, the June 2005 survey estimate of Treasury securities held by residents of the United Kingdom is $58.8 billion. The estimate derived from the June 2004 survey by adding the foreign net purchases over the 12-month period until June 2005 is $140.9 billion.
+ Valuation of securities. Users should also be aware that the securities estimates in the Major Foreign Holders tables are a hybrid of market and face values. Foreign holdings of short-term Treasury bills are reported on the TIC form BL-2 at face value.   Holdings of and transactions in long-term Treasury securities are collected at market value. However, no attempt is made in the estimation process to adjust the long-term data to account for price changes occurring subsequent to the survey or transactions dates. Holdings of non-marketable securities are included at current value.
+ ​​​​
+ Bureaus
+ Alcohol and Tobacco Tax and Trade (TTB) 
+ Bureau of Engraving and Printing (BEP) 
+ Bureau of the Fiscal Service (BFS) 
+ Financial Crimes Enforcement Network (FinCEN) 
+ Internal Revenue Service (IRS) 
+ Office of the Comptroller of the Currency (OCC) 
+ U.S. Mint 
+ Inspector General Sites
+ Office of Inspector General (OIG) 
+ Treasury Inspector General for Tax Administration (TIGTA) 
+ Report Scams, Fraud, Waste & Abuse 
+ Special Inspector General for Pandemic Recovery (SIGPR) 
+ U.S. Government Shared Services
+ Center for Financial Management 
+ Treasury Direct Services for Governments 
+ Financial Management (FM) Marketplace Catalog 
+ Additional Resources
+ Privacy Act 
+ Small Business Contacts 
+ Budget and Performance 
+ TreasuryDirect.gov Securities/Bonds 
+ Freedom of Information Act (FOIA) 
+ No FEAR Act Data 
+ Whistleblower Protection 
+ Other Government Sites
+ USA.gov 
+ USAJOBS.gov 
+ OPM.gov 
+ MyMoney.gov 
+ Data.gov 
+ Forms.gov 
+ Regulations.gov 
+ PaymentAccuracy.gov 
+ my Social Security 
+ Vote.gov 
+ Privacy Policy 
+ Google Privacy 
+ Site Policies and Notices 
+ FAQs 
+ Feedback 
+ Careers 
+ Accessibility 
+ Contact 
+ Required Plug-ins Adobe® Reader® 
+ Twitter 
+ Facebook 

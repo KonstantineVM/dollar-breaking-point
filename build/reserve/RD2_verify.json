@@ -1,0 +1,12 @@
+{
+  "SOURCE": "Self-check inside RD2_recompute.py; reads RD2_gold_panel.parquet, recomputes, compares.",
+  "all_pass": true,
+  "all_se_finite": true,
+  "beta_matches": true,
+  "byte_reproducible": true,
+  "contract": "RD2 verifier \u2014 re-runs the estimator and checks persisted RD2_result.json matches, byte-for-byte.",
+  "counts_match": true,
+  "decomposition_match": true,
+  "leads_lags_match": true,
+  "pretrend_stat_match": true
+}

@@ -1,0 +1,70 @@
+{
+  "task": "RDT-E Part 1(iv)-(v): official-series legs and methodology verification for the migration bound (Cap C ingredients)",
+  "built": "2026-07-02",
+  "pre_registration": "build/reserve/RDTE_prediction.md (Cap C: grounds only if (a) methodology premise ESTABLISHED with verbatim quote AND (b) official aggregates DECLINED over the window)",
+  "output_csv": "build/reserve/rdte_official_series.csv",
+  "columns": {
+    "tic_official_ust_busd": {
+      "definition": "TIC Major Foreign Holders memo line 'For. Official' / SLT Table 5 'Of Which: Foreign Official' -- estimated total foreign OFFICIAL holdings of U.S. Treasury securities (short-term bills/certificates at face value + long-term bonds & notes at market value, incl. non-marketable), billions of USD, end of month",
+      "segments": [
+        {"months": "2013-01..2025-12", "source_file": "build/reserve/rdt_evidence/tic/mfhhis01.csv (on disk, READ-ONLY; fetched 2026-07-01 per rdt_evidence/tic/_RDT_fetch_log.txt from https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.csv)"},
+        {"months": "2026-01..2026-04", "source_file": "build/reserve/rdt_evidence/tic/slt_table5.txt (on disk, READ-ONLY; fetched 2026-07-01; live refetch 2026-07-02 byte-identical, retained as rdte_evidence/slt_table5_live.txt)"}
+      ],
+      "coverage": ["2013-01", "2026-04"],
+      "n_months": 160,
+      "residency_vs_nationality": "residency/custodian basis -- see rdte_methodology_determination.md"
+    },
+    "frbny_custody_ust_busd": {
+      "definition": "Federal Reserve H.4.1 release, Table 1A Memorandum Items: 'Securities held in custody for foreign official and international accounts' -> 'Marketable U.S. Treasury securities', Wednesday level, face value, converted millions->billions; monthly value = LAST weekly (Wednesday) observation in the calendar month (obs date carried in frbny_obs_date)",
+      "tier": "FRED mirror (series WMTSECL1, 'Memorandum Items: Custody Holdings: Marketable U.S. Treasury Securities: Wednesday Level', weekly as-of-Wednesday, millions USD NSA, source: Board of Governors, release H.4.1) -- primary-verified: the FRB primary release of 2026-06-25 (rdte_evidence/frb_h41_current.htm) carries the identical latest value, 2,636,947 $mn at Wednesday 2026-06-24, and the memo-line title quoted verbatim",
+      "source_files": ["build/reserve/rdte_evidence/fred_wmtsecl1.csv (fetched 2026-07-02)", "build/reserve/rdte_evidence/frb_h41_current.htm (fetched 2026-07-02)"],
+      "coverage": ["2013-01", "2026-06"],
+      "coverage_note": "FRED history begins 2002-12; series carried from 2013-01 per the pre-registered full window"
+    }
+  },
+  "methodology_determination": {
+    "outcome": "ESTABLISHED",
+    "file": "build/reserve/rdte_methodology_determination.md",
+    "summary": "Publisher documents establish (verbatim quotes in the determination file) that (leg 1) holdings custodied at Euroclear (Belgium) / Clearstream (Luxembourg) are recorded against the ICSD's country, not the beneficial owner ('the TIC system records the holder country as the custodian's residence, not the country of residence of the custodian's customer'; 'U.S. survey reporters typically report only the country where the ICSD is located'), and (leg 2) foreign-official money behind such private intermediary chains sits in the PRIVATE attribution ('some holdings attributed to private intermediaries, especially in major custodial centers, may reflect holdings of foreign official institutions'). Publisher hedge words ('typically', 'some', 'may') are carried explicitly; no passage describes any channel by which an Euroclear/Clearstream-custodied position retains official attribution.",
+    "caveat": "No single sentence joins Euroclear + official + private; the determination is the joint reading of three verbatim publisher passages (Q1, Q2, Q6 in the determination file). The assembly gate may downgrade if it judges the joint reading insufficient."
+  },
+  "cap_c_condition_b_axis_changes": {
+    "note": "Context only -- the cap is applied at the assembly stage, not here. Verdict axis = 2023-05..2026-04 with holdings reference-month 2023-04 (both conventions reported, matching RDT-C practice).",
+    "tic_official_ust_busd": {
+      "verdict_axis_refmonth_2023_04_to_2026_04": {"start": 3789.7, "end": 3906.5, "change_busd": 116.8, "direction": "ROSE"},
+      "verdict_axis_startmonth_2023_05_to_2026_04": {"start": 3782.7, "end": 3906.5, "change_busd": 123.8, "direction": "ROSE"},
+      "full_window_2013_01_to_2026_04": {"start": 4048.9, "end": 3906.5, "change_busd": -142.4, "direction": "DECLINED"}
+    },
+    "frbny_custody_ust_busd": {
+      "verdict_axis_refmonth_2023_04_to_2026_04": {"start": 2967.261, "end": 2735.038, "change_busd": -232.223, "direction": "DECLINED"},
+      "verdict_axis_startmonth_2023_05_to_2026_04": {"start": 2976.268, "end": 2735.038, "change_busd": -241.23, "direction": "DECLINED"},
+      "full_window_2013_01_to_2026_06": {"start": 2908.108, "end": 2636.947, "change_busd": -271.161, "direction": "DECLINED"},
+      "full_window_2013_01_to_2026_04_tic_aligned": {"start": 2908.108, "end": 2735.038, "change_busd": -173.07, "direction": "DECLINED"}
+    },
+    "reading_for_assembly": "The two official legs DIVERGE on the verdict axis: the TIC foreign-official aggregate ROSE (+116.8 $bn ref-month; +123.8 start-month) while the FRBNY custody series DECLINED (-232.2 / -241.2 $bn). Condition (b) as pre-registered ('the aggregate foreign-official series actually DECLINED') therefore holds for the FRBNY leg only and fails for the TIC leg. Whether Cap C grounds, and on which leg, is the assembly stage's call under the pre-registered rule; the divergence itself is consistent with the documented comparability differences (FAQ 10a: TIC official includes FOI positions at US private custodians and is valuation-hybrid; FRBNY custody is face-value, FRBNY-custodied-only, and includes international accounts; custody can move between FRBNY and other custodians with no TIC official change)."
+  },
+  "cross_checks": {
+    "mfhhis01_vs_slt_table5_overlap": {"months": "2025-04..2025-12", "n": 9, "max_abs_diff_busd": 0.0, "verdict": "IDENTICAL"},
+    "slt_table5_ondisk_vs_live_refetch": "byte-identical (diff -q, 2026-07-02); on-disk 2026-07-01 copy is the current vintage (data through 2026-04)",
+    "fred_vs_frb_primary": {"obs": "2026-06-24", "fred_wmtsecl1_musd": 2636947, "frb_h41_table1a_musd": 2636947, "verdict": "IDENTICAL"},
+    "tic_minus_frbny_level_busd": {"2013-01": 1140.792, "2023-04": 822.439, "2026-04": 1171.462, "note": "TIC official > FRBNY custody throughout, as FAQ 10a's coverage discussion implies for the level; the gap WIDENED by ~349 $bn over the verdict axis -- official-attributed UST migrated away from FRBNY custody relative to the TIC official measure"}
+  },
+  "not_available": [
+    {"item": "guessed home.treasury.gov URL for the MFH methodology note", "status": "HTTP 404 (rdte_evidence/_RDTE_fetch_log.txt); RESOLVED via the legacy URL https://www.treasury.gov/resource-center/data-chart-center/tic/Pages/method-mfh.aspx (HTTP 200) -> rdte_evidence/method_mfh_legacy.html"},
+    {"item": "TIC official aggregate for 2026-05/2026-06", "status": "not yet published by TIC (publication lag ~6 weeks; slt_table5 current vintage ends 2026-04) -- not a gap against the verdict axis, which ends 2026-04"}
+  ],
+  "files_written": [
+    "build/reserve/rdte_official_series.csv",
+    "build/reserve/rdte_official_manifest.json",
+    "build/reserve/rdte_official_provenance.md",
+    "build/reserve/rdte_methodology_determination.md",
+    "build/reserve/rdte_evidence/_RDTE_fetch_log.txt",
+    "build/reserve/rdte_evidence/_RDTE_build_official.py",
+    "build/reserve/rdte_evidence/method_mfh.html",
+    "build/reserve/rdte_evidence/method_mfh_legacy.html",
+    "build/reserve/rdte_evidence/slt_table5_live.txt",
+    "build/reserve/rdte_evidence/fred_wmtsecl1_page.html",
+    "build/reserve/rdte_evidence/fred_wmtsecl1.csv",
+    "build/reserve/rdte_evidence/frb_h41_current.htm"
+  ]
+}

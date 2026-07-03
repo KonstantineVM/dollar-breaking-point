@@ -1,0 +1,1355 @@
+{
+  "SOURCE": "LMW Data.xls sheet DATA (build/reserve/rd0_evidence/lmw_Data.xls, engine xlrd); ES-11/1 roll-call (build/reserve/rd0_evidence/un_digitallibrary_es11_1_votelines.txt). Coefficients read from the numpy estimator in RD1_recompute.py; NOT hardcoded.",
+  "china_residual_note": {
+    "observed_on_S1": false,
+    "statement": "China is ABSENT from the LMW panel (0 rows). China's USD share on S1 is a residual inference, never an observation, and is not entered into the DiD."
+  },
+  "contract": "RD1 \u2014 Surface 1 (disclosed currency composition): Feb-2022 freeze DiD / event-study on the LMW disclosed USD share.",
+  "date": "2026-07-01",
+  "decision": {
+    "inputs": {
+      "beta_negative_and_significant_at_5pct": false,
+      "beta_primary": 0.27766951472592893,
+      "ci95_primary": [
+        -8.228353802148522,
+        8.78369283160038
+      ],
+      "ci_contains_meaningful_move": true,
+      "ci_contains_zero": true,
+      "meaningful_move_pp": 5.0,
+      "p_primary": 0.9489845719937993,
+      "pretrend_p_full_sample": 2.5433273221108625e-17,
+      "pretrend_p_primary_window": 0.08792629934099934,
+      "pretrend_violated_full_sample_at_5pct": true,
+      "pretrend_violated_primary_window_at_5pct": false
+    },
+    "note": "Verdict computed mechanically from the estimator outputs; sign-agnostic. beta is reported at whatever sign it takes.",
+    "prediction_comparison": {
+      "held": true,
+      "prediction": "INSUFFICIENT-POWER or S1-NOT-IDENTIFIED (or S1-NULL); NOT a clean S1-REALLOCATION.",
+      "refuted": false
+    },
+    "reason": "The primary-window 95% CI [-8.23, 8.78] pp contains both 0 and a +/-5pp differential USD-share move; with 9 treated disclosers and 2 post-freeze years the design cannot distinguish reallocation from null.",
+    "verdict": "INSUFFICIENT-POWER"
+  },
+  "did": {
+    "full_sample": {
+      "beta": 0.7180778795925846,
+      "ci95": [
+        -7.419945748646159,
+        8.856101507831328
+      ],
+      "n_countries": 46,
+      "n_obs": 803,
+      "p": 0.8626944522359699,
+      "se": 4.15205287155038,
+      "window": "full",
+      "years": [
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "z": 0.1729452638989286
+    },
+    "interpretation": "S1 dollar reallocation = NEGATIVE beta (non-aligned disclosers cut USD share post-freeze relative to aligned). Sign is reported as estimated, not favored.",
+    "primary_window_2010_2023": {
+      "beta": 0.27766951472592893,
+      "ci95": [
+        -8.228353802148522,
+        8.78369283160038
+      ],
+      "n_countries": 46,
+      "n_obs": 574,
+      "p": 0.9489845719937993,
+      "se": 4.339807814731863,
+      "window": [
+        2010,
+        2023
+      ],
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "z": 0.06398198412919465
+    }
+  },
+  "event_study": {
+    "full_sample": {
+      "base_year": 2021,
+      "coefs": {
+        "2004": {
+          "ci95": [
+            -12.561389733552783,
+            40.45364413445121
+          ],
+          "coef": 13.946127200449212,
+          "kind": "lead",
+          "p": 0.3024495549146109,
+          "se": 13.524243333674487,
+          "z": 1.0311946373904897
+        },
+        "2005": {
+          "ci95": [
+            -26.052811252380042,
+            28.887384572775563
+          ],
+          "coef": 1.4172866601977603,
+          "kind": "lead",
+          "p": 0.9194521515038081,
+          "se": 14.015356077845817,
+          "z": 0.10112384247147857
+        },
+        "2006": {
+          "ci95": [
+            -26.249513396565764,
+            15.353195917343047
+          ],
+          "coef": -5.448158739611358,
+          "kind": "lead",
+          "p": 0.6077059859178349,
+          "se": 10.612936049466533,
+          "z": -0.5133507555513079
+        },
+        "2007": {
+          "ci95": [
+            -18.03037804519573,
+            14.601064367938019
+          ],
+          "coef": -1.714656838628855,
+          "kind": "lead",
+          "p": 0.8368058086989727,
+          "se": 8.324347554370854,
+          "z": -0.2059809285267699
+        },
+        "2008": {
+          "ci95": [
+            -23.019370762663012,
+            13.42734410480568
+          ],
+          "coef": -4.796013328928666,
+          "kind": "lead",
+          "p": 0.605971934143178,
+          "se": 9.297631343742013,
+          "z": -0.5158317373119696
+        },
+        "2009": {
+          "ci95": [
+            -20.566085957707493,
+            10.995439428913734
+          ],
+          "coef": -4.7853232643968795,
+          "kind": "lead",
+          "p": 0.5522807003093493,
+          "se": 8.051409537403375,
+          "z": -0.5943460262661255
+        },
+        "2010": {
+          "ci95": [
+            -18.92528742407558,
+            13.044409162156061
+          ],
+          "coef": -2.94043913095976,
+          "kind": "lead",
+          "p": 0.7184394440749071,
+          "se": 8.15553484342644,
+          "z": -0.3605452232639072
+        },
+        "2011": {
+          "ci95": [
+            -15.91489433044527,
+            15.031540486334881
+          ],
+          "coef": -0.44167692205519415,
+          "kind": "lead",
+          "p": 0.9553836852992139,
+          "se": 7.894498677750039,
+          "z": -0.05594743125361745
+        },
+        "2012": {
+          "ci95": [
+            -15.495502886171087,
+            12.423936789984785
+          ],
+          "coef": -1.5357830480931511,
+          "kind": "lead",
+          "p": 0.8292761477173392,
+          "se": 7.1223060398356814,
+          "z": -0.2156300276207428
+        },
+        "2013": {
+          "ci95": [
+            -19.150006829752158,
+            2.9699057048390483
+          ],
+          "coef": -8.090050562456554,
+          "kind": "lead",
+          "p": 0.1516620274723941,
+          "se": 5.642834830252858,
+          "z": -1.4336855154936432
+        },
+        "2014": {
+          "ci95": [
+            -28.68223115547196,
+            0.5957408168614879
+          ],
+          "coef": -14.043245169305237,
+          "kind": "lead",
+          "p": 0.06007580890683917,
+          "se": 7.468870401105472,
+          "z": -1.8802368249992245
+        },
+        "2015": {
+          "ci95": [
+            -20.902142262788466,
+            10.40666270103197
+          ],
+          "coef": -5.247739780878248,
+          "kind": "lead",
+          "p": 0.5111551409207877,
+          "se": 7.986940041790928,
+          "z": -0.6570400871197146
+        },
+        "2016": {
+          "ci95": [
+            -19.23716345558774,
+            3.7491838938314093
+          ],
+          "coef": -7.743989780878167,
+          "kind": "lead",
+          "p": 0.18662505442530541,
+          "se": 5.863864119749784,
+          "z": -1.3206291317010614
+        },
+        "2017": {
+          "ci95": [
+            -23.59161270781951,
+            12.794728858234496
+          ],
+          "coef": -5.3984419247925075,
+          "kind": "lead",
+          "p": 0.560843621786252,
+          "se": 9.282229991340309,
+          "z": -0.581588899416292
+        },
+        "2018": {
+          "ci95": [
+            -16.600579674629074,
+            13.311770875806902
+          ],
+          "coef": -1.644404399411087,
+          "kind": "lead",
+          "p": 0.8293787186721386,
+          "se": 7.630701671029586,
+          "z": -0.21549845221366293
+        },
+        "2019": {
+          "ci95": [
+            -10.000117103253071,
+            24.135586194843793
+          ],
+          "coef": 7.067734545795361,
+          "kind": "lead",
+          "p": 0.41700466866261277,
+          "se": 8.708087576045118,
+          "z": 0.8116287857781578
+        },
+        "2020": {
+          "ci95": [
+            -9.367147582040023,
+            22.014598774459134
+          ],
+          "coef": 6.323725596209556,
+          "kind": "lead",
+          "p": 0.42957569537201046,
+          "se": 8.005547539923255,
+          "z": 0.7899179368648379
+        },
+        "2022": {
+          "ci95": [
+            -7.414214431684784,
+            4.621960691855564
+          ],
+          "coef": -1.3961268699146103,
+          "kind": "lag",
+          "p": 0.6493269638668631,
+          "se": 3.070452837637844,
+          "z": -0.4546973830051324
+        },
+        "2023": {
+          "ci95": [
+            -13.016651176258108,
+            7.461597438065667
+          ],
+          "coef": -2.7775268690962207,
+          "kind": "lag",
+          "p": 0.5949466278968956,
+          "se": 5.224043013858106,
+          "z": -0.5316814700277396
+        }
+      },
+      "lag_years": [
+        2022,
+        2023
+      ],
+      "lead_years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "n_countries": 46,
+      "n_obs": 803,
+      "pretrend_df": 17,
+      "pretrend_joint_wald": 118.85871985768271,
+      "pretrend_p": 2.5433273221108625e-17,
+      "window": "full"
+    },
+    "pretrend_rule": "Leads (<2021) must be jointly ~0 (insignificant) for a valid parallel-trend design. Significant leads -> S1-NOT-IDENTIFIED.",
+    "primary_window_2010_2023": {
+      "base_year": 2021,
+      "coefs": {
+        "2010": {
+          "ci95": [
+            -19.161646826995597,
+            12.979720738548853
+          ],
+          "coef": -3.090963044223372,
+          "kind": "lead",
+          "p": 0.7061902624873757,
+          "se": 8.199328460598075,
+          "z": -0.37697758530799375
+        },
+        "2011": {
+          "ci95": [
+            -16.155558708688105,
+            14.93476427835266
+          ],
+          "coef": -0.6103972151677226,
+          "kind": "lead",
+          "p": 0.9386541933429038,
+          "se": 7.931204843632848,
+          "z": -0.07696147397551432
+        },
+        "2012": {
+          "ci95": [
+            -15.714205170584064,
+            12.352949382851234
+          ],
+          "coef": -1.680627893866415,
+          "kind": "lead",
+          "p": 0.8144222242865395,
+          "se": 7.159988406488597,
+          "z": -0.2347249462503849
+        },
+        "2013": {
+          "ci95": [
+            -19.377558623910875,
+            2.863379000221631
+          ],
+          "coef": -8.257089811844622,
+          "kind": "lead",
+          "p": 0.1455793147560227,
+          "se": 5.673708577584823,
+          "z": -1.4553249781749436
+        },
+        "2014": {
+          "ci95": [
+            -28.912930266543103,
+            0.5367502363858172
+          ],
+          "coef": -14.188090015078643,
+          "kind": "lead",
+          "p": 0.05895161140104532,
+          "se": 7.512673597685949,
+          "z": -1.8885540321422793
+        },
+        "2015": {
+          "ci95": [
+            -21.012063427218266,
+            10.48317868433776
+          ],
+          "coef": -5.2644423714402535,
+          "kind": "lead",
+          "p": 0.5123199555787967,
+          "se": 8.034500538662252,
+          "z": -0.6552295747704046
+        },
+        "2016": {
+          "ci95": [
+            -19.32075831379951,
+            3.7993735709189362
+          ],
+          "coef": -7.760692371440285,
+          "kind": "lead",
+          "p": 0.18823472388495466,
+          "se": 5.897992827734297,
+          "z": -1.3158192283562917
+        },
+        "2017": {
+          "ci95": [
+            -23.693686684706492,
+            12.909175287820617
+          ],
+          "coef": -5.392255698442938,
+          "kind": "lead",
+          "p": 0.5636111566780659,
+          "se": 9.337464788909976,
+          "z": -0.5774860543353557
+        },
+        "2018": {
+          "ci95": [
+            -16.70779907950547,
+            13.379611830809475
+          ],
+          "coef": -1.6640936243479985,
+          "kind": "lead",
+          "p": 0.8283565363580829,
+          "se": 7.675359926100752,
+          "z": -0.2168098487067816
+        },
+        "2019": {
+          "ci95": [
+            -10.095372392709837,
+            24.24321393700055
+          ],
+          "coef": 7.073920772145357,
+          "kind": "lead",
+          "p": 0.4193556497881161,
+          "se": 8.759843451456732,
+          "z": 0.807539633709891
+        },
+        "2020": {
+          "ci95": [
+            -9.484770450489336,
+            22.082251944646814
+          ],
+          "coef": 6.298740747078739,
+          "kind": "lead",
+          "p": 0.4341093522084205,
+          "se": 8.052811835493916,
+          "z": 0.7821790544411011
+        },
+        "2022": {
+          "ci95": [
+            -7.636392763180628,
+            4.517678585703895
+          ],
+          "coef": -1.5593570887383663,
+          "kind": "lag",
+          "p": 0.6150115973255041,
+          "se": 3.1005284053276845,
+          "z": -0.5029326891696588
+        },
+        "2023": {
+          "ci95": [
+            -14.128749864313539,
+            5.715686369971484
+          ],
+          "coef": -4.206531747171027,
+          "kind": "lag",
+          "p": 0.4060055722953,
+          "se": 5.062356182215567,
+          "z": -0.8309434571097318
+        }
+      },
+      "lag_years": [
+        2022,
+        2023
+      ],
+      "lead_years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "n_countries": 46,
+      "n_obs": 574,
+      "pretrend_df": 11,
+      "pretrend_joint_wald": 17.735421742800526,
+      "pretrend_p": 0.08792629934099934,
+      "window": [
+        2010,
+        2023
+      ]
+    }
+  },
+  "groups": {
+    "assignment_rule": "TREATED = No/Abstain voter WITH 2022 data; CONTROL = Yes voter WITH 2022 data; assigned mechanically from ES-11/1 vote x LMW-2022 availability. Non-members (Euro Area, Hong Kong) and non-voters (Azerbaijan) and No/Abstain voters without 2022 data (Russia, Kazakhstan, Angola, South Sudan) are excluded.",
+    "control": [
+      "Afghanistan",
+      "Australia",
+      "Bosnia",
+      "Brazil",
+      "Brunei",
+      "Bulgaria",
+      "Canada",
+      "Chile",
+      "Colombia",
+      "Democratic Republic of Congo",
+      "Denmark",
+      "Finland",
+      "Germany",
+      "Ghana",
+      "Iceland",
+      "Israel",
+      "Kenya",
+      "Macedonia",
+      "Malawi",
+      "Moldova",
+      "Nepal",
+      "New Zealand",
+      "Norway",
+      "Papua New Guinea",
+      "Paraguay",
+      "Peru",
+      "Poland",
+      "Romania",
+      "Serbia",
+      "Slovenia",
+      "Sweden",
+      "Switzerland",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Uruguay",
+      "Zambia"
+    ],
+    "excluded_china": "China \u2014 absent from LMW panel (0 rows); residual inference only, excluded from DiD.",
+    "excluded_other": [
+      "Angola",
+      "Azerbaijan",
+      "Croatia",
+      "Czech Republic",
+      "Euro Area",
+      "Georgia",
+      "Hong Kong",
+      "Italy",
+      "Kazakhstan",
+      "Korea",
+      "Latvia",
+      "Lithuania",
+      "Netherlands",
+      "Philippines",
+      "Slovakia",
+      "South Sudan"
+    ],
+    "excluded_russia": "Russia \u2014 No vote but NO 2022 LMW row (CBR stopped disclosing post-freeze); excluded from DiD.",
+    "n_control": 38,
+    "n_treated": 9,
+    "treated": [
+      "Bangladesh",
+      "Mongolia",
+      "Mozambique",
+      "Namibia",
+      "South Africa",
+      "Sri Lanka",
+      "Tanzania",
+      "Uganda",
+      "Zimbabwe"
+    ]
+  },
+  "panel": {
+    "china_present": false,
+    "countries_with_2022": [
+      "Afghanistan",
+      "Australia",
+      "Azerbaijan",
+      "Bangladesh",
+      "Bosnia",
+      "Brazil",
+      "Brunei",
+      "Bulgaria",
+      "Canada",
+      "Chile",
+      "Colombia",
+      "Democratic Republic of Congo",
+      "Denmark",
+      "Euro Area",
+      "Finland",
+      "Germany",
+      "Ghana",
+      "Hong Kong",
+      "Iceland",
+      "Israel",
+      "Kenya",
+      "Macedonia",
+      "Malawi",
+      "Moldova",
+      "Mongolia",
+      "Mozambique",
+      "Namibia",
+      "Nepal",
+      "New Zealand",
+      "Norway",
+      "Papua New Guinea",
+      "Paraguay",
+      "Peru",
+      "Poland",
+      "Romania",
+      "Serbia",
+      "Slovenia",
+      "South Africa",
+      "Sri Lanka",
+      "Sweden",
+      "Switzerland",
+      "Tanzania",
+      "Turkey",
+      "Uganda",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Uruguay",
+      "Zambia",
+      "Zimbabwe"
+    ],
+    "countries_with_2023": [
+      "Australia",
+      "Bangladesh",
+      "Bosnia",
+      "Brazil",
+      "Brunei",
+      "Bulgaria",
+      "Chile",
+      "Czech Republic",
+      "Denmark",
+      "Euro Area",
+      "Finland",
+      "Germany",
+      "Ghana",
+      "Hong Kong",
+      "Iceland",
+      "Israel",
+      "Kenya",
+      "Namibia",
+      "Nepal",
+      "New Zealand",
+      "Norway",
+      "South Africa",
+      "Sweden",
+      "Switzerland",
+      "Tanzania",
+      "Turkey",
+      "Uganda",
+      "Ukraine",
+      "United Kingdom",
+      "United States",
+      "Uruguay",
+      "Zambia"
+    ],
+    "n_countries": 64,
+    "n_obs": 1077,
+    "n_with_2022": 50,
+    "n_with_2023": 32,
+    "year_range": [
+      1996,
+      2023
+    ]
+  },
+  "power": {
+    "ci_covers_meaningful_move": true,
+    "did_primary_ci95": [
+      -8.228353802148522,
+      8.78369283160038
+    ],
+    "did_primary_ci_width_pp": 17.012046633748902,
+    "economically_meaningful_usd_move_pp": 5.0,
+    "n_control_disclosers": 38,
+    "n_post_freeze_years": 2,
+    "n_treated_disclosers": 9,
+    "note": "CI width in USD-share percentage points; a ~5pp differential USD-share move is the economically meaningful benchmark. If the 95% CI spans both 0 and a >=5pp reallocation, the design cannot distinguish reallocation from null -> INSUFFICIENT-POWER.",
+    "post_freeze_years": [
+      2022,
+      2023
+    ],
+    "treated_countries": [
+      "Bangladesh",
+      "Mongolia",
+      "Mozambique",
+      "Namibia",
+      "South Africa",
+      "Sri Lanka",
+      "Tanzania",
+      "Uganda",
+      "Zimbabwe"
+    ]
+  },
+  "russia_integrity": {
+    "cny_2007": 0.0,
+    "cny_2021": 21.78,
+    "cny_match": true,
+    "expected_cny_2007": 0.0,
+    "expected_cny_2021": 21.78,
+    "expected_usd_2007": 47.0,
+    "expected_usd_2021": 13.89,
+    "pass": true,
+    "series": {
+      "2007": {
+        "CNY": 0.0,
+        "EUR": 42.4,
+        "Other": 0.0,
+        "USD": 47.0
+      },
+      "2008": {
+        "CNY": 0.0,
+        "EUR": 47.5,
+        "Other": 0.0,
+        "USD": 41.5
+      },
+      "2009": {
+        "CNY": 0.0,
+        "EUR": 43.800000000000004,
+        "Other": 0.0,
+        "USD": 44.5
+      },
+      "2010": {
+        "CNY": 0.0,
+        "EUR": 43.1,
+        "Other": 0.0,
+        "USD": 45.2
+      },
+      "2011": {
+        "CNY": 0.0,
+        "EUR": 42.1,
+        "Other": 0.0,
+        "USD": 45.5
+      },
+      "2012": {
+        "CNY": 0.0,
+        "EUR": 40.4,
+        "Other": 0.0,
+        "USD": 45.800000000000004
+      },
+      "2013": {
+        "CNY": 0.0,
+        "EUR": 41.5,
+        "Other": 0.0,
+        "USD": 44.800000000000004
+      },
+      "2014": {
+        "CNY": 0.0,
+        "EUR": 46.1,
+        "Other": 0.0,
+        "USD": 39.6
+      },
+      "2015": {
+        "CNY": 0.0,
+        "EUR": 40.1,
+        "Other": 0.0,
+        "USD": 43.1
+      },
+      "2016": {
+        "CNY": 0.0,
+        "EUR": 39.9,
+        "Other": 5.82,
+        "USD": 44.77
+      },
+      "2017": {
+        "CNY": 3.38,
+        "EUR": 26.21,
+        "Other": 5.07,
+        "USD": 55.31
+      },
+      "2018": {
+        "CNY": 17.34,
+        "EUR": 38.71,
+        "Other": 8.91,
+        "USD": 27.72
+      },
+      "2019": {
+        "CNY": 15.280000000000001,
+        "EUR": 38.26,
+        "Other": 7.95,
+        "USD": 30.43
+      },
+      "2020": {
+        "CNY": 16.69,
+        "EUR": 38.07,
+        "Other": 9.39,
+        "USD": 27.64
+      },
+      "2021": {
+        "CNY": 21.78,
+        "EUR": 43.18,
+        "Other": 13.25,
+        "USD": 13.89
+      }
+    },
+    "usd_2007": 47.0,
+    "usd_2021": 13.89,
+    "usd_match": true,
+    "year_range": [
+      2007,
+      2021
+    ]
+  },
+  "russia_prefreeze_casestudy": {
+    "cny_2007_pct": 0.0,
+    "cny_2021_pct": 21.78,
+    "cny_trajectory": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      3.38,
+      17.34,
+      15.280000000000001,
+      16.69,
+      21.78
+    ],
+    "interpretation": "A clean sanctions-exposed unit diversifying out of USD into CNY across 2007-2021 \u2014 a post-2014-Crimea-sanctions response that PRE-DATES the 2022 freeze. It is an observation about 2014-2021, not evidence of a 2022-freeze reallocation.",
+    "label": "PRE-FREEZE diversification observation (2007-2021), NOT the Feb-2022 freeze DiD response and NOT counted as one.",
+    "synthetic_control_possible": false,
+    "usd_2007_pct": 47.0,
+    "usd_2021_pct": 13.89,
+    "usd_trajectory": [
+      47.0,
+      41.5,
+      44.5,
+      45.2,
+      45.5,
+      45.800000000000004,
+      44.800000000000004,
+      39.6,
+      43.1,
+      44.77,
+      55.31,
+      27.72,
+      30.43,
+      27.64,
+      13.89
+    ],
+    "why_not": "Russia post-freeze (2022+) currency composition is UNOBSERVED on S1 (CBR stopped disclosing after the Feb-2022 freeze); no post-treatment outcome exists, so no synthetic-control freeze estimate is possible.",
+    "years": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021
+    ]
+  },
+  "status": "OUTPUT \u2014 NOT ESTABLISHED until RD1_verify.json exists and byte-reproduces.",
+  "vote_mapping": {
+    "Afghanistan": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "AFGHANISTAN",
+      "vote": "Yes"
+    },
+    "Angola": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "ANGOLA",
+      "vote": "Abstain"
+    },
+    "Australia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "AUSTRALIA",
+      "vote": "Yes"
+    },
+    "Azerbaijan": {
+      "group": "excluded",
+      "has_2022": true,
+      "note": "",
+      "un_name": "AZERBAIJAN",
+      "vote": "Non-voting"
+    },
+    "Bangladesh": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "BANGLADESH",
+      "vote": "Abstain"
+    },
+    "Bosnia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "BOSNIA AND HERZEGOVINA",
+      "vote": "Yes"
+    },
+    "Brazil": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "BRAZIL",
+      "vote": "Yes"
+    },
+    "Brunei": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "BRUNEI DARUSSALAM",
+      "vote": "Yes"
+    },
+    "Bulgaria": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "BULGARIA",
+      "vote": "Yes"
+    },
+    "Canada": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "CANADA",
+      "vote": "Yes"
+    },
+    "Chile": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "CHILE",
+      "vote": "Yes"
+    },
+    "Colombia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "COLOMBIA",
+      "vote": "Yes"
+    },
+    "Croatia": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "CROATIA",
+      "vote": "Yes"
+    },
+    "Czech Republic": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "CZECHIA",
+      "vote": "Yes"
+    },
+    "Democratic Republic of Congo": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "DEMOCRATIC REPUBLIC OF THE CONGO",
+      "vote": "Yes"
+    },
+    "Denmark": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "DENMARK",
+      "vote": "Yes"
+    },
+    "Euro Area": {
+      "group": "excluded",
+      "has_2022": true,
+      "note": "Euro Area is not a UN member and cast no ES-11/1 vote; excluded from both arms (assignment is mechanical from the vote).",
+      "un_name": null,
+      "vote": "NON-MEMBER"
+    },
+    "Finland": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "FINLAND",
+      "vote": "Yes"
+    },
+    "Georgia": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "GEORGIA",
+      "vote": "Yes"
+    },
+    "Germany": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "GERMANY",
+      "vote": "Yes"
+    },
+    "Ghana": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "GHANA",
+      "vote": "Yes"
+    },
+    "Hong Kong": {
+      "group": "excluded",
+      "has_2022": true,
+      "note": "Hong Kong is a China SAR, not a UN member, and cast no ES-11/1 vote; excluded from both arms.",
+      "un_name": null,
+      "vote": "NON-MEMBER"
+    },
+    "Iceland": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "ICELAND",
+      "vote": "Yes"
+    },
+    "Israel": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "ISRAEL",
+      "vote": "Yes"
+    },
+    "Italy": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "ITALY",
+      "vote": "Yes"
+    },
+    "Kazakhstan": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "KAZAKHSTAN",
+      "vote": "Abstain"
+    },
+    "Kenya": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "KENYA",
+      "vote": "Yes"
+    },
+    "Korea": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "REPUBLIC OF KOREA",
+      "vote": "Yes"
+    },
+    "Latvia": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "LATVIA",
+      "vote": "Yes"
+    },
+    "Lithuania": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "LITHUANIA",
+      "vote": "Yes"
+    },
+    "Macedonia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "NORTH MACEDONIA",
+      "vote": "Yes"
+    },
+    "Malawi": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "MALAWI",
+      "vote": "Yes"
+    },
+    "Moldova": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "REPUBLIC OF MOLDOVA",
+      "vote": "Yes"
+    },
+    "Mongolia": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "MONGOLIA",
+      "vote": "Abstain"
+    },
+    "Mozambique": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "MOZAMBIQUE",
+      "vote": "Abstain"
+    },
+    "Namibia": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "NAMIBIA",
+      "vote": "Abstain"
+    },
+    "Nepal": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "NEPAL",
+      "vote": "Yes"
+    },
+    "Netherlands": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "NETHERLANDS",
+      "vote": "Yes"
+    },
+    "New Zealand": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "NEW ZEALAND",
+      "vote": "Yes"
+    },
+    "Norway": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "NORWAY",
+      "vote": "Yes"
+    },
+    "Papua New Guinea": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "PAPUA NEW GUINEA",
+      "vote": "Yes"
+    },
+    "Paraguay": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "PARAGUAY",
+      "vote": "Yes"
+    },
+    "Peru": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "PERU",
+      "vote": "Yes"
+    },
+    "Philippines": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "PHILIPPINES",
+      "vote": "Yes"
+    },
+    "Poland": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "POLAND",
+      "vote": "Yes"
+    },
+    "Romania": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "ROMANIA",
+      "vote": "Yes"
+    },
+    "Russia": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "RUSSIAN FEDERATION",
+      "vote": "No"
+    },
+    "Serbia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "SERBIA",
+      "vote": "Yes"
+    },
+    "Slovakia": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "SLOVAKIA",
+      "vote": "Yes"
+    },
+    "Slovenia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "SLOVENIA",
+      "vote": "Yes"
+    },
+    "South Africa": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "SOUTH AFRICA",
+      "vote": "Abstain"
+    },
+    "South Sudan": {
+      "group": "excluded",
+      "has_2022": false,
+      "note": "",
+      "un_name": "SOUTH SUDAN",
+      "vote": "Abstain"
+    },
+    "Sri Lanka": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "SRI LANKA",
+      "vote": "Abstain"
+    },
+    "Sweden": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "SWEDEN",
+      "vote": "Yes"
+    },
+    "Switzerland": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "SWITZERLAND",
+      "vote": "Yes"
+    },
+    "Tanzania": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "UNITED REPUBLIC OF TANZANIA",
+      "vote": "Abstain"
+    },
+    "Turkey": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "TURKEY",
+      "vote": "Yes"
+    },
+    "Uganda": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "UGANDA",
+      "vote": "Abstain"
+    },
+    "Ukraine": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "UKRAINE",
+      "vote": "Yes"
+    },
+    "United Kingdom": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "UNITED KINGDOM",
+      "vote": "Yes"
+    },
+    "United States": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "UNITED STATES",
+      "vote": "Yes"
+    },
+    "Uruguay": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "URUGUAY",
+      "vote": "Yes"
+    },
+    "Zambia": {
+      "group": "control",
+      "has_2022": true,
+      "note": "",
+      "un_name": "ZAMBIA",
+      "vote": "Yes"
+    },
+    "Zimbabwe": {
+      "group": "treated",
+      "has_2022": true,
+      "note": "",
+      "un_name": "ZIMBABWE",
+      "vote": "Abstain"
+    }
+  }
+}

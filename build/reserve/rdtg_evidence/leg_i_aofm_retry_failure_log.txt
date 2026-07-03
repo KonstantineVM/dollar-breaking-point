@@ -1,0 +1,6 @@
+AOFM retry 2026-07-02 (RDT-G legs pass):
+attempt1 HTTP/2 https://www.aofm.gov.au/data-hub -> curl (92) HTTP/2 stream not closed cleanly INTERNAL_ERROR
+attempt2 same after 8s backoff
+attempt3 same after 16s backoff
+attempt4 HTTP/1.1 Chrome UA -> curl (28) timeout after 50s, 0 bytes
+Consistent with denominators-pass failure (503/timeouts). Proceeding to alternate official channels (ABS 5302.0 / RBA).

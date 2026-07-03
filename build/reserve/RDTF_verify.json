@@ -1,0 +1,37 @@
+{
+ "all_pass": true,
+ "inputs_sha256": {
+  "build/reserve/RDTC_class_flows.json": "9078770710f66e9e6c40d5634b4c0cbe22525638f69ba29b1df16fba482b57ab",
+  "build/reserve/RDTC_result.json": "7785fa6bf11e5ee06e51b42226dec549570637f4839306b8317b4190c9931a44",
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTE_prediction.md": "7d6ab5bbabcc613b5f0c5cb75247196b12a000c56e93323a39c492a2ae19a637",
+  "build/reserve/RDTE_result.json": "67cf45d26dd375c8f67a9ce2e7360a8f71c0ffb05498a78c1b40424b581202c2",
+  "build/reserve/RDTE_verify.json": "6768a95e45d344cf70d2a38d1a8633c8322ac54830b92eed3cda422de5427c3f",
+  "build/reserve/RDTF_basis_quotes.md": "7b7e7bd631ddb8e71f748da2bc06217a3c405616fb3d9477e007d0ea9faa10c1",
+  "build/reserve/RDTF_centers_manifest.json": "fc9147f6f2185fe55050d4ea629d330a9bc351dc172cffe4f5f6753d22c7229f",
+  "build/reserve/RDTF_centers_provenance.md": "02d0b218b07bdaf8335cc0aaca6a6a95c82038c68d2eeb23277dee2885f811de",
+  "build/reserve/RDTF_ingredients.json": "537697007a1249254fe5acf7b5993141100b2e571ea2c916ba88f69f3a99f2aa",
+  "build/reserve/RDTF_ingredients_panel.parquet": "7dc74d94f3174c5b5bfa6b9a0f9b4dfc34e7257518c41b17dad71905f6cb9d80",
+  "build/reserve/RDTF_prediction.md": "3b8ba94ac2dc36e260eb77626f8cdd1bad0cc01aba9e20f27eb5853ad5426b08",
+  "build/reserve/rdtf_evidence/tic_secb_live_extracted.txt": "36a8533a1c26e2fa36ea4ed47a5673e3aaa4e2b906941e647e2bb2487b3990c1"
+ },
+ "match_flags": {
+  "amended_object_byte_reproduction (strip-and-reinsert fixed point)": true,
+  "ingredients_sha256_matches_tasked_pin": true,
+  "result_byte_reproduction": true,
+  "result_two_pass_payload_identical": true,
+  "stripped_base_matches_post_rdte_sha256": true
+ },
+ "network": "none",
+ "no_date_no_probability_no_currency_guess": "no date, no probability, and no destination-currency guess anywhere in the RDT-F outputs",
+ "outputs_sha256": {
+  "RDTF_result.json": "693750030ff4dd663be1b88e28987e28d526a06a6f67fd732b1ebd36486f220b",
+  "RDT_breaking_point_object.md": "7e8a472be2eabb4ef3f70e1c8679707ebfaa0872e2400334e48c343194d80007"
+ },
+ "post_rdte_object_sha256": {
+  "note": "RDTE_verify.json's object sha256 is the RDT-F amendment base; the further-amended object's byte-reproduction is carried here",
+  "recorded_in_RDTE_verify_json": "5f2d18e7ed1cd3062187d7021f1ea6415215b7cd045ff04f144a8721c17a8748",
+  "stripped_base_recomputed_here": "5f2d18e7ed1cd3062187d7021f1ea6415215b7cd045ff04f144a8721c17a8748"
+ },
+ "purpose": "verifier artifact for RDT-F Phase 2 ASSEMBLY: records that RDTF_result.json and the amended RDT_breaking_point_object.md were regenerated deterministically from the committed inputs by build/reserve/RDTF_recompute.py; that the committed RDTF_ingredients.json matches the tasked sha pin; and that stripping the RDTF-AMEND blocks reproduces the post-RDT-E object byte-for-byte against the sha recorded in RDTE_verify.json (checked BEFORE amending). Until all_pass=true AND the human gate reviews this stage, every number in these outputs is an OUTPUT, not established."
+}

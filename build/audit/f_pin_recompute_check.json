@@ -1,0 +1,384 @@
+{
+ "verifier": "f_pin_recompute_check",
+ "generated": "2026-06-29",
+ "reads_only": [
+  "build/data/gcap_usa_haven_to_chn_matrix.csv (numerator CHN-share rows)",
+  "build/data/gcap_usa_haven_pool_denominators.csv (denominator Position_Residency weights)",
+  "build/results/dp4_inputs.json (operator recipe for the corner SVD)"
+ ],
+ "closure_1_f_recompute_from_disk": {
+  "method": "f = sum(Position_Residency * CHN_share) / sum(Position_Residency) over USA x {CYM,HKG,VGB} x asset-class, from the two on-disk CSV files ALONE.",
+  "f_by_methodology_year": {
+   "Fund Holdings|2019": {
+    "pool_denominator_usd_mn": 1312779.0,
+    "china_nationality_usd_mn": 641826.0,
+    "f": 0.4889
+   },
+   "Fund Holdings|2020": {
+    "pool_denominator_usd_mn": 1700910.0,
+    "china_nationality_usd_mn": 904389.0,
+    "f": 0.5317
+   },
+   "Enhanced Fund Holdings|2019": {
+    "pool_denominator_usd_mn": 903982.0,
+    "china_nationality_usd_mn": 634661.0,
+    "f": 0.7021
+   },
+   "Enhanced Fund Holdings|2020": {
+    "pool_denominator_usd_mn": 1264177.0,
+    "china_nationality_usd_mn": 895488.0,
+    "f": 0.7084
+   }
+  },
+  "f_interval_recomputed": [
+   0.4889,
+   0.7084
+  ],
+  "matches_pinned_interval_0.49_0.71": true
+ },
+ "closure_2_corner_margin": {
+  "operator": "DP4 15x2 [v_F3|v_F4] rebuilt from dp4_inputs.json; smallest singular value of column-normalised operator; tau=0.10.",
+  "sanity_reproduces_published_grid": {
+   "f0.2_s1.0_recomputed": 0.078207,
+   "f0.2_s1.0_published": 0.078207,
+   "f0.6_s1.0_recomputed": 0.28435,
+   "f0.6_s1.0_published": 0.28435
+  },
+  "pinned_floor_corner_f0.49_s1.0": {
+   "margin": 0.220359,
+   "clears_tau_0.10": true
+  },
+  "pinned_floor_f0.49_s0.0_best_confound": {
+   "margin": 0.318778,
+   "clears_tau_0.10": true
+  },
+  "pinned_ceiling_f0.71_s1.0": {
+   "margin": 0.351023,
+   "clears_tau_0.10": true
+  },
+  "min_margin_over_pinned_interval_x_full_s_usd": {
+   "margin": 0.220359,
+   "at_f_s": [
+    0.4889,
+    1.0
+   ]
+  },
+  "floor_f0.49_s_usd_scan": [
+   {
+    "f": 0.4889,
+    "s_usd": 0.0,
+    "margin": 0.318778,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.2,
+    "margin": 0.303099,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.4,
+    "margin": 0.284135,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.5,
+    "margin": 0.27385,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.6,
+    "margin": 0.263247,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.8,
+    "margin": 0.241663,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 1.0,
+    "margin": 0.220359,
+    "clears_tau_0.10": true
+   }
+  ],
+  "s_usd_threshold_below_which_floor_clears_tau": null,
+  "grid": [
+   {
+    "f": 0.4889,
+    "s_usd": 0.0,
+    "margin": 0.318778,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.25,
+    "margin": 0.298612,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.5,
+    "margin": 0.27385,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 0.75,
+    "margin": 0.247066,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.4889,
+    "s_usd": 1.0,
+    "margin": 0.220359,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5163,
+    "s_usd": 0.0,
+    "margin": 0.333828,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5163,
+    "s_usd": 0.25,
+    "margin": 0.313453,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5163,
+    "s_usd": 0.5,
+    "margin": 0.288859,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5163,
+    "s_usd": 0.75,
+    "margin": 0.26231,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5163,
+    "s_usd": 1.0,
+    "margin": 0.235688,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5438,
+    "s_usd": 0.0,
+    "margin": 0.34856,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5438,
+    "s_usd": 0.25,
+    "margin": 0.328131,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5438,
+    "s_usd": 0.5,
+    "margin": 0.303865,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5438,
+    "s_usd": 0.75,
+    "margin": 0.277726,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5438,
+    "s_usd": 1.0,
+    "margin": 0.251377,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5712,
+    "s_usd": 0.0,
+    "margin": 0.362866,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5712,
+    "s_usd": 0.25,
+    "margin": 0.342539,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5712,
+    "s_usd": 0.5,
+    "margin": 0.318756,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5712,
+    "s_usd": 0.75,
+    "margin": 0.293195,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5712,
+    "s_usd": 1.0,
+    "margin": 0.267304,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5987,
+    "s_usd": 0.0,
+    "margin": 0.376849,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5987,
+    "s_usd": 0.25,
+    "margin": 0.356784,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5987,
+    "s_usd": 0.5,
+    "margin": 0.333637,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5987,
+    "s_usd": 0.75,
+    "margin": 0.30882,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.5987,
+    "s_usd": 1.0,
+    "margin": 0.283574,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6261,
+    "s_usd": 0.0,
+    "margin": 0.390411,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6261,
+    "s_usd": 0.25,
+    "margin": 0.370763,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6261,
+    "s_usd": 0.5,
+    "margin": 0.348396,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6261,
+    "s_usd": 0.75,
+    "margin": 0.324478,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6261,
+    "s_usd": 1.0,
+    "margin": 0.300055,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6535,
+    "s_usd": 0.0,
+    "margin": 0.403606,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6535,
+    "s_usd": 0.25,
+    "margin": 0.38453,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6535,
+    "s_usd": 0.5,
+    "margin": 0.363084,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6535,
+    "s_usd": 0.75,
+    "margin": 0.340216,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.6535,
+    "s_usd": 1.0,
+    "margin": 0.316791,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.681,
+    "s_usd": 0.0,
+    "margin": 0.416483,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.681,
+    "s_usd": 0.25,
+    "margin": 0.398135,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.681,
+    "s_usd": 0.5,
+    "margin": 0.37775,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.681,
+    "s_usd": 0.75,
+    "margin": 0.356082,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.681,
+    "s_usd": 1.0,
+    "margin": 0.333828,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.7084,
+    "s_usd": 0.0,
+    "margin": 0.428954,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.7084,
+    "s_usd": 0.25,
+    "margin": 0.411481,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.7084,
+    "s_usd": 0.5,
+    "margin": 0.392285,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.7084,
+    "s_usd": 0.75,
+    "margin": 0.37195,
+    "clears_tau_0.10": true
+   },
+   {
+    "f": 0.7084,
+    "s_usd": 1.0,
+    "margin": 0.351023,
+    "clears_tau_0.10": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+2026-07-01T23:48:30Z | https://home.treasury.gov/data/treasury-international-capital-tic-system | 200 124698 bytes | -> tic_landing.html
+2026-07-01T23:49:30Z | https://home.treasury.gov/data/treasury-international-capital-tic-system/us-liabilities-to-foreigners-from-holdings-of-us-securities | 200 145098 bytes | -> tic_liabilities_page.html
+2026-07-01T23:50:30Z | https://home.treasury.gov/data/treasury-international-capital-tic-system/tic-forms-instructions/securities-b-portfolio-holdings-of-us-and-foreign-securities | 200 162139 bytes | -> tic_secb_page.html
+2026-07-01T23:50:20Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfh.txt | 200 7486 bytes | -> mfh.txt
+2026-07-01T23:50:40Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.csv | 200 98124 bytes | -> mfhhis01.csv
+2026-07-01T23:50:58Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/mfhhis01.txt | 200 98124 bytes | -> mfhhis01.txt
+2026-07-01T23:51:19Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/oilexp_hist_to2016mar.csv | 200 26764 bytes | -> oilexp_hist_to2016mar.csv
+2026-07-01T23:52:05Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt | 200 3801 bytes | -> slt_table5.txt
+2026-07-01T23:52:26Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.html | 200 14172 bytes | -> slt_table5.html
+2026-07-01T23:52:49Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt | 200 428505 bytes | -> slt_table3.txt
+2026-07-01T23:54:59Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/slt3d_globl.csv | 200 883898 bytes | -> slt3d_globl.csv
+2026-07-01T23:55:09Z | https://home.treasury.gov/data/treasury-international-capital-tic-system-home-page/tic-forms-instructions/securities-a-us-transactions-with-foreign-residents-in-long-term-securities | 200 145806 bytes | -> tic_seca_page.html
+2026-07-01T23:56:00Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/s1_globl.txt | 200 3212186 bytes | -> s1_globl.txt
+2026-07-01T23:59:16Z | https://treasury.gov/resource-center/data-chart-center/tic/Documents/oilexp_sdata_hist_2003-2014.csv | 200 27910 bytes | -> oilexp_sdata_hist_2003-2014.csv
