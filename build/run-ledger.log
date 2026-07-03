@@ -6644,3 +6644,105 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
 2026-07-03T01:10:41Z RDT-G: assembly complete (I.B FLAT -18.696; sweep DESTINATION-ABSENT Scheme-1 with masking caveat in sentence, Scheme-2 variant UNPOWERED; endpoints unchanged, weight toward RE-PARKING masking-capped); orchestrator re-ran recompute byte-identical (result 8fbe...7641, object feb8...4eec); leak clean; integrity-critic GATE launched; results held uncommitted pending gate
+2026-07-03T01:10:42Z	OUTPUT (not established until verifier runs)	echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: assembly complete (I.B FLAT -18.696; sweep DESTINATION-ABSENT Scheme-1 with masking caveat in sentence, Scheme-2 variant UNPOWERED; endpoints unchanged, weight toward RE-PARKING masking-capped); orchestrator re-ran recompute byte-identical (result 8fbe...7641, object feb8...4eec); leak clean; integrity-critic GATE launched; results held uncommitted pending gate" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-G gate running)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob
+2026-07-03T01:16:19Z	OUTPUT (not established until verifier runs)	python3 - <<'PYEOF'
+import json
+p = 'build/ledger.json'
+j = json.load(open(p))
+assert not any(s['id']=='RDTG' for s in j['steps'])
+note = ("RDT-G -- THE RECEIVING SIDE + THE I.B LINE: two untried discriminators against the fork DeltaNonUS-true in "
+"[48.484, 494.977] -- China's own SDDS Section I.B (never parsed) and the destination countries' own books (never swept). "
+"Neither can RESOLVE the fork (both masking mechanisms pre-stated with pre-committed consequences); each can move weight "
+"honestly. Symmetric (DESTINATION-CONSISTENT / DESTINATION-ABSENT / UNPOWERED / INDETERMINATE and any I.B axis all "
+"promotable); no date, no probability, no currency guess (k1 wall), no attribution beyond what a leg's own construction "
+"carries. PRE-REGISTRATION COMMITTED FIRST (git 7ad70d2; the critic corroborated the full git order from .git/logs/HEAD: "
+"pre-reg -> denominators c601fcc -> bars 8dee169 -> I.B parse 4b37a5b -> legs 5ac7d47 -- the bars committed BEFORE any "
+"discriminator series was read, the task's explicit git-order requirement, backed by two sequencing attestations incl. a "
+"co-presence register of discriminator-adjacent pages seen-but-not-opened): fixes the I.B axes (SURGE/DECLINE at +/-24.749 = "
+"0.05 x 494.977; FLAT between; SUPPRESSED as a disclosure finding), the bar mass [140.949, 494.977] traced to committed "
+"fields (494.977 = RDTD identity china_alone.delta_non_us_busd; 140.949 = 494.977 - RDT-E positive-months cross-flow proxy "
+"354.028; generous-to-the-null vs the fork's 48.484, direction stated), two allocation schemes (Scheme 1 market-size-"
+"proportional = the headline yardstick, fixed ex ante; Scheme 2 COFER non-USD CNY-excluded renormalized alongside), local-"
+"currency measurement (the tonnage-not-value lesson), the per-leg mechanical rules (POWERED iff Bar_low >= sigma_baseline of "
+"the leg's own baseline annual changes; leg-CONSISTENT/ABSENT at 0.5 x Bar_low; China-attributed legs separate from "
+"aggregate), the sweep rules (ABSENT requires >= 3/4 of powered legs absent AND no China-attributed leg consistent AND the "
+"masking caveat IN the verdict sentence; UNPOWERED below 3 powered legs), both maskings with pre-committed consequences "
+"(M1 external managers/custodians -- null = weak evidence, not disposal; M2 counterpart-attribution -- surge = consistency, "
+"not attribution), interval endpoints changeable ONLY on construction-grade attribution, and the flipped guard verbatim. "
+"DENOMINATORS (data-source-agent, c601fcc): JGB/Bund/gilt/GoC GROUNDED-PRIMARY from publishers (MoF/Finanzagentur/DMO/"
+"StatCan, retained); OAT GROUNDED-ALTERNATE-OFFICIAL MEDIUM (AFT Cloudflare-blocked, INSEE BDM channel); AGS NOT-GROUNDED "
+"(AOFM 503s + Wayback egress-block, evidence retained) -- drops from Scheme 1 as pre-registered; COFER 2021-Q4 from the "
+"committed disk artifact; FX = Fed H.10 Dec-30-2021 retained. BARS (estimation-agent, 8dee169; orchestrator re-ran "
+"byte-identical): Scheme-1 uniform 0.8657%-3.0403% of outstanding, per-market bar_low/high computed, sums reproduce the "
+"mass exactly; Scheme-2 renormalization shown, EUR split DE/FR by outstanding, CHF and other remainders stated. I.B PARSE "
+"(estimation-agent, 4b37a5b; orchestrator re-ran byte-identical): all 132 template months 2015-06..2026-05, no gaps, "
+"vintage rule honored; unit finding corrected (headers say US$100million, not the task premise's millions); I.B total "
+"published 132/132 (level 160-210 bn); Delta verdict-window -18.696 (variant -18.740); I.A cross-check vs committed RDT-D "
+"extraction max diff 4.24e-07 -- PASS. LEGS (data-source-agent, 5ac7d47; 58 evidence files): (a) Japan BoJ regional-BOP "
+"China PI liabilities GROUNDED-PRIMARY with BoJ FAQ Q10 custody caveat quoted; (b) euro-area GROUNDED-PRIMARY position-only "
+"to 2022Q3, the flows-liabilities cell STRUCTURALLY ABSENT (probes retained; ECB residual-method caveat quoted); (c) UK "
+"Pink Book China line GROUNDED-PRIMARY (ten editions, end-2014..end-2023, mixed-vintage friction stated; ONS CPIS-mirror "
+"quote); (d) Canada NOT-AVAILABLE ABSENT-BY-CONSTRUCTION (StatCan metadata proves no China line; intermediary-collection "
+"statement retained); (e) Bund investor structure GROUNDED-PRIMARY (official third-country-CB line 2020-12..2025-06; "
+"baseline support too short for sigma -- reported, never counted); (f) JGB overseas holdings GROUNDED-PRIMARY (BoJ FOF, "
+"unit verified); (g) gilt overseas GROUNDED-PRIMARY (ONS HEWD + DMO cross-check identical; market-value friction stated); "
+"(h) OAT NOT-AVAILABLE exists-but-unfetchable (AFT 403s, BdF obs keyed-API-locked, evidence retained; partial compiler "
+"chart context only); (i) AGS GROUNDED-ALTERNATE-OFFICIAL (ABS IIP general-government, semis-dilution + nominee caveats "
+"quoted). M1 GROUNDED: IMF Reserve Management Guidelines 2013 + TIC SHL2024 custodial-bias, PDFs retained, quoted. "
+"ASSEMBLY (estimation-agent; RDTG_result.json + RDTG_recompute.py + RDTG_verify.json all_pass=true; orchestrator "
+"independently re-ran -> result sha 8fbeba33...c97641 and amended object sha feb8e63a...964eec byte-identical; insert-only "
+"RDTG-AMEND strips to the post-RDT-F sha 7e8a472b..., checked BEFORE amending; 76 assertion guards, unfired branches fail "
+"loud): **I.B VERDICT: FLAT** (-18.696 strictly inside +/-24.74885, threshold reproduced at run time, multiplier parsed "
+"from the committed pre-registration; both endpoint conventions; SUPPRESSED does not attach to the total -- published "
+"132/132 -- while the sub-line DISCLOSURE finding rides: gold/other blank 132/132, deposits 131/132, loans blank recent "
+"months). **SWEEP VERDICT: DESTINATION-ABSENT on the Scheme-1 headline** -- 3 of 3 powered grounded legs leg-ABSENT "
+"(a Japan excess -50453.6 JPY bn vs bar 8381.4; c UK excess +5.367 GBP bn vs 0.5x18.299 -- the China line ROSE +8.6 but "
+"under half the bar, reported prominently; f JGB excess -29723.7 JPY bn) and no China-attributed leg CONSISTENT -- with "
+"the masking caveat IN the verdict sentence (null = weak evidence, not disposal; custody/manager-routed reserve assets "
+"would NOT appear on these legs). Scheme-2 variant: UNPOWERED (only leg c powered) -- the scheme sensitivity disclosed "
+"beside the headline. Unpowered/untestable legs reported never counted: g gilt (excess -198.7 GBP bn, sigma 29.9 > bar) "
+"and i AGS (excess -55.2 AUD bn positions / -15.5 transactions) -- CRITICALLY, both FELL, so their exclusion made ABSENT "
+"HARDER to reach (a would-be 5/5); the power test ran against the verdict it produced, verified by the gate from the "
+"numbers. Pre-registered primary (UNPOWERED/INDETERMINATE + FLAT): I.B landed the expected side; the sweep REFUTED toward "
+"DESTINATION-ABSENT on the pre-stated branch, recorded honestly. **INTERVAL: ENDPOINTS UNCHANGED [48.484, 494.977]** (no "
+"construction-grade attribution anywhere); annotation per the pre-committed consequence rule: WEIGHT TOWARD RE-PARKING, "
+"MASKING-CAPPED -- and the masking cap does real work in the object text (nothing reads as re-parking-established). "
+"GATE: integrity-critic PASS -- all nine explicit checks verified (git order incl. bars-before-series; bars from committed "
+"constants with field paths; leg grounding spot-checked verbatim; local currency with fricitions stated; attributed/"
+"aggregate separate; masking caveat verbatim in the verdict sentence and the object; flipped guard both ways with the "
+"direction claim confirmed from the numbers; mechanical verdicts reproduced from the committed CSV; amendment insert-only "
+"with endpoints unchanged and prior AMEND chain intact). CRITIC'S STATED LIMITS routed to the human: read-order vs "
+"commit-order rests on the two attestations (detailed and self-incriminating where convenient lies were available -- "
+"credibility, not proof); the power-test design was fixed before any leg data existed but its motivation is not decidable "
+"from artifacts (mitigant: its realized effect ran AGAINST the fired verdict); the critic is read-only and relies on the "
+"verifier + orchestrator re-run for byte-reproduction; leg (a) flows-vs-positions non-flip is inference (margin ~12x), "
+"not verification. NON-BLOCKING FLAGS: (1) leg (i) yardstick deviation -- AU has no Scheme-1 bar so the Scheme-2 AUD bar "
+"was substituted as the power yardstick: disclosed, outcome-neutral (unpowered either way), but a post-registration "
+"procedural choice for the human to ratify; (2) knife-edge powered count -- n_powered = 3 is exactly the pre-registered "
+"minimum; ABSENT rests entirely on legs a/c/f; one fewer powered leg and the sweep is UNPOWERED -- the verdict is "
+"rule-earned but evidentially thin even before the masking cap; nothing stronger should be read downstream; (3) leg (c) "
+"near-structural bar -- Bar_low is 98.4% of the entire end-2021 published China line; reachable (needed ~+12.4 vs actual "
+"+8.6 GBP bn) so not planting, but this leg's ABSENT is the weakest of the three, said in the artifact itself; (4) the "
+"assembly artifacts were uncommitted at gate time (expected on the web flow; committed in this promotion -- confirm the "
+"PR contains them before merging). NET FOR THE OBJECT: both discriminators moved weight only within their pre-stated "
+"power limits -- China's own I.B line is FLAT (no re-parking surge into non-reserve FX assets on China's own books), "
+"while the six-market receiving sweep shows DESTINATION-ABSENT under these compilers' attribution (weak, masking-capped "
+"weight toward re-parking); the fork interval stands unchanged at [48.484, 494.977] with the k1 wall intact. Scope clean; "
+"what follows RDT-G, if anything, is decided at this gate.")
+j['steps'].append({
+  "id": "RDTG",
+  "status": "done",
+  "verifier": "build/reserve/RDTG_verify.json",
+  "gate": "human",
+  "approved_marker": "build/approvals/RDTG.approved",
+  "note": note
+})
+with open(p, 'w') as f:
+    json.dump(j, f, indent=2)
+    f.write('\n')
+print('RDTG appended; steps:', [s['id'] for s in j['steps']])
+PYEOF
+2026-07-03T01:16:40Z RDT-G: GATE PASS (nine explicit checks verified; critic limits + 4 non-blocking flags routed to human); RDTG ledger entry written (verifier build/reserve/RDTG_verify.json, all_pass=true); promoting stage artifacts; PR retitle next

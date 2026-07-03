@@ -1,0 +1,50 @@
+{
+ "all_pass": true,
+ "inputs_sha256": {
+  "build/reserve/RDTD_result.json": "2cf1538b1f31519f7bede898006da58e8a448418103cc7b4b10f58bc4a47f8dc",
+  "build/reserve/RDTE_result.json": "67cf45d26dd375c8f67a9ce2e7360a8f71c0ffb05498a78c1b40424b581202c2",
+  "build/reserve/RDTF_result.json": "693750030ff4dd663be1b88e28987e28d526a06a6f67fd732b1ebd36486f220b",
+  "build/reserve/RDTF_verify.json": "f4bd2f9f700d1ae66284d6571de14cf44a637634c7ac10942b52f8f0bf939af5",
+  "build/reserve/RDTG_bars.json": "65f35309573d0e321cb57a80252f858684c454830f5f4e98c480526251d866a2",
+  "build/reserve/RDTG_denominators.json": "874a01e5888e12f0a2e428f580a54faa19ad2b0c99d734ce393fd7634c0c14ad",
+  "build/reserve/RDTG_ib_series.csv": "1f7a4d39004fe41b3f3651ad32e80860a37cda20fa0b0e5e0bbdaea15c98e45e",
+  "build/reserve/RDTG_ib_staging.json": "79ff1364f4735c91cfb03fe4c2b478ef8b17a992a96b5ffbd7ff09a63e1eeb2d",
+  "build/reserve/RDTG_legs_manifest.json": "8b8d04c7383f4e9ae3d40481add4247138d2571363937f3264a140c13330daf9",
+  "build/reserve/RDTG_legs_provenance.md": "7918eafadfb1fa3830c82b823ba95952a1157d4afabe0ee5f0d0b06c0bd0f26a",
+  "build/reserve/RDTG_prediction.md": "2a755e8f64d0e7725f2a3fff2c63998463c9f1e464b7f489fe2dbecfe3410e65",
+  "build/reserve/rdtg_evidence/leg_a_boj_regbp_q_en.zip": "8f3f992b8936f6a0617cec233dafcdec8919505ad3f206a1505b4809b6b2ea7c",
+  "build/reserve/rdtg_evidence/leg_b_ecb_bp6_ea19_cn_pi_liab_position.csv": "dff4d85544afca200d09cc8c07cd2b16de6a7e4880502073079300cd1fb74715",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2016_chapter10.xls": "163ab2a6df1ce9f701d7be7c50848b198861b95182a953343977598ac0adb592",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2017_chapter10.xls": "321efe938ec3a2d6625ad4cf725b6572d1e9ac0b6888a66c7dd00de4722fc95c",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2018_chapter10.xls": "dda4f29a9c4efb6b1bfc74fb90572772d4a742b72009f736b4ce6763a8e759c6",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2019_chapter10.xls": "9ed6afdd3bdd67521ddb3d6b6c204e0b98356696680513b2f10044dc83de089d",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2020_chapter10.xls": "b1cdbf1e9b72884fac027b6f1b73f24e4b8c6574ff07a13d74d7f77ae38d9e1a",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2021_chapter10.xls": "d7c9babc39a694419930dddcdbe7d3b6bfe30bfcb6b233d6a8de04d3ecb8db0c",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2022_chapter10.xlsx": "616bcf0119a183a13ada1d38b71db9b2376c9c35c6b4a5a4d4785b581eb3deda",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2023_chapter10.xlsx": "d5840e4b8d81e810531d73836e2386ce780569867dccccac434734f217926a6f",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2024_chapter10.xlsx": "5dfe34012e4d5770c8b1a991287a374424ff62b6032e6f182fc486133c6fe610",
+  "build/reserve/rdtg_evidence/leg_c_ons_pinkbook2025_chapter10.xlsx": "1c27efd66fc7af5050f3538e6122730fcbbf6932c9124f6b00bf8533a91c8949",
+  "build/reserve/rdtg_evidence/leg_e_finanzagentur_investor_structure.html": "2210e7bf30bb5f62eea695a386121f76d2d330014206352a1d9a9283fcece73f",
+  "build/reserve/rdtg_evidence/leg_f_boj_fof2_en.zip": "f4558e9f52020d6c71cdf17ec059ae422a9d3d3d24ddd620d5d3b25923cf4605",
+  "build/reserve/rdtg_evidence/leg_g_ons_hewd_ukea_overseas_gilt_holdings.csv": "56e9368358467db222d3b0ed314ac2aad452e578218701d102b584e7777968ca",
+  "build/reserve/rdtg_evidence/leg_i_abs_iip_653B_gg_foreign_liab_debtsec.csv": "24f49b33939f81aa2e4b36f2f15c637d2dd5d37bac3fb6ad54ce757bc3af357c"
+ },
+ "match_flags": {
+  "amended_object_byte_reproduction (strip-and-reinsert fixed point)": true,
+  "result_byte_reproduction": true,
+  "result_two_pass_payload_identical": true,
+  "stripped_base_matches_post_rdtf_sha256": true
+ },
+ "network": "none (disk-only assembly)",
+ "no_date_no_probability_no_currency_guess": "no date, no probability, and no destination-currency guess anywhere in the RDT-G outputs",
+ "outputs_sha256": {
+  "RDTG_result.json": "8fbeba3306f9e7a98b3bc12ab65c569d2e30bb76a370eee47f08e2e364c97641",
+  "RDT_breaking_point_object.md": "feb8e63a708f0f97233d1b1d3b89db0974605106f63ff000f7e727732e964eec"
+ },
+ "post_rdtf_object_sha256": {
+  "note": "RDTF_verify.json's object sha256 is the RDT-G amendment base; the further-amended object's byte-reproduction is carried here",
+  "recorded_in_RDTF_verify_json": "7e8a472be2eabb4ef3f70e1c8679707ebfaa0872e2400334e48c343194d80007",
+  "stripped_base_recomputed_here": "7e8a472be2eabb4ef3f70e1c8679707ebfaa0872e2400334e48c343194d80007"
+ },
+ "purpose": "verifier artifact for RDT-G Phase 3 ASSEMBLY: records that RDTG_result.json and the amended RDT_breaking_point_object.md were regenerated deterministically from the committed inputs by build/reserve/RDTG_recompute.py, and that stripping the RDTG-AMEND blocks reproduces the post-RDT-F object byte-for-byte against the sha recorded in RDTF_verify.json (checked BEFORE amending). Until all_pass=true AND the human gate reviews this stage, every number and every verdict in these outputs is an OUTPUT, not established."
+}
