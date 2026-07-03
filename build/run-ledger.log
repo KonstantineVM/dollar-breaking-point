@@ -6629,3 +6629,8 @@ Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
 2026-07-02T20:22:54Z RDT-G: holding for assembly agent (background); nothing promoted
+2026-07-02T20:22:56Z	OUTPUT (not established until verifier runs)	git status --short; echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') RDT-G: holding for assembly agent (background); nothing promoted" >> build/run-ledger.log && git add build/run-ledger.log && git commit -m "Update run-ledger log (RDT-G assembly still running; holding)
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01HZzN95qvSZWm1qGk6WV5jJ" && git push -u origin claude/verify-integrity-gates-sbmuob && git status --short && echo CLEAN
+2026-07-03T00:59:47Z RDT-G: assembly agent hit session limit (reset 22:20 UTC), resumed same agent from disk at 00:59; RDTG_recompute.py present, result/verify/amendment pending; orchestrator holding
